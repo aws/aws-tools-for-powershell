@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [OutputType("Amazon.CodeDeploy.Model.StopDeploymentResponse")]
     [AWSCmdlet("Calls the AWS CodeDeploy StopDeployment API operation.", Operation = new[] {"StopDeployment"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.StopDeploymentResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.StopDeploymentResponse",
-        "This cmdlet returns an Amazon.CodeDeploy.Model.StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeDeploy.Model.StopDeploymentResponse object containing multiple properties."
     )]
     public partial class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

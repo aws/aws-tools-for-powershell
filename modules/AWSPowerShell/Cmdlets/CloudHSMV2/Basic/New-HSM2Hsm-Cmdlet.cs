@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 CreateHsm API operation.", Operation = new[] {"CreateHsm"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.CreateHsmResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Hsm or Amazon.CloudHSMV2.Model.CreateHsmResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.Hsm object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.CreateHsmResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewHSM2HsmCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

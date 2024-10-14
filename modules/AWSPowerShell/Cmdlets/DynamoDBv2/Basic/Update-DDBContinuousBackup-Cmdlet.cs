@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB UpdateContinuousBackups API operation.", Operation = new[] {"UpdateContinuousBackups"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ContinuousBackupsDescription or Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.ContinuousBackupsDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDDBContinuousBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account GetPrimaryEmail API operation.", Operation = new[] {"GetPrimaryEmail"}, SelectReturnType = typeof(Amazon.Account.Model.GetPrimaryEmailResponse))]
     [AWSCmdletOutput("System.String or Amazon.Account.Model.GetPrimaryEmailResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Account.Model.GetPrimaryEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Account.Model.GetPrimaryEmailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACCTPrimaryEmailCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

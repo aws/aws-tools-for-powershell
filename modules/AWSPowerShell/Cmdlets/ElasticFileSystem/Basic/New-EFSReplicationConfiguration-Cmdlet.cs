@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [OutputType("Amazon.ElasticFileSystem.Model.CreateReplicationConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic File System CreateReplicationConfiguration API operation.", Operation = new[] {"CreateReplicationConfiguration"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.CreateReplicationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateReplicationConfigurationResponse",
-        "This cmdlet returns an Amazon.ElasticFileSystem.Model.CreateReplicationConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticFileSystem.Model.CreateReplicationConfigurationResponse object containing multiple properties."
     )]
     public partial class NewEFSReplicationConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

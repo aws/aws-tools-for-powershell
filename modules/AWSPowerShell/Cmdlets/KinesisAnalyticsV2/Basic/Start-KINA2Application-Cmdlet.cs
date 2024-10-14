@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [OutputType("Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse object containing multiple properties."
     )]
     public partial class StartKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

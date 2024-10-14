@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [OutputType("Amazon.QApps.Model.PredictQAppResponse")]
     [AWSCmdlet("Calls the Amazon Q Apps PredictQApp API operation.", Operation = new[] {"PredictQApp"}, SelectReturnType = typeof(Amazon.QApps.Model.PredictQAppResponse))]
     [AWSCmdletOutput("Amazon.QApps.Model.PredictQAppResponse",
-        "This cmdlet returns an Amazon.QApps.Model.PredictQAppResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QApps.Model.PredictQAppResponse object containing multiple properties."
     )]
     public partial class ConvertFromqappsQAppCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

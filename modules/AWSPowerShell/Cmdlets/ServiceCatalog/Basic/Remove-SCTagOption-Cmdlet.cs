@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DeleteTagOption API operation.", Operation = new[] {"DeleteTagOption"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DeleteTagOptionResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DeleteTagOptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DeleteTagOptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeleteTagOptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

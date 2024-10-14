@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetCompatibleKafkaVersions API operation.", Operation = new[] {"GetCompatibleKafkaVersions"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CompatibleKafkaVersion or Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse",
         "This cmdlet returns a collection of Amazon.Kafka.Model.CompatibleKafkaVersion objects.",
-        "The service call response (type Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kafka.Model.GetCompatibleKafkaVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMSKCompatibleKafkaVersionCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) AddPermission API operation.", Operation = new[] {"AddPermission"}, SelectReturnType = typeof(Amazon.SQS.Model.AddPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.AddPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.AddPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

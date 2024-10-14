@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless GetResourceLogLevel API operation.", Operation = new[] {"GetResourceLogLevel"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.GetResourceLogLevelResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.LogLevel or Amazon.IoTWireless.Model.GetResourceLogLevelResponse",
         "This cmdlet returns an Amazon.IoTWireless.LogLevel object.",
-        "The service call response (type Amazon.IoTWireless.Model.GetResourceLogLevelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.GetResourceLogLevelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWResourceLogLevelCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

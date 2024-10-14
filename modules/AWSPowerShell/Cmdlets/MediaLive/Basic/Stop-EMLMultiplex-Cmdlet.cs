@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.StopMultiplexResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive StopMultiplex API operation.", Operation = new[] {"StopMultiplex"}, SelectReturnType = typeof(Amazon.MediaLive.Model.StopMultiplexResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.StopMultiplexResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.StopMultiplexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.StopMultiplexResponse object containing multiple properties."
     )]
     public partial class StopEMLMultiplexCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

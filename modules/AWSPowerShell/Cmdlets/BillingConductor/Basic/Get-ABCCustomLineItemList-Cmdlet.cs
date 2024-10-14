@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor ListCustomLineItems API operation.", Operation = new[] {"ListCustomLineItems"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.ListCustomLineItemsResponse))]
     [AWSCmdletOutput("Amazon.BillingConductor.Model.CustomLineItemListElement or Amazon.BillingConductor.Model.ListCustomLineItemsResponse",
         "This cmdlet returns a collection of Amazon.BillingConductor.Model.CustomLineItemListElement objects.",
-        "The service call response (type Amazon.BillingConductor.Model.ListCustomLineItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BillingConductor.Model.ListCustomLineItemsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetABCCustomLineItemListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

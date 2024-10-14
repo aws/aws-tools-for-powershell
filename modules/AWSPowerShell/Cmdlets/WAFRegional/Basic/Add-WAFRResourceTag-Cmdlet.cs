@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWAFRResourceTagCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority PutPolicy API operation.", Operation = new[] {"PutPolicy"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.PutPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.PutPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.PutPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.PutPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetPCAPolicyCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

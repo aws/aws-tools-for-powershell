@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) UpdateAccountSendingEnabled API operation.", Operation = new[] {"UpdateAccountSendingEnabled"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.UpdateAccountSendingEnabledResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.UpdateAccountSendingEnabledResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.UpdateAccountSendingEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.UpdateAccountSendingEnabledResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSESAccountSendingEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

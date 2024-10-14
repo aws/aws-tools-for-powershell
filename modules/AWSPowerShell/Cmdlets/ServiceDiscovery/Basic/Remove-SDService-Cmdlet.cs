@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map DeleteService API operation.", Operation = new[] {"DeleteService"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DeleteServiceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceDiscovery.Model.DeleteServiceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceDiscovery.Model.DeleteServiceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceDiscovery.Model.DeleteServiceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSDServiceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

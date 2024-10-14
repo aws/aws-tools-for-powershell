@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service GetPromptFile API operation.", Operation = new[] {"GetPromptFile"}, SelectReturnType = typeof(Amazon.Connect.Model.GetPromptFileResponse))]
     [AWSCmdletOutput("System.String or Amazon.Connect.Model.GetPromptFileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Connect.Model.GetPromptFileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.GetPromptFileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNPromptFileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

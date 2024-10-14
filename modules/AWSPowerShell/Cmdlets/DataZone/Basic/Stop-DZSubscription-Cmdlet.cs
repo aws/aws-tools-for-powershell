@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.CancelSubscriptionResponse")]
     [AWSCmdlet("Calls the Amazon DataZone CancelSubscription API operation.", Operation = new[] {"CancelSubscription"}, SelectReturnType = typeof(Amazon.DataZone.Model.CancelSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.CancelSubscriptionResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CancelSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.CancelSubscriptionResponse object containing multiple properties."
     )]
     public partial class StopDZSubscriptionCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

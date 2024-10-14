@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway PutBandwidthRateLimitSchedule API operation.", Operation = new[] {"PutBandwidthRateLimitSchedule"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse))]
     [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteBUGWBandwidthRateLimitScheduleCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

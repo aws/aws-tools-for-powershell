@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [OutputType("Amazon.MigrationHubRefactorSpaces.Model.DeleteEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.DeleteEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubRefactorSpaces.Model.DeleteEnvironmentResponse",
-        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.DeleteEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.DeleteEnvironmentResponse object containing multiple properties."
     )]
     public partial class RemoveMHRSEnvironmentCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

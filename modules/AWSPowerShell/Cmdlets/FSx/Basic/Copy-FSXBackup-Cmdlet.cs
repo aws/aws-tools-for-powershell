@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CopyBackup API operation.", Operation = new[] {"CopyBackup"}, SelectReturnType = typeof(Amazon.FSx.Model.CopyBackupResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.Backup or Amazon.FSx.Model.CopyBackupResponse",
         "This cmdlet returns an Amazon.FSx.Model.Backup object.",
-        "The service call response (type Amazon.FSx.Model.CopyBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CopyBackupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

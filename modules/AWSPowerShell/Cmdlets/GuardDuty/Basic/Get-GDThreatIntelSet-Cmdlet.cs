@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetThreatIntelSetResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetThreatIntelSet API operation.", Operation = new[] {"GetThreatIntelSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetThreatIntelSetResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetThreatIntelSetResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetThreatIntelSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetThreatIntelSetResponse object containing multiple properties."
     )]
     public partial class GetGDThreatIntelSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

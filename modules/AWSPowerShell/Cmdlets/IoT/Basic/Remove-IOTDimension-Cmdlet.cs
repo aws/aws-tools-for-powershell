@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteDimension API operation.", Operation = new[] {"DeleteDimension"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteDimensionResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteDimensionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteDimensionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteDimensionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTDimensionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

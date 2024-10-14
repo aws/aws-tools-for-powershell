@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager GetEvidenceFoldersByAssessmentControl API operation.", Operation = new[] {"GetEvidenceFoldersByAssessmentControl"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentControlResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.AssessmentEvidenceFolder or Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentControlResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.AssessmentEvidenceFolder objects.",
-        "The service call response (type Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.GetEvidenceFoldersByAssessmentControlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMEvidenceFolderByAssessmentControlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.ExecuteQueryResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise ExecuteQuery API operation.", Operation = new[] {"ExecuteQuery"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ExecuteQueryResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.ExecuteQueryResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.ExecuteQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.ExecuteQueryResponse object containing multiple properties."
     )]
     public partial class StartIOTSWQueryCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass AssociateRoleToGroup API operation.", Operation = new[] {"AssociateRoleToGroup"}, SelectReturnType = typeof(Amazon.Greengrass.Model.AssociateRoleToGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.Greengrass.Model.AssociateRoleToGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Greengrass.Model.AssociateRoleToGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Greengrass.Model.AssociateRoleToGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddGGRoleToGroupCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

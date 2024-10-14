@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeletePrincipalMapping API operation.", Operation = new[] {"DeletePrincipalMapping"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeletePrincipalMappingResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeletePrincipalMappingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeletePrincipalMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeletePrincipalMappingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRPrincipalMappingCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

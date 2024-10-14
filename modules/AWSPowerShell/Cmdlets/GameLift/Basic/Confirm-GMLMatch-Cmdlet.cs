@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service AcceptMatch API operation.", Operation = new[] {"AcceptMatch"}, SelectReturnType = typeof(Amazon.GameLift.Model.AcceptMatchResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.AcceptMatchResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.AcceptMatchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.AcceptMatchResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmGMLMatchCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetResourceDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetResourceDefinition API operation.", Operation = new[] {"GetResourceDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetResourceDefinitionResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetResourceDefinitionResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetResourceDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetResourceDefinitionResponse object containing multiple properties."
     )]
     public partial class GetGGResourceDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

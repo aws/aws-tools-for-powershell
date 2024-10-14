@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.DomainDescription or Amazon.CodeArtifact.Model.DeleteDomainResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.DomainDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCADomainCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

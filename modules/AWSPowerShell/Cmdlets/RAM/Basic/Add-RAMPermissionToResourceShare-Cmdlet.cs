@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) AssociateResourceSharePermission API operation.", Operation = new[] {"AssociateResourceSharePermission"}, SelectReturnType = typeof(Amazon.RAM.Model.AssociateResourceSharePermissionResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.RAM.Model.AssociateResourceSharePermissionResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.RAM.Model.AssociateResourceSharePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.AssociateResourceSharePermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddRAMPermissionToResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

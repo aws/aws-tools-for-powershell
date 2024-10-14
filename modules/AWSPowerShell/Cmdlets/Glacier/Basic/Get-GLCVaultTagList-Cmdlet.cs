@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier ListTagsForVault API operation.", Operation = new[] {"ListTagsForVault"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListTagsForVaultResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glacier.Model.ListTagsForVaultResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Glacier.Model.ListTagsForVaultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glacier.Model.ListTagsForVaultResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLCVaultTagListCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

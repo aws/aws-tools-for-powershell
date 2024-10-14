@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UploadSSHPublicKey API operation.", Operation = new[] {"UploadSSHPublicKey"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey or Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.SSHPublicKey object.",
-        "The service call response (type Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

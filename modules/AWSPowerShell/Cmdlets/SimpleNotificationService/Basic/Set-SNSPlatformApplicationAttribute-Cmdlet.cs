@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) SetPlatformApplicationAttributes API operation.", Operation = new[] {"SetPlatformApplicationAttributes"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse), LegacyAlias="Set-SNSPlatformApplicationAttributes")]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSNSPlatformApplicationAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

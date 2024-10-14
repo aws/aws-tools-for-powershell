@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CancelStatement API operation.", Operation = new[] {"CancelStatement"}, SelectReturnType = typeof(Amazon.Glue.Model.CancelStatementResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.CancelStatementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CancelStatementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.CancelStatementResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGLUEStatementCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.FMS.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.FMS.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FMS.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFMSPolicyCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

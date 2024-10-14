@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator DeleteCrossAccountAttachment API operation.", Operation = new[] {"DeleteCrossAccountAttachment"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.DeleteCrossAccountAttachmentResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.DeleteCrossAccountAttachmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.DeleteCrossAccountAttachmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.DeleteCrossAccountAttachmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGACLCrossAccountAttachmentCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

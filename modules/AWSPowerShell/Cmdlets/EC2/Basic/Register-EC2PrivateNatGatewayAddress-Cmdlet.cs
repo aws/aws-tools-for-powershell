@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssignPrivateNatGatewayAddress API operation.", Operation = new[] {"AssignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class RegisterEC2PrivateNatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

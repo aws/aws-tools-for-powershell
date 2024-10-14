@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [OutputType("Amazon.CognitoSync.Model.GetBulkPublishDetailsResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Sync GetBulkPublishDetails API operation.", Operation = new[] {"GetBulkPublishDetails"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.GetBulkPublishDetailsResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.GetBulkPublishDetailsResponse",
-        "This cmdlet returns an Amazon.CognitoSync.Model.GetBulkPublishDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoSync.Model.GetBulkPublishDetailsResponse object containing multiple properties."
     )]
     public partial class GetCGISBulkPublishDetailCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

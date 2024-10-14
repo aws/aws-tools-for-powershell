@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.GetMailDomainResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail GetMailDomain API operation.", Operation = new[] {"GetMailDomain"}, SelectReturnType = typeof(Amazon.WorkMail.Model.GetMailDomainResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.GetMailDomainResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.GetMailDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.GetMailDomainResponse object containing multiple properties."
     )]
     public partial class GetWMMailDomainCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

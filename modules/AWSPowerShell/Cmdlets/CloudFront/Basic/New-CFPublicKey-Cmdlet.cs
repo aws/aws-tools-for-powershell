@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreatePublicKeyResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreatePublicKey API operation.", Operation = new[] {"CreatePublicKey"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreatePublicKeyResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreatePublicKeyResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreatePublicKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreatePublicKeyResponse object containing multiple properties."
     )]
     public partial class NewCFPublicKeyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

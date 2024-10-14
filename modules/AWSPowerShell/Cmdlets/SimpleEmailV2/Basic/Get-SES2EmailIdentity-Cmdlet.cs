@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetEmailIdentity API operation.", Operation = new[] {"GetEmailIdentity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse object containing multiple properties."
     )]
     public partial class GetSES2EmailIdentityCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

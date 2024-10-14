@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights DeletePerformanceAnalysisReport API operation.", Operation = new[] {"DeletePerformanceAnalysisReport"}, SelectReturnType = typeof(Amazon.PI.Model.DeletePerformanceAnalysisReportResponse))]
     [AWSCmdletOutput("None or Amazon.PI.Model.DeletePerformanceAnalysisReportResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PI.Model.DeletePerformanceAnalysisReportResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PI.Model.DeletePerformanceAnalysisReportResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePIPerformanceAnalysisReportCmdlet : AmazonPIClientCmdlet, IExecutor
     {

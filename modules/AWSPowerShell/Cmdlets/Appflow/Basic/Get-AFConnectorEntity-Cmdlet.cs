@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow DescribeConnectorEntity API operation.", Operation = new[] {"DescribeConnectorEntity"}, SelectReturnType = typeof(Amazon.Appflow.Model.DescribeConnectorEntityResponse))]
     [AWSCmdletOutput("Amazon.Appflow.Model.ConnectorEntityField or Amazon.Appflow.Model.DescribeConnectorEntityResponse",
         "This cmdlet returns a collection of Amazon.Appflow.Model.ConnectorEntityField objects.",
-        "The service call response (type Amazon.Appflow.Model.DescribeConnectorEntityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.DescribeConnectorEntityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFConnectorEntityCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

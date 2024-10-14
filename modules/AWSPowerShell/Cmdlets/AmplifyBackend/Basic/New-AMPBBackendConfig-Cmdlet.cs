@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [OutputType("Amazon.AmplifyBackend.Model.CreateBackendConfigResponse")]
     [AWSCmdlet("Calls the Amplify Backend CreateBackendConfig API operation.", Operation = new[] {"CreateBackendConfig"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.CreateBackendConfigResponse))]
     [AWSCmdletOutput("Amazon.AmplifyBackend.Model.CreateBackendConfigResponse",
-        "This cmdlet returns an Amazon.AmplifyBackend.Model.CreateBackendConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyBackend.Model.CreateBackendConfigResponse object containing multiple properties."
     )]
     public partial class NewAMPBBackendConfigCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

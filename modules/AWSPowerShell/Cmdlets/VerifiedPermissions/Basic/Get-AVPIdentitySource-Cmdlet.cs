@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions GetIdentitySource API operation.", Operation = new[] {"GetIdentitySource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetIdentitySourceResponse object containing multiple properties."
     )]
     public partial class GetAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

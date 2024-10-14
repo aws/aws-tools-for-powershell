@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribePhoneNumber API operation.", Operation = new[] {"DescribePhoneNumber"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribePhoneNumberResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.ClaimedPhoneNumberSummary or Amazon.Connect.Model.DescribePhoneNumberResponse",
         "This cmdlet returns an Amazon.Connect.Model.ClaimedPhoneNumberSummary object.",
-        "The service call response (type Amazon.Connect.Model.DescribePhoneNumberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribePhoneNumberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNPhoneNumberCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

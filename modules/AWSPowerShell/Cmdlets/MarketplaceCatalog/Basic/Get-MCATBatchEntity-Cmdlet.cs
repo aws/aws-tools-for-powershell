@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     [OutputType("Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Catalog Service BatchDescribeEntities API operation.", Operation = new[] {"BatchDescribeEntities"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse",
-        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.BatchDescribeEntitiesResponse object containing multiple properties."
     )]
     public partial class GetMCATBatchEntityCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {

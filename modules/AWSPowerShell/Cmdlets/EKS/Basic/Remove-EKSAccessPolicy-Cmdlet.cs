@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DisassociateAccessPolicy API operation.", Operation = new[] {"DisassociateAccessPolicy"}, SelectReturnType = typeof(Amazon.EKS.Model.DisassociateAccessPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.EKS.Model.DisassociateAccessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EKS.Model.DisassociateAccessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EKS.Model.DisassociateAccessPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEKSAccessPolicyCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

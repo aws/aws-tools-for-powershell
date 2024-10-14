@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.ListDirectoryBucketsResponse")]
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListDirectoryBuckets API operation.", Operation = new[] {"ListDirectoryBuckets"}, SelectReturnType = typeof(Amazon.S3.Model.ListDirectoryBucketsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ListDirectoryBucketsResponse",
-        "This cmdlet returns an Amazon.S3.Model.ListDirectoryBucketsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3.Model.ListDirectoryBucketsResponse object containing multiple properties."
     )]
     public partial class GetS3DirectoryBucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

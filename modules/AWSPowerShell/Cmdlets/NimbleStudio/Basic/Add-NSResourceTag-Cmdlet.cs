@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NimbleStudio.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NimbleStudio.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NimbleStudio.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddNSResourceTagCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

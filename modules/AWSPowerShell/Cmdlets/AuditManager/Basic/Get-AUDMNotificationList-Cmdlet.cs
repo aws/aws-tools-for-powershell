@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager ListNotifications API operation.", Operation = new[] {"ListNotifications"}, SelectReturnType = typeof(Amazon.AuditManager.Model.ListNotificationsResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.Notification or Amazon.AuditManager.Model.ListNotificationsResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.Notification objects.",
-        "The service call response (type Amazon.AuditManager.Model.ListNotificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.ListNotificationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMNotificationListCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

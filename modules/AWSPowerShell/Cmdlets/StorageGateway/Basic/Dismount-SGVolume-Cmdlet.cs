@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DetachVolume API operation.", Operation = new[] {"DetachVolume"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DetachVolumeResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.DetachVolumeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DetachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DetachVolumeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DismountSGVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

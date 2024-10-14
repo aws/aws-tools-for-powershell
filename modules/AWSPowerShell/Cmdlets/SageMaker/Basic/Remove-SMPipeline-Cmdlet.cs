@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeletePipeline API operation.", Operation = new[] {"DeletePipeline"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeletePipelineResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.DeletePipelineResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.DeletePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.DeletePipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMPipelineCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

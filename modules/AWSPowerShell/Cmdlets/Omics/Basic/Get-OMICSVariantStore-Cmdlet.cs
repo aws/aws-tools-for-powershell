@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.GetVariantStoreResponse")]
     [AWSCmdlet("Calls the Amazon Omics GetVariantStore API operation.", Operation = new[] {"GetVariantStore"}, SelectReturnType = typeof(Amazon.Omics.Model.GetVariantStoreResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.GetVariantStoreResponse",
-        "This cmdlet returns an Amazon.Omics.Model.GetVariantStoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.GetVariantStoreResponse object containing multiple properties."
     )]
     public partial class GetOMICSVariantStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

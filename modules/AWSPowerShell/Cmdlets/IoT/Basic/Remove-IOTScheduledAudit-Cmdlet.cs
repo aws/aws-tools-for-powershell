@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteScheduledAudit API operation.", Operation = new[] {"DeleteScheduledAudit"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteScheduledAuditResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteScheduledAuditResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteScheduledAuditResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteScheduledAuditResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTScheduledAuditCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service TerminateRecoveryInstances API operation.", Operation = new[] {"TerminateRecoveryInstances"}, SelectReturnType = typeof(Amazon.Drs.Model.TerminateRecoveryInstancesResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.Job or Amazon.Drs.Model.TerminateRecoveryInstancesResponse",
         "This cmdlet returns an Amazon.Drs.Model.Job object.",
-        "The service call response (type Amazon.Drs.Model.TerminateRecoveryInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.TerminateRecoveryInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEDRSRecoveryInstanceCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

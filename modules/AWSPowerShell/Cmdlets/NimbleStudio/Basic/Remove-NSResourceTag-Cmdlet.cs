@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NimbleStudio.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NimbleStudio.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NimbleStudio.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveNSResourceTagCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

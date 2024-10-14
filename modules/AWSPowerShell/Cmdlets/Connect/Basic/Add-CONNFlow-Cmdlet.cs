@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateFlow API operation.", Operation = new[] {"AssociateFlow"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateFlowResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateFlowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateFlowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateFlowResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNFlowCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

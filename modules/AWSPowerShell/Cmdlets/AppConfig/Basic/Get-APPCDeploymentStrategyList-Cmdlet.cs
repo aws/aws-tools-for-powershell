@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig ListDeploymentStrategies API operation.", Operation = new[] {"ListDeploymentStrategies"}, SelectReturnType = typeof(Amazon.AppConfig.Model.ListDeploymentStrategiesResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.DeploymentStrategy or Amazon.AppConfig.Model.ListDeploymentStrategiesResponse",
         "This cmdlet returns a collection of Amazon.AppConfig.Model.DeploymentStrategy objects.",
-        "The service call response (type Amazon.AppConfig.Model.ListDeploymentStrategiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppConfig.Model.ListDeploymentStrategiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAPPCDeploymentStrategyListCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

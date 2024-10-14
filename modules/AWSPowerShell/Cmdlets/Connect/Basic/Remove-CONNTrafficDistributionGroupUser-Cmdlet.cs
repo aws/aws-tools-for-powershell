@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateTrafficDistributionGroupUser API operation.", Operation = new[] {"DisassociateTrafficDistributionGroupUser"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateTrafficDistributionGroupUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNTrafficDistributionGroupUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

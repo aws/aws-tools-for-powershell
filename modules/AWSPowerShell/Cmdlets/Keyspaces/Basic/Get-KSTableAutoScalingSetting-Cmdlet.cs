@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [OutputType("Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Keyspaces GetTableAutoScalingSettings API operation.", Operation = new[] {"GetTableAutoScalingSettings"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse object containing multiple properties."
     )]
     public partial class GetKSTableAutoScalingSettingCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

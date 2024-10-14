@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.MigrationHubRefactorSpaces.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHRSResourceTagCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

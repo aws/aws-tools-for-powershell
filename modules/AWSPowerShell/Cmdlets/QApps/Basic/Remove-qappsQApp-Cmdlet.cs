@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps DeleteQApp API operation.", Operation = new[] {"DeleteQApp"}, SelectReturnType = typeof(Amazon.QApps.Model.DeleteQAppResponse))]
     [AWSCmdletOutput("None or Amazon.QApps.Model.DeleteQAppResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QApps.Model.DeleteQAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QApps.Model.DeleteQAppResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveqappsQAppCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

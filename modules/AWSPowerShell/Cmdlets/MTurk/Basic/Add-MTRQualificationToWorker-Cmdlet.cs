@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service AssociateQualificationWithWorker API operation.", Operation = new[] {"AssociateQualificationWithWorker"}, SelectReturnType = typeof(Amazon.MTurk.Model.AssociateQualificationWithWorkerResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.AssociateQualificationWithWorkerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.AssociateQualificationWithWorkerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.AssociateQualificationWithWorkerResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMTRQualificationToWorkerCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

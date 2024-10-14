@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions StopExecution API operation.", Operation = new[] {"StopExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.StopExecutionResponse))]
     [AWSCmdletOutput("System.DateTime or Amazon.StepFunctions.Model.StopExecutionResponse",
         "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.StepFunctions.Model.StopExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StepFunctions.Model.StopExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Calls the Amazon Cognito Identity DeleteIdentities API operation.", Operation = new[] {"DeleteIdentities"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.UnprocessedIdentityId or Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse",
         "This cmdlet returns a collection of Amazon.CognitoIdentity.Model.UnprocessedIdentityId objects.",
-        "The service call response (type Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGIIdentityCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

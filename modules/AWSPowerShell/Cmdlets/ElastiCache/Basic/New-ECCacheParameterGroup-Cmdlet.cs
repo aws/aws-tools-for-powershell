@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache CreateCacheParameterGroup API operation.", Operation = new[] {"CreateCacheParameterGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateCacheParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheParameterGroup or Amazon.ElastiCache.Model.CreateCacheParameterGroupResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.CacheParameterGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.CreateCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

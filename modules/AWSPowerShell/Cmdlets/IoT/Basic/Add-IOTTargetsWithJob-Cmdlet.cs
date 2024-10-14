@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.AssociateTargetsWithJobResponse")]
     [AWSCmdlet("Calls the AWS IoT AssociateTargetsWithJob API operation.", Operation = new[] {"AssociateTargetsWithJob"}, SelectReturnType = typeof(Amazon.IoT.Model.AssociateTargetsWithJobResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.AssociateTargetsWithJobResponse",
-        "This cmdlet returns an Amazon.IoT.Model.AssociateTargetsWithJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.AssociateTargetsWithJobResponse object containing multiple properties."
     )]
     public partial class AddIOTTargetsWithJobCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

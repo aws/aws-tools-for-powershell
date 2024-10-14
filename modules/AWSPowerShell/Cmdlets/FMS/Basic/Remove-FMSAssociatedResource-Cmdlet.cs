@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.BatchDisassociateResourceResponse")]
     [AWSCmdlet("Calls the Firewall Management Service BatchDisassociateResource API operation.", Operation = new[] {"BatchDisassociateResource"}, SelectReturnType = typeof(Amazon.FMS.Model.BatchDisassociateResourceResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.BatchDisassociateResourceResponse",
-        "This cmdlet returns an Amazon.FMS.Model.BatchDisassociateResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.BatchDisassociateResourceResponse object containing multiple properties."
     )]
     public partial class RemoveFMSAssociatedResourceCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

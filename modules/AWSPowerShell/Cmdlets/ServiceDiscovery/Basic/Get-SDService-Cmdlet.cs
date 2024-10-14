@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map GetService API operation.", Operation = new[] {"GetService"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.GetServiceResponse))]
     [AWSCmdletOutput("Amazon.ServiceDiscovery.Model.Service or Amazon.ServiceDiscovery.Model.GetServiceResponse",
         "This cmdlet returns an Amazon.ServiceDiscovery.Model.Service object.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.GetServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.GetServiceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDServiceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

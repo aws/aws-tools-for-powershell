@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DeleteVirtualRouter API operation.", Operation = new[] {"DeleteVirtualRouter"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DeleteVirtualRouterResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.VirtualRouterData or Amazon.AppMesh.Model.DeleteVirtualRouterResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.VirtualRouterData object.",
-        "The service call response (type Amazon.AppMesh.Model.DeleteVirtualRouterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DeleteVirtualRouterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMSHVirtualRouterCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

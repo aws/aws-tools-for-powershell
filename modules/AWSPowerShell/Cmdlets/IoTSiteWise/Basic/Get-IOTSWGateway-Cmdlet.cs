@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.DescribeGatewayResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise DescribeGateway API operation.", Operation = new[] {"DescribeGateway"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribeGatewayResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribeGatewayResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeGatewayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeGatewayResponse object containing multiple properties."
     )]
     public partial class GetIOTSWGatewayCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

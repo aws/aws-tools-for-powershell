@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateOpsItem API operation.", Operation = new[] {"UpdateOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

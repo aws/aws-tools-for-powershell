@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListPositionConfigurations API operation.", Operation = new[] {"ListPositionConfigurations"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListPositionConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.PositionConfigurationItem or Amazon.IoTWireless.Model.ListPositionConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.PositionConfigurationItem objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListPositionConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListPositionConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is no longer supported.")]
     public partial class GetIOTWPositionConfigurationListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor

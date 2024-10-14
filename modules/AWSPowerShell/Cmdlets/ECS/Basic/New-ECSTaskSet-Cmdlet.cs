@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service CreateTaskSet API operation.", Operation = new[] {"CreateTaskSet"}, SelectReturnType = typeof(Amazon.ECS.Model.CreateTaskSetResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskSet or Amazon.ECS.Model.CreateTaskSetResponse",
         "This cmdlet returns an Amazon.ECS.Model.TaskSet object.",
-        "The service call response (type Amazon.ECS.Model.CreateTaskSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.CreateTaskSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECSTaskSetCmdlet : AmazonECSClientCmdlet, IExecutor
     {

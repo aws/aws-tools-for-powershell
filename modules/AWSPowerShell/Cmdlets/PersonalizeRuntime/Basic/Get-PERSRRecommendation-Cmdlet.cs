@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
     [AWSCmdlet("Calls the Amazon Personalize Runtime GetRecommendations API operation.", Operation = new[] {"GetRecommendations"}, SelectReturnType = typeof(Amazon.PersonalizeRuntime.Model.GetRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.PersonalizeRuntime.Model.PredictedItem or Amazon.PersonalizeRuntime.Model.GetRecommendationsResponse",
         "This cmdlet returns a collection of Amazon.PersonalizeRuntime.Model.PredictedItem objects.",
-        "The service call response (type Amazon.PersonalizeRuntime.Model.GetRecommendationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PersonalizeRuntime.Model.GetRecommendationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSRRecommendationCmdlet : AmazonPersonalizeRuntimeClientCmdlet, IExecutor
     {

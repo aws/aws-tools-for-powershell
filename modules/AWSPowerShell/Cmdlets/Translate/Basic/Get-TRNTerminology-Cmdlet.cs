@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [OutputType("Amazon.Translate.Model.GetTerminologyResponse")]
     [AWSCmdlet("Calls the Amazon Translate GetTerminology API operation.", Operation = new[] {"GetTerminology"}, SelectReturnType = typeof(Amazon.Translate.Model.GetTerminologyResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.GetTerminologyResponse",
-        "This cmdlet returns an Amazon.Translate.Model.GetTerminologyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Translate.Model.GetTerminologyResponse object containing multiple properties."
     )]
     public partial class GetTRNTerminologyCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

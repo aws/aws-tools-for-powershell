@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeleteNodegroup API operation.", Operation = new[] {"DeleteNodegroup"}, SelectReturnType = typeof(Amazon.EKS.Model.DeleteNodegroupResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Nodegroup or Amazon.EKS.Model.DeleteNodegroupResponse",
         "This cmdlet returns an Amazon.EKS.Model.Nodegroup object.",
-        "The service call response (type Amazon.EKS.Model.DeleteNodegroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DeleteNodegroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEKSNodegroupCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

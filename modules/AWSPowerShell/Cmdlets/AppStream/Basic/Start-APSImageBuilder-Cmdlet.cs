@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream StartImageBuilder API operation.", Operation = new[] {"StartImageBuilder"}, SelectReturnType = typeof(Amazon.AppStream.Model.StartImageBuilderResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder or Amazon.AppStream.Model.StartImageBuilderResponse",
         "This cmdlet returns an Amazon.AppStream.Model.ImageBuilder object.",
-        "The service call response (type Amazon.AppStream.Model.StartImageBuilderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.StartImageBuilderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

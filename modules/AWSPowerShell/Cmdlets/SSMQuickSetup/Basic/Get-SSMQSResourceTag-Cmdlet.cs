@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SSMQuickSetup.Model.TagEntry or Amazon.SSMQuickSetup.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SSMQuickSetup.Model.TagEntry objects.",
-        "The service call response (type Amazon.SSMQuickSetup.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMQuickSetup.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMQSResourceTagCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

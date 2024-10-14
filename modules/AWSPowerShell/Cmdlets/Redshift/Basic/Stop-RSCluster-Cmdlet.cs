@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift PauseCluster API operation.", Operation = new[] {"PauseCluster"}, SelectReturnType = typeof(Amazon.Redshift.Model.PauseClusterResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.PauseClusterResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.PauseClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.PauseClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

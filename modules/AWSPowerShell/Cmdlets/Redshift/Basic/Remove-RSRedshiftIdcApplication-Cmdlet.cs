@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DeleteRedshiftIdcApplication API operation.", Operation = new[] {"DeleteRedshiftIdcApplication"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteRedshiftIdcApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.DeleteRedshiftIdcApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.DeleteRedshiftIdcApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteRedshiftIdcApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSRedshiftIdcApplicationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeleteNotificationConfiguration API operation.", Operation = new[] {"DeleteNotificationConfiguration"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASNotificationConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

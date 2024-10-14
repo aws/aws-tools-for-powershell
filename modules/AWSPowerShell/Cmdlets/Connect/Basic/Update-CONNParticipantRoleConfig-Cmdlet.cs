@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateParticipantRoleConfig API operation.", Operation = new[] {"UpdateParticipantRoleConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateParticipantRoleConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateParticipantRoleConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateParticipantRoleConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateParticipantRoleConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNParticipantRoleConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

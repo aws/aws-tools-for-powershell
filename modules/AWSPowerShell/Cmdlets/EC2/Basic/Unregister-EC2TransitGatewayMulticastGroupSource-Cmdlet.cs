@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeregisterTransitGatewayMulticastGroupSources API operation.", Operation = new[] {"DeregisterTransitGatewayMulticastGroupSources"}, SelectReturnType = typeof(Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupSourcesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDeregisteredGroupSources or Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupSourcesResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDeregisteredGroupSources object.",
-        "The service call response (type Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupSourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeregisterTransitGatewayMulticastGroupSourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2TransitGatewayMulticastGroupSourceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

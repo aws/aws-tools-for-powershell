@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy PutLifecycleEventHookExecutionStatus API operation.", Operation = new[] {"PutLifecycleEventHookExecutionStatus"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.PutLifecycleEventHookExecutionStatusResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeDeploy.Model.PutLifecycleEventHookExecutionStatusResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeDeploy.Model.PutLifecycleEventHookExecutionStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.PutLifecycleEventHookExecutionStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCDLifecycleEventHookExecutionStatusCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

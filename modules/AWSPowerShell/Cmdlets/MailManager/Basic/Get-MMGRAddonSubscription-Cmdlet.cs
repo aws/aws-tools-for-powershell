@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [OutputType("Amazon.MailManager.Model.GetAddonSubscriptionResponse")]
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetAddonSubscription API operation.", Operation = new[] {"GetAddonSubscription"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetAddonSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.GetAddonSubscriptionResponse",
-        "This cmdlet returns an Amazon.MailManager.Model.GetAddonSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MailManager.Model.GetAddonSubscriptionResponse object containing multiple properties."
     )]
     public partial class GetMMGRAddonSubscriptionCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

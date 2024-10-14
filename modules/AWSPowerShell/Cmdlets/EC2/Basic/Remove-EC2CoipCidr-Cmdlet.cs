@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteCoipCidr API operation.", Operation = new[] {"DeleteCoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCoipCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CoipCidr or Amazon.EC2.Model.DeleteCoipCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.CoipCidr object.",
-        "The service call response (type Amazon.EC2.Model.DeleteCoipCidrResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteCoipCidrResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2CoipCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

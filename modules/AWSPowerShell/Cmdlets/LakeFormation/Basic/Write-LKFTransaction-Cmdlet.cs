@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation CommitTransaction API operation.", Operation = new[] {"CommitTransaction"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.CommitTransactionResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.TransactionStatus or Amazon.LakeFormation.Model.CommitTransactionResponse",
         "This cmdlet returns an Amazon.LakeFormation.TransactionStatus object.",
-        "The service call response (type Amazon.LakeFormation.Model.CommitTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.CommitTransactionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteLKFTransactionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

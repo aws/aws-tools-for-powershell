@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync GetGraphqlApiEnvironmentVariables API operation.", Operation = new[] {"GetGraphqlApiEnvironmentVariables"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.GetGraphqlApiEnvironmentVariablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASYNGraphqlApiEnvironmentVariableCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [OutputType("Amazon.IoTFleetWise.Model.GetSignalCatalogResponse")]
     [AWSCmdlet("Calls the AWS IoT FleetWise GetSignalCatalog API operation.", Operation = new[] {"GetSignalCatalog"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.GetSignalCatalogResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.GetSignalCatalogResponse",
-        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetSignalCatalogResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetSignalCatalogResponse object containing multiple properties."
     )]
     public partial class GetIFWSignalCatalogCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

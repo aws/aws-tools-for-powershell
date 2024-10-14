@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [OutputType("Amazon.NeptuneGraph.Model.DeleteGraphResponse")]
     [AWSCmdlet("Calls the Amazon Neptune Graph DeleteGraph API operation.", Operation = new[] {"DeleteGraph"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.DeleteGraphResponse))]
     [AWSCmdletOutput("Amazon.NeptuneGraph.Model.DeleteGraphResponse",
-        "This cmdlet returns an Amazon.NeptuneGraph.Model.DeleteGraphResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NeptuneGraph.Model.DeleteGraphResponse object containing multiple properties."
     )]
     public partial class RemoveNEPTGGraphCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

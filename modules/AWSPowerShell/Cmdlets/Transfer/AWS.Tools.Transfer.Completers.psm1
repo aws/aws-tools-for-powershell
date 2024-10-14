@@ -361,6 +361,7 @@ $TFR_SelectMap = @{
                "Get-TFRCertificateList",
                "Get-TFRConnectorList",
                "Get-TFRExecutionList",
+               "Get-TFRFileTransferResultList",
                "Get-TFRHostKeyList",
                "Get-TFRProfileList",
                "Get-TFRSecurityPolicyList",

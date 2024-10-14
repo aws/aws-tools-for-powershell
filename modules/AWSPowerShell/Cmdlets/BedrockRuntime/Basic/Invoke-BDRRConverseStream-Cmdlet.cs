@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     [AWSCmdlet("Calls the Amazon Bedrock Runtime ConverseStream API operation.", Operation = new[] {"ConverseStream"}, SelectReturnType = typeof(Amazon.BedrockRuntime.Model.ConverseStreamResponse))]
     [AWSCmdletOutput("Amazon.BedrockRuntime.Model.ConverseStreamOutput or Amazon.BedrockRuntime.Model.ConverseStreamResponse",
         "This cmdlet returns an Amazon.BedrockRuntime.Model.ConverseStreamOutput object.",
-        "The service call response (type Amazon.BedrockRuntime.Model.ConverseStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockRuntime.Model.ConverseStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeBDRRConverseStreamCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {

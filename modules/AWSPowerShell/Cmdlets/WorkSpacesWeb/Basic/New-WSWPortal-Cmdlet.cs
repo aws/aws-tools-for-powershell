@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [OutputType("Amazon.WorkSpacesWeb.Model.CreatePortalResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces Web CreatePortal API operation.", Operation = new[] {"CreatePortal"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.CreatePortalResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.CreatePortalResponse",
-        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.CreatePortalResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.CreatePortalResponse object containing multiple properties."
     )]
     public partial class NewWSWPortalCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

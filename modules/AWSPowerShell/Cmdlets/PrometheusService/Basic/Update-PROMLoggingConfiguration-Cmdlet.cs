@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service UpdateLoggingConfiguration API operation.", Operation = new[] {"UpdateLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.LoggingConfigurationStatus or Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.PrometheusService.Model.LoggingConfigurationStatus object.",
-        "The service call response (type Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.UpdateLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

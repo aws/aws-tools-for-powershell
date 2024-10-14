@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra CreateIndex API operation.", Operation = new[] {"CreateIndex"}, SelectReturnType = typeof(Amazon.Kendra.Model.CreateIndexResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kendra.Model.CreateIndexResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kendra.Model.CreateIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.CreateIndexResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKNDRIndexCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

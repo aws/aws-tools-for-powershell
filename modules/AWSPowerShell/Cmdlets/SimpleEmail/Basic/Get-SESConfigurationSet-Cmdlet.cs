@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [OutputType("Amazon.SimpleEmail.Model.DescribeConfigurationSetResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) DescribeConfigurationSet API operation.", Operation = new[] {"DescribeConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.DescribeConfigurationSetResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.DescribeConfigurationSetResponse",
-        "This cmdlet returns an Amazon.SimpleEmail.Model.DescribeConfigurationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmail.Model.DescribeConfigurationSetResponse object containing multiple properties."
     )]
     public partial class GetSESConfigurationSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

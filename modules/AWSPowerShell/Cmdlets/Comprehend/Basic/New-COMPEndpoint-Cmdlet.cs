@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend CreateEndpoint API operation.", Operation = new[] {"CreateEndpoint"}, SelectReturnType = typeof(Amazon.Comprehend.Model.CreateEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.Comprehend.Model.CreateEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Comprehend.Model.CreateEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.CreateEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCOMPEndpointCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

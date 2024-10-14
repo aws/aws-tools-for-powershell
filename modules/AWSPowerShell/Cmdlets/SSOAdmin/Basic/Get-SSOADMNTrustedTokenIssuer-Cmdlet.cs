@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [OutputType("Amazon.SSOAdmin.Model.DescribeTrustedTokenIssuerResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribeTrustedTokenIssuer API operation.", Operation = new[] {"DescribeTrustedTokenIssuer"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribeTrustedTokenIssuerResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.DescribeTrustedTokenIssuerResponse",
-        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeTrustedTokenIssuerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeTrustedTokenIssuerResponse object containing multiple properties."
     )]
     public partial class GetSSOADMNTrustedTokenIssuerCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

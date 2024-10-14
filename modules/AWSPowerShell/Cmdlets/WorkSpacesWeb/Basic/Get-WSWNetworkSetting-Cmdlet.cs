@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web GetNetworkSettings API operation.", Operation = new[] {"GetNetworkSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.GetNetworkSettingsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.NetworkSettings or Amazon.WorkSpacesWeb.Model.GetNetworkSettingsResponse",
         "This cmdlet returns an Amazon.WorkSpacesWeb.Model.NetworkSettings object.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.GetNetworkSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.GetNetworkSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWNetworkSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [OutputType("Amazon.ResourceExplorer2.Model.BatchGetViewResponse")]
     [AWSCmdlet("Calls the AWS Resource Explorer BatchGetView API operation.", Operation = new[] {"BatchGetView"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.BatchGetViewResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.BatchGetViewResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.BatchGetViewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.BatchGetViewResponse object containing multiple properties."
     )]
     public partial class GetAREXViewBatchCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

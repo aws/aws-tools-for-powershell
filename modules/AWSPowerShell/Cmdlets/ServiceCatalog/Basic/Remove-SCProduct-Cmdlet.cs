@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DeleteProduct API operation.", Operation = new[] {"DeleteProduct"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DeleteProductResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DeleteProductResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DeleteProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeleteProductResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDedicatedIp API operation.", Operation = new[] {"GetDedicatedIp"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DedicatedIp or Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.DedicatedIp object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetDedicatedIpResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2DedicatedIpCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

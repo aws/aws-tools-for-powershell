@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.VoiceID.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.Tag or Amazon.VoiceID.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.VoiceID.Model.Tag objects.",
-        "The service call response (type Amazon.VoiceID.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VoiceID.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVIDResourceTagCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.StopChannelResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive StopChannel API operation.", Operation = new[] {"StopChannel"}, SelectReturnType = typeof(Amazon.MediaLive.Model.StopChannelResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.StopChannelResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.StopChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.StopChannelResponse object containing multiple properties."
     )]
     public partial class StopEMLChannelCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

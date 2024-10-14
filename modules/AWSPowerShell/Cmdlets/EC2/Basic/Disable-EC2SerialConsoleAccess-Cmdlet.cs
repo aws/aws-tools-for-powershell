@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableSerialConsoleAccess API operation.", Operation = new[] {"DisableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableSerialConsoleAccessResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisableSerialConsoleAccessResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DisableSerialConsoleAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisableSerialConsoleAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableEC2SerialConsoleAccessCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

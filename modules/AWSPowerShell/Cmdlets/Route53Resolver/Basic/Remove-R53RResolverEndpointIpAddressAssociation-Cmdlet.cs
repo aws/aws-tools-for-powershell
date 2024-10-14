@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver DisassociateResolverEndpointIpAddress API operation.", Operation = new[] {"DisassociateResolverEndpointIpAddress"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.DisassociateResolverEndpointIpAddressResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverEndpoint or Amazon.Route53Resolver.Model.DisassociateResolverEndpointIpAddressResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverEndpoint object.",
-        "The service call response (type Amazon.Route53Resolver.Model.DisassociateResolverEndpointIpAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.DisassociateResolverEndpointIpAddressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RResolverEndpointIpAddressAssociationCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

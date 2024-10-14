@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin UpdateInstanceAccessControlAttributeConfiguration API operation.", Operation = new[] {"UpdateInstanceAccessControlAttributeConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.UpdateInstanceAccessControlAttributeConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.UpdateInstanceAccessControlAttributeConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.UpdateInstanceAccessControlAttributeConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.UpdateInstanceAccessControlAttributeConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSOADMNInstanceAccessControlAttributeConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

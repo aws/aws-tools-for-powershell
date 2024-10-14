@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.StartAttachedFileUploadResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service StartAttachedFileUpload API operation.", Operation = new[] {"StartAttachedFileUpload"}, SelectReturnType = typeof(Amazon.Connect.Model.StartAttachedFileUploadResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.StartAttachedFileUploadResponse",
-        "This cmdlet returns an Amazon.Connect.Model.StartAttachedFileUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.StartAttachedFileUploadResponse object containing multiple properties."
     )]
     public partial class StartCONNAttachedFileUploadCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.StartFlywheelIterationResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend StartFlywheelIteration API operation.", Operation = new[] {"StartFlywheelIteration"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StartFlywheelIterationResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.StartFlywheelIterationResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.StartFlywheelIterationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.StartFlywheelIterationResponse object containing multiple properties."
     )]
     public partial class StartCOMPFlywheelIterationCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

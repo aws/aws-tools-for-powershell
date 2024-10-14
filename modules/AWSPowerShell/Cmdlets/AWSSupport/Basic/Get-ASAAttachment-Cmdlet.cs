@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support DescribeAttachment API operation.", Operation = new[] {"DescribeAttachment"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeAttachmentResponse))]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Attachment or Amazon.AWSSupport.Model.DescribeAttachmentResponse",
         "This cmdlet returns an Amazon.AWSSupport.Model.Attachment object.",
-        "The service call response (type Amazon.AWSSupport.Model.DescribeAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASAAttachmentCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

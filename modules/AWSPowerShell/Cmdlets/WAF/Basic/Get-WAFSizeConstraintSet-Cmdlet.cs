@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF GetSizeConstraintSet API operation.", Operation = new[] {"GetSizeConstraintSet"}, SelectReturnType = typeof(Amazon.WAF.Model.GetSizeConstraintSetResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.SizeConstraintSet or Amazon.WAF.Model.GetSizeConstraintSetResponse",
         "This cmdlet returns an Amazon.WAF.Model.SizeConstraintSet object.",
-        "The service call response (type Amazon.WAF.Model.GetSizeConstraintSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetSizeConstraintSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFSizeConstraintSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

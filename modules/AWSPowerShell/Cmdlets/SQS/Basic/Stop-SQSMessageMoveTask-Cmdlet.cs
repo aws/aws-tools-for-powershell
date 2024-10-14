@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) CancelMessageMoveTask API operation.", Operation = new[] {"CancelMessageMoveTask"}, SelectReturnType = typeof(Amazon.SQS.Model.CancelMessageMoveTaskResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.SQS.Model.CancelMessageMoveTaskResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.SQS.Model.CancelMessageMoveTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.CancelMessageMoveTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSQSMessageMoveTaskCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

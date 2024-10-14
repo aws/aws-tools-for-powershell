@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Route53RecoveryControlConfig.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53RecoveryControlConfig.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53RecoveryControlConfig.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RCResourceTagCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportKeyPair API operation.", Operation = new[] {"ImportKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties."
     )]
     public partial class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

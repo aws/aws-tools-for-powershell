@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [AWSCmdlet("Calls the AWS Directory Service Data UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryServiceData.Model.UpdateGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryServiceData.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryServiceData.Model.UpdateGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSDGroupCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

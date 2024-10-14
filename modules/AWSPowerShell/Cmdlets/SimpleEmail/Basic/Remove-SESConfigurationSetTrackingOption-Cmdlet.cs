@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) DeleteConfigurationSetTrackingOptions API operation.", Operation = new[] {"DeleteConfigurationSetTrackingOptions"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.DeleteConfigurationSetTrackingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.DeleteConfigurationSetTrackingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.DeleteConfigurationSetTrackingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteConfigurationSetTrackingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSESConfigurationSetTrackingOptionCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConnect.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConnect.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConnect.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCNResourceTagCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

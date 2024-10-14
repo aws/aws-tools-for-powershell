@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
     [AWSCmdlet("Calls the AWS Mainframe Modernization Application Testing UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.AppTest.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AppTest.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppTest.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppTest.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATResourceTagCmdlet : AmazonAppTestClientCmdlet, IExecutor
     {

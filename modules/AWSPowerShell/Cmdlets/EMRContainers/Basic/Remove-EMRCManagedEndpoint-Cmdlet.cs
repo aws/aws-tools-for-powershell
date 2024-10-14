@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [OutputType("Amazon.EMRContainers.Model.DeleteManagedEndpointResponse")]
     [AWSCmdlet("Calls the Amazon EMR Containers DeleteManagedEndpoint API operation.", Operation = new[] {"DeleteManagedEndpoint"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DeleteManagedEndpointResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.DeleteManagedEndpointResponse",
-        "This cmdlet returns an Amazon.EMRContainers.Model.DeleteManagedEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRContainers.Model.DeleteManagedEndpointResponse object containing multiple properties."
     )]
     public partial class RemoveEMRCManagedEndpointCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

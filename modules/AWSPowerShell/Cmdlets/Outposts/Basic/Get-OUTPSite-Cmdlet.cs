@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts GetSite API operation.", Operation = new[] {"GetSite"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetSiteResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.Site or Amazon.Outposts.Model.GetSiteResponse",
         "This cmdlet returns an Amazon.Outposts.Model.Site object.",
-        "The service call response (type Amazon.Outposts.Model.GetSiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Outposts.Model.GetSiteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOUTPSiteCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

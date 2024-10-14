@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"GetBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.IntelligentTieringConfiguration or Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.IntelligentTieringConfiguration object.",
-        "The service call response (type Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketIntelligentTieringConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3BucketIntelligentTieringConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management SetSecurityTokenServicePreferences API operation.", Operation = new[] {"SetSecurityTokenServicePreferences"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.SetSecurityTokenServicePreferencesResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.SetSecurityTokenServicePreferencesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.SetSecurityTokenServicePreferencesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.SetSecurityTokenServicePreferencesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetIAMSecurityTokenServicePreferenceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

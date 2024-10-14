@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteSecurityConfiguration API operation.", Operation = new[] {"DeleteSecurityConfiguration"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteSecurityConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteSecurityConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteSecurityConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteSecurityConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUESecurityConfigurationCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

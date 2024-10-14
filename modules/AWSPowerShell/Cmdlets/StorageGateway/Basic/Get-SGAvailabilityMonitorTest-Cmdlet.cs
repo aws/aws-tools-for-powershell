@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeAvailabilityMonitorTestResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeAvailabilityMonitorTest API operation.", Operation = new[] {"DescribeAvailabilityMonitorTest"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeAvailabilityMonitorTestResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeAvailabilityMonitorTestResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeAvailabilityMonitorTestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeAvailabilityMonitorTestResponse object containing multiple properties."
     )]
     public partial class GetSGAvailabilityMonitorTestCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

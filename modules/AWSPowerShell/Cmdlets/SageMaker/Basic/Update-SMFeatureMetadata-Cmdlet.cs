@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service UpdateFeatureMetadata API operation.", Operation = new[] {"UpdateFeatureMetadata"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateFeatureMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.UpdateFeatureMetadataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.UpdateFeatureMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.UpdateFeatureMetadataResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMFeatureMetadataCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

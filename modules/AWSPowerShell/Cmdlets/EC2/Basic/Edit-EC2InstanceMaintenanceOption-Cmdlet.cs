@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMaintenanceOptions API operation.", Operation = new[] {"ModifyInstanceMaintenanceOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse object containing multiple properties."
     )]
     public partial class EditEC2InstanceMaintenanceOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

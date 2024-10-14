@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 DisassociateMember API operation.", Operation = new[] {"DisassociateMember"}, SelectReturnType = typeof(Amazon.Inspector2.Model.DisassociateMemberResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector2.Model.DisassociateMemberResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector2.Model.DisassociateMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.DisassociateMemberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterINS2MemberCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

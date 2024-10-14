@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions RedriveExecution API operation.", Operation = new[] {"RedriveExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.RedriveExecutionResponse))]
     [AWSCmdletOutput("System.DateTime or Amazon.StepFunctions.Model.RedriveExecutionResponse",
         "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.StepFunctions.Model.RedriveExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StepFunctions.Model.RedriveExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestartSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

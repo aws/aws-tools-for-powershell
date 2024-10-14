@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteNetworkInsightsAccessScopeAnalysis API operation.", Operation = new[] {"DeleteNetworkInsightsAccessScopeAnalysis"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInsightsAccessScopeAnalysisResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DeleteNetworkInsightsAccessScopeAnalysisResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.DeleteNetworkInsightsAccessScopeAnalysisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteNetworkInsightsAccessScopeAnalysisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2NetworkInsightsAccessScopeAnalysisCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

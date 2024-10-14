@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutDedicatedIpWarmupAttributes API operation.", Operation = new[] {"PutDedicatedIpWarmupAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpWarmupAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSES2DedicatedIpWarmupAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

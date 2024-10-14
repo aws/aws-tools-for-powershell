@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama DeleteDevice API operation.", Operation = new[] {"DeleteDevice"}, SelectReturnType = typeof(Amazon.Panorama.Model.DeleteDeviceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Panorama.Model.DeleteDeviceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Panorama.Model.DeleteDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Panorama.Model.DeleteDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePANDeviceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

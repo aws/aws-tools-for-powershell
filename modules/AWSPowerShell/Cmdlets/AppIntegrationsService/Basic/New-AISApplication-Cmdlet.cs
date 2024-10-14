@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     [OutputType("Amazon.AppIntegrationsService.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the Amazon AppIntegrations Service CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.AppIntegrationsService.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.AppIntegrationsService.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppIntegrationsService.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewAISApplicationCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {

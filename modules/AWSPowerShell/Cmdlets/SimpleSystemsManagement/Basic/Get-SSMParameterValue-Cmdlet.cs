@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager GetParameters API operation.", Operation = new[] {"GetParameters"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParametersResponse), LegacyAlias="Get-SSMParameterNameList")]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetParametersResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetParametersResponse object containing multiple properties."
     )]
     public partial class GetSSMParameterValueCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

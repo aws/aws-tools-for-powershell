@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private DeregisterAdmin API operation.", Operation = new[] {"DeregisterAdmin"}, SelectReturnType = typeof(Amazon.Repostspace.Model.DeregisterAdminResponse))]
     [AWSCmdletOutput("None or Amazon.Repostspace.Model.DeregisterAdminResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Repostspace.Model.DeregisterAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Repostspace.Model.DeregisterAdminResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterRESPAdminCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

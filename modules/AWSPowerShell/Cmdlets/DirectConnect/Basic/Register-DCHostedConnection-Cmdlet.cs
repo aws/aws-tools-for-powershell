@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect AssociateHostedConnection API operation.", Operation = new[] {"AssociateHostedConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.AssociateHostedConnectionResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateHostedConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateHostedConnectionResponse object containing multiple properties."
     )]
     public partial class RegisterDCHostedConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

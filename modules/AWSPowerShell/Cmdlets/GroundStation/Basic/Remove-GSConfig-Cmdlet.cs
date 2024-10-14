@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.DeleteConfigResponse")]
     [AWSCmdlet("Calls the AWS Ground Station DeleteConfig API operation.", Operation = new[] {"DeleteConfig"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DeleteConfigResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.DeleteConfigResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.DeleteConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.DeleteConfigResponse object containing multiple properties."
     )]
     public partial class RemoveGSConfigCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

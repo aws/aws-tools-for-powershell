@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.CreateProfileShareResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool CreateProfileShare API operation.", Operation = new[] {"CreateProfileShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.CreateProfileShareResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.CreateProfileShareResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.CreateProfileShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.CreateProfileShareResponse object containing multiple properties."
     )]
     public partial class NewWATProfileShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

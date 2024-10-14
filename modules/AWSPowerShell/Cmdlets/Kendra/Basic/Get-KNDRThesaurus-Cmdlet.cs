@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.DescribeThesaurusResponse")]
     [AWSCmdlet("Calls the Amazon Kendra DescribeThesaurus API operation.", Operation = new[] {"DescribeThesaurus"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribeThesaurusResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.DescribeThesaurusResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribeThesaurusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.DescribeThesaurusResponse object containing multiple properties."
     )]
     public partial class GetKNDRThesaurusCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

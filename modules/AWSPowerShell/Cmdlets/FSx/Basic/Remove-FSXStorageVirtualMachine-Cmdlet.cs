@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteStorageVirtualMachineResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteStorageVirtualMachine API operation.", Operation = new[] {"DeleteStorageVirtualMachine"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteStorageVirtualMachineResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteStorageVirtualMachineResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteStorageVirtualMachineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteStorageVirtualMachineResponse object containing multiple properties."
     )]
     public partial class RemoveFSXStorageVirtualMachineCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

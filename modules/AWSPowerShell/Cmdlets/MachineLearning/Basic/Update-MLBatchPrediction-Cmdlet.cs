@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning UpdateBatchPrediction API operation.", Operation = new[] {"UpdateBatchPrediction"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.UpdateBatchPredictionResponse))]
     [AWSCmdletOutput("System.String or Amazon.MachineLearning.Model.UpdateBatchPredictionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MachineLearning.Model.UpdateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateBatchPredictionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

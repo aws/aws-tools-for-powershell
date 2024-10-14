@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponentConfigurationRecommendation API operation.", Operation = new[] {"DescribeComponentConfigurationRecommendation"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWAIComponentConfigurationRecommendationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

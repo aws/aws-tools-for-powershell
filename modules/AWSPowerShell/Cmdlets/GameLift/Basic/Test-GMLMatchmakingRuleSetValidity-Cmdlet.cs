@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service ValidateMatchmakingRuleSet API operation.", Operation = new[] {"ValidateMatchmakingRuleSet"}, SelectReturnType = typeof(Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestGMLMatchmakingRuleSetValidityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

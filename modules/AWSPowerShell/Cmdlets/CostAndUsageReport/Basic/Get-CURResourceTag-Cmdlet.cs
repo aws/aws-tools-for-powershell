@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     [AWSCmdlet("Calls the AWS Cost and Usage Report ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CostAndUsageReport.Model.Tag or Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.CostAndUsageReport.Model.Tag objects.",
-        "The service call response (type Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostAndUsageReport.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCURResourceTagCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {

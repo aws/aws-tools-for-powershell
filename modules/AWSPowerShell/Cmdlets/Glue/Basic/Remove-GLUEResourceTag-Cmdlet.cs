@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Glue.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEResourceTagCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.UntagResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups Untag API operation.", Operation = new[] {"Untag"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UntagResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.UntagResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UntagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.UntagResponse object containing multiple properties."
     )]
     public partial class RemoveRGResourceTagCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

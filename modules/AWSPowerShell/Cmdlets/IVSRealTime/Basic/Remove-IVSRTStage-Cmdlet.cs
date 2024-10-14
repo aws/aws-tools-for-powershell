@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DeleteStage API operation.", Operation = new[] {"DeleteStage"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DeleteStageResponse))]
     [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DeleteStageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.DeleteStageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVSRealTime.Model.DeleteStageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSRTStageCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

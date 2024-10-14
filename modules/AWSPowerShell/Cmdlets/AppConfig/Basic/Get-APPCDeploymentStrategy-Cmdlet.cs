@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.GetDeploymentStrategyResponse")]
     [AWSCmdlet("Calls the AWS AppConfig GetDeploymentStrategy API operation.", Operation = new[] {"GetDeploymentStrategy"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetDeploymentStrategyResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.GetDeploymentStrategyResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.GetDeploymentStrategyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.GetDeploymentStrategyResponse object containing multiple properties."
     )]
     public partial class GetAPPCDeploymentStrategyCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

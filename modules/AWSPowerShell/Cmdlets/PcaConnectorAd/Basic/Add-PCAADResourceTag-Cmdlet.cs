@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPCAADResourceTagCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

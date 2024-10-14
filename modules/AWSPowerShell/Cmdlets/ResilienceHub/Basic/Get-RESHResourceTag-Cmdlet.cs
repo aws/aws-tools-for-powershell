@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ResilienceHub.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRESHResourceTagCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

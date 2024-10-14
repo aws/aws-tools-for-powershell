@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DescribeDatasetImportJob API operation.", Operation = new[] {"DescribeDatasetImportJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeDatasetImportJobResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.DatasetImportJob or Amazon.Personalize.Model.DescribeDatasetImportJobResponse",
         "This cmdlet returns an Amazon.Personalize.Model.DatasetImportJob object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeDatasetImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.DescribeDatasetImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSDatasetImportJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

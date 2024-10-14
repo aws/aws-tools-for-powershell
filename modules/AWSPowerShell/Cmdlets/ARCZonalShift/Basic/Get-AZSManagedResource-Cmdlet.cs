@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [OutputType("Amazon.ARCZonalShift.Model.GetManagedResourceResponse")]
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift GetManagedResource API operation.", Operation = new[] {"GetManagedResource"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.GetManagedResourceResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.Model.GetManagedResourceResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.GetManagedResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.GetManagedResourceResponse object containing multiple properties."
     )]
     public partial class GetAZSManagedResourceCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

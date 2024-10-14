@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DescribeChannel API operation.", Operation = new[] {"DescribeChannel"}, SelectReturnType = typeof(Amazon.Chime.Model.DescribeChannelResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.Channel or Amazon.Chime.Model.DescribeChannelResponse",
         "This cmdlet returns an Amazon.Chime.Model.Channel object.",
-        "The service call response (type Amazon.Chime.Model.DescribeChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.DescribeChannelResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMChannelCmdlet : AmazonChimeClientCmdlet, IExecutor

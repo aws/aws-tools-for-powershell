@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control UpdateAccessGrantsLocation API operation.", Operation = new[] {"UpdateAccessGrantsLocation"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.UpdateAccessGrantsLocationResponse object containing multiple properties."
     )]
     public partial class UpdateS3CAccessGrantsLocationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

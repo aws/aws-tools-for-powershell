@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.CancelIngestionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight CancelIngestion API operation.", Operation = new[] {"CancelIngestion"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CancelIngestionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.CancelIngestionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CancelIngestionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.CancelIngestionResponse object containing multiple properties."
     )]
     public partial class StopQSIngestionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWATResourceTagCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions SendTaskHeartbeat API operation.", Operation = new[] {"SendTaskHeartbeat"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.SendTaskHeartbeatResponse))]
     [AWSCmdletOutput("None or Amazon.StepFunctions.Model.SendTaskHeartbeatResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.StepFunctions.Model.SendTaskHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StepFunctions.Model.SendTaskHeartbeatResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendSFNTaskHeartbeatCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

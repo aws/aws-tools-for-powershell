@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty DeletePublishingDestination API operation.", Operation = new[] {"DeletePublishingDestination"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DeletePublishingDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DeletePublishingDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DeletePublishingDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.DeletePublishingDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDPublishingDestinationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

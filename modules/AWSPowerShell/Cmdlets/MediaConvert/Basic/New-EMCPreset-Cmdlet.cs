@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert CreatePreset API operation.", Operation = new[] {"CreatePreset"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.CreatePresetResponse))]
     [AWSCmdletOutput("Amazon.MediaConvert.Model.Preset or Amazon.MediaConvert.Model.CreatePresetResponse",
         "This cmdlet returns an Amazon.MediaConvert.Model.Preset object.",
-        "The service call response (type Amazon.MediaConvert.Model.CreatePresetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConvert.Model.CreatePresetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMCPresetCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

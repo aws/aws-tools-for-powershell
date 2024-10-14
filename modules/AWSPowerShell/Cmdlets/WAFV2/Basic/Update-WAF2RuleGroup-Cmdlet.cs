@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [AWSCmdlet("Calls the AWS WAF V2 UpdateRuleGroup API operation.", Operation = new[] {"UpdateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFV2.Model.UpdateRuleGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.UpdateRuleGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFV2.Model.UpdateRuleGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFV2.Model.UpdateRuleGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWAF2RuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {

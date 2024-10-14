@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT TestAuthorization API operation.", Operation = new[] {"TestAuthorization"}, SelectReturnType = typeof(Amazon.IoT.Model.TestAuthorizationResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.AuthResult or Amazon.IoT.Model.TestAuthorizationResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.AuthResult objects.",
-        "The service call response (type Amazon.IoT.Model.TestAuthorizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.TestAuthorizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestIOTAuthorizationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

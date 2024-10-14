@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     [AWSCmdlet("Calls the Amazon S3 Outposts ListSharedEndpoints API operation.", Operation = new[] {"ListSharedEndpoints"}, SelectReturnType = typeof(Amazon.S3Outposts.Model.ListSharedEndpointsResponse))]
     [AWSCmdletOutput("Amazon.S3Outposts.Model.Endpoint or Amazon.S3Outposts.Model.ListSharedEndpointsResponse",
         "This cmdlet returns a collection of Amazon.S3Outposts.Model.Endpoint objects.",
-        "The service call response (type Amazon.S3Outposts.Model.ListSharedEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Outposts.Model.ListSharedEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3OSharedEndpointListCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {

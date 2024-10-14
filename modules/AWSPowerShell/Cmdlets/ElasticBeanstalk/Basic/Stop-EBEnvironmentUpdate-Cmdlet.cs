@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk AbortEnvironmentUpdate API operation.", Operation = new[] {"AbortEnvironmentUpdate"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEBEnvironmentUpdateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

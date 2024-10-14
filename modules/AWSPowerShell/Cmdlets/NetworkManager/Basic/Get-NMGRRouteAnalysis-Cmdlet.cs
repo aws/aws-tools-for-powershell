@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager GetRouteAnalysis API operation.", Operation = new[] {"GetRouteAnalysis"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetRouteAnalysisResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.RouteAnalysis or Amazon.NetworkManager.Model.GetRouteAnalysisResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.RouteAnalysis object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetRouteAnalysisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.GetRouteAnalysisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNMGRRouteAnalysisCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

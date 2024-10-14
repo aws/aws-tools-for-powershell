@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama DeletePackage API operation.", Operation = new[] {"DeletePackage"}, SelectReturnType = typeof(Amazon.Panorama.Model.DeletePackageResponse))]
     [AWSCmdletOutput("None or Amazon.Panorama.Model.DeletePackageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Panorama.Model.DeletePackageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Panorama.Model.DeletePackageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePANPackageCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

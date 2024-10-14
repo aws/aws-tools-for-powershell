@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     [AWSCmdlet("Calls the AWS IoT Secure Tunneling CloseTunnel API operation.", Operation = new[] {"CloseTunnel"}, SelectReturnType = typeof(Amazon.IoTSecureTunneling.Model.CloseTunnelResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSecureTunneling.Model.CloseTunnelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSecureTunneling.Model.CloseTunnelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSecureTunneling.Model.CloseTunnelResponse) be returned by specifying '-Select *'."
     )]
     public partial class CloseIOTSTTunnelCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {

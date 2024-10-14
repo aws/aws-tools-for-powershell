@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.RegisterCertificateWithoutCAResponse")]
     [AWSCmdlet("Calls the AWS IoT RegisterCertificateWithoutCA API operation.", Operation = new[] {"RegisterCertificateWithoutCA"}, SelectReturnType = typeof(Amazon.IoT.Model.RegisterCertificateWithoutCAResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.RegisterCertificateWithoutCAResponse",
-        "This cmdlet returns an Amazon.IoT.Model.RegisterCertificateWithoutCAResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.RegisterCertificateWithoutCAResponse object containing multiple properties."
     )]
     public partial class RegisterIOTCertificateWithoutCACmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     [AWSCmdlet("Calls the AWS Service Quotas ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ServiceQuotas.Model.Tag or Amazon.ServiceQuotas.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ServiceQuotas.Model.Tag objects.",
-        "The service call response (type Amazon.ServiceQuotas.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceQuotas.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSQResourceTagCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {

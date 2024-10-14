@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DisassociateFromAdministratorAccount API operation.", Operation = new[] {"DisassociateFromAdministratorAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateFromAdministratorAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisassociateFromAdministratorAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.DisassociateFromAdministratorAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.DisassociateFromAdministratorAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHUBFromAdministratorAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

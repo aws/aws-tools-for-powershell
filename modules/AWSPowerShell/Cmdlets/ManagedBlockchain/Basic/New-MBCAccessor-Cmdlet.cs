@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [OutputType("Amazon.ManagedBlockchain.Model.CreateAccessorResponse")]
     [AWSCmdlet("Calls the Amazon Managed Blockchain CreateAccessor API operation.", Operation = new[] {"CreateAccessor"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.CreateAccessorResponse))]
     [AWSCmdletOutput("Amazon.ManagedBlockchain.Model.CreateAccessorResponse",
-        "This cmdlet returns an Amazon.ManagedBlockchain.Model.CreateAccessorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ManagedBlockchain.Model.CreateAccessorResponse object containing multiple properties."
     )]
     public partial class NewMBCAccessorCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

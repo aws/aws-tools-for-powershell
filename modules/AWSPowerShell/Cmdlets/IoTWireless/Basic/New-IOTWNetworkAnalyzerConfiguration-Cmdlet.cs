@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [OutputType("Amazon.IoTWireless.Model.CreateNetworkAnalyzerConfigurationResponse")]
     [AWSCmdlet("Calls the AWS IoT Wireless CreateNetworkAnalyzerConfiguration API operation.", Operation = new[] {"CreateNetworkAnalyzerConfiguration"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.CreateNetworkAnalyzerConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.CreateNetworkAnalyzerConfigurationResponse",
-        "This cmdlet returns an Amazon.IoTWireless.Model.CreateNetworkAnalyzerConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTWireless.Model.CreateNetworkAnalyzerConfigurationResponse object containing multiple properties."
     )]
     public partial class NewIOTWNetworkAnalyzerConfigurationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

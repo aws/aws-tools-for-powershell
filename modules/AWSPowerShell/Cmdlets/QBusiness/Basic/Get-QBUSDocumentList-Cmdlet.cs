@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness ListDocuments API operation.", Operation = new[] {"ListDocuments"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ListDocumentsResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.DocumentDetails or Amazon.QBusiness.Model.ListDocumentsResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.DocumentDetails objects.",
-        "The service call response (type Amazon.QBusiness.Model.ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.ListDocumentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSDocumentListCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

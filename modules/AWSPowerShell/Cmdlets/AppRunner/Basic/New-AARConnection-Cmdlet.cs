@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateConnectionResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.Connection or Amazon.AppRunner.Model.CreateConnectionResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.Connection object.",
-        "The service call response (type Amazon.AppRunner.Model.CreateConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.CreateConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAARConnectionCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

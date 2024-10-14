@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty EnableOrganizationAdminAccount API operation.", Operation = new[] {"EnableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.EnableOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.EnableOrganizationAdminAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.EnableOrganizationAdminAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.EnableOrganizationAdminAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableGDOrganizationAdminAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

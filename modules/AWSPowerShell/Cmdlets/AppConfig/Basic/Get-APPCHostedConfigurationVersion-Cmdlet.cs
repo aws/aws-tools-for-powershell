@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse")]
     [AWSCmdlet("Calls the AWS AppConfig GetHostedConfigurationVersion API operation.", Operation = new[] {"GetHostedConfigurationVersion"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.GetHostedConfigurationVersionResponse object containing multiple properties."
     )]
     public partial class GetAPPCHostedConfigurationVersionCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

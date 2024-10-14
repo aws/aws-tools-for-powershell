@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteAppInstanceStreamingConfigurations API operation.", Operation = new[] {"DeleteAppInstanceStreamingConfigurations"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
     public partial class RemoveCHMAppInstanceStreamingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor

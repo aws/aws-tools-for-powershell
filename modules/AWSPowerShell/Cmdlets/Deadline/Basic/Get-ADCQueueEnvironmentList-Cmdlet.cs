@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud ListQueueEnvironments API operation.", Operation = new[] {"ListQueueEnvironments"}, SelectReturnType = typeof(Amazon.Deadline.Model.ListQueueEnvironmentsResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.QueueEnvironmentSummary or Amazon.Deadline.Model.ListQueueEnvironmentsResponse",
         "This cmdlet returns a collection of Amazon.Deadline.Model.QueueEnvironmentSummary objects.",
-        "The service call response (type Amazon.Deadline.Model.ListQueueEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.ListQueueEnvironmentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADCQueueEnvironmentListCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

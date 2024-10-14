@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.CancelDataRepositoryTaskResponse")]
     [AWSCmdlet("Calls the Amazon FSx CancelDataRepositoryTask API operation.", Operation = new[] {"CancelDataRepositoryTask"}, SelectReturnType = typeof(Amazon.FSx.Model.CancelDataRepositoryTaskResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.CancelDataRepositoryTaskResponse",
-        "This cmdlet returns an Amazon.FSx.Model.CancelDataRepositoryTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.CancelDataRepositoryTaskResponse object containing multiple properties."
     )]
     public partial class StopFSXDataRepositoryTaskCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

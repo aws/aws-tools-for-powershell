@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh ListVirtualServices API operation.", Operation = new[] {"ListVirtualServices"}, SelectReturnType = typeof(Amazon.AppMesh.Model.ListVirtualServicesResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.VirtualServiceRef or Amazon.AppMesh.Model.ListVirtualServicesResponse",
         "This cmdlet returns a collection of Amazon.AppMesh.Model.VirtualServiceRef objects.",
-        "The service call response (type Amazon.AppMesh.Model.ListVirtualServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.ListVirtualServicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMSHVirtualServiceListCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     [AWSCmdlet("Calls the AWSBillingAndCostManagementDataExports ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BCMDataExports.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.BCMDataExports.Model.ResourceTag or Amazon.BCMDataExports.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.BCMDataExports.Model.ResourceTag objects.",
-        "The service call response (type Amazon.BCMDataExports.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BCMDataExports.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBCMDEResourceTagCmdlet : AmazonBCMDataExportsClientCmdlet, IExecutor
     {

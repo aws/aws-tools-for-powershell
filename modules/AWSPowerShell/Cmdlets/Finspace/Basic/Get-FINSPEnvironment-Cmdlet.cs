@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service GetEnvironment API operation.", Operation = new[] {"GetEnvironment"}, SelectReturnType = typeof(Amazon.Finspace.Model.GetEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Finspace.Model.Environment or Amazon.Finspace.Model.GetEnvironmentResponse",
         "This cmdlet returns an Amazon.Finspace.Model.Environment object.",
-        "The service call response (type Amazon.Finspace.Model.GetEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Finspace.Model.GetEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor

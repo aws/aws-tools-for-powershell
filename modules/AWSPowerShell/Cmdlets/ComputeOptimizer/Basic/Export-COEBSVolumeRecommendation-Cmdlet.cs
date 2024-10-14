@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.ExportEBSVolumeRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer ExportEBSVolumeRecommendations API operation.", Operation = new[] {"ExportEBSVolumeRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportEBSVolumeRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportEBSVolumeRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportEBSVolumeRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportEBSVolumeRecommendationsResponse object containing multiple properties."
     )]
     public partial class ExportCOEBSVolumeRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

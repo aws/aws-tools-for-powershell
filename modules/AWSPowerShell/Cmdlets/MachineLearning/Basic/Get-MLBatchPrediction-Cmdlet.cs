@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetBatchPredictionResponse")]
     [AWSCmdlet("Calls the Amazon Machine Learning GetBatchPrediction API operation.", Operation = new[] {"GetBatchPrediction"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.GetBatchPredictionResponse))]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetBatchPredictionResponse",
-        "This cmdlet returns an Amazon.MachineLearning.Model.GetBatchPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MachineLearning.Model.GetBatchPredictionResponse object containing multiple properties."
     )]
     public partial class GetMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribePlayerSessions API operation.", Operation = new[] {"DescribePlayerSessions"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribePlayerSessionsResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.PlayerSession or Amazon.GameLift.Model.DescribePlayerSessionsResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.PlayerSession objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribePlayerSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribePlayerSessionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLPlayerSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]
     [AWSCmdlet("Calls the Amazon Location Service GetMapStyleDescriptor API operation.", Operation = new[] {"GetMapStyleDescriptor"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapStyleDescriptorResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.GetMapStyleDescriptorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties."
     )]
     public partial class GetLOCMapStyleDescriptorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

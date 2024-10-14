@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     [OutputType("Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Security CreateUploadUrl API operation.", Operation = new[] {"CreateUploadUrl"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse",
-        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse object containing multiple properties."
     )]
     public partial class NewCGSUploadUrlCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {

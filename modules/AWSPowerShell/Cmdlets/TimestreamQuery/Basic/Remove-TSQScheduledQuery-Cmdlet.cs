@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query DeleteScheduledQuery API operation.", Operation = new[] {"DeleteScheduledQuery"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.DeleteScheduledQueryResponse))]
     [AWSCmdletOutput("None or Amazon.TimestreamQuery.Model.DeleteScheduledQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamQuery.Model.DeleteScheduledQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TimestreamQuery.Model.DeleteScheduledQueryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTSQScheduledQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory CreateSchema API operation.", Operation = new[] {"CreateSchema"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.CreateSchemaResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.CreateSchemaResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.CreateSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.CreateSchemaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCDIRSchemaCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeleteRuleGroup API operation.", Operation = new[] {"DeleteRuleGroup"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeleteRuleGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.DeleteRuleGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.DeleteRuleGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.DeleteRuleGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRRuleGroupCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

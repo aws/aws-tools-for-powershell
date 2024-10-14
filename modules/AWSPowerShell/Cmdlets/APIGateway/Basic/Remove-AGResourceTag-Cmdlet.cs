@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.APIGateway.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGResourceTagCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

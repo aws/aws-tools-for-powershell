@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeleteLayer API operation.", Operation = new[] {"DeleteLayer"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeleteLayerResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeleteLayerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeleteLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteLayerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

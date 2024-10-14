@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteReusableDelegationSet API operation.", Operation = new[] {"DeleteReusableDelegationSet"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteReusableDelegationSetResponse))]
     [AWSCmdletOutput("None or Amazon.Route53.Model.DeleteReusableDelegationSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53.Model.DeleteReusableDelegationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteReusableDelegationSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

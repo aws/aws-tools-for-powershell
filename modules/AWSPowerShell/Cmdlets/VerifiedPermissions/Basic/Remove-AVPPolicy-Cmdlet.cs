@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [AWSCmdlet("Calls the Amazon Verified Permissions DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VerifiedPermissions.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VerifiedPermissions.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAVPPolicyCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

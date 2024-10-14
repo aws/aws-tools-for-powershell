@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose UntagDeliveryStream API operation.", Operation = new[] {"UntagDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.UntagDeliveryStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisFirehose.Model.UntagDeliveryStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisFirehose.Model.UntagDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.UntagDeliveryStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKINFDeliveryStreamTagCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {

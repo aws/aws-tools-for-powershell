@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     [OutputType("Amazon.CloudControlApi.Model.ListResourcesResponse")]
     [AWSCmdlet("Calls the AWS Cloud Control API ListResources API operation.", Operation = new[] {"ListResources"}, SelectReturnType = typeof(Amazon.CloudControlApi.Model.ListResourcesResponse))]
     [AWSCmdletOutput("Amazon.CloudControlApi.Model.ListResourcesResponse",
-        "This cmdlet returns an Amazon.CloudControlApi.Model.ListResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudControlApi.Model.ListResourcesResponse object containing multiple properties."
     )]
     public partial class GetCCAResourceListCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {

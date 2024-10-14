@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer UpdateAnomalySubscription API operation.", Operation = new[] {"UpdateAnomalySubscription"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateAnomalySubscriptionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CostExplorer.Model.UpdateAnomalySubscriptionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostExplorer.Model.UpdateAnomalySubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.UpdateAnomalySubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCEAnomalySubscriptionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 ListCidrCollections API operation.", Operation = new[] {"ListCidrCollections"}, SelectReturnType = typeof(Amazon.Route53.Model.ListCidrCollectionsResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.CollectionSummary or Amazon.Route53.Model.ListCidrCollectionsResponse",
         "This cmdlet returns a collection of Amazon.Route53.Model.CollectionSummary objects.",
-        "The service call response (type Amazon.Route53.Model.ListCidrCollectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListCidrCollectionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53CidrCollectionListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

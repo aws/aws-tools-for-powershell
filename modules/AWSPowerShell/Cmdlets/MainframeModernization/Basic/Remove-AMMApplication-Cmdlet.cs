@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.DeleteApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MainframeModernization.Model.DeleteApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

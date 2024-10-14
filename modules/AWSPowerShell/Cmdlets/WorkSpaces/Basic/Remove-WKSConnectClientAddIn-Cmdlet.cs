@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeleteConnectClientAddIn API operation.", Operation = new[] {"DeleteConnectClientAddIn"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeleteConnectClientAddInResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DeleteConnectClientAddInResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteConnectClientAddInResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DeleteConnectClientAddInResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

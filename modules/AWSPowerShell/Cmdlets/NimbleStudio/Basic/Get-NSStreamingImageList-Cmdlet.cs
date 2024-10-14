@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio ListStreamingImages API operation.", Operation = new[] {"ListStreamingImages"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.ListStreamingImagesResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.StreamingImage or Amazon.NimbleStudio.Model.ListStreamingImagesResponse",
         "This cmdlet returns a collection of Amazon.NimbleStudio.Model.StreamingImage objects.",
-        "The service call response (type Amazon.NimbleStudio.Model.ListStreamingImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.ListStreamingImagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSStreamingImageListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

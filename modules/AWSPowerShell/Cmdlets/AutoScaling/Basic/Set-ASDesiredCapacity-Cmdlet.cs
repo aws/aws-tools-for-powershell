@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling SetDesiredCapacity API operation.", Operation = new[] {"SetDesiredCapacity"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.SetDesiredCapacityResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.SetDesiredCapacityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.SetDesiredCapacityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SetDesiredCapacityResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetASDesiredCapacityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

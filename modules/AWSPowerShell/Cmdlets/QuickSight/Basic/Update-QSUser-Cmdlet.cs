@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateUserResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.User or Amazon.QuickSight.Model.UpdateUserResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.User object.",
-        "The service call response (type Amazon.QuickSight.Model.UpdateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.UpdateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQSUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

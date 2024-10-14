@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DeleteDocumentClassifier API operation.", Operation = new[] {"DeleteDocumentClassifier"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DeleteDocumentClassifierResponse))]
     [AWSCmdletOutput("None or Amazon.Comprehend.Model.DeleteDocumentClassifierResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.DeleteDocumentClassifierResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Comprehend.Model.DeleteDocumentClassifierResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCOMPDocumentClassifierCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetKeyPair API operation.", Operation = new[] {"GetKeyPair"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetKeyPairResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.KeyPair or Amazon.Lightsail.Model.GetKeyPairResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.KeyPair object.",
-        "The service call response (type Amazon.Lightsail.Model.GetKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetKeyPairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSKeyPairInfoCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

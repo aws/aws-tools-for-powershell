@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutConfigRule API operation.", Operation = new[] {"PutConfigRule"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutConfigRuleResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.PutConfigRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

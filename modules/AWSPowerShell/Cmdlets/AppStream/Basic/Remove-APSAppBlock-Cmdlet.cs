@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteAppBlock API operation.", Operation = new[] {"DeleteAppBlock"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteAppBlockResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DeleteAppBlockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DeleteAppBlockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DeleteAppBlockResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSAppBlockCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

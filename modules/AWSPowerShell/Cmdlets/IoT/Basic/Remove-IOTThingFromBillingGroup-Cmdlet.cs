@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT RemoveThingFromBillingGroup API operation.", Operation = new[] {"RemoveThingFromBillingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.RemoveThingFromBillingGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.RemoveThingFromBillingGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.RemoveThingFromBillingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.RemoveThingFromBillingGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTThingFromBillingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

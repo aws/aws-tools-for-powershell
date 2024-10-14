@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot or Amazon.ElastiCache.Model.CreateSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.Snapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

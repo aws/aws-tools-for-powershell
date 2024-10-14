@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdlet("Calls the Amazon Kinesis Analytics DeleteApplicationReferenceDataSource API operation.", Operation = new[] {"DeleteApplicationReferenceDataSource"}, SelectReturnType = typeof(Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKINAApplicationReferenceDataSourceCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {

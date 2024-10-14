@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CancelTaskExecution API operation.", Operation = new[] {"CancelTaskExecution"}, SelectReturnType = typeof(Amazon.DataSync.Model.CancelTaskExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.CancelTaskExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.CancelTaskExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.CancelTaskExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

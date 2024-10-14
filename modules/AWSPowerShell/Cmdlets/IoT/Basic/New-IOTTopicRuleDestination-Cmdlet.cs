@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT CreateTopicRuleDestination API operation.", Operation = new[] {"CreateTopicRuleDestination"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateTopicRuleDestinationResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.TopicRuleDestination or Amazon.IoT.Model.CreateTopicRuleDestinationResponse",
         "This cmdlet returns an Amazon.IoT.Model.TopicRuleDestination object.",
-        "The service call response (type Amazon.IoT.Model.CreateTopicRuleDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.CreateTopicRuleDestinationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIOTTopicRuleDestinationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

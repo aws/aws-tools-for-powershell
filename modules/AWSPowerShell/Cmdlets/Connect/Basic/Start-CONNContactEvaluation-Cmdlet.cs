@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.StartContactEvaluationResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service StartContactEvaluation API operation.", Operation = new[] {"StartContactEvaluation"}, SelectReturnType = typeof(Amazon.Connect.Model.StartContactEvaluationResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.StartContactEvaluationResponse",
-        "This cmdlet returns an Amazon.Connect.Model.StartContactEvaluationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.StartContactEvaluationResponse object containing multiple properties."
     )]
     public partial class StartCONNContactEvaluationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

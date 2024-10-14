@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.TagResourceResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.QuickSight.Model.TagResourceResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.TagResourceResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.TagResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.TagResourceResponse object containing multiple properties."
     )]
     public partial class AddQSResourceTagCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

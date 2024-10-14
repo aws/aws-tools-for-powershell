@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.PublishLayerVersionResponse")]
     [AWSCmdlet("Calls the AWS Lambda PublishLayerVersion API operation.", Operation = new[] {"PublishLayerVersion"}, SelectReturnType = typeof(Amazon.Lambda.Model.PublishLayerVersionResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.PublishLayerVersionResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.PublishLayerVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.PublishLayerVersionResponse object containing multiple properties."
     )]
     public partial class PublishLMLayerVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

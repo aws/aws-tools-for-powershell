@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateStudioLifecycleConfig API operation.", Operation = new[] {"CreateStudioLifecycleConfig"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateStudioLifecycleConfigResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateStudioLifecycleConfigResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateStudioLifecycleConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateStudioLifecycleConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMStudioLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

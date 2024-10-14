@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetRelationalDatabaseEvents API operation.", Operation = new[] {"GetRelationalDatabaseEvents"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetRelationalDatabaseEventsResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.RelationalDatabaseEvent or Amazon.Lightsail.Model.GetRelationalDatabaseEventsResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.RelationalDatabaseEvent objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetRelationalDatabaseEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetRelationalDatabaseEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSRelationalDatabaseEventCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// <br/>'PageToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PageToken' to null for the first call then set the 'PageToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

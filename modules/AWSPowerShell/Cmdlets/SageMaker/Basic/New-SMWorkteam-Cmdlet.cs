@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateWorkteam API operation.", Operation = new[] {"CreateWorkteam"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateWorkteamResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateWorkteamResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateWorkteamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateWorkteamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMWorkteamCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

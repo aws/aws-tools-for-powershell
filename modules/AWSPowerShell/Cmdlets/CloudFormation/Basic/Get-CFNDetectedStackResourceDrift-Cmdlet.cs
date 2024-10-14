@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackResourceDrifts API operation.", Operation = new[] {"DescribeStackResourceDrifts"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceDrift or Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackResourceDrift objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNDetectedStackResourceDriftCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station CreateMissionProfile API operation.", Operation = new[] {"CreateMissionProfile"}, SelectReturnType = typeof(Amazon.GroundStation.Model.CreateMissionProfileResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.CreateMissionProfileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.CreateMissionProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.CreateMissionProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGSMissionProfileCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

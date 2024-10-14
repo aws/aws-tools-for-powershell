@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync GetFunction API operation.", Operation = new[] {"GetFunction"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetFunctionResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.FunctionConfiguration or Amazon.AppSync.Model.GetFunctionResponse",
         "This cmdlet returns an Amazon.AppSync.Model.FunctionConfiguration object.",
-        "The service call response (type Amazon.AppSync.Model.GetFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.GetFunctionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASYNFunctionCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

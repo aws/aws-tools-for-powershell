@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [OutputType("Amazon.LookoutEquipment.Model.ImportDatasetResponse")]
     [AWSCmdlet("Calls the Amazon Lookout for Equipment ImportDataset API operation.", Operation = new[] {"ImportDataset"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.ImportDatasetResponse))]
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.ImportDatasetResponse",
-        "This cmdlet returns an Amazon.LookoutEquipment.Model.ImportDatasetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LookoutEquipment.Model.ImportDatasetResponse object containing multiple properties."
     )]
     public partial class ImportL4EDatasetCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

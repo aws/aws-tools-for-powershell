@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.CreateDBShardGroupResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBShardGroup API operation.", Operation = new[] {"CreateDBShardGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBShardGroupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.CreateDBShardGroupResponse",
-        "This cmdlet returns an Amazon.RDS.Model.CreateDBShardGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.CreateDBShardGroupResponse object containing multiple properties."
     )]
     public partial class NewRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

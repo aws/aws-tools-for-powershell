@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service DisassociateThirdPartyFirewall API operation.", Operation = new[] {"DisassociateThirdPartyFirewall"}, SelectReturnType = typeof(Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse))]
     [AWSCmdletOutput("Amazon.FMS.ThirdPartyFirewallAssociationStatus or Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse",
         "This cmdlet returns an Amazon.FMS.ThirdPartyFirewallAssociationStatus object.",
-        "The service call response (type Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.DisassociateThirdPartyFirewallResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterFMSThirdPartyFirewallCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

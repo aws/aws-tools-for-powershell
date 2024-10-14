@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.RebootDBShardGroupResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service RebootDBShardGroup API operation.", Operation = new[] {"RebootDBShardGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.RebootDBShardGroupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.RebootDBShardGroupResponse",
-        "This cmdlet returns an Amazon.RDS.Model.RebootDBShardGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.RebootDBShardGroupResponse object containing multiple properties."
     )]
     public partial class RestartRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

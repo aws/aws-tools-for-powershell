@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise UpdatePortal API operation.", Operation = new[] {"UpdatePortal"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.UpdatePortalResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.PortalStatus or Amazon.IoTSiteWise.Model.UpdatePortalResponse",
         "This cmdlet returns an Amazon.IoTSiteWise.Model.PortalStatus object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.UpdatePortalResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.UpdatePortalResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTSWPortalCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

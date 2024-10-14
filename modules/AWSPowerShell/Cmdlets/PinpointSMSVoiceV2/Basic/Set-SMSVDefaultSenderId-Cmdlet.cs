@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.SetDefaultSenderIdResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 SetDefaultSenderId API operation.", Operation = new[] {"SetDefaultSenderId"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.SetDefaultSenderIdResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.SetDefaultSenderIdResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.SetDefaultSenderIdResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.SetDefaultSenderIdResponse object containing multiple properties."
     )]
     public partial class SetSMSVDefaultSenderIdCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateSMBLocalGroups API operation.", Operation = new[] {"UpdateSMBLocalGroups"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateSMBLocalGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.UpdateSMBLocalGroupsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.UpdateSMBLocalGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateSMBLocalGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSGSGSMBLocalGroupCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

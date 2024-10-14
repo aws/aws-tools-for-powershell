@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetIPSetResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetIPSet API operation.", Operation = new[] {"GetIPSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetIPSetResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetIPSetResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetIPSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetIPSetResponse object containing multiple properties."
     )]
     public partial class GetGDIPSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

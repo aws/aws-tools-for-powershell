@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) GetSubscriptionAttributes API operation.", Operation = new[] {"GetSubscriptionAttributes"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

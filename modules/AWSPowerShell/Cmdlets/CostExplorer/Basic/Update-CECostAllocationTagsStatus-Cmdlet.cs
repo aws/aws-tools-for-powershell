@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer UpdateCostAllocationTagsStatus API operation.", Operation = new[] {"UpdateCostAllocationTagsStatus"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusError or Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusError objects.",
-        "The service call response (type Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.UpdateCostAllocationTagsStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCECostAllocationTagsStatusCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

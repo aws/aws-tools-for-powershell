@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.SwitchoverGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.SwitchoverGlobalClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.GlobalCluster object.",
-        "The service call response (type Amazon.RDS.Model.SwitchoverGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.SwitchoverGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestRDSSwitchoverGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

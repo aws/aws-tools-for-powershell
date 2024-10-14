@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud CreateBudget API operation.", Operation = new[] {"CreateBudget"}, SelectReturnType = typeof(Amazon.Deadline.Model.CreateBudgetResponse))]
     [AWSCmdletOutput("System.String or Amazon.Deadline.Model.CreateBudgetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Deadline.Model.CreateBudgetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.CreateBudgetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewADCBudgetCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [AWSCmdlet("Calls the Amazon Medical Imaging Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MedicalImaging.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MedicalImaging.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MedicalImaging.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMISResourceTagCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

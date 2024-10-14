@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteSipRule API operation.", Operation = new[] {"DeleteSipRule"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteSipRuleResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteSipRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteSipRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteSipRuleResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteSipRule in the Amazon Chime SDK Voice Namespace")]
     public partial class RemoveCHMSipRuleCmdlet : AmazonChimeClientCmdlet, IExecutor

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph AssociateEntityToThing API operation.", Operation = new[] {"AssociateEntityToThing"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.AssociateEntityToThingResponse))]
     [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.AssociateEntityToThingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.AssociateEntityToThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTThingsGraph.Model.AssociateEntityToThingResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class AddIOTTGEntityToThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

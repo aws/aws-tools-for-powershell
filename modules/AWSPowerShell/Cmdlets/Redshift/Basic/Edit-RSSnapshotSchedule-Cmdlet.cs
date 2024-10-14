@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ModifySnapshotScheduleResponse")]
     [AWSCmdlet("Calls the Amazon Redshift ModifySnapshotSchedule API operation.", Operation = new[] {"ModifySnapshotSchedule"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifySnapshotScheduleResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ModifySnapshotScheduleResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.ModifySnapshotScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.ModifySnapshotScheduleResponse object containing multiple properties."
     )]
     public partial class EditRSSnapshotScheduleCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

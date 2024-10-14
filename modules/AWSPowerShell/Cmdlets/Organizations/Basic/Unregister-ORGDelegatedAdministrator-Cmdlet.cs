@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DeregisterDelegatedAdministrator API operation.", Operation = new[] {"DeregisterDelegatedAdministrator"}, SelectReturnType = typeof(Amazon.Organizations.Model.DeregisterDelegatedAdministratorResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.DeregisterDelegatedAdministratorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.DeregisterDelegatedAdministratorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.DeregisterDelegatedAdministratorResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterORGDelegatedAdministratorCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

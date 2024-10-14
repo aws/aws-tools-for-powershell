@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball CancelCluster API operation.", Operation = new[] {"CancelCluster"}, SelectReturnType = typeof(Amazon.Snowball.Model.CancelClusterResponse))]
     [AWSCmdletOutput("None or Amazon.Snowball.Model.CancelClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Snowball.Model.CancelClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Snowball.Model.CancelClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSNOWClusterCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

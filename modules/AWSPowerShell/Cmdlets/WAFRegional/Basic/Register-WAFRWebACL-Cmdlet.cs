@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional AssociateWebACL API operation.", Operation = new[] {"AssociateWebACL"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.AssociateWebACLResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.AssociateWebACLResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.AssociateWebACLResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.AssociateWebACLResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterWAFRWebACLCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service GetFederationToken API operation.", Operation = new[] {"GetFederationToken"}, SelectReturnType = typeof(Amazon.Connect.Model.GetFederationTokenResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.Credentials or Amazon.Connect.Model.GetFederationTokenResponse",
         "This cmdlet returns an Amazon.Connect.Model.Credentials object.",
-        "The service call response (type Amazon.Connect.Model.GetFederationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.GetFederationTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNFederationTokenCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

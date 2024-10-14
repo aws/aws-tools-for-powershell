@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetMonitoringSubscription API operation.", Operation = new[] {"GetMonitoringSubscription"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetMonitoringSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.MonitoringSubscription or Amazon.CloudFront.Model.GetMonitoringSubscriptionResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.MonitoringSubscription object.",
-        "The service call response (type Amazon.CloudFront.Model.GetMonitoringSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetMonitoringSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFMonitoringSubscriptionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

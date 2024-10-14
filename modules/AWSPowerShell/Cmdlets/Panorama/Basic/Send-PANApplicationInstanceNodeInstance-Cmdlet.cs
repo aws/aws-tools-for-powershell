@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama SignalApplicationInstanceNodeInstances API operation.", Operation = new[] {"SignalApplicationInstanceNodeInstances"}, SelectReturnType = typeof(Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse))]
     [AWSCmdletOutput("System.String or Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendPANApplicationInstanceNodeInstanceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

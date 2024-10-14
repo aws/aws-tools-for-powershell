@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog CreatePortfolioShare API operation.", Operation = new[] {"CreatePortfolioShare"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

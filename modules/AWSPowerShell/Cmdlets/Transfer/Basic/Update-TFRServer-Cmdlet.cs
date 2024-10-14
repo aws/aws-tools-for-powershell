@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP UpdateServer API operation.", Operation = new[] {"UpdateServer"}, SelectReturnType = typeof(Amazon.Transfer.Model.UpdateServerResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.UpdateServerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.UpdateServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.UpdateServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -129,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// endpoint that is hosted in a VPC, you can restrict access to your server and resources
         /// only within your VPC or choose to make it internet facing by attaching Elastic IP
         /// addresses directly to it.</para><note><para> After May 19, 2021, you won't be able to create a server using <c>EndpointType=VPC_ENDPOINT</c>
-        /// in your Amazon Web Servicesaccount if your account hasn't already done so before May
-        /// 19, 2021. If you have already created servers with <c>EndpointType=VPC_ENDPOINT</c>
-        /// in your Amazon Web Servicesaccount on or before May 19, 2021, you will not be affected.
+        /// in your Amazon Web Services account if your account hasn't already done so before
+        /// May 19, 2021. If you have already created servers with <c>EndpointType=VPC_ENDPOINT</c>
+        /// in your Amazon Web Services account on or before May 19, 2021, you will not be affected.
         /// After this date, use <c>EndpointType</c>=<c>VPC</c>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para><para>It is recommended that you use <c>VPC</c> as the <c>EndpointType</c>. With this endpoint
         /// type, you have the option to directly associate up to three Elastic IPv4 addresses
         /// (BYO IP included) with your server's endpoint and use VPC security groups to restrict
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A trigger that starts a workflow if a file is only partially uploaded. You can attach
-        /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para>
+        /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para><note><para><c>OnPartialUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <c>OnUpload</c>
         /// object, as in the following example.</para><para><c>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
-        /// '{"OnUpload":[]}'</c></para>
+        /// '{"OnUpload":[]}'</c></para><note><para><c>OnUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub ListApplicationStates API operation.", Operation = new[] {"ListApplicationStates"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.ListApplicationStatesResponse))]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.ApplicationState or Amazon.MigrationHub.Model.ListApplicationStatesResponse",
         "This cmdlet returns a collection of Amazon.MigrationHub.Model.ApplicationState objects.",
-        "The service call response (type Amazon.MigrationHub.Model.ListApplicationStatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHub.Model.ListApplicationStatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHApplicationStateListCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

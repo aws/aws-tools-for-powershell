@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.RejectGrantResponse")]
     [AWSCmdlet("Calls the AWS License Manager RejectGrant API operation.", Operation = new[] {"RejectGrant"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.RejectGrantResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.RejectGrantResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.RejectGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.RejectGrantResponse object containing multiple properties."
     )]
     public partial class DenyLICMGrantCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

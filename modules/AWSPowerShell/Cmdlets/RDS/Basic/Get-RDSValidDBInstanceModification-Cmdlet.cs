@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeValidDBInstanceModifications API operation.", Operation = new[] {"DescribeValidDBInstanceModifications"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeValidDBInstanceModificationsResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ValidDBInstanceModificationsMessage or Amazon.RDS.Model.DescribeValidDBInstanceModificationsResponse",
         "This cmdlet returns an Amazon.RDS.Model.ValidDBInstanceModificationsMessage object.",
-        "The service call response (type Amazon.RDS.Model.DescribeValidDBInstanceModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeValidDBInstanceModificationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSValidDBInstanceModificationCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

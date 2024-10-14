@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service GetAppValidationOutput API operation.", Operation = new[] {"GetAppValidationOutput"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.GetAppValidationOutputResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.ValidationOutput or Amazon.ServerMigrationService.Model.GetAppValidationOutputResponse",
         "This cmdlet returns a collection of Amazon.ServerMigrationService.Model.ValidationOutput objects.",
-        "The service call response (type Amazon.ServerMigrationService.Model.GetAppValidationOutputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerMigrationService.Model.GetAppValidationOutputResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSAppValidationOutputCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

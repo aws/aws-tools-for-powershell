@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps StopQAppSession API operation.", Operation = new[] {"StopQAppSession"}, SelectReturnType = typeof(Amazon.QApps.Model.StopQAppSessionResponse))]
     [AWSCmdletOutput("None or Amazon.QApps.Model.StopQAppSessionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QApps.Model.StopQAppSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QApps.Model.StopQAppSessionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopqappsQAppSessionCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

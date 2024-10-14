@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.PutRegistrationFieldValueResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 PutRegistrationFieldValue API operation.", Operation = new[] {"PutRegistrationFieldValue"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.PutRegistrationFieldValueResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.PutRegistrationFieldValueResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.PutRegistrationFieldValueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.PutRegistrationFieldValueResponse object containing multiple properties."
     )]
     public partial class SetSMSVRegistrationFieldValueCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackResource API operation.", Operation = new[] {"DescribeStackResource"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceDetail or Amazon.CloudFormation.Model.DescribeStackResourceResponse",
         "This cmdlet returns an Amazon.CloudFormation.Model.StackResourceDetail object.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNStackResourceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

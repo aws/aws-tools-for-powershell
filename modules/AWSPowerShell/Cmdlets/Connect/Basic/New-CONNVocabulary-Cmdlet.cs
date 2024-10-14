@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateVocabularyResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateVocabulary API operation.", Operation = new[] {"CreateVocabulary"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateVocabularyResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateVocabularyResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateVocabularyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateVocabularyResponse object containing multiple properties."
     )]
     public partial class NewCONNVocabularyCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

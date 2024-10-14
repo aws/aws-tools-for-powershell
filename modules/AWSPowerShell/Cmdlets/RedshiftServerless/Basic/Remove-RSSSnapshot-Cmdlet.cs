@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Snapshot or Amazon.RedshiftServerless.Model.DeleteSnapshotResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.Snapshot object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.DeleteSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

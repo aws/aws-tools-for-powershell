@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager DeleteSink API operation.", Operation = new[] {"DeleteSink"}, SelectReturnType = typeof(Amazon.OAM.Model.DeleteSinkResponse))]
     [AWSCmdletOutput("None or Amazon.OAM.Model.DeleteSinkResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OAM.Model.DeleteSinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OAM.Model.DeleteSinkResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWOAMSinkCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

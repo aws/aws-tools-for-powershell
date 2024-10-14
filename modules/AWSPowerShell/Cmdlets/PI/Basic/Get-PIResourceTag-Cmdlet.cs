@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.PI.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.PI.Model.Tag or Amazon.PI.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.PI.Model.Tag objects.",
-        "The service call response (type Amazon.PI.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PI.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPIResourceTagCmdlet : AmazonPIClientCmdlet, IExecutor
     {

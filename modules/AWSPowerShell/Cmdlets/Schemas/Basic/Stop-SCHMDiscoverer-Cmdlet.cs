@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.StopDiscovererResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry StopDiscoverer API operation.", Operation = new[] {"StopDiscoverer"}, SelectReturnType = typeof(Amazon.Schemas.Model.StopDiscovererResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.StopDiscovererResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.StopDiscovererResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.StopDiscovererResponse object containing multiple properties."
     )]
     public partial class StopSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

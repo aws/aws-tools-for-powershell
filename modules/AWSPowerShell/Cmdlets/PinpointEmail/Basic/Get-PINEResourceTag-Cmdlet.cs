@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [AWSCmdlet("Calls the Amazon Pinpoint Email ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.PinpointEmail.Model.Tag or Amazon.PinpointEmail.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.PinpointEmail.Model.Tag objects.",
-        "The service call response (type Amazon.PinpointEmail.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PinpointEmail.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINEResourceTagCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

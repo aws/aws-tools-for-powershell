@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.CreateUserResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.User or Amazon.WorkDocs.Model.CreateUserResponse",
         "This cmdlet returns an Amazon.WorkDocs.Model.User object.",
-        "The service call response (type Amazon.WorkDocs.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.CreateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWDUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

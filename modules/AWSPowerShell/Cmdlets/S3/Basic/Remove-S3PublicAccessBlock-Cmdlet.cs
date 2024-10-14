@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeletePublicAccessBlock API operation.", Operation = new[] {"DeletePublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3.Model.DeletePublicAccessBlockResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeletePublicAccessBlockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.DeletePublicAccessBlockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.DeletePublicAccessBlockResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3PublicAccessBlockCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

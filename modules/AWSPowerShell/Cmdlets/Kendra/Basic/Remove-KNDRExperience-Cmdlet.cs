@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeleteExperience API operation.", Operation = new[] {"DeleteExperience"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteExperienceResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteExperienceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteExperienceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteExperienceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

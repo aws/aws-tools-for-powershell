@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases DeleteField API operation.", Operation = new[] {"DeleteField"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteFieldResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteFieldResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.DeleteFieldResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.DeleteFieldResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCASFieldCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

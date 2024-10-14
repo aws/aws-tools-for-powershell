@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service DeleteKey API operation.", Operation = new[] {"DeleteKey"}, SelectReturnType = typeof(Amazon.LocationService.Model.DeleteKeyResponse))]
     [AWSCmdletOutput("None or Amazon.LocationService.Model.DeleteKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LocationService.Model.DeleteKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LocationService.Model.DeleteKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

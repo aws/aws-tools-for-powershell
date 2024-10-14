@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector UpdateList API operation.", Operation = new[] {"UpdateList"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.UpdateListResponse))]
     [AWSCmdletOutput("None or Amazon.FraudDetector.Model.UpdateListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.UpdateListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.UpdateListResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateFDListCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

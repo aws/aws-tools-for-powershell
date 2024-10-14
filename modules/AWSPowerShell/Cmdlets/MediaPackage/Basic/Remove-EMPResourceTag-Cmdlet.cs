@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [AWSCmdlet("Calls the AWS Elemental MediaPackage UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaPackage.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaPackage.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackage.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMPResourceTagCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

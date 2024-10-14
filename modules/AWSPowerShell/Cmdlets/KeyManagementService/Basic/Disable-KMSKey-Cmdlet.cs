@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DisableKey API operation.", Operation = new[] {"DisableKey"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DisableKeyResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DisableKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DisableKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DisableKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

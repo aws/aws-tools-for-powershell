@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CreateStorageVirtualMachine API operation.", Operation = new[] {"CreateStorageVirtualMachine"}, SelectReturnType = typeof(Amazon.FSx.Model.CreateStorageVirtualMachineResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.StorageVirtualMachine or Amazon.FSx.Model.CreateStorageVirtualMachineResponse",
         "This cmdlet returns an Amazon.FSx.Model.StorageVirtualMachine object.",
-        "The service call response (type Amazon.FSx.Model.CreateStorageVirtualMachineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CreateStorageVirtualMachineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFSXStorageVirtualMachineCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

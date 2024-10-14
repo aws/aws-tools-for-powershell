@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 DeleteAllowList API operation.", Operation = new[] {"DeleteAllowList"}, SelectReturnType = typeof(Amazon.Macie2.Model.DeleteAllowListResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.DeleteAllowListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.DeleteAllowListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.DeleteAllowListResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMAC2AllowListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

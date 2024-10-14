@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeChapCredentials API operation.", Operation = new[] {"DescribeChapCredentials"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeChapCredentialsResponse), LegacyAlias="Get-SGChapCredentials")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.ChapInfo or Amazon.StorageGateway.Model.DescribeChapCredentialsResponse",
         "This cmdlet returns a collection of Amazon.StorageGateway.Model.ChapInfo objects.",
-        "The service call response (type Amazon.StorageGateway.Model.DescribeChapCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DescribeChapCredentialsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSGChapCredentialCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray DeleteSamplingRule API operation.", Operation = new[] {"DeleteSamplingRule"}, SelectReturnType = typeof(Amazon.XRay.Model.DeleteSamplingRuleResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.SamplingRuleRecord or Amazon.XRay.Model.DeleteSamplingRuleResponse",
         "This cmdlet returns an Amazon.XRay.Model.SamplingRuleRecord object.",
-        "The service call response (type Amazon.XRay.Model.DeleteSamplingRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.XRay.Model.DeleteSamplingRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveXRSamplingRuleCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

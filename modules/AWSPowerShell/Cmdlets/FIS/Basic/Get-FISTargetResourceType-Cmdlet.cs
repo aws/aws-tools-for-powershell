@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator GetTargetResourceType API operation.", Operation = new[] {"GetTargetResourceType"}, SelectReturnType = typeof(Amazon.FIS.Model.GetTargetResourceTypeResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.TargetResourceType or Amazon.FIS.Model.GetTargetResourceTypeResponse",
         "This cmdlet returns an Amazon.FIS.Model.TargetResourceType object.",
-        "The service call response (type Amazon.FIS.Model.GetTargetResourceTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.GetTargetResourceTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFISTargetResourceTypeCmdlet : AmazonFISClientCmdlet, IExecutor
     {

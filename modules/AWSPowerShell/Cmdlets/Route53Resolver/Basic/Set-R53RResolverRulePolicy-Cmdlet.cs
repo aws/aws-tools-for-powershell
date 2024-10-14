@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver PutResolverRulePolicy API operation.", Operation = new[] {"PutResolverRulePolicy"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.PutResolverRulePolicyResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.Route53Resolver.Model.PutResolverRulePolicyResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Route53Resolver.Model.PutResolverRulePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.PutResolverRulePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetR53RResolverRulePolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

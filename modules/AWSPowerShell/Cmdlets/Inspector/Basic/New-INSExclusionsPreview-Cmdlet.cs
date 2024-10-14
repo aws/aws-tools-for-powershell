@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector CreateExclusionsPreview API operation.", Operation = new[] {"CreateExclusionsPreview"}, SelectReturnType = typeof(Amazon.Inspector.Model.CreateExclusionsPreviewResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector.Model.CreateExclusionsPreviewResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector.Model.CreateExclusionsPreviewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.CreateExclusionsPreviewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewINSExclusionsPreviewCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

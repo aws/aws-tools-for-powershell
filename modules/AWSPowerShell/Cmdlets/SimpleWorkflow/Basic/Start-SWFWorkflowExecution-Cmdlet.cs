@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) StartWorkflowExecution API operation.", Operation = new[] {"StartWorkflowExecution"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.StartWorkflowExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleWorkflow.Model.StartWorkflowExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleWorkflow.Model.StartWorkflowExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleWorkflow.Model.StartWorkflowExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartSWFWorkflowExecutionCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

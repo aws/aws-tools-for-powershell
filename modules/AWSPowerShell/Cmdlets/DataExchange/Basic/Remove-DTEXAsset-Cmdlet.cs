@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange DeleteAsset API operation.", Operation = new[] {"DeleteAsset"}, SelectReturnType = typeof(Amazon.DataExchange.Model.DeleteAssetResponse))]
     [AWSCmdletOutput("None or Amazon.DataExchange.Model.DeleteAssetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.DeleteAssetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataExchange.Model.DeleteAssetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDTEXAssetCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

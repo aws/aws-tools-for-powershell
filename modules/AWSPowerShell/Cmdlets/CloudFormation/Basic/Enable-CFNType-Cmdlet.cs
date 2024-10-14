@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation ActivateType API operation.", Operation = new[] {"ActivateType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ActivateTypeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.ActivateTypeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.ActivateTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.ActivateTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [OutputType("Amazon.ConnectCampaignService.Model.PutDialRequestBatchResponse")]
     [AWSCmdlet("Calls the Amazon Connect Campaign Service PutDialRequestBatch API operation.", Operation = new[] {"PutDialRequestBatch"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.PutDialRequestBatchResponse))]
     [AWSCmdletOutput("Amazon.ConnectCampaignService.Model.PutDialRequestBatchResponse",
-        "This cmdlet returns an Amazon.ConnectCampaignService.Model.PutDialRequestBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectCampaignService.Model.PutDialRequestBatchResponse object containing multiple properties."
     )]
     public partial class WriteCCSDialRequestBatchCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) UndeprecateDomain API operation.", Operation = new[] {"UndeprecateDomain"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.UndeprecateDomainResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.UndeprecateDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.UndeprecateDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.UndeprecateDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestoreSWFDomainCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

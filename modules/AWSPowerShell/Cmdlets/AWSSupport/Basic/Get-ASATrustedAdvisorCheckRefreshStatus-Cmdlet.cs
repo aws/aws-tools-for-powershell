@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support DescribeTrustedAdvisorCheckRefreshStatuses API operation.", Operation = new[] {"DescribeTrustedAdvisorCheckRefreshStatuses"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse), LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses")]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus or Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse",
         "This cmdlet returns a collection of Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus objects.",
-        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASATrustedAdvisorCheckRefreshStatusCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

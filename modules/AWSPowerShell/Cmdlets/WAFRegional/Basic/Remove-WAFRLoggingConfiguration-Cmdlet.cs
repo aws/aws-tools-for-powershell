@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeleteLoggingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.DeleteLoggingConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.DeleteLoggingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.DeleteLoggingConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRLoggingConfigurationCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

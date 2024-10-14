@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeTimeBasedAutoScaling API operation.", Operation = new[] {"DescribeTimeBasedAutoScaling"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingResponse))]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.TimeBasedAutoScalingConfiguration or Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.TimeBasedAutoScalingConfiguration objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

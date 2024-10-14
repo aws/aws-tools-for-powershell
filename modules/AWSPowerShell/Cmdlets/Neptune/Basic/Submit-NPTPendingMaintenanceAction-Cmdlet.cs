@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.Neptune.Model.ApplyPendingMaintenanceActionResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.ResourcePendingMaintenanceActions or Amazon.Neptune.Model.ApplyPendingMaintenanceActionResponse",
         "This cmdlet returns an Amazon.Neptune.Model.ResourcePendingMaintenanceActions object.",
-        "The service call response (type Amazon.Neptune.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.ApplyPendingMaintenanceActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SubmitNPTPendingMaintenanceActionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

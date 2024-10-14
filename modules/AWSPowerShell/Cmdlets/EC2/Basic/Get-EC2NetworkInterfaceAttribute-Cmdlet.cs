@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInterfaceAttribute API operation.", Operation = new[] {"DescribeNetworkInterfaceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse object containing multiple properties."
     )]
     public partial class GetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

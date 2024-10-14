@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteTagsResponse), LegacyAlias="Remove-RSTags")]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSResourceTagCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

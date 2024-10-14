@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer AssociateDefaultView API operation.", Operation = new[] {"AssociateDefaultView"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.AssociateDefaultViewResponse))]
     [AWSCmdletOutput("System.String or Amazon.ResourceExplorer2.Model.AssociateDefaultViewResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.AssociateDefaultViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.AssociateDefaultViewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterAREXDefaultViewCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

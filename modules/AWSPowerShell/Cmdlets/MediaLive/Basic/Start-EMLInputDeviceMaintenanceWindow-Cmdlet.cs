@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive StartInputDeviceMaintenanceWindow API operation.", Operation = new[] {"StartInputDeviceMaintenanceWindow"}, SelectReturnType = typeof(Amazon.MediaLive.Model.StartInputDeviceMaintenanceWindowResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.StartInputDeviceMaintenanceWindowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.StartInputDeviceMaintenanceWindowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.StartInputDeviceMaintenanceWindowResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartEMLInputDeviceMaintenanceWindowCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

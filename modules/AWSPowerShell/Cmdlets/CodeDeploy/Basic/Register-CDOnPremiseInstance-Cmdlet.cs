@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy RegisterOnPremisesInstance API operation.", Operation = new[] {"RegisterOnPremisesInstance"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

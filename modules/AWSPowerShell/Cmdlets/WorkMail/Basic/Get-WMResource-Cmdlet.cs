@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.DescribeResourceResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail DescribeResource API operation.", Operation = new[] {"DescribeResource"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DescribeResourceResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.DescribeResourceResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.DescribeResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.DescribeResourceResponse object containing multiple properties."
     )]
     public partial class GetWMResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DissociatePackage API operation.", Operation = new[] {"DissociatePackage"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DissociatePackageResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainPackageDetails or Amazon.OpenSearchService.Model.DissociatePackageResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.DomainPackageDetails object.",
-        "The service call response (type Amazon.OpenSearchService.Model.DissociatePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DissociatePackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartOSDissociatePackageCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

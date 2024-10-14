@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service CreateView API operation.", Operation = new[] {"CreateView"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateViewResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.View or Amazon.Connect.Model.CreateViewResponse",
         "This cmdlet returns an Amazon.Connect.Model.View object.",
-        "The service call response (type Amazon.Connect.Model.CreateViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.CreateViewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCONNViewCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

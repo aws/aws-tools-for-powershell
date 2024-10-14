@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptTransitGatewayVpcAttachment API operation.", Operation = new[] {"AcceptTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptTransitGatewayVpcAttachmentResponse), LegacyAlias="Confirm-EC2TransitGatewayVpcAttachment")]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayVpcAttachment or Amazon.EC2.Model.AcceptTransitGatewayVpcAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayVpcAttachment object.",
-        "The service call response (type Amazon.EC2.Model.AcceptTransitGatewayVpcAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AcceptTransitGatewayVpcAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveEC2TransitGatewayVpcAttachmentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

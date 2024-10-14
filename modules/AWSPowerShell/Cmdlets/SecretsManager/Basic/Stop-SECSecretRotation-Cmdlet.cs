@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.CancelRotateSecretResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager CancelRotateSecret API operation.", Operation = new[] {"CancelRotateSecret"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.CancelRotateSecretResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.CancelRotateSecretResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.CancelRotateSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.CancelRotateSecretResponse object containing multiple properties."
     )]
     public partial class StopSECSecretRotationCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

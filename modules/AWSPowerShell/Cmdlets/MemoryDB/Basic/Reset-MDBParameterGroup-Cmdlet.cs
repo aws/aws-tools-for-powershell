@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB ResetParameterGroup API operation.", Operation = new[] {"ResetParameterGroup"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.ResetParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ParameterGroup or Amazon.MemoryDB.Model.ResetParameterGroupResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.ParameterGroup object.",
-        "The service call response (type Amazon.MemoryDB.Model.ResetParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.ResetParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetMDBParameterGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

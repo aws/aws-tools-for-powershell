@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin GetApplicationGrant API operation.", Operation = new[] {"GetApplicationGrant"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.GetApplicationGrantResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.Grant or Amazon.SSOAdmin.Model.GetApplicationGrantResponse",
         "This cmdlet returns an Amazon.SSOAdmin.Model.Grant object.",
-        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationGrantResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSOADMNApplicationGrantCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

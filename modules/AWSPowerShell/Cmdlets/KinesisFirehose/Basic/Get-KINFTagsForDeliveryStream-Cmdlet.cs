@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [OutputType("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Firehose ListTagsForDeliveryStream API operation.", Operation = new[] {"ListTagsForDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse))]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse",
-        "This cmdlet returns an Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse object containing multiple properties."
     )]
     public partial class GetKINFTagsForDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {

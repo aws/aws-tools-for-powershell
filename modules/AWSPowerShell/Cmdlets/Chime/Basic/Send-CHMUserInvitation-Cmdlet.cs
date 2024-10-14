@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime InviteUsers API operation.", Operation = new[] {"InviteUsers"}, SelectReturnType = typeof(Amazon.Chime.Model.InviteUsersResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.Invite or Amazon.Chime.Model.InviteUsersResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.Invite objects.",
-        "The service call response (type Amazon.Chime.Model.InviteUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.InviteUsersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendCHMUserInvitationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

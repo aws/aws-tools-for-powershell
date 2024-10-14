@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeletePublicIpv4Pool API operation.", Operation = new[] {"DeletePublicIpv4Pool"}, SelectReturnType = typeof(Amazon.EC2.Model.DeletePublicIpv4PoolResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeletePublicIpv4PoolResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DeletePublicIpv4PoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeletePublicIpv4PoolResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2PublicIpv4PoolCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

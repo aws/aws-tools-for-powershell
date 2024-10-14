@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeSnapshotSchedule API operation.", Operation = new[] {"DescribeSnapshotSchedule"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse object containing multiple properties."
     )]
     public partial class GetSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

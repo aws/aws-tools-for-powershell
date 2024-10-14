@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.DeleteApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.DeleteApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

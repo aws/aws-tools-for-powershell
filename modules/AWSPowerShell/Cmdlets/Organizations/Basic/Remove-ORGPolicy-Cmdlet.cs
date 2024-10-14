@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

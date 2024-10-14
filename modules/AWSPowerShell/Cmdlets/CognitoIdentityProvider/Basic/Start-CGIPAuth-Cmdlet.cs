@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [OutputType("Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider InitiateAuth API operation.", Operation = new[] {"InitiateAuth"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse object containing multiple properties."
     )]
     public partial class StartCGIPAuthCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

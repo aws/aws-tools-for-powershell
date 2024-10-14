@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 UpdateClassificationJob API operation.", Operation = new[] {"UpdateClassificationJob"}, SelectReturnType = typeof(Amazon.Macie2.Model.UpdateClassificationJobResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.UpdateClassificationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.UpdateClassificationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.UpdateClassificationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateMAC2ClassificationJobCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

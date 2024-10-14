@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) Unsubscribe API operation.", Operation = new[] {"Unsubscribe"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.UnsubscribeResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.UnsubscribeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.UnsubscribeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.UnsubscribeResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

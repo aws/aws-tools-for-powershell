@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch UpdateScalingParameters API operation.", Operation = new[] {"UpdateScalingParameters"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.UpdateScalingParametersResponse), LegacyAlias="Update-CSScalingParameters")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ScalingParametersStatus or Amazon.CloudSearch.Model.UpdateScalingParametersResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.ScalingParametersStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.UpdateScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.UpdateScalingParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

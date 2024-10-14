@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager CreateLink API operation.", Operation = new[] {"CreateLink"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateLinkResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Link or Amazon.NetworkManager.Model.CreateLinkResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Link object.",
-        "The service call response (type Amazon.NetworkManager.Model.CreateLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.CreateLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNMGRLinkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

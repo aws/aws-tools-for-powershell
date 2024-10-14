@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.ChatSyncResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness ChatSync API operation.", Operation = new[] {"ChatSync"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ChatSyncResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.ChatSyncResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.ChatSyncResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.ChatSyncResponse object containing multiple properties."
     )]
     public partial class SetQBUSChatSyncCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

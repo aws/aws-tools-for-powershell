@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeWorkingStorageResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeWorkingStorage API operation.", Operation = new[] {"DescribeWorkingStorage"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeWorkingStorageResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeWorkingStorageResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeWorkingStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeWorkingStorageResponse object containing multiple properties."
     )]
     public partial class GetSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

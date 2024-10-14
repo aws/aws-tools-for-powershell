@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableVpcClassicLinkDnsSupport API operation.", Operation = new[] {"EnableVpcClassicLinkDnsSupport"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2VpcClassicLinkDnsSupportCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

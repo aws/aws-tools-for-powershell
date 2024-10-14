@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy DeregisterOnPremisesInstance API operation.", Operation = new[] {"DeregisterOnPremisesInstance"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DisableAWSOrganizationsAccess API operation.", Operation = new[] {"DisableAWSOrganizationsAccess"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DisableAWSOrganizationsAccessResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DisableAWSOrganizationsAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DisableAWSOrganizationsAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DisableAWSOrganizationsAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableSCAWSOrganizationsAccessCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations AcceptHandshake API operation.", Operation = new[] {"AcceptHandshake"}, SelectReturnType = typeof(Amazon.Organizations.Model.AcceptHandshakeResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake or Amazon.Organizations.Model.AcceptHandshakeResponse",
         "This cmdlet returns an Amazon.Organizations.Model.Handshake object.",
-        "The service call response (type Amazon.Organizations.Model.AcceptHandshakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.AcceptHandshakeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmORGHandshakeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

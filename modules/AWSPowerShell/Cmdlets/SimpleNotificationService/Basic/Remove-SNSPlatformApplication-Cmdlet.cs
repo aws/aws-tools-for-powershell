@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) DeletePlatformApplication API operation.", Operation = new[] {"DeletePlatformApplication"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSNSPlatformApplicationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation RemoveLFTagsFromResource API operation.", Operation = new[] {"RemoveLFTagsFromResource"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.RemoveLFTagsFromResourceResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.LFTagError or Amazon.LakeFormation.Model.RemoveLFTagsFromResourceResponse",
         "This cmdlet returns a collection of Amazon.LakeFormation.Model.LFTagError objects.",
-        "The service call response (type Amazon.LakeFormation.Model.RemoveLFTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.RemoveLFTagsFromResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLKFLFTagsFromResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

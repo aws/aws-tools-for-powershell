@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce AddJobFlowSteps API operation.", Operation = new[] {"AddJobFlowSteps"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

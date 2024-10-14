@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteCodeSigningConfig API operation.", Operation = new[] {"DeleteCodeSigningConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteCodeSigningConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteCodeSigningConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteCodeSigningConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteCodeSigningConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMCodeSigningConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

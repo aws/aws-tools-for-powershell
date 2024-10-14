@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations PutPortfolioPreferences API operation.", Operation = new[] {"PutPortfolioPreferences"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteMHSPortfolioPreferenceCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

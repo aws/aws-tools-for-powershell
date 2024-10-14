@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains CancelDomainTransferToAnotherAwsAccount API operation.", Operation = new[] {"CancelDomainTransferToAnotherAwsAccount"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.CancelDomainTransferToAnotherAwsAccountResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.CancelDomainTransferToAnotherAwsAccountResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.CancelDomainTransferToAnotherAwsAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.CancelDomainTransferToAnotherAwsAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopR53DDomainTransferToAnotherAwsAccountCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

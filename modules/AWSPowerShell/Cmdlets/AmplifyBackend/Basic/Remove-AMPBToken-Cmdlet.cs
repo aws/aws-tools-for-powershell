@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [AWSCmdlet("Calls the Amplify Backend DeleteToken API operation.", Operation = new[] {"DeleteToken"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.DeleteTokenResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.AmplifyBackend.Model.DeleteTokenResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.AmplifyBackend.Model.DeleteTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyBackend.Model.DeleteTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPBTokenCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

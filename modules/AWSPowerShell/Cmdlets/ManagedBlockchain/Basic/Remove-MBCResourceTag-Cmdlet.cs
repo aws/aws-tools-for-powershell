@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ManagedBlockchain.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ManagedBlockchain.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ManagedBlockchain.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMBCResourceTagCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

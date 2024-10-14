@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewQBUSApplicationCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

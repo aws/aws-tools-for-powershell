@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketIntelligentTieringConfiguration API operation.", Operation = new[] {"DeleteBucketIntelligentTieringConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.DeleteBucketIntelligentTieringConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3BucketIntelligentTieringConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

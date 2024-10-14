@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ApplicationSignals.Model.Tag or Amazon.ApplicationSignals.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ApplicationSignals.Model.Tag objects.",
-        "The service call response (type Amazon.ApplicationSignals.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationSignals.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWASResourceTagCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

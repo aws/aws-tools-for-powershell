@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics ListShares API operation.", Operation = new[] {"ListShares"}, SelectReturnType = typeof(Amazon.Omics.Model.ListSharesResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.ShareDetails or Amazon.Omics.Model.ListSharesResponse",
         "This cmdlet returns a collection of Amazon.Omics.Model.ShareDetails objects.",
-        "The service call response (type Amazon.Omics.Model.ListSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.ListSharesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOMICSShareListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

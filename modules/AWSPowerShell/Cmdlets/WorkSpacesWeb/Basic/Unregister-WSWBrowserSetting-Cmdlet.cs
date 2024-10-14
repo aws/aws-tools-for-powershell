@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DisassociateBrowserSettings API operation.", Operation = new[] {"DisassociateBrowserSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DisassociateBrowserSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DisassociateBrowserSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateBrowserSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateBrowserSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWSWBrowserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

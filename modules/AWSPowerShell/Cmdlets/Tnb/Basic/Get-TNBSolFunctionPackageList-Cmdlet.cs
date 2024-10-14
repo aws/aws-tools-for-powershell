@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder ListSolFunctionPackages API operation.", Operation = new[] {"ListSolFunctionPackages"}, SelectReturnType = typeof(Amazon.Tnb.Model.ListSolFunctionPackagesResponse))]
     [AWSCmdletOutput("Amazon.Tnb.Model.ListSolFunctionPackageInfo or Amazon.Tnb.Model.ListSolFunctionPackagesResponse",
         "This cmdlet returns a collection of Amazon.Tnb.Model.ListSolFunctionPackageInfo objects.",
-        "The service call response (type Amazon.Tnb.Model.ListSolFunctionPackagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Tnb.Model.ListSolFunctionPackagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTNBSolFunctionPackageListCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

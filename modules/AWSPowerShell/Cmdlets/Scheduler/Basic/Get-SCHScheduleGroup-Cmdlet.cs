@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     [OutputType("Amazon.Scheduler.Model.GetScheduleGroupResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Scheduler GetScheduleGroup API operation.", Operation = new[] {"GetScheduleGroup"}, SelectReturnType = typeof(Amazon.Scheduler.Model.GetScheduleGroupResponse))]
     [AWSCmdletOutput("Amazon.Scheduler.Model.GetScheduleGroupResponse",
-        "This cmdlet returns an Amazon.Scheduler.Model.GetScheduleGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Scheduler.Model.GetScheduleGroupResponse object containing multiple properties."
     )]
     public partial class GetSCHScheduleGroupCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {

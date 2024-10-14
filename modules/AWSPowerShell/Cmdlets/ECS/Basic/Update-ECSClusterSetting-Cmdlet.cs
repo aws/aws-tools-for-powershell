@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service UpdateClusterSettings API operation.", Operation = new[] {"UpdateClusterSettings"}, SelectReturnType = typeof(Amazon.ECS.Model.UpdateClusterSettingsResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster or Amazon.ECS.Model.UpdateClusterSettingsResponse",
         "This cmdlet returns an Amazon.ECS.Model.Cluster object.",
-        "The service call response (type Amazon.ECS.Model.UpdateClusterSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateClusterSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateECSClusterSettingCmdlet : AmazonECSClientCmdlet, IExecutor
     {

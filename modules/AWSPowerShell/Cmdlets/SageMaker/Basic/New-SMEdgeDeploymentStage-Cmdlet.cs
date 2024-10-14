@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateEdgeDeploymentStage API operation.", Operation = new[] {"CreateEdgeDeploymentStage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateEdgeDeploymentStageResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.CreateEdgeDeploymentStageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.CreateEdgeDeploymentStageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.CreateEdgeDeploymentStageResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSMEdgeDeploymentStageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

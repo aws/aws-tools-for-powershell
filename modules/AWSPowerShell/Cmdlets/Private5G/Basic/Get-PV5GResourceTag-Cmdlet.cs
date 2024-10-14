@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Private5G.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Private5G.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Private5G.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Private5G.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPV5GResourceTagCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

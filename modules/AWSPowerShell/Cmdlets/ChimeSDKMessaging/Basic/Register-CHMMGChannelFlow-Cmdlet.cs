@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging AssociateChannelFlow API operation.", Operation = new[] {"AssociateChannelFlow"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.AssociateChannelFlowResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMessaging.Model.AssociateChannelFlowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMessaging.Model.AssociateChannelFlowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMessaging.Model.AssociateChannelFlowResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterCHMMGChannelFlowCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

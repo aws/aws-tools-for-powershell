@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert DeletePreset API operation.", Operation = new[] {"DeletePreset"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.DeletePresetResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.DeletePresetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.DeletePresetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.DeletePresetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCPresetCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

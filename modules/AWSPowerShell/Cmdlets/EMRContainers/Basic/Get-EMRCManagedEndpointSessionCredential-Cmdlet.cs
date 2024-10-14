@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [OutputType("Amazon.EMRContainers.Model.GetManagedEndpointSessionCredentialsResponse")]
     [AWSCmdlet("Calls the Amazon EMR Containers GetManagedEndpointSessionCredentials API operation.", Operation = new[] {"GetManagedEndpointSessionCredentials"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.GetManagedEndpointSessionCredentialsResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.GetManagedEndpointSessionCredentialsResponse",
-        "This cmdlet returns an Amazon.EMRContainers.Model.GetManagedEndpointSessionCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRContainers.Model.GetManagedEndpointSessionCredentialsResponse object containing multiple properties."
     )]
     public partial class GetEMRCManagedEndpointSessionCredentialCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

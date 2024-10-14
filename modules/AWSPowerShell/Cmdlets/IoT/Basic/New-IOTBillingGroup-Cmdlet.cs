@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateBillingGroupResponse")]
     [AWSCmdlet("Calls the AWS IoT CreateBillingGroup API operation.", Operation = new[] {"CreateBillingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateBillingGroupResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateBillingGroupResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateBillingGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreateBillingGroupResponse object containing multiple properties."
     )]
     public partial class NewIOTBillingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

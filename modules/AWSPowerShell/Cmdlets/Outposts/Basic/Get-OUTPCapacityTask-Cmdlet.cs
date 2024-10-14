@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [OutputType("Amazon.Outposts.Model.GetCapacityTaskResponse")]
     [AWSCmdlet("Calls the AWS Outposts GetCapacityTask API operation.", Operation = new[] {"GetCapacityTask"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetCapacityTaskResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.GetCapacityTaskResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.GetCapacityTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Outposts.Model.GetCapacityTaskResponse object containing multiple properties."
     )]
     public partial class GetOUTPCapacityTaskCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

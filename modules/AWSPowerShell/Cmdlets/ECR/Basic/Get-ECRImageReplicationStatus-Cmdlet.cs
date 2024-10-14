@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.DescribeImageReplicationStatusResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeImageReplicationStatus API operation.", Operation = new[] {"DescribeImageReplicationStatus"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeImageReplicationStatusResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DescribeImageReplicationStatusResponse",
-        "This cmdlet returns an Amazon.ECR.Model.DescribeImageReplicationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.DescribeImageReplicationStatusResponse object containing multiple properties."
     )]
     public partial class GetECRImageReplicationStatusCmdlet : AmazonECRClientCmdlet, IExecutor
     {

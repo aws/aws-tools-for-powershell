@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [OutputType("Amazon.RedshiftServerless.Model.RestoreFromSnapshotResponse")]
     [AWSCmdlet("Calls the Redshift Serverless RestoreFromSnapshot API operation.", Operation = new[] {"RestoreFromSnapshot"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.RestoreFromSnapshotResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.RestoreFromSnapshotResponse",
-        "This cmdlet returns an Amazon.RedshiftServerless.Model.RestoreFromSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.RestoreFromSnapshotResponse object containing multiple properties."
     )]
     public partial class RestoreRSSFromSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

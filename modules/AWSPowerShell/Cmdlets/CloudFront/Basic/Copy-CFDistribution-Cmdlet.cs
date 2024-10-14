@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CopyDistributionResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CopyDistribution API operation.", Operation = new[] {"CopyDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CopyDistributionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CopyDistributionResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CopyDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CopyDistributionResponse object containing multiple properties."
     )]
     public partial class CopyCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

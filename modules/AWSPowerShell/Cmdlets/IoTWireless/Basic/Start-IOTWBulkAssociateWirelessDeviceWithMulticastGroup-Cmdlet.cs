@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless StartBulkAssociateWirelessDeviceWithMulticastGroup API operation.", Operation = new[] {"StartBulkAssociateWirelessDeviceWithMulticastGroup"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.StartBulkAssociateWirelessDeviceWithMulticastGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.StartBulkAssociateWirelessDeviceWithMulticastGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.StartBulkAssociateWirelessDeviceWithMulticastGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.StartBulkAssociateWirelessDeviceWithMulticastGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartIOTWBulkAssociateWirelessDeviceWithMulticastGroupCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

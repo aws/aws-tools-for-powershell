@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteTrafficDistributionGroup API operation.", Operation = new[] {"DeleteTrafficDistributionGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

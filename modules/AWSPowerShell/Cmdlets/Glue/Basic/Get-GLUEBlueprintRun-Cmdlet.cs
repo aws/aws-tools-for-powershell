@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetBlueprintRun API operation.", Operation = new[] {"GetBlueprintRun"}, SelectReturnType = typeof(Amazon.Glue.Model.GetBlueprintRunResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BlueprintRun or Amazon.Glue.Model.GetBlueprintRunResponse",
         "This cmdlet returns an Amazon.Glue.Model.BlueprintRun object.",
-        "The service call response (type Amazon.Glue.Model.GetBlueprintRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetBlueprintRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUEBlueprintRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

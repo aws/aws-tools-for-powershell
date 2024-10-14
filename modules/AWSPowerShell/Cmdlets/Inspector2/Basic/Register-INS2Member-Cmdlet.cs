@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 AssociateMember API operation.", Operation = new[] {"AssociateMember"}, SelectReturnType = typeof(Amazon.Inspector2.Model.AssociateMemberResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector2.Model.AssociateMemberResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector2.Model.AssociateMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.AssociateMemberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterINS2MemberCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

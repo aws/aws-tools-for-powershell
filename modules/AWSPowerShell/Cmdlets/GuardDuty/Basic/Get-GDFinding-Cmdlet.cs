@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty GetFindings API operation.", Operation = new[] {"GetFindings"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetFindingsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.Finding or Amazon.GuardDuty.Model.GetFindingsResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.Finding objects.",
-        "The service call response (type Amazon.GuardDuty.Model.GetFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.GetFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDFindingCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

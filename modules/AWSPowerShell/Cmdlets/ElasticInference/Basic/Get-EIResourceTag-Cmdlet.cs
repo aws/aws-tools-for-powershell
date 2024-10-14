@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
     [AWSCmdlet("Calls the Amazon Elastic Inference ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ElasticInference.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticInference.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticInference.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticInference.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEIResourceTagCmdlet : AmazonElasticInferenceClientCmdlet, IExecutor
     {

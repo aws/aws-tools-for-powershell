@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines StartSpeakerSearchTask API operation.", Operation = new[] {"StartSpeakerSearchTask"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.StartSpeakerSearchTaskResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.SpeakerSearchTask or Amazon.ChimeSDKMediaPipelines.Model.StartSpeakerSearchTaskResponse",
         "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.SpeakerSearchTask object.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.StartSpeakerSearchTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.StartSpeakerSearchTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCHMMPSpeakerSearchTaskCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {

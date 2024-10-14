@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 GetReusableDelegationSetLimit API operation.", Operation = new[] {"GetReusableDelegationSetLimit"}, SelectReturnType = typeof(Amazon.Route53.Model.GetReusableDelegationSetLimitResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.Route53.Model.GetReusableDelegationSetLimitResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetLimitResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53ReusableDelegationSetLimitCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

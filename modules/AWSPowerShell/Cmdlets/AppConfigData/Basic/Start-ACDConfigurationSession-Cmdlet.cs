@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     [AWSCmdlet("Calls the AWS AppConfig Data StartConfigurationSession API operation.", Operation = new[] {"StartConfigurationSession"}, SelectReturnType = typeof(Amazon.AppConfigData.Model.StartConfigurationSessionResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppConfigData.Model.StartConfigurationSessionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AppConfigData.Model.StartConfigurationSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppConfigData.Model.StartConfigurationSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartACDConfigurationSessionCmdlet : AmazonAppConfigDataClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.RemoveTagsResponse), LegacyAlias="Remove-CTTag")]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCTResourceTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

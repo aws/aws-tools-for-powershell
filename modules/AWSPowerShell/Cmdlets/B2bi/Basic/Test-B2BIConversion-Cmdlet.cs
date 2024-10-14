@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [OutputType("Amazon.B2bi.Model.TestConversionResponse")]
     [AWSCmdlet("Calls the AWS B2B Data Interchange TestConversion API operation.", Operation = new[] {"TestConversion"}, SelectReturnType = typeof(Amazon.B2bi.Model.TestConversionResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.TestConversionResponse",
-        "This cmdlet returns an Amazon.B2bi.Model.TestConversionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.B2bi.Model.TestConversionResponse object containing multiple properties."
     )]
     public partial class TestB2BIConversionCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [OutputType("Amazon.DataExchange.Model.GetJobResponse")]
     [AWSCmdlet("Calls the AWS Data Exchange GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.DataExchange.Model.GetJobResponse))]
     [AWSCmdletOutput("Amazon.DataExchange.Model.GetJobResponse",
-        "This cmdlet returns an Amazon.DataExchange.Model.GetJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataExchange.Model.GetJobResponse object containing multiple properties."
     )]
     public partial class GetDTEXJobCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect DescribeReservation API operation.", Operation = new[] {"DescribeReservation"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DescribeReservationResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.Reservation or Amazon.MediaConnect.Model.DescribeReservationResponse",
         "This cmdlet returns an Amazon.MediaConnect.Model.Reservation object.",
-        "The service call response (type Amazon.MediaConnect.Model.DescribeReservationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConnect.Model.DescribeReservationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMCNReservationCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Ivschat.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Ivschat.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Ivschat.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Ivschat.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSCResourceTagCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

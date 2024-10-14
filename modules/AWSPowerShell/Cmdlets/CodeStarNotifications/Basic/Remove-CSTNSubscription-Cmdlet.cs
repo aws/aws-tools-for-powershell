@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications Unsubscribe API operation.", Operation = new[] {"Unsubscribe"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.UnsubscribeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeStarNotifications.Model.UnsubscribeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeStarNotifications.Model.UnsubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarNotifications.Model.UnsubscribeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSTNSubscriptionCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

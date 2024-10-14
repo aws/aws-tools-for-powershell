@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateRoleDescription API operation.", Operation = new[] {"UpdateRoleDescription"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role or Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.Role object.",
-        "The service call response (type Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMRoleDescriptionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

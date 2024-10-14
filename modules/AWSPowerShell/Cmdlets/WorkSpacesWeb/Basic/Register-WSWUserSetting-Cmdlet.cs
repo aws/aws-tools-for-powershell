@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [OutputType("Amazon.WorkSpacesWeb.Model.AssociateUserSettingsResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces Web AssociateUserSettings API operation.", Operation = new[] {"AssociateUserSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.AssociateUserSettingsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.AssociateUserSettingsResponse",
-        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.AssociateUserSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.AssociateUserSettingsResponse object containing multiple properties."
     )]
     public partial class RegisterWSWUserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

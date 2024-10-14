@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.EnableHttpEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service EnableHttpEndpoint API operation.", Operation = new[] {"EnableHttpEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.EnableHttpEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.EnableHttpEndpointResponse",
-        "This cmdlet returns an Amazon.RDS.Model.EnableHttpEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.EnableHttpEndpointResponse object containing multiple properties."
     )]
     public partial class EnableRDSHttpEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

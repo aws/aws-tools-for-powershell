@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.DescribeOriginEndpointResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage DescribeOriginEndpoint API operation.", Operation = new[] {"DescribeOriginEndpoint"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.DescribeOriginEndpointResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.DescribeOriginEndpointResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.DescribeOriginEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.DescribeOriginEndpointResponse object containing multiple properties."
     )]
     public partial class GetEMPOriginEndpointCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

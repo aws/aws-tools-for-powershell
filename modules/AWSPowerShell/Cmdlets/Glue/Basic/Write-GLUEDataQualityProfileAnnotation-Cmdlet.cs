@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue PutDataQualityProfileAnnotation API operation.", Operation = new[] {"PutDataQualityProfileAnnotation"}, SelectReturnType = typeof(Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteGLUEDataQualityProfileAnnotationCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

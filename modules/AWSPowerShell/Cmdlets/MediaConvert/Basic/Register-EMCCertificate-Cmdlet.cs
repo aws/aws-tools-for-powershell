@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert AssociateCertificate API operation.", Operation = new[] {"AssociateCertificate"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.AssociateCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.AssociateCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.AssociateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.AssociateCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterEMCCertificateCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

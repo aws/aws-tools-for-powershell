@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [OutputType("Amazon.Tnb.Model.GetSolNetworkOperationResponse")]
     [AWSCmdlet("Calls the AWS Telco Network Builder GetSolNetworkOperation API operation.", Operation = new[] {"GetSolNetworkOperation"}, SelectReturnType = typeof(Amazon.Tnb.Model.GetSolNetworkOperationResponse))]
     [AWSCmdletOutput("Amazon.Tnb.Model.GetSolNetworkOperationResponse",
-        "This cmdlet returns an Amazon.Tnb.Model.GetSolNetworkOperationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Tnb.Model.GetSolNetworkOperationResponse object containing multiple properties."
     )]
     public partial class GetTNBSolNetworkOperationCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

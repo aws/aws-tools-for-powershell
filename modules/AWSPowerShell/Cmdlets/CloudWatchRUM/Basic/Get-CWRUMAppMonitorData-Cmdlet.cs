@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     [AWSCmdlet("Calls the CloudWatch RUM GetAppMonitorData API operation.", Operation = new[] {"GetAppMonitorData"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.GetAppMonitorDataResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudWatchRUM.Model.GetAppMonitorDataResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudWatchRUM.Model.GetAppMonitorDataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchRUM.Model.GetAppMonitorDataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWRUMAppMonitorDataCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs DeleteDocument API operation.", Operation = new[] {"DeleteDocument"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DeleteDocumentResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.DeleteDocumentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.DeleteDocumentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWDDocumentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

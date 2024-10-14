@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageBlockPublicAccess API operation.", Operation = new[] {"EnableImageBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageBlockPublicAccessResponse))]
     [AWSCmdletOutput("Amazon.EC2.ImageBlockPublicAccessEnabledState or Amazon.EC2.Model.EnableImageBlockPublicAccessResponse",
         "This cmdlet returns an Amazon.EC2.ImageBlockPublicAccessEnabledState object.",
-        "The service call response (type Amazon.EC2.Model.EnableImageBlockPublicAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.EnableImageBlockPublicAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2ImageBlockPublicAccessCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

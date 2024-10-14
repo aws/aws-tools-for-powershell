@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry DeleteSchemaVersion API operation.", Operation = new[] {"DeleteSchemaVersion"}, SelectReturnType = typeof(Amazon.Schemas.Model.DeleteSchemaVersionResponse))]
     [AWSCmdletOutput("None or Amazon.Schemas.Model.DeleteSchemaVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Schemas.Model.DeleteSchemaVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Schemas.Model.DeleteSchemaVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCHMSchemaVersionCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Connection or Amazon.NetworkManager.Model.DeleteConnectionResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Connection object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRConnectionCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

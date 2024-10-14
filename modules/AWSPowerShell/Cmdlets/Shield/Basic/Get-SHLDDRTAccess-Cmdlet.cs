@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [OutputType("Amazon.Shield.Model.DescribeDRTAccessResponse")]
     [AWSCmdlet("Calls the AWS Shield DescribeDRTAccess API operation.", Operation = new[] {"DescribeDRTAccess"}, SelectReturnType = typeof(Amazon.Shield.Model.DescribeDRTAccessResponse))]
     [AWSCmdletOutput("Amazon.Shield.Model.DescribeDRTAccessResponse",
-        "This cmdlet returns an Amazon.Shield.Model.DescribeDRTAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Shield.Model.DescribeDRTAccessResponse object containing multiple properties."
     )]
     public partial class GetSHLDDRTAccessCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

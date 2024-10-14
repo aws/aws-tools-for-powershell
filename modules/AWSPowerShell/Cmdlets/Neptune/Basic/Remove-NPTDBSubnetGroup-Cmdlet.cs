@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"}, SelectReturnType = typeof(Amazon.Neptune.Model.DeleteDBSubnetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Neptune.Model.DeleteDBSubnetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Neptune.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Neptune.Model.DeleteDBSubnetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveNPTDBSubnetGroupCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

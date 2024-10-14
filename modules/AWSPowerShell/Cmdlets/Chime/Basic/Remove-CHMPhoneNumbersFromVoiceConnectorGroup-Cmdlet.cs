@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DisassociatePhoneNumbersFromVoiceConnectorGroup API operation.", Operation = new[] {"DisassociatePhoneNumbersFromVoiceConnectorGroup"}, SelectReturnType = typeof(Amazon.Chime.Model.DisassociatePhoneNumbersFromVoiceConnectorGroupResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.PhoneNumberError or Amazon.Chime.Model.DisassociatePhoneNumbersFromVoiceConnectorGroupResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.PhoneNumberError objects.",
-        "The service call response (type Amazon.Chime.Model.DisassociatePhoneNumbersFromVoiceConnectorGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.DisassociatePhoneNumbersFromVoiceConnectorGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DisassociatePhoneNumbersFromVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
     public partial class RemoveCHMPhoneNumbersFromVoiceConnectorGroupCmdlet : AmazonChimeClientCmdlet, IExecutor

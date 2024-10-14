@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache AuthorizeCacheSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeCacheSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup or Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.CacheSecurityGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveECCacheSecurityGroupIngressCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [AWSCmdlet("Calls the AWS WAF V2 ListLoggingConfigurations API operation.", Operation = new[] {"ListLoggingConfigurations"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListLoggingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.LoggingConfiguration or Amazon.WAFV2.Model.ListLoggingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.WAFV2.Model.LoggingConfiguration objects.",
-        "The service call response (type Amazon.WAFV2.Model.ListLoggingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFV2.Model.ListLoggingConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAF2LoggingConfigurationListCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'NextMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextMarker' to null for the first call then set the 'NextMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

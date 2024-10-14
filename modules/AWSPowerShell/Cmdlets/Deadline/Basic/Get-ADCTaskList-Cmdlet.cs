@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud ListTasks API operation.", Operation = new[] {"ListTasks"}, SelectReturnType = typeof(Amazon.Deadline.Model.ListTasksResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.TaskSummary or Amazon.Deadline.Model.ListTasksResponse",
         "This cmdlet returns a collection of Amazon.Deadline.Model.TaskSummary objects.",
-        "The service call response (type Amazon.Deadline.Model.ListTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.ListTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADCTaskListCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

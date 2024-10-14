@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.UpdateSpaceResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst UpdateSpace API operation.", Operation = new[] {"UpdateSpace"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.UpdateSpaceResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.UpdateSpaceResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.UpdateSpaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.UpdateSpaceResponse object containing multiple properties."
     )]
     public partial class UpdateCCATSpaceCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

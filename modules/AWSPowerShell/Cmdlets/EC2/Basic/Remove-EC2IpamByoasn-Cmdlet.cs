@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeprovisionIpamByoasn API operation.", Operation = new[] {"DeprovisionIpamByoasn"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionIpamByoasnResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Byoasn or Amazon.EC2.Model.DeprovisionIpamByoasnResponse",
         "This cmdlet returns an Amazon.EC2.Model.Byoasn object.",
-        "The service call response (type Amazon.EC2.Model.DeprovisionIpamByoasnResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeprovisionIpamByoasnResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2IpamByoasnCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

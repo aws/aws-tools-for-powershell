@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.ListStreamsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB ListStreams API operation.", Operation = new[] {"ListStreams"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ListStreamsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ListStreamsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.ListStreamsResponse object containing multiple properties."
     )]
     public partial class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone PostLineageEvent API operation.", Operation = new[] {"PostLineageEvent"}, SelectReturnType = typeof(Amazon.DataZone.Model.PostLineageEventResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.PostLineageEventResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.PostLineageEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.PostLineageEventResponse) be returned by specifying '-Select *'."
     )]
     public partial class SubmitDZLineageEventCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

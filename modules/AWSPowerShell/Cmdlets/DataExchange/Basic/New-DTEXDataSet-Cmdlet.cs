@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [OutputType("Amazon.DataExchange.Model.CreateDataSetResponse")]
     [AWSCmdlet("Calls the AWS Data Exchange CreateDataSet API operation.", Operation = new[] {"CreateDataSet"}, SelectReturnType = typeof(Amazon.DataExchange.Model.CreateDataSetResponse))]
     [AWSCmdletOutput("Amazon.DataExchange.Model.CreateDataSetResponse",
-        "This cmdlet returns an Amazon.DataExchange.Model.CreateDataSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataExchange.Model.CreateDataSetResponse object containing multiple properties."
     )]
     public partial class NewDTEXDataSetCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager UpdateAssessmentControlSetStatus API operation.", Operation = new[] {"UpdateAssessmentControlSetStatus"}, SelectReturnType = typeof(Amazon.AuditManager.Model.UpdateAssessmentControlSetStatusResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.AssessmentControlSet or Amazon.AuditManager.Model.UpdateAssessmentControlSetStatusResponse",
         "This cmdlet returns an Amazon.AuditManager.Model.AssessmentControlSet object.",
-        "The service call response (type Amazon.AuditManager.Model.UpdateAssessmentControlSetStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.UpdateAssessmentControlSetStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditAUDMAssessmentControlSetStatusCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

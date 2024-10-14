@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DescribeMountTargetSecurityGroups API operation.", Operation = new[] {"DescribeMountTargetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

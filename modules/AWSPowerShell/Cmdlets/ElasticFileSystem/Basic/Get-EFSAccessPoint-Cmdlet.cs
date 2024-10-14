@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DescribeAccessPoints API operation.", Operation = new[] {"DescribeAccessPoints"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeAccessPointsResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.AccessPointDescription or Amazon.ElasticFileSystem.Model.DescribeAccessPointsResponse",
         "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.AccessPointDescription objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeAccessPointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeAccessPointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEFSAccessPointCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

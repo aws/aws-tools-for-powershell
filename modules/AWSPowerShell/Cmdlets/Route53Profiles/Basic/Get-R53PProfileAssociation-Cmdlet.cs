@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
     [AWSCmdlet("Calls the Amazon Route 53 Profiles GetProfileAssociation API operation.", Operation = new[] {"GetProfileAssociation"}, SelectReturnType = typeof(Amazon.Route53Profiles.Model.GetProfileAssociationResponse))]
     [AWSCmdletOutput("Amazon.Route53Profiles.Model.ProfileAssociation or Amazon.Route53Profiles.Model.GetProfileAssociationResponse",
         "This cmdlet returns an Amazon.Route53Profiles.Model.ProfileAssociation object.",
-        "The service call response (type Amazon.Route53Profiles.Model.GetProfileAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Profiles.Model.GetProfileAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53PProfileAssociationCmdlet : AmazonRoute53ProfilesClientCmdlet, IExecutor
     {

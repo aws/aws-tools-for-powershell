@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [AWSCmdlet("Calls the Amazon Connect Campaign Service StartInstanceOnboardingJob API operation.", Operation = new[] {"StartInstanceOnboardingJob"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.StartInstanceOnboardingJobResponse))]
     [AWSCmdletOutput("Amazon.ConnectCampaignService.Model.InstanceOnboardingJobStatus or Amazon.ConnectCampaignService.Model.StartInstanceOnboardingJobResponse",
         "This cmdlet returns an Amazon.ConnectCampaignService.Model.InstanceOnboardingJobStatus object.",
-        "The service call response (type Amazon.ConnectCampaignService.Model.StartInstanceOnboardingJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCampaignService.Model.StartInstanceOnboardingJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCCSInstanceOnboardingJobCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

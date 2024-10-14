@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSubnetCidrReservation API operation.", Operation = new[] {"DeleteSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSubnetCidrReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SubnetCidrReservation or Amazon.EC2.Model.DeleteSubnetCidrReservationResponse",
         "This cmdlet returns an Amazon.EC2.Model.SubnetCidrReservation object.",
-        "The service call response (type Amazon.EC2.Model.DeleteSubnetCidrReservationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteSubnetCidrReservationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2SubnetCidrReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

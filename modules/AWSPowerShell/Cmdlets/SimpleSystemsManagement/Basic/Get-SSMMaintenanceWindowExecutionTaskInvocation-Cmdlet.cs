@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager GetMaintenanceWindowExecutionTaskInvocation API operation.", Operation = new[] {"GetMaintenanceWindowExecutionTaskInvocation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskInvocationResponse object containing multiple properties."
     )]
     public partial class GetSSMMaintenanceWindowExecutionTaskInvocationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

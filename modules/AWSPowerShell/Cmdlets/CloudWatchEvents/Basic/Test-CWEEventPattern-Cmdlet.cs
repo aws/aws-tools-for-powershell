@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events TestEventPattern API operation.", Operation = new[] {"TestEventPattern"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.TestEventPatternResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.CloudWatchEvents.Model.TestEventPatternResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.CloudWatchEvents.Model.TestEventPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvents.Model.TestEventPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCWEEventPatternCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

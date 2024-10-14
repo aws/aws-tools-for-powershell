@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [OutputType("Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse")]
     [AWSCmdlet("Calls the AWSBillingConductor ListPricingPlansAssociatedWithPricingRule API operation.", Operation = new[] {"ListPricingPlansAssociatedWithPricingRule"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse))]
     [AWSCmdletOutput("Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse",
-        "This cmdlet returns an Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse object containing multiple properties."
     )]
     public partial class GetABCPricingPlansAssociatedWithPricingRuleListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

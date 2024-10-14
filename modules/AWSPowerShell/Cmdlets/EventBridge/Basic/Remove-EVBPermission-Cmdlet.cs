@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge RemovePermission API operation.", Operation = new[] {"RemovePermission"}, SelectReturnType = typeof(Amazon.EventBridge.Model.RemovePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.EventBridge.Model.RemovePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EventBridge.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EventBridge.Model.RemovePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEVBPermissionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

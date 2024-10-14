@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm StopJob API operation.", Operation = new[] {"StopJob"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.StopJobResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job or Amazon.DeviceFarm.Model.StopJobResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.Job object.",
-        "The service call response (type Amazon.DeviceFarm.Model.StopJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.StopJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopDFJobCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

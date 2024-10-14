@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.DynamoDBv2.Model.PutResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteDDBResourcePolicyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

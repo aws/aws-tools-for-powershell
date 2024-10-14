@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     [OutputType("Amazon.Lex.Model.DeleteSessionResponse")]
     [AWSCmdlet("Calls the Amazon Lex DeleteSession API operation.", Operation = new[] {"DeleteSession"}, SelectReturnType = typeof(Amazon.Lex.Model.DeleteSessionResponse))]
     [AWSCmdletOutput("Amazon.Lex.Model.DeleteSessionResponse",
-        "This cmdlet returns an Amazon.Lex.Model.DeleteSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lex.Model.DeleteSessionResponse object containing multiple properties."
     )]
     public partial class RemoveLEXSessionCmdlet : AmazonLexClientCmdlet, IExecutor
     {

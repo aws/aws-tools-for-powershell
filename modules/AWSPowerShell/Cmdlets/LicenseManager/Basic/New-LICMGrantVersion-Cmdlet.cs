@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.CreateGrantVersionResponse")]
     [AWSCmdlet("Calls the AWS License Manager CreateGrantVersion API operation.", Operation = new[] {"CreateGrantVersion"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.CreateGrantVersionResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.CreateGrantVersionResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.CreateGrantVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.CreateGrantVersionResponse object containing multiple properties."
     )]
     public partial class NewLICMGrantVersionCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

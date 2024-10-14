@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
     [AWSCmdlet("Calls the AWS Directory Service CreateAlias API operation.", Operation = new[] {"CreateAlias"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.CreateAliasResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
-        "This cmdlet returns an Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties."
     )]
     public partial class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

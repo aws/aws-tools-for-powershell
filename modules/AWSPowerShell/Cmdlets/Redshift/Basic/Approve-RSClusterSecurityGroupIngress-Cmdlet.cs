@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift AuthorizeClusterSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeClusterSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSecurityGroup or Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse",
         "This cmdlet returns an Amazon.Redshift.Model.ClusterSecurityGroup object.",
-        "The service call response (type Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveRSClusterSecurityGroupIngressCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [OutputType("Amazon.Batch.Model.RegisterJobDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Batch RegisterJobDefinition API operation.", Operation = new[] {"RegisterJobDefinition"}, SelectReturnType = typeof(Amazon.Batch.Model.RegisterJobDefinitionResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.RegisterJobDefinitionResponse",
-        "This cmdlet returns an Amazon.Batch.Model.RegisterJobDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Batch.Model.RegisterJobDefinitionResponse object containing multiple properties."
     )]
     public partial class RegisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

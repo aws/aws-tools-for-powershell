@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DetachLoadBalancers API operation.", Operation = new[] {"DetachLoadBalancers"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DetachLoadBalancersResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DetachLoadBalancersResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DetachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DetachLoadBalancersResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

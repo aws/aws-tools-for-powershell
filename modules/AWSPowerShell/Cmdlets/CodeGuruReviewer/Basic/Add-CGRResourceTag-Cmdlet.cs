@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     [AWSCmdlet("Calls the Amazon CodeGuru Reviewer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CodeGuruReviewer.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeGuruReviewer.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruReviewer.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeGuruReviewer.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCGRResourceTagCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {

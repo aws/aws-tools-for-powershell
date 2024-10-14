@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2TagCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

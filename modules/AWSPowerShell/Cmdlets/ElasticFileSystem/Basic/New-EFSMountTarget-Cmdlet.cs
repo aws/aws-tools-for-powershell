@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [OutputType("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse")]
     [AWSCmdlet("Calls the Amazon Elastic File System CreateMountTarget API operation.", Operation = new[] {"CreateMountTarget"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.CreateMountTargetResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse",
-        "This cmdlet returns an Amazon.ElasticFileSystem.Model.CreateMountTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticFileSystem.Model.CreateMountTargetResponse object containing multiple properties."
     )]
     public partial class NewEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

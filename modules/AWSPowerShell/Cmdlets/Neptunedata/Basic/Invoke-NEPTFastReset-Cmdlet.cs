@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.ExecuteFastResetResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData ExecuteFastReset API operation.", Operation = new[] {"ExecuteFastReset"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ExecuteFastResetResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.ExecuteFastResetResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.ExecuteFastResetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.ExecuteFastResetResponse object containing multiple properties."
     )]
     public partial class InvokeNEPTFastResetCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

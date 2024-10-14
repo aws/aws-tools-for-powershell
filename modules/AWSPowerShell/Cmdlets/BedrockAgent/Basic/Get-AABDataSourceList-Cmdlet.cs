@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock ListDataSources API operation.", Operation = new[] {"ListDataSources"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.ListDataSourcesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.DataSourceSummary or Amazon.BedrockAgent.Model.ListDataSourcesResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgent.Model.DataSourceSummary objects.",
-        "The service call response (type Amazon.BedrockAgent.Model.ListDataSourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.ListDataSourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAABDataSourceListCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

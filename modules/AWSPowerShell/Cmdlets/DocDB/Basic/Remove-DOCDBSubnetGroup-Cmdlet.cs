@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBSubnetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.DeleteDBSubnetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DocDB.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DocDB.Model.DeleteDBSubnetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCDBSubnetGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

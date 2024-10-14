@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [OutputType("Amazon.WAF.Model.CreateWebACLResponse")]
     [AWSCmdlet("Calls the AWS WAF CreateWebACL API operation.", Operation = new[] {"CreateWebACL"}, SelectReturnType = typeof(Amazon.WAF.Model.CreateWebACLResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateWebACLResponse",
-        "This cmdlet returns an Amazon.WAF.Model.CreateWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAF.Model.CreateWebACLResponse object containing multiple properties."
     )]
     public partial class NewWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

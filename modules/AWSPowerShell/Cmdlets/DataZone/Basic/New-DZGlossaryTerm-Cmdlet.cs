@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.CreateGlossaryTermResponse")]
     [AWSCmdlet("Calls the Amazon DataZone CreateGlossaryTerm API operation.", Operation = new[] {"CreateGlossaryTerm"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateGlossaryTermResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.CreateGlossaryTermResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateGlossaryTermResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.CreateGlossaryTermResponse object containing multiple properties."
     )]
     public partial class NewDZGlossaryTermCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

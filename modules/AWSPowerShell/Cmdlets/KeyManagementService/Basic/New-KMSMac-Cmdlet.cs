@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.GenerateMacResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service GenerateMac API operation.", Operation = new[] {"GenerateMac"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.GenerateMacResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateMacResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.GenerateMacResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.GenerateMacResponse object containing multiple properties."
     )]
     public partial class NewKMSMacCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

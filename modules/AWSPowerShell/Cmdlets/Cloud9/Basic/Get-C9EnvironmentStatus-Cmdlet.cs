@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [OutputType("Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse")]
     [AWSCmdlet("Calls the AWS Cloud9 DescribeEnvironmentStatus API operation.", Operation = new[] {"DescribeEnvironmentStatus"}, SelectReturnType = typeof(Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse))]
     [AWSCmdletOutput("Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse",
-        "This cmdlet returns an Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Cloud9.Model.DescribeEnvironmentStatusResponse object containing multiple properties."
     )]
     public partial class GetC9EnvironmentStatusCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

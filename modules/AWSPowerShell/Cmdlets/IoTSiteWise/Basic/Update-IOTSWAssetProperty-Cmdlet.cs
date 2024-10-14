@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise UpdateAssetProperty API operation.", Operation = new[] {"UpdateAssetProperty"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.UpdateAssetPropertyResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.UpdateAssetPropertyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.UpdateAssetPropertyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.UpdateAssetPropertyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTSWAssetPropertyCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

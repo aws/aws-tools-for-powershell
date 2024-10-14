@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DisassociateEnvironmentRole API operation.", Operation = new[] {"DisassociateEnvironmentRole"}, SelectReturnType = typeof(Amazon.DataZone.Model.DisassociateEnvironmentRoleResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.DisassociateEnvironmentRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DisassociateEnvironmentRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.DisassociateEnvironmentRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetDZEnvironmentRoleCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

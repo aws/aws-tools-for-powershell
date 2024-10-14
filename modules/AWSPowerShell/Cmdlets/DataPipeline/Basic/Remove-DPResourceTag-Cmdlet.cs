@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.RemoveTagsResponse), LegacyAlias="Remove-DPTags")]
     [AWSCmdletOutput("None or Amazon.DataPipeline.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataPipeline.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDPResourceTagCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

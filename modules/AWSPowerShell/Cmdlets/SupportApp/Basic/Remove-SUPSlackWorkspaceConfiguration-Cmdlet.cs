@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [AWSCmdlet("Calls the AWS Support App DeleteSlackWorkspaceConfiguration API operation.", Operation = new[] {"DeleteSlackWorkspaceConfiguration"}, SelectReturnType = typeof(Amazon.SupportApp.Model.DeleteSlackWorkspaceConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SupportApp.Model.DeleteSlackWorkspaceConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SupportApp.Model.DeleteSlackWorkspaceConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SupportApp.Model.DeleteSlackWorkspaceConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSUPSlackWorkspaceConfigurationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

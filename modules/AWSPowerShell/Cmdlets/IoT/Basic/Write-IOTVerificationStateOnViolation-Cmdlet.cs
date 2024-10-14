@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT PutVerificationStateOnViolation API operation.", Operation = new[] {"PutVerificationStateOnViolation"}, SelectReturnType = typeof(Amazon.IoT.Model.PutVerificationStateOnViolationResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.PutVerificationStateOnViolationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.PutVerificationStateOnViolationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.PutVerificationStateOnViolationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIOTVerificationStateOnViolationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetBlacklistReports API operation.", Operation = new[] {"GetBlacklistReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetBlacklistReportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2BlacklistReportCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

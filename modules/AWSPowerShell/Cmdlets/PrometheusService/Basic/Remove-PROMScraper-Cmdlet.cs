@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [OutputType("Amazon.PrometheusService.Model.DeleteScraperResponse")]
     [AWSCmdlet("Calls the Amazon Prometheus Service DeleteScraper API operation.", Operation = new[] {"DeleteScraper"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteScraperResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.DeleteScraperResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.DeleteScraperResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PrometheusService.Model.DeleteScraperResponse object containing multiple properties."
     )]
     public partial class RemovePROMScraperCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

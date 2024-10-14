@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetMFADeviceResponse")]
     [AWSCmdlet("Calls the AWS Identity and Access Management GetMFADevice API operation.", Operation = new[] {"GetMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetMFADeviceResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetMFADeviceResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.GetMFADeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetMFADeviceResponse object containing multiple properties."
     )]
     public partial class GetIAMMFADeviceMetadataCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

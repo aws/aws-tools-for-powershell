@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier SetVaultAccessPolicy API operation.", Operation = new[] {"SetVaultAccessPolicy"}, SelectReturnType = typeof(Amazon.Glacier.Model.SetVaultAccessPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Glacier.Model.SetVaultAccessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glacier.Model.SetVaultAccessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glacier.Model.SetVaultAccessPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetGLCVaultAccessPolicyCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

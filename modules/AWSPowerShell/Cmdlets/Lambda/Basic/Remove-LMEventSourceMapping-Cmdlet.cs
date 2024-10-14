@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResponse")]
     [AWSCmdlet("Calls the AWS Lambda DeleteEventSourceMapping API operation.", Operation = new[] {"DeleteEventSourceMapping"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteEventSourceMappingResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.DeleteEventSourceMappingResponse object containing multiple properties."
     )]
     public partial class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

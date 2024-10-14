@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.PauseServiceResponse")]
     [AWSCmdlet("Calls the AWS App Runner PauseService API operation.", Operation = new[] {"PauseService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.PauseServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.PauseServiceResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.PauseServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.PauseServiceResponse object containing multiple properties."
     )]
     public partial class SuspendAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

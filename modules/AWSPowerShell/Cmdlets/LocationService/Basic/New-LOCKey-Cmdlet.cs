@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.CreateKeyResponse")]
     [AWSCmdlet("Calls the Amazon Location Service CreateKey API operation.", Operation = new[] {"CreateKey"}, SelectReturnType = typeof(Amazon.LocationService.Model.CreateKeyResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.CreateKeyResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.CreateKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.CreateKeyResponse object containing multiple properties."
     )]
     public partial class NewLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

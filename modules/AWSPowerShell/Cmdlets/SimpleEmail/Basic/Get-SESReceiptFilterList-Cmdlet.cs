@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) ListReceiptFilters API operation.", Operation = new[] {"ListReceiptFilters"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.ListReceiptFiltersResponse), LegacyAlias="Get-SESReceiptFilters")]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.ReceiptFilter or Amazon.SimpleEmail.Model.ListReceiptFiltersResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmail.Model.ReceiptFilter objects.",
-        "The service call response (type Amazon.SimpleEmail.Model.ListReceiptFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.ListReceiptFiltersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESReceiptFilterListCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

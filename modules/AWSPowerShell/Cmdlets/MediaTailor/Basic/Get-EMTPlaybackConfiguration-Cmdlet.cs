@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [OutputType("Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaTailor GetPlaybackConfiguration API operation.", Operation = new[] {"GetPlaybackConfiguration"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse))]
     [AWSCmdletOutput("Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse",
-        "This cmdlet returns an Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse object containing multiple properties."
     )]
     public partial class GetEMTPlaybackConfigurationCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

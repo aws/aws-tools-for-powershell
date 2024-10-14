@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IoTTwinMaker.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTTwinMaker.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTTwinMaker.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIOTTMResourceTagCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

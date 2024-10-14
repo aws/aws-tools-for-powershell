@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse")]
     [AWSCmdlet("Calls the Inspector2 UpdateEc2DeepInspectionConfiguration API operation.", Operation = new[] {"UpdateEc2DeepInspectionConfiguration"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateINS2Ec2DeepInspectionConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

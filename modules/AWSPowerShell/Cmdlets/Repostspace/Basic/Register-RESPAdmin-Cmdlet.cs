@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private RegisterAdmin API operation.", Operation = new[] {"RegisterAdmin"}, SelectReturnType = typeof(Amazon.Repostspace.Model.RegisterAdminResponse))]
     [AWSCmdletOutput("None or Amazon.Repostspace.Model.RegisterAdminResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Repostspace.Model.RegisterAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Repostspace.Model.RegisterAdminResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterRESPAdminCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

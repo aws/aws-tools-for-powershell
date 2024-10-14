@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DeleteApiCache API operation.", Operation = new[] {"DeleteApiCache"}, SelectReturnType = typeof(Amazon.AppSync.Model.DeleteApiCacheResponse))]
     [AWSCmdletOutput("None or Amazon.AppSync.Model.DeleteApiCacheResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppSync.Model.DeleteApiCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppSync.Model.DeleteApiCacheResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASYNApiCacheCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

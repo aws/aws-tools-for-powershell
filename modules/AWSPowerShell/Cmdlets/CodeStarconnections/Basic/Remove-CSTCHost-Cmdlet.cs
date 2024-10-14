@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections DeleteHost API operation.", Operation = new[] {"DeleteHost"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.DeleteHostResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.DeleteHostResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.DeleteHostResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarconnections.Model.DeleteHostResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSTCHostCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

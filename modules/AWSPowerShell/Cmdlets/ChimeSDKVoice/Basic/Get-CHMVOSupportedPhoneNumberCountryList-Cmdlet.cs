@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice ListSupportedPhoneNumberCountries API operation.", Operation = new[] {"ListSupportedPhoneNumberCountries"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.ListSupportedPhoneNumberCountriesResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.PhoneNumberCountry or Amazon.ChimeSDKVoice.Model.ListSupportedPhoneNumberCountriesResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKVoice.Model.PhoneNumberCountry objects.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.ListSupportedPhoneNumberCountriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.ListSupportedPhoneNumberCountriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMVOSupportedPhoneNumberCountryListCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

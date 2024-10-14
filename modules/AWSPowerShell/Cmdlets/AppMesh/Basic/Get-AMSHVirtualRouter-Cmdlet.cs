@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DescribeVirtualRouter API operation.", Operation = new[] {"DescribeVirtualRouter"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DescribeVirtualRouterResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.VirtualRouterData or Amazon.AppMesh.Model.DescribeVirtualRouterResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.VirtualRouterData object.",
-        "The service call response (type Amazon.AppMesh.Model.DescribeVirtualRouterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DescribeVirtualRouterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMSHVirtualRouterCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DeleteFormType API operation.", Operation = new[] {"DeleteFormType"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteFormTypeResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteFormTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteFormTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.DeleteFormTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZFormTypeCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

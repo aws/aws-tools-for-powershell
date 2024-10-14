@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric StartUserAccessTasks API operation.", Operation = new[] {"StartUserAccessTasks"}, SelectReturnType = typeof(Amazon.AppFabric.Model.StartUserAccessTasksResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.UserAccessTaskItem or Amazon.AppFabric.Model.StartUserAccessTasksResponse",
         "This cmdlet returns a collection of Amazon.AppFabric.Model.UserAccessTaskItem objects.",
-        "The service call response (type Amazon.AppFabric.Model.StartUserAccessTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.StartUserAccessTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartAFABUserAccessTaskCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

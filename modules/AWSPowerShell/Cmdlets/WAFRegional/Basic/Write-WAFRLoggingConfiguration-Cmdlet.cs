@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional PutLoggingConfiguration API operation.", Operation = new[] {"PutLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.PutLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.LoggingConfiguration or Amazon.WAFRegional.Model.PutLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.WAFRegional.Model.LoggingConfiguration object.",
-        "The service call response (type Amazon.WAFRegional.Model.PutLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.PutLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteWAFRLoggingConfigurationCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateViewContent API operation.", Operation = new[] {"UpdateViewContent"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateViewContentResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.View or Amazon.Connect.Model.UpdateViewContentResponse",
         "This cmdlet returns an Amazon.Connect.Model.View object.",
-        "The service call response (type Amazon.Connect.Model.UpdateViewContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.UpdateViewContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNViewContentCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

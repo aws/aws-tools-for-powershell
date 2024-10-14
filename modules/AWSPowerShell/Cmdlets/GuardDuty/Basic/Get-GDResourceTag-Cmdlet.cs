@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GuardDuty.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDResourceTagCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

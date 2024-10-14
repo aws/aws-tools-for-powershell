@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory DeleteTypedLinkFacet API operation.", Operation = new[] {"DeleteTypedLinkFacet"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse))]
     [AWSCmdletOutput("None or Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDIRTypedLinkFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

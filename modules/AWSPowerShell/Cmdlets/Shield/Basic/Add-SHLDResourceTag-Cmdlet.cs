@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Shield.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSHLDResourceTagCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

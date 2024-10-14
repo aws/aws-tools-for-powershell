@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [OutputType("Amazon.PI.Model.DescribeDimensionKeysResponse")]
     [AWSCmdlet("Calls the AWS Performance Insights DescribeDimensionKeys API operation.", Operation = new[] {"DescribeDimensionKeys"}, SelectReturnType = typeof(Amazon.PI.Model.DescribeDimensionKeysResponse))]
     [AWSCmdletOutput("Amazon.PI.Model.DescribeDimensionKeysResponse",
-        "This cmdlet returns an Amazon.PI.Model.DescribeDimensionKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PI.Model.DescribeDimensionKeysResponse object containing multiple properties."
     )]
     public partial class GetPIDimensionKeyCmdlet : AmazonPIClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.UpdateClusterResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Cluster or Amazon.MemoryDB.Model.UpdateClusterResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.Cluster object.",
-        "The service call response (type Amazon.MemoryDB.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.UpdateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateMDBClusterCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

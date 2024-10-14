@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [OutputType("Amazon.ConnectCampaignService.Model.GetCampaignStateBatchResponse")]
     [AWSCmdlet("Calls the Amazon Connect Campaign Service GetCampaignStateBatch API operation.", Operation = new[] {"GetCampaignStateBatch"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.GetCampaignStateBatchResponse))]
     [AWSCmdletOutput("Amazon.ConnectCampaignService.Model.GetCampaignStateBatchResponse",
-        "This cmdlet returns an Amazon.ConnectCampaignService.Model.GetCampaignStateBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectCampaignService.Model.GetCampaignStateBatchResponse object containing multiple properties."
     )]
     public partial class GetCCSCampaignStateBatchCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

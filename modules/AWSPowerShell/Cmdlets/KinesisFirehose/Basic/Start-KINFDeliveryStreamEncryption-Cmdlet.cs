@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose StartDeliveryStreamEncryption API operation.", Operation = new[] {"StartDeliveryStreamEncryption"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.StartDeliveryStreamEncryptionResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisFirehose.Model.StartDeliveryStreamEncryptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisFirehose.Model.StartDeliveryStreamEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.StartDeliveryStreamEncryptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartKINFDeliveryStreamEncryptionCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {

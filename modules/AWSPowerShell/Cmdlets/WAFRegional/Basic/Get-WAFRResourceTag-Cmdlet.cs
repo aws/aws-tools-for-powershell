@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetWAFRResourceTagCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.WAFRegional module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'NextMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextMarker' to null for the first call then set the 'NextMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

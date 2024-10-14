@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect RemoveKnowledgeBaseTemplateUri API operation.", Operation = new[] {"RemoveKnowledgeBaseTemplateUri"}, SelectReturnType = typeof(Amazon.QConnect.Model.RemoveKnowledgeBaseTemplateUriResponse))]
     [AWSCmdletOutput("None or Amazon.QConnect.Model.RemoveKnowledgeBaseTemplateUriResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QConnect.Model.RemoveKnowledgeBaseTemplateUriResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QConnect.Model.RemoveKnowledgeBaseTemplateUriResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQCKnowledgeBaseTemplateUriCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

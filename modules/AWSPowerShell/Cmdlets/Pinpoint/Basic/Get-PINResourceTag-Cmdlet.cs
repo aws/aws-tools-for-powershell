@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.TagsModel or Amazon.Pinpoint.Model.ListTagsForResourceResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.TagsModel object.",
-        "The service call response (type Amazon.Pinpoint.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINResourceTagCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Batch.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Batch.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Batch.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBATResourceTagCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

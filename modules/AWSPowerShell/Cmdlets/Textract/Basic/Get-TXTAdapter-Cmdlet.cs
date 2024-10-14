@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [OutputType("Amazon.Textract.Model.GetAdapterResponse")]
     [AWSCmdlet("Calls the Amazon Textract GetAdapter API operation.", Operation = new[] {"GetAdapter"}, SelectReturnType = typeof(Amazon.Textract.Model.GetAdapterResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.GetAdapterResponse",
-        "This cmdlet returns an Amazon.Textract.Model.GetAdapterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Textract.Model.GetAdapterResponse object containing multiple properties."
     )]
     public partial class GetTXTAdapterCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

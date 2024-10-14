@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

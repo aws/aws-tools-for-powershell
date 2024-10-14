@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Tag or Amazon.PaymentCryptography.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.PaymentCryptography.Model.Tag objects.",
-        "The service call response (type Amazon.PaymentCryptography.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPAYCCResourceTagCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

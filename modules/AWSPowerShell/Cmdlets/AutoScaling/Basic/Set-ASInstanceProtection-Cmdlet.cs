@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling SetInstanceProtection API operation.", Operation = new[] {"SetInstanceProtection"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.SetInstanceProtectionResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.SetInstanceProtectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.SetInstanceProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SetInstanceProtectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetASInstanceProtectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) TagQueue API operation.", Operation = new[] {"TagQueue"}, SelectReturnType = typeof(Amazon.SQS.Model.TagQueueResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.TagQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.TagQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.TagQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSQSResourceTagCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

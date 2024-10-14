@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections CreateHost API operation.", Operation = new[] {"CreateHost"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.CreateHostResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeConnections.Model.CreateHostResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeConnections.Model.CreateHostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.CreateHostResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCCONHostCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

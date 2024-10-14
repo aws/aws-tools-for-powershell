@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [AWSCmdlet("Calls the AWS OpsWorksCM TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorksCM.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddOWCMResourceTagCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

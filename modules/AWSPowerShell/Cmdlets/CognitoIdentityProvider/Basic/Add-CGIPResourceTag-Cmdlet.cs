@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCGIPResourceTagCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

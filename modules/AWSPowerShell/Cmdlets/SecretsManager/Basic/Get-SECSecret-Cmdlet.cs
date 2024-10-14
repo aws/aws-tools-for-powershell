@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.DescribeSecretResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager DescribeSecret API operation.", Operation = new[] {"DescribeSecret"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.DescribeSecretResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.DescribeSecretResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.DescribeSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.DescribeSecretResponse object containing multiple properties."
     )]
     public partial class GetSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

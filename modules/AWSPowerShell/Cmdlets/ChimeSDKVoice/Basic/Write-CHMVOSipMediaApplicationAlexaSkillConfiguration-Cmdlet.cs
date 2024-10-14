@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice PutSipMediaApplicationAlexaSkillConfiguration API operation.", Operation = new[] {"PutSipMediaApplicationAlexaSkillConfiguration"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.PutSipMediaApplicationAlexaSkillConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.SipMediaApplicationAlexaSkillConfiguration or Amazon.ChimeSDKVoice.Model.PutSipMediaApplicationAlexaSkillConfigurationResponse",
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.SipMediaApplicationAlexaSkillConfiguration object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.PutSipMediaApplicationAlexaSkillConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.PutSipMediaApplicationAlexaSkillConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties).")]
     public partial class WriteCHMVOSipMediaApplicationAlexaSkillConfigurationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor

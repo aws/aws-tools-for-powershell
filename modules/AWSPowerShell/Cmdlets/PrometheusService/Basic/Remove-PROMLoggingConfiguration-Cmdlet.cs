@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

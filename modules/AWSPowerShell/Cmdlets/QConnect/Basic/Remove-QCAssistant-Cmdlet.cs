@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect DeleteAssistant API operation.", Operation = new[] {"DeleteAssistant"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteAssistantResponse))]
     [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteAssistantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QConnect.Model.DeleteAssistantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QConnect.Model.DeleteAssistantResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQCAssistantCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

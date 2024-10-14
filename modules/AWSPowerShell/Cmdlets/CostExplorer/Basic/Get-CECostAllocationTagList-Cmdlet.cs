@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer ListCostAllocationTags API operation.", Operation = new[] {"ListCostAllocationTags"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTag or Amazon.CostExplorer.Model.ListCostAllocationTagsResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostAllocationTag objects.",
-        "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCECostAllocationTagListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

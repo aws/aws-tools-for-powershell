@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce SetVisibleToAllUsers API operation.", Operation = new[] {"SetVisibleToAllUsers"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse), LegacyAlias="Set-EMRVisibleToAllUsers")]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEMRVisibleToAllUserCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Lightsail.Model.TagResourceResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.TagResourceResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.TagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.TagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddLSResourceTagCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm CreateUpload API operation.", Operation = new[] {"CreateUpload"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.CreateUploadResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload or Amazon.DeviceFarm.Model.CreateUploadResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.Upload object.",
-        "The service call response (type Amazon.DeviceFarm.Model.CreateUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.CreateUploadResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

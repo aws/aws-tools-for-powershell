@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail RegisterContainerImage API operation.", Operation = new[] {"RegisterContainerImage"}, SelectReturnType = typeof(Amazon.Lightsail.Model.RegisterContainerImageResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.ContainerImage or Amazon.Lightsail.Model.RegisterContainerImageResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.ContainerImage object.",
-        "The service call response (type Amazon.Lightsail.Model.RegisterContainerImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.RegisterContainerImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterLSContainerImageCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.Tag or Amazon.Keyspaces.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Keyspaces.Model.Tag objects.",
-        "The service call response (type Amazon.Keyspaces.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKSResourceTagCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

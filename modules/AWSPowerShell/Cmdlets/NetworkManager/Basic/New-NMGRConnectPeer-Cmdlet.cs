@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager CreateConnectPeer API operation.", Operation = new[] {"CreateConnectPeer"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateConnectPeerResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.ConnectPeer or Amazon.NetworkManager.Model.CreateConnectPeerResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.ConnectPeer object.",
-        "The service call response (type Amazon.NetworkManager.Model.CreateConnectPeerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.CreateConnectPeerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNMGRConnectPeerCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

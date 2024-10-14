@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
     [AWSCmdlet("Calls the Amazon Route 53 Profiles DisassociateProfile API operation.", Operation = new[] {"DisassociateProfile"}, SelectReturnType = typeof(Amazon.Route53Profiles.Model.DisassociateProfileResponse))]
     [AWSCmdletOutput("Amazon.Route53Profiles.Model.ProfileAssociation or Amazon.Route53Profiles.Model.DisassociateProfileResponse",
         "This cmdlet returns an Amazon.Route53Profiles.Model.ProfileAssociation object.",
-        "The service call response (type Amazon.Route53Profiles.Model.DisassociateProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Profiles.Model.DisassociateProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53PProfileAssociationCmdlet : AmazonRoute53ProfilesClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra StartDataSourceSyncJob API operation.", Operation = new[] {"StartDataSourceSyncJob"}, SelectReturnType = typeof(Amazon.Kendra.Model.StartDataSourceSyncJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kendra.Model.StartDataSourceSyncJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kendra.Model.StartDataSourceSyncJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.StartDataSourceSyncJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartKNDRDataSourceSyncJobCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

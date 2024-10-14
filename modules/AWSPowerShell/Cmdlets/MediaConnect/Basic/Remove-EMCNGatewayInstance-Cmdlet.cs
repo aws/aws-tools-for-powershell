@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.DeregisterGatewayInstanceResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect DeregisterGatewayInstance API operation.", Operation = new[] {"DeregisterGatewayInstance"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DeregisterGatewayInstanceResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.DeregisterGatewayInstanceResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.DeregisterGatewayInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.DeregisterGatewayInstanceResponse object containing multiple properties."
     )]
     public partial class RemoveEMCNGatewayInstanceCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

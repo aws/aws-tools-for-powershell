@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue ResetJobBookmark API operation.", Operation = new[] {"ResetJobBookmark"}, SelectReturnType = typeof(Amazon.Glue.Model.ResetJobBookmarkResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.JobBookmarkEntry or Amazon.Glue.Model.ResetJobBookmarkResponse",
         "This cmdlet returns an Amazon.Glue.Model.JobBookmarkEntry object.",
-        "The service call response (type Amazon.Glue.Model.ResetJobBookmarkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.ResetJobBookmarkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetGLUEJobBookmarkCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [OutputType("Amazon.MediaPackageVod.Model.DescribePackagingGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD DescribePackagingGroup API operation.", Operation = new[] {"DescribePackagingGroup"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.DescribePackagingGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageVod.Model.DescribePackagingGroupResponse",
-        "This cmdlet returns an Amazon.MediaPackageVod.Model.DescribePackagingGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageVod.Model.DescribePackagingGroupResponse object containing multiple properties."
     )]
     public partial class GetEMPVPackagingGroupCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeAgentVersions API operation.", Operation = new[] {"DescribeAgentVersions"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeAgentVersionsResponse))]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.AgentVersion or Amazon.OpsWorks.Model.DescribeAgentVersionsResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.AgentVersion objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeAgentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeAgentVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

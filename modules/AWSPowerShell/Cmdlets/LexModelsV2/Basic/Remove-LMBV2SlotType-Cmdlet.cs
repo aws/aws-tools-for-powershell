@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DeleteSlotType API operation.", Operation = new[] {"DeleteSlotType"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DeleteSlotTypeResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelsV2.Model.DeleteSlotTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelsV2.Model.DeleteSlotTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelsV2.Model.DeleteSlotTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBV2SlotTypeCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

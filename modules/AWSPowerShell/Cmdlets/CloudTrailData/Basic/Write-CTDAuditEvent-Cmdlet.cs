@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CTD
     [OutputType("Amazon.CloudTrailData.Model.PutAuditEventsResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail Data Service PutAuditEvents API operation.", Operation = new[] {"PutAuditEvents"}, SelectReturnType = typeof(Amazon.CloudTrailData.Model.PutAuditEventsResponse))]
     [AWSCmdletOutput("Amazon.CloudTrailData.Model.PutAuditEventsResponse",
-        "This cmdlet returns an Amazon.CloudTrailData.Model.PutAuditEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrailData.Model.PutAuditEventsResponse object containing multiple properties."
     )]
     public partial class WriteCTDAuditEventCmdlet : AmazonCloudTrailDataClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.DescribeQuerySuggestionsBlockListResponse")]
     [AWSCmdlet("Calls the Amazon Kendra DescribeQuerySuggestionsBlockList API operation.", Operation = new[] {"DescribeQuerySuggestionsBlockList"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribeQuerySuggestionsBlockListResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.DescribeQuerySuggestionsBlockListResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribeQuerySuggestionsBlockListResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.DescribeQuerySuggestionsBlockListResponse object containing multiple properties."
     )]
     public partial class GetKNDRQuerySuggestionsBlockListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.GetDocumentationVersionResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway GetDocumentationVersion API operation.", Operation = new[] {"GetDocumentationVersion"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetDocumentationVersionResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetDocumentationVersionResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.GetDocumentationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.GetDocumentationVersionResponse object containing multiple properties."
     )]
     public partial class GetAGDocumentationVersionCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

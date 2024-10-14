@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control PutPublicAccessBlock API operation.", Operation = new[] {"PutPublicAccessBlock"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutPublicAccessBlockResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutPublicAccessBlockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.PutPublicAccessBlockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.PutPublicAccessBlockResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddS3CPublicAccessBlockCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

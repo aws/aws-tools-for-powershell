@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [OutputType("Amazon.MainframeModernization.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the M2 CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.MainframeModernization.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MainframeModernization.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

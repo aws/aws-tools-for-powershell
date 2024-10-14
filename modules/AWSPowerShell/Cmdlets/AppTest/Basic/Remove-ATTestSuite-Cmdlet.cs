@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
     [AWSCmdlet("Calls the AWS Mainframe Modernization Application Testing DeleteTestSuite API operation.", Operation = new[] {"DeleteTestSuite"}, SelectReturnType = typeof(Amazon.AppTest.Model.DeleteTestSuiteResponse))]
     [AWSCmdletOutput("None or Amazon.AppTest.Model.DeleteTestSuiteResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppTest.Model.DeleteTestSuiteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppTest.Model.DeleteTestSuiteResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATTestSuiteCmdlet : AmazonAppTestClientCmdlet, IExecutor
     {

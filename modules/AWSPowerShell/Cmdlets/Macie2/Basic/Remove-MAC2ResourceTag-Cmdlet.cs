@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Macie2.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMAC2ResourceTagCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

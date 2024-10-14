@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad DeleteServicePrincipalName API operation.", Operation = new[] {"DeleteServicePrincipalName"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.DeleteServicePrincipalNameResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.DeleteServicePrincipalNameResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.DeleteServicePrincipalNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.DeleteServicePrincipalNameResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAADServicePrincipalNameCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

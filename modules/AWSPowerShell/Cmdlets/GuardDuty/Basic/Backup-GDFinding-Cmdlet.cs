@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty ArchiveFindings API operation.", Operation = new[] {"ArchiveFindings"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.ArchiveFindingsResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.ArchiveFindingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.ArchiveFindingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.ArchiveFindingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class BackupGDFindingCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

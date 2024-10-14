@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.ResumeServiceResponse")]
     [AWSCmdlet("Calls the AWS App Runner ResumeService API operation.", Operation = new[] {"ResumeService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.ResumeServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.ResumeServiceResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.ResumeServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.ResumeServiceResponse object containing multiple properties."
     )]
     public partial class ResumeAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

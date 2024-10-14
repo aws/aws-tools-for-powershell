@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyCertificates API operation.", Operation = new[] {"ModifyCertificates"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyCertificatesResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.Certificate or Amazon.RDS.Model.ModifyCertificatesResponse",
         "This cmdlet returns an Amazon.RDS.Model.Certificate object.",
-        "The service call response (type Amazon.RDS.Model.ModifyCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyCertificatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRDSCertificateCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

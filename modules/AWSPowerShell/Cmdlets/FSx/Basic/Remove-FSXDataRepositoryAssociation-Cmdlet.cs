@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteDataRepositoryAssociation API operation.", Operation = new[] {"DeleteDataRepositoryAssociation"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse object containing multiple properties."
     )]
     public partial class RemoveFSXDataRepositoryAssociationCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

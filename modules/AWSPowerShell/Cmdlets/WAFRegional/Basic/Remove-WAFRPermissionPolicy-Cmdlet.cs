@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeletePermissionPolicy API operation.", Operation = new[] {"DeletePermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeletePermissionPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.DeletePermissionPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.DeletePermissionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.DeletePermissionPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRPermissionPolicyCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

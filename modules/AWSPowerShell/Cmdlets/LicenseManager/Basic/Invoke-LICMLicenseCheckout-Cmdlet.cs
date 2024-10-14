@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.CheckoutLicenseResponse")]
     [AWSCmdlet("Calls the AWS License Manager CheckoutLicense API operation.", Operation = new[] {"CheckoutLicense"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.CheckoutLicenseResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.CheckoutLicenseResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.CheckoutLicenseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.CheckoutLicenseResponse object containing multiple properties."
     )]
     public partial class InvokeLICMLicenseCheckoutCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

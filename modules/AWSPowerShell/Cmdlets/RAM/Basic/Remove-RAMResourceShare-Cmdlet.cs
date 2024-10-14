@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) DeleteResourceShare API operation.", Operation = new[] {"DeleteResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.DeleteResourceShareResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.RAM.Model.DeleteResourceShareResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.RAM.Model.DeleteResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.DeleteResourceShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

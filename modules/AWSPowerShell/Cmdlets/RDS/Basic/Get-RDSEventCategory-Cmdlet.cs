@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeEventCategories API operation.", Operation = new[] {"DescribeEventCategories"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeEventCategoriesResponse), LegacyAlias="Get-RDSEventCategories")]
     [AWSCmdletOutput("Amazon.RDS.Model.EventCategoriesMap or Amazon.RDS.Model.DescribeEventCategoriesResponse",
         "This cmdlet returns a collection of Amazon.RDS.Model.EventCategoriesMap objects.",
-        "The service call response (type Amazon.RDS.Model.DescribeEventCategoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeEventCategoriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSEventCategoryCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

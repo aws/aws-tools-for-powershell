@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.SendChatIntegrationEventResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service SendChatIntegrationEvent API operation.", Operation = new[] {"SendChatIntegrationEvent"}, SelectReturnType = typeof(Amazon.Connect.Model.SendChatIntegrationEventResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.SendChatIntegrationEventResponse",
-        "This cmdlet returns an Amazon.Connect.Model.SendChatIntegrationEventResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.SendChatIntegrationEventResponse object containing multiple properties."
     )]
     public partial class SendCONNChatIntegrationEventCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

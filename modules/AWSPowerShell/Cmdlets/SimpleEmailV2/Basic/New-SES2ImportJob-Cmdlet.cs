@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateImportJob API operation.", Operation = new[] {"CreateImportJob"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateImportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.CreateImportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.CreateImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.CreateImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSES2ImportJobCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

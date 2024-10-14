@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.GetFlowAssociationResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service GetFlowAssociation API operation.", Operation = new[] {"GetFlowAssociation"}, SelectReturnType = typeof(Amazon.Connect.Model.GetFlowAssociationResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.GetFlowAssociationResponse",
-        "This cmdlet returns an Amazon.Connect.Model.GetFlowAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.GetFlowAssociationResponse object containing multiple properties."
     )]
     public partial class GetCONNFlowAssociationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

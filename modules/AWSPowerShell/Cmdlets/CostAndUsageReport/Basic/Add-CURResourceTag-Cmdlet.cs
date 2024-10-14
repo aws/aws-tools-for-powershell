@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     [AWSCmdlet("Calls the AWS Cost and Usage Report TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CostAndUsageReport.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CostAndUsageReport.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostAndUsageReport.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCURResourceTagCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {

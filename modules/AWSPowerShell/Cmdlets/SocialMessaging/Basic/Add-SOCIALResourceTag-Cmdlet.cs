@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.TagResourceResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.SocialMessaging.Model.TagResourceResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.SocialMessaging.Model.TagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SocialMessaging.Model.TagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddSOCIALResourceTagCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

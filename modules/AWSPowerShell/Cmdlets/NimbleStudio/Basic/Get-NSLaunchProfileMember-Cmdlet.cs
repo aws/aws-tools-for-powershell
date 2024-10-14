@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio GetLaunchProfileMember API operation.", Operation = new[] {"GetLaunchProfileMember"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.GetLaunchProfileMemberResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.LaunchProfileMembership or Amazon.NimbleStudio.Model.GetLaunchProfileMemberResponse",
         "This cmdlet returns an Amazon.NimbleStudio.Model.LaunchProfileMembership object.",
-        "The service call response (type Amazon.NimbleStudio.Model.GetLaunchProfileMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.GetLaunchProfileMemberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSLaunchProfileMemberCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

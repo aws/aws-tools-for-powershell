@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway PutMaintenanceStartTime API operation.", Operation = new[] {"PutMaintenanceStartTime"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.PutMaintenanceStartTimeResponse))]
     [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.PutMaintenanceStartTimeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BackupGateway.Model.PutMaintenanceStartTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.PutMaintenanceStartTimeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteBUGWMaintenanceStartTimeCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

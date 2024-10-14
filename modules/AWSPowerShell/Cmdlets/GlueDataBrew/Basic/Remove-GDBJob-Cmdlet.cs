@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew DeleteJob API operation.", Operation = new[] {"DeleteJob"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.DeleteJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlueDataBrew.Model.DeleteJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GlueDataBrew.Model.DeleteJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.DeleteJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDBJobCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

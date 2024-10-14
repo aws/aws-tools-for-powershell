@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateDistributionWithStagingConfig API operation.", Operation = new[] {"UpdateDistributionWithStagingConfig"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateDistributionWithStagingConfigResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Distribution or Amazon.CloudFront.Model.UpdateDistributionWithStagingConfigResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.Distribution object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateDistributionWithStagingConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateDistributionWithStagingConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFDistributionWithStagingConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

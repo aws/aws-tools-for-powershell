@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySubnetAttribute API operation.", Operation = new[] {"ModifySubnetAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySubnetAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifySubnetAttributeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

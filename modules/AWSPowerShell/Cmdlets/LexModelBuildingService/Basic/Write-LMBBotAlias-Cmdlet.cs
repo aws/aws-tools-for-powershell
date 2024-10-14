@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.PutBotAliasResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service PutBotAlias API operation.", Operation = new[] {"PutBotAlias"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.PutBotAliasResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.PutBotAliasResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.PutBotAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.PutBotAliasResponse object containing multiple properties."
     )]
     public partial class WriteLMBBotAliasCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce SetUnhealthyNodeReplacement API operation.", Operation = new[] {"SetUnhealthyNodeReplacement"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEMRUnhealthyNodeReplacementCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

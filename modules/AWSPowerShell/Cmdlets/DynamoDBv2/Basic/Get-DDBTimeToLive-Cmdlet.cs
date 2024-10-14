@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeTimeToLive API operation.", Operation = new[] {"DescribeTimeToLive"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeTimeToLiveResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TimeToLiveDescription or Amazon.DynamoDBv2.Model.DescribeTimeToLiveResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.TimeToLiveDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTimeToLiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTimeToLiveResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBTimeToLiveCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

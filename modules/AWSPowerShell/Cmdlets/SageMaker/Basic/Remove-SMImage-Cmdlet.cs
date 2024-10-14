@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteImage API operation.", Operation = new[] {"DeleteImage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteImageResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteImageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteImageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteImageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMImageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

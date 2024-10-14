@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListTemplateActions API operation.", Operation = new[] {"ListTemplateActions"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListTemplateActionsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.TemplateActionDocument or Amazon.Mgn.Model.ListTemplateActionsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.TemplateActionDocument objects.",
-        "The service call response (type Amazon.Mgn.Model.ListTemplateActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListTemplateActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNTemplateActionListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

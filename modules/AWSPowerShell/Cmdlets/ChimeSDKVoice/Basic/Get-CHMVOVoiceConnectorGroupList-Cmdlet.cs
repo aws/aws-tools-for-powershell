@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice ListVoiceConnectorGroups API operation.", Operation = new[] {"ListVoiceConnectorGroups"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.ListVoiceConnectorGroupsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.VoiceConnectorGroup or Amazon.ChimeSDKVoice.Model.ListVoiceConnectorGroupsResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKVoice.Model.VoiceConnectorGroup objects.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.ListVoiceConnectorGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.ListVoiceConnectorGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMVOVoiceConnectorGroupListCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

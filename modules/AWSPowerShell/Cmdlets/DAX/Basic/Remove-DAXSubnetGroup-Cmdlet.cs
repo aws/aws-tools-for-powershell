@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DeleteSubnetGroup API operation.", Operation = new[] {"DeleteSubnetGroup"}, SelectReturnType = typeof(Amazon.DAX.Model.DeleteSubnetGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.DAX.Model.DeleteSubnetGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DAX.Model.DeleteSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.DeleteSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDAXSubnetGroupCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

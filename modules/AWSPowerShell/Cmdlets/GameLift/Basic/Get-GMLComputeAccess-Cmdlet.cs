@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [OutputType("Amazon.GameLift.Model.GetComputeAccessResponse")]
     [AWSCmdlet("Calls the Amazon GameLift Service GetComputeAccess API operation.", Operation = new[] {"GetComputeAccess"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetComputeAccessResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.GetComputeAccessResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.GetComputeAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GameLift.Model.GetComputeAccessResponse object containing multiple properties."
     )]
     public partial class GetGMLComputeAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

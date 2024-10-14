@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service CreateWorkerBlock API operation.", Operation = new[] {"CreateWorkerBlock"}, SelectReturnType = typeof(Amazon.MTurk.Model.CreateWorkerBlockResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.CreateWorkerBlockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.CreateWorkerBlockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.CreateWorkerBlockResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewMTRWorkerBlockCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

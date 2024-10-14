@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.ListFacesResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition ListFaces API operation.", Operation = new[] {"ListFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.ListFacesResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.ListFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.ListFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.ListFacesResponse object containing multiple properties."
     )]
     public partial class GetREKFaceListCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.Rekognition module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [AWSCmdlet("Calls the AWS OpsWorksCM ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.Tag or Amazon.OpsWorksCM.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.OpsWorksCM.Model.Tag objects.",
-        "The service call response (type Amazon.OpsWorksCM.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorksCM.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOWCMResourceTagCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

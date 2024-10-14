@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.Tag or Amazon.StepFunctions.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.StepFunctions.Model.Tag objects.",
-        "The service call response (type Amazon.StepFunctions.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StepFunctions.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSFNResourceTagCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

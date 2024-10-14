@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.GetIntentResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service GetIntent API operation.", Operation = new[] {"GetIntent"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.GetIntentResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetIntentResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetIntentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetIntentResponse object containing multiple properties."
     )]
     public partial class GetLMBIntentCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

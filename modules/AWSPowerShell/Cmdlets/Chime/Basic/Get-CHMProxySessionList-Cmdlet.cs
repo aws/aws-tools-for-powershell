@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime ListProxySessions API operation.", Operation = new[] {"ListProxySessions"}, SelectReturnType = typeof(Amazon.Chime.Model.ListProxySessionsResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.ProxySession or Amazon.Chime.Model.ListProxySessionsResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.ProxySession objects.",
-        "The service call response (type Amazon.Chime.Model.ListProxySessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.ListProxySessionsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMProxySessionListCmdlet : AmazonChimeClientCmdlet, IExecutor
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

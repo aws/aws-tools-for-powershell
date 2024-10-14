@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DeleteAlias API operation.", Operation = new[] {"DeleteAlias"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DeleteAliasResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DeleteAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DeleteAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

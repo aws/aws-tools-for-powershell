@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup DeleteConfigurationManager API operation.", Operation = new[] {"DeleteConfigurationManager"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.DeleteConfigurationManagerResponse))]
     [AWSCmdletOutput("None or Amazon.SSMQuickSetup.Model.DeleteConfigurationManagerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMQuickSetup.Model.DeleteConfigurationManagerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMQuickSetup.Model.DeleteConfigurationManagerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMQSConfigurationManagerCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

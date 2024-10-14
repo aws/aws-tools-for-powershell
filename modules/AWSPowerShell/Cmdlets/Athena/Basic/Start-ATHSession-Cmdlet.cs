@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.StartSessionResponse")]
     [AWSCmdlet("Calls the Amazon Athena StartSession API operation.", Operation = new[] {"StartSession"}, SelectReturnType = typeof(Amazon.Athena.Model.StartSessionResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.StartSessionResponse",
-        "This cmdlet returns an Amazon.Athena.Model.StartSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.StartSessionResponse object containing multiple properties."
     )]
     public partial class StartATHSessionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

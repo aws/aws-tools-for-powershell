@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm GetTestGridProject API operation.", Operation = new[] {"GetTestGridProject"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetTestGridProjectResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.TestGridProject or Amazon.DeviceFarm.Model.GetTestGridProjectResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.TestGridProject object.",
-        "The service call response (type Amazon.DeviceFarm.Model.GetTestGridProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetTestGridProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFTestGridProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

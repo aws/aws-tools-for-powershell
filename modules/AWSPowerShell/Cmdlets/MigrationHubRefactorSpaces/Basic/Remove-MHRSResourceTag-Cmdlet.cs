@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubRefactorSpaces.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHRSResourceTagCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

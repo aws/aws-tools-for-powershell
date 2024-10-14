@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.UpdateSessionDataResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect UpdateSessionData API operation.", Operation = new[] {"UpdateSessionData"}, SelectReturnType = typeof(Amazon.QConnect.Model.UpdateSessionDataResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.UpdateSessionDataResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.UpdateSessionDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.UpdateSessionDataResponse object containing multiple properties."
     )]
     public partial class UpdateQCSessionDataCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

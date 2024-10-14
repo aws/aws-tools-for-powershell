@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service DeleteAlertManagerDefinition API operation.", Operation = new[] {"DeleteAlertManagerDefinition"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteAlertManagerDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteAlertManagerDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.DeleteAlertManagerDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.DeleteAlertManagerDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePROMAlertManagerDefinitionCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

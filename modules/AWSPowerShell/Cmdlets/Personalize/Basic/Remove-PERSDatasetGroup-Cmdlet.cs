@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DeleteDatasetGroup API operation.", Operation = new[] {"DeleteDatasetGroup"}, SelectReturnType = typeof(Amazon.Personalize.Model.DeleteDatasetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.DeleteDatasetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.DeleteDatasetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.DeleteDatasetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePERSDatasetGroupCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

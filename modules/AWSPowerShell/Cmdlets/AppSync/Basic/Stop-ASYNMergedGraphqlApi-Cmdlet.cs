@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DisassociateMergedGraphqlApi API operation.", Operation = new[] {"DisassociateMergedGraphqlApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.DisassociateMergedGraphqlApiResponse))]
     [AWSCmdletOutput("Amazon.AppSync.SourceApiAssociationStatus or Amazon.AppSync.Model.DisassociateMergedGraphqlApiResponse",
         "This cmdlet returns an Amazon.AppSync.SourceApiAssociationStatus object.",
-        "The service call response (type Amazon.AppSync.Model.DisassociateMergedGraphqlApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.DisassociateMergedGraphqlApiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopASYNMergedGraphqlApiCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

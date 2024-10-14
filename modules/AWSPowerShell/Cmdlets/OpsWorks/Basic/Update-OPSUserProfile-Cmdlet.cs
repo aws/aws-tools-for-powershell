@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks UpdateUserProfile API operation.", Operation = new[] {"UpdateUserProfile"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.UpdateUserProfileResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.UpdateUserProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.UpdateUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateUserProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

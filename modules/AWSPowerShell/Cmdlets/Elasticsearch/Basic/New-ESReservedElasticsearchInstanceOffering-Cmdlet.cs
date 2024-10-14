@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch PurchaseReservedElasticsearchInstanceOffering API operation.", Operation = new[] {"PurchaseReservedElasticsearchInstanceOffering"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.PurchaseReservedElasticsearchInstanceOfferingResponse object containing multiple properties."
     )]
     public partial class NewESReservedElasticsearchInstanceOfferingCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

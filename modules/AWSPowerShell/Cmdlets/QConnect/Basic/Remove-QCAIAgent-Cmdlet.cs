@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect DeleteAIAgent API operation.", Operation = new[] {"DeleteAIAgent"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteAIAgentResponse))]
     [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteAIAgentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QConnect.Model.DeleteAIAgentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QConnect.Model.DeleteAIAgentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQCAIAgentCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

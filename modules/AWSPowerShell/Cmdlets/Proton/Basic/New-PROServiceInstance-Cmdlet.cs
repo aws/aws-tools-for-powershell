@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton CreateServiceInstance API operation.", Operation = new[] {"CreateServiceInstance"}, SelectReturnType = typeof(Amazon.Proton.Model.CreateServiceInstanceResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServiceInstance or Amazon.Proton.Model.CreateServiceInstanceResponse",
         "This cmdlet returns an Amazon.Proton.Model.ServiceInstance object.",
-        "The service call response (type Amazon.Proton.Model.CreateServiceInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.CreateServiceInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPROServiceInstanceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

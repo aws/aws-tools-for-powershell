@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateUserPhoneConfig API operation.", Operation = new[] {"UpdateUserPhoneConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateUserPhoneConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateUserPhoneConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateUserPhoneConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateUserPhoneConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNUserPhoneConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

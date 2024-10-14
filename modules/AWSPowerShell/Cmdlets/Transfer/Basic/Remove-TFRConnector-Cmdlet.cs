@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteConnector API operation.", Operation = new[] {"DeleteConnector"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteConnectorResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteConnectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.DeleteConnectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTFRConnectorCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

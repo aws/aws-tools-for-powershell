@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service UpdateFailbackReplicationConfiguration API operation.", Operation = new[] {"UpdateFailbackReplicationConfiguration"}, SelectReturnType = typeof(Amazon.Drs.Model.UpdateFailbackReplicationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Drs.Model.UpdateFailbackReplicationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.UpdateFailbackReplicationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Drs.Model.UpdateFailbackReplicationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateEDRSFailbackReplicationConfigurationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

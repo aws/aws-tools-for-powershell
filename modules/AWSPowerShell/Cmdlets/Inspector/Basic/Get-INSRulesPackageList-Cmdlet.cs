@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector ListRulesPackages API operation.", Operation = new[] {"ListRulesPackages"}, SelectReturnType = typeof(Amazon.Inspector.Model.ListRulesPackagesResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector.Model.ListRulesPackagesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Inspector.Model.ListRulesPackagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.ListRulesPackagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINSRulesPackageListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

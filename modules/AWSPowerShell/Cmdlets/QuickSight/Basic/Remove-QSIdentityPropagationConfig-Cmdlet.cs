@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteIdentityPropagationConfigResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteIdentityPropagationConfig API operation.", Operation = new[] {"DeleteIdentityPropagationConfig"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteIdentityPropagationConfigResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteIdentityPropagationConfigResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteIdentityPropagationConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteIdentityPropagationConfigResponse object containing multiple properties."
     )]
     public partial class RemoveQSIdentityPropagationConfigCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

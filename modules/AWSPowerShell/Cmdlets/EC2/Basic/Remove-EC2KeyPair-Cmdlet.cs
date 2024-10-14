@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DeleteKeyPairResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteKeyPair API operation.", Operation = new[] {"DeleteKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DeleteKeyPairResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DeleteKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DeleteKeyPairResponse object containing multiple properties."
     )]
     public partial class RemoveEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

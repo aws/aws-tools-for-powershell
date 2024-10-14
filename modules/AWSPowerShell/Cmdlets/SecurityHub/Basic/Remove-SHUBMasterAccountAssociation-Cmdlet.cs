@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.DisassociateFromMasterAccountResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API has been deprecated, use DisassociateFromAdministratorAccount API instead.")]
     public partial class RemoveSHUBMasterAccountAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor

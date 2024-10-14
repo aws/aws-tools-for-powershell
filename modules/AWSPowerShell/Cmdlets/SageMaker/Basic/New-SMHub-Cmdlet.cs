@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateHub API operation.", Operation = new[] {"CreateHub"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateHubResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateHubResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateHubResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateHubResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMHubCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.AssociateCustomDomainResponse")]
     [AWSCmdlet("Calls the AWS App Runner AssociateCustomDomain API operation.", Operation = new[] {"AssociateCustomDomain"}, SelectReturnType = typeof(Amazon.AppRunner.Model.AssociateCustomDomainResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.AssociateCustomDomainResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.AssociateCustomDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.AssociateCustomDomainResponse object containing multiple properties."
     )]
     public partial class AddAARCustomDomainCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

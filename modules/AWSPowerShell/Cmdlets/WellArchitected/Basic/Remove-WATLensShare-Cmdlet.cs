@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteLensShare API operation.", Operation = new[] {"DeleteLensShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteLensShareResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteLensShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteLensShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteLensShareResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATLensShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

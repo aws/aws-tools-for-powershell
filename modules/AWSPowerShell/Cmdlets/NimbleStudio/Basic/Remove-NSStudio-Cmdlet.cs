@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio DeleteStudio API operation.", Operation = new[] {"DeleteStudio"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.DeleteStudioResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.Studio or Amazon.NimbleStudio.Model.DeleteStudioResponse",
         "This cmdlet returns an Amazon.NimbleStudio.Model.Studio object.",
-        "The service call response (type Amazon.NimbleStudio.Model.DeleteStudioResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.DeleteStudioResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNSStudioCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

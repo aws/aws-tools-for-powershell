@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks AssignInstance API operation.", Operation = new[] {"AssignInstance"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.AssignInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.AssignInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.AssignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.AssignInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

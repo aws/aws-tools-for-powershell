@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteAggregationAuthorization API operation.", Operation = new[] {"DeleteAggregationAuthorization"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteAggregationAuthorizationResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteAggregationAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteAggregationAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteAggregationAuthorizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGAggregationAuthorizationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTrunkInterface API operation.", Operation = new[] {"DisassociateTrunkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTrunkInterfaceResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisassociateTrunkInterfaceResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DisassociateTrunkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisassociateTrunkInterfaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2TrunkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service DescribeLanguageModel API operation.", Operation = new[] {"DescribeLanguageModel"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.DescribeLanguageModelResponse))]
     [AWSCmdletOutput("Amazon.TranscribeService.Model.LanguageModel or Amazon.TranscribeService.Model.DescribeLanguageModelResponse",
         "This cmdlet returns an Amazon.TranscribeService.Model.LanguageModel object.",
-        "The service call response (type Amazon.TranscribeService.Model.DescribeLanguageModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TranscribeService.Model.DescribeLanguageModelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTRSLanguageModelCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

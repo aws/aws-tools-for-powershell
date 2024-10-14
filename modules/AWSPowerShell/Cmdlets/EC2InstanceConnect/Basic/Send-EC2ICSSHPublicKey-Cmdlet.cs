@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
     [AWSCmdlet("Calls the AWS EC2 Instance Connect SendSSHPublicKey API operation.", Operation = new[] {"SendSSHPublicKey"}, SelectReturnType = typeof(Amazon.EC2InstanceConnect.Model.SendSSHPublicKeyResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2InstanceConnect.Model.SendSSHPublicKeyResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2InstanceConnect.Model.SendSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2InstanceConnect.Model.SendSSHPublicKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendEC2ICSSHPublicKeyCmdlet : AmazonEC2InstanceConnectClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEResourceTagCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

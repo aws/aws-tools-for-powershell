@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeModelQualityJobDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeModelQualityJobDefinition API operation.", Operation = new[] {"DescribeModelQualityJobDefinition"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeModelQualityJobDefinitionResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeModelQualityJobDefinitionResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeModelQualityJobDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeModelQualityJobDefinitionResponse object containing multiple properties."
     )]
     public partial class GetSMModelQualityJobDefinitionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

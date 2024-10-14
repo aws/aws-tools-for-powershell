@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.UpdateStageResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway UpdateStage API operation.", Operation = new[] {"UpdateStage"}, SelectReturnType = typeof(Amazon.APIGateway.Model.UpdateStageResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateStageResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.UpdateStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.UpdateStageResponse object containing multiple properties."
     )]
     public partial class UpdateAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

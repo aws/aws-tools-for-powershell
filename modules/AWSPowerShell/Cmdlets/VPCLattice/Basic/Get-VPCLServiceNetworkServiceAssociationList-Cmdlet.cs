@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice ListServiceNetworkServiceAssociations API operation.", Operation = new[] {"ListServiceNetworkServiceAssociations"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListServiceNetworkServiceAssociationsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.ServiceNetworkServiceAssociationSummary or Amazon.VPCLattice.Model.ListServiceNetworkServiceAssociationsResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.ServiceNetworkServiceAssociationSummary objects.",
-        "The service call response (type Amazon.VPCLattice.Model.ListServiceNetworkServiceAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VPCLattice.Model.ListServiceNetworkServiceAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVPCLServiceNetworkServiceAssociationListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

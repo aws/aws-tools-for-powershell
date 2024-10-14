@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteDatabase API operation.", Operation = new[] {"DeleteDatabase"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteDatabaseResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteDatabaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteDatabaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteDatabaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEDatabaseCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

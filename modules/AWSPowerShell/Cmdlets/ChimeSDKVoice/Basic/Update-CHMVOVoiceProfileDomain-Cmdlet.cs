@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice UpdateVoiceProfileDomain API operation.", Operation = new[] {"UpdateVoiceProfileDomain"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.UpdateVoiceProfileDomainResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.VoiceProfileDomain or Amazon.ChimeSDKVoice.Model.UpdateVoiceProfileDomainResponse",
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.VoiceProfileDomain object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.UpdateVoiceProfileDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.UpdateVoiceProfileDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMVOVoiceProfileDomainCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

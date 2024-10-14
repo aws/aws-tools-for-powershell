@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups CancelTagSyncTask API operation.", Operation = new[] {"CancelTagSyncTask"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.CancelTagSyncTaskResponse))]
     [AWSCmdletOutput("None or Amazon.ResourceGroups.Model.CancelTagSyncTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResourceGroups.Model.CancelTagSyncTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResourceGroups.Model.CancelTagSyncTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopRGTagSyncTaskCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

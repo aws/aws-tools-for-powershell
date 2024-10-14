@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue RunStatement API operation.", Operation = new[] {"RunStatement"}, SelectReturnType = typeof(Amazon.Glue.Model.RunStatementResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.Glue.Model.RunStatementResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.Glue.Model.RunStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.RunStatementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeGLUEStatementCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

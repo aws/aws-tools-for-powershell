@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness PutGroup API operation.", Operation = new[] {"PutGroup"}, SelectReturnType = typeof(Amazon.QBusiness.Model.PutGroupResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.PutGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.PutGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.PutGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteQBUSGroupCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

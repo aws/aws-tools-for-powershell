@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service DeleteHIT API operation.", Operation = new[] {"DeleteHIT"}, SelectReturnType = typeof(Amazon.MTurk.Model.DeleteHITResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.DeleteHITResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.DeleteHITResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.DeleteHITResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMTRHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

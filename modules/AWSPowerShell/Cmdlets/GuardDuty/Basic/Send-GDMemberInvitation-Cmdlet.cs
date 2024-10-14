@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty InviteMembers API operation.", Operation = new[] {"InviteMembers"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.InviteMembersResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UnprocessedAccount or Amazon.GuardDuty.Model.InviteMembersResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.GuardDuty.Model.InviteMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.InviteMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendGDMemberInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

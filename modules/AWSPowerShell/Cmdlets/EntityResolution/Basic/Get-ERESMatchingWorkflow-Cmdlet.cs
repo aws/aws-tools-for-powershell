@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.GetMatchingWorkflowResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution GetMatchingWorkflow API operation.", Operation = new[] {"GetMatchingWorkflow"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetMatchingWorkflowResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.GetMatchingWorkflowResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.GetMatchingWorkflowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.GetMatchingWorkflowResponse object containing multiple properties."
     )]
     public partial class GetERESMatchingWorkflowCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync DeleteDataset API operation.", Operation = new[] {"DeleteDataset"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.DeleteDatasetResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.Dataset or Amazon.CognitoSync.Model.DeleteDatasetResponse",
         "This cmdlet returns an Amazon.CognitoSync.Model.Dataset object.",
-        "The service call response (type Amazon.CognitoSync.Model.DeleteDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.DeleteDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGISDatasetCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

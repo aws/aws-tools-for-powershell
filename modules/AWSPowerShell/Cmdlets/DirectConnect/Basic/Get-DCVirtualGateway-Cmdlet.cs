@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DescribeVirtualGateways API operation.", Operation = new[] {"DescribeVirtualGateways"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualGateway or Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse",
         "This cmdlet returns a collection of Amazon.DirectConnect.Model.VirtualGateway objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDCVirtualGatewayCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

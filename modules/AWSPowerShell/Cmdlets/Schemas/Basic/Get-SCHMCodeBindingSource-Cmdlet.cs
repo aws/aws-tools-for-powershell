@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry GetCodeBindingSource API operation.", Operation = new[] {"GetCodeBindingSource"}, SelectReturnType = typeof(Amazon.Schemas.Model.GetCodeBindingSourceResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.Schemas.Model.GetCodeBindingSourceResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.Schemas.Model.GetCodeBindingSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Schemas.Model.GetCodeBindingSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCHMCodeBindingSourceCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

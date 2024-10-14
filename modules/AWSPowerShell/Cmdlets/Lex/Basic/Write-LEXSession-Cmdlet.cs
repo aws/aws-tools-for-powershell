@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     [OutputType("Amazon.Lex.Model.PutSessionResponse")]
     [AWSCmdlet("Calls the Amazon Lex PutSession API operation.", Operation = new[] {"PutSession"}, SelectReturnType = typeof(Amazon.Lex.Model.PutSessionResponse))]
     [AWSCmdletOutput("Amazon.Lex.Model.PutSessionResponse",
-        "This cmdlet returns an Amazon.Lex.Model.PutSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lex.Model.PutSessionResponse object containing multiple properties."
     )]
     public partial class WriteLEXSessionCmdlet : AmazonLexClientCmdlet, IExecutor
     {

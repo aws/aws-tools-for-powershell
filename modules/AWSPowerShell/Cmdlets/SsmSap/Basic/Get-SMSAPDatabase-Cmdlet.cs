@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [OutputType("Amazon.SsmSap.Model.GetDatabaseResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager for SAP GetDatabase API operation.", Operation = new[] {"GetDatabase"}, SelectReturnType = typeof(Amazon.SsmSap.Model.GetDatabaseResponse))]
     [AWSCmdletOutput("Amazon.SsmSap.Model.GetDatabaseResponse",
-        "This cmdlet returns an Amazon.SsmSap.Model.GetDatabaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SsmSap.Model.GetDatabaseResponse object containing multiple properties."
     )]
     public partial class GetSMSAPDatabaseCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

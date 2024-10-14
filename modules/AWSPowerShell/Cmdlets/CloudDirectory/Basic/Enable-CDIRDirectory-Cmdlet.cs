@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory EnableDirectory API operation.", Operation = new[] {"EnableDirectory"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.EnableDirectoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.EnableDirectoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.EnableDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.EnableDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableCDIRDirectoryCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

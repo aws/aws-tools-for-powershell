@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     [AWSCmdlet("Calls the AWS Tax Settings PutTaxRegistration API operation.", Operation = new[] {"PutTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxRegistrationResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.TaxRegistrationStatus or Amazon.TaxSettings.Model.PutTaxRegistrationResponse",
         "This cmdlet returns an Amazon.TaxSettings.TaxRegistrationStatus object.",
-        "The service call response (type Amazon.TaxSettings.Model.PutTaxRegistrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TaxSettings.Model.PutTaxRegistrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteTSATaxRegistrationCmdlet : AmazonTaxSettingsClientCmdlet, IExecutor
     {

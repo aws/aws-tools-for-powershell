@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [OutputType("Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse")]
     [AWSCmdlet("Calls the Amazon Medical Imaging Service UpdateImageSetMetadata API operation.", Operation = new[] {"UpdateImageSetMetadata"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse",
-        "This cmdlet returns an Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse object containing multiple properties."
     )]
     public partial class UpdateMISImageSetMetadataCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

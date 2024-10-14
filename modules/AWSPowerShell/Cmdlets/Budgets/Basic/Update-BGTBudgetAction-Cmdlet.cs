@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [OutputType("Amazon.Budgets.Model.UpdateBudgetActionResponse")]
     [AWSCmdlet("Calls the AWS Budgets UpdateBudgetAction API operation.", Operation = new[] {"UpdateBudgetAction"}, SelectReturnType = typeof(Amazon.Budgets.Model.UpdateBudgetActionResponse))]
     [AWSCmdletOutput("Amazon.Budgets.Model.UpdateBudgetActionResponse",
-        "This cmdlet returns an Amazon.Budgets.Model.UpdateBudgetActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Budgets.Model.UpdateBudgetActionResponse object containing multiple properties."
     )]
     public partial class UpdateBGTBudgetActionCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

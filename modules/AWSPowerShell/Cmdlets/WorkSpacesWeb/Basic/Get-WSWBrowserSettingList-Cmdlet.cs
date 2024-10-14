@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web ListBrowserSettings API operation.", Operation = new[] {"ListBrowserSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.ListBrowserSettingsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.BrowserSettingsSummary or Amazon.WorkSpacesWeb.Model.ListBrowserSettingsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpacesWeb.Model.BrowserSettingsSummary objects.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.ListBrowserSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.ListBrowserSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWBrowserSettingListCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service UpdateExpirationForHIT API operation.", Operation = new[] {"UpdateExpirationForHIT"}, SelectReturnType = typeof(Amazon.MTurk.Model.UpdateExpirationForHITResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.UpdateExpirationForHITResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.UpdateExpirationForHITResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.UpdateExpirationForHITResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateMTRExpirationForHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

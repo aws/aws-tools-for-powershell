@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.SageMaker.Model.AddTagsResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.Tag or Amazon.SageMaker.Model.AddTagsResponse",
         "This cmdlet returns a collection of Amazon.SageMaker.Model.Tag objects.",
-        "The service call response (type Amazon.SageMaker.Model.AddTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.AddTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddSMResourceTagCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

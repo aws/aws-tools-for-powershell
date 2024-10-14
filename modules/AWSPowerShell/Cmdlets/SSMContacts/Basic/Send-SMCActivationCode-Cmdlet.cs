@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts SendActivationCode API operation.", Operation = new[] {"SendActivationCode"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.SendActivationCodeResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.SendActivationCodeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.SendActivationCodeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.SendActivationCodeResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendSMCActivationCodeCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

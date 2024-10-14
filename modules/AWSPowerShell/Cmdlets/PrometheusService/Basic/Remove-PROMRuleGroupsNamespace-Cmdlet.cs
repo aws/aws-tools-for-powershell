@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service DeleteRuleGroupsNamespace API operation.", Operation = new[] {"DeleteRuleGroupsNamespace"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteRuleGroupsNamespaceResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteRuleGroupsNamespaceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.DeleteRuleGroupsNamespaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.DeleteRuleGroupsNamespaceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePROMRuleGroupsNamespaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

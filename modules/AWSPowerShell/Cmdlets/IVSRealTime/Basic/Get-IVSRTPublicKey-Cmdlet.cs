@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime GetPublicKey API operation.", Operation = new[] {"GetPublicKey"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.GetPublicKeyResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.PublicKey or Amazon.IVSRealTime.Model.GetPublicKeyResponse",
         "This cmdlet returns an Amazon.IVSRealTime.Model.PublicKey object.",
-        "The service call response (type Amazon.IVSRealTime.Model.GetPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.GetPublicKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSRTPublicKeyCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

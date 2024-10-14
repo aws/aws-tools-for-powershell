@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane RestoreKey API operation.", Operation = new[] {"RestoreKey"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.RestoreKeyResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.RestoreKeyResponse",
         "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.RestoreKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.RestoreKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestorePAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

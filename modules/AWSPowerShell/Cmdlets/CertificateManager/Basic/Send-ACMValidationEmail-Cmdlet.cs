@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager ResendValidationEmail API operation.", Operation = new[] {"ResendValidationEmail"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.ResendValidationEmailResponse))]
     [AWSCmdletOutput("None or Amazon.CertificateManager.Model.ResendValidationEmailResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CertificateManager.Model.ResendValidationEmailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.ResendValidationEmailResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendACMValidationEmailCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

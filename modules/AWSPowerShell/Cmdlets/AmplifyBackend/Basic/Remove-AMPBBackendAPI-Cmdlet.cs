@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [OutputType("Amazon.AmplifyBackend.Model.DeleteBackendAPIResponse")]
     [AWSCmdlet("Calls the Amplify Backend DeleteBackendAPI API operation.", Operation = new[] {"DeleteBackendAPI"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.DeleteBackendAPIResponse))]
     [AWSCmdletOutput("Amazon.AmplifyBackend.Model.DeleteBackendAPIResponse",
-        "This cmdlet returns an Amazon.AmplifyBackend.Model.DeleteBackendAPIResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyBackend.Model.DeleteBackendAPIResponse object containing multiple properties."
     )]
     public partial class RemoveAMPBBackendAPICmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

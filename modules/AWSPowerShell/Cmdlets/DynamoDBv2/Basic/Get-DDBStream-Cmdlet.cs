@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeStream API operation.", Operation = new[] {"DescribeStream"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeStreamResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.StreamDescription or Amazon.DynamoDBv2.Model.DescribeStreamResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.StreamDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeregisterRdsDbInstance API operation.", Operation = new[] {"DeregisterRdsDbInstance"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

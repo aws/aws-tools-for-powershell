@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) DeleteMessageBatch API operation.", Operation = new[] {"DeleteMessageBatch"}, SelectReturnType = typeof(Amazon.SQS.Model.DeleteMessageBatchResponse))]
     [AWSCmdletOutput("Amazon.SQS.Model.DeleteMessageBatchResponse",
-        "This cmdlet returns an Amazon.SQS.Model.DeleteMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SQS.Model.DeleteMessageBatchResponse object containing multiple properties."
     )]
     public partial class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

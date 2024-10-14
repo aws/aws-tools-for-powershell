@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
     [AWSCmdlet("Calls the Amazon Elastic Inference DescribeAcceleratorOfferings API operation.", Operation = new[] {"DescribeAcceleratorOfferings"}, SelectReturnType = typeof(Amazon.ElasticInference.Model.DescribeAcceleratorOfferingsResponse))]
     [AWSCmdletOutput("Amazon.ElasticInference.Model.AcceleratorTypeOffering or Amazon.ElasticInference.Model.DescribeAcceleratorOfferingsResponse",
         "This cmdlet returns a collection of Amazon.ElasticInference.Model.AcceleratorTypeOffering objects.",
-        "The service call response (type Amazon.ElasticInference.Model.DescribeAcceleratorOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticInference.Model.DescribeAcceleratorOfferingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEIAcceleratorOfferingCmdlet : AmazonElasticInferenceClientCmdlet, IExecutor
     {

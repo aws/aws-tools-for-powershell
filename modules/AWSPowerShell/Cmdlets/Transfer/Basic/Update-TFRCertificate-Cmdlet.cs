@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP UpdateCertificate API operation.", Operation = new[] {"UpdateCertificate"}, SelectReturnType = typeof(Amazon.Transfer.Model.UpdateCertificateResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.UpdateCertificateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.UpdateCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.UpdateCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTFRCertificateCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

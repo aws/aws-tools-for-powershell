@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.GetEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS AppConfig GetEnvironment API operation.", Operation = new[] {"GetEnvironment"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.GetEnvironmentResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.GetEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.GetEnvironmentResponse object containing multiple properties."
     )]
     public partial class GetAPPCEnvironmentCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

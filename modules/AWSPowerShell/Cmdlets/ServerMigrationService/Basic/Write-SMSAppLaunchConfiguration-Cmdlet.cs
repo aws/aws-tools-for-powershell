@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service PutAppLaunchConfiguration API operation.", Operation = new[] {"PutAppLaunchConfiguration"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.PutAppLaunchConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.PutAppLaunchConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.PutAppLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.PutAppLaunchConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSMSAppLaunchConfigurationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

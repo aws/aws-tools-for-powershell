@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     [AWSCmdlet("Calls the AWS Serverless Application Repository UnshareApplication API operation.", Operation = new[] {"UnshareApplication"}, SelectReturnType = typeof(Amazon.ServerlessApplicationRepository.Model.UnshareApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.ServerlessApplicationRepository.Model.UnshareApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerlessApplicationRepository.Model.UnshareApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerlessApplicationRepository.Model.UnshareApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeSARApplicationSharingCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {

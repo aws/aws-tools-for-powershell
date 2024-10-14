@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections UpdateHost API operation.", Operation = new[] {"UpdateHost"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.UpdateHostResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.UpdateHostResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.UpdateHostResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.UpdateHostResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCONHostCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

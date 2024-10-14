@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker DeleteEntity API operation.", Operation = new[] {"DeleteEntity"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.DeleteEntityResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.State or Amazon.IoTTwinMaker.Model.DeleteEntityResponse",
         "This cmdlet returns an Amazon.IoTTwinMaker.State object.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteEntityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteEntityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTTMEntityCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

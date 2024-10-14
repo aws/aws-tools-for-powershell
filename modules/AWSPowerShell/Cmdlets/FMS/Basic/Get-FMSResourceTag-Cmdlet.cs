@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.FMS.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.Tag or Amazon.FMS.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.FMS.Model.Tag objects.",
-        "The service call response (type Amazon.FMS.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSResourceTagCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

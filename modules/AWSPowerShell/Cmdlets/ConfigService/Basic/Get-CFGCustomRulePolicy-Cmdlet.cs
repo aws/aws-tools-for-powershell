@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config GetCustomRulePolicy API operation.", Operation = new[] {"GetCustomRulePolicy"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetCustomRulePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.ConfigService.Model.GetCustomRulePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ConfigService.Model.GetCustomRulePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetCustomRulePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGCustomRulePolicyCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

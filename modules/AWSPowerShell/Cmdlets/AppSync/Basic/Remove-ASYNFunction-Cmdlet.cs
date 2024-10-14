@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DeleteFunction API operation.", Operation = new[] {"DeleteFunction"}, SelectReturnType = typeof(Amazon.AppSync.Model.DeleteFunctionResponse))]
     [AWSCmdletOutput("None or Amazon.AppSync.Model.DeleteFunctionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppSync.Model.DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppSync.Model.DeleteFunctionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASYNFunctionCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

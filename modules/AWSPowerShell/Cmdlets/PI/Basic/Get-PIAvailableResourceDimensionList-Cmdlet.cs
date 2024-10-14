@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights ListAvailableResourceDimensions API operation.", Operation = new[] {"ListAvailableResourceDimensions"}, SelectReturnType = typeof(Amazon.PI.Model.ListAvailableResourceDimensionsResponse))]
     [AWSCmdletOutput("Amazon.PI.Model.MetricDimensionGroups or Amazon.PI.Model.ListAvailableResourceDimensionsResponse",
         "This cmdlet returns a collection of Amazon.PI.Model.MetricDimensionGroups objects.",
-        "The service call response (type Amazon.PI.Model.ListAvailableResourceDimensionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PI.Model.ListAvailableResourceDimensionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPIAvailableResourceDimensionListCmdlet : AmazonPIClientCmdlet, IExecutor
     {

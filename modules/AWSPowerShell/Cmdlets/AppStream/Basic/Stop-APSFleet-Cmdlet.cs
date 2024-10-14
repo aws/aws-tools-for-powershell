@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream StopFleet API operation.", Operation = new[] {"StopFleet"}, SelectReturnType = typeof(Amazon.AppStream.Model.StopFleetResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.StopFleetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.StopFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.StopFleetResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

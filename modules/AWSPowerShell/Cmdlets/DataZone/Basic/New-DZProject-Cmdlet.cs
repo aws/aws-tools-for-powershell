@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone CreateProject API operation.", Operation = new[] {"CreateProject"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateProjectResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataZone.Model.CreateProjectResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataZone.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataZone.Model.CreateProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDZProjectCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

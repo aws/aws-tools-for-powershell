@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat SendEvent API operation.", Operation = new[] {"SendEvent"}, SelectReturnType = typeof(Amazon.Ivschat.Model.SendEventResponse))]
     [AWSCmdletOutput("System.String or Amazon.Ivschat.Model.SendEventResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Ivschat.Model.SendEventResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Ivschat.Model.SendEventResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendIVSCEventCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

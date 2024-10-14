@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
     [AWSCmdlet("Calls the AWS Savings Plans CreateSavingsPlan API operation.", Operation = new[] {"CreateSavingsPlan"}, SelectReturnType = typeof(Amazon.SavingsPlans.Model.CreateSavingsPlanResponse))]
     [AWSCmdletOutput("System.String or Amazon.SavingsPlans.Model.CreateSavingsPlanResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SavingsPlans.Model.CreateSavingsPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SavingsPlans.Model.CreateSavingsPlanResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSPSavingsPlanCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {

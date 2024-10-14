@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [OutputType("Amazon.CodeStarNotifications.Model.DescribeNotificationRuleResponse")]
     [AWSCmdlet("Calls the AWS CodeStar Notifications DescribeNotificationRule API operation.", Operation = new[] {"DescribeNotificationRule"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.DescribeNotificationRuleResponse))]
     [AWSCmdletOutput("Amazon.CodeStarNotifications.Model.DescribeNotificationRuleResponse",
-        "This cmdlet returns an Amazon.CodeStarNotifications.Model.DescribeNotificationRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeStarNotifications.Model.DescribeNotificationRuleResponse object containing multiple properties."
     )]
     public partial class GetCSTNNotificationRuleCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain VoteOnProposal API operation.", Operation = new[] {"VoteOnProposal"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.VoteOnProposalResponse))]
     [AWSCmdletOutput("None or Amazon.ManagedBlockchain.Model.VoteOnProposalResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ManagedBlockchain.Model.VoteOnProposalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ManagedBlockchain.Model.VoteOnProposalResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendMBCProposalVoteCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

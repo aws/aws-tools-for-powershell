@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront AssociateAlias API operation.", Operation = new[] {"AssociateAlias"}, SelectReturnType = typeof(Amazon.CloudFront.Model.AssociateAliasResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.AssociateAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.AssociateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.AssociateAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class MoveCFAliasCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

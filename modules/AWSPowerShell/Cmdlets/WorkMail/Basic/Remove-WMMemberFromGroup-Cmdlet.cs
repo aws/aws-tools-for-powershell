@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DisassociateMemberFromGroup API operation.", Operation = new[] {"DisassociateMemberFromGroup"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DisassociateMemberFromGroupResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DisassociateMemberFromGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DisassociateMemberFromGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DisassociateMemberFromGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMMemberFromGroupCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

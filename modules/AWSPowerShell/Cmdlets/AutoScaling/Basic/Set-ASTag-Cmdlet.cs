@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling CreateOrUpdateTags API operation.", Operation = new[] {"CreateOrUpdateTags"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

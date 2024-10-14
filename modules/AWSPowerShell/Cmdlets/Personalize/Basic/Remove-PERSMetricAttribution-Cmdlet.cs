@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DeleteMetricAttribution API operation.", Operation = new[] {"DeleteMetricAttribution"}, SelectReturnType = typeof(Amazon.Personalize.Model.DeleteMetricAttributionResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.DeleteMetricAttributionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.DeleteMetricAttributionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.DeleteMetricAttributionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePERSMetricAttributionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

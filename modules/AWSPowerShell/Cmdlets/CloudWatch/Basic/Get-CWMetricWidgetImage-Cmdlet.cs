@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch GetMetricWidgetImage API operation.", Operation = new[] {"GetMetricWidgetImage"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.GetMetricWidgetImageResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.CloudWatch.Model.GetMetricWidgetImageResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.CloudWatch.Model.GetMetricWidgetImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.GetMetricWidgetImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWMetricWidgetImageCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

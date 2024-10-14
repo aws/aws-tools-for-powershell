@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     [OutputType("Amazon.SSOOIDC.Model.StartDeviceAuthorizationResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On OIDC StartDeviceAuthorization API operation.", Operation = new[] {"StartDeviceAuthorization"}, SelectReturnType = typeof(Amazon.SSOOIDC.Model.StartDeviceAuthorizationResponse))]
     [AWSCmdletOutput("Amazon.SSOOIDC.Model.StartDeviceAuthorizationResponse",
-        "This cmdlet returns an Amazon.SSOOIDC.Model.StartDeviceAuthorizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOOIDC.Model.StartDeviceAuthorizationResponse object containing multiple properties."
     )]
     public partial class StartSSOOIDCDeviceAuthorizationCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {

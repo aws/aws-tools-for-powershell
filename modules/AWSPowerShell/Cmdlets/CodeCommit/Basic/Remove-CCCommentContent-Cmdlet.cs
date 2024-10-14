@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit DeleteCommentContent API operation.", Operation = new[] {"DeleteCommentContent"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.DeleteCommentContentResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.Comment or Amazon.CodeCommit.Model.DeleteCommentContentResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.Comment object.",
-        "The service call response (type Amazon.CodeCommit.Model.DeleteCommentContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.DeleteCommentContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCCommentContentCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeACLs API operation.", Operation = new[] {"DescribeACLs"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeACLsResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ACL or Amazon.MemoryDB.Model.DescribeACLsResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.ACL objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeACLsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeACLsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBACLsCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

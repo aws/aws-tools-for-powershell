@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway ListVolumeInitiators API operation.", Operation = new[] {"ListVolumeInitiators"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse), LegacyAlias="Get-SGVolumeInitiators")]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSGVolumeInitiatorListCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

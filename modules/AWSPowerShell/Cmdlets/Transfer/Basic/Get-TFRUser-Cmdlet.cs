@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [OutputType("Amazon.Transfer.Model.DescribeUserResponse")]
     [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeUser API operation.", Operation = new[] {"DescribeUser"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeUserResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.DescribeUserResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.DescribeUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Transfer.Model.DescribeUserResponse object containing multiple properties."
     )]
     public partial class GetTFRUserCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

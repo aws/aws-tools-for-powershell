@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [OutputType("Amazon.CloudDirectory.Model.GetObjectInformationResponse")]
     [AWSCmdlet("Calls the Amazon Cloud Directory GetObjectInformation API operation.", Operation = new[] {"GetObjectInformation"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.GetObjectInformationResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.GetObjectInformationResponse",
-        "This cmdlet returns an Amazon.CloudDirectory.Model.GetObjectInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudDirectory.Model.GetObjectInformationResponse object containing multiple properties."
     )]
     public partial class GetCDIRObjectInformationCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

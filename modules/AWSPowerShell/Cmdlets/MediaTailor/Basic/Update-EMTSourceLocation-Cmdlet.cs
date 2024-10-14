@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [OutputType("Amazon.MediaTailor.Model.UpdateSourceLocationResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaTailor UpdateSourceLocation API operation.", Operation = new[] {"UpdateSourceLocation"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.UpdateSourceLocationResponse))]
     [AWSCmdletOutput("Amazon.MediaTailor.Model.UpdateSourceLocationResponse",
-        "This cmdlet returns an Amazon.MediaTailor.Model.UpdateSourceLocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaTailor.Model.UpdateSourceLocationResponse object containing multiple properties."
     )]
     public partial class UpdateEMTSourceLocationCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

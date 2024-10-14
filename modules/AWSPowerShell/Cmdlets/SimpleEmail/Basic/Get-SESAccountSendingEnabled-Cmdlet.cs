@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetAccountSendingEnabled API operation.", Operation = new[] {"GetAccountSendingEnabled"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetAccountSendingEnabledResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.SimpleEmail.Model.GetAccountSendingEnabledResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.SimpleEmail.Model.GetAccountSendingEnabledResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetAccountSendingEnabledResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESAccountSendingEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreatePolicyVersionResponse")]
     [AWSCmdlet("Calls the AWS IoT CreatePolicyVersion API operation.", Operation = new[] {"CreatePolicyVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.CreatePolicyVersionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreatePolicyVersionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreatePolicyVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreatePolicyVersionResponse object containing multiple properties."
     )]
     public partial class NewIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact DeleteRepository API operation.", Operation = new[] {"DeleteRepository"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DeleteRepositoryResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositoryDescription or Amazon.CodeArtifact.Model.DeleteRepositoryResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.RepositoryDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.DeleteRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCARepositoryCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

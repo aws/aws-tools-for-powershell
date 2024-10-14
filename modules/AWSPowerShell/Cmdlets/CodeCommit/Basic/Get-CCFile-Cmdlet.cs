@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.GetFileResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit GetFile API operation.", Operation = new[] {"GetFile"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetFileResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.GetFileResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.GetFileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.GetFileResponse object containing multiple properties."
     )]
     public partial class GetCCFileCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

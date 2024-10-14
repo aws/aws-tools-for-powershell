@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
     [AWSCmdlet("Calls the Trusted Advisor UpdateRecommendationLifecycle API operation.", Operation = new[] {"UpdateRecommendationLifecycle"}, SelectReturnType = typeof(Amazon.TrustedAdvisor.Model.UpdateRecommendationLifecycleResponse))]
     [AWSCmdletOutput("None or Amazon.TrustedAdvisor.Model.UpdateRecommendationLifecycleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TrustedAdvisor.Model.UpdateRecommendationLifecycleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TrustedAdvisor.Model.UpdateRecommendationLifecycleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateTARecommendationLifecycleCmdlet : AmazonTrustedAdvisorClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeregisterMailDomain API operation.", Operation = new[] {"DeregisterMailDomain"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeregisterMailDomainResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeregisterMailDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeregisterMailDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeregisterMailDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMMailDomainCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

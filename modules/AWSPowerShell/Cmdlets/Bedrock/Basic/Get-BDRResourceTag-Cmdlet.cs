@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.Tag or Amazon.Bedrock.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Bedrock.Model.Tag objects.",
-        "The service call response (type Amazon.Bedrock.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Bedrock.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBDRResourceTagCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

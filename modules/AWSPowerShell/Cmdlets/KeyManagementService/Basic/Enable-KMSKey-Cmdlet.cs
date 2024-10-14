@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service EnableKey API operation.", Operation = new[] {"EnableKey"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.EnableKeyResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.EnableKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.EnableKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.EnableKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

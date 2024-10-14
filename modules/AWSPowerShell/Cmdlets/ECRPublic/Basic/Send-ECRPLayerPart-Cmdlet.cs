@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [OutputType("Amazon.ECRPublic.Model.UploadLayerPartResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public UploadLayerPart API operation.", Operation = new[] {"UploadLayerPart"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.UploadLayerPartResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.UploadLayerPartResponse",
-        "This cmdlet returns an Amazon.ECRPublic.Model.UploadLayerPartResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECRPublic.Model.UploadLayerPartResponse object containing multiple properties."
     )]
     public partial class SendECRPLayerPartCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

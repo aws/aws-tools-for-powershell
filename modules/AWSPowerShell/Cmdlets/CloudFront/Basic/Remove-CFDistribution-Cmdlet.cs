@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteDistribution API operation.", Operation = new[] {"DeleteDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteDistributionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteDistributionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteDistributionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteDistributionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

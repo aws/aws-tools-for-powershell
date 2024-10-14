@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSSMResourceTagCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

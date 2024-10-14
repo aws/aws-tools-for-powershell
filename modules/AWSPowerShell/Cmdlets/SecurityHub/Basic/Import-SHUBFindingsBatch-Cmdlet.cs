@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.BatchImportFindingsResponse")]
     [AWSCmdlet("Calls the AWS Security Hub BatchImportFindings API operation.", Operation = new[] {"BatchImportFindings"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchImportFindingsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchImportFindingsResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.BatchImportFindingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.BatchImportFindingsResponse object containing multiple properties."
     )]
     public partial class ImportSHUBFindingsBatchCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

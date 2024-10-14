@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateContactFlowModuleContent API operation.", Operation = new[] {"UpdateContactFlowModuleContent"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateContactFlowModuleContentResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateContactFlowModuleContentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateContactFlowModuleContentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateContactFlowModuleContentResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNContactFlowModuleContentCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

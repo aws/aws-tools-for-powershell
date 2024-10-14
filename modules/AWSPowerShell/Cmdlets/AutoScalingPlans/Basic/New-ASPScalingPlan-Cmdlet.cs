@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     [AWSCmdlet("Calls the AWS Auto Scaling Plans CreateScalingPlan API operation.", Operation = new[] {"CreateScalingPlan"}, SelectReturnType = typeof(Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASPScalingPlanCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {

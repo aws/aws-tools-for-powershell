@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [AWSCmdlet("Calls the AWS Support App GetAccountAlias API operation.", Operation = new[] {"GetAccountAlias"}, SelectReturnType = typeof(Amazon.SupportApp.Model.GetAccountAliasResponse))]
     [AWSCmdletOutput("System.String or Amazon.SupportApp.Model.GetAccountAliasResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SupportApp.Model.GetAccountAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupportApp.Model.GetAccountAliasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSUPAccountAliasCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

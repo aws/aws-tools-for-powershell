@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions UpdateStateMachineAlias API operation.", Operation = new[] {"UpdateStateMachineAlias"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.UpdateStateMachineAliasResponse))]
     [AWSCmdletOutput("System.DateTime or Amazon.StepFunctions.Model.UpdateStateMachineAliasResponse",
         "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.StepFunctions.Model.UpdateStateMachineAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StepFunctions.Model.UpdateStateMachineAliasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSFNStateMachineAliasCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

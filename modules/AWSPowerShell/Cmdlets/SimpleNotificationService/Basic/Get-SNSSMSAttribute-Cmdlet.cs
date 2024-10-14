@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) GetSMSAttributes API operation.", Operation = new[] {"GetSMSAttributes"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse), LegacyAlias="Get-SNSSMSAttributes")]
     [AWSCmdletOutput("System.String or Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNSSMSAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

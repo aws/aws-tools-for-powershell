@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager CreateSiteToSiteVpnAttachment API operation.", Operation = new[] {"CreateSiteToSiteVpnAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateSiteToSiteVpnAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.SiteToSiteVpnAttachment or Amazon.NetworkManager.Model.CreateSiteToSiteVpnAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.SiteToSiteVpnAttachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.CreateSiteToSiteVpnAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.CreateSiteToSiteVpnAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNMGRSiteToSiteVpnAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.GetEntityResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker GetEntity API operation.", Operation = new[] {"GetEntity"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.GetEntityResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.GetEntityResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetEntityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetEntityResponse object containing multiple properties."
     )]
     public partial class GetIOTTMEntityCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

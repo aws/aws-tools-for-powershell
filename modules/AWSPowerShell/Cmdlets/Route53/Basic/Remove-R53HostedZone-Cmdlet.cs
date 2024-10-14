@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteHostedZone API operation.", Operation = new[] {"DeleteHostedZone"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteHostedZoneResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.DeleteHostedZoneResponse",
         "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.DeleteHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.DeleteHostedZoneResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

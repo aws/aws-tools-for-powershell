@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild StartBuildBatch API operation.", Operation = new[] {"StartBuildBatch"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.StartBuildBatchResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.BuildBatch or Amazon.CodeBuild.Model.StartBuildBatchResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.BuildBatch object.",
-        "The service call response (type Amazon.CodeBuild.Model.StartBuildBatchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.StartBuildBatchResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCBBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Glue.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.PutResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetGLUEResourcePolicyCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

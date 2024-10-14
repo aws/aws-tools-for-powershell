@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service CreatePlayerSessions API operation.", Operation = new[] {"CreatePlayerSessions"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreatePlayerSessionsResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.PlayerSession or Amazon.GameLift.Model.CreatePlayerSessionsResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.PlayerSession objects.",
-        "The service call response (type Amazon.GameLift.Model.CreatePlayerSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.CreatePlayerSessionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGMLPlayerSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

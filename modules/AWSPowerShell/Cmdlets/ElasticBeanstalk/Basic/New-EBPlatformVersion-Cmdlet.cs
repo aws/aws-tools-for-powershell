@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk CreatePlatformVersion API operation.", Operation = new[] {"CreatePlatformVersion"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse object containing multiple properties."
     )]
     public partial class NewEBPlatformVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

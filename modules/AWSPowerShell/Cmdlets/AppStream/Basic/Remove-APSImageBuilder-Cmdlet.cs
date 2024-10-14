@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteImageBuilder API operation.", Operation = new[] {"DeleteImageBuilder"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteImageBuilderResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder or Amazon.AppStream.Model.DeleteImageBuilderResponse",
         "This cmdlet returns an Amazon.AppStream.Model.ImageBuilder object.",
-        "The service call response (type Amazon.AppStream.Model.DeleteImageBuilderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.DeleteImageBuilderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass GetThingRuntimeConfiguration API operation.", Operation = new[] {"GetThingRuntimeConfiguration"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetThingRuntimeConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.RuntimeConfiguration or Amazon.Greengrass.Model.GetThingRuntimeConfigurationResponse",
         "This cmdlet returns an Amazon.Greengrass.Model.RuntimeConfiguration object.",
-        "The service call response (type Amazon.Greengrass.Model.GetThingRuntimeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Greengrass.Model.GetThingRuntimeConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGThingRuntimeConfigurationCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

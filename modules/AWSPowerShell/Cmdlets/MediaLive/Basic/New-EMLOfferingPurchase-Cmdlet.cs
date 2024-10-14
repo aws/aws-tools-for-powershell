@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive PurchaseOffering API operation.", Operation = new[] {"PurchaseOffering"}, SelectReturnType = typeof(Amazon.MediaLive.Model.PurchaseOfferingResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.Reservation or Amazon.MediaLive.Model.PurchaseOfferingResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.Reservation object.",
-        "The service call response (type Amazon.MediaLive.Model.PurchaseOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.PurchaseOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMLOfferingPurchaseCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

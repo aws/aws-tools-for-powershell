@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.MediaPackageVod.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.MediaPackageVod.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaPackageVod.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMPVResourceTagCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {

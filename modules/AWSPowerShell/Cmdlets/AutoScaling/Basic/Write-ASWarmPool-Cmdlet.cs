@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling PutWarmPool API operation.", Operation = new[] {"PutWarmPool"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutWarmPoolResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.PutWarmPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.PutWarmPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutWarmPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteASWarmPoolCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub NotifyApplicationState API operation.", Operation = new[] {"NotifyApplicationState"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.NotifyApplicationStateResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.NotifyApplicationStateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHub.Model.NotifyApplicationStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHub.Model.NotifyApplicationStateResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendMHApplicationStateNotificationCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

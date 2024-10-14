@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
     [AWSCmdlet("Calls the Private CA Connector for SCEP UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PcaConnectorScep.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorScep.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorScep.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorScep.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCASCEPResourceTagCmdlet : AmazonPcaConnectorScepClientCmdlet, IExecutor
     {

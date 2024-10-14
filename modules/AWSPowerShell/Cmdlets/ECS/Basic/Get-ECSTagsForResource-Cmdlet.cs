@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ECS.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.Tag or Amazon.ECS.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ECS.Model.Tag objects.",
-        "The service call response (type Amazon.ECS.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECSTagsForResourceCmdlet : AmazonECSClientCmdlet, IExecutor
     {

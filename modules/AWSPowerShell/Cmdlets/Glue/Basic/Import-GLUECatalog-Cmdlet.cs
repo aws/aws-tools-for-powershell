@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue ImportCatalogToGlue API operation.", Operation = new[] {"ImportCatalogToGlue"}, SelectReturnType = typeof(Amazon.Glue.Model.ImportCatalogToGlueResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.ImportCatalogToGlueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.ImportCatalogToGlueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.ImportCatalogToGlueResponse) be returned by specifying '-Select *'."
     )]
     public partial class ImportGLUECatalogCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

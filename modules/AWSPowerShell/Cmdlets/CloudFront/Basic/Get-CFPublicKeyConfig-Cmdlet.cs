@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetPublicKeyConfig API operation.", Operation = new[] {"GetPublicKeyConfig"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetPublicKeyConfigResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.PublicKeyConfig or Amazon.CloudFront.Model.GetPublicKeyConfigResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.PublicKeyConfig object.",
-        "The service call response (type Amazon.CloudFront.Model.GetPublicKeyConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetPublicKeyConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFPublicKeyConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

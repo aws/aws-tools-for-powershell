@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DeleteScript API operation.", Operation = new[] {"DeleteScript"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteScriptResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteScriptResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeleteScriptResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.DeleteScriptResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGMLScriptCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

@@ -1,4 +1,18 @@
-﻿### 4.1.676 (2024-10-11 21:13Z)
+﻿### 4.1.677 (2024-10-14 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.905.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SES Mail Manager
+    * Modified cmdlet Start-MMGRArchiveExport: added parameter IncludeMetadata.
+  * Amazon Supply Chain
+    * Added cmdlet Get-SUPCHInstance leveraging the GetInstance service API.
+    * Added cmdlet Get-SUPCHInstanceList leveraging the ListInstances service API.
+    * Added cmdlet New-SUPCHInstance leveraging the CreateInstance service API.
+    * Added cmdlet Remove-SUPCHInstance leveraging the DeleteInstance service API.
+    * Added cmdlet Update-SUPCHInstance leveraging the UpdateInstance service API.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Get-TFRFileTransferResultList leveraging the ListFileTransferResults service API.
+  * Deprecated AWSHistory which will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.
+
+### 4.1.676 (2024-10-11 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.904.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Add-EMRInstanceFleet: added parameter InstanceFleet_Context.

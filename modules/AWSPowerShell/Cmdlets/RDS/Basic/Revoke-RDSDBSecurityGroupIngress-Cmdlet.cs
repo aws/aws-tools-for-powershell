@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service RevokeDBSecurityGroupIngress API operation.", Operation = new[] {"RevokeDBSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup or Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBSecurityGroup object.",
-        "The service call response (type Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RevokeRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

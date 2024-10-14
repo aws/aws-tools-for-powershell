@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVerifiedAccessGroupPolicy API operation.", Operation = new[] {"ModifyVerifiedAccessGroupPolicy"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse object containing multiple properties."
     )]
     public partial class EditEC2VerifiedAccessGroupPolicyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

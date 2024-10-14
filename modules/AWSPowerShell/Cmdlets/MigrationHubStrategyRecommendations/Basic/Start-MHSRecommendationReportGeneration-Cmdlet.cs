@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations StartRecommendationReportGeneration API operation.", Operation = new[] {"StartRecommendationReportGeneration"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.StartRecommendationReportGenerationResponse))]
     [AWSCmdletOutput("System.String or Amazon.MigrationHubStrategyRecommendations.Model.StartRecommendationReportGenerationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.StartRecommendationReportGenerationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.StartRecommendationReportGenerationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMHSRecommendationReportGenerationCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics DeleteReference API operation.", Operation = new[] {"DeleteReference"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteReferenceResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.DeleteReferenceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.DeleteReferenceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.DeleteReferenceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSReferenceCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

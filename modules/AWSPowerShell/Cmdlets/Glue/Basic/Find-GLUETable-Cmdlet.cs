@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue SearchTables API operation.", Operation = new[] {"SearchTables"}, SelectReturnType = typeof(Amazon.Glue.Model.SearchTablesResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.Table or Amazon.Glue.Model.SearchTablesResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.Table objects.",
-        "The service call response (type Amazon.Glue.Model.SearchTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.SearchTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindGLUETableCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

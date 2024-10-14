@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline AcknowledgeJob API operation.", Operation = new[] {"AcknowledgeJob"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.AcknowledgeJobResponse))]
     [AWSCmdletOutput("Amazon.CodePipeline.JobStatus or Amazon.CodePipeline.Model.AcknowledgeJobResponse",
         "This cmdlet returns an Amazon.CodePipeline.JobStatus object.",
-        "The service call response (type Amazon.CodePipeline.Model.AcknowledgeJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.AcknowledgeJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmCPJobCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

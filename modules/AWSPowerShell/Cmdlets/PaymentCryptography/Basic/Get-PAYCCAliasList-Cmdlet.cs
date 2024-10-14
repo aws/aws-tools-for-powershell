@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane ListAliases API operation.", Operation = new[] {"ListAliases"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.ListAliasesResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Alias or Amazon.PaymentCryptography.Model.ListAliasesResponse",
         "This cmdlet returns a collection of Amazon.PaymentCryptography.Model.Alias objects.",
-        "The service call response (type Amazon.PaymentCryptography.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.ListAliasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPAYCCAliasListCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

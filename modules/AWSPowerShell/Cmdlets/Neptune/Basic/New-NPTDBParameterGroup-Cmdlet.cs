@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune CreateDBParameterGroup API operation.", Operation = new[] {"CreateDBParameterGroup"}, SelectReturnType = typeof(Amazon.Neptune.Model.CreateDBParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DBParameterGroup or Amazon.Neptune.Model.CreateDBParameterGroupResponse",
         "This cmdlet returns an Amazon.Neptune.Model.DBParameterGroup object.",
-        "The service call response (type Amazon.Neptune.Model.CreateDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.CreateDBParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNPTDBParameterGroupCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

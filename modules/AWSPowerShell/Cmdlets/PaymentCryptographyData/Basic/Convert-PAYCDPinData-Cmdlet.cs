@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     [OutputType("Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Data TranslatePinData API operation.", Operation = new[] {"TranslatePinData"}, SelectReturnType = typeof(Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse",
-        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse object containing multiple properties."
     )]
     public partial class ConvertPAYCDPinDataCmdlet : AmazonPaymentCryptographyDataClientCmdlet, IExecutor
     {

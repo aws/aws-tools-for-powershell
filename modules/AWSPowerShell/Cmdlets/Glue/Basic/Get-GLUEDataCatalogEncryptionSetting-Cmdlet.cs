@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetDataCatalogEncryptionSettings API operation.", Operation = new[] {"GetDataCatalogEncryptionSettings"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataCatalogEncryptionSettingsResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.DataCatalogEncryptionSettings or Amazon.Glue.Model.GetDataCatalogEncryptionSettingsResponse",
         "This cmdlet returns an Amazon.Glue.Model.DataCatalogEncryptionSettings object.",
-        "The service call response (type Amazon.Glue.Model.GetDataCatalogEncryptionSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetDataCatalogEncryptionSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUEDataCatalogEncryptionSettingCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

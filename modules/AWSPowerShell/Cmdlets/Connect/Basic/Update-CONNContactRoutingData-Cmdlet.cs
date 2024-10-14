@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateContactRoutingData API operation.", Operation = new[] {"UpdateContactRoutingData"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateContactRoutingDataResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateContactRoutingDataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateContactRoutingDataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateContactRoutingDataResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNContactRoutingDataCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

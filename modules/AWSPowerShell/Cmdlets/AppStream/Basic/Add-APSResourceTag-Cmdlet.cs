@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.AppStream.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddAPSResourceTagCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

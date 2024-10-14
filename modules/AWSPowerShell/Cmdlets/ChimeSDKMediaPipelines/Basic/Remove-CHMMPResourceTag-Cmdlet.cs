@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMediaPipelines.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMediaPipelines.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMediaPipelines.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMMPResourceTagCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {

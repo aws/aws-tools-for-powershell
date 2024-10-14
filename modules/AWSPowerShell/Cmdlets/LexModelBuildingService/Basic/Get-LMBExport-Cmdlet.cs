@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.GetExportResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service GetExport API operation.", Operation = new[] {"GetExport"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.GetExportResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetExportResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetExportResponse object containing multiple properties."
     )]
     public partial class GetLMBExportCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

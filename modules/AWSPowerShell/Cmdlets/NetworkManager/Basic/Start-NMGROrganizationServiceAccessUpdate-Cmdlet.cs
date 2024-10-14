@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager StartOrganizationServiceAccessUpdate API operation.", Operation = new[] {"StartOrganizationServiceAccessUpdate"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.OrganizationStatus or Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.OrganizationStatus object.",
-        "The service call response (type Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.StartOrganizationServiceAccessUpdateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartNMGROrganizationServiceAccessUpdateCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

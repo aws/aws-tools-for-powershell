@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub GetMasterAccount API operation.", Operation = new[] {"GetMasterAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetMasterAccountResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Invitation or Amazon.SecurityHub.Model.GetMasterAccountResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.Invitation object.",
-        "The service call response (type Amazon.SecurityHub.Model.GetMasterAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.GetMasterAccountResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API has been deprecated, use GetAdministratorAccount API instead.")]
     public partial class GetSHUBMasterAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor

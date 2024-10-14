@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.UpdateCalculatedAttributeDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles UpdateCalculatedAttributeDefinition API operation.", Operation = new[] {"UpdateCalculatedAttributeDefinition"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.UpdateCalculatedAttributeDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.UpdateCalculatedAttributeDefinitionResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.UpdateCalculatedAttributeDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.UpdateCalculatedAttributeDefinitionResponse object containing multiple properties."
     )]
     public partial class UpdateCPFCalculatedAttributeDefinitionCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit CreateApprovalRuleTemplate API operation.", Operation = new[] {"CreateApprovalRuleTemplate"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.CreateApprovalRuleTemplateResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.ApprovalRuleTemplate or Amazon.CodeCommit.Model.CreateApprovalRuleTemplateResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.ApprovalRuleTemplate object.",
-        "The service call response (type Amazon.CodeCommit.Model.CreateApprovalRuleTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.CreateApprovalRuleTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCCApprovalRuleTemplateCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

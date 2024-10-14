@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry GetDiscoveredSchema API operation.", Operation = new[] {"GetDiscoveredSchema"}, SelectReturnType = typeof(Amazon.Schemas.Model.GetDiscoveredSchemaResponse))]
     [AWSCmdletOutput("System.String or Amazon.Schemas.Model.GetDiscoveredSchemaResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Schemas.Model.GetDiscoveredSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Schemas.Model.GetDiscoveredSchemaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCHMDiscoveredSchemaCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

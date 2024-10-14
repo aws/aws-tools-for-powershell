@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.ExportNotebookResponse")]
     [AWSCmdlet("Calls the Amazon Athena ExportNotebook API operation.", Operation = new[] {"ExportNotebook"}, SelectReturnType = typeof(Amazon.Athena.Model.ExportNotebookResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.ExportNotebookResponse",
-        "This cmdlet returns an Amazon.Athena.Model.ExportNotebookResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.ExportNotebookResponse object containing multiple properties."
     )]
     public partial class ExportATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager CreateOpsMetadata API operation.", Operation = new[] {"CreateOpsMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateOpsMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSSMOpsMetadataCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

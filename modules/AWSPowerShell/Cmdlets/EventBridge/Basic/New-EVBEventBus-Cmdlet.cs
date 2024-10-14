@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge CreateEventBus API operation.", Operation = new[] {"CreateEventBus"}, SelectReturnType = typeof(Amazon.EventBridge.Model.CreateEventBusResponse))]
     [AWSCmdletOutput("System.String or Amazon.EventBridge.Model.CreateEventBusResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EventBridge.Model.CreateEventBusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.CreateEventBusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEVBEventBusCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

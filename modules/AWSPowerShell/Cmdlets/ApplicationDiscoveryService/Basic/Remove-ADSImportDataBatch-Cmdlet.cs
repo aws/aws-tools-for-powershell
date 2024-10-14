@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service BatchDeleteImportData API operation.", Operation = new[] {"BatchDeleteImportData"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataResponse))]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataError or Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataResponse",
         "This cmdlet returns a collection of Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataError objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.BatchDeleteImportDataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveADSImportDataBatchCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [OutputType("Amazon.NetworkFirewall.Model.DeleteFirewallResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall DeleteFirewall API operation.", Operation = new[] {"DeleteFirewall"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DeleteFirewallResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DeleteFirewallResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DeleteFirewallResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.DeleteFirewallResponse object containing multiple properties."
     )]
     public partial class RemoveNWFWFirewallCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeprovisionByoipCidr API operation.", Operation = new[] {"DeprovisionByoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeprovisionByoipCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.DeprovisionByoipCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
-        "The service call response (type Amazon.EC2.Model.DeprovisionByoipCidrResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeprovisionByoipCidrResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2ByoipCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

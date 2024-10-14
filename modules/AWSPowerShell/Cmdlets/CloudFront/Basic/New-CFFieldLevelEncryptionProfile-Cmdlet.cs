@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateFieldLevelEncryptionProfileResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateFieldLevelEncryptionProfile API operation.", Operation = new[] {"CreateFieldLevelEncryptionProfile"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateFieldLevelEncryptionProfileResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateFieldLevelEncryptionProfileResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateFieldLevelEncryptionProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateFieldLevelEncryptionProfileResponse object containing multiple properties."
     )]
     public partial class NewCFFieldLevelEncryptionProfileCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

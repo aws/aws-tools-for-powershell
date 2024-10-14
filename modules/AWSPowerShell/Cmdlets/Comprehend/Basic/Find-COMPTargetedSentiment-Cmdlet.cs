@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DetectTargetedSentiment API operation.", Operation = new[] {"DetectTargetedSentiment"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DetectTargetedSentimentResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.TargetedSentimentEntity or Amazon.Comprehend.Model.DetectTargetedSentimentResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.TargetedSentimentEntity objects.",
-        "The service call response (type Amazon.Comprehend.Model.DetectTargetedSentimentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DetectTargetedSentimentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCOMPTargetedSentimentCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

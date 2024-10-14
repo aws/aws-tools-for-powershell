@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional ListRuleGroups API operation.", Operation = new[] {"ListRuleGroups"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.ListRuleGroupsResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.RuleGroupSummary or Amazon.WAFRegional.Model.ListRuleGroupsResponse",
         "This cmdlet returns a collection of Amazon.WAFRegional.Model.RuleGroupSummary objects.",
-        "The service call response (type Amazon.WAFRegional.Model.ListRuleGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.ListRuleGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRRuleGroupListCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'NextMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextMarker' to null for the first call then set the 'NextMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

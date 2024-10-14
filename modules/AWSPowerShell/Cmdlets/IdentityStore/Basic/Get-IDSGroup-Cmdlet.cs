@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [OutputType("Amazon.IdentityStore.Model.DescribeGroupResponse")]
     [AWSCmdlet("Calls the AWS Identity Store DescribeGroup API operation.", Operation = new[] {"DescribeGroup"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.DescribeGroupResponse))]
     [AWSCmdletOutput("Amazon.IdentityStore.Model.DescribeGroupResponse",
-        "This cmdlet returns an Amazon.IdentityStore.Model.DescribeGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityStore.Model.DescribeGroupResponse object containing multiple properties."
     )]
     public partial class GetIDSGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

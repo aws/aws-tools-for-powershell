@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service NotifyAppValidationOutput API operation.", Operation = new[] {"NotifyAppValidationOutput"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.NotifyAppValidationOutputResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.NotifyAppValidationOutputResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.NotifyAppValidationOutputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.NotifyAppValidationOutputResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSMSAppValidationOutputCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

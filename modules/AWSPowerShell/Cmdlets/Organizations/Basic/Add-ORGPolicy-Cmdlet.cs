@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations AttachPolicy API operation.", Operation = new[] {"AttachPolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.AttachPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.AttachPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.AttachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.AttachPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     [AWSCmdlet("Calls the AWS IoT Fleet Hub DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.IoTFleetHub.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.IoTFleetHub.Model.DeleteApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTFleetHub.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTFleetHub.Model.DeleteApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTFHApplicationCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {

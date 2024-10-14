@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector PutExternalModel API operation.", Operation = new[] {"PutExternalModel"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.PutExternalModelResponse))]
     [AWSCmdletOutput("None or Amazon.FraudDetector.Model.PutExternalModelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.PutExternalModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.PutExternalModelResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteFDExternalModelCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

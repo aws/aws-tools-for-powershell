@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.GetCredentialsForIdentityResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity GetCredentialsForIdentity API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetCredentialsForIdentity"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.GetCredentialsForIdentityResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetCredentialsForIdentityResponse",
-        "This cmdlet returns an Amazon.CognitoIdentity.Model.GetCredentialsForIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentity.Model.GetCredentialsForIdentityResponse object containing multiple properties."
     )]
     public partial class GetCGICredentialsForIdentityCmdlet : AnonymousAmazonCognitoIdentityClientCmdlet, IExecutor
     {

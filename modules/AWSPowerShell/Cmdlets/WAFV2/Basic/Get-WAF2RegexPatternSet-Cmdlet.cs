@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [OutputType("Amazon.WAFV2.Model.GetRegexPatternSetResponse")]
     [AWSCmdlet("Calls the AWS WAF V2 GetRegexPatternSet API operation.", Operation = new[] {"GetRegexPatternSet"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetRegexPatternSetResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetRegexPatternSetResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.GetRegexPatternSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFV2.Model.GetRegexPatternSetResponse object containing multiple properties."
     )]
     public partial class GetWAF2RegexPatternSetCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {

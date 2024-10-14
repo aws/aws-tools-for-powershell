@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MonitorInstances API operation.", Operation = new[] {"MonitorInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.MonitorInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceMonitoring or Amazon.EC2.Model.MonitorInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceMonitoring objects.",
-        "The service call response (type Amazon.EC2.Model.MonitorInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.MonitorInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartEC2InstanceMonitoringCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

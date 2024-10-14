@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool UpgradeProfileVersion API operation.", Operation = new[] {"UpgradeProfileVersion"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UpgradeProfileVersionResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.UpgradeProfileVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.UpgradeProfileVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.UpgradeProfileVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWATProfileVersionCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

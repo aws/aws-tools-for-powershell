@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DissociatePackage API operation.", Operation = new[] {"DissociatePackage"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DissociatePackageResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DomainPackageDetails or Amazon.Elasticsearch.Model.DissociatePackageResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.DomainPackageDetails object.",
-        "The service call response (type Amazon.Elasticsearch.Model.DissociatePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DissociatePackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartESDissociatePackageCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

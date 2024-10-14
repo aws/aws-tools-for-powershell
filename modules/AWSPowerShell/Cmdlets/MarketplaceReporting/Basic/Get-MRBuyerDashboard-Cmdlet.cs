@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MR
     [OutputType("Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Reporting Service GetBuyerDashboard API operation.", Operation = new[] {"GetBuyerDashboard"}, SelectReturnType = typeof(Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse",
-        "This cmdlet returns an Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse object containing multiple properties."
     )]
     public partial class GetMRBuyerDashboardCmdlet : AmazonMarketplaceReportingClientCmdlet, IExecutor
     {

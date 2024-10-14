@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane ImportKey API operation.", Operation = new[] {"ImportKey"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.ImportKeyResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.ImportKeyResponse",
         "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.ImportKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.ImportKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateSnapshotSchedule API operation.", Operation = new[] {"UpdateSnapshotSchedule"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DeleteConstraint API operation.", Operation = new[] {"DeleteConstraint"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DeleteConstraintResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DeleteConstraintResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DeleteConstraintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeleteConstraintResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCConstraintCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

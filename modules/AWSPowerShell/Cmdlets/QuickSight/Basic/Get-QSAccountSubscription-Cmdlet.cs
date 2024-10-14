@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeAccountSubscription API operation.", Operation = new[] {"DescribeAccountSubscription"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeAccountSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.AccountInfo or Amazon.QuickSight.Model.DescribeAccountSubscriptionResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.AccountInfo object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeAccountSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeAccountSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSAccountSubscriptionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

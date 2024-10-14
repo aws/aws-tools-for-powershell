@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DescribeDatasetGroup API operation.", Operation = new[] {"DescribeDatasetGroup"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeDatasetGroupResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.DatasetGroup or Amazon.Personalize.Model.DescribeDatasetGroupResponse",
         "This cmdlet returns an Amazon.Personalize.Model.DatasetGroup object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeDatasetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.DescribeDatasetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSDatasetGroupCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation BatchGrantPermissions API operation.", Operation = new[] {"BatchGrantPermissions"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.BatchGrantPermissionsResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.BatchPermissionsFailureEntry or Amazon.LakeFormation.Model.BatchGrantPermissionsResponse",
         "This cmdlet returns a collection of Amazon.LakeFormation.Model.BatchPermissionsFailureEntry objects.",
-        "The service call response (type Amazon.LakeFormation.Model.BatchGrantPermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.BatchGrantPermissionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GrantLKFPermissionBatchCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

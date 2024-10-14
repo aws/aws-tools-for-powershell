@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.Glue.Model.GetTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.GetTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Glue.Model.GetTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUETagCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

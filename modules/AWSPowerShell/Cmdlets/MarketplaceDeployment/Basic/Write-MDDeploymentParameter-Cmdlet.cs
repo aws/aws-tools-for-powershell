@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MD
     [OutputType("Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Deployment Service PutDeploymentParameter API operation.", Operation = new[] {"PutDeploymentParameter"}, SelectReturnType = typeof(Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse",
-        "This cmdlet returns an Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceDeployment.Model.PutDeploymentParameterResponse object containing multiple properties."
     )]
     public partial class WriteMDDeploymentParameterCmdlet : AmazonMarketplaceDeploymentClientCmdlet, IExecutor
     {

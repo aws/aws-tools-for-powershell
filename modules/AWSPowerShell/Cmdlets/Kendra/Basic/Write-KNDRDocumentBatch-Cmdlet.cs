@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra BatchPutDocument API operation.", Operation = new[] {"BatchPutDocument"}, SelectReturnType = typeof(Amazon.Kendra.Model.BatchPutDocumentResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.BatchPutDocumentResponseFailedDocument or Amazon.Kendra.Model.BatchPutDocumentResponse",
         "This cmdlet returns a collection of Amazon.Kendra.Model.BatchPutDocumentResponseFailedDocument objects.",
-        "The service call response (type Amazon.Kendra.Model.BatchPutDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.BatchPutDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

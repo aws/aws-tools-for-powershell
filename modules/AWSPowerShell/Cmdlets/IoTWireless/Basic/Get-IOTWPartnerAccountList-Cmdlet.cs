@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListPartnerAccounts API operation.", Operation = new[] {"ListPartnerAccounts"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListPartnerAccountsResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.SidewalkAccountInfoWithFingerprint or Amazon.IoTWireless.Model.ListPartnerAccountsResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.SidewalkAccountInfoWithFingerprint objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListPartnerAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListPartnerAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWPartnerAccountListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

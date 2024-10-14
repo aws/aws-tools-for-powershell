@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateNatGatewayAddress API operation.", Operation = new[] {"DisassociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DisassociateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DisassociateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class UnregisterEC2NatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

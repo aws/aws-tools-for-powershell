@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateDashboardPublishedVersion API operation.", Operation = new[] {"UpdateDashboardPublishedVersion"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse object containing multiple properties."
     )]
     public partial class UpdateQSDashboardPublishedVersionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

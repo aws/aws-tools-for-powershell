@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service AuthorizeVpcEndpointAccess API operation.", Operation = new[] {"AuthorizeVpcEndpointAccess"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.AuthorizeVpcEndpointAccessResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.AuthorizedPrincipal or Amazon.OpenSearchService.Model.AuthorizeVpcEndpointAccessResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.AuthorizedPrincipal object.",
-        "The service call response (type Amazon.OpenSearchService.Model.AuthorizeVpcEndpointAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.AuthorizeVpcEndpointAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveOSVpcEndpointAccessCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

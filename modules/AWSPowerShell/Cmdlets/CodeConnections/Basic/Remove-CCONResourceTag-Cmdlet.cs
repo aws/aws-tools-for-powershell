@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCONResourceTagCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

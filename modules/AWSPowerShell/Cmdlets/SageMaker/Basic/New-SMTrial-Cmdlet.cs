@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateTrial API operation.", Operation = new[] {"CreateTrial"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateTrialResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateTrialResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateTrialResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateTrialResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMTrialCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

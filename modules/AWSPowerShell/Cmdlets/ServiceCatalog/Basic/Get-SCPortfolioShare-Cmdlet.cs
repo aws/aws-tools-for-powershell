@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DescribePortfolioShares API operation.", Operation = new[] {"DescribePortfolioShares"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribePortfolioSharesResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.PortfolioShareDetail or Amazon.ServiceCatalog.Model.DescribePortfolioSharesResponse",
         "This cmdlet returns a collection of Amazon.ServiceCatalog.Model.PortfolioShareDetail objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.DescribePortfolioSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.DescribePortfolioSharesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// <br/>'PageToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PageToken' to null for the first call then set the 'PageToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

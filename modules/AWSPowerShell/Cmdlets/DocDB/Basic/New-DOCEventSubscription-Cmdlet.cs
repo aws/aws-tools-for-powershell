@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CreateEventSubscription API operation.", Operation = new[] {"CreateEventSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.CreateEventSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
-        "The service call response (type Amazon.DocDB.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.CreateEventSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDOCEventSubscriptionCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetJobRun API operation.", Operation = new[] {"GetJobRun"}, SelectReturnType = typeof(Amazon.Glue.Model.GetJobRunResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.JobRun or Amazon.Glue.Model.GetJobRunResponse",
         "This cmdlet returns an Amazon.Glue.Model.JobRun object.",
-        "The service call response (type Amazon.Glue.Model.GetJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetJobRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUEJobRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

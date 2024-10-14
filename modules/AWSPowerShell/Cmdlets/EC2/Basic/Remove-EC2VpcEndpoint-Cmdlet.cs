@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcEndpoints API operation.", Operation = new[] {"DeleteVpcEndpoints"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.DeleteVpcEndpointsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
-        "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

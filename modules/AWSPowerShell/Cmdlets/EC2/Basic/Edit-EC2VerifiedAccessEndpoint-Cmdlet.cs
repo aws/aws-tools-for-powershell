@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVerifiedAccessEndpoint API operation.", Operation = new[] {"ModifyVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessEndpoint or Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessEndpoint object.",
-        "The service call response (type Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2VerifiedAccessEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

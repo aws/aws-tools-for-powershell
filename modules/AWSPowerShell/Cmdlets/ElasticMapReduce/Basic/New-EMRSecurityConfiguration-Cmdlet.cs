@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce CreateSecurityConfiguration API operation.", Operation = new[] {"CreateSecurityConfiguration"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse object containing multiple properties."
     )]
     public partial class NewEMRSecurityConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

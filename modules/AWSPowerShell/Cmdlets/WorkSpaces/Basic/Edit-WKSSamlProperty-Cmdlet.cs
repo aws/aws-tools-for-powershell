@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifySamlProperties API operation.", Operation = new[] {"ModifySamlProperties"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifySamlPropertiesResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifySamlPropertiesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifySamlPropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.ModifySamlPropertiesResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditWKSSamlPropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

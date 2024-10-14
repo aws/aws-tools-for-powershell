@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty GetMasterAccount API operation.", Operation = new[] {"GetMasterAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetMasterAccountResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.Master or Amazon.GuardDuty.Model.GetMasterAccountResponse",
         "This cmdlet returns an Amazon.GuardDuty.Model.Master object.",
-        "The service call response (type Amazon.GuardDuty.Model.GetMasterAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.GetMasterAccountResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use GetAdministratorAccount instead")]
     public partial class GetGDMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor

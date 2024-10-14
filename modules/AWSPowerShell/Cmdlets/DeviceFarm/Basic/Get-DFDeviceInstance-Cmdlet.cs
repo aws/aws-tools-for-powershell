@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm GetDeviceInstance API operation.", Operation = new[] {"GetDeviceInstance"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetDeviceInstanceResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DeviceInstance or Amazon.DeviceFarm.Model.GetDeviceInstanceResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.DeviceInstance object.",
-        "The service call response (type Amazon.DeviceFarm.Model.GetDeviceInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetDeviceInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFDeviceInstanceCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

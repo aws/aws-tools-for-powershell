@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory BatchWrite API operation.", Operation = new[] {"BatchWrite"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.BatchWriteResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.BatchWriteOperationResponse or Amazon.CloudDirectory.Model.BatchWriteResponse",
         "This cmdlet returns a collection of Amazon.CloudDirectory.Model.BatchWriteOperationResponse objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.BatchWriteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.BatchWriteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCDIRDirectoryBatchCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

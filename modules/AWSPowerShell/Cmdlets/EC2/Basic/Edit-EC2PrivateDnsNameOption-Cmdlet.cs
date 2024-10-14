@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyPrivateDnsNameOptions API operation.", Operation = new[] {"ModifyPrivateDnsNameOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyPrivateDnsNameOptionsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyPrivateDnsNameOptionsResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.ModifyPrivateDnsNameOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyPrivateDnsNameOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2PrivateDnsNameOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

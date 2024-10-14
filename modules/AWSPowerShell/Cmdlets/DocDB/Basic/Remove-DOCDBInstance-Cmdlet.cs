@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBInstance API operation.", Operation = new[] {"DeleteDBInstance"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBInstanceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBInstance or Amazon.DocDB.Model.DeleteDBInstanceResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBInstance object.",
-        "The service call response (type Amazon.DocDB.Model.DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.DeleteDBInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCDBInstanceCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

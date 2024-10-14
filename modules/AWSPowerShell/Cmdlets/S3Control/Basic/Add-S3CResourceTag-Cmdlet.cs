@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddS3CResourceTagCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

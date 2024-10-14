@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DeleteComponent API operation.", Operation = new[] {"DeleteComponent"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DeleteComponentResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationInsights.Model.DeleteComponentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationInsights.Model.DeleteComponentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationInsights.Model.DeleteComponentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWAIComponentCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

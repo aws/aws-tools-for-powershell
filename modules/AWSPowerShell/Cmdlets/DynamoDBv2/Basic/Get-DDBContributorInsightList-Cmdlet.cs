@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB ListContributorInsights API operation.", Operation = new[] {"ListContributorInsights"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ListContributorInsightsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ContributorInsightsSummary or Amazon.DynamoDBv2.Model.ListContributorInsightsResponse",
         "This cmdlet returns a collection of Amazon.DynamoDBv2.Model.ContributorInsightsSummary objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ListContributorInsightsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ListContributorInsightsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBContributorInsightListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

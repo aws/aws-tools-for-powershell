@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTThingsGraph.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGResourceTagCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

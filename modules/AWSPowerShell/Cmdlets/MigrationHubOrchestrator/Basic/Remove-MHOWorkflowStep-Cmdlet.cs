@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator DeleteWorkflowStep API operation.", Operation = new[] {"DeleteWorkflowStep"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.DeleteWorkflowStepResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubOrchestrator.Model.DeleteWorkflowStepResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubOrchestrator.Model.DeleteWorkflowStepResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubOrchestrator.Model.DeleteWorkflowStepResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHOWorkflowStepCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

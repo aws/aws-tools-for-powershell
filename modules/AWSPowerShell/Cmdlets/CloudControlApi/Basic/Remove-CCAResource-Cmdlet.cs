@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     [AWSCmdlet("Calls the AWS Cloud Control API DeleteResource API operation.", Operation = new[] {"DeleteResource"}, SelectReturnType = typeof(Amazon.CloudControlApi.Model.DeleteResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudControlApi.Model.ProgressEvent or Amazon.CloudControlApi.Model.DeleteResourceResponse",
         "This cmdlet returns an Amazon.CloudControlApi.Model.ProgressEvent object.",
-        "The service call response (type Amazon.CloudControlApi.Model.DeleteResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudControlApi.Model.DeleteResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCAResourceCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {

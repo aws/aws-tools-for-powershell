@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 AssociateServiceRoleToAccount API operation.", Operation = new[] {"AssociateServiceRoleToAccount"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.AssociateServiceRoleToAccountResponse))]
     [AWSCmdletOutput("System.String or Amazon.GreengrassV2.Model.AssociateServiceRoleToAccountResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GreengrassV2.Model.AssociateServiceRoleToAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.AssociateServiceRoleToAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddGGV2ServiceRoleToAccountCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

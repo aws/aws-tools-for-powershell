@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeVPCConnection API operation.", Operation = new[] {"DescribeVPCConnection"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeVPCConnectionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.VPCConnection or Amazon.QuickSight.Model.DescribeVPCConnectionResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.VPCConnection object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeVPCConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeVPCConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSVPCConnectionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

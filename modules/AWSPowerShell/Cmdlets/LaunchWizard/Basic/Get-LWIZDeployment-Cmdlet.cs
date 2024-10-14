@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
     [AWSCmdlet("Calls the AWS Launch Wizard GetDeployment API operation.", Operation = new[] {"GetDeployment"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.GetDeploymentResponse))]
     [AWSCmdletOutput("Amazon.LaunchWizard.Model.DeploymentData or Amazon.LaunchWizard.Model.GetDeploymentResponse",
         "This cmdlet returns an Amazon.LaunchWizard.Model.DeploymentData object.",
-        "The service call response (type Amazon.LaunchWizard.Model.GetDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LaunchWizard.Model.GetDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLWIZDeploymentCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {

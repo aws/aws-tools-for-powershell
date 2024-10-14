@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless GetWirelessGatewayFirmwareInformation API operation.", Operation = new[] {"GetWirelessGatewayFirmwareInformation"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.GetWirelessGatewayFirmwareInformationResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.LoRaWANGatewayCurrentVersion or Amazon.IoTWireless.Model.GetWirelessGatewayFirmwareInformationResponse",
         "This cmdlet returns an Amazon.IoTWireless.Model.LoRaWANGatewayCurrentVersion object.",
-        "The service call response (type Amazon.IoTWireless.Model.GetWirelessGatewayFirmwareInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.GetWirelessGatewayFirmwareInformationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWWirelessGatewayFirmwareInformationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

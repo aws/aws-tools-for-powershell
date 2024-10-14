@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [OutputType("Amazon.RoboMaker.Model.CreateDeploymentJobResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker CreateDeploymentJob API operation.", Operation = new[] {"CreateDeploymentJob"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CreateDeploymentJobResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.CreateDeploymentJobResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.CreateDeploymentJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.CreateDeploymentJobResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class NewROBODeploymentJobCmdlet : AmazonRoboMakerClientCmdlet, IExecutor

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder ExportThemes API operation.", Operation = new[] {"ExportThemes"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.ExportThemesResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.Theme or Amazon.AmplifyUIBuilder.Model.ExportThemesResponse",
         "This cmdlet returns a collection of Amazon.AmplifyUIBuilder.Model.Theme objects.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.ExportThemesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.ExportThemesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportAMPUIThemeCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

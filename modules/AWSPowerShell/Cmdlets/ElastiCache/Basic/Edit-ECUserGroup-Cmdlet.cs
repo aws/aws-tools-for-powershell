@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [OutputType("Amazon.ElastiCache.Model.ModifyUserGroupResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache ModifyUserGroup API operation.", Operation = new[] {"ModifyUserGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.ModifyUserGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ModifyUserGroupResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.ModifyUserGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.ModifyUserGroupResponse object containing multiple properties."
     )]
     public partial class EditECUserGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

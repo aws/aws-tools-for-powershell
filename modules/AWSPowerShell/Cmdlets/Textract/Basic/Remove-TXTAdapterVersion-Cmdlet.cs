@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract DeleteAdapterVersion API operation.", Operation = new[] {"DeleteAdapterVersion"}, SelectReturnType = typeof(Amazon.Textract.Model.DeleteAdapterVersionResponse))]
     [AWSCmdletOutput("None or Amazon.Textract.Model.DeleteAdapterVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Textract.Model.DeleteAdapterVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Textract.Model.DeleteAdapterVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTXTAdapterVersionCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [OutputType("Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently PutProjectEvents API operation.", Operation = new[] {"PutProjectEvents"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvidently.Model.PutProjectEventsResponse object containing multiple properties."
     )]
     public partial class WriteCWEVDProjectEventCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ManagedGrafana.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ManagedGrafana.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGRFResourceTagCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

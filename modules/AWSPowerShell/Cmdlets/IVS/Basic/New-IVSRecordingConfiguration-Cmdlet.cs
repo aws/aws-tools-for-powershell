@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service CreateRecordingConfiguration API operation.", Operation = new[] {"CreateRecordingConfiguration"}, SelectReturnType = typeof(Amazon.IVS.Model.CreateRecordingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.RecordingConfiguration or Amazon.IVS.Model.CreateRecordingConfigurationResponse",
         "This cmdlet returns an Amazon.IVS.Model.RecordingConfiguration object.",
-        "The service call response (type Amazon.IVS.Model.CreateRecordingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.CreateRecordingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIVSRecordingConfigurationCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

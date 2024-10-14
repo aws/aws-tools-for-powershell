@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.StartAssetBundleImportJobResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight StartAssetBundleImportJob API operation.", Operation = new[] {"StartAssetBundleImportJob"}, SelectReturnType = typeof(Amazon.QuickSight.Model.StartAssetBundleImportJobResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.StartAssetBundleImportJobResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.StartAssetBundleImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.StartAssetBundleImportJobResponse object containing multiple properties."
     )]
     public partial class StartQSAssetBundleImportJobCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

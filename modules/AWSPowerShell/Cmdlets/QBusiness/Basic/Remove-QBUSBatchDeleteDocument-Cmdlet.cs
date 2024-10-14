@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness BatchDeleteDocument API operation.", Operation = new[] {"BatchDeleteDocument"}, SelectReturnType = typeof(Amazon.QBusiness.Model.BatchDeleteDocumentResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.FailedDocument or Amazon.QBusiness.Model.BatchDeleteDocumentResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.FailedDocument objects.",
-        "The service call response (type Amazon.QBusiness.Model.BatchDeleteDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.BatchDeleteDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveQBUSBatchDeleteDocumentCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

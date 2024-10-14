@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DetachPolicy API operation.", Operation = new[] {"DetachPolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.DetachPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.DetachPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.DetachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.DetachPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

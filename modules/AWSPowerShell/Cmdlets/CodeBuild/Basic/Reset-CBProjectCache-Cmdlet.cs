@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild InvalidateProjectCache API operation.", Operation = new[] {"InvalidateProjectCache"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.InvalidateProjectCacheResponse))]
     [AWSCmdletOutput("None or Amazon.CodeBuild.Model.InvalidateProjectCacheResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeBuild.Model.InvalidateProjectCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeBuild.Model.InvalidateProjectCacheResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetCBProjectCacheCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

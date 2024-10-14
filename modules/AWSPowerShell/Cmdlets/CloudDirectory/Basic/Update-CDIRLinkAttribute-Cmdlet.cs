@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory UpdateLinkAttributes API operation.", Operation = new[] {"UpdateLinkAttributes"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.UpdateLinkAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.CloudDirectory.Model.UpdateLinkAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudDirectory.Model.UpdateLinkAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.UpdateLinkAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCDIRLinkAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

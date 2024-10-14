@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service GetSnapshotLimits API operation.", Operation = new[] {"GetSnapshotLimits"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.GetSnapshotLimitsResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.SnapshotLimits or Amazon.DirectoryService.Model.GetSnapshotLimitsResponse",
         "This cmdlet returns an Amazon.DirectoryService.Model.SnapshotLimits object.",
-        "The service call response (type Amazon.DirectoryService.Model.GetSnapshotLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.GetSnapshotLimitsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDSSnapshotLimitCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

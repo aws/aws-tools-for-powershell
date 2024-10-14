@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service DeleteApplications API operation.", Operation = new[] {"DeleteApplications"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse), LegacyAlias="Remove-ADSApplications")]
     [AWSCmdletOutput("None or Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

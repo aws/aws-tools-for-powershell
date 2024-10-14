@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [AWSCmdlet("Calls the Amazon Pinpoint Email CreateDedicatedIpPool API operation.", Operation = new[] {"CreateDedicatedIpPool"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.CreateDedicatedIpPoolResponse))]
     [AWSCmdletOutput("None or Amazon.PinpointEmail.Model.CreateDedicatedIpPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointEmail.Model.CreateDedicatedIpPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PinpointEmail.Model.CreateDedicatedIpPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewPINEDedicatedIpPoolCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

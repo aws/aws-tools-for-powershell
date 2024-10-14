@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Rekognition.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddREKResourceTagCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

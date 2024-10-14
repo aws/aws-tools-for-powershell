@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
     [AWSCmdlet("Calls the Amazon Elastic Inference UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ElasticInference.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticInference.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticInference.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticInference.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEIResourceTagCmdlet : AmazonElasticInferenceClientCmdlet, IExecutor
     {

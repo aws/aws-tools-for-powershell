@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DescribeDomainEndpointOptions API operation.", Operation = new[] {"DescribeDomainEndpointOptions"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DescribeDomainEndpointOptionsResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainEndpointOptionsStatus or Amazon.CloudSearch.Model.DescribeDomainEndpointOptionsResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.DomainEndpointOptionsStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DescribeDomainEndpointOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeDomainEndpointOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSDomainEndpointOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

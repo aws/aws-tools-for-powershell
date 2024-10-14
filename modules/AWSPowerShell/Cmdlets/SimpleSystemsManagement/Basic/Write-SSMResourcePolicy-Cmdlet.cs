@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse object containing multiple properties."
     )]
     public partial class WriteSSMResourcePolicyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

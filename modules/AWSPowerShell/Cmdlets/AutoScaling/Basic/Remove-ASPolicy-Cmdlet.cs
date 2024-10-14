@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

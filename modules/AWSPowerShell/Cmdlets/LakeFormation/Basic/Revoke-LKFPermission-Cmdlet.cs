@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation RevokePermissions API operation.", Operation = new[] {"RevokePermissions"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.RevokePermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.RevokePermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.RevokePermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.RevokePermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeLKFPermissionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

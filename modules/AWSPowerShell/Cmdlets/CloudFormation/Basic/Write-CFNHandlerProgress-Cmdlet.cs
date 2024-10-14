@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation RecordHandlerProgress API operation.", Operation = new[] {"RecordHandlerProgress"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.RecordHandlerProgressResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.RecordHandlerProgressResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.RecordHandlerProgressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.RecordHandlerProgressResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCFNHandlerProgressCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

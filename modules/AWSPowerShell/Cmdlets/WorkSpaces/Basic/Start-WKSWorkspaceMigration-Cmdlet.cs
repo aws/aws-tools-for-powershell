@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.MigrateWorkspaceResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces MigrateWorkspace API operation.", Operation = new[] {"MigrateWorkspace"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.MigrateWorkspaceResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.MigrateWorkspaceResponse",
-        "This cmdlet returns an Amazon.WorkSpaces.Model.MigrateWorkspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpaces.Model.MigrateWorkspaceResponse object containing multiple properties."
     )]
     public partial class StartWKSWorkspaceMigrationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

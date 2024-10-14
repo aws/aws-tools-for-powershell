@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.ListIdentitiesResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity ListIdentities API operation.", Operation = new[] {"ListIdentities"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.ListIdentitiesResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.ListIdentitiesResponse",
-        "This cmdlet returns an Amazon.CognitoIdentity.Model.ListIdentitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentity.Model.ListIdentitiesResponse object containing multiple properties."
     )]
     public partial class GetCGIIdentityListCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

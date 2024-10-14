@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteInstanceProfile API operation.", Operation = new[] {"DeleteInstanceProfile"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteInstanceProfileResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.InstanceProfile or Amazon.DatabaseMigrationService.Model.DeleteInstanceProfileResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.InstanceProfile object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteInstanceProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSInstanceProfileCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

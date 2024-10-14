@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service GetQualificationScore API operation.", Operation = new[] {"GetQualificationScore"}, SelectReturnType = typeof(Amazon.MTurk.Model.GetQualificationScoreResponse))]
     [AWSCmdletOutput("Amazon.MTurk.Model.Qualification or Amazon.MTurk.Model.GetQualificationScoreResponse",
         "This cmdlet returns an Amazon.MTurk.Model.Qualification object.",
-        "The service call response (type Amazon.MTurk.Model.GetQualificationScoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MTurk.Model.GetQualificationScoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMTRQualificationScoreCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

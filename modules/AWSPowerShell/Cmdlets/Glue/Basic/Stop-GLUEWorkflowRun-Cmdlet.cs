@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue StopWorkflowRun API operation.", Operation = new[] {"StopWorkflowRun"}, SelectReturnType = typeof(Amazon.Glue.Model.StopWorkflowRunResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.StopWorkflowRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.StopWorkflowRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.StopWorkflowRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGLUEWorkflowRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

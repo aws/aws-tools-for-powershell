@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [OutputType("Amazon.SSOAdmin.Model.DescribeInstanceResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribeInstance API operation.", Operation = new[] {"DescribeInstance"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribeInstanceResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.DescribeInstanceResponse",
-        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeInstanceResponse object containing multiple properties."
     )]
     public partial class GetSSOADMNInstanceCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.DescribeVpcEndpointsResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeVpcEndpoints API operation.", Operation = new[] {"DescribeVpcEndpoints"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeVpcEndpointsResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DescribeVpcEndpointsResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeVpcEndpointsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeVpcEndpointsResponse object containing multiple properties."
     )]
     public partial class GetOSVpcEndpointCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

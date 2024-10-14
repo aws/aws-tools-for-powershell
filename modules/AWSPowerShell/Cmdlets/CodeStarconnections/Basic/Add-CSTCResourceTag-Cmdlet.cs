@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarconnections.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCSTCResourceTagCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

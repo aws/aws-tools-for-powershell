@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager DeleteInventory API operation.", Operation = new[] {"DeleteInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeleteInventoryResponse object containing multiple properties."
     )]
     public partial class RemoveSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

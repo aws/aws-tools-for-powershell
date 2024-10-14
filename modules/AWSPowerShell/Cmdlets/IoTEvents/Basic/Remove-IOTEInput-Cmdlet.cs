@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events DeleteInput API operation.", Operation = new[] {"DeleteInput"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.DeleteInputResponse))]
     [AWSCmdletOutput("None or Amazon.IoTEvents.Model.DeleteInputResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTEvents.Model.DeleteInputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTEvents.Model.DeleteInputResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTEInputCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

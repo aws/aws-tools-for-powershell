@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeUploadBufferResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeUploadBuffer API operation.", Operation = new[] {"DescribeUploadBuffer"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeUploadBufferResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeUploadBufferResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeUploadBufferResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeUploadBufferResponse object containing multiple properties."
     )]
     public partial class GetSGUploadBufferCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateUserProfile API operation.", Operation = new[] {"CreateUserProfile"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateUserProfileResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateUserProfileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateUserProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMUserProfileCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

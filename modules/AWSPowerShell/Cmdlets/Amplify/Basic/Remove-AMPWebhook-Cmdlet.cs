@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteWebhook API operation.", Operation = new[] {"DeleteWebhook"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteWebhookResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.Webhook or Amazon.Amplify.Model.DeleteWebhookResponse",
         "This cmdlet returns an Amazon.Amplify.Model.Webhook object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteWebhookResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPWebhookCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

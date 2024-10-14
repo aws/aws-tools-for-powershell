@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     [AWSCmdlet("Calls the AWS License Manager - Linux Subscriptions DeregisterSubscriptionProvider API operation.", Operation = new[] {"DeregisterSubscriptionProvider"}, SelectReturnType = typeof(Amazon.LicenseManagerLinuxSubscriptions.Model.DeregisterSubscriptionProviderResponse))]
     [AWSCmdletOutput("None or Amazon.LicenseManagerLinuxSubscriptions.Model.DeregisterSubscriptionProviderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LicenseManagerLinuxSubscriptions.Model.DeregisterSubscriptionProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LicenseManagerLinuxSubscriptions.Model.DeregisterSubscriptionProviderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLLMSSubscriptionProviderCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {

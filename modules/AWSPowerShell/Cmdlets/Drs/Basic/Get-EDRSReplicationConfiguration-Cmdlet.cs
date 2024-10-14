@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [OutputType("Amazon.Drs.Model.GetReplicationConfigurationResponse")]
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service GetReplicationConfiguration API operation.", Operation = new[] {"GetReplicationConfiguration"}, SelectReturnType = typeof(Amazon.Drs.Model.GetReplicationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.GetReplicationConfigurationResponse",
-        "This cmdlet returns an Amazon.Drs.Model.GetReplicationConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Drs.Model.GetReplicationConfigurationResponse object containing multiple properties."
     )]
     public partial class GetEDRSReplicationConfigurationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

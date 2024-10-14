@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [OutputType("Amazon.RedshiftServerless.Model.UpdateCustomDomainAssociationResponse")]
     [AWSCmdlet("Calls the Redshift Serverless UpdateCustomDomainAssociation API operation.", Operation = new[] {"UpdateCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.UpdateCustomDomainAssociationResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.UpdateCustomDomainAssociationResponse",
-        "This cmdlet returns an Amazon.RedshiftServerless.Model.UpdateCustomDomainAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.UpdateCustomDomainAssociationResponse object containing multiple properties."
     )]
     public partial class UpdateRSSCustomDomainAssociationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

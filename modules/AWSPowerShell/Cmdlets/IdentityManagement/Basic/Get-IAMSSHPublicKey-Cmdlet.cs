@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GetSSHPublicKey API operation.", Operation = new[] {"GetSSHPublicKey"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey or Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.SSHPublicKey object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

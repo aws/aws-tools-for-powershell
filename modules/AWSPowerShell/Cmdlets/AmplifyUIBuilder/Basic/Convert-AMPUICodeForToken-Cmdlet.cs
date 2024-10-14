@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [OutputType("Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse")]
     [AWSCmdlet("Calls the AWS Amplify UI Builder ExchangeCodeForToken API operation.", Operation = new[] {"ExchangeCodeForToken"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse",
-        "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse object containing multiple properties."
     )]
     public partial class ConvertAMPUICodeForTokenCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

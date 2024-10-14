@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.GetExportResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway GetExport API operation.", Operation = new[] {"GetExport"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetExportResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetExportResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.GetExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.GetExportResponse object containing multiple properties."
     )]
     public partial class GetAGExportCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

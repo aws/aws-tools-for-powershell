@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DisassociateLink API operation.", Operation = new[] {"DisassociateLink"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DisassociateLinkResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.LinkAssociation or Amazon.NetworkManager.Model.DisassociateLinkResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.LinkAssociation object.",
-        "The service call response (type Amazon.NetworkManager.Model.DisassociateLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DisassociateLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterNMGRLinkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

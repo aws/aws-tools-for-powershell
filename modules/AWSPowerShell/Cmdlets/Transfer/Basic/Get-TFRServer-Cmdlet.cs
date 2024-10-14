@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeServer API operation.", Operation = new[] {"DescribeServer"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeServerResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.DescribedServer or Amazon.Transfer.Model.DescribeServerResponse",
         "This cmdlet returns an Amazon.Transfer.Model.DescribedServer object.",
-        "The service call response (type Amazon.Transfer.Model.DescribeServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.DescribeServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

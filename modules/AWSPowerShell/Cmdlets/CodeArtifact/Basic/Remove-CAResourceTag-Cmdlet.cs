@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeArtifact.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeArtifact.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeArtifact.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCAResourceTagCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

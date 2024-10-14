@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DescribeRouterConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect DescribeRouterConfiguration API operation.", Operation = new[] {"DescribeRouterConfiguration"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeRouterConfigurationResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DescribeRouterConfigurationResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.DescribeRouterConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.DescribeRouterConfigurationResponse object containing multiple properties."
     )]
     public partial class GetDCRouterConfigurationCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

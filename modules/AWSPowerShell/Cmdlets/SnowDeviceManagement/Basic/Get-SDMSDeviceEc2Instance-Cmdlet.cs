@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     [AWSCmdlet("Calls the AWS Snow Device Management DescribeDeviceEc2Instances API operation.", Operation = new[] {"DescribeDeviceEc2Instances"}, SelectReturnType = typeof(Amazon.SnowDeviceManagement.Model.DescribeDeviceEc2InstancesResponse))]
     [AWSCmdletOutput("Amazon.SnowDeviceManagement.Model.InstanceSummary or Amazon.SnowDeviceManagement.Model.DescribeDeviceEc2InstancesResponse",
         "This cmdlet returns a collection of Amazon.SnowDeviceManagement.Model.InstanceSummary objects.",
-        "The service call response (type Amazon.SnowDeviceManagement.Model.DescribeDeviceEc2InstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SnowDeviceManagement.Model.DescribeDeviceEc2InstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDMSDeviceEc2InstanceCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {

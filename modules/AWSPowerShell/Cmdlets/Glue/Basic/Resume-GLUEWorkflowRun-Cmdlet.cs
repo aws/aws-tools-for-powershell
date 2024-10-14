@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.ResumeWorkflowRunResponse")]
     [AWSCmdlet("Calls the AWS Glue ResumeWorkflowRun API operation.", Operation = new[] {"ResumeWorkflowRun"}, SelectReturnType = typeof(Amazon.Glue.Model.ResumeWorkflowRunResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.ResumeWorkflowRunResponse",
-        "This cmdlet returns an Amazon.Glue.Model.ResumeWorkflowRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.ResumeWorkflowRunResponse object containing multiple properties."
     )]
     public partial class ResumeGLUEWorkflowRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

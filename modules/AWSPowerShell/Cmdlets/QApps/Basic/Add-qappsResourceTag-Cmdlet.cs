@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.QApps.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.QApps.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QApps.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QApps.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddqappsResourceTagCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

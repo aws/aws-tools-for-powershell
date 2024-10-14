@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [OutputType("Amazon.Glacier.Model.GetVaultLockResponse")]
     [AWSCmdlet("Calls the Amazon Glacier GetVaultLock API operation.", Operation = new[] {"GetVaultLock"}, SelectReturnType = typeof(Amazon.Glacier.Model.GetVaultLockResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.GetVaultLockResponse",
-        "This cmdlet returns an Amazon.Glacier.Model.GetVaultLockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glacier.Model.GetVaultLockResponse object containing multiple properties."
     )]
     public partial class GetGLCVaultLockCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty UpdateFilter API operation.", Operation = new[] {"UpdateFilter"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.UpdateFilterResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.UpdateFilterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GuardDuty.Model.UpdateFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.UpdateFilterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGDFilterCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

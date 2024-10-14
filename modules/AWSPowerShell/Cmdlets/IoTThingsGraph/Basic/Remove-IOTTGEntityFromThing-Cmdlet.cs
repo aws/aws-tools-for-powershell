@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph DissociateEntityFromThing API operation.", Operation = new[] {"DissociateEntityFromThing"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.DissociateEntityFromThingResponse))]
     [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.DissociateEntityFromThingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.DissociateEntityFromThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTThingsGraph.Model.DissociateEntityFromThingResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGEntityFromThingCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

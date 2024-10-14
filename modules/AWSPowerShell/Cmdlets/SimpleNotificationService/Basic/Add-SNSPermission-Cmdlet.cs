@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) AddPermission API operation.", Operation = new[] {"AddPermission"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.AddPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.AddPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.AddPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSNSPermissionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

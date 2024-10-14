@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [OutputType("Amazon.NetworkFirewall.Model.DescribeRuleGroupMetadataResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall DescribeRuleGroupMetadata API operation.", Operation = new[] {"DescribeRuleGroupMetadata"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DescribeRuleGroupMetadataResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DescribeRuleGroupMetadataResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeRuleGroupMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeRuleGroupMetadataResponse object containing multiple properties."
     )]
     public partial class GetNWFWRuleGroupMetadataCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

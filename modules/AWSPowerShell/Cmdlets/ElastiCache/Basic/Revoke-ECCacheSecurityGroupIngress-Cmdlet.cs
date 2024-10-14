@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache RevokeCacheSecurityGroupIngress API operation.", Operation = new[] {"RevokeCacheSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup or Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.CacheSecurityGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RevokeECCacheSecurityGroupIngressCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

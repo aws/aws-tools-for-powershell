@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetKeyGroup API operation.", Operation = new[] {"GetKeyGroup"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetKeyGroupResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.KeyGroup or Amazon.CloudFront.Model.GetKeyGroupResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.KeyGroup object.",
-        "The service call response (type Amazon.CloudFront.Model.GetKeyGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetKeyGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFKeyGroupCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

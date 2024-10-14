@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena GetCapacityAssignmentConfiguration API operation.", Operation = new[] {"GetCapacityAssignmentConfiguration"}, SelectReturnType = typeof(Amazon.Athena.Model.GetCapacityAssignmentConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.CapacityAssignmentConfiguration or Amazon.Athena.Model.GetCapacityAssignmentConfigurationResponse",
         "This cmdlet returns an Amazon.Athena.Model.CapacityAssignmentConfiguration object.",
-        "The service call response (type Amazon.Athena.Model.GetCapacityAssignmentConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.GetCapacityAssignmentConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATHCapacityAssignmentConfigurationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

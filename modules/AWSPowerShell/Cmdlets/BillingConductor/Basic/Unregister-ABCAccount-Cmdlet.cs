@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor DisassociateAccounts API operation.", Operation = new[] {"DisassociateAccounts"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.DisassociateAccountsResponse))]
     [AWSCmdletOutput("System.String or Amazon.BillingConductor.Model.DisassociateAccountsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BillingConductor.Model.DisassociateAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BillingConductor.Model.DisassociateAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterABCAccountCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

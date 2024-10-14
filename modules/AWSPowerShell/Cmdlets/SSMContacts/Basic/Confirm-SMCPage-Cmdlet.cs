@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts AcceptPage API operation.", Operation = new[] {"AcceptPage"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.AcceptPageResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.AcceptPageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.AcceptPageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.AcceptPageResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmSMCPageCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

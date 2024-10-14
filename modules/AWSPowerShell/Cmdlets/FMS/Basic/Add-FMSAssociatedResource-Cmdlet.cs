@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.BatchAssociateResourceResponse")]
     [AWSCmdlet("Calls the Firewall Management Service BatchAssociateResource API operation.", Operation = new[] {"BatchAssociateResource"}, SelectReturnType = typeof(Amazon.FMS.Model.BatchAssociateResourceResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.BatchAssociateResourceResponse",
-        "This cmdlet returns an Amazon.FMS.Model.BatchAssociateResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.BatchAssociateResourceResponse object containing multiple properties."
     )]
     public partial class AddFMSAssociatedResourceCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Amplify.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Amplify.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Amplify.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Amplify.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPResourceTagCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

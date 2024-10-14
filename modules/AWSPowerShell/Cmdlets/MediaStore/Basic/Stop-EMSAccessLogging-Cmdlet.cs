@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore StopAccessLogging API operation.", Operation = new[] {"StopAccessLogging"}, SelectReturnType = typeof(Amazon.MediaStore.Model.StopAccessLoggingResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStore.Model.StopAccessLoggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStore.Model.StopAccessLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStore.Model.StopAccessLoggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEMSAccessLoggingCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

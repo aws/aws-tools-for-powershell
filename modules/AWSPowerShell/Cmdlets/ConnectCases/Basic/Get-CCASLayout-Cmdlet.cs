@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [OutputType("Amazon.ConnectCases.Model.GetLayoutResponse")]
     [AWSCmdlet("Calls the Amazon Connect Cases GetLayout API operation.", Operation = new[] {"GetLayout"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetLayoutResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.GetLayoutResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.GetLayoutResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectCases.Model.GetLayoutResponse object containing multiple properties."
     )]
     public partial class GetCCASLayoutCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis RemoveTagsFromStream API operation.", Operation = new[] {"RemoveTagsFromStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.RemoveTagsFromStreamResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.RemoveTagsFromStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKINTagsFromStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UntagRole API operation.", Operation = new[] {"UntagRole"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UntagRoleResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UntagRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UntagRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UntagRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMRoleTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

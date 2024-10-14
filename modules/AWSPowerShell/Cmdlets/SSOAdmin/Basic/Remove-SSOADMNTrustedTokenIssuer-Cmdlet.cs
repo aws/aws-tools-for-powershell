@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeleteTrustedTokenIssuer API operation.", Operation = new[] {"DeleteTrustedTokenIssuer"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeleteTrustedTokenIssuerResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DeleteTrustedTokenIssuerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DeleteTrustedTokenIssuerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DeleteTrustedTokenIssuerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNTrustedTokenIssuerCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

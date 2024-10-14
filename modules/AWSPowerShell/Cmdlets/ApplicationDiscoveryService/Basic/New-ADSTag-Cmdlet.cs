@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationDiscoveryService.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationDiscoveryService.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewADSTagCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 ResetAuthorizersCache API operation.", Operation = new[] {"ResetAuthorizersCache"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.ResetAuthorizersCacheResponse))]
     [AWSCmdletOutput("None or Amazon.ApiGatewayV2.Model.ResetAuthorizersCacheResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayV2.Model.ResetAuthorizersCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApiGatewayV2.Model.ResetAuthorizersCacheResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetAG2AuthorizersCacheCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime BatchUpdateUser API operation.", Operation = new[] {"BatchUpdateUser"}, SelectReturnType = typeof(Amazon.Chime.Model.BatchUpdateUserResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.UserError or Amazon.Chime.Model.BatchUpdateUserResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.UserError objects.",
-        "The service call response (type Amazon.Chime.Model.BatchUpdateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.BatchUpdateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMUserBatchCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

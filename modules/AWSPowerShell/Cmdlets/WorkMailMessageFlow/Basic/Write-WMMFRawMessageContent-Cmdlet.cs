@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     [AWSCmdlet("Calls the Amazon WorkMail Message Flow PutRawMessageContent API operation.", Operation = new[] {"PutRawMessageContent"}, SelectReturnType = typeof(Amazon.WorkMailMessageFlow.Model.PutRawMessageContentResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMailMessageFlow.Model.PutRawMessageContentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMailMessageFlow.Model.PutRawMessageContentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMailMessageFlow.Model.PutRawMessageContentResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteWMMFRawMessageContentCmdlet : AmazonWorkMailMessageFlowClientCmdlet, IExecutor
     {

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.ImportLensResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool ImportLens API operation.", Operation = new[] {"ImportLens"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ImportLensResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.ImportLensResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.ImportLensResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.ImportLensResponse object containing multiple properties."
     )]
     public partial class ImportWATLensCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

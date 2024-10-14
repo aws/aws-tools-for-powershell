@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [OutputType("Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AssociateSoftwareToken API operation.", Operation = new[] {"AssociateSoftwareToken"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse object containing multiple properties."
     )]
     public partial class AddCGIPSoftwareTokenCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCWEResourceTagCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DeleteTrustStore API operation.", Operation = new[] {"DeleteTrustStore"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DeleteTrustStoreResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DeleteTrustStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteTrustStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteTrustStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSWTrustStoreCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

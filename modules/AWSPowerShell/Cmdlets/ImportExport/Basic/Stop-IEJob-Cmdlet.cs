@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [AWSCmdlet("Calls the AWS Import/Export CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.ImportExport.Model.CancelJobResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.ImportExport.Model.CancelJobResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.ImportExport.Model.CancelJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ImportExport.Model.CancelJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

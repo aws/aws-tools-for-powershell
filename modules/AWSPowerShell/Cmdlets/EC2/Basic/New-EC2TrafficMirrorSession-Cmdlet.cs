@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTrafficMirrorSession API operation.", Operation = new[] {"CreateTrafficMirrorSession"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTrafficMirrorSessionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrafficMirrorSession or Amazon.EC2.Model.CreateTrafficMirrorSessionResponse",
         "This cmdlet returns an Amazon.EC2.Model.TrafficMirrorSession object.",
-        "The service call response (type Amazon.EC2.Model.CreateTrafficMirrorSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateTrafficMirrorSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2TrafficMirrorSessionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

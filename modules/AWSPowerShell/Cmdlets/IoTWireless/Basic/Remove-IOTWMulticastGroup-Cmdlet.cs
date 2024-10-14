@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless DeleteMulticastGroup API operation.", Operation = new[] {"DeleteMulticastGroup"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.DeleteMulticastGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.DeleteMulticastGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.DeleteMulticastGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.DeleteMulticastGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTWMulticastGroupCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.DeactivateEvaluationFormResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service DeactivateEvaluationForm API operation.", Operation = new[] {"DeactivateEvaluationForm"}, SelectReturnType = typeof(Amazon.Connect.Model.DeactivateEvaluationFormResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.DeactivateEvaluationFormResponse",
-        "This cmdlet returns an Amazon.Connect.Model.DeactivateEvaluationFormResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.DeactivateEvaluationFormResponse object containing multiple properties."
     )]
     public partial class DisableCONNEvaluationFormCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

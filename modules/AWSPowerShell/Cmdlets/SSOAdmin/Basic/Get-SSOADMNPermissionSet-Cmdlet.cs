@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribePermissionSet API operation.", Operation = new[] {"DescribePermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribePermissionSetResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.PermissionSet or Amazon.SSOAdmin.Model.DescribePermissionSetResponse",
         "This cmdlet returns an Amazon.SSOAdmin.Model.PermissionSet object.",
-        "The service call response (type Amazon.SSOAdmin.Model.DescribePermissionSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.DescribePermissionSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSOADMNPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

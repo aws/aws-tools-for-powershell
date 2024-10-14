@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.ListPoolOriginationIdentitiesResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 ListPoolOriginationIdentities API operation.", Operation = new[] {"ListPoolOriginationIdentities"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.ListPoolOriginationIdentitiesResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.ListPoolOriginationIdentitiesResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.ListPoolOriginationIdentitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.ListPoolOriginationIdentitiesResponse object containing multiple properties."
     )]
     public partial class GetSMSVPoolOriginationIdentityListCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

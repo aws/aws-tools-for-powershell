@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.ListTablesResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.TableSummary or Amazon.Keyspaces.Model.ListTablesResponse",
         "This cmdlet returns a collection of Amazon.Keyspaces.Model.TableSummary objects.",
-        "The service call response (type Amazon.Keyspaces.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.ListTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKSTableListCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

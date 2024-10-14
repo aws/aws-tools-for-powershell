@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ControlTower.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ControlTower.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ControlTower.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ControlTower.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveACTResourceTagCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

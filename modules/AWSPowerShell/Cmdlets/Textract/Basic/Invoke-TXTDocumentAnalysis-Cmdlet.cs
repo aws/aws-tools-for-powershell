@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract AnalyzeDocument API operation.", Operation = new[] {"AnalyzeDocument"}, SelectReturnType = typeof(Amazon.Textract.Model.AnalyzeDocumentResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.Block or Amazon.Textract.Model.AnalyzeDocumentResponse",
         "This cmdlet returns a collection of Amazon.Textract.Model.Block objects.",
-        "The service call response (type Amazon.Textract.Model.AnalyzeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.AnalyzeDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeTXTDocumentAnalysisCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

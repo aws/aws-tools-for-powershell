@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service PauseContact API operation.", Operation = new[] {"PauseContact"}, SelectReturnType = typeof(Amazon.Connect.Model.PauseContactResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.PauseContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.PauseContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.PauseContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class InvokeCONNPauseContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

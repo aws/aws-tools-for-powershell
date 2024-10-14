@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteVPCConnectionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteVPCConnection API operation.", Operation = new[] {"DeleteVPCConnection"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteVPCConnectionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteVPCConnectionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteVPCConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteVPCConnectionResponse object containing multiple properties."
     )]
     public partial class RemoveQSVPCConnectionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

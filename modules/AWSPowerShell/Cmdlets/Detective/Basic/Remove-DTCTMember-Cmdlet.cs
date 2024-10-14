@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [OutputType("Amazon.Detective.Model.DeleteMembersResponse")]
     [AWSCmdlet("Calls the Amazon Detective DeleteMembers API operation.", Operation = new[] {"DeleteMembers"}, SelectReturnType = typeof(Amazon.Detective.Model.DeleteMembersResponse))]
     [AWSCmdletOutput("Amazon.Detective.Model.DeleteMembersResponse",
-        "This cmdlet returns an Amazon.Detective.Model.DeleteMembersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Detective.Model.DeleteMembersResponse object containing multiple properties."
     )]
     public partial class RemoveDTCTMemberCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

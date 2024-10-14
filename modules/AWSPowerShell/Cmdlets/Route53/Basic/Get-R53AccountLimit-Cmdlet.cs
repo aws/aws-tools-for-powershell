@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 GetAccountLimit API operation.", Operation = new[] {"GetAccountLimit"}, SelectReturnType = typeof(Amazon.Route53.Model.GetAccountLimitResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.Route53.Model.GetAccountLimitResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.Route53.Model.GetAccountLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetAccountLimitResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53AccountLimitCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

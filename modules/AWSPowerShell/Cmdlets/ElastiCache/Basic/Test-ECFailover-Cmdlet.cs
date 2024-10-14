@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache TestFailover API operation.", Operation = new[] {"TestFailover"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.TestFailoverResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup or Amazon.ElastiCache.Model.TestFailoverResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.TestFailoverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.TestFailoverResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestECFailoverCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

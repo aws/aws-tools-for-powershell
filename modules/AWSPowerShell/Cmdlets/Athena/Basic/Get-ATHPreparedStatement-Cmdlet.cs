@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena GetPreparedStatement API operation.", Operation = new[] {"GetPreparedStatement"}, SelectReturnType = typeof(Amazon.Athena.Model.GetPreparedStatementResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.PreparedStatement or Amazon.Athena.Model.GetPreparedStatementResponse",
         "This cmdlet returns an Amazon.Athena.Model.PreparedStatement object.",
-        "The service call response (type Amazon.Athena.Model.GetPreparedStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.GetPreparedStatementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATHPreparedStatementCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

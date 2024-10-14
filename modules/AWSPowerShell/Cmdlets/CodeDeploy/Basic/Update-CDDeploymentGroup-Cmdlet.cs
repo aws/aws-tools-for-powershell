@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy UpdateDeploymentGroup API operation.", Operation = new[] {"UpdateDeploymentGroup"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup or Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse",
         "This cmdlet returns a collection of Amazon.CodeDeploy.Model.AutoScalingGroup objects.",
-        "The service call response (type Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

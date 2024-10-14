@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.InternetMonitor.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.InternetMonitor.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.InternetMonitor.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCWIMResourceTagCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {

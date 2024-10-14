@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service ListCollaborationConfiguredAudienceModelAssociations API operation.", Operation = new[] {"ListCollaborationConfiguredAudienceModelAssociations"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListCollaborationConfiguredAudienceModelAssociationsResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.CollaborationConfiguredAudienceModelAssociationSummary or Amazon.CleanRooms.Model.ListCollaborationConfiguredAudienceModelAssociationsResponse",
         "This cmdlet returns a collection of Amazon.CleanRooms.Model.CollaborationConfiguredAudienceModelAssociationSummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListCollaborationConfiguredAudienceModelAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.ListCollaborationConfiguredAudienceModelAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSCollaborationConfiguredAudienceModelAssociationListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

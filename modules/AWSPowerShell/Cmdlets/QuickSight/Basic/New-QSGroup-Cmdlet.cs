@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateGroupResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.Group or Amazon.QuickSight.Model.CreateGroupResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.Group object.",
-        "The service call response (type Amazon.QuickSight.Model.CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.CreateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewQSGroupCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

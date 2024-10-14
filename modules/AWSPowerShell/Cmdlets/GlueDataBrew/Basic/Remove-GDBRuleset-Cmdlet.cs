@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew DeleteRuleset API operation.", Operation = new[] {"DeleteRuleset"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.DeleteRulesetResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlueDataBrew.Model.DeleteRulesetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GlueDataBrew.Model.DeleteRulesetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.DeleteRulesetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDBRulesetCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service ImportServerCatalog API operation.", Operation = new[] {"ImportServerCatalog"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.ImportServerCatalogResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.ImportServerCatalogResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.ImportServerCatalogResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.ImportServerCatalogResponse) be returned by specifying '-Select *'."
     )]
     public partial class ImportSMSServerCatalogCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

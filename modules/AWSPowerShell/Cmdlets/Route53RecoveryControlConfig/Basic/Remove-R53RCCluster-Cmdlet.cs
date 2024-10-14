@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("None or Amazon.Route53RecoveryControlConfig.Model.DeleteClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53RecoveryControlConfig.Model.DeleteClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53RecoveryControlConfig.Model.DeleteClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RCClusterCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

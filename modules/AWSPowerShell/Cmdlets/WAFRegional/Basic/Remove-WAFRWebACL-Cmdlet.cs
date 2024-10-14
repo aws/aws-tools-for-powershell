@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeleteWebACL API operation.", Operation = new[] {"DeleteWebACL"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeleteWebACLResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.DeleteWebACLResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.DeleteWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.DeleteWebACLResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRWebACLCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

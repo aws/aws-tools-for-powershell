@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Calls the AWS CloudHSM RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class RemoveHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

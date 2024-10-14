@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) AssociateResourceShare API operation.", Operation = new[] {"AssociateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.AssociateResourceShareResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceShareAssociation or Amazon.RAM.Model.AssociateResourceShareResponse",
         "This cmdlet returns a collection of Amazon.RAM.Model.ResourceShareAssociation objects.",
-        "The service call response (type Amazon.RAM.Model.AssociateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.AssociateResourceShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConnectRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

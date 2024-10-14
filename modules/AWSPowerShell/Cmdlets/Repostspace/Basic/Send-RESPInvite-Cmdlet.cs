@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private SendInvites API operation.", Operation = new[] {"SendInvites"}, SelectReturnType = typeof(Amazon.Repostspace.Model.SendInvitesResponse))]
     [AWSCmdletOutput("None or Amazon.Repostspace.Model.SendInvitesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Repostspace.Model.SendInvitesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Repostspace.Model.SendInvitesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendRESPInviteCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

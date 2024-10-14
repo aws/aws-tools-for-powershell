@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager RegisterDefaultPatchBaseline API operation.", Operation = new[] {"RegisterDefaultPatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RegisterDefaultPatchBaselineResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.RegisterDefaultPatchBaselineResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.RegisterDefaultPatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.RegisterDefaultPatchBaselineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterSSMDefaultPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

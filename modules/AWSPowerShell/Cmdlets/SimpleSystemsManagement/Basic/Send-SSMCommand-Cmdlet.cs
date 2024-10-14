@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager SendCommand API operation.", Operation = new[] {"SendCommand"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendCommandResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Command or Amazon.SimpleSystemsManagement.Model.SendCommandResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.Command object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

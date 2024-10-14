@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks UpdateElasticIp API operation.", Operation = new[] {"UpdateElasticIp"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.UpdateElasticIpResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.UpdateElasticIpResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

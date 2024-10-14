@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks RegisterElasticIp API operation.", Operation = new[] {"RegisterElasticIp"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.RegisterElasticIpResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpsWorks.Model.RegisterElasticIpResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpsWorks.Model.RegisterElasticIpResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.RegisterElasticIpResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

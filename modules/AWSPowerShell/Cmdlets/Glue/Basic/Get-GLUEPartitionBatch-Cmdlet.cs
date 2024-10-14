@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.BatchGetPartitionResponse")]
     [AWSCmdlet("Calls the AWS Glue BatchGetPartition API operation.", Operation = new[] {"BatchGetPartition"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchGetPartitionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchGetPartitionResponse",
-        "This cmdlet returns an Amazon.Glue.Model.BatchGetPartitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.BatchGetPartitionResponse object containing multiple properties."
     )]
     public partial class GetGLUEPartitionBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

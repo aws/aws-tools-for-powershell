@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web GetUserAccessLoggingSettings API operation.", Operation = new[] {"GetUserAccessLoggingSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.GetUserAccessLoggingSettingsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.UserAccessLoggingSettings or Amazon.WorkSpacesWeb.Model.GetUserAccessLoggingSettingsResponse",
         "This cmdlet returns an Amazon.WorkSpacesWeb.Model.UserAccessLoggingSettings object.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.GetUserAccessLoggingSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.GetUserAccessLoggingSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWUserAccessLoggingSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

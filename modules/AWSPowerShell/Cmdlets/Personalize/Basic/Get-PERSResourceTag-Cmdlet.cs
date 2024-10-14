@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Personalize.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.Tag or Amazon.Personalize.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Personalize.Model.Tag objects.",
-        "The service call response (type Amazon.Personalize.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSResourceTagCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

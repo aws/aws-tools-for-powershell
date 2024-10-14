@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.GetUpgradeStatusResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service GetUpgradeStatus API operation.", Operation = new[] {"GetUpgradeStatus"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.GetUpgradeStatusResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.GetUpgradeStatusResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.GetUpgradeStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.GetUpgradeStatusResponse object containing multiple properties."
     )]
     public partial class GetOSUpgradeStatusCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

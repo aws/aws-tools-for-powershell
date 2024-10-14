@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP GetOperation API operation.", Operation = new[] {"GetOperation"}, SelectReturnType = typeof(Amazon.SsmSap.Model.GetOperationResponse))]
     [AWSCmdletOutput("Amazon.SsmSap.Model.Operation or Amazon.SsmSap.Model.GetOperationResponse",
         "This cmdlet returns an Amazon.SsmSap.Model.Operation object.",
-        "The service call response (type Amazon.SsmSap.Model.GetOperationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.GetOperationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSAPOperationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.StartApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.StartApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.StartApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MainframeModernization.Model.StartApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

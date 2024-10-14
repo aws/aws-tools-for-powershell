@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow UnregisterConnector API operation.", Operation = new[] {"UnregisterConnector"}, SelectReturnType = typeof(Amazon.Appflow.Model.UnregisterConnectorResponse))]
     [AWSCmdletOutput("None or Amazon.Appflow.Model.UnregisterConnectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Appflow.Model.UnregisterConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Appflow.Model.UnregisterConnectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAFConnectorCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

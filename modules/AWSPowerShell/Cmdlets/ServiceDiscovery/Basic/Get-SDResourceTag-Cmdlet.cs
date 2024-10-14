@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ServiceDiscovery.Model.Tag or Amazon.ServiceDiscovery.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ServiceDiscovery.Model.Tag objects.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDResourceTagCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

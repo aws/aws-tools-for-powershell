@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.StartExportTaskResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service StartExportTask API operation.", Operation = new[] {"StartExportTask"}, SelectReturnType = typeof(Amazon.RDS.Model.StartExportTaskResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.StartExportTaskResponse",
-        "This cmdlet returns an Amazon.RDS.Model.StartExportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.StartExportTaskResponse object containing multiple properties."
     )]
     public partial class StartRDSExportTaskCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

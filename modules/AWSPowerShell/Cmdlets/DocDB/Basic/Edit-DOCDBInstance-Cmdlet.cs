@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ModifyDBInstance API operation.", Operation = new[] {"ModifyDBInstance"}, SelectReturnType = typeof(Amazon.DocDB.Model.ModifyDBInstanceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBInstance or Amazon.DocDB.Model.ModifyDBInstanceResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBInstance object.",
-        "The service call response (type Amazon.DocDB.Model.ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.ModifyDBInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditDOCDBInstanceCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

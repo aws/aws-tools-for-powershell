@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetEventsConfiguration API operation.", Operation = new[] {"GetEventsConfiguration"}, SelectReturnType = typeof(Amazon.Chime.Model.GetEventsConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.EventsConfiguration or Amazon.Chime.Model.GetEventsConfigurationResponse",
         "This cmdlet returns an Amazon.Chime.Model.EventsConfiguration object.",
-        "The service call response (type Amazon.Chime.Model.GetEventsConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetEventsConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMEventsConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

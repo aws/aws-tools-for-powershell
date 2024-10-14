@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling RecordLifecycleActionHeartbeat API operation.", Operation = new[] {"RecordLifecycleActionHeartbeat"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteASLifecycleActionHeartbeatCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

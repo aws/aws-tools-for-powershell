@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.StopImportResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail StopImport API operation.", Operation = new[] {"StopImport"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StopImportResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.StopImportResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.StopImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.StopImportResponse object containing multiple properties."
     )]
     public partial class StopCTImportCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

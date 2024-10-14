@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra AssociateEntitiesToExperience API operation.", Operation = new[] {"AssociateEntitiesToExperience"}, SelectReturnType = typeof(Amazon.Kendra.Model.AssociateEntitiesToExperienceResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.FailedEntity or Amazon.Kendra.Model.AssociateEntitiesToExperienceResponse",
         "This cmdlet returns a collection of Amazon.Kendra.Model.FailedEntity objects.",
-        "The service call response (type Amazon.Kendra.Model.AssociateEntitiesToExperienceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.AssociateEntitiesToExperienceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddKNDREntitiesToExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service GetRecommendations API operation.", Operation = new[] {"GetRecommendations"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.GetRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.RecommendationData or Amazon.ConnectWisdomService.Model.GetRecommendationsResponse",
         "This cmdlet returns a collection of Amazon.ConnectWisdomService.Model.RecommendationData objects.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.GetRecommendationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.GetRecommendationsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.")]
     public partial class GetWSDMRecommendationCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor

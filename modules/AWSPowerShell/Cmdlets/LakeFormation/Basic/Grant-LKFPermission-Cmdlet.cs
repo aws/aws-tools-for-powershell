@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation GrantPermissions API operation.", Operation = new[] {"GrantPermissions"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GrantPermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.GrantPermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.GrantPermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.GrantPermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class GrantLKFPermissionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

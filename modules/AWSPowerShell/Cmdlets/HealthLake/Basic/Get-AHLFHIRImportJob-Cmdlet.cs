@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [AWSCmdlet("Calls the Amazon HealthLake DescribeFHIRImportJob API operation.", Operation = new[] {"DescribeFHIRImportJob"}, SelectReturnType = typeof(Amazon.HealthLake.Model.DescribeFHIRImportJobResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.ImportJobProperties or Amazon.HealthLake.Model.DescribeFHIRImportJobResponse",
         "This cmdlet returns an Amazon.HealthLake.Model.ImportJobProperties object.",
-        "The service call response (type Amazon.HealthLake.Model.DescribeFHIRImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.HealthLake.Model.DescribeFHIRImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAHLFHIRImportJobCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

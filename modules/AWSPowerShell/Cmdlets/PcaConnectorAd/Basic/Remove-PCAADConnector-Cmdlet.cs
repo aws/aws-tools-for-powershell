@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad DeleteConnector API operation.", Operation = new[] {"DeleteConnector"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.DeleteConnectorResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.DeleteConnectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.DeleteConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.DeleteConnectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAADConnectorCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

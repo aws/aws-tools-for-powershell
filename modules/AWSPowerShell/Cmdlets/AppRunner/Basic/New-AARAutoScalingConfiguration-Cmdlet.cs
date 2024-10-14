@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner CreateAutoScalingConfiguration API operation.", Operation = new[] {"CreateAutoScalingConfiguration"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateAutoScalingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.AutoScalingConfiguration or Amazon.AppRunner.Model.CreateAutoScalingConfigurationResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.AutoScalingConfiguration object.",
-        "The service call response (type Amazon.AppRunner.Model.CreateAutoScalingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.CreateAutoScalingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAARAutoScalingConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

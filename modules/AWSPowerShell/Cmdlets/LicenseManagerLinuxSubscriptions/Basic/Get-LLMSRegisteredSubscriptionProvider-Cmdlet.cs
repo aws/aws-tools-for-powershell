@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     [OutputType("Amazon.LicenseManagerLinuxSubscriptions.Model.GetRegisteredSubscriptionProviderResponse")]
     [AWSCmdlet("Calls the AWS License Manager - Linux Subscriptions GetRegisteredSubscriptionProvider API operation.", Operation = new[] {"GetRegisteredSubscriptionProvider"}, SelectReturnType = typeof(Amazon.LicenseManagerLinuxSubscriptions.Model.GetRegisteredSubscriptionProviderResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerLinuxSubscriptions.Model.GetRegisteredSubscriptionProviderResponse",
-        "This cmdlet returns an Amazon.LicenseManagerLinuxSubscriptions.Model.GetRegisteredSubscriptionProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManagerLinuxSubscriptions.Model.GetRegisteredSubscriptionProviderResponse object containing multiple properties."
     )]
     public partial class GetLLMSRegisteredSubscriptionProviderCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight SearchDashboards API operation.", Operation = new[] {"SearchDashboards"}, SelectReturnType = typeof(Amazon.QuickSight.Model.SearchDashboardsResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DashboardSummary or Amazon.QuickSight.Model.SearchDashboardsResponse",
         "This cmdlet returns a collection of Amazon.QuickSight.Model.DashboardSummary objects.",
-        "The service call response (type Amazon.QuickSight.Model.SearchDashboardsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.SearchDashboardsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SearchQSDashboardCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

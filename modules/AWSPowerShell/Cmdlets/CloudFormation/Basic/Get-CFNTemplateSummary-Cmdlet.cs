@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.GetTemplateSummaryResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation GetTemplateSummary API operation.", Operation = new[] {"GetTemplateSummary"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.GetTemplateSummaryResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.GetTemplateSummaryResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.GetTemplateSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.GetTemplateSummaryResponse object containing multiple properties."
     )]
     public partial class GetCFNTemplateSummaryCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

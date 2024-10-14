@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IAMRolesAnywhere.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IAMRolesAnywhere.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IAMRolesAnywhere.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMRAResourceTagCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

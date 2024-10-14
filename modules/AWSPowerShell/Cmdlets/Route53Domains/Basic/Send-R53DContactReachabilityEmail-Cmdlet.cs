@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [OutputType("Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 Domains ResendContactReachabilityEmail API operation.", Operation = new[] {"ResendContactReachabilityEmail"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse))]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse",
-        "This cmdlet returns an Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse object containing multiple properties."
     )]
     public partial class SendR53DContactReachabilityEmailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

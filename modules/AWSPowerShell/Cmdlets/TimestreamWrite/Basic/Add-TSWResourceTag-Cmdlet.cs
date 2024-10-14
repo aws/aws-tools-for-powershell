@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [AWSCmdlet("Calls the Amazon Timestream Write TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.TimestreamWrite.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamWrite.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TimestreamWrite.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddTSWResourceTagCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

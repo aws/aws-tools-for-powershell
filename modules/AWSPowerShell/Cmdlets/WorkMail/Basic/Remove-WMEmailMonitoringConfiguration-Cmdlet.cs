@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteEmailMonitoringConfiguration API operation.", Operation = new[] {"DeleteEmailMonitoringConfiguration"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteEmailMonitoringConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteEmailMonitoringConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteEmailMonitoringConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteEmailMonitoringConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMEmailMonitoringConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

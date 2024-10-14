@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteIntentVersion API operation.", Operation = new[] {"DeleteIntentVersion"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.DeleteIntentVersionResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelBuildingService.Model.DeleteIntentVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBIntentVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

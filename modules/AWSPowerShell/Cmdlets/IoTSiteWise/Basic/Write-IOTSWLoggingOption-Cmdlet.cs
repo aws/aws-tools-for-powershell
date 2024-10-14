@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise PutLoggingOptions API operation.", Operation = new[] {"PutLoggingOptions"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.PutLoggingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.PutLoggingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.PutLoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.PutLoggingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIOTSWLoggingOptionCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

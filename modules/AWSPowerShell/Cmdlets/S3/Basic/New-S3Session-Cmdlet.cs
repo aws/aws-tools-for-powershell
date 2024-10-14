@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) CreateSession API operation.", Operation = new[] {"CreateSession"}, SelectReturnType = typeof(Amazon.S3.Model.CreateSessionResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.SessionCredentials or Amazon.S3.Model.CreateSessionResponse",
         "This cmdlet returns an Amazon.S3.Model.SessionCredentials object.",
-        "The service call response (type Amazon.S3.Model.CreateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.CreateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewS3SessionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

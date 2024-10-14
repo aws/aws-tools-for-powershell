@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild CreateProject API operation.", Operation = new[] {"CreateProject"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.CreateProjectResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Project or Amazon.CodeBuild.Model.CreateProjectResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Project object.",
-        "The service call response (type Amazon.CodeBuild.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.CreateProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

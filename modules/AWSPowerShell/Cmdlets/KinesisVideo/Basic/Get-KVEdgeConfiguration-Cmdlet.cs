@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [OutputType("Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams DescribeEdgeConfiguration API operation.", Operation = new[] {"DescribeEdgeConfiguration"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse))]
     [AWSCmdletOutput("Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse",
-        "This cmdlet returns an Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisVideo.Model.DescribeEdgeConfigurationResponse object containing multiple properties."
     )]
     public partial class GetKVEdgeConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [OutputType("Amazon.RoboMaker.Model.CreateSimulationApplicationVersionResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker CreateSimulationApplicationVersion API operation.", Operation = new[] {"CreateSimulationApplicationVersion"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CreateSimulationApplicationVersionResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.CreateSimulationApplicationVersionResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.CreateSimulationApplicationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.CreateSimulationApplicationVersionResponse object containing multiple properties."
     )]
     public partial class NewROBOSimulationApplicationVersionCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

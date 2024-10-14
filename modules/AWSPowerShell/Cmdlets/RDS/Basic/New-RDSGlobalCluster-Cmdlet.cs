@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateGlobalCluster API operation.", Operation = new[] {"CreateGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.CreateGlobalClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.GlobalCluster object.",
-        "The service call response (type Amazon.RDS.Model.CreateGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

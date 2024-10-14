@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [OutputType("Amazon.MediaTailor.Model.CreateChannelResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaTailor CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.CreateChannelResponse))]
     [AWSCmdletOutput("Amazon.MediaTailor.Model.CreateChannelResponse",
-        "This cmdlet returns an Amazon.MediaTailor.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaTailor.Model.CreateChannelResponse object containing multiple properties."
     )]
     public partial class NewEMTChannelCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

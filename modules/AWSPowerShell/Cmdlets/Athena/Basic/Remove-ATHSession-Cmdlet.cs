@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena TerminateSession API operation.", Operation = new[] {"TerminateSession"}, SelectReturnType = typeof(Amazon.Athena.Model.TerminateSessionResponse))]
     [AWSCmdletOutput("Amazon.Athena.SessionState or Amazon.Athena.Model.TerminateSessionResponse",
         "This cmdlet returns an Amazon.Athena.SessionState object.",
-        "The service call response (type Amazon.Athena.Model.TerminateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.TerminateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHSessionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball DescribeAddress API operation.", Operation = new[] {"DescribeAddress"}, SelectReturnType = typeof(Amazon.Snowball.Model.DescribeAddressResponse))]
     [AWSCmdletOutput("Amazon.Snowball.Model.Address or Amazon.Snowball.Model.DescribeAddressResponse",
         "This cmdlet returns an Amazon.Snowball.Model.Address object.",
-        "The service call response (type Amazon.Snowball.Model.DescribeAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Snowball.Model.DescribeAddressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

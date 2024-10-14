@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains RetrieveDomainAuthCode API operation.", Operation = new[] {"RetrieveDomainAuthCode"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53DDomainAuthCodeCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

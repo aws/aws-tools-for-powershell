@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain ListDataIntegrationFlows API operation.", Operation = new[] {"ListDataIntegrationFlows"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.ListDataIntegrationFlowsResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.DataIntegrationFlow or Amazon.SupplyChain.Model.ListDataIntegrationFlowsResponse",
         "This cmdlet returns a collection of Amazon.SupplyChain.Model.DataIntegrationFlow objects.",
-        "The service call response (type Amazon.SupplyChain.Model.ListDataIntegrationFlowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupplyChain.Model.ListDataIntegrationFlowsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSUPCHDataIntegrationFlowListCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

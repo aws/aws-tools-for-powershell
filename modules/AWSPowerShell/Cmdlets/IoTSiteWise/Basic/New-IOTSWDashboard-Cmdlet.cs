@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.CreateDashboardResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise CreateDashboard API operation.", Operation = new[] {"CreateDashboard"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.CreateDashboardResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.CreateDashboardResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.CreateDashboardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.CreateDashboardResponse object containing multiple properties."
     )]
     public partial class NewIOTSWDashboardCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

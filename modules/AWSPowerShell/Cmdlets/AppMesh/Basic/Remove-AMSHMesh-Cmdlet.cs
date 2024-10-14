@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DeleteMesh API operation.", Operation = new[] {"DeleteMesh"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DeleteMeshResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.MeshData or Amazon.AppMesh.Model.DeleteMeshResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.MeshData object.",
-        "The service call response (type Amazon.AppMesh.Model.DeleteMeshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DeleteMeshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

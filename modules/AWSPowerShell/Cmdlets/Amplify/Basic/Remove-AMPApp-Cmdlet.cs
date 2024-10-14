@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteApp API operation.", Operation = new[] {"DeleteApp"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteAppResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.App or Amazon.Amplify.Model.DeleteAppResponse",
         "This cmdlet returns an Amazon.Amplify.Model.App object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteAppResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPAppCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

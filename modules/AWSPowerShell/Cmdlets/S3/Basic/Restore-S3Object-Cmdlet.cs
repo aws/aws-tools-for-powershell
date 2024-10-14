@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.RestoreObjectResponse")]
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) RestoreObject API operation.", Operation = new[] {"RestoreObject"}, SelectReturnType = typeof(Amazon.S3.Model.RestoreObjectResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.RestoreObjectResponse",
-        "This cmdlet returns an Amazon.S3.Model.RestoreObjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3.Model.RestoreObjectResponse object containing multiple properties."
     )]
     public partial class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline RollbackStage API operation.", Operation = new[] {"RollbackStage"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.RollbackStageResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodePipeline.Model.RollbackStageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodePipeline.Model.RollbackStageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.RollbackStageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UndoCPStageExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     [OutputType("Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse")]
     [AWSCmdlet("Calls the Redshift Data API Service BatchExecuteStatement API operation.", Operation = new[] {"BatchExecuteStatement"}, SelectReturnType = typeof(Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse))]
     [AWSCmdletOutput("Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse",
-        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse object containing multiple properties."
     )]
     public partial class PushRSDBatchStatementCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {

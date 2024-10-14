@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [AWSCmdlet("Calls the Application Auto Scaling UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationAutoScaling.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationAutoScaling.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAASResourceTagCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.StartRunResponse")]
     [AWSCmdlet("Calls the Amazon Omics StartRun API operation.", Operation = new[] {"StartRun"}, SelectReturnType = typeof(Amazon.Omics.Model.StartRunResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.StartRunResponse",
-        "This cmdlet returns an Amazon.Omics.Model.StartRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.StartRunResponse object containing multiple properties."
     )]
     public partial class StartOMICSRunCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

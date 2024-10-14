@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail ListAccessControlRules API operation.", Operation = new[] {"ListAccessControlRules"}, SelectReturnType = typeof(Amazon.WorkMail.Model.ListAccessControlRulesResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.AccessControlRule or Amazon.WorkMail.Model.ListAccessControlRulesResponse",
         "This cmdlet returns a collection of Amazon.WorkMail.Model.AccessControlRule objects.",
-        "The service call response (type Amazon.WorkMail.Model.ListAccessControlRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMail.Model.ListAccessControlRulesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWMAccessControlRuleListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

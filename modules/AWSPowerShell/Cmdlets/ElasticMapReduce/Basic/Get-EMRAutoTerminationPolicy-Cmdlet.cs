@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce GetAutoTerminationPolicy API operation.", Operation = new[] {"GetAutoTerminationPolicy"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.GetAutoTerminationPolicyResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AutoTerminationPolicy or Amazon.ElasticMapReduce.Model.GetAutoTerminationPolicyResponse",
         "This cmdlet returns an Amazon.ElasticMapReduce.Model.AutoTerminationPolicy object.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.GetAutoTerminationPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.GetAutoTerminationPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRAutoTerminationPolicyCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

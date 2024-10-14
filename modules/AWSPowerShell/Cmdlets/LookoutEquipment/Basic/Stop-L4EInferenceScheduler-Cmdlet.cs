@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [OutputType("Amazon.LookoutEquipment.Model.StopInferenceSchedulerResponse")]
     [AWSCmdlet("Calls the Amazon Lookout for Equipment StopInferenceScheduler API operation.", Operation = new[] {"StopInferenceScheduler"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.StopInferenceSchedulerResponse))]
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.StopInferenceSchedulerResponse",
-        "This cmdlet returns an Amazon.LookoutEquipment.Model.StopInferenceSchedulerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LookoutEquipment.Model.StopInferenceSchedulerResponse object containing multiple properties."
     )]
     public partial class StopL4EInferenceSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

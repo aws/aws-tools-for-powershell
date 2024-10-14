@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness StopDataSourceSyncJob API operation.", Operation = new[] {"StopDataSourceSyncJob"}, SelectReturnType = typeof(Amazon.QBusiness.Model.StopDataSourceSyncJobResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.StopDataSourceSyncJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.StopDataSourceSyncJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.StopDataSourceSyncJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopQBUSDataSourceSyncJobCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

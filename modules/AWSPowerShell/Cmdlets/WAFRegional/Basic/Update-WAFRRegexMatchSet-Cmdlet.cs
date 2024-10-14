@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional UpdateRegexMatchSet API operation.", Operation = new[] {"UpdateRegexMatchSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.UpdateRegexMatchSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.UpdateRegexMatchSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.UpdateRegexMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.UpdateRegexMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWAFRRegexMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

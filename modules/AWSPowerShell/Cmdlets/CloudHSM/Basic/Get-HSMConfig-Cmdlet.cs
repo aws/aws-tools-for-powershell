@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.GetConfigResponse")]
     [AWSCmdlet("Calls the AWS CloudHSM GetConfig API operation.", Operation = new[] {"GetConfig"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.GetConfigResponse))]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResponse",
-        "This cmdlet returns an Amazon.CloudHSM.Model.GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudHSM.Model.GetConfigResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

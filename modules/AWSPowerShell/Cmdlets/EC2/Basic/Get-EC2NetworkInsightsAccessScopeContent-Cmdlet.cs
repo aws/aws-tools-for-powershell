@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetNetworkInsightsAccessScopeContent API operation.", Operation = new[] {"GetNetworkInsightsAccessScopeContent"}, SelectReturnType = typeof(Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInsightsAccessScopeContent or Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkInsightsAccessScopeContent object.",
-        "The service call response (type Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.GetNetworkInsightsAccessScopeContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2NetworkInsightsAccessScopeContentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

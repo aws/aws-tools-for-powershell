@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service StopTransformJob API operation.", Operation = new[] {"StopTransformJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.StopTransformJobResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.StopTransformJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.StopTransformJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.StopTransformJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSMTransformJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

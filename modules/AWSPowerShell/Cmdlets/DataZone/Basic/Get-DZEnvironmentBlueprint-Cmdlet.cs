@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.GetEnvironmentBlueprintResponse")]
     [AWSCmdlet("Calls the Amazon DataZone GetEnvironmentBlueprint API operation.", Operation = new[] {"GetEnvironmentBlueprint"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetEnvironmentBlueprintResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.GetEnvironmentBlueprintResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetEnvironmentBlueprintResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.GetEnvironmentBlueprintResponse object containing multiple properties."
     )]
     public partial class GetDZEnvironmentBlueprintCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

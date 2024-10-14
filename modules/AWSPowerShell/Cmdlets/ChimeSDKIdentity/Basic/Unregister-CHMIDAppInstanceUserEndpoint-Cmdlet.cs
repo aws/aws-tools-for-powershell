@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [AWSCmdlet("Calls the Amazon Chime SDK Identity DeregisterAppInstanceUserEndpoint API operation.", Operation = new[] {"DeregisterAppInstanceUserEndpoint"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.DeregisterAppInstanceUserEndpointResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKIdentity.Model.DeregisterAppInstanceUserEndpointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKIdentity.Model.DeregisterAppInstanceUserEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKIdentity.Model.DeregisterAppInstanceUserEndpointResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCHMIDAppInstanceUserEndpointCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

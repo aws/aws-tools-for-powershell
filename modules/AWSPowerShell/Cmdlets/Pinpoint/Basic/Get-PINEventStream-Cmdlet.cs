@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetEventStream API operation.", Operation = new[] {"GetEventStream"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetEventStreamResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.EventStream or Amazon.Pinpoint.Model.GetEventStreamResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.EventStream object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetEventStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetEventStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINEventStreamCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

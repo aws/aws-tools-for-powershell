@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeQPersonalizationConfiguration API operation.", Operation = new[] {"DescribeQPersonalizationConfiguration"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.PersonalizationMode or Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse",
         "This cmdlet returns an Amazon.QuickSight.PersonalizationMode object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSQPersonalizationConfigurationCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutCompositeAlarm API operation.", Operation = new[] {"PutCompositeAlarm"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutCompositeAlarmResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutCompositeAlarmResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutCompositeAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutCompositeAlarmResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWCompositeAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

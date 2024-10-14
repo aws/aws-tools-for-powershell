@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.Tag or Amazon.IoTThingsGraph.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.IoTThingsGraph.Model.Tag objects.",
-        "The service call response (type Amazon.IoTThingsGraph.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTThingsGraph.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGResourceTagCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

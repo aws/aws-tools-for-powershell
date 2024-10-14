@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective RejectInvitation API operation.", Operation = new[] {"RejectInvitation"}, SelectReturnType = typeof(Amazon.Detective.Model.RejectInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.Detective.Model.RejectInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Detective.Model.RejectInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Detective.Model.RejectInvitationResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyDTCTInvitationCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

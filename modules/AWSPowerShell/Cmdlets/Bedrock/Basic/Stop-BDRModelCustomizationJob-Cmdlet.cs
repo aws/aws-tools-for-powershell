@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock StopModelCustomizationJob API operation.", Operation = new[] {"StopModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.StopModelCustomizationJobResponse))]
     [AWSCmdletOutput("None or Amazon.Bedrock.Model.StopModelCustomizationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Bedrock.Model.StopModelCustomizationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Bedrock.Model.StopModelCustomizationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

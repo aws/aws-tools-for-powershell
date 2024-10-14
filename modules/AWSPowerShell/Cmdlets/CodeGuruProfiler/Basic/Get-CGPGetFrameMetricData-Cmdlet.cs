@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [OutputType("Amazon.CodeGuruProfiler.Model.BatchGetFrameMetricDataResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler BatchGetFrameMetricData API operation.", Operation = new[] {"BatchGetFrameMetricData"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.BatchGetFrameMetricDataResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.BatchGetFrameMetricDataResponse",
-        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.BatchGetFrameMetricDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.BatchGetFrameMetricDataResponse object containing multiple properties."
     )]
     public partial class GetCGPGetFrameMetricDataCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

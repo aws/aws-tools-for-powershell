@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.CreateReferenceStoreResponse")]
     [AWSCmdlet("Calls the Amazon Omics CreateReferenceStore API operation.", Operation = new[] {"CreateReferenceStore"}, SelectReturnType = typeof(Amazon.Omics.Model.CreateReferenceStoreResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.CreateReferenceStoreResponse",
-        "This cmdlet returns an Amazon.Omics.Model.CreateReferenceStoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.CreateReferenceStoreResponse object containing multiple properties."
     )]
     public partial class NewOMICSReferenceStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

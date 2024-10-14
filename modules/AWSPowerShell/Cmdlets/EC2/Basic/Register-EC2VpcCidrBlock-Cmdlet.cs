@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AssociateVpcCidrBlockResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateVpcCidrBlock API operation.", Operation = new[] {"AssociateVpcCidrBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateVpcCidrBlockResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateVpcCidrBlockResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AssociateVpcCidrBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AssociateVpcCidrBlockResponse object containing multiple properties."
     )]
     public partial class RegisterEC2VpcCidrBlockCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

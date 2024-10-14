@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.GetMediaAnalysisJobResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition GetMediaAnalysisJob API operation.", Operation = new[] {"GetMediaAnalysisJob"}, SelectReturnType = typeof(Amazon.Rekognition.Model.GetMediaAnalysisJobResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.GetMediaAnalysisJobResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.GetMediaAnalysisJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.GetMediaAnalysisJobResponse object containing multiple properties."
     )]
     public partial class GetREKMediaAnalysisJobCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

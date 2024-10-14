@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift FailoverPrimaryCompute API operation.", Operation = new[] {"FailoverPrimaryCompute"}, SelectReturnType = typeof(Amazon.Redshift.Model.FailoverPrimaryComputeResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.FailoverPrimaryComputeResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.FailoverPrimaryComputeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.FailoverPrimaryComputeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartRSFailoverPrimaryComputeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [OutputType("Amazon.ECRPublic.Model.BatchDeleteImageResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public BatchDeleteImage API operation.", Operation = new[] {"BatchDeleteImage"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.BatchDeleteImageResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.BatchDeleteImageResponse",
-        "This cmdlet returns an Amazon.ECRPublic.Model.BatchDeleteImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECRPublic.Model.BatchDeleteImageResponse object containing multiple properties."
     )]
     public partial class RemoveECRPImageBatchCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

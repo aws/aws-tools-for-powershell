@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GetPolicyVersion API operation.", Operation = new[] {"GetPolicyVersion"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetPolicyVersionResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PolicyVersion or Amazon.IdentityManagement.Model.GetPolicyVersionResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.PolicyVersion object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetPolicyVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

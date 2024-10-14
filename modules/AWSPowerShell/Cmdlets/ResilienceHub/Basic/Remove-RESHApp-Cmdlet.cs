@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub DeleteApp API operation.", Operation = new[] {"DeleteApp"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DeleteAppResponse))]
     [AWSCmdletOutput("System.String or Amazon.ResilienceHub.Model.DeleteAppResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ResilienceHub.Model.DeleteAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.DeleteAppResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRESHAppCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

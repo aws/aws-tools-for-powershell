@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PCS.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PCS.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PCS.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCSResourceTagCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     [AWSCmdlet("Calls the AWS Marketplace Metering MeterUsage API operation.", Operation = new[] {"MeterUsage"}, SelectReturnType = typeof(Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendMMMeteringDataCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {

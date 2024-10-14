@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena GetTableMetadata API operation.", Operation = new[] {"GetTableMetadata"}, SelectReturnType = typeof(Amazon.Athena.Model.GetTableMetadataResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.TableMetadata or Amazon.Athena.Model.GetTableMetadataResponse",
         "This cmdlet returns an Amazon.Athena.Model.TableMetadata object.",
-        "The service call response (type Amazon.Athena.Model.GetTableMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.GetTableMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATHTableMetadataCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

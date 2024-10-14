@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.RotateIngestEndpointCredentialsResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage RotateIngestEndpointCredentials API operation.", Operation = new[] {"RotateIngestEndpointCredentials"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.RotateIngestEndpointCredentialsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.RotateIngestEndpointCredentialsResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.RotateIngestEndpointCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.RotateIngestEndpointCredentialsResponse object containing multiple properties."
     )]
     public partial class InvokeEMPIngestEndpointCredentialRotationCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

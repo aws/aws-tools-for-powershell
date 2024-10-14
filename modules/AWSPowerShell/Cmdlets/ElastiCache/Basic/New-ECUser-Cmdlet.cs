@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [OutputType("Amazon.ElastiCache.Model.CreateUserResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateUserResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CreateUserResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.CreateUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.CreateUserResponse object containing multiple properties."
     )]
     public partial class NewECUserCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

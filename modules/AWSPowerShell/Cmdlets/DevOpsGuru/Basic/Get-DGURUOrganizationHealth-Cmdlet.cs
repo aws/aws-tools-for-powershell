@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [OutputType("Amazon.DevOpsGuru.Model.DescribeOrganizationHealthResponse")]
     [AWSCmdlet("Calls the Amazon DevOps Guru DescribeOrganizationHealth API operation.", Operation = new[] {"DescribeOrganizationHealth"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DescribeOrganizationHealthResponse))]
     [AWSCmdletOutput("Amazon.DevOpsGuru.Model.DescribeOrganizationHealthResponse",
-        "This cmdlet returns an Amazon.DevOpsGuru.Model.DescribeOrganizationHealthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DevOpsGuru.Model.DescribeOrganizationHealthResponse object containing multiple properties."
     )]
     public partial class GetDGURUOrganizationHealthCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

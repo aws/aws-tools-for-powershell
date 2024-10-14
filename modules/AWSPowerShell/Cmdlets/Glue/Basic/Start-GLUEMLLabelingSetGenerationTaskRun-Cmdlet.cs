@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue StartMLLabelingSetGenerationTaskRun API operation.", Operation = new[] {"StartMLLabelingSetGenerationTaskRun"}, SelectReturnType = typeof(Amazon.Glue.Model.StartMLLabelingSetGenerationTaskRunResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.StartMLLabelingSetGenerationTaskRunResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.StartMLLabelingSetGenerationTaskRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.StartMLLabelingSetGenerationTaskRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartGLUEMLLabelingSetGenerationTaskRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

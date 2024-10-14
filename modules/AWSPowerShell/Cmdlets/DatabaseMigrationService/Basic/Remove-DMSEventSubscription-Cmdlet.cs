@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteEventSubscription API operation.", Operation = new[] {"DeleteEventSubscription"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EventSubscription or Amazon.DatabaseMigrationService.Model.DeleteEventSubscriptionResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.EventSubscription object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteEventSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSEventSubscriptionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

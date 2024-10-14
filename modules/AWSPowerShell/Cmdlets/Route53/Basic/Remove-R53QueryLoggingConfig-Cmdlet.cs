@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteQueryLoggingConfig API operation.", Operation = new[] {"DeleteQueryLoggingConfig"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteQueryLoggingConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Route53.Model.DeleteQueryLoggingConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53.Model.DeleteQueryLoggingConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteQueryLoggingConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53QueryLoggingConfigCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

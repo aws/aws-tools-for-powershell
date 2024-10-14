@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteDirectoryConfig API operation.", Operation = new[] {"DeleteDirectoryConfig"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteDirectoryConfigResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DeleteDirectoryConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DeleteDirectoryConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DeleteDirectoryConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSDirectoryConfigCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

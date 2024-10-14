@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.CreateBucketResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail CreateBucket API operation.", Operation = new[] {"CreateBucket"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateBucketResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.CreateBucketResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.CreateBucketResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.CreateBucketResponse object containing multiple properties."
     )]
     public partial class NewLSBucketCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

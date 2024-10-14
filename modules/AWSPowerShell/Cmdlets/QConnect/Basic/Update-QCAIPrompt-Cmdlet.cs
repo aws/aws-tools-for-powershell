@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect UpdateAIPrompt API operation.", Operation = new[] {"UpdateAIPrompt"}, SelectReturnType = typeof(Amazon.QConnect.Model.UpdateAIPromptResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.AIPromptData or Amazon.QConnect.Model.UpdateAIPromptResponse",
         "This cmdlet returns an Amazon.QConnect.Model.AIPromptData object.",
-        "The service call response (type Amazon.QConnect.Model.UpdateAIPromptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.UpdateAIPromptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQCAIPromptCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

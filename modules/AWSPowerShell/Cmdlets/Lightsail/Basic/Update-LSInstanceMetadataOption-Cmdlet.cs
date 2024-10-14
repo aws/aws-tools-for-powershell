@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail UpdateInstanceMetadataOptions API operation.", Operation = new[] {"UpdateInstanceMetadataOptions"}, SelectReturnType = typeof(Amazon.Lightsail.Model.UpdateInstanceMetadataOptionsResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.UpdateInstanceMetadataOptionsResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.UpdateInstanceMetadataOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.UpdateInstanceMetadataOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateLSInstanceMetadataOptionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

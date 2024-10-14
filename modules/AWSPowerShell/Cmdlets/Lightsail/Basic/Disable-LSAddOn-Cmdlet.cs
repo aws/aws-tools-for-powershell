@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DisableAddOn API operation.", Operation = new[] {"DisableAddOn"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DisableAddOnResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DisableAddOnResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DisableAddOnResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DisableAddOnResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableLSAddOnCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

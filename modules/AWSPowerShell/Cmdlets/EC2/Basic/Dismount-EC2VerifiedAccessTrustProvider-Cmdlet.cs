@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DetachVerifiedAccessTrustProvider API operation.", Operation = new[] {"DetachVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse object containing multiple properties."
     )]
     public partial class DismountEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

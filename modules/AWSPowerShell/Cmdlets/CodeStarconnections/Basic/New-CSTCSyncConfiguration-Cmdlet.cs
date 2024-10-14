@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections CreateSyncConfiguration API operation.", Operation = new[] {"CreateSyncConfiguration"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.CreateSyncConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.SyncConfiguration or Amazon.CodeStarconnections.Model.CreateSyncConfigurationResponse",
         "This cmdlet returns an Amazon.CodeStarconnections.Model.SyncConfiguration object.",
-        "The service call response (type Amazon.CodeStarconnections.Model.CreateSyncConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarconnections.Model.CreateSyncConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCSTCSyncConfigurationCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

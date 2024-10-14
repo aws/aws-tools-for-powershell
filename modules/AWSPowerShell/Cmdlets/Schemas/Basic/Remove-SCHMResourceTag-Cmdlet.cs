@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Schemas.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Schemas.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Schemas.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Schemas.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCHMResourceTagCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

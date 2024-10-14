@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
     [OutputType("Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront KeyValueStore GetKey API operation.", Operation = new[] {"GetKey"}, SelectReturnType = typeof(Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse))]
     [AWSCmdletOutput("Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse",
-        "This cmdlet returns an Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFrontKeyValueStore.Model.GetKeyResponse object containing multiple properties."
     )]
     public partial class GetCFKVKeyCmdlet : AmazonCloudFrontKeyValueStoreClientCmdlet, IExecutor
     {

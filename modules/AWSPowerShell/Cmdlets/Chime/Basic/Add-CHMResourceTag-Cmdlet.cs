@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Chime.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by TagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
     public partial class AddCHMResourceTagCmdlet : AmazonChimeClientCmdlet, IExecutor

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless DeleteCollection API operation.", Operation = new[] {"DeleteCollection"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.DeleteCollectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.DeleteCollectionDetail or Amazon.OpenSearchServerless.Model.DeleteCollectionResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.DeleteCollectionDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.DeleteCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.DeleteCollectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSSCollectionCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

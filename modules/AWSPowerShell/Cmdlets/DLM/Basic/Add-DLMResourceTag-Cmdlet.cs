@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     [AWSCmdlet("Calls the Amazon Data Lifecycle Manager TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.DLM.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DLM.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DLM.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DLM.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDLMResourceTagCmdlet : AmazonDLMClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.UpdateJobResponse")]
     [AWSCmdlet("Calls the AWS Import/Export UpdateJob API operation.", Operation = new[] {"UpdateJob"}, SelectReturnType = typeof(Amazon.ImportExport.Model.UpdateJobResponse))]
     [AWSCmdletOutput("Amazon.ImportExport.Model.UpdateJobResponse",
-        "This cmdlet returns an Amazon.ImportExport.Model.UpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ImportExport.Model.UpdateJobResponse object containing multiple properties."
     )]
     public partial class UpdateIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

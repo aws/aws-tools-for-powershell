@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases UpdateCase API operation.", Operation = new[] {"UpdateCase"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.UpdateCaseResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.UpdateCaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.UpdateCaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.UpdateCaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

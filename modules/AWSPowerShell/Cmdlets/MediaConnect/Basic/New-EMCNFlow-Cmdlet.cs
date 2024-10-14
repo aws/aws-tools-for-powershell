@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect CreateFlow API operation.", Operation = new[] {"CreateFlow"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.CreateFlowResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.Flow or Amazon.MediaConnect.Model.CreateFlowResponse",
         "This cmdlet returns an Amazon.MediaConnect.Model.Flow object.",
-        "The service call response (type Amazon.MediaConnect.Model.CreateFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConnect.Model.CreateFlowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMCNFlowCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

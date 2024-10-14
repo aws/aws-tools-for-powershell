@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager DeleteTimelineEvent API operation.", Operation = new[] {"DeleteTimelineEvent"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.DeleteTimelineEventResponse))]
     [AWSCmdletOutput("None or Amazon.SSMIncidents.Model.DeleteTimelineEventResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMIncidents.Model.DeleteTimelineEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMIncidents.Model.DeleteTimelineEventResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMITimelineEventCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

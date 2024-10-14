@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifyAccount API operation.", Operation = new[] {"ModifyAccount"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifyAccountResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifyAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifyAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.ModifyAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditWKSAccountCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

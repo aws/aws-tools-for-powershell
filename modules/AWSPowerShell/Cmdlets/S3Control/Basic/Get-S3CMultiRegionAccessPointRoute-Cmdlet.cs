@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control GetMultiRegionAccessPointRoutes API operation.", Operation = new[] {"GetMultiRegionAccessPointRoutes"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.GetMultiRegionAccessPointRoutesResponse object containing multiple properties."
     )]
     public partial class GetS3CMultiRegionAccessPointRouteCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

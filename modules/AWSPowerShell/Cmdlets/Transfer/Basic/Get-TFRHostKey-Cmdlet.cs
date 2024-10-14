@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeHostKey API operation.", Operation = new[] {"DescribeHostKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeHostKeyResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.DescribedHostKey or Amazon.Transfer.Model.DescribeHostKeyResponse",
         "This cmdlet returns an Amazon.Transfer.Model.DescribedHostKey object.",
-        "The service call response (type Amazon.Transfer.Model.DescribeHostKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.DescribeHostKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

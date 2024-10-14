@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective StartInvestigation API operation.", Operation = new[] {"StartInvestigation"}, SelectReturnType = typeof(Amazon.Detective.Model.StartInvestigationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Detective.Model.StartInvestigationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Detective.Model.StartInvestigationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Detective.Model.StartInvestigationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDTCTInvestigationCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

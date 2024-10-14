@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager DeleteLink API operation.", Operation = new[] {"DeleteLink"}, SelectReturnType = typeof(Amazon.OAM.Model.DeleteLinkResponse))]
     [AWSCmdletOutput("None or Amazon.OAM.Model.DeleteLinkResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OAM.Model.DeleteLinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OAM.Model.DeleteLinkResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWOAMLinkCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

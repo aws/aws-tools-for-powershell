@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock Agent Runtime RetrieveAndGenerate API operation.", Operation = new[] {"RetrieveAndGenerate"}, SelectReturnType = typeof(Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse",
-        "This cmdlet returns an Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse object containing multiple properties."
     )]
     public partial class InvokeBARRetrieveAndGenerateCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {

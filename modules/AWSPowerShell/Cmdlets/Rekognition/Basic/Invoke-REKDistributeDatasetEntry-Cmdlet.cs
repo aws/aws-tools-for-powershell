@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DistributeDatasetEntries API operation.", Operation = new[] {"DistributeDatasetEntries"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DistributeDatasetEntriesResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.DistributeDatasetEntriesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.DistributeDatasetEntriesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.DistributeDatasetEntriesResponse) be returned by specifying '-Select *'."
     )]
     public partial class InvokeREKDistributeDatasetEntryCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

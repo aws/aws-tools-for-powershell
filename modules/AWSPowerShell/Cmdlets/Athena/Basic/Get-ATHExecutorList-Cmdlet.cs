@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.ListExecutorsResponse")]
     [AWSCmdlet("Calls the Amazon Athena ListExecutors API operation.", Operation = new[] {"ListExecutors"}, SelectReturnType = typeof(Amazon.Athena.Model.ListExecutorsResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.ListExecutorsResponse",
-        "This cmdlet returns an Amazon.Athena.Model.ListExecutorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.ListExecutorsResponse object containing multiple properties."
     )]
     public partial class GetATHExecutorListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

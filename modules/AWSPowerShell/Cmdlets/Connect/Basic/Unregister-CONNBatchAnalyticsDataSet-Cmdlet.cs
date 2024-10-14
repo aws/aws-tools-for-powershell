@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service BatchDisassociateAnalyticsDataSet API operation.", Operation = new[] {"BatchDisassociateAnalyticsDataSet"}, SelectReturnType = typeof(Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse",
-        "This cmdlet returns an Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse object containing multiple properties."
     )]
     public partial class UnregisterCONNBatchAnalyticsDataSetCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

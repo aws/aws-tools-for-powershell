@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     [OutputType("Amazon.SageMakerGeospatial.Model.GetEarthObservationJobResponse")]
     [AWSCmdlet("Calls the SageMaker Geospatial GetEarthObservationJob API operation.", Operation = new[] {"GetEarthObservationJob"}, SelectReturnType = typeof(Amazon.SageMakerGeospatial.Model.GetEarthObservationJobResponse))]
     [AWSCmdletOutput("Amazon.SageMakerGeospatial.Model.GetEarthObservationJobResponse",
-        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.GetEarthObservationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.GetEarthObservationJobResponse object containing multiple properties."
     )]
     public partial class GetSMGSEarthObservationJobCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {

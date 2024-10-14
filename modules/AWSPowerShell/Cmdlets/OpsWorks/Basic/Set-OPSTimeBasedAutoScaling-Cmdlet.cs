@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks SetTimeBasedAutoScaling API operation.", Operation = new[] {"SetTimeBasedAutoScaling"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

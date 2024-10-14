@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [OutputType("Amazon.OpenSearchServerless.Model.BatchGetVpcEndpointResponse")]
     [AWSCmdlet("Calls the OpenSearch Serverless BatchGetVpcEndpoint API operation.", Operation = new[] {"BatchGetVpcEndpoint"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.BatchGetVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.BatchGetVpcEndpointResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetVpcEndpointResponse object containing multiple properties."
     )]
     public partial class GetOSSGetVpcEndpointCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

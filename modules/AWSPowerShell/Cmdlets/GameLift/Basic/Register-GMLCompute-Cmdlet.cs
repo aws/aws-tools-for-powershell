@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service RegisterCompute API operation.", Operation = new[] {"RegisterCompute"}, SelectReturnType = typeof(Amazon.GameLift.Model.RegisterComputeResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Compute or Amazon.GameLift.Model.RegisterComputeResponse",
         "This cmdlet returns an Amazon.GameLift.Model.Compute object.",
-        "The service call response (type Amazon.GameLift.Model.RegisterComputeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.RegisterComputeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier ListProvisionedCapacity API operation.", Operation = new[] {"ListProvisionedCapacity"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListProvisionedCapacityResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.ProvisionedCapacityDescription or Amazon.Glacier.Model.ListProvisionedCapacityResponse",
         "This cmdlet returns a collection of Amazon.Glacier.Model.ProvisionedCapacityDescription objects.",
-        "The service call response (type Amazon.Glacier.Model.ListProvisionedCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glacier.Model.ListProvisionedCapacityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLCProvisionedCapacityListCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

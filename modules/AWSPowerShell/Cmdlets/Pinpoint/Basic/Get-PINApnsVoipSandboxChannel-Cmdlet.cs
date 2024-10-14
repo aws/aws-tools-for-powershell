@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetApnsVoipSandboxChannel API operation.", Operation = new[] {"GetApnsVoipSandboxChannel"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse or Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetApnsVoipSandboxChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINApnsVoipSandboxChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

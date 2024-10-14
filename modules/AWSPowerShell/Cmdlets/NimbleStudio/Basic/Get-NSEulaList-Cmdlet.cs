@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio ListEulas API operation.", Operation = new[] {"ListEulas"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.ListEulasResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.Eula or Amazon.NimbleStudio.Model.ListEulasResponse",
         "This cmdlet returns a collection of Amazon.NimbleStudio.Model.Eula objects.",
-        "The service call response (type Amazon.NimbleStudio.Model.ListEulasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.ListEulasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSEulaListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

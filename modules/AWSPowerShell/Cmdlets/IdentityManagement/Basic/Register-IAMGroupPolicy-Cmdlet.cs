@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management AttachGroupPolicy API operation.", Operation = new[] {"AttachGroupPolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.AttachGroupPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.AttachGroupPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.AttachGroupPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.AttachGroupPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

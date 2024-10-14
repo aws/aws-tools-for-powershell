@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.Cluster or Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse",
         "This cmdlet returns an Amazon.Route53RecoveryControlConfig.Model.Cluster object.",
-        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewR53RCClusterCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

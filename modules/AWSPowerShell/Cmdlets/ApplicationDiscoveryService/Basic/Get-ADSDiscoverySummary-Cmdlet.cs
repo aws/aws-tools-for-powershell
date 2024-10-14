@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [OutputType("Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse")]
     [AWSCmdlet("Calls the AWS Application Discovery Service GetDiscoverySummary API operation.", Operation = new[] {"GetDiscoverySummary"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse))]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse",
-        "This cmdlet returns an Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse object containing multiple properties."
     )]
     public partial class GetADSDiscoverySummaryCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [AWSCmdlet("Calls the AWS IoT FleetWise ListSignalCatalogNodes API operation.", Operation = new[] {"ListSignalCatalogNodes"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.ListSignalCatalogNodesResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.Node or Amazon.IoTFleetWise.Model.ListSignalCatalogNodesResponse",
         "This cmdlet returns a collection of Amazon.IoTFleetWise.Model.Node objects.",
-        "The service call response (type Amazon.IoTFleetWise.Model.ListSignalCatalogNodesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTFleetWise.Model.ListSignalCatalogNodesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIFWSignalCatalogNodeListCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch DisableAlarmActions API operation.", Operation = new[] {"DisableAlarmActions"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DisableAlarmActionsResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.DisableAlarmActionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.DisableAlarmActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.DisableAlarmActionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableCWAlarmActionCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

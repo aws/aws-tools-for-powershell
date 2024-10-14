@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics DeleteVariantStore API operation.", Operation = new[] {"DeleteVariantStore"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteVariantStoreResponse))]
     [AWSCmdletOutput("Amazon.Omics.StoreStatus or Amazon.Omics.Model.DeleteVariantStoreResponse",
         "This cmdlet returns an Amazon.Omics.StoreStatus object.",
-        "The service call response (type Amazon.Omics.Model.DeleteVariantStoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.DeleteVariantStoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSVariantStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

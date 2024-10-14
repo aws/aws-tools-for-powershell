@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [AWSCmdlet("Calls the Amazon Chime SDK Identity DeleteAppInstanceAdmin API operation.", Operation = new[] {"DeleteAppInstanceAdmin"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.DeleteAppInstanceAdminResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKIdentity.Model.DeleteAppInstanceAdminResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKIdentity.Model.DeleteAppInstanceAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKIdentity.Model.DeleteAppInstanceAdminResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMIDAppInstanceAdminCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.UpdateServiceResponse")]
     [AWSCmdlet("Calls the AWS App Runner UpdateService API operation.", Operation = new[] {"UpdateService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.UpdateServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.UpdateServiceResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.UpdateServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.UpdateServiceResponse object containing multiple properties."
     )]
     public partial class UpdateAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.NetworkManager.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNMGRResourcePolicyCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

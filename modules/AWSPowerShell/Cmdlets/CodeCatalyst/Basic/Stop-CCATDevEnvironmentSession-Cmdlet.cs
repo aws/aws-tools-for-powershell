@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst StopDevEnvironmentSession API operation.", Operation = new[] {"StopDevEnvironmentSession"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse object containing multiple properties."
     )]
     public partial class StopCCATDevEnvironmentSessionCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

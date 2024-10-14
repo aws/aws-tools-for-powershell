@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Greengrass.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Greengrass.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Greengrass.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Greengrass.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGResourceTagCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

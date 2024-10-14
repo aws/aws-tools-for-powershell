@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service GetCompatibleVersions API operation.", Operation = new[] {"GetCompatibleVersions"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.GetCompatibleVersionsResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.CompatibleVersionsMap or Amazon.OpenSearchService.Model.GetCompatibleVersionsResponse",
         "This cmdlet returns a collection of Amazon.OpenSearchService.Model.CompatibleVersionsMap objects.",
-        "The service call response (type Amazon.OpenSearchService.Model.GetCompatibleVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.GetCompatibleVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSCompatibleVersionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

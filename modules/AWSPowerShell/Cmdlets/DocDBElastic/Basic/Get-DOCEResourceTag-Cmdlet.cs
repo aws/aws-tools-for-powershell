@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.DocDBElastic.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.DocDBElastic.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDBElastic.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDOCEResourceTagCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {

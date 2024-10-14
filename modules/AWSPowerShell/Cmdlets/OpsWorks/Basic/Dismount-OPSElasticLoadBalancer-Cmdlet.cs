@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DetachElasticLoadBalancer API operation.", Operation = new[] {"DetachElasticLoadBalancer"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DetachElasticLoadBalancerResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DetachElasticLoadBalancerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DetachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DetachElasticLoadBalancerResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountOPSElasticLoadBalancerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

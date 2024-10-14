@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service StartMedicalTranscriptionJob API operation.", Operation = new[] {"StartMedicalTranscriptionJob"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.StartMedicalTranscriptionJobResponse))]
     [AWSCmdletOutput("Amazon.TranscribeService.Model.MedicalTranscriptionJob or Amazon.TranscribeService.Model.StartMedicalTranscriptionJobResponse",
         "This cmdlet returns an Amazon.TranscribeService.Model.MedicalTranscriptionJob object.",
-        "The service call response (type Amazon.TranscribeService.Model.StartMedicalTranscriptionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TranscribeService.Model.StartMedicalTranscriptionJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartTRSMedicalTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

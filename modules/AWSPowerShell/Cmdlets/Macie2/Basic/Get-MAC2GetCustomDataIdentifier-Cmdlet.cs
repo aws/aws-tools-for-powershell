@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.BatchGetCustomDataIdentifiersResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 BatchGetCustomDataIdentifiers API operation.", Operation = new[] {"BatchGetCustomDataIdentifiers"}, SelectReturnType = typeof(Amazon.Macie2.Model.BatchGetCustomDataIdentifiersResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.BatchGetCustomDataIdentifiersResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.BatchGetCustomDataIdentifiersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.BatchGetCustomDataIdentifiersResponse object containing multiple properties."
     )]
     public partial class GetMAC2GetCustomDataIdentifierCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

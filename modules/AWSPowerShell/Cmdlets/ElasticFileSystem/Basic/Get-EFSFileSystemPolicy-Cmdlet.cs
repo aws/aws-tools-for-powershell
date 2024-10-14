@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [OutputType("Amazon.ElasticFileSystem.Model.DescribeFileSystemPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Elastic File System DescribeFileSystemPolicy API operation.", Operation = new[] {"DescribeFileSystemPolicy"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeFileSystemPolicyResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.DescribeFileSystemPolicyResponse",
-        "This cmdlet returns an Amazon.ElasticFileSystem.Model.DescribeFileSystemPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticFileSystem.Model.DescribeFileSystemPolicyResponse object containing multiple properties."
     )]
     public partial class GetEFSFileSystemPolicyCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

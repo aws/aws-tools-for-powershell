@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena PutCapacityAssignmentConfiguration API operation.", Operation = new[] {"PutCapacityAssignmentConfiguration"}, SelectReturnType = typeof(Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteATHCapacityAssignmentConfigurationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

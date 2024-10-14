@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub InviteMembers API operation.", Operation = new[] {"InviteMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.InviteMembersResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.InviteMembersResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
-        "The service call response (type Amazon.SecurityHub.Model.InviteMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.InviteMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSHUBMemberInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

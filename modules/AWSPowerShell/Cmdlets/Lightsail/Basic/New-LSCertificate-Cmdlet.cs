@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.CreateCertificateResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail CreateCertificate API operation.", Operation = new[] {"CreateCertificate"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateCertificateResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.CreateCertificateResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.CreateCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.CreateCertificateResponse object containing multiple properties."
     )]
     public partial class NewLSCertificateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

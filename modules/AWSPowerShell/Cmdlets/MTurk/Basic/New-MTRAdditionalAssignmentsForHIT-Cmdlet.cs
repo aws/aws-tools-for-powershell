@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service CreateAdditionalAssignmentsForHIT API operation.", Operation = new[] {"CreateAdditionalAssignmentsForHIT"}, SelectReturnType = typeof(Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewMTRAdditionalAssignmentsForHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning CreateDataSourceFromS3 API operation.", Operation = new[] {"CreateDataSourceFromS3"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.CreateDataSourceFromS3Response))]
     [AWSCmdletOutput("System.String or Amazon.MachineLearning.Model.CreateDataSourceFromS3Response",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromS3Response) can be returned by specifying '-Select *'."
     )]
     public partial class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync UpdateLocationSmb API operation.", Operation = new[] {"UpdateLocationSmb"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationSmbResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationSmbResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateLocationSmbResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationSmbResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSYNLocationSmbCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

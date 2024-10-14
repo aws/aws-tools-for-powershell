@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics DeleteAlert API operation.", Operation = new[] {"DeleteAlert"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.DeleteAlertResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutMetrics.Model.DeleteAlertResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutMetrics.Model.DeleteAlertResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutMetrics.Model.DeleteAlertResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLOMAlertCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

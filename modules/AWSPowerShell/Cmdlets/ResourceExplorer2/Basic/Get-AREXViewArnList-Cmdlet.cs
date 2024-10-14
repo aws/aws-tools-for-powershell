@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer ListViews API operation.", Operation = new[] {"ListViews"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListViewsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ResourceExplorer2.Model.ListViewsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.ListViewsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.ListViewsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAREXViewArnListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

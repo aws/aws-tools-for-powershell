@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DatabaseMigrationService.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetDMSResourceTagCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

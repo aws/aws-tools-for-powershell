@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield UpdateSubscription API operation.", Operation = new[] {"UpdateSubscription"}, SelectReturnType = typeof(Amazon.Shield.Model.UpdateSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.UpdateSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.UpdateSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.UpdateSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSHLDSubscriptionCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

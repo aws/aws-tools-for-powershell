@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.GetChannelResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail GetChannel API operation.", Operation = new[] {"GetChannel"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetChannelResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetChannelResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.GetChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.GetChannelResponse object containing multiple properties."
     )]
     public partial class GetCTChannelCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

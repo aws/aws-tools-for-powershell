@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.DisableResponse")]
     [AWSCmdlet("Calls the Inspector2 Disable API operation.", Operation = new[] {"Disable"}, SelectReturnType = typeof(Amazon.Inspector2.Model.DisableResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.DisableResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.DisableResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.DisableResponse object containing multiple properties."
     )]
     public partial class StopINS2ServiceCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

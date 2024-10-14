@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager ModifyDocumentPermission API operation.", Operation = new[] {"ModifyDocumentPermission"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditSSMDocumentPermissionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateQueueQuickConnects API operation.", Operation = new[] {"AssociateQueueQuickConnects"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateQueueQuickConnectsResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateQueueQuickConnectsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateQueueQuickConnectsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateQueueQuickConnectsResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNQueueQuickConnectCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

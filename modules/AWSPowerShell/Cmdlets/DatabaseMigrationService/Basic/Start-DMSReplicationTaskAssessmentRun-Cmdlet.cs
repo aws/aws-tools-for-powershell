@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service StartReplicationTaskAssessmentRun API operation.", Operation = new[] {"StartReplicationTaskAssessmentRun"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun or Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDMSReplicationTaskAssessmentRunCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

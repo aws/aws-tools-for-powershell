@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs GetCurrentUser API operation.", Operation = new[] {"GetCurrentUser"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.GetCurrentUserResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.User or Amazon.WorkDocs.Model.GetCurrentUserResponse",
         "This cmdlet returns an Amazon.WorkDocs.Model.User object.",
-        "The service call response (type Amazon.WorkDocs.Model.GetCurrentUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.GetCurrentUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWDCurrentUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

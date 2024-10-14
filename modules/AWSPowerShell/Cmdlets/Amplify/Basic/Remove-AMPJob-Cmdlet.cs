@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteJob API operation.", Operation = new[] {"DeleteJob"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteJobResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.JobSummary or Amazon.Amplify.Model.DeleteJobResponse",
         "This cmdlet returns an Amazon.Amplify.Model.JobSummary object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPJobCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

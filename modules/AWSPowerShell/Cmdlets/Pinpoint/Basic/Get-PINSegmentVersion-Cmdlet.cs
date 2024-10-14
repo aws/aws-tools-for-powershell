@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetSegmentVersion API operation.", Operation = new[] {"GetSegmentVersion"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetSegmentVersionResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.SegmentResponse or Amazon.Pinpoint.Model.GetSegmentVersionResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.SegmentResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetSegmentVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetSegmentVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINSegmentVersionCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

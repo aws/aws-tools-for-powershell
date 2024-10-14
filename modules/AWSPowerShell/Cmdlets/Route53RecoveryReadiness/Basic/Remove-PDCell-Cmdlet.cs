@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness DeleteCell API operation.", Operation = new[] {"DeleteCell"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.DeleteCellResponse))]
     [AWSCmdletOutput("None or Amazon.Route53RecoveryReadiness.Model.DeleteCellResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteCellResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteCellResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePDCellCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider UpdateDeviceStatus API operation.", Operation = new[] {"UpdateDeviceStatus"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditCGIPDeviceStatusCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

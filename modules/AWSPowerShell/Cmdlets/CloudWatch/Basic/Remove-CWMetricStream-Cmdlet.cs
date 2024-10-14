@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch DeleteMetricStream API operation.", Operation = new[] {"DeleteMetricStream"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DeleteMetricStreamResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.DeleteMetricStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.DeleteMetricStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.DeleteMetricStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWMetricStreamCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

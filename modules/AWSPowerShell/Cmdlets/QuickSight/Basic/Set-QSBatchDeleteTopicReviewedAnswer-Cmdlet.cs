@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight BatchDeleteTopicReviewedAnswer API operation.", Operation = new[] {"BatchDeleteTopicReviewedAnswer"}, SelectReturnType = typeof(Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse object containing multiple properties."
     )]
     public partial class SetQSBatchDeleteTopicReviewedAnswerCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

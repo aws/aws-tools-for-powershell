@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteCORSConfiguration API operation.", Operation = new[] {"DeleteCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteCORSConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteCORSConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.DeleteCORSConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.DeleteCORSConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CORSConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

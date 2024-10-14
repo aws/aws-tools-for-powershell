@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail TestAlarm API operation.", Operation = new[] {"TestAlarm"}, SelectReturnType = typeof(Amazon.Lightsail.Model.TestAlarmResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.TestAlarmResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.TestAlarmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.TestAlarmResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestLSAlarmCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [OutputType("Amazon.TranscribeService.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the Amazon Transcribe Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.TranscribeService.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.TranscribeService.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TranscribeService.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetTRSResourceTagCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

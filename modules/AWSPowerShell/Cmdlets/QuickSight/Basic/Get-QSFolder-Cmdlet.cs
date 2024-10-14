@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeFolder API operation.", Operation = new[] {"DescribeFolder"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeFolderResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.Folder or Amazon.QuickSight.Model.DescribeFolderResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.Folder object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeFolderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeFolderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSFolderCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

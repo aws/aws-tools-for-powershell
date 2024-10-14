@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect DisassociateMacSecKey API operation.", Operation = new[] {"DisassociateMacSecKey"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.DisassociateMacSecKeyResponse object containing multiple properties."
     )]
     public partial class RemoveDCMacSecKeyCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

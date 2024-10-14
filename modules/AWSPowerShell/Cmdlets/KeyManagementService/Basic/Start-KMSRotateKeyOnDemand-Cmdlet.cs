@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service RotateKeyOnDemand API operation.", Operation = new[] {"RotateKeyOnDemand"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse))]
     [AWSCmdletOutput("System.String or Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartKMSRotateKeyOnDemandCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation StartResourceScan API operation.", Operation = new[] {"StartResourceScan"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.StartResourceScanResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.StartResourceScanResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.StartResourceScanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.StartResourceScanResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCFNResourceScanCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

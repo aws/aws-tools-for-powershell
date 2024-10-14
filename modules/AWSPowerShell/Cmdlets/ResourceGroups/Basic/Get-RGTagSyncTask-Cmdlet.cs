@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.GetTagSyncTaskResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups GetTagSyncTask API operation.", Operation = new[] {"GetTagSyncTask"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GetTagSyncTaskResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GetTagSyncTaskResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.GetTagSyncTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.GetTagSyncTaskResponse object containing multiple properties."
     )]
     public partial class GetRGTagSyncTaskCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

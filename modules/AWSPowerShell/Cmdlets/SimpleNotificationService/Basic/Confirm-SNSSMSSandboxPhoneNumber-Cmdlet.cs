@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) VerifySMSSandboxPhoneNumber API operation.", Operation = new[] {"VerifySMSSandboxPhoneNumber"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.VerifySMSSandboxPhoneNumberResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.VerifySMSSandboxPhoneNumberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.VerifySMSSandboxPhoneNumberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.VerifySMSSandboxPhoneNumberResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmSNSSMSSandboxPhoneNumberCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

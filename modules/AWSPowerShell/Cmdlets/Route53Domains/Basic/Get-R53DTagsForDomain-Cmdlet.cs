@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains ListTagsForDomain API operation.", Operation = new[] {"ListTagsForDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.ListTagsForDomainResponse))]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.Tag or Amazon.Route53Domains.Model.ListTagsForDomainResponse",
         "This cmdlet returns a collection of Amazon.Route53Domains.Model.Tag objects.",
-        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

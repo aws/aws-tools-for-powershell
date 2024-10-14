@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling CompleteLifecycleAction API operation.", Operation = new[] {"CompleteLifecycleAction"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CompleteLifecycleActionResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.CompleteLifecycleActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.CompleteLifecycleActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CompleteLifecycleActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class CompleteASLifecycleActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

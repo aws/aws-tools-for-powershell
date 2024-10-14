@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.AddTagsResponse")]
     [AWSCmdlet("Calls the Amazon Machine Learning AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.AddTagsResponse), LegacyAlias="Add-MLTag")]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.AddTagsResponse",
-        "This cmdlet returns an Amazon.MachineLearning.Model.AddTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MachineLearning.Model.AddTagsResponse object containing multiple properties."
     )]
     public partial class AddMLResourceTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

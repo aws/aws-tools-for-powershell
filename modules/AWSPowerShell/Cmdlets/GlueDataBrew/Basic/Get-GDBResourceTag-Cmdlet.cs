@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlueDataBrew.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GlueDataBrew.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDBResourceTagCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

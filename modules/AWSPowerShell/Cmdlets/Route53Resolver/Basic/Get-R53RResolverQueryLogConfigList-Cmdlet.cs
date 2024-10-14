@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [OutputType("Amazon.Route53Resolver.Model.ListResolverQueryLogConfigsResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 Resolver ListResolverQueryLogConfigs API operation.", Operation = new[] {"ListResolverQueryLogConfigs"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.ListResolverQueryLogConfigsResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ListResolverQueryLogConfigsResponse",
-        "This cmdlet returns an Amazon.Route53Resolver.Model.ListResolverQueryLogConfigsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53Resolver.Model.ListResolverQueryLogConfigsResponse object containing multiple properties."
     )]
     public partial class GetR53RResolverQueryLogConfigListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

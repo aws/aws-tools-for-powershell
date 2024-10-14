@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service DeleteWhatIfForecastExport API operation.", Operation = new[] {"DeleteWhatIfForecastExport"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DeleteWhatIfForecastExportResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.DeleteWhatIfForecastExportResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.DeleteWhatIfForecastExportResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.DeleteWhatIfForecastExportResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFRCWhatIfForecastExportCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

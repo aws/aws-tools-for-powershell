@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.AddLayerVersionPermissionResponse")]
     [AWSCmdlet("Calls the AWS Lambda AddLayerVersionPermission API operation.", Operation = new[] {"AddLayerVersionPermission"}, SelectReturnType = typeof(Amazon.Lambda.Model.AddLayerVersionPermissionResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.AddLayerVersionPermissionResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.AddLayerVersionPermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.AddLayerVersionPermissionResponse object containing multiple properties."
     )]
     public partial class AddLMLayerVersionPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

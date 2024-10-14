@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker DeleteRobotApplication API operation.", Operation = new[] {"DeleteRobotApplication"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.DeleteRobotApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.DeleteRobotApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.DeleteRobotApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.DeleteRobotApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveROBORobotApplicationCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert CreateQueue API operation.", Operation = new[] {"CreateQueue"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.CreateQueueResponse))]
     [AWSCmdletOutput("Amazon.MediaConvert.Model.Queue or Amazon.MediaConvert.Model.CreateQueueResponse",
         "This cmdlet returns an Amazon.MediaConvert.Model.Queue object.",
-        "The service call response (type Amazon.MediaConvert.Model.CreateQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConvert.Model.CreateQueueResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMCQueueCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service SendBonus API operation.", Operation = new[] {"SendBonus"}, SelectReturnType = typeof(Amazon.MTurk.Model.SendBonusResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.SendBonusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.SendBonusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.SendBonusResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendMTRBonusCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

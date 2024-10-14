@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner DeleteObservabilityConfiguration API operation.", Operation = new[] {"DeleteObservabilityConfiguration"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DeleteObservabilityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.ObservabilityConfiguration or Amazon.AppRunner.Model.DeleteObservabilityConfigurationResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.ObservabilityConfiguration object.",
-        "The service call response (type Amazon.AppRunner.Model.DeleteObservabilityConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.DeleteObservabilityConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAARObservabilityConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

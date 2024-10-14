@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud ListSessionActions API operation.", Operation = new[] {"ListSessionActions"}, SelectReturnType = typeof(Amazon.Deadline.Model.ListSessionActionsResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.SessionActionSummary or Amazon.Deadline.Model.ListSessionActionsResponse",
         "This cmdlet returns a collection of Amazon.Deadline.Model.SessionActionSummary objects.",
-        "The service call response (type Amazon.Deadline.Model.ListSessionActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.ListSessionActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADCSessionActionListCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

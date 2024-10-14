@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.StartWebRTCContactResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service StartWebRTCContact API operation.", Operation = new[] {"StartWebRTCContact"}, SelectReturnType = typeof(Amazon.Connect.Model.StartWebRTCContactResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.StartWebRTCContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.StartWebRTCContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.StartWebRTCContactResponse object containing multiple properties."
     )]
     public partial class StartCONNWebRTCContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateIPSetResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateIPSet API operation.", Operation = new[] {"CreateIPSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateIPSetResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateIPSetResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateIPSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateIPSetResponse object containing multiple properties."
     )]
     public partial class NewWAFRIPSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

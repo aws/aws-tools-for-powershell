@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateAccountLinkInvitation API operation.", Operation = new[] {"CreateAccountLinkInvitation"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateAccountLinkInvitationResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.AccountLink or Amazon.WorkSpaces.Model.CreateAccountLinkInvitationResponse",
         "This cmdlet returns an Amazon.WorkSpaces.Model.AccountLink object.",
-        "The service call response (type Amazon.WorkSpaces.Model.CreateAccountLinkInvitationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.CreateAccountLinkInvitationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWKSAccountLinkInvitationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

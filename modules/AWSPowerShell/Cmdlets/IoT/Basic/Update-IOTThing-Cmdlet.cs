@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT UpdateThing API operation.", Operation = new[] {"UpdateThing"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateThingResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.UpdateThingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.UpdateThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.UpdateThingResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

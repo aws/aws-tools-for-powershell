@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless ListLifecyclePolicies API operation.", Operation = new[] {"ListLifecyclePolicies"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListLifecyclePoliciesResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.LifecyclePolicySummary or Amazon.OpenSearchServerless.Model.ListLifecyclePoliciesResponse",
         "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.LifecyclePolicySummary objects.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.ListLifecyclePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.ListLifecyclePoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSSLifecyclePolicyListCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

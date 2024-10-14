@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail StartGUISession API operation.", Operation = new[] {"StartGUISession"}, SelectReturnType = typeof(Amazon.Lightsail.Model.StartGUISessionResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.StartGUISessionResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.StartGUISessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.StartGUISessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartLSGUISessionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

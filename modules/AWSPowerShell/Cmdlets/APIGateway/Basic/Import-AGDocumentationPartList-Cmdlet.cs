@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.ImportDocumentationPartsResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway ImportDocumentationParts API operation.", Operation = new[] {"ImportDocumentationParts"}, SelectReturnType = typeof(Amazon.APIGateway.Model.ImportDocumentationPartsResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.ImportDocumentationPartsResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.ImportDocumentationPartsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.ImportDocumentationPartsResponse object containing multiple properties."
     )]
     public partial class ImportAGDocumentationPartListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

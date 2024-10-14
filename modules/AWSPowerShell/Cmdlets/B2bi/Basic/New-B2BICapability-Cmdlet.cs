@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [OutputType("Amazon.B2bi.Model.CreateCapabilityResponse")]
     [AWSCmdlet("Calls the AWS B2B Data Interchange CreateCapability API operation.", Operation = new[] {"CreateCapability"}, SelectReturnType = typeof(Amazon.B2bi.Model.CreateCapabilityResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.CreateCapabilityResponse",
-        "This cmdlet returns an Amazon.B2bi.Model.CreateCapabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.B2bi.Model.CreateCapabilityResponse object containing multiple properties."
     )]
     public partial class NewB2BICapabilityCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

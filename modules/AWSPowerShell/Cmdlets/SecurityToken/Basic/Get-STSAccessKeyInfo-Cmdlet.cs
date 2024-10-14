@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdlet("Calls the AWS Security Token Service (STS) GetAccessKeyInfo API operation.", Operation = new[] {"GetAccessKeyInfo"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetAccessKeyInfoResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityToken.Model.GetAccessKeyInfoResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityToken.Model.GetAccessKeyInfoResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityToken.Model.GetAccessKeyInfoResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSTSAccessKeyInfoCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

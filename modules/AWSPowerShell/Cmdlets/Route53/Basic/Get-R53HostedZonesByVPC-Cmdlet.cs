@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 ListHostedZonesByVPC API operation.", Operation = new[] {"ListHostedZonesByVPC"}, SelectReturnType = typeof(Amazon.Route53.Model.ListHostedZonesByVPCResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZoneSummary or Amazon.Route53.Model.ListHostedZonesByVPCResponse",
         "This cmdlet returns a collection of Amazon.Route53.Model.HostedZoneSummary objects.",
-        "The service call response (type Amazon.Route53.Model.ListHostedZonesByVPCResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListHostedZonesByVPCResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53HostedZonesByVPCCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

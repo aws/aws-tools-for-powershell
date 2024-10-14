@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD DeletePackagingConfiguration API operation.", Operation = new[] {"DeletePackagingConfiguration"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.DeletePackagingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.MediaPackageVod.Model.DeletePackagingConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaPackageVod.Model.DeletePackagingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackageVod.Model.DeletePackagingConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMPVPackagingConfigurationCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {

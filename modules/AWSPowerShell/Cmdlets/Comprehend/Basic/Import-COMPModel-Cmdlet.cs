@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend ImportModel API operation.", Operation = new[] {"ImportModel"}, SelectReturnType = typeof(Amazon.Comprehend.Model.ImportModelResponse))]
     [AWSCmdletOutput("System.String or Amazon.Comprehend.Model.ImportModelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Comprehend.Model.ImportModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.ImportModelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportCOMPModelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

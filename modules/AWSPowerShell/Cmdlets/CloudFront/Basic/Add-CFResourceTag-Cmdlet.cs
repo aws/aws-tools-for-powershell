@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CloudFront.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

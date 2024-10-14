@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service PutModelPackageGroupPolicy API operation.", Operation = new[] {"PutModelPackageGroupPolicy"}, SelectReturnType = typeof(Amazon.SageMaker.Model.PutModelPackageGroupPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.PutModelPackageGroupPolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.PutModelPackageGroupPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.PutModelPackageGroupPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteSMModelPackageGroupPolicyCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

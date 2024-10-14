@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool CreateReviewTemplate API operation.", Operation = new[] {"CreateReviewTemplate"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.CreateReviewTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.WellArchitected.Model.CreateReviewTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WellArchitected.Model.CreateReviewTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.CreateReviewTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWATReviewTemplateCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

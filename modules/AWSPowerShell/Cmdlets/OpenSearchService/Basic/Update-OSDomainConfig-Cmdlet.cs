@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service UpdateDomainConfig API operation.", Operation = new[] {"UpdateDomainConfig"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.UpdateDomainConfigResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainConfig or Amazon.OpenSearchService.Model.UpdateDomainConfigResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.DomainConfig object.",
-        "The service call response (type Amazon.OpenSearchService.Model.UpdateDomainConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.UpdateDomainConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSDomainConfigCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

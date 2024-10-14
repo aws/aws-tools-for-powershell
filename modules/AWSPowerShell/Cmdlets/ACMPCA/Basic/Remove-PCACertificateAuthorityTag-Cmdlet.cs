@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority UntagCertificateAuthority API operation.", Operation = new[] {"UntagCertificateAuthority"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.UntagCertificateAuthorityResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.UntagCertificateAuthorityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.UntagCertificateAuthorityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.UntagCertificateAuthorityResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCACertificateAuthorityTagCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

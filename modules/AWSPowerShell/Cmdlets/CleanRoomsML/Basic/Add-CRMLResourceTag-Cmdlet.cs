@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
     [AWSCmdlet("Calls the CleanRoomsML TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CleanRoomsML.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CleanRoomsML.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CleanRoomsML.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCRMLResourceTagCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
     {

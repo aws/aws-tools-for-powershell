@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless DeleteUsageLimit API operation.", Operation = new[] {"DeleteUsageLimit"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteUsageLimitResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.UsageLimit or Amazon.RedshiftServerless.Model.DeleteUsageLimitResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.UsageLimit object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.DeleteUsageLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.DeleteUsageLimitResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSUsageLimitCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

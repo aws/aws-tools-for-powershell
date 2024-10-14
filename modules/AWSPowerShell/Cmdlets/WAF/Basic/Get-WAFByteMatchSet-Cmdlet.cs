@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF GetByteMatchSet API operation.", Operation = new[] {"GetByteMatchSet"}, SelectReturnType = typeof(Amazon.WAF.Model.GetByteMatchSetResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.ByteMatchSet or Amazon.WAF.Model.GetByteMatchSetResponse",
         "This cmdlet returns an Amazon.WAF.Model.ByteMatchSet object.",
-        "The service call response (type Amazon.WAF.Model.GetByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetByteMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

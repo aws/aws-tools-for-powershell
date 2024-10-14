@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog CopyProduct API operation.", Operation = new[] {"CopyProduct"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.CopyProductResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceCatalog.Model.CopyProductResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.CopyProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.CopyProductResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopySCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

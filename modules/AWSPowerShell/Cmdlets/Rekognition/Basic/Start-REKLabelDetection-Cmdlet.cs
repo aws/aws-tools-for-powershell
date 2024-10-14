@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition StartLabelDetection API operation.", Operation = new[] {"StartLabelDetection"}, SelectReturnType = typeof(Amazon.Rekognition.Model.StartLabelDetectionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Rekognition.Model.StartLabelDetectionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Rekognition.Model.StartLabelDetectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.StartLabelDetectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartREKLabelDetectionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

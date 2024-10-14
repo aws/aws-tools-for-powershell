@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse")]
     [AWSCmdlet("Calls the AWS IoT CreateProvisioningTemplateVersion API operation.", Operation = new[] {"CreateProvisioningTemplateVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreateProvisioningTemplateVersionResponse object containing multiple properties."
     )]
     public partial class NewIOTProvisioningTemplateVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

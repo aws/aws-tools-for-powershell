@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetAssociatedRoleResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetAssociatedRole API operation.", Operation = new[] {"GetAssociatedRole"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetAssociatedRoleResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetAssociatedRoleResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetAssociatedRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetAssociatedRoleResponse object containing multiple properties."
     )]
     public partial class GetGGAssociatedRoleCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

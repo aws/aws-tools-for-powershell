@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch DeregisterJobDefinition API operation.", Operation = new[] {"DeregisterJobDefinition"}, SelectReturnType = typeof(Amazon.Batch.Model.DeregisterJobDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.Batch.Model.DeregisterJobDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.DeregisterJobDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Batch.Model.DeregisterJobDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

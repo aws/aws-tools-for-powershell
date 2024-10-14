@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKVoice.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKVoice.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKVoice.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMVOResourceTagCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

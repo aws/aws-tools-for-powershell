@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListObjectsV2 API operation.", Operation = new[] {"ListObjectsV2"}, SelectReturnType = typeof(Amazon.S3.Model.ListObjectsV2Response))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Object or Amazon.S3.Model.ListObjectsV2Response",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Object objects.",
-        "The service call response (type Amazon.S3.Model.ListObjectsV2Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.ListObjectsV2Response) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3ObjectV2Cmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-ContinuationToken $null' for the first call and '-ContinuationToken $AWSHistory.LastServiceResponse.NextContinuationToken' for subsequent calls.
+        /// <br/>'ContinuationToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-ContinuationToken' to null for the first call then set the 'ContinuationToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]

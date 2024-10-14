@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ActivateContactChannel API operation.", Operation = new[] {"ActivateContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ActivateContactChannelResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.ActivateContactChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.ActivateContactChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.ActivateContactChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableSMCContactChannelCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect UpdateVirtualInterfaceAttributes API operation.", Operation = new[] {"UpdateVirtualInterfaceAttributes"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateVirtualInterfaceAttributesResponse object containing multiple properties."
     )]
     public partial class UpdateDCVirtualInterfaceAttributeCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

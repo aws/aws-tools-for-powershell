@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.DeleteClusterResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.DeleteClusterResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.DeleteClusterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.DeleteClusterResponse object containing multiple properties."
     )]
     public partial class RemoveMSKClusterCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

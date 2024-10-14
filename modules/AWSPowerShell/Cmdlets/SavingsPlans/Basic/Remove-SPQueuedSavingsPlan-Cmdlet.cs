@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
     [AWSCmdlet("Calls the AWS Savings Plans DeleteQueuedSavingsPlan API operation.", Operation = new[] {"DeleteQueuedSavingsPlan"}, SelectReturnType = typeof(Amazon.SavingsPlans.Model.DeleteQueuedSavingsPlanResponse))]
     [AWSCmdletOutput("None or Amazon.SavingsPlans.Model.DeleteQueuedSavingsPlanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SavingsPlans.Model.DeleteQueuedSavingsPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SavingsPlans.Model.DeleteQueuedSavingsPlanResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSPQueuedSavingsPlanCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {

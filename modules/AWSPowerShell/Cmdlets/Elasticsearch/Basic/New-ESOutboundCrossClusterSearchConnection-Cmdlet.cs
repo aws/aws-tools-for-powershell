@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch CreateOutboundCrossClusterSearchConnection API operation.", Operation = new[] {"CreateOutboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.CreateOutboundCrossClusterSearchConnectionResponse object containing multiple properties."
     )]
     public partial class NewESOutboundCrossClusterSearchConnectionCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

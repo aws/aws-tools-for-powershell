@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics GetFeedback API operation.", Operation = new[] {"GetFeedback"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.GetFeedbackResponse))]
     [AWSCmdletOutput("Amazon.LookoutMetrics.Model.TimeSeriesFeedback or Amazon.LookoutMetrics.Model.GetFeedbackResponse",
         "This cmdlet returns a collection of Amazon.LookoutMetrics.Model.TimeSeriesFeedback objects.",
-        "The service call response (type Amazon.LookoutMetrics.Model.GetFeedbackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutMetrics.Model.GetFeedbackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOMFeedbackCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

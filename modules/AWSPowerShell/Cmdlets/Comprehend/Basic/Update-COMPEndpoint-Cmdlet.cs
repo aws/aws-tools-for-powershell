@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.UpdateEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend UpdateEndpoint API operation.", Operation = new[] {"UpdateEndpoint"}, SelectReturnType = typeof(Amazon.Comprehend.Model.UpdateEndpointResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.UpdateEndpointResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.UpdateEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.UpdateEndpointResponse object containing multiple properties."
     )]
     public partial class UpdateCOMPEndpointCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

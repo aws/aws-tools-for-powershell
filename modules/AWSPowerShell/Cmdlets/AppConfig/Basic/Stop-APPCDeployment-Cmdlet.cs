@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.StopDeploymentResponse")]
     [AWSCmdlet("Calls the AWS AppConfig StopDeployment API operation.", Operation = new[] {"StopDeployment"}, SelectReturnType = typeof(Amazon.AppConfig.Model.StopDeploymentResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.StopDeploymentResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.StopDeploymentResponse object containing multiple properties."
     )]
     public partial class StopAPPCDeploymentCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

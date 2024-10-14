@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [OutputType("Amazon.Budgets.Model.DeleteBudgetActionResponse")]
     [AWSCmdlet("Calls the AWS Budgets DeleteBudgetAction API operation.", Operation = new[] {"DeleteBudgetAction"}, SelectReturnType = typeof(Amazon.Budgets.Model.DeleteBudgetActionResponse))]
     [AWSCmdletOutput("Amazon.Budgets.Model.DeleteBudgetActionResponse",
-        "This cmdlet returns an Amazon.Budgets.Model.DeleteBudgetActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Budgets.Model.DeleteBudgetActionResponse object containing multiple properties."
     )]
     public partial class RemoveBGTBudgetActionCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

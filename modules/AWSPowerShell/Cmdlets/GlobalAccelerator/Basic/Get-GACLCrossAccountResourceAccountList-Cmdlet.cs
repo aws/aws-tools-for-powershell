@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator ListCrossAccountResourceAccounts API operation.", Operation = new[] {"ListCrossAccountResourceAccounts"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGACLCrossAccountResourceAccountListCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

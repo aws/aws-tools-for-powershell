@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DescribeRefreshSchemasStatus API operation.", Operation = new[] {"DescribeRefreshSchemasStatus"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.RefreshSchemasStatus or Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.RefreshSchemasStatus object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDMSRefreshSchemasStatusCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

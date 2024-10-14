@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) PromotePermissionCreatedFromPolicy API operation.", Operation = new[] {"PromotePermissionCreatedFromPolicy"}, SelectReturnType = typeof(Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionSummary or Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse",
         "This cmdlet returns an Amazon.RAM.Model.ResourceSharePermissionSummary object.",
-        "The service call response (type Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConvertRAMPermissionCreatedFromPolicyCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

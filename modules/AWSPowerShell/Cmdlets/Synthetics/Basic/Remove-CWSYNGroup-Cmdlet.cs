@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.Synthetics.Model.DeleteGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.DeleteGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.DeleteGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWSYNGroupCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

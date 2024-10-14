@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow CancelFlowExecutions API operation.", Operation = new[] {"CancelFlowExecutions"}, SelectReturnType = typeof(Amazon.Appflow.Model.CancelFlowExecutionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Appflow.Model.CancelFlowExecutionsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Appflow.Model.CancelFlowExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.CancelFlowExecutionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopAFFlowExecutionCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

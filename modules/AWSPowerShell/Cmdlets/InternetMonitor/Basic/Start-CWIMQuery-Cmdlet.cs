@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor StartQuery API operation.", Operation = new[] {"StartQuery"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.StartQueryResponse))]
     [AWSCmdletOutput("System.String or Amazon.InternetMonitor.Model.StartQueryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.InternetMonitor.Model.StartQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.InternetMonitor.Model.StartQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCWIMQueryCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {

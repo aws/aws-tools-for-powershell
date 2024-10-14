@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DeleteDBClusterEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBClusterEndpoint API operation.", Operation = new[] {"DeleteDBClusterEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBClusterEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DeleteDBClusterEndpointResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteDBClusterEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.DeleteDBClusterEndpointResponse object containing multiple properties."
     )]
     public partial class RemoveRDSDBClusterEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

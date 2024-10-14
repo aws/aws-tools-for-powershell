@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail StartQuery API operation.", Operation = new[] {"StartQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StartQueryResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudTrail.Model.StartQueryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudTrail.Model.StartQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudTrail.Model.StartQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

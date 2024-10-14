@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge PutRule API operation.", Operation = new[] {"PutRule"}, SelectReturnType = typeof(Amazon.EventBridge.Model.PutRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.EventBridge.Model.PutRuleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EventBridge.Model.PutRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.PutRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteEVBRuleCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

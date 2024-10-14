@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.CancelQueryResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.CancelQueryResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.CancelQueryResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.CancelQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.CancelQueryResponse object containing multiple properties."
     )]
     public partial class StopCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

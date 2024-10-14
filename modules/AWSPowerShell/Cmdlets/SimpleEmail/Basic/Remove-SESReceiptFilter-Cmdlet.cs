@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) DeleteReceiptFilter API operation.", Operation = new[] {"DeleteReceiptFilter"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

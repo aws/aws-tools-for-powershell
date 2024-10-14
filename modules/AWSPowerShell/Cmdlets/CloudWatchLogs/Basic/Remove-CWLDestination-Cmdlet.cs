@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteDestination API operation.", Operation = new[] {"DeleteDestination"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DeleteDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.DeleteDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.DeleteDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.DeleteDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

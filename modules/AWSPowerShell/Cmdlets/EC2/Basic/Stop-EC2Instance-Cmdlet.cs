@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StopInstances API operation.", Operation = new[] {"StopInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.StopInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange or Amazon.EC2.Model.StopInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceStateChange objects.",
-        "The service call response (type Amazon.EC2.Model.StopInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.StopInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

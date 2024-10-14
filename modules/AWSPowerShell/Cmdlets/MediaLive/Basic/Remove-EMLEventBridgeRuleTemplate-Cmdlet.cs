@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteEventBridgeRuleTemplate API operation.", Operation = new[] {"DeleteEventBridgeRuleTemplate"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteEventBridgeRuleTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.DeleteEventBridgeRuleTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.DeleteEventBridgeRuleTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.DeleteEventBridgeRuleTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMLEventBridgeRuleTemplateCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

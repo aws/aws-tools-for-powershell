@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) RemovePermission API operation.", Operation = new[] {"RemovePermission"}, SelectReturnType = typeof(Amazon.SQS.Model.RemovePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.RemovePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.RemovePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

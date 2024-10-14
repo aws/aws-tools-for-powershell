@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service DescribeRecoverySnapshots API operation.", Operation = new[] {"DescribeRecoverySnapshots"}, SelectReturnType = typeof(Amazon.Drs.Model.DescribeRecoverySnapshotsResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.RecoverySnapshot or Amazon.Drs.Model.DescribeRecoverySnapshotsResponse",
         "This cmdlet returns a collection of Amazon.Drs.Model.RecoverySnapshot objects.",
-        "The service call response (type Amazon.Drs.Model.DescribeRecoverySnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.DescribeRecoverySnapshotsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEDRSRecoverySnapshotCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

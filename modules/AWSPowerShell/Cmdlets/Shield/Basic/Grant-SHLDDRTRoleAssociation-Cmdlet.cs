@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield AssociateDRTRole API operation.", Operation = new[] {"AssociateDRTRole"}, SelectReturnType = typeof(Amazon.Shield.Model.AssociateDRTRoleResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.AssociateDRTRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.AssociateDRTRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.AssociateDRTRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class GrantSHLDDRTRoleAssociationCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

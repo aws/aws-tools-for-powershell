@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts DeleteOutpost API operation.", Operation = new[] {"DeleteOutpost"}, SelectReturnType = typeof(Amazon.Outposts.Model.DeleteOutpostResponse))]
     [AWSCmdletOutput("None or Amazon.Outposts.Model.DeleteOutpostResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Outposts.Model.DeleteOutpostResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Outposts.Model.DeleteOutpostResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOUTPOutpostCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

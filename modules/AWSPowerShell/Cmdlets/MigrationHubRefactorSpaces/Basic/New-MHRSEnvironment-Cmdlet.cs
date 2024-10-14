@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [OutputType("Amazon.MigrationHubRefactorSpaces.Model.CreateEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces CreateEnvironment API operation.", Operation = new[] {"CreateEnvironment"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.CreateEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubRefactorSpaces.Model.CreateEnvironmentResponse",
-        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.CreateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.CreateEnvironmentResponse object containing multiple properties."
     )]
     public partial class NewMHRSEnvironmentCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

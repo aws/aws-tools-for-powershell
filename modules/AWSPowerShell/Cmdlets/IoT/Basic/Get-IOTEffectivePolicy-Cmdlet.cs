@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetEffectivePolicies API operation.", Operation = new[] {"GetEffectivePolicies"}, SelectReturnType = typeof(Amazon.IoT.Model.GetEffectivePoliciesResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.EffectivePolicy or Amazon.IoT.Model.GetEffectivePoliciesResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.EffectivePolicy objects.",
-        "The service call response (type Amazon.IoT.Model.GetEffectivePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetEffectivePoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTEffectivePolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager ListReceivedGrants API operation.", Operation = new[] {"ListReceivedGrants"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.ListReceivedGrantsResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.Grant or Amazon.LicenseManager.Model.ListReceivedGrantsResponse",
         "This cmdlet returns a collection of Amazon.LicenseManager.Model.Grant objects.",
-        "The service call response (type Amazon.LicenseManager.Model.ListReceivedGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManager.Model.ListReceivedGrantsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLICMReceivedGrantListCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

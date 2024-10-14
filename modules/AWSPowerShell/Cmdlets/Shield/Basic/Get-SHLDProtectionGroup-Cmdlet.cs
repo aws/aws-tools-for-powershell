@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DescribeProtectionGroup API operation.", Operation = new[] {"DescribeProtectionGroup"}, SelectReturnType = typeof(Amazon.Shield.Model.DescribeProtectionGroupResponse))]
     [AWSCmdletOutput("Amazon.Shield.Model.ProtectionGroup or Amazon.Shield.Model.DescribeProtectionGroupResponse",
         "This cmdlet returns an Amazon.Shield.Model.ProtectionGroup object.",
-        "The service call response (type Amazon.Shield.Model.DescribeProtectionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Shield.Model.DescribeProtectionGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSHLDProtectionGroupCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

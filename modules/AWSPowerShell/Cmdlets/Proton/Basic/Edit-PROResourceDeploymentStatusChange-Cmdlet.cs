@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton NotifyResourceDeploymentStatusChange API operation.", Operation = new[] {"NotifyResourceDeploymentStatusChange"}, SelectReturnType = typeof(Amazon.Proton.Model.NotifyResourceDeploymentStatusChangeResponse))]
     [AWSCmdletOutput("None or Amazon.Proton.Model.NotifyResourceDeploymentStatusChangeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Proton.Model.NotifyResourceDeploymentStatusChangeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Proton.Model.NotifyResourceDeploymentStatusChangeResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditPROResourceDeploymentStatusChangeCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.RemoveTagsResponse), LegacyAlias="Remove-ESTag")]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Elasticsearch.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Elasticsearch.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveESResourceTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

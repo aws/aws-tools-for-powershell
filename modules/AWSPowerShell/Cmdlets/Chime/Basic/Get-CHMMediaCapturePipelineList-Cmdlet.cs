@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime ListMediaCapturePipelines API operation.", Operation = new[] {"ListMediaCapturePipelines"}, SelectReturnType = typeof(Amazon.Chime.Model.ListMediaCapturePipelinesResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.MediaCapturePipeline or Amazon.Chime.Model.ListMediaCapturePipelinesResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.MediaCapturePipeline objects.",
-        "The service call response (type Amazon.Chime.Model.ListMediaCapturePipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.ListMediaCapturePipelinesResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace")]
     public partial class GetCHMMediaCapturePipelineListCmdlet : AmazonChimeClientCmdlet, IExecutor
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

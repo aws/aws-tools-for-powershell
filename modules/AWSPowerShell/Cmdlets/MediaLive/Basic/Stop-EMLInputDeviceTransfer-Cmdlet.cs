@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive CancelInputDeviceTransfer API operation.", Operation = new[] {"CancelInputDeviceTransfer"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CancelInputDeviceTransferResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.CancelInputDeviceTransferResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.CancelInputDeviceTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.CancelInputDeviceTransferResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEMLInputDeviceTransferCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

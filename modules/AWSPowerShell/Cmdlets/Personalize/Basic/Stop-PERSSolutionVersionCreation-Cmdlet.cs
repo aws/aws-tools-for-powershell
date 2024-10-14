@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize StopSolutionVersionCreation API operation.", Operation = new[] {"StopSolutionVersionCreation"}, SelectReturnType = typeof(Amazon.Personalize.Model.StopSolutionVersionCreationResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.StopSolutionVersionCreationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.StopSolutionVersionCreationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.StopSolutionVersionCreationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopPERSSolutionVersionCreationCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

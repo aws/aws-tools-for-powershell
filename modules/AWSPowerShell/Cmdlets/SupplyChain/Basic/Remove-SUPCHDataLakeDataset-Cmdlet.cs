@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [OutputType("Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse")]
     [AWSCmdlet("Calls the AWS Supply Chain DeleteDataLakeDataset API operation.", Operation = new[] {"DeleteDataLakeDataset"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse object containing multiple properties."
     )]
     public partial class RemoveSUPCHDataLakeDatasetCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

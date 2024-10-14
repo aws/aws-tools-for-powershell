@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
     [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor DeleteMonitor API operation.", Operation = new[] {"DeleteMonitor"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.DeleteMonitorResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkMonitor.Model.DeleteMonitorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkMonitor.Model.DeleteMonitorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkMonitor.Model.DeleteMonitorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWNMMonitorCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.CreateUnreferencedMergeCommitResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit CreateUnreferencedMergeCommit API operation.", Operation = new[] {"CreateUnreferencedMergeCommit"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.CreateUnreferencedMergeCommitResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.CreateUnreferencedMergeCommitResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.CreateUnreferencedMergeCommitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.CreateUnreferencedMergeCommitResponse object containing multiple properties."
     )]
     public partial class NewCCUnreferencedMergeCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

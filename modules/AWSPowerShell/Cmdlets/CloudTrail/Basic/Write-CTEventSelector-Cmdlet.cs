@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.PutEventSelectorsResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail PutEventSelectors API operation.", Operation = new[] {"PutEventSelectors"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.PutEventSelectorsResponse), LegacyAlias="Write-CTEventSelectors")]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.PutEventSelectorsResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.PutEventSelectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.PutEventSelectorsResponse object containing multiple properties."
     )]
     public partial class WriteCTEventSelectorCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

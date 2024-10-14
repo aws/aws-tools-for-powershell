@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [OutputType("Amazon.DataSync.Model.DescribeLocationAzureBlobResponse")]
     [AWSCmdlet("Calls the AWS DataSync DescribeLocationAzureBlob API operation.", Operation = new[] {"DescribeLocationAzureBlob"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationAzureBlobResponse))]
     [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationAzureBlobResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationAzureBlobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationAzureBlobResponse object containing multiple properties."
     )]
     public partial class GetDSYNLocationAzureBlobCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

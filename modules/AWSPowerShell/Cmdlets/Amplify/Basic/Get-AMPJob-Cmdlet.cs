@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.Amplify.Model.GetJobResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.Job or Amazon.Amplify.Model.GetJobResponse",
         "This cmdlet returns an Amazon.Amplify.Model.Job object.",
-        "The service call response (type Amazon.Amplify.Model.GetJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.GetJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMPJobCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

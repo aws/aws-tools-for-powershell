@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateImpersonationRole API operation.", Operation = new[] {"UpdateImpersonationRole"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateImpersonationRoleResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateImpersonationRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateImpersonationRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateImpersonationRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMImpersonationRoleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

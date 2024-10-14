@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.GetGremlinQueryStatusResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData GetGremlinQueryStatus API operation.", Operation = new[] {"GetGremlinQueryStatus"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.GetGremlinQueryStatusResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.GetGremlinQueryStatusResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.GetGremlinQueryStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.GetGremlinQueryStatusResponse object containing multiple properties."
     )]
     public partial class GetNEPTGremlinQueryStatusCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

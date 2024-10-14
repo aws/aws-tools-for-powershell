@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteTemplateShare API operation.", Operation = new[] {"DeleteTemplateShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteTemplateShareResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteTemplateShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteTemplateShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteTemplateShareResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATTemplateShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

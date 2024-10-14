@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.DescribePublishingDestinationResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty DescribePublishingDestination API operation.", Operation = new[] {"DescribePublishingDestination"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DescribePublishingDestinationResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.DescribePublishingDestinationResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.DescribePublishingDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.DescribePublishingDestinationResponse object containing multiple properties."
     )]
     public partial class GetGDPublishingDestinationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeRaidArrays API operation.", Operation = new[] {"DescribeRaidArrays"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeRaidArraysResponse), LegacyAlias="Get-OPSRaidArrays")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.RaidArray or Amazon.OpsWorks.Model.DescribeRaidArraysResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.RaidArray objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeRaidArraysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeRaidArraysResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSRaidArrayCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

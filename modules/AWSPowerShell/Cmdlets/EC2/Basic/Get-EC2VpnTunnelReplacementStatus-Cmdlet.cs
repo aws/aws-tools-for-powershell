@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetVpnTunnelReplacementStatusResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVpnTunnelReplacementStatus API operation.", Operation = new[] {"GetVpnTunnelReplacementStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpnTunnelReplacementStatusResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetVpnTunnelReplacementStatusResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetVpnTunnelReplacementStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.GetVpnTunnelReplacementStatusResponse object containing multiple properties."
     )]
     public partial class GetEC2VpnTunnelReplacementStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

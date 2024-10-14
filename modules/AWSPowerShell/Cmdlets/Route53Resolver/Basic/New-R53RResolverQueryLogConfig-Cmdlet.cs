@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateResolverQueryLogConfig API operation.", Operation = new[] {"CreateResolverQueryLogConfig"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateResolverQueryLogConfigResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverQueryLogConfig or Amazon.Route53Resolver.Model.CreateResolverQueryLogConfigResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverQueryLogConfig object.",
-        "The service call response (type Amazon.Route53Resolver.Model.CreateResolverQueryLogConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.CreateResolverQueryLogConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewR53RResolverQueryLogConfigCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

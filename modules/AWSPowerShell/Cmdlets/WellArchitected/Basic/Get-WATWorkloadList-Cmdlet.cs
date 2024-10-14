@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool ListWorkloads API operation.", Operation = new[] {"ListWorkloads"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListWorkloadsResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.WorkloadSummary or Amazon.WellArchitected.Model.ListWorkloadsResponse",
         "This cmdlet returns a collection of Amazon.WellArchitected.Model.WorkloadSummary objects.",
-        "The service call response (type Amazon.WellArchitected.Model.ListWorkloadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.ListWorkloadsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWATWorkloadListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

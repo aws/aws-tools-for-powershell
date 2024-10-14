@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DeleteGraphqlApi API operation.", Operation = new[] {"DeleteGraphqlApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.DeleteGraphqlApiResponse))]
     [AWSCmdletOutput("None or Amazon.AppSync.Model.DeleteGraphqlApiResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppSync.Model.DeleteGraphqlApiResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppSync.Model.DeleteGraphqlApiResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASYNGraphqlApiCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

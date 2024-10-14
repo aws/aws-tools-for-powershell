@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [OutputType("Amazon.CodeConnections.Model.GetResourceSyncStatusResponse")]
     [AWSCmdlet("Calls the AWS CodeConnections GetResourceSyncStatus API operation.", Operation = new[] {"GetResourceSyncStatus"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.GetResourceSyncStatusResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.GetResourceSyncStatusResponse",
-        "This cmdlet returns an Amazon.CodeConnections.Model.GetResourceSyncStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeConnections.Model.GetResourceSyncStatusResponse object containing multiple properties."
     )]
     public partial class GetCCONResourceSyncStatusCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

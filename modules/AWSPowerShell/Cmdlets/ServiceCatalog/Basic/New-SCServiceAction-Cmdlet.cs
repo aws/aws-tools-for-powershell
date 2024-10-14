@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog CreateServiceAction API operation.", Operation = new[] {"CreateServiceAction"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.CreateServiceActionResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ServiceActionDetail or Amazon.ServiceCatalog.Model.CreateServiceActionResponse",
         "This cmdlet returns an Amazon.ServiceCatalog.Model.ServiceActionDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.CreateServiceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.CreateServiceActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSCServiceActionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

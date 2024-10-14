@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     [OutputType("Amazon.LicenseManagerUserSubscriptions.Model.UpdateIdentityProviderSettingsResponse")]
     [AWSCmdlet("Calls the AWS License Manager User Subscription UpdateIdentityProviderSettings API operation.", Operation = new[] {"UpdateIdentityProviderSettings"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.UpdateIdentityProviderSettingsResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.UpdateIdentityProviderSettingsResponse",
-        "This cmdlet returns an Amazon.LicenseManagerUserSubscriptions.Model.UpdateIdentityProviderSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManagerUserSubscriptions.Model.UpdateIdentityProviderSettingsResponse object containing multiple properties."
     )]
     public partial class UpdateLMUSIdentityProviderSettingCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {

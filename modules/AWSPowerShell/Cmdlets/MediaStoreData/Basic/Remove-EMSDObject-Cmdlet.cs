@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     [AWSCmdlet("Calls the AWS Elemental MediaStore Data Plane DeleteObject API operation.", Operation = new[] {"DeleteObject"}, SelectReturnType = typeof(Amazon.MediaStoreData.Model.DeleteObjectResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStoreData.Model.DeleteObjectResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStoreData.Model.DeleteObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStoreData.Model.DeleteObjectResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMSDObjectCmdlet : AmazonMediaStoreDataClientCmdlet, IExecutor
     {

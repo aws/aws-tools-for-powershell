@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewEC2TagCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [AWSCmdlet("Calls the AWS Compute Optimizer GetEC2RecommendationProjectedMetrics API operation.", Operation = new[] {"GetEC2RecommendationProjectedMetrics"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetEC2RecommendationProjectedMetricsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.RecommendedOptionProjectedMetric or Amazon.ComputeOptimizer.Model.GetEC2RecommendationProjectedMetricsResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizer.Model.RecommendedOptionProjectedMetric objects.",
-        "The service call response (type Amazon.ComputeOptimizer.Model.GetEC2RecommendationProjectedMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ComputeOptimizer.Model.GetEC2RecommendationProjectedMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOEC2RecommendationProjectedMetricCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

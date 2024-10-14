@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.CreateDBClusterEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBClusterEndpoint API operation.", Operation = new[] {"CreateDBClusterEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBClusterEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.CreateDBClusterEndpointResponse",
-        "This cmdlet returns an Amazon.RDS.Model.CreateDBClusterEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.CreateDBClusterEndpointResponse object containing multiple properties."
     )]
     public partial class NewRDSDBClusterEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

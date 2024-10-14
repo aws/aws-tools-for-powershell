@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DescribeInputDeviceThumbnail API operation.", Operation = new[] {"DescribeInputDeviceThumbnail"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DescribeInputDeviceThumbnailResponse))]
     [AWSCmdletOutput("System.IO.Stream or Amazon.MediaLive.Model.DescribeInputDeviceThumbnailResponse",
         "This cmdlet returns a System.IO.Stream object.",
-        "The service call response (type Amazon.MediaLive.Model.DescribeInputDeviceThumbnailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.DescribeInputDeviceThumbnailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMLInputDeviceThumbnailCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

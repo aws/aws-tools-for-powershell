@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.UpdateCloudWatchAlarmTemplateGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateCloudWatchAlarmTemplateGroup API operation.", Operation = new[] {"UpdateCloudWatchAlarmTemplateGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateCloudWatchAlarmTemplateGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.UpdateCloudWatchAlarmTemplateGroupResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.UpdateCloudWatchAlarmTemplateGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.UpdateCloudWatchAlarmTemplateGroupResponse object containing multiple properties."
     )]
     public partial class UpdateEMLCloudWatchAlarmTemplateGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

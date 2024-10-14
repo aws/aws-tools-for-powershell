@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton CancelEnvironmentDeployment API operation.", Operation = new[] {"CancelEnvironmentDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.CancelEnvironmentDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Environment or Amazon.Proton.Model.CancelEnvironmentDeploymentResponse",
         "This cmdlet returns an Amazon.Proton.Model.Environment object.",
-        "The service call response (type Amazon.Proton.Model.CancelEnvironmentDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.CancelEnvironmentDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopPROEnvironmentDeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeInsight API operation.", Operation = new[] {"DescribeInsight"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeInsightResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Insight or Amazon.EKS.Model.DescribeInsightResponse",
         "This cmdlet returns an Amazon.EKS.Model.Insight object.",
-        "The service call response (type Amazon.EKS.Model.DescribeInsightResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DescribeInsightResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEKSInsightCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

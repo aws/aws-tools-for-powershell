@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB PutItem API operation.", Operation = new[] {"PutItem"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.PutItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.DynamoDBv2.Model.PutItemResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.PutItemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.PutItemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetDDBItemCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

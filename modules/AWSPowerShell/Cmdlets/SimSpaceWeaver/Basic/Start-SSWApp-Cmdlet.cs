@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [OutputType("Amazon.SimSpaceWeaver.Model.StartAppResponse")]
     [AWSCmdlet("Calls the AWS SimSpace Weaver StartApp API operation.", Operation = new[] {"StartApp"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.StartAppResponse))]
     [AWSCmdletOutput("Amazon.SimSpaceWeaver.Model.StartAppResponse",
-        "This cmdlet returns an Amazon.SimSpaceWeaver.Model.StartAppResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimSpaceWeaver.Model.StartAppResponse object containing multiple properties."
     )]
     public partial class StartSSWAppCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

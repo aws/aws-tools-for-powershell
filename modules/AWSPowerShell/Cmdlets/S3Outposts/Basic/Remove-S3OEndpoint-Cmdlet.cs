@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     [AWSCmdlet("Calls the Amazon S3 Outposts DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"}, SelectReturnType = typeof(Amazon.S3Outposts.Model.DeleteEndpointResponse))]
     [AWSCmdletOutput("None or Amazon.S3Outposts.Model.DeleteEndpointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Outposts.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Outposts.Model.DeleteEndpointResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3OEndpointCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {

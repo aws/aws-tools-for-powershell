@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.DescribeEphemerisResponse")]
     [AWSCmdlet("Calls the AWS Ground Station DescribeEphemeris API operation.", Operation = new[] {"DescribeEphemeris"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DescribeEphemerisResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.DescribeEphemerisResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.DescribeEphemerisResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.DescribeEphemerisResponse object containing multiple properties."
     )]
     public partial class GetGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager UpdateSecretVersionStage API operation.", Operation = new[] {"UpdateSecretVersionStage"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.UpdateSecretVersionStageResponse object containing multiple properties."
     )]
     public partial class UpdateSECSecretVersionStageCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

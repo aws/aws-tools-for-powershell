@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.GetLegalHoldResponse")]
     [AWSCmdlet("Calls the AWS Backup GetLegalHold API operation.", Operation = new[] {"GetLegalHold"}, SelectReturnType = typeof(Amazon.Backup.Model.GetLegalHoldResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.GetLegalHoldResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetLegalHoldResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.GetLegalHoldResponse object containing multiple properties."
     )]
     public partial class GetBAKLegalHoldCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

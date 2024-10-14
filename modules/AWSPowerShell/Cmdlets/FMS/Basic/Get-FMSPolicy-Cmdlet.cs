@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.GetPolicyResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetPolicy API operation.", Operation = new[] {"GetPolicy"}, SelectReturnType = typeof(Amazon.FMS.Model.GetPolicyResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.GetPolicyResponse",
-        "This cmdlet returns an Amazon.FMS.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.GetPolicyResponse object containing multiple properties."
     )]
     public partial class GetFMSPolicyCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

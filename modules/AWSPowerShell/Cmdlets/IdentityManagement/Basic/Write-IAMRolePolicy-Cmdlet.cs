@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management PutRolePolicy API operation.", Operation = new[] {"PutRolePolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.PutRolePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.PutRolePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.PutRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.PutRolePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect ListWorkerConfigurations API operation.", Operation = new[] {"ListWorkerConfigurations"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.ListWorkerConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.WorkerConfigurationSummary or Amazon.KafkaConnect.Model.ListWorkerConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.KafkaConnect.Model.WorkerConfigurationSummary objects.",
-        "The service call response (type Amazon.KafkaConnect.Model.ListWorkerConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KafkaConnect.Model.ListWorkerConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMSKCWorkerConfigurationListCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

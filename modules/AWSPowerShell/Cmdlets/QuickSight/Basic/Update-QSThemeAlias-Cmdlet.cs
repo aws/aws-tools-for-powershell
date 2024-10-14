@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight UpdateThemeAlias API operation.", Operation = new[] {"UpdateThemeAlias"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateThemeAliasResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.ThemeAlias or Amazon.QuickSight.Model.UpdateThemeAliasResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.ThemeAlias object.",
-        "The service call response (type Amazon.QuickSight.Model.UpdateThemeAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.UpdateThemeAliasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQSThemeAliasCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

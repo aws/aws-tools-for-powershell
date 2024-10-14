@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.RegisterPatchBaselineForPatchGroupResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager RegisterPatchBaselineForPatchGroup API operation.", Operation = new[] {"RegisterPatchBaselineForPatchGroup"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RegisterPatchBaselineForPatchGroupResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.RegisterPatchBaselineForPatchGroupResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.RegisterPatchBaselineForPatchGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.RegisterPatchBaselineForPatchGroupResponse object containing multiple properties."
     )]
     public partial class RegisterSSMPatchBaselineForPatchGroupCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

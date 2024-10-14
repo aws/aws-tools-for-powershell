@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ModifyClusterSnapshotSchedule API operation.", Operation = new[] {"ModifyClusterSnapshotSchedule"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyClusterSnapshotScheduleResponse))]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.ModifyClusterSnapshotScheduleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.ModifyClusterSnapshotScheduleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.ModifyClusterSnapshotScheduleResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditRSClusterSnapshotScheduleCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

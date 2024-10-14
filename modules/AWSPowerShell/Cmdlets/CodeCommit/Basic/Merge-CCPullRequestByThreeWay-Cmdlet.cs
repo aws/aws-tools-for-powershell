@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit MergePullRequestByThreeWay API operation.", Operation = new[] {"MergePullRequestByThreeWay"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergePullRequestByThreeWayResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PullRequest or Amazon.CodeCommit.Model.MergePullRequestByThreeWayResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.PullRequest object.",
-        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestByThreeWayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestByThreeWayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MergeCCPullRequestByThreeWayCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.DescribeEntityResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail DescribeEntity API operation.", Operation = new[] {"DescribeEntity"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DescribeEntityResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.DescribeEntityResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.DescribeEntityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.DescribeEntityResponse object containing multiple properties."
     )]
     public partial class GetWMEntityCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

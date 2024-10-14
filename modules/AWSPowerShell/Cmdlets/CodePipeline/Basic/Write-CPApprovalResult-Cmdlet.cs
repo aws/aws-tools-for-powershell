@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline PutApprovalResult API operation.", Operation = new[] {"PutApprovalResult"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.PutApprovalResultResponse))]
     [AWSCmdletOutput("System.DateTime or Amazon.CodePipeline.Model.PutApprovalResultResponse",
         "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.CodePipeline.Model.PutApprovalResultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.PutApprovalResultResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCPApprovalResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

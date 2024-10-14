@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events DisableRule API operation.", Operation = new[] {"DisableRule"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DisableRuleResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.DisableRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.DisableRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.DisableRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

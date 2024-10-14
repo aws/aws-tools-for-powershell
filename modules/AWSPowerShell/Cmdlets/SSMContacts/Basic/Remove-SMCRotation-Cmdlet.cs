@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DeleteRotation API operation.", Operation = new[] {"DeleteRotation"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteRotationResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeleteRotationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.DeleteRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.DeleteRotationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMCRotationCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer CancelPolicyGeneration API operation.", Operation = new[] {"CancelPolicyGeneration"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CancelPolicyGenerationResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.CancelPolicyGenerationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.CancelPolicyGenerationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.CancelPolicyGenerationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopIAMAAPolicyGenerationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

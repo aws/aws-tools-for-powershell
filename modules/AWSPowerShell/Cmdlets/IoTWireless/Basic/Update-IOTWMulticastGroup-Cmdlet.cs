@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless UpdateMulticastGroup API operation.", Operation = new[] {"UpdateMulticastGroup"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.UpdateMulticastGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.UpdateMulticastGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.UpdateMulticastGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.UpdateMulticastGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTWMulticastGroupCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

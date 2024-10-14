@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteDevice API operation.", Operation = new[] {"DeleteDevice"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteDeviceResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Device or Amazon.NetworkManager.Model.DeleteDeviceResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Device object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRDeviceCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

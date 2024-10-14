@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub GetSecurityControlDefinition API operation.", Operation = new[] {"GetSecurityControlDefinition"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.SecurityControlDefinition or Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.SecurityControlDefinition object.",
-        "The service call response (type Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.GetSecurityControlDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSHUBSecurityControlDefinitionCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

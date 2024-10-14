@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.PutProvisionedConcurrencyConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda PutProvisionedConcurrencyConfig API operation.", Operation = new[] {"PutProvisionedConcurrencyConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutProvisionedConcurrencyConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.PutProvisionedConcurrencyConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.PutProvisionedConcurrencyConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.PutProvisionedConcurrencyConfigResponse object containing multiple properties."
     )]
     public partial class WriteLMProvisionedConcurrencyConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

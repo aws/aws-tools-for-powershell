@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service DeleteContent API operation.", Operation = new[] {"DeleteContent"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.DeleteContentResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectWisdomService.Model.DeleteContentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectWisdomService.Model.DeleteContentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectWisdomService.Model.DeleteContentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSDMContentCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

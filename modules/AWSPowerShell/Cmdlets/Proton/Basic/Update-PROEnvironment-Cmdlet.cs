@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton UpdateEnvironment API operation.", Operation = new[] {"UpdateEnvironment"}, SelectReturnType = typeof(Amazon.Proton.Model.UpdateEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Environment or Amazon.Proton.Model.UpdateEnvironmentResponse",
         "This cmdlet returns an Amazon.Proton.Model.Environment object.",
-        "The service call response (type Amazon.Proton.Model.UpdateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.UpdateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

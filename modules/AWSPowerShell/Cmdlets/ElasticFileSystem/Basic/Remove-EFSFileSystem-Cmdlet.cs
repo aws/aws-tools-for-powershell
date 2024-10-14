@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DeleteFileSystem API operation.", Operation = new[] {"DeleteFileSystem"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

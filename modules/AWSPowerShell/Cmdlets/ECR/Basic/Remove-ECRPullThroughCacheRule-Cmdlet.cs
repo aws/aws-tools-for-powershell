@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.DeletePullThroughCacheRuleResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry DeletePullThroughCacheRule API operation.", Operation = new[] {"DeletePullThroughCacheRule"}, SelectReturnType = typeof(Amazon.ECR.Model.DeletePullThroughCacheRuleResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DeletePullThroughCacheRuleResponse",
-        "This cmdlet returns an Amazon.ECR.Model.DeletePullThroughCacheRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.DeletePullThroughCacheRuleResponse object containing multiple properties."
     )]
     public partial class RemoveECRPullThroughCacheRuleCmdlet : AmazonECRClientCmdlet, IExecutor
     {

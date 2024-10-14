@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.CreateGrantResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service CreateGrant API operation.", Operation = new[] {"CreateGrant"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.CreateGrantResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.CreateGrantResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.CreateGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.CreateGrantResponse object containing multiple properties."
     )]
     public partial class NewKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

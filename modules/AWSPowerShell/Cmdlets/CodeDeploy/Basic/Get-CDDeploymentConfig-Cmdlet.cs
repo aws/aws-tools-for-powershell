@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy GetDeploymentConfig API operation.", Operation = new[] {"GetDeploymentConfig"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.GetDeploymentConfigResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentConfigInfo or Amazon.CodeDeploy.Model.GetDeploymentConfigResponse",
         "This cmdlet returns an Amazon.CodeDeploy.Model.DeploymentConfigInfo object.",
-        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

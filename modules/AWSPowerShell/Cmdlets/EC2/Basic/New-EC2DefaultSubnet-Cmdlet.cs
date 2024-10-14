@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateDefaultSubnet API operation.", Operation = new[] {"CreateDefaultSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDefaultSubnetResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet or Amazon.EC2.Model.CreateDefaultSubnetResponse",
         "This cmdlet returns an Amazon.EC2.Model.Subnet object.",
-        "The service call response (type Amazon.EC2.Model.CreateDefaultSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateDefaultSubnetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2DefaultSubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

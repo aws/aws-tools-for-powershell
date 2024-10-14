@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.RevokeFlowEntitlementResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect RevokeFlowEntitlement API operation.", Operation = new[] {"RevokeFlowEntitlement"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.RevokeFlowEntitlementResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.RevokeFlowEntitlementResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.RevokeFlowEntitlementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.RevokeFlowEntitlementResponse object containing multiple properties."
     )]
     public partial class RevokeEMCNFlowEntitlementCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

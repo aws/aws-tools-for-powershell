@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.ModifyActivityStreamResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyActivityStream API operation.", Operation = new[] {"ModifyActivityStream"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyActivityStreamResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ModifyActivityStreamResponse",
-        "This cmdlet returns an Amazon.RDS.Model.ModifyActivityStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.ModifyActivityStreamResponse object containing multiple properties."
     )]
     public partial class EditRDSActivityStreamCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

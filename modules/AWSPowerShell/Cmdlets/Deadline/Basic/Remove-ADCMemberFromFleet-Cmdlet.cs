@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DisassociateMemberFromFleet API operation.", Operation = new[] {"DisassociateMemberFromFleet"}, SelectReturnType = typeof(Amazon.Deadline.Model.DisassociateMemberFromFleetResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DisassociateMemberFromFleetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DisassociateMemberFromFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DisassociateMemberFromFleetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCMemberFromFleetCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

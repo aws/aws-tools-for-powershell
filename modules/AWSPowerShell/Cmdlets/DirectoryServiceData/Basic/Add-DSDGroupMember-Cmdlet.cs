@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [AWSCmdlet("Calls the AWS Directory Service Data AddGroupMember API operation.", Operation = new[] {"AddGroupMember"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.AddGroupMemberResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryServiceData.Model.AddGroupMemberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryServiceData.Model.AddGroupMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryServiceData.Model.AddGroupMemberResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDSDGroupMemberCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

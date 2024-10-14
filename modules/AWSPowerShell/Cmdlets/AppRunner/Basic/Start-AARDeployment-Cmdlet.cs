@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner StartDeployment API operation.", Operation = new[] {"StartDeployment"}, SelectReturnType = typeof(Amazon.AppRunner.Model.StartDeploymentResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppRunner.Model.StartDeploymentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AppRunner.Model.StartDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.StartDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartAARDeploymentCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

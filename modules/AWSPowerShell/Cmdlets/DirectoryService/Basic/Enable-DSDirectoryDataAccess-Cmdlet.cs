@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service EnableDirectoryDataAccess API operation.", Operation = new[] {"EnableDirectoryDataAccess"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableDSDirectoryDataAccessCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

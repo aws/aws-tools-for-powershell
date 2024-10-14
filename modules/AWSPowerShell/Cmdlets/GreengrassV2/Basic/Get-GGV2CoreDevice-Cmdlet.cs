@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [OutputType("Amazon.GreengrassV2.Model.GetCoreDeviceResponse")]
     [AWSCmdlet("Calls the AWS GreengrassV2 GetCoreDevice API operation.", Operation = new[] {"GetCoreDevice"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.GetCoreDeviceResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.GetCoreDeviceResponse",
-        "This cmdlet returns an Amazon.GreengrassV2.Model.GetCoreDeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GreengrassV2.Model.GetCoreDeviceResponse object containing multiple properties."
     )]
     public partial class GetGGV2CoreDeviceCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

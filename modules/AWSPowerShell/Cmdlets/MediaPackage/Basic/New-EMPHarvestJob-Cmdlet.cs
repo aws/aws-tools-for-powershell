@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.CreateHarvestJobResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage CreateHarvestJob API operation.", Operation = new[] {"CreateHarvestJob"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.CreateHarvestJobResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.CreateHarvestJobResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.CreateHarvestJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.CreateHarvestJobResponse object containing multiple properties."
     )]
     public partial class NewEMPHarvestJobCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

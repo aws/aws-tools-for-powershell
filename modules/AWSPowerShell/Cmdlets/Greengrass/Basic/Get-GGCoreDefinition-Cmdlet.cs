@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetCoreDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetCoreDefinition API operation.", Operation = new[] {"GetCoreDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetCoreDefinitionResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetCoreDefinitionResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetCoreDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetCoreDefinitionResponse object containing multiple properties."
     )]
     public partial class GetGGCoreDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

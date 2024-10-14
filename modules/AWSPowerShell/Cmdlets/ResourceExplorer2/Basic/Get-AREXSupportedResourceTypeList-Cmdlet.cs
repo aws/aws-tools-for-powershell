@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer ListSupportedResourceTypes API operation.", Operation = new[] {"ListSupportedResourceTypes"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.SupportedResourceType or Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse",
         "This cmdlet returns a collection of Amazon.ResourceExplorer2.Model.SupportedResourceType objects.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.ListSupportedResourceTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAREXSupportedResourceTypeListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

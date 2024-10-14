@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.GetConfigurationResponse")]
     [AWSCmdlet("Calls the AWS AppConfig GetConfiguration API operation.", Operation = new[] {"GetConfiguration"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.GetConfigurationResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.GetConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.GetConfigurationResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.")]
     public partial class GetAPPCConfigurationCmdlet : AmazonAppConfigClientCmdlet, IExecutor

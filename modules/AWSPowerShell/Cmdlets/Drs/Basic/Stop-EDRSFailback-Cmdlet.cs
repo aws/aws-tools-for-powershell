@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service StopFailback API operation.", Operation = new[] {"StopFailback"}, SelectReturnType = typeof(Amazon.Drs.Model.StopFailbackResponse))]
     [AWSCmdletOutput("None or Amazon.Drs.Model.StopFailbackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.StopFailbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Drs.Model.StopFailbackResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEDRSFailbackCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeAgentStatus API operation.", Operation = new[] {"DescribeAgentStatus"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeAgentStatusResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.AgentStatus or Amazon.Connect.Model.DescribeAgentStatusResponse",
         "This cmdlet returns an Amazon.Connect.Model.AgentStatus object.",
-        "The service call response (type Amazon.Connect.Model.DescribeAgentStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeAgentStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNAgentStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

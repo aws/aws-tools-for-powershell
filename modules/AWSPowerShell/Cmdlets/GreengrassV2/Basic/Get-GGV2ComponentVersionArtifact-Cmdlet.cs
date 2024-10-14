@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 GetComponentVersionArtifact API operation.", Operation = new[] {"GetComponentVersionArtifact"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.GetComponentVersionArtifactResponse))]
     [AWSCmdletOutput("System.String or Amazon.GreengrassV2.Model.GetComponentVersionArtifactResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GreengrassV2.Model.GetComponentVersionArtifactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.GetComponentVersionArtifactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGV2ComponentVersionArtifactCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

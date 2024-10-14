@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.InvokeWithResponseStreamResponse")]
     [AWSCmdlet("Calls the AWS Lambda InvokeWithResponseStream API operation.", Operation = new[] {"InvokeWithResponseStream"}, SelectReturnType = typeof(Amazon.Lambda.Model.InvokeWithResponseStreamResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.InvokeWithResponseStreamResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.InvokeWithResponseStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.InvokeWithResponseStreamResponse object containing multiple properties."
     )]
     public partial class InvokeLMWithResponseStreamCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

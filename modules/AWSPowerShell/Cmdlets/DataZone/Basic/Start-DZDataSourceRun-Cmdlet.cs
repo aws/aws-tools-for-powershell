@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.StartDataSourceRunResponse")]
     [AWSCmdlet("Calls the Amazon DataZone StartDataSourceRun API operation.", Operation = new[] {"StartDataSourceRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.StartDataSourceRunResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.StartDataSourceRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.StartDataSourceRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.StartDataSourceRunResponse object containing multiple properties."
     )]
     public partial class StartDZDataSourceRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

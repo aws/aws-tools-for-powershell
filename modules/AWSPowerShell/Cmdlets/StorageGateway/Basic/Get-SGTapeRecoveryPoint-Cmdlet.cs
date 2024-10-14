@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway RetrieveTapeRecoveryPoint API operation.", Operation = new[] {"RetrieveTapeRecoveryPoint"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSGTapeRecoveryPointCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

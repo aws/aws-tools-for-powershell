@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty StopMonitoringMembers API operation.", Operation = new[] {"StopMonitoringMembers"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.StopMonitoringMembersResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UnprocessedAccount or Amazon.GuardDuty.Model.StopMonitoringMembersResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.GuardDuty.Model.StopMonitoringMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.StopMonitoringMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopGDMonitoringMemberCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

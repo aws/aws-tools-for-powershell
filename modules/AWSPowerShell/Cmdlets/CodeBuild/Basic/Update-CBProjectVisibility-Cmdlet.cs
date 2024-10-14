@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [OutputType("Amazon.CodeBuild.Model.UpdateProjectVisibilityResponse")]
     [AWSCmdlet("Calls the AWS CodeBuild UpdateProjectVisibility API operation.", Operation = new[] {"UpdateProjectVisibility"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.UpdateProjectVisibilityResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.UpdateProjectVisibilityResponse",
-        "This cmdlet returns an Amazon.CodeBuild.Model.UpdateProjectVisibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeBuild.Model.UpdateProjectVisibilityResponse object containing multiple properties."
     )]
     public partial class UpdateCBProjectVisibilityCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

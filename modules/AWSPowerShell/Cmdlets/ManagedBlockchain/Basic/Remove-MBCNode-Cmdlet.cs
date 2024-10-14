@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain DeleteNode API operation.", Operation = new[] {"DeleteNode"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.DeleteNodeResponse))]
     [AWSCmdletOutput("None or Amazon.ManagedBlockchain.Model.DeleteNodeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ManagedBlockchain.Model.DeleteNodeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ManagedBlockchain.Model.DeleteNodeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMBCNodeCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

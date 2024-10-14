@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBParameterGroup API operation.", Operation = new[] {"DeleteDBParameterGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBParameterGroupResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.DeleteDBParameterGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.DeleteDBParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeleteDBParameterGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

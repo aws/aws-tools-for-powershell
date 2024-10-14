@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild UpdateFleet API operation.", Operation = new[] {"UpdateFleet"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.UpdateFleetResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Fleet or Amazon.CodeBuild.Model.UpdateFleetResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Fleet object.",
-        "The service call response (type Amazon.CodeBuild.Model.UpdateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.UpdateFleetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCBFleetCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

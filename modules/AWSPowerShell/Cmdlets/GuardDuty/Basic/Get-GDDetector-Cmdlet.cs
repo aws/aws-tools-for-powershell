@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetDetectorResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetDetector API operation.", Operation = new[] {"GetDetector"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetDetectorResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetDetectorResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetDetectorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetDetectorResponse object containing multiple properties."
     )]
     public partial class GetGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

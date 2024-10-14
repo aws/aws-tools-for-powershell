@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.UpdateRoleAliasResponse")]
     [AWSCmdlet("Calls the AWS IoT UpdateRoleAlias API operation.", Operation = new[] {"UpdateRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateRoleAliasResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.UpdateRoleAliasResponse",
-        "This cmdlet returns an Amazon.IoT.Model.UpdateRoleAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.UpdateRoleAliasResponse object containing multiple properties."
     )]
     public partial class UpdateIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

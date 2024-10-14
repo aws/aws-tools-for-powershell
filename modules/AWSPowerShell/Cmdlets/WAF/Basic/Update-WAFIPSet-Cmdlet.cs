@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF UpdateIPSet API operation.", Operation = new[] {"UpdateIPSet"}, SelectReturnType = typeof(Amazon.WAF.Model.UpdateIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAF.Model.UpdateIPSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAF.Model.UpdateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateIPSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWAFIPSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

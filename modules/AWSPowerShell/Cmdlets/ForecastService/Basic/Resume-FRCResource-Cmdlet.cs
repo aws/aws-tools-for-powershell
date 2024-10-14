@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service ResumeResource API operation.", Operation = new[] {"ResumeResource"}, SelectReturnType = typeof(Amazon.ForecastService.Model.ResumeResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.ResumeResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.ResumeResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.ResumeResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResumeFRCResourceCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

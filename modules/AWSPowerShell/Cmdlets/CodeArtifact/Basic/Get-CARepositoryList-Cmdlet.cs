@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact ListRepositories API operation.", Operation = new[] {"ListRepositories"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListRepositoriesResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositorySummary or Amazon.CodeArtifact.Model.ListRepositoriesResponse",
         "This cmdlet returns a collection of Amazon.CodeArtifact.Model.RepositorySummary objects.",
-        "The service call response (type Amazon.CodeArtifact.Model.ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.ListRepositoriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCARepositoryListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

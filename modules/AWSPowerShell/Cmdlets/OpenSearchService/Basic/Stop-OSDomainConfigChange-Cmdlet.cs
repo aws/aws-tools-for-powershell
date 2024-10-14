@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.CancelDomainConfigChangeResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service CancelDomainConfigChange API operation.", Operation = new[] {"CancelDomainConfigChange"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.CancelDomainConfigChangeResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.CancelDomainConfigChangeResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.CancelDomainConfigChangeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.CancelDomainConfigChangeResponse object containing multiple properties."
     )]
     public partial class StopOSDomainConfigChangeCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

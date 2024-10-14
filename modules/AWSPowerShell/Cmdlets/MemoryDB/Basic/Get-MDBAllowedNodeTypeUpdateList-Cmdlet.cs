@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [OutputType("Amazon.MemoryDB.Model.ListAllowedNodeTypeUpdatesResponse")]
     [AWSCmdlet("Calls the Amazon MemoryDB ListAllowedNodeTypeUpdates API operation.", Operation = new[] {"ListAllowedNodeTypeUpdates"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.ListAllowedNodeTypeUpdatesResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ListAllowedNodeTypeUpdatesResponse",
-        "This cmdlet returns an Amazon.MemoryDB.Model.ListAllowedNodeTypeUpdatesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MemoryDB.Model.ListAllowedNodeTypeUpdatesResponse object containing multiple properties."
     )]
     public partial class GetMDBAllowedNodeTypeUpdateListCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

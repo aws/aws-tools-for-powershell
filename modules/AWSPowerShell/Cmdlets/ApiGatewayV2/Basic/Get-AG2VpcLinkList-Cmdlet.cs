@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 GetVpcLinks API operation.", Operation = new[] {"GetVpcLinks"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.GetVpcLinksResponse))]
     [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.VpcLink or Amazon.ApiGatewayV2.Model.GetVpcLinksResponse",
         "This cmdlet returns a collection of Amazon.ApiGatewayV2.Model.VpcLink objects.",
-        "The service call response (type Amazon.ApiGatewayV2.Model.GetVpcLinksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApiGatewayV2.Model.GetVpcLinksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAG2VpcLinkListCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

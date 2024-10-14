@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch ListDomainNames API operation.", Operation = new[] {"ListDomainNames"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.ListDomainNamesResponse), LegacyAlias="Get-CSListDomainNames")]
     [AWSCmdletOutput("System.String or Amazon.CloudSearch.Model.ListDomainNamesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudSearch.Model.ListDomainNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.ListDomainNamesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSDomainNameListCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

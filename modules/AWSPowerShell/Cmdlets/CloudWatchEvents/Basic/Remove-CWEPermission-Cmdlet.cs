@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events RemovePermission API operation.", Operation = new[] {"RemovePermission"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.RemovePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.RemovePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.RemovePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEPermissionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

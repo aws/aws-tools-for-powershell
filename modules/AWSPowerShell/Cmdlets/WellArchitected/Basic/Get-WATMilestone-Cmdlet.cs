@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.GetMilestoneResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool GetMilestone API operation.", Operation = new[] {"GetMilestone"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.GetMilestoneResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.GetMilestoneResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.GetMilestoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.GetMilestoneResponse object containing multiple properties."
     )]
     public partial class GetWATMilestoneCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

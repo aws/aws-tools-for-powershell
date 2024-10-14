@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [OutputType("Amazon.GlueDataBrew.Model.DeleteRecipeVersionResponse")]
     [AWSCmdlet("Calls the AWS Glue DataBrew DeleteRecipeVersion API operation.", Operation = new[] {"DeleteRecipeVersion"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.DeleteRecipeVersionResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.DeleteRecipeVersionResponse",
-        "This cmdlet returns an Amazon.GlueDataBrew.Model.DeleteRecipeVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlueDataBrew.Model.DeleteRecipeVersionResponse object containing multiple properties."
     )]
     public partial class RemoveGDBRecipeVersionCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

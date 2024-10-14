@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere CreateTrustAnchor API operation.", Operation = new[] {"CreateTrustAnchor"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorResponse))]
     [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail or Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorResponse",
         "This cmdlet returns an Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail object.",
-        "The service call response (type Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.CreateTrustAnchorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIAMRATrustAnchorCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

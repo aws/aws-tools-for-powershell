@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [OutputType("Amazon.SSMContacts.Model.GetContactPolicyResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts GetContactPolicy API operation.", Operation = new[] {"GetContactPolicy"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.GetContactPolicyResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.GetContactPolicyResponse",
-        "This cmdlet returns an Amazon.SSMContacts.Model.GetContactPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSMContacts.Model.GetContactPolicyResponse object containing multiple properties."
     )]
     public partial class GetSMCContactPolicyCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

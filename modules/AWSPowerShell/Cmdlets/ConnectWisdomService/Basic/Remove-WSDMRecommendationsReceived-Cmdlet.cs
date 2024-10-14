@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [OutputType("Amazon.ConnectWisdomService.Model.NotifyRecommendationsReceivedResponse")]
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service NotifyRecommendationsReceived API operation.", Operation = new[] {"NotifyRecommendationsReceived"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.NotifyRecommendationsReceivedResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.NotifyRecommendationsReceivedResponse",
-        "This cmdlet returns an Amazon.ConnectWisdomService.Model.NotifyRecommendationsReceivedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectWisdomService.Model.NotifyRecommendationsReceivedResponse object containing multiple properties."
     )]
     public partial class RemoveWSDMRecommendationsReceivedCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

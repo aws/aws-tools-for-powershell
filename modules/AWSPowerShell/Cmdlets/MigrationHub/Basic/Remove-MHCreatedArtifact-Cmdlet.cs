@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub DisassociateCreatedArtifact API operation.", Operation = new[] {"DisassociateCreatedArtifact"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.DisassociateCreatedArtifactResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.DisassociateCreatedArtifactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHub.Model.DisassociateCreatedArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHub.Model.DisassociateCreatedArtifactResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHCreatedArtifactCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

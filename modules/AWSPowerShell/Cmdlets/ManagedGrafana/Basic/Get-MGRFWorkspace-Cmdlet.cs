@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana DescribeWorkspace API operation.", Operation = new[] {"DescribeWorkspace"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DescribeWorkspaceResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.WorkspaceDescription or Amazon.ManagedGrafana.Model.DescribeWorkspaceResponse",
         "This cmdlet returns an Amazon.ManagedGrafana.Model.WorkspaceDescription object.",
-        "The service call response (type Amazon.ManagedGrafana.Model.DescribeWorkspaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.DescribeWorkspaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGRFWorkspaceCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

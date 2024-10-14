@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station DeleteMissionProfile API operation.", Operation = new[] {"DeleteMissionProfile"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DeleteMissionProfileResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.DeleteMissionProfileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.DeleteMissionProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.DeleteMissionProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGSMissionProfileCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

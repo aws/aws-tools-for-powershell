@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [AWSCmdlet("Calls the Amplify Backend ListS3Buckets API operation.", Operation = new[] {"ListS3Buckets"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.ListS3BucketsResponse))]
     [AWSCmdletOutput("Amazon.AmplifyBackend.Model.S3BucketInfo or Amazon.AmplifyBackend.Model.ListS3BucketsResponse",
         "This cmdlet returns a collection of Amazon.AmplifyBackend.Model.S3BucketInfo objects.",
-        "The service call response (type Amazon.AmplifyBackend.Model.ListS3BucketsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyBackend.Model.ListS3BucketsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMPBS3BucketListCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

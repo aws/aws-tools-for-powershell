@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DeleteStreamProcessor API operation.", Operation = new[] {"DeleteStreamProcessor"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteStreamProcessorResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteStreamProcessorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.DeleteStreamProcessorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.DeleteStreamProcessorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveREKStreamProcessorCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

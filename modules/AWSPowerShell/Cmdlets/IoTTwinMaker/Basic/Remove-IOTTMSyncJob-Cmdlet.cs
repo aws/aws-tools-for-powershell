@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker DeleteSyncJob API operation.", Operation = new[] {"DeleteSyncJob"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.SyncJobState or Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse",
         "This cmdlet returns an Amazon.IoTTwinMaker.SyncJobState object.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTTMSyncJobCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

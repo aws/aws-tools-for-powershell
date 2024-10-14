@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.ClaimPhoneNumberResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service ClaimPhoneNumber API operation.", Operation = new[] {"ClaimPhoneNumber"}, SelectReturnType = typeof(Amazon.Connect.Model.ClaimPhoneNumberResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.ClaimPhoneNumberResponse",
-        "This cmdlet returns an Amazon.Connect.Model.ClaimPhoneNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.ClaimPhoneNumberResponse object containing multiple properties."
     )]
     public partial class RequestCONNPhoneNumberCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

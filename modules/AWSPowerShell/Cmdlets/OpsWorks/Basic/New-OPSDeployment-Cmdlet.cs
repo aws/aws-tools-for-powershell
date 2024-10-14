@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks CreateDeployment API operation.", Operation = new[] {"CreateDeployment"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.CreateDeploymentResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpsWorks.Model.CreateDeploymentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpsWorks.Model.CreateDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewOPSDeploymentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

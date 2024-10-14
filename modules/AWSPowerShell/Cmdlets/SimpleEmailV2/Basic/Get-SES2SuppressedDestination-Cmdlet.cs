@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetSuppressedDestination API operation.", Operation = new[] {"GetSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.SuppressedDestination or Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.SuppressedDestination object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetSuppressedDestinationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2SuppressedDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

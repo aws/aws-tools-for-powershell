@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph DeleteSystemTemplate API operation.", Operation = new[] {"DeleteSystemTemplate"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.DeleteSystemTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.DeleteSystemTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.DeleteSystemTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTThingsGraph.Model.DeleteSystemTemplateResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGSystemTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

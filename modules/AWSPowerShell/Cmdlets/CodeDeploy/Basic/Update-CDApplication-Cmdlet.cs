@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.UpdateApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.UpdateApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

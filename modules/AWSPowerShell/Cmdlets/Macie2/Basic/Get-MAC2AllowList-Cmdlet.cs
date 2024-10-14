@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.GetAllowListResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 GetAllowList API operation.", Operation = new[] {"GetAllowList"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetAllowListResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GetAllowListResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.GetAllowListResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.GetAllowListResponse object containing multiple properties."
     )]
     public partial class GetMAC2AllowListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

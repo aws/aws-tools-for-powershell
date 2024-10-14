@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateSMBFileShare API operation.", Operation = new[] {"UpdateSMBFileShare"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateSMBFileShareResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.UpdateSMBFileShareResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.UpdateSMBFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateSMBFileShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSGSMBFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

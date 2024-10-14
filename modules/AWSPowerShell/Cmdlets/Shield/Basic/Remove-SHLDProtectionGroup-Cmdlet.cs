@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DeleteProtectionGroup API operation.", Operation = new[] {"DeleteProtectionGroup"}, SelectReturnType = typeof(Amazon.Shield.Model.DeleteProtectionGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.DeleteProtectionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.DeleteProtectionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.DeleteProtectionGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHLDProtectionGroupCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

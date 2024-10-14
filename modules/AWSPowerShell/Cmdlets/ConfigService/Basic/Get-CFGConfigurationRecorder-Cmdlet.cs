@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DescribeConfigurationRecorders API operation.", Operation = new[] {"DescribeConfigurationRecorders"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse), LegacyAlias="Get-CFGConfigurationRecorders")]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorder or Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse",
         "This cmdlet returns a collection of Amazon.ConfigService.Model.ConfigurationRecorder objects.",
-        "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

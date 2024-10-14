@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateKeyGroupResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateKeyGroup API operation.", Operation = new[] {"CreateKeyGroup"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateKeyGroupResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateKeyGroupResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateKeyGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateKeyGroupResponse object containing multiple properties."
     )]
     public partial class NewCFKeyGroupCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

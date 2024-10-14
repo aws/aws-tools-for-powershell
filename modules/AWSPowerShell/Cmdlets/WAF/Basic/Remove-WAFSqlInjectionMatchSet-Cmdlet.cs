@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF DeleteSqlInjectionMatchSet API operation.", Operation = new[] {"DeleteSqlInjectionMatchSet"}, SelectReturnType = typeof(Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

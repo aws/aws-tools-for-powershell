@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider SetRiskConfiguration API operation.", Operation = new[] {"SetRiskConfiguration"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.SetRiskConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.RiskConfigurationType or Amazon.CognitoIdentityProvider.Model.SetRiskConfigurationResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.RiskConfigurationType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.SetRiskConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.SetRiskConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetCGIPRiskConfigurationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

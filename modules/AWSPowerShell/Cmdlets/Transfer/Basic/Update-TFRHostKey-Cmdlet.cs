@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [OutputType("Amazon.Transfer.Model.UpdateHostKeyResponse")]
     [AWSCmdlet("Calls the AWS Transfer for SFTP UpdateHostKey API operation.", Operation = new[] {"UpdateHostKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.UpdateHostKeyResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.UpdateHostKeyResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.UpdateHostKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Transfer.Model.UpdateHostKeyResponse object containing multiple properties."
     )]
     public partial class UpdateTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

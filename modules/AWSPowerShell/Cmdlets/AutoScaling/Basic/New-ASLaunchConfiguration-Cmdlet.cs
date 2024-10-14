@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling CreateLaunchConfiguration API operation.", Operation = new[] {"CreateLaunchConfiguration"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

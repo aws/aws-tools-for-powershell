@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT UpdateDynamicThingGroup API operation.", Operation = new[] {"UpdateDynamicThingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateDynamicThingGroupResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.IoT.Model.UpdateDynamicThingGroupResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.IoT.Model.UpdateDynamicThingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.UpdateDynamicThingGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTDynamicThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

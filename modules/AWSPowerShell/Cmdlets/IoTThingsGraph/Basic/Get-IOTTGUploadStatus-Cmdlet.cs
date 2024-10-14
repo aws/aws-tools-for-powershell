@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [OutputType("Amazon.IoTThingsGraph.Model.GetUploadStatusResponse")]
     [AWSCmdlet("Calls the AWS IoT Things Graph GetUploadStatus API operation.", Operation = new[] {"GetUploadStatus"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.GetUploadStatusResponse))]
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.GetUploadStatusResponse",
-        "This cmdlet returns an Amazon.IoTThingsGraph.Model.GetUploadStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTThingsGraph.Model.GetUploadStatusResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGUploadStatusCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

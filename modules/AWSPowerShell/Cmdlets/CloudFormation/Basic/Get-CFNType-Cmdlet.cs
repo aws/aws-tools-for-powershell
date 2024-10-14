@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeTypeResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeType API operation.", Operation = new[] {"DescribeType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeTypeResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeTypeResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeTypeResponse object containing multiple properties."
     )]
     public partial class GetCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

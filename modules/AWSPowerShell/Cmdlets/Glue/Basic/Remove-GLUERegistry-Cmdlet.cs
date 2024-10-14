@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.DeleteRegistryResponse")]
     [AWSCmdlet("Calls the AWS Glue DeleteRegistry API operation.", Operation = new[] {"DeleteRegistry"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteRegistryResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.DeleteRegistryResponse",
-        "This cmdlet returns an Amazon.Glue.Model.DeleteRegistryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.DeleteRegistryResponse object containing multiple properties."
     )]
     public partial class RemoveGLUERegistryCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

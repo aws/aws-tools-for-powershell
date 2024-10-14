@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteUsagePlan API operation.", Operation = new[] {"DeleteUsagePlan"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteUsagePlanResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteUsagePlanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteUsagePlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteUsagePlanResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGUsagePlanCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

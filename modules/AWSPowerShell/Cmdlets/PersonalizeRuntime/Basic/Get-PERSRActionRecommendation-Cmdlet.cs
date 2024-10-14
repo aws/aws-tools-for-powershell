@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
     [OutputType("Amazon.PersonalizeRuntime.Model.GetActionRecommendationsResponse")]
     [AWSCmdlet("Calls the Amazon Personalize Runtime GetActionRecommendations API operation.", Operation = new[] {"GetActionRecommendations"}, SelectReturnType = typeof(Amazon.PersonalizeRuntime.Model.GetActionRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.PersonalizeRuntime.Model.GetActionRecommendationsResponse",
-        "This cmdlet returns an Amazon.PersonalizeRuntime.Model.GetActionRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PersonalizeRuntime.Model.GetActionRecommendationsResponse object containing multiple properties."
     )]
     public partial class GetPERSRActionRecommendationCmdlet : AmazonPersonalizeRuntimeClientCmdlet, IExecutor
     {

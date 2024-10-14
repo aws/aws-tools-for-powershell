@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.DeleteResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.DeleteResourcePolicyResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.DeleteResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.DeleteResourcePolicyResponse object containing multiple properties."
     )]
     public partial class RemoveSECResourcePolicyCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

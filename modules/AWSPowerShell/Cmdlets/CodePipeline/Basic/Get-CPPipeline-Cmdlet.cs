@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [OutputType("Amazon.CodePipeline.Model.GetPipelineResponse")]
     [AWSCmdlet("Calls the AWS CodePipeline GetPipeline API operation.", Operation = new[] {"GetPipeline"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.GetPipelineResponse))]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.GetPipelineResponse",
-        "This cmdlet returns an Amazon.CodePipeline.Model.GetPipelineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodePipeline.Model.GetPipelineResponse object containing multiple properties."
     )]
     public partial class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat DisconnectUser API operation.", Operation = new[] {"DisconnectUser"}, SelectReturnType = typeof(Amazon.Ivschat.Model.DisconnectUserResponse))]
     [AWSCmdletOutput("None or Amazon.Ivschat.Model.DisconnectUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Ivschat.Model.DisconnectUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Ivschat.Model.DisconnectUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectIVSCUserCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 DeleteOriginEndpoint API operation.", Operation = new[] {"DeleteOriginEndpoint"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.DeleteOriginEndpointResponse))]
     [AWSCmdletOutput("None or Amazon.MediaPackageV2.Model.DeleteOriginEndpointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaPackageV2.Model.DeleteOriginEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackageV2.Model.DeleteOriginEndpointResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMPV2OriginEndpointCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

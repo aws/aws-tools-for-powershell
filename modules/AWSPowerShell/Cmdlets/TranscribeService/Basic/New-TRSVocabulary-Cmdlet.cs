@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [OutputType("Amazon.TranscribeService.Model.CreateVocabularyResponse")]
     [AWSCmdlet("Calls the Amazon Transcribe Service CreateVocabulary API operation.", Operation = new[] {"CreateVocabulary"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.CreateVocabularyResponse))]
     [AWSCmdletOutput("Amazon.TranscribeService.Model.CreateVocabularyResponse",
-        "This cmdlet returns an Amazon.TranscribeService.Model.CreateVocabularyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TranscribeService.Model.CreateVocabularyResponse object containing multiple properties."
     )]
     public partial class NewTRSVocabularyCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 CancelBatchJobExecution API operation.", Operation = new[] {"CancelBatchJobExecution"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopAMMBatchJobExecutionCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

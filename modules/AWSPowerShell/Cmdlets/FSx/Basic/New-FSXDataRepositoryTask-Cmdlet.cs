@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CreateDataRepositoryTask API operation.", Operation = new[] {"CreateDataRepositoryTask"}, SelectReturnType = typeof(Amazon.FSx.Model.CreateDataRepositoryTaskResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DataRepositoryTask or Amazon.FSx.Model.CreateDataRepositoryTaskResponse",
         "This cmdlet returns an Amazon.FSx.Model.DataRepositoryTask object.",
-        "The service call response (type Amazon.FSx.Model.CreateDataRepositoryTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CreateDataRepositoryTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFSXDataRepositoryTaskCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

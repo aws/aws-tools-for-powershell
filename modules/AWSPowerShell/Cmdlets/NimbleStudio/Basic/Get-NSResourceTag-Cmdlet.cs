@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.NimbleStudio.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.NimbleStudio.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSResourceTagCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

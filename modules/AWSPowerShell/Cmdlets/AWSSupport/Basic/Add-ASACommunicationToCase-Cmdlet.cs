@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support AddCommunicationToCase API operation.", Operation = new[] {"AddCommunicationToCase"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.AddCommunicationToCaseResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.AWSSupport.Model.AddCommunicationToCaseResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.AWSSupport.Model.AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.AddCommunicationToCaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddASACommunicationToCaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

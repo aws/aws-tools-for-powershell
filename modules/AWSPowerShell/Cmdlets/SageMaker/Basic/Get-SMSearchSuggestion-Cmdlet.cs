@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service GetSearchSuggestions API operation.", Operation = new[] {"GetSearchSuggestions"}, SelectReturnType = typeof(Amazon.SageMaker.Model.GetSearchSuggestionsResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.PropertyNameSuggestion or Amazon.SageMaker.Model.GetSearchSuggestionsResponse",
         "This cmdlet returns a collection of Amazon.SageMaker.Model.PropertyNameSuggestion objects.",
-        "The service call response (type Amazon.SageMaker.Model.GetSearchSuggestionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.GetSearchSuggestionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSearchSuggestionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

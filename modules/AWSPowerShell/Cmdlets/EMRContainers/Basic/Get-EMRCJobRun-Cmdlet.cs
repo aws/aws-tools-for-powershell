@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers DescribeJobRun API operation.", Operation = new[] {"DescribeJobRun"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DescribeJobRunResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.JobRun or Amazon.EMRContainers.Model.DescribeJobRunResponse",
         "This cmdlet returns an Amazon.EMRContainers.Model.JobRun object.",
-        "The service call response (type Amazon.EMRContainers.Model.DescribeJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRContainers.Model.DescribeJobRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRCJobRunCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

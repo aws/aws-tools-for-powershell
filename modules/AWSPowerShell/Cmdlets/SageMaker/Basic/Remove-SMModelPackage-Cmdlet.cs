@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteModelPackage API operation.", Operation = new[] {"DeleteModelPackage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteModelPackageResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteModelPackageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteModelPackageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteModelPackageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

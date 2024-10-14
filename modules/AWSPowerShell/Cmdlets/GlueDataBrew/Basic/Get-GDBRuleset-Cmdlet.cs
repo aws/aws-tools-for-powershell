@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [OutputType("Amazon.GlueDataBrew.Model.DescribeRulesetResponse")]
     [AWSCmdlet("Calls the AWS Glue DataBrew DescribeRuleset API operation.", Operation = new[] {"DescribeRuleset"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.DescribeRulesetResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.DescribeRulesetResponse",
-        "This cmdlet returns an Amazon.GlueDataBrew.Model.DescribeRulesetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlueDataBrew.Model.DescribeRulesetResponse object containing multiple properties."
     )]
     public partial class GetGDBRulesetCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

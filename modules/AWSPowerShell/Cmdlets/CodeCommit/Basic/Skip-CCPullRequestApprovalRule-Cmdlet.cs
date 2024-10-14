@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit OverridePullRequestApprovalRules API operation.", Operation = new[] {"OverridePullRequestApprovalRules"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.OverridePullRequestApprovalRulesResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCommit.Model.OverridePullRequestApprovalRulesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCommit.Model.OverridePullRequestApprovalRulesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.OverridePullRequestApprovalRulesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SkipCCPullRequestApprovalRuleCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

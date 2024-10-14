@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [OutputType("Amazon.NetworkManager.Model.UpdateNetworkResourceMetadataResponse")]
     [AWSCmdlet("Calls the AWS Network Manager UpdateNetworkResourceMetadata API operation.", Operation = new[] {"UpdateNetworkResourceMetadata"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.UpdateNetworkResourceMetadataResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.UpdateNetworkResourceMetadataResponse",
-        "This cmdlet returns an Amazon.NetworkManager.Model.UpdateNetworkResourceMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkManager.Model.UpdateNetworkResourceMetadataResponse object containing multiple properties."
     )]
     public partial class UpdateNMGRNetworkResourceMetadataCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service UpdateEndpointWeightsAndCapacities API operation.", Operation = new[] {"UpdateEndpointWeightsAndCapacities"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateEndpointWeightsAndCapacitiesResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateEndpointWeightsAndCapacitiesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateEndpointWeightsAndCapacitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateEndpointWeightsAndCapacitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMEndpointWeightAndCapacityCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

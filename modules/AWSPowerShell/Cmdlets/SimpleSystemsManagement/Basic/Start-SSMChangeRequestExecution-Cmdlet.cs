@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager StartChangeRequestExecution API operation.", Operation = new[] {"StartChangeRequestExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.StartChangeRequestExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartSSMChangeRequestExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

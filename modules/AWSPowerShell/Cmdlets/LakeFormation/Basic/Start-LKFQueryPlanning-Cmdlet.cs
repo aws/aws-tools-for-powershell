@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation StartQueryPlanning API operation.", Operation = new[] {"StartQueryPlanning"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.StartQueryPlanningResponse))]
     [AWSCmdletOutput("System.String or Amazon.LakeFormation.Model.StartQueryPlanningResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LakeFormation.Model.StartQueryPlanningResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.StartQueryPlanningResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartLKFQueryPlanningCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

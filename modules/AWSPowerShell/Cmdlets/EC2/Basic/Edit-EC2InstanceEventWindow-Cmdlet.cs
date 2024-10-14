@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceEventWindow API operation.", Operation = new[] {"ModifyInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceEventWindowResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceEventWindow or Amazon.EC2.Model.ModifyInstanceEventWindowResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceEventWindow object.",
-        "The service call response (type Amazon.EC2.Model.ModifyInstanceEventWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyInstanceEventWindowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2InstanceEventWindowCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

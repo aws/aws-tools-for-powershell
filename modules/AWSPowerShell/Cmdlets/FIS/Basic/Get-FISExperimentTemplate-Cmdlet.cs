@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator GetExperimentTemplate API operation.", Operation = new[] {"GetExperimentTemplate"}, SelectReturnType = typeof(Amazon.FIS.Model.GetExperimentTemplateResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.ExperimentTemplate or Amazon.FIS.Model.GetExperimentTemplateResponse",
         "This cmdlet returns an Amazon.FIS.Model.ExperimentTemplate object.",
-        "The service call response (type Amazon.FIS.Model.GetExperimentTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.GetExperimentTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFISExperimentTemplateCmdlet : AmazonFISClientCmdlet, IExecutor
     {

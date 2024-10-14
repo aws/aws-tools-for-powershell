@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks CloneStack API operation.", Operation = new[] {"CloneStack"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.CloneStackResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpsWorks.Model.CloneStackResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpsWorks.Model.CloneStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CloneStackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

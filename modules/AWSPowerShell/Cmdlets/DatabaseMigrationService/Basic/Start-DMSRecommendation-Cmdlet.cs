@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service StartRecommendations API operation.", Operation = new[] {"StartRecommendations"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.StartRecommendationsResponse))]
     [AWSCmdletOutput("None or Amazon.DatabaseMigrationService.Model.StartRecommendationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DatabaseMigrationService.Model.StartRecommendationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DatabaseMigrationService.Model.StartRecommendationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartDMSRecommendationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

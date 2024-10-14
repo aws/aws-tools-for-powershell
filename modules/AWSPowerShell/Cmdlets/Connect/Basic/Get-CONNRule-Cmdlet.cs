@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeRule API operation.", Operation = new[] {"DescribeRule"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeRuleResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.Rule or Amazon.Connect.Model.DescribeRuleResponse",
         "This cmdlet returns an Amazon.Connect.Model.Rule object.",
-        "The service call response (type Amazon.Connect.Model.DescribeRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNRuleCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [OutputType("Amazon.Batch.Model.CreateComputeEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Batch CreateComputeEnvironment API operation.", Operation = new[] {"CreateComputeEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.CreateComputeEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.CreateComputeEnvironmentResponse",
-        "This cmdlet returns an Amazon.Batch.Model.CreateComputeEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Batch.Model.CreateComputeEnvironmentResponse object containing multiple properties."
     )]
     public partial class NewBATComputeEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

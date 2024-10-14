@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service PromoteReadReplica API operation.", Operation = new[] {"PromoteReadReplica"}, SelectReturnType = typeof(Amazon.RDS.Model.PromoteReadReplicaResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance or Amazon.RDS.Model.PromoteReadReplicaResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBInstance object.",
-        "The service call response (type Amazon.RDS.Model.PromoteReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.PromoteReadReplicaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConvertRDSReadReplicaToStandaloneCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

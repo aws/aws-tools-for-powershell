@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteCidrCollection API operation.", Operation = new[] {"DeleteCidrCollection"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteCidrCollectionResponse))]
     [AWSCmdletOutput("None or Amazon.Route53.Model.DeleteCidrCollectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53.Model.DeleteCidrCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteCidrCollectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53CidrCollectionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

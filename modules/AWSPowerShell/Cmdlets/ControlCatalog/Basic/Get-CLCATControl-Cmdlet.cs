@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
     [OutputType("Amazon.ControlCatalog.Model.GetControlResponse")]
     [AWSCmdlet("Calls the AWS Control Catalog GetControl API operation.", Operation = new[] {"GetControl"}, SelectReturnType = typeof(Amazon.ControlCatalog.Model.GetControlResponse))]
     [AWSCmdletOutput("Amazon.ControlCatalog.Model.GetControlResponse",
-        "This cmdlet returns an Amazon.ControlCatalog.Model.GetControlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ControlCatalog.Model.GetControlResponse object containing multiple properties."
     )]
     public partial class GetCLCATControlCmdlet : AmazonControlCatalogClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifyStreamingProperties API operation.", Operation = new[] {"ModifyStreamingProperties"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifyStreamingPropertiesResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifyStreamingPropertiesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifyStreamingPropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.ModifyStreamingPropertiesResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditWKSStreamingPropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

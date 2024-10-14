@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaPackageVod.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaPackageVod.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackageVod.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEMPVResourceTagCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {

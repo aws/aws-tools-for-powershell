@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway JoinDomain API operation.", Operation = new[] {"JoinDomain"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.JoinDomainResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.JoinDomainResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.JoinDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.JoinDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class JoinSGDomainCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

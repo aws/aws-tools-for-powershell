@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeInstanceStorageConfig API operation.", Operation = new[] {"DescribeInstanceStorageConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeInstanceStorageConfigResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.InstanceStorageConfig or Amazon.Connect.Model.DescribeInstanceStorageConfigResponse",
         "This cmdlet returns an Amazon.Connect.Model.InstanceStorageConfig object.",
-        "The service call response (type Amazon.Connect.Model.DescribeInstanceStorageConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeInstanceStorageConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNInstanceStorageConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

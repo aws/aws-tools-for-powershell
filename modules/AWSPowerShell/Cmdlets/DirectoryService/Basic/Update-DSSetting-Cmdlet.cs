@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service UpdateSettings API operation.", Operation = new[] {"UpdateSettings"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.UpdateSettingsResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.UpdateSettingsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.UpdateSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.UpdateSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSSettingCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

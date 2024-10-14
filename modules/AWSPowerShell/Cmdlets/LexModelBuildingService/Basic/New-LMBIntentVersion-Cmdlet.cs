@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.CreateIntentVersionResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service CreateIntentVersion API operation.", Operation = new[] {"CreateIntentVersion"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.CreateIntentVersionResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.CreateIntentVersionResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateIntentVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateIntentVersionResponse object containing multiple properties."
     )]
     public partial class NewLMBIntentVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

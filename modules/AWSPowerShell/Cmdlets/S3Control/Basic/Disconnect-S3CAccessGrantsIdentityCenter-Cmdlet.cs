@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DissociateAccessGrantsIdentityCenter API operation.", Operation = new[] {"DissociateAccessGrantsIdentityCenter"}, SelectReturnType = typeof(Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DissociateAccessGrantsIdentityCenterResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectS3CAccessGrantsIdentityCenterCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

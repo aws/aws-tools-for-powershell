@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DetectToxicContent API operation.", Operation = new[] {"DetectToxicContent"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DetectToxicContentResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.ToxicLabels or Amazon.Comprehend.Model.DetectToxicContentResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.ToxicLabels objects.",
-        "The service call response (type Amazon.Comprehend.Model.DetectToxicContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DetectToxicContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCOMPToxicContentCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.UpdateBridgeStateResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect UpdateBridgeState API operation.", Operation = new[] {"UpdateBridgeState"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.UpdateBridgeStateResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.UpdateBridgeStateResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.UpdateBridgeStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.UpdateBridgeStateResponse object containing multiple properties."
     )]
     public partial class UpdateEMCNBridgeStateCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

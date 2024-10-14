@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeleteIPSet API operation.", Operation = new[] {"DeleteIPSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeleteIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.DeleteIPSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.DeleteIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.DeleteIPSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRIPSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

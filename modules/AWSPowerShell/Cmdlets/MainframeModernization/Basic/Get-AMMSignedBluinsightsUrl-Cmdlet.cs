@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 GetSignedBluinsightsUrl API operation.", Operation = new[] {"GetSignedBluinsightsUrl"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.GetSignedBluinsightsUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMSignedBluinsightsUrlCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

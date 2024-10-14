@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeletePodIdentityAssociation API operation.", Operation = new[] {"DeletePodIdentityAssociation"}, SelectReturnType = typeof(Amazon.EKS.Model.DeletePodIdentityAssociationResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.PodIdentityAssociation or Amazon.EKS.Model.DeletePodIdentityAssociationResponse",
         "This cmdlet returns an Amazon.EKS.Model.PodIdentityAssociation object.",
-        "The service call response (type Amazon.EKS.Model.DeletePodIdentityAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DeletePodIdentityAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEKSPodIdentityAssociationCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

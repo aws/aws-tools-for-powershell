@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     [AWSCmdlet("Calls the Redshift Data API Service CancelStatement API operation.", Operation = new[] {"CancelStatement"}, SelectReturnType = typeof(Amazon.RedshiftDataAPIService.Model.CancelStatementResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.RedshiftDataAPIService.Model.CancelStatementResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.RedshiftDataAPIService.Model.CancelStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftDataAPIService.Model.CancelStatementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopRSDStatementCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
     [OutputType("Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront KeyValueStore DeleteKey API operation.", Operation = new[] {"DeleteKey"}, SelectReturnType = typeof(Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse))]
     [AWSCmdletOutput("Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse",
-        "This cmdlet returns an Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFrontKeyValueStore.Model.DeleteKeyResponse object containing multiple properties."
     )]
     public partial class RemoveCFKVKeyCmdlet : AmazonCloudFrontKeyValueStoreClientCmdlet, IExecutor
     {

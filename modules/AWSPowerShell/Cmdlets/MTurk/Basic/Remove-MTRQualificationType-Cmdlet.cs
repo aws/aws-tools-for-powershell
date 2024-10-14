@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service DeleteQualificationType API operation.", Operation = new[] {"DeleteQualificationType"}, SelectReturnType = typeof(Amazon.MTurk.Model.DeleteQualificationTypeResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.DeleteQualificationTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.DeleteQualificationTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.DeleteQualificationTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMTRQualificationTypeCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

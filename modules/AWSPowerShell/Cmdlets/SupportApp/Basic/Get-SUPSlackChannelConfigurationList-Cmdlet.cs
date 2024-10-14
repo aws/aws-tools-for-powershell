@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [AWSCmdlet("Calls the AWS Support App ListSlackChannelConfigurations API operation.", Operation = new[] {"ListSlackChannelConfigurations"}, SelectReturnType = typeof(Amazon.SupportApp.Model.ListSlackChannelConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.SupportApp.Model.SlackChannelConfiguration or Amazon.SupportApp.Model.ListSlackChannelConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.SupportApp.Model.SlackChannelConfiguration objects.",
-        "The service call response (type Amazon.SupportApp.Model.ListSlackChannelConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupportApp.Model.ListSlackChannelConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSUPSlackChannelConfigurationListCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

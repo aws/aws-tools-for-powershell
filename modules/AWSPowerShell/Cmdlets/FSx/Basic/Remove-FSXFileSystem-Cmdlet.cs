@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteFileSystemResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteFileSystem API operation.", Operation = new[] {"DeleteFileSystem"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteFileSystemResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteFileSystemResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteFileSystemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteFileSystemResponse object containing multiple properties."
     )]
     public partial class RemoveFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

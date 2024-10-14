@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [OutputType("Amazon.LakeFormation.Model.GetResourceLFTagsResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation GetResourceLFTags API operation.", Operation = new[] {"GetResourceLFTags"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetResourceLFTagsResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.GetResourceLFTagsResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.GetResourceLFTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetResourceLFTagsResponse object containing multiple properties."
     )]
     public partial class GetLKFResourceLFTagCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

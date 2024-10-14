@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
     [OutputType("Amazon.CostOptimizationHub.Model.GetRecommendationResponse")]
     [AWSCmdlet("Calls the Cost Optimization Hub GetRecommendation API operation.", Operation = new[] {"GetRecommendation"}, SelectReturnType = typeof(Amazon.CostOptimizationHub.Model.GetRecommendationResponse))]
     [AWSCmdletOutput("Amazon.CostOptimizationHub.Model.GetRecommendationResponse",
-        "This cmdlet returns an Amazon.CostOptimizationHub.Model.GetRecommendationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostOptimizationHub.Model.GetRecommendationResponse object containing multiple properties."
     )]
     public partial class GetCOHRecommendationCmdlet : AmazonCostOptimizationHubClientCmdlet, IExecutor
     {

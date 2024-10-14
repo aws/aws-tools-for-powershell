@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social ListLinkedWhatsAppBusinessAccounts API operation.", Operation = new[] {"ListLinkedWhatsAppBusinessAccounts"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.ListLinkedWhatsAppBusinessAccountsResponse))]
     [AWSCmdletOutput("Amazon.SocialMessaging.Model.LinkedWhatsAppBusinessAccountSummary or Amazon.SocialMessaging.Model.ListLinkedWhatsAppBusinessAccountsResponse",
         "This cmdlet returns a collection of Amazon.SocialMessaging.Model.LinkedWhatsAppBusinessAccountSummary objects.",
-        "The service call response (type Amazon.SocialMessaging.Model.ListLinkedWhatsAppBusinessAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SocialMessaging.Model.ListLinkedWhatsAppBusinessAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSOCIALLinkedWhatsAppBusinessAccountListCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

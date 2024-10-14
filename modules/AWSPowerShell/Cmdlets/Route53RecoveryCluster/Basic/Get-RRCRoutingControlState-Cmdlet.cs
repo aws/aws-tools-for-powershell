@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     [OutputType("Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse")]
     [AWSCmdlet("Calls the Route53 Recovery Cluster GetRoutingControlState API operation.", Operation = new[] {"GetRoutingControlState"}, SelectReturnType = typeof(Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse",
-        "This cmdlet returns an Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53RecoveryCluster.Model.GetRoutingControlStateResponse object containing multiple properties."
     )]
     public partial class GetRRCRoutingControlStateCmdlet : AmazonRoute53RecoveryClusterClientCmdlet, IExecutor
     {

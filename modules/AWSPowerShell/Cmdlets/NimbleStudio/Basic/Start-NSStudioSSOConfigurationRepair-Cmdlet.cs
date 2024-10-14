@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio StartStudioSSOConfigurationRepair API operation.", Operation = new[] {"StartStudioSSOConfigurationRepair"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.StartStudioSSOConfigurationRepairResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.Studio or Amazon.NimbleStudio.Model.StartStudioSSOConfigurationRepairResponse",
         "This cmdlet returns an Amazon.NimbleStudio.Model.Studio object.",
-        "The service call response (type Amazon.NimbleStudio.Model.StartStudioSSOConfigurationRepairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.StartStudioSSOConfigurationRepairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartNSStudioSSOConfigurationRepairCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

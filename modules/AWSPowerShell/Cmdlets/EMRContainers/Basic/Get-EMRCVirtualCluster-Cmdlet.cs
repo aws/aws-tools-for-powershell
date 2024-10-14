@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers DescribeVirtualCluster API operation.", Operation = new[] {"DescribeVirtualCluster"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DescribeVirtualClusterResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.VirtualCluster or Amazon.EMRContainers.Model.DescribeVirtualClusterResponse",
         "This cmdlet returns an Amazon.EMRContainers.Model.VirtualCluster object.",
-        "The service call response (type Amazon.EMRContainers.Model.DescribeVirtualClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRContainers.Model.DescribeVirtualClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRCVirtualClusterCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

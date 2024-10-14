@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit GetCommit API operation.", Operation = new[] {"GetCommit"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetCommitResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.Commit or Amazon.CodeCommit.Model.GetCommitResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.Commit object.",
-        "The service call response (type Amazon.CodeCommit.Model.GetCommitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.GetCommitResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

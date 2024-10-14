@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSVResourceTagCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

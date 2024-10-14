@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetDiskSnapshot API operation.", Operation = new[] {"GetDiskSnapshot"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetDiskSnapshotResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.DiskSnapshot or Amazon.Lightsail.Model.GetDiskSnapshotResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.DiskSnapshot object.",
-        "The service call response (type Amazon.Lightsail.Model.GetDiskSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetDiskSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSDiskSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

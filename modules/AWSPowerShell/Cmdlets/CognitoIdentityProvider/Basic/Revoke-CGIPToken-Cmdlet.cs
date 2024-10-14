@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider RevokeToken API operation.", Operation = new[] {"RevokeToken"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.RevokeTokenResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.RevokeTokenResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.RevokeTokenResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.RevokeTokenResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeCGIPTokenCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AuthorizeSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeSecurityGroupIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse object containing multiple properties."
     )]
     public partial class GrantEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

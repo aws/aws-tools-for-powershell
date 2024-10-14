@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 SetSecurityGroups API operation.", Operation = new[] {"SetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSecurityGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetELB2SecurityGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer ExportAutoScalingGroupRecommendations API operation.", Operation = new[] {"ExportAutoScalingGroupRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse object containing multiple properties."
     )]
     public partial class ExportCOAutoScalingGroupRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

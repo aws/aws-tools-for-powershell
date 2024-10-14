@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis CreateStream API operation.", Operation = new[] {"CreateStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.CreateStreamResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.CreateStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.CreateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.CreateStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

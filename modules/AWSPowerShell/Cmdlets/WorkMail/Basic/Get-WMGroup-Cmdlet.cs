@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.DescribeGroupResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail DescribeGroup API operation.", Operation = new[] {"DescribeGroup"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DescribeGroupResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.DescribeGroupResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.DescribeGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.DescribeGroupResponse object containing multiple properties."
     )]
     public partial class GetWMGroupCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

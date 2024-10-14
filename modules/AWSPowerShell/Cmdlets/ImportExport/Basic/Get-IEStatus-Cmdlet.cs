@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.GetStatusResponse")]
     [AWSCmdlet("Calls the AWS Import/Export GetStatus API operation.", Operation = new[] {"GetStatus"}, SelectReturnType = typeof(Amazon.ImportExport.Model.GetStatusResponse))]
     [AWSCmdletOutput("Amazon.ImportExport.Model.GetStatusResponse",
-        "This cmdlet returns an Amazon.ImportExport.Model.GetStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ImportExport.Model.GetStatusResponse object containing multiple properties."
     )]
     public partial class GetIEStatusCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

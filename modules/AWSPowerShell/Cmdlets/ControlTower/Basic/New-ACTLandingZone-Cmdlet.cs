@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [OutputType("Amazon.ControlTower.Model.CreateLandingZoneResponse")]
     [AWSCmdlet("Calls the AWS Control Tower CreateLandingZone API operation.", Operation = new[] {"CreateLandingZone"}, SelectReturnType = typeof(Amazon.ControlTower.Model.CreateLandingZoneResponse))]
     [AWSCmdletOutput("Amazon.ControlTower.Model.CreateLandingZoneResponse",
-        "This cmdlet returns an Amazon.ControlTower.Model.CreateLandingZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ControlTower.Model.CreateLandingZoneResponse object containing multiple properties."
     )]
     public partial class NewACTLandingZoneCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

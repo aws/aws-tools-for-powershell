@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.RunTaskResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service RunTask API operation.", Operation = new[] {"RunTask"}, SelectReturnType = typeof(Amazon.ECS.Model.RunTaskResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.RunTaskResponse",
-        "This cmdlet returns an Amazon.ECS.Model.RunTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.RunTaskResponse object containing multiple properties."
     )]
     public partial class NewECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {

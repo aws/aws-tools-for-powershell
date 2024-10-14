@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager RenewCertificate API operation.", Operation = new[] {"RenewCertificate"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.RenewCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.CertificateManager.Model.RenewCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CertificateManager.Model.RenewCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.RenewCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class InvokeACMCertificateRenewalCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DeleteGameSessionQueue API operation.", Operation = new[] {"DeleteGameSessionQueue"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteGameSessionQueueResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteGameSessionQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeleteGameSessionQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.DeleteGameSessionQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGMLGameSessionQueueCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

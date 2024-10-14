@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [AWSCmdlet("Calls the AWS Support App CreateSlackChannelConfiguration API operation.", Operation = new[] {"CreateSlackChannelConfiguration"}, SelectReturnType = typeof(Amazon.SupportApp.Model.CreateSlackChannelConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SupportApp.Model.CreateSlackChannelConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SupportApp.Model.CreateSlackChannelConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SupportApp.Model.CreateSlackChannelConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSUPSlackChannelConfigurationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

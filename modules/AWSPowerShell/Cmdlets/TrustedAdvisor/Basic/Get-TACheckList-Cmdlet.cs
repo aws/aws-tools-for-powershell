@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
     [AWSCmdlet("Calls the Trusted Advisor ListChecks API operation.", Operation = new[] {"ListChecks"}, SelectReturnType = typeof(Amazon.TrustedAdvisor.Model.ListChecksResponse))]
     [AWSCmdletOutput("Amazon.TrustedAdvisor.Model.CheckSummary or Amazon.TrustedAdvisor.Model.ListChecksResponse",
         "This cmdlet returns a collection of Amazon.TrustedAdvisor.Model.CheckSummary objects.",
-        "The service call response (type Amazon.TrustedAdvisor.Model.ListChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TrustedAdvisor.Model.ListChecksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTACheckListCmdlet : AmazonTrustedAdvisorClientCmdlet, IExecutor
     {

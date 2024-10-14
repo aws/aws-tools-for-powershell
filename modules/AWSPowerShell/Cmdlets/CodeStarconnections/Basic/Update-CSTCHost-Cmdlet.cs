@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections UpdateHost API operation.", Operation = new[] {"UpdateHost"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.UpdateHostResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.UpdateHostResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.UpdateHostResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarconnections.Model.UpdateHostResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCSTCHostCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge DeleteEventBus API operation.", Operation = new[] {"DeleteEventBus"}, SelectReturnType = typeof(Amazon.EventBridge.Model.DeleteEventBusResponse))]
     [AWSCmdletOutput("None or Amazon.EventBridge.Model.DeleteEventBusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EventBridge.Model.DeleteEventBusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EventBridge.Model.DeleteEventBusResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEVBEventBusCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

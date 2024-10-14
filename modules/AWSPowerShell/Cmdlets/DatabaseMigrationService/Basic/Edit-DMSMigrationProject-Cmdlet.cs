@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service ModifyMigrationProject API operation.", Operation = new[] {"ModifyMigrationProject"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.ModifyMigrationProjectResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.MigrationProject or Amazon.DatabaseMigrationService.Model.ModifyMigrationProjectResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.MigrationProject object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyMigrationProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyMigrationProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditDMSMigrationProjectCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

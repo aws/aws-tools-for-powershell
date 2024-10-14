@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty DeleteInvitations API operation.", Operation = new[] {"DeleteInvitations"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DeleteInvitationsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UnprocessedAccount or Amazon.GuardDuty.Model.DeleteInvitationsResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.GuardDuty.Model.DeleteInvitationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.DeleteInvitationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

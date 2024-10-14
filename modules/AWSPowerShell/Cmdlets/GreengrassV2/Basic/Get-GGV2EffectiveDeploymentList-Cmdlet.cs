@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 ListEffectiveDeployments API operation.", Operation = new[] {"ListEffectiveDeployments"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.ListEffectiveDeploymentsResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.EffectiveDeployment or Amazon.GreengrassV2.Model.ListEffectiveDeploymentsResponse",
         "This cmdlet returns a collection of Amazon.GreengrassV2.Model.EffectiveDeployment objects.",
-        "The service call response (type Amazon.GreengrassV2.Model.ListEffectiveDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.ListEffectiveDeploymentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGV2EffectiveDeploymentListCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

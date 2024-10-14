@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarconnections.Model.DeleteConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarconnections.Model.DeleteConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarconnections.Model.DeleteConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSTCConnectionCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

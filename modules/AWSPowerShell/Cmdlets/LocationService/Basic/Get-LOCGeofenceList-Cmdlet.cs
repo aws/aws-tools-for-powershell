@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service ListGeofences API operation.", Operation = new[] {"ListGeofences"}, SelectReturnType = typeof(Amazon.LocationService.Model.ListGeofencesResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.ListGeofenceResponseEntry or Amazon.LocationService.Model.ListGeofencesResponse",
         "This cmdlet returns a collection of Amazon.LocationService.Model.ListGeofenceResponseEntry objects.",
-        "The service call response (type Amazon.LocationService.Model.ListGeofencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LocationService.Model.ListGeofencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOCGeofenceListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

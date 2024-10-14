@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit GetBlob API operation.", Operation = new[] {"GetBlob"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetBlobResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.CodeCommit.Model.GetBlobResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.CodeCommit.Model.GetBlobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.GetBlobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCBlobCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

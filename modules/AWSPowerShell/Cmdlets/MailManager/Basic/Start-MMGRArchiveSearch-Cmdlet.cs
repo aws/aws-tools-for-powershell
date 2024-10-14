@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager StartArchiveSearch API operation.", Operation = new[] {"StartArchiveSearch"}, SelectReturnType = typeof(Amazon.MailManager.Model.StartArchiveSearchResponse))]
     [AWSCmdletOutput("System.String or Amazon.MailManager.Model.StartArchiveSearchResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MailManager.Model.StartArchiveSearchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.StartArchiveSearchResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMMGRArchiveSearchCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

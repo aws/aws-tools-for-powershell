@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.Tag or Amazon.LookoutEquipment.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.Tag objects.",
-        "The service call response (type Amazon.LookoutEquipment.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutEquipment.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetL4EResourceTagCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

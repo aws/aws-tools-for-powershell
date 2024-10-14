@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CreateVolumeFromBackup API operation.", Operation = new[] {"CreateVolumeFromBackup"}, SelectReturnType = typeof(Amazon.FSx.Model.CreateVolumeFromBackupResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.Volume or Amazon.FSx.Model.CreateVolumeFromBackupResponse",
         "This cmdlet returns an Amazon.FSx.Model.Volume object.",
-        "The service call response (type Amazon.FSx.Model.CreateVolumeFromBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CreateVolumeFromBackupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFSXVolumeFromBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

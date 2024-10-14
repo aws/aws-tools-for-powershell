@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachTrafficSources API operation.", Operation = new[] {"AttachTrafficSources"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachTrafficSourcesResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachTrafficSourcesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachTrafficSourcesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachTrafficSourcesResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddASTrafficSourceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

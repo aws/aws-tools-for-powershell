@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness UpdateChatControlsConfiguration API operation.", Operation = new[] {"UpdateChatControlsConfiguration"}, SelectReturnType = typeof(Amazon.QBusiness.Model.UpdateChatControlsConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.UpdateChatControlsConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.UpdateChatControlsConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.UpdateChatControlsConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateQBUSChatControlsConfigurationCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

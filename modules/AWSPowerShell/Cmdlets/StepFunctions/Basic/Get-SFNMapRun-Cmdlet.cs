@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.DescribeMapRunResponse")]
     [AWSCmdlet("Calls the AWS Step Functions DescribeMapRun API operation.", Operation = new[] {"DescribeMapRun"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DescribeMapRunResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeMapRunResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeMapRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeMapRunResponse object containing multiple properties."
     )]
     public partial class GetSFNMapRunCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

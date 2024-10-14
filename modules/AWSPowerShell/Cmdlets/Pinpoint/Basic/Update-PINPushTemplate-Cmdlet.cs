@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint UpdatePushTemplate API operation.", Operation = new[] {"UpdatePushTemplate"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.UpdatePushTemplateResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.MessageBody or Amazon.Pinpoint.Model.UpdatePushTemplateResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.MessageBody object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdatePushTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.UpdatePushTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePINPushTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

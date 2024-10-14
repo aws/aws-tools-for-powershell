@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [OutputType("Amazon.ConnectCases.Model.BatchGetFieldResponse")]
     [AWSCmdlet("Calls the Amazon Connect Cases BatchGetField API operation.", Operation = new[] {"BatchGetField"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.BatchGetFieldResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.BatchGetFieldResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.BatchGetFieldResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectCases.Model.BatchGetFieldResponse object containing multiple properties."
     )]
     public partial class GroupCCASGetFieldCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

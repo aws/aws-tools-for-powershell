@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DescribeTopicResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DescribeTopic API operation.", Operation = new[] {"DescribeTopic"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeTopicResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DescribeTopicResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DescribeTopicResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DescribeTopicResponse object containing multiple properties."
     )]
     public partial class GetQSTopicCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

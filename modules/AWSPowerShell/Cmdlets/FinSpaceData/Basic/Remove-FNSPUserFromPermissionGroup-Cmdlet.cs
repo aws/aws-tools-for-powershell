@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API DisassociateUserFromPermissionGroup API operation.", Operation = new[] {"DisassociateUserFromPermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFNSPUserFromPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

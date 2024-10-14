@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateQueueResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateQueue API operation.", Operation = new[] {"CreateQueue"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateQueueResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateQueueResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateQueueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateQueueResponse object containing multiple properties."
     )]
     public partial class NewCONNQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

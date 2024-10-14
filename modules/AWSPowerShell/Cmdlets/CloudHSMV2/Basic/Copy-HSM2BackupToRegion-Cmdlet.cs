@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 CopyBackupToRegion API operation.", Operation = new[] {"CopyBackupToRegion"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.CopyBackupToRegionResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.DestinationBackup or Amazon.CloudHSMV2.Model.CopyBackupToRegionResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.DestinationBackup object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.CopyBackupToRegionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.CopyBackupToRegionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyHSM2BackupToRegionCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

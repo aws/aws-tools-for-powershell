@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [AWSCmdlet("Calls the AmazonMWAA PublishMetrics API operation.", Operation = new[] {"PublishMetrics"}, SelectReturnType = typeof(Amazon.MWAA.Model.PublishMetricsResponse))]
     [AWSCmdletOutput("None or Amazon.MWAA.Model.PublishMetricsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.PublishMetricsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MWAA.Model.PublishMetricsResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is for internal use and not meant for public use, and is no longer available.")]
     public partial class PublishMWAAMetricCmdlet : AmazonMWAAClientCmdlet, IExecutor

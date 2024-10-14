@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.DeleteClusterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.DeleteClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMClusterCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

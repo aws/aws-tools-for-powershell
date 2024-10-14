@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.FinalizeCutoverResponse")]
     [AWSCmdlet("Calls the Application Migration Service FinalizeCutover API operation.", Operation = new[] {"FinalizeCutover"}, SelectReturnType = typeof(Amazon.Mgn.Model.FinalizeCutoverResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.FinalizeCutoverResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.FinalizeCutoverResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.FinalizeCutoverResponse object containing multiple properties."
     )]
     public partial class CompleteMGNCutoverCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.ListCoverageStatisticsResponse")]
     [AWSCmdlet("Calls the Inspector2 ListCoverageStatistics API operation.", Operation = new[] {"ListCoverageStatistics"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListCoverageStatisticsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.ListCoverageStatisticsResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.ListCoverageStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.ListCoverageStatisticsResponse object containing multiple properties."
     )]
     public partial class GetINS2CoverageStatisticListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

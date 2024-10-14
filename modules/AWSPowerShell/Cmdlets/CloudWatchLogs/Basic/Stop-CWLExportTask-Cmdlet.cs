@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs CancelExportTask API operation.", Operation = new[] {"CancelExportTask"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CancelExportTaskResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.CancelExportTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.CancelExportTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.CancelExportTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

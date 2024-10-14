@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama RemoveApplicationInstance API operation.", Operation = new[] {"RemoveApplicationInstance"}, SelectReturnType = typeof(Amazon.Panorama.Model.RemoveApplicationInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.Panorama.Model.RemoveApplicationInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Panorama.Model.RemoveApplicationInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Panorama.Model.RemoveApplicationInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePANApplicationInstanceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

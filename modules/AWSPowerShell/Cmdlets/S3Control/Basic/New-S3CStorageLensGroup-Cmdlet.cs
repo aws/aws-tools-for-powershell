@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control CreateStorageLensGroup API operation.", Operation = new[] {"CreateStorageLensGroup"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateStorageLensGroupResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.CreateStorageLensGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.CreateStorageLensGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.CreateStorageLensGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewS3CStorageLensGroupCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

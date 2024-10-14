@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackDriftDetectionStatus API operation.", Operation = new[] {"DescribeStackDriftDetectionStatus"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse object containing multiple properties."
     )]
     public partial class GetCFNStackDriftDetectionStatusCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [AWSCmdlet("Calls the Amazon Medical Imaging Service GetDatastore API operation.", Operation = new[] {"GetDatastore"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.GetDatastoreResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.DatastoreProperties or Amazon.MedicalImaging.Model.GetDatastoreResponse",
         "This cmdlet returns an Amazon.MedicalImaging.Model.DatastoreProperties object.",
-        "The service call response (type Amazon.MedicalImaging.Model.GetDatastoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MedicalImaging.Model.GetDatastoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMISDatastoreCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

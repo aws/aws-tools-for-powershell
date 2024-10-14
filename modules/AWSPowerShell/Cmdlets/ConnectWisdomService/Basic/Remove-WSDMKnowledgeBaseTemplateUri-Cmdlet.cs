@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service RemoveKnowledgeBaseTemplateUri API operation.", Operation = new[] {"RemoveKnowledgeBaseTemplateUri"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.RemoveKnowledgeBaseTemplateUriResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectWisdomService.Model.RemoveKnowledgeBaseTemplateUriResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectWisdomService.Model.RemoveKnowledgeBaseTemplateUriResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectWisdomService.Model.RemoveKnowledgeBaseTemplateUriResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSDMKnowledgeBaseTemplateUriCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

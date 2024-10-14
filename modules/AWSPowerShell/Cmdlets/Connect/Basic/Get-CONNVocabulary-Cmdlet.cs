@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeVocabulary API operation.", Operation = new[] {"DescribeVocabulary"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeVocabularyResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.Vocabulary or Amazon.Connect.Model.DescribeVocabularyResponse",
         "This cmdlet returns an Amazon.Connect.Model.Vocabulary object.",
-        "The service call response (type Amazon.Connect.Model.DescribeVocabularyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeVocabularyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNVocabularyCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

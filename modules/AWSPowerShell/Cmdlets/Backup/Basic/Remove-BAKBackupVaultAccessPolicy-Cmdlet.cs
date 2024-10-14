@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DeleteBackupVaultAccessPolicy API operation.", Operation = new[] {"DeleteBackupVaultAccessPolicy"}, SelectReturnType = typeof(Amazon.Backup.Model.DeleteBackupVaultAccessPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.DeleteBackupVaultAccessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.DeleteBackupVaultAccessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.DeleteBackupVaultAccessPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBAKBackupVaultAccessPolicyCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

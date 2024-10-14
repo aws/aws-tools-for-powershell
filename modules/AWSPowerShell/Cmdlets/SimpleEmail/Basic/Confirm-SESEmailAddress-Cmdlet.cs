@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) VerifyEmailAddress API operation.", Operation = new[] {"VerifyEmailAddress"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.VerifyEmailAddressResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.VerifyEmailAddressResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.VerifyEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.VerifyEmailAddressResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmSESEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

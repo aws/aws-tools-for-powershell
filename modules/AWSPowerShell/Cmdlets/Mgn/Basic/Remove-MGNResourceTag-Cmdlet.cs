@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Mgn.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGNResourceTagCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

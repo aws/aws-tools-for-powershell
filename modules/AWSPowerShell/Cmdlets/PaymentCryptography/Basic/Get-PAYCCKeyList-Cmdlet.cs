@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane ListKeys API operation.", Operation = new[] {"ListKeys"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.ListKeysResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.KeySummary or Amazon.PaymentCryptography.Model.ListKeysResponse",
         "This cmdlet returns a collection of Amazon.PaymentCryptography.Model.KeySummary objects.",
-        "The service call response (type Amazon.PaymentCryptography.Model.ListKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.ListKeysResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPAYCCKeyListCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

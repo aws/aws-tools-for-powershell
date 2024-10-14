@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.GetBucketVersioningResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketVersioningResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetBucketVersioningResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.GetBucketVersioningResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.GetBucketVersioningResponse object containing multiple properties."
     )]
     public partial class GetS3CBucketVersioningCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

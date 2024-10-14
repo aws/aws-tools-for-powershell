@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     [AWSCmdlet("Calls the Amazon OpenSearch Ingestion StopPipeline API operation.", Operation = new[] {"StopPipeline"}, SelectReturnType = typeof(Amazon.OSIS.Model.StopPipelineResponse))]
     [AWSCmdletOutput("Amazon.OSIS.Model.Pipeline or Amazon.OSIS.Model.StopPipelineResponse",
         "This cmdlet returns an Amazon.OSIS.Model.Pipeline object.",
-        "The service call response (type Amazon.OSIS.Model.StopPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OSIS.Model.StopPipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopOSISPipelineCmdlet : AmazonOSISClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     [OutputType("Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock Runtime InvokeModelWithResponseStream API operation.", Operation = new[] {"InvokeModelWithResponseStream"}, SelectReturnType = typeof(Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse))]
     [AWSCmdletOutput("Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse",
-        "This cmdlet returns an Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse object containing multiple properties."
     )]
     public partial class InvokeBDRRModelWithResponseStreamCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {

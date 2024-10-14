@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk RestartAppServer API operation.", Operation = new[] {"RestartAppServer"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.RestartAppServerResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.RestartAppServerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.RestartAppServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.RestartAppServerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestartEBAppServerCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

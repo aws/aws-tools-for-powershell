@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock UpdateAgentKnowledgeBase API operation.", Operation = new[] {"UpdateAgentKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.UpdateAgentKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.AgentKnowledgeBase or Amazon.BedrockAgent.Model.UpdateAgentKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.AgentKnowledgeBase object.",
-        "The service call response (type Amazon.BedrockAgent.Model.UpdateAgentKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.UpdateAgentKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAABAgentKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

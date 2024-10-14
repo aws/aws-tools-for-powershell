@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service GetAccuracyMetrics API operation.", Operation = new[] {"GetAccuracyMetrics"}, SelectReturnType = typeof(Amazon.ForecastService.Model.GetAccuracyMetricsResponse))]
     [AWSCmdletOutput("Amazon.ForecastService.Model.EvaluationResult or Amazon.ForecastService.Model.GetAccuracyMetricsResponse",
         "This cmdlet returns a collection of Amazon.ForecastService.Model.EvaluationResult objects.",
-        "The service call response (type Amazon.ForecastService.Model.GetAccuracyMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ForecastService.Model.GetAccuracyMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFRCAccuracyMetricCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

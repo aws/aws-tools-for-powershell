@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [OutputType("Amazon.XRay.Model.GetServiceGraphResponse")]
     [AWSCmdlet("Calls the AWS X-Ray GetServiceGraph API operation.", Operation = new[] {"GetServiceGraph"}, SelectReturnType = typeof(Amazon.XRay.Model.GetServiceGraphResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.GetServiceGraphResponse",
-        "This cmdlet returns an Amazon.XRay.Model.GetServiceGraphResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.XRay.Model.GetServiceGraphResponse object containing multiple properties."
     )]
     public partial class GetXRServiceGraphCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.XRay module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

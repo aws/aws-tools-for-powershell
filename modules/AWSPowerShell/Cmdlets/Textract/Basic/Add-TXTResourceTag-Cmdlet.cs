@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Textract.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Textract.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Textract.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Textract.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddTXTResourceTagCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

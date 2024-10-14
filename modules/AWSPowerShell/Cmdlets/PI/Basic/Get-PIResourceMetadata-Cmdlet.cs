@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [OutputType("Amazon.PI.Model.GetResourceMetadataResponse")]
     [AWSCmdlet("Calls the AWS Performance Insights GetResourceMetadata API operation.", Operation = new[] {"GetResourceMetadata"}, SelectReturnType = typeof(Amazon.PI.Model.GetResourceMetadataResponse))]
     [AWSCmdletOutput("Amazon.PI.Model.GetResourceMetadataResponse",
-        "This cmdlet returns an Amazon.PI.Model.GetResourceMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PI.Model.GetResourceMetadataResponse object containing multiple properties."
     )]
     public partial class GetPIResourceMetadataCmdlet : AmazonPIClientCmdlet, IExecutor
     {

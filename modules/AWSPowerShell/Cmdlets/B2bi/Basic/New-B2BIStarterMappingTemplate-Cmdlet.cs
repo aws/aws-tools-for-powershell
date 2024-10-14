@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange CreateStarterMappingTemplate API operation.", Operation = new[] {"CreateStarterMappingTemplate"}, SelectReturnType = typeof(Amazon.B2bi.Model.CreateStarterMappingTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.B2bi.Model.CreateStarterMappingTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.B2bi.Model.CreateStarterMappingTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.CreateStarterMappingTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewB2BIStarterMappingTemplateCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

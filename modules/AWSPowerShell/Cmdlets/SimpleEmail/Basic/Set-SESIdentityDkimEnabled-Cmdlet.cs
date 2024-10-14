@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) SetIdentityDkimEnabled API operation.", Operation = new[] {"SetIdentityDkimEnabled"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSESIdentityDkimEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

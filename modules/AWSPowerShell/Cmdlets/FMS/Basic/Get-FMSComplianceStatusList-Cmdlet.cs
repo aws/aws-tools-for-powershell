@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service ListComplianceStatus API operation.", Operation = new[] {"ListComplianceStatus"}, SelectReturnType = typeof(Amazon.FMS.Model.ListComplianceStatusResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.PolicyComplianceStatus or Amazon.FMS.Model.ListComplianceStatusResponse",
         "This cmdlet returns a collection of Amazon.FMS.Model.PolicyComplianceStatus objects.",
-        "The service call response (type Amazon.FMS.Model.ListComplianceStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.ListComplianceStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSComplianceStatusListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

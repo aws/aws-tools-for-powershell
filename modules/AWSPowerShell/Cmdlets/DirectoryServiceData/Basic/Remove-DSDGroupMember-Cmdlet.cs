@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [AWSCmdlet("Calls the AWS Directory Service Data RemoveGroupMember API operation.", Operation = new[] {"RemoveGroupMember"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.RemoveGroupMemberResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryServiceData.Model.RemoveGroupMemberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryServiceData.Model.RemoveGroupMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryServiceData.Model.RemoveGroupMemberResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSDGroupMemberCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

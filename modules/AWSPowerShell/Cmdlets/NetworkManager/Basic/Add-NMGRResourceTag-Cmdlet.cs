@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkManager.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkManager.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkManager.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddNMGRResourceTagCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RebootDBInstance API operation.", Operation = new[] {"RebootDBInstance"}, SelectReturnType = typeof(Amazon.DocDB.Model.RebootDBInstanceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBInstance or Amazon.DocDB.Model.RebootDBInstanceResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBInstance object.",
-        "The service call response (type Amazon.DocDB.Model.RebootDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.RebootDBInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestartDOCDBInstanceCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

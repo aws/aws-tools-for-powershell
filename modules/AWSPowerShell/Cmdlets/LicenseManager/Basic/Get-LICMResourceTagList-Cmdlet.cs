@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.Tag or Amazon.LicenseManager.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.LicenseManager.Model.Tag objects.",
-        "The service call response (type Amazon.LicenseManager.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManager.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLICMResourceTagListCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

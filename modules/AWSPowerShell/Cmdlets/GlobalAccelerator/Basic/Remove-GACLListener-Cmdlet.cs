@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator DeleteListener API operation.", Operation = new[] {"DeleteListener"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.DeleteListenerResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.DeleteListenerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.DeleteListenerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.DeleteListenerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGACLListenerCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.TranscribeService.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TranscribeService.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TranscribeService.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddTRSResourceTagCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.GetPricingPlanResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker GetPricingPlan API operation.", Operation = new[] {"GetPricingPlan"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.GetPricingPlanResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.GetPricingPlanResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetPricingPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetPricingPlanResponse object containing multiple properties."
     )]
     public partial class GetIOTTMPricingPlanCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

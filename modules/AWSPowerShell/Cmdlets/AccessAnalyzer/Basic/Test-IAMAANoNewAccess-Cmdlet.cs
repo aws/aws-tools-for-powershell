@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [OutputType("Amazon.AccessAnalyzer.Model.CheckNoNewAccessResponse")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer CheckNoNewAccess API operation.", Operation = new[] {"CheckNoNewAccess"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CheckNoNewAccessResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.CheckNoNewAccessResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckNoNewAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckNoNewAccessResponse object containing multiple properties."
     )]
     public partial class TestIAMAANoNewAccessCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

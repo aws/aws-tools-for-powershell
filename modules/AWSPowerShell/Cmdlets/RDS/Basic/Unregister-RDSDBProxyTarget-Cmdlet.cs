@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeregisterDBProxyTargets API operation.", Operation = new[] {"DeregisterDBProxyTargets"}, SelectReturnType = typeof(Amazon.RDS.Model.DeregisterDBProxyTargetsResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.DeregisterDBProxyTargetsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.DeregisterDBProxyTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeregisterDBProxyTargetsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterRDSDBProxyTargetCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

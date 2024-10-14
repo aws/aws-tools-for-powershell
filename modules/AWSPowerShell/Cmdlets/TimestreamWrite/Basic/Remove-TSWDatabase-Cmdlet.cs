@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [AWSCmdlet("Calls the Amazon Timestream Write DeleteDatabase API operation.", Operation = new[] {"DeleteDatabase"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.DeleteDatabaseResponse))]
     [AWSCmdletOutput("None or Amazon.TimestreamWrite.Model.DeleteDatabaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamWrite.Model.DeleteDatabaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TimestreamWrite.Model.DeleteDatabaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTSWDatabaseCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis SplitShard API operation.", Operation = new[] {"SplitShard"}, SelectReturnType = typeof(Amazon.Kinesis.Model.SplitShardResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.SplitShardResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.SplitShardResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.SplitShardResponse) be returned by specifying '-Select *'."
     )]
     public partial class SplitKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

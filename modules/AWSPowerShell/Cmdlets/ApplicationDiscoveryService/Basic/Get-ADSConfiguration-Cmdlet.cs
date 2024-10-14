@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service DescribeConfigurations API operation.", Operation = new[] {"DescribeConfigurations"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, System.String> or Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse",
         "This cmdlet returns a collection of Dictionary<System.String, System.String> objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADSConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

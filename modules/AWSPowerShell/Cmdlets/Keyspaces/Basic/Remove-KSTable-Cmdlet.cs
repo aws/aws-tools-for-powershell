@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces DeleteTable API operation.", Operation = new[] {"DeleteTable"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.DeleteTableResponse))]
     [AWSCmdletOutput("None or Amazon.Keyspaces.Model.DeleteTableResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Keyspaces.Model.DeleteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Keyspaces.Model.DeleteTableResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

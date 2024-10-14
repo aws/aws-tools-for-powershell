@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [OutputType("Amazon.EKS.Model.AssociateAccessPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes AssociateAccessPolicy API operation.", Operation = new[] {"AssociateAccessPolicy"}, SelectReturnType = typeof(Amazon.EKS.Model.AssociateAccessPolicyResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.AssociateAccessPolicyResponse",
-        "This cmdlet returns an Amazon.EKS.Model.AssociateAccessPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EKS.Model.AssociateAccessPolicyResponse object containing multiple properties."
     )]
     public partial class AddEKSAccessPolicyCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

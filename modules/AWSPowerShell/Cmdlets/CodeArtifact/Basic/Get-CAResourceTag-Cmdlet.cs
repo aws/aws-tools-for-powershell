@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.Tag or Amazon.CodeArtifact.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.CodeArtifact.Model.Tag objects.",
-        "The service call response (type Amazon.CodeArtifact.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCAResourceTagCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

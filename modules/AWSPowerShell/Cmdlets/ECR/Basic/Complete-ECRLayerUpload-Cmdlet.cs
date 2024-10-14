@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.CompleteLayerUploadResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry CompleteLayerUpload API operation.", Operation = new[] {"CompleteLayerUpload"}, SelectReturnType = typeof(Amazon.ECR.Model.CompleteLayerUploadResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.CompleteLayerUploadResponse",
-        "This cmdlet returns an Amazon.ECR.Model.CompleteLayerUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.CompleteLayerUploadResponse object containing multiple properties."
     )]
     public partial class CompleteECRLayerUploadCmdlet : AmazonECRClientCmdlet, IExecutor
     {

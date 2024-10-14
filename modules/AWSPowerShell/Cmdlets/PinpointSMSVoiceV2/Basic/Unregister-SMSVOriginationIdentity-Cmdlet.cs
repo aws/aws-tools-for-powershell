@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DisassociateOriginationIdentityResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DisassociateOriginationIdentity API operation.", Operation = new[] {"DisassociateOriginationIdentity"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DisassociateOriginationIdentityResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DisassociateOriginationIdentityResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DisassociateOriginationIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DisassociateOriginationIdentityResponse object containing multiple properties."
     )]
     public partial class UnregisterSMSVOriginationIdentityCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

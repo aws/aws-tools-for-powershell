@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMM
     [AWSCmdlet("Calls the Amazon SageMaker Metrics Service BatchGetMetrics API operation.", Operation = new[] {"BatchGetMetrics"}, SelectReturnType = typeof(Amazon.SageMakerMetrics.Model.BatchGetMetricsResponse))]
     [AWSCmdletOutput("Amazon.SageMakerMetrics.Model.MetricQueryResult or Amazon.SageMakerMetrics.Model.BatchGetMetricsResponse",
         "This cmdlet returns a collection of Amazon.SageMakerMetrics.Model.MetricQueryResult objects.",
-        "The service call response (type Amazon.SageMakerMetrics.Model.BatchGetMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMakerMetrics.Model.BatchGetMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMMMetricCmdlet : AmazonSageMakerMetricsClientCmdlet, IExecutor
     {

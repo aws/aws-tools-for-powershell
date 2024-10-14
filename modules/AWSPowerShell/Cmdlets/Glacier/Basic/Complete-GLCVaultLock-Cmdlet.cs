@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier CompleteVaultLock API operation.", Operation = new[] {"CompleteVaultLock"}, SelectReturnType = typeof(Amazon.Glacier.Model.CompleteVaultLockResponse))]
     [AWSCmdletOutput("None or Amazon.Glacier.Model.CompleteVaultLockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glacier.Model.CompleteVaultLockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glacier.Model.CompleteVaultLockResponse) be returned by specifying '-Select *'."
     )]
     public partial class CompleteGLCVaultLockCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

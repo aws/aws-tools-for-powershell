@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog AssociateBudgetWithResource API operation.", Operation = new[] {"AssociateBudgetWithResource"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.AssociateBudgetWithResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.AssociateBudgetWithResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.AssociateBudgetWithResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.AssociateBudgetWithResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterSCBudgetWithResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

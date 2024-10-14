@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [OutputType("Amazon.BedrockAgent.Model.DeleteDataSourceResponse")]
     [AWSCmdlet("Calls the Agents for Amazon Bedrock DeleteDataSource API operation.", Operation = new[] {"DeleteDataSource"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.DeleteDataSourceResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.DeleteDataSourceResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteDataSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteDataSourceResponse object containing multiple properties."
     )]
     public partial class RemoveAABDataSourceCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru RemoveNotificationChannel API operation.", Operation = new[] {"RemoveNotificationChannel"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.RemoveNotificationChannelResponse))]
     [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.RemoveNotificationChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DevOpsGuru.Model.RemoveNotificationChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.RemoveNotificationChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDGURUNotificationChannelCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

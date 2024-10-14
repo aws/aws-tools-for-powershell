@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID DeleteFraudster API operation.", Operation = new[] {"DeleteFraudster"}, SelectReturnType = typeof(Amazon.VoiceID.Model.DeleteFraudsterResponse))]
     [AWSCmdletOutput("None or Amazon.VoiceID.Model.DeleteFraudsterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VoiceID.Model.DeleteFraudsterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VoiceID.Model.DeleteFraudsterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveVIDFraudsterCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeListenerAttributes API operation.", Operation = new[] {"DescribeListenerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeListenerAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute or Amazon.ElasticLoadBalancingV2.Model.DescribeListenerAttributesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeListenerAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeListenerAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetELB2ListenerAttributeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

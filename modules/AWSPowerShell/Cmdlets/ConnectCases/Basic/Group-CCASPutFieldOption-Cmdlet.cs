@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases BatchPutFieldOptions API operation.", Operation = new[] {"BatchPutFieldOptions"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.BatchPutFieldOptionsResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.FieldOptionError or Amazon.ConnectCases.Model.BatchPutFieldOptionsResponse",
         "This cmdlet returns a collection of Amazon.ConnectCases.Model.FieldOptionError objects.",
-        "The service call response (type Amazon.ConnectCases.Model.BatchPutFieldOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCases.Model.BatchPutFieldOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GroupCCASPutFieldOptionCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

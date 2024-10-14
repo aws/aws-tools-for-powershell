@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     [OutputType("Amazon.EMRServerless.Model.CancelJobRunResponse")]
     [AWSCmdlet("Calls the EMR Serverless CancelJobRun API operation.", Operation = new[] {"CancelJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.CancelJobRunResponse))]
     [AWSCmdletOutput("Amazon.EMRServerless.Model.CancelJobRunResponse",
-        "This cmdlet returns an Amazon.EMRServerless.Model.CancelJobRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRServerless.Model.CancelJobRunResponse object containing multiple properties."
     )]
     public partial class StopEMRServerlessJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {

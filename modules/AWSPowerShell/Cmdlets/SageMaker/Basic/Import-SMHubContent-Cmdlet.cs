@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.ImportHubContentResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service ImportHubContent API operation.", Operation = new[] {"ImportHubContent"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ImportHubContentResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.ImportHubContentResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.ImportHubContentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.ImportHubContentResponse object containing multiple properties."
     )]
     public partial class ImportSMHubContentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

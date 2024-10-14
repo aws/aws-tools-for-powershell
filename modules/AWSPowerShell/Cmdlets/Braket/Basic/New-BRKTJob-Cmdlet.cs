@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     [AWSCmdlet("Calls the Amazon Braket CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.CreateJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Braket.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Braket.Model.CreateJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {

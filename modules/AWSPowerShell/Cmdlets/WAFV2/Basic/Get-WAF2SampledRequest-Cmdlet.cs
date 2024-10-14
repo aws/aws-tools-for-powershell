@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [OutputType("Amazon.WAFV2.Model.GetSampledRequestsResponse")]
     [AWSCmdlet("Calls the AWS WAF V2 GetSampledRequests API operation.", Operation = new[] {"GetSampledRequests"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetSampledRequestsResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.GetSampledRequestsResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.GetSampledRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFV2.Model.GetSampledRequestsResponse object containing multiple properties."
     )]
     public partial class GetWAF2SampledRequestCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {

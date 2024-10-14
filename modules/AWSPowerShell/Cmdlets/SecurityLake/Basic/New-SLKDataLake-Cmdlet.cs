@@ -40,11 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     ///  
     /// <para>
     /// When you enable Security Lake, it starts ingesting security data after the <c>CreateAwsLogSource</c>
-    /// call. This includes ingesting security data from sources, storing data, and making
-    /// data accessible to subscribers. Security Lake also enables all the existing settings
-    /// and resources that it stores or maintains for your Amazon Web Services account in
-    /// the current Region, including security log and event data. For more information, see
-    /// the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html">Amazon
+    /// call and after you create subscribers using the <c>CreateSubscriber</c> API. This
+    /// includes ingesting security data from sources, storing data, and making data accessible
+    /// to subscribers. Security Lake also enables all the existing settings and resources
+    /// that it stores or maintains for your Amazon Web Services account in the current Region,
+    /// including security log and event data. For more information, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/what-is-security-lake.html">Amazon
     /// Security Lake User Guide</a>.
     /// </para>
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake CreateDataLake API operation.", Operation = new[] {"CreateDataLake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateDataLakeResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeResource or Amazon.SecurityLake.Model.CreateDataLakeResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeResource objects.",
-        "The service call response (type Amazon.SecurityLake.Model.CreateDataLakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.CreateDataLakeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

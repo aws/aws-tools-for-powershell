@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     [AWSCmdlet("Calls the Amazon CodeGuru Security GetFindings API operation.", Operation = new[] {"GetFindings"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.GetFindingsResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.Finding or Amazon.CodeGuruSecurity.Model.GetFindingsResponse",
         "This cmdlet returns a collection of Amazon.CodeGuruSecurity.Model.Finding objects.",
-        "The service call response (type Amazon.CodeGuruSecurity.Model.GetFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruSecurity.Model.GetFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGSFindingCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {

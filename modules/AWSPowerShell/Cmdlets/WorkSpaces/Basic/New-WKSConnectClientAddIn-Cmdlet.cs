@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateConnectClientAddIn API operation.", Operation = new[] {"CreateConnectClientAddIn"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateConnectClientAddInResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpaces.Model.CreateConnectClientAddInResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpaces.Model.CreateConnectClientAddInResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.CreateConnectClientAddInResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

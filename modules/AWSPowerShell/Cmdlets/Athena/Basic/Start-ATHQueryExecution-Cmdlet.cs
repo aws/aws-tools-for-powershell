@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena StartQueryExecution API operation.", Operation = new[] {"StartQueryExecution"}, SelectReturnType = typeof(Amazon.Athena.Model.StartQueryExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Athena.Model.StartQueryExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Athena.Model.StartQueryExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.StartQueryExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartATHQueryExecutionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

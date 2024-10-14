@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless ListTableRestoreStatus API operation.", Operation = new[] {"ListTableRestoreStatus"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.TableRestoreStatus or Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse",
         "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.TableRestoreStatus objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSTableRestoreStatusListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

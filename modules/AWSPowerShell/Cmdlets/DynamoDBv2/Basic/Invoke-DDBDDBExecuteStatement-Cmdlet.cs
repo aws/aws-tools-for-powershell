@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB ExecuteStatement API operation.", Operation = new[] {"ExecuteStatement"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ExecuteStatementResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> or Amazon.DynamoDBv2.Model.ExecuteStatementResponse",
         "This cmdlet returns a collection of Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ExecuteStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ExecuteStatementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeDDBDDBExecuteStatementCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

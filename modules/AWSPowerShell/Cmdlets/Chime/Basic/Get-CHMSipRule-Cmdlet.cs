@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetSipRule API operation.", Operation = new[] {"GetSipRule"}, SelectReturnType = typeof(Amazon.Chime.Model.GetSipRuleResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.SipRule or Amazon.Chime.Model.GetSipRuleResponse",
         "This cmdlet returns an Amazon.Chime.Model.SipRule object.",
-        "The service call response (type Amazon.Chime.Model.GetSipRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetSipRuleResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMSipRuleCmdlet : AmazonChimeClientCmdlet, IExecutor

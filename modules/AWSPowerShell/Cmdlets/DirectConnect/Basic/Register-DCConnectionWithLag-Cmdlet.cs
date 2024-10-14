@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect AssociateConnectionWithLag API operation.", Operation = new[] {"AssociateConnectionWithLag"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse object containing multiple properties."
     )]
     public partial class RegisterDCConnectionWithLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

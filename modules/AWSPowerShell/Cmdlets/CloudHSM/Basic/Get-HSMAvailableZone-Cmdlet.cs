@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Calls the AWS CloudHSM ListAvailableZones API operation.", Operation = new[] {"ListAvailableZones"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.ListAvailableZonesResponse), LegacyAlias="Get-HSMAvailableZones")]
     [AWSCmdletOutput("System.String or Amazon.CloudHSM.Model.ListAvailableZonesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudHSM.Model.ListAvailableZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ListAvailableZonesResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMAvailableZoneCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

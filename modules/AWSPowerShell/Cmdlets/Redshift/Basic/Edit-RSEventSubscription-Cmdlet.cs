@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ModifyEventSubscription API operation.", Operation = new[] {"ModifyEventSubscription"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventSubscription or Amazon.Redshift.Model.ModifyEventSubscriptionResponse",
         "This cmdlet returns an Amazon.Redshift.Model.EventSubscription object.",
-        "The service call response (type Amazon.Redshift.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifyEventSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

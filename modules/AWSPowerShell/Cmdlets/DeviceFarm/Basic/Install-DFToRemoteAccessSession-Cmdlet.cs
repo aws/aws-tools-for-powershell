@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm InstallToRemoteAccessSession API operation.", Operation = new[] {"InstallToRemoteAccessSession"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload or Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.Upload object.",
-        "The service call response (type Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InstallDFToRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

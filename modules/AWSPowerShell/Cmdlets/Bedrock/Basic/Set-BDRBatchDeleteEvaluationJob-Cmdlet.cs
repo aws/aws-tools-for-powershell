@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [OutputType("Amazon.Bedrock.Model.BatchDeleteEvaluationJobResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock BatchDeleteEvaluationJob API operation.", Operation = new[] {"BatchDeleteEvaluationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.BatchDeleteEvaluationJobResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.BatchDeleteEvaluationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.BatchDeleteEvaluationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.BatchDeleteEvaluationJobResponse object containing multiple properties."
     )]
     public partial class SetBDRBatchDeleteEvaluationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

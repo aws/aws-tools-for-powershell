@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     [OutputType("Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse")]
     [AWSCmdlet("Calls the Redshift Data API Service DescribeStatement API operation.", Operation = new[] {"DescribeStatement"}, SelectReturnType = typeof(Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse))]
     [AWSCmdletOutput("Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse",
-        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse object containing multiple properties."
     )]
     public partial class GetRSDStatementCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {

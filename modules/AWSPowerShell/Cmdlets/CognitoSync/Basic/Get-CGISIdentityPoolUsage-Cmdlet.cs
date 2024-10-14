@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync DescribeIdentityPoolUsage API operation.", Operation = new[] {"DescribeIdentityPoolUsage"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.DescribeIdentityPoolUsageResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.IdentityPoolUsage or Amazon.CognitoSync.Model.DescribeIdentityPoolUsageResponse",
         "This cmdlet returns an Amazon.CognitoSync.Model.IdentityPoolUsage object.",
-        "The service call response (type Amazon.CognitoSync.Model.DescribeIdentityPoolUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.DescribeIdentityPoolUsageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGISIdentityPoolUsageCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

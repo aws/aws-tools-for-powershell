@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Macie2.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMAC2ResourceTagCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

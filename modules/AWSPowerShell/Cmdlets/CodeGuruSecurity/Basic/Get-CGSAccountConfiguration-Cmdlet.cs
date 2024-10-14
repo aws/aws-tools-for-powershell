@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     [AWSCmdlet("Calls the Amazon CodeGuru Security GetAccountConfiguration API operation.", Operation = new[] {"GetAccountConfiguration"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.GetAccountConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.EncryptionConfig or Amazon.CodeGuruSecurity.Model.GetAccountConfigurationResponse",
         "This cmdlet returns an Amazon.CodeGuruSecurity.Model.EncryptionConfig object.",
-        "The service call response (type Amazon.CodeGuruSecurity.Model.GetAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruSecurity.Model.GetAccountConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGSAccountConfigurationCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {

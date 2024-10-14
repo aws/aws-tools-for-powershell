@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeNamespace API operation.", Operation = new[] {"DescribeNamespace"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeNamespaceResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.NamespaceInfoV2 or Amazon.QuickSight.Model.DescribeNamespaceResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.NamespaceInfoV2 object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeNamespaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeNamespaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSNamespaceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

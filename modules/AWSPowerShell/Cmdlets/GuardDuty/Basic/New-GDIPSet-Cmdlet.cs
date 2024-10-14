@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty CreateIPSet API operation.", Operation = new[] {"CreateIPSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.CreateIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.CreateIPSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GuardDuty.Model.CreateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.CreateIPSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGDIPSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateTrafficDistributionGroupResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateTrafficDistributionGroup API operation.", Operation = new[] {"CreateTrafficDistributionGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateTrafficDistributionGroupResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateTrafficDistributionGroupResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateTrafficDistributionGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateTrafficDistributionGroupResponse object containing multiple properties."
     )]
     public partial class NewCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline DeregisterWebhookWithThirdParty API operation.", Operation = new[] {"DeregisterWebhookWithThirdParty"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.DeregisterWebhookWithThirdPartyResponse))]
     [AWSCmdletOutput("None or Amazon.CodePipeline.Model.DeregisterWebhookWithThirdPartyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodePipeline.Model.DeregisterWebhookWithThirdPartyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.DeregisterWebhookWithThirdPartyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCPWebhookWithThirdPartyCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

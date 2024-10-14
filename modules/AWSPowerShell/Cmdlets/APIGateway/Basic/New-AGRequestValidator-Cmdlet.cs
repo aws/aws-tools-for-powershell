@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.CreateRequestValidatorResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway CreateRequestValidator API operation.", Operation = new[] {"CreateRequestValidator"}, SelectReturnType = typeof(Amazon.APIGateway.Model.CreateRequestValidatorResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateRequestValidatorResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.CreateRequestValidatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.CreateRequestValidatorResponse object containing multiple properties."
     )]
     public partial class NewAGRequestValidatorCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

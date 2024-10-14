@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetInstanceTpmEkPubResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceTpmEkPub API operation.", Operation = new[] {"GetInstanceTpmEkPub"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTpmEkPubResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetInstanceTpmEkPubResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetInstanceTpmEkPubResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.GetInstanceTpmEkPubResponse object containing multiple properties."
     )]
     public partial class GetEC2InstanceTpmEkPubCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

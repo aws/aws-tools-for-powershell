@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeAuthenticationProfile API operation.", Operation = new[] {"DescribeAuthenticationProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeAuthenticationProfileResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.AuthenticationProfile or Amazon.Connect.Model.DescribeAuthenticationProfileResponse",
         "This cmdlet returns an Amazon.Connect.Model.AuthenticationProfile object.",
-        "The service call response (type Amazon.Connect.Model.DescribeAuthenticationProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeAuthenticationProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNAuthenticationProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

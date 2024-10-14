@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBProxyEndpoint API operation.", Operation = new[] {"ModifyDBProxyEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyDBProxyEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBProxyEndpoint or Amazon.RDS.Model.ModifyDBProxyEndpointResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBProxyEndpoint object.",
-        "The service call response (type Amazon.RDS.Model.ModifyDBProxyEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBProxyEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRDSDBProxyEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor DeleteChannelPolicy API operation.", Operation = new[] {"DeleteChannelPolicy"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.DeleteChannelPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.DeleteChannelPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.DeleteChannelPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.DeleteChannelPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMTChannelPolicyCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

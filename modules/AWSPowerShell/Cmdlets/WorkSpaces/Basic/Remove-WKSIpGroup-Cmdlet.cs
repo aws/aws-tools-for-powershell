@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeleteIpGroup API operation.", Operation = new[] {"DeleteIpGroup"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeleteIpGroupResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DeleteIpGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteIpGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DeleteIpGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

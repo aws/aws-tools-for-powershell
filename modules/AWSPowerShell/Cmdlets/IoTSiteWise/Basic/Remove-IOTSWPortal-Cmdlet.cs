@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DeletePortal API operation.", Operation = new[] {"DeletePortal"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeletePortalResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.PortalStatus or Amazon.IoTSiteWise.Model.DeletePortalResponse",
         "This cmdlet returns an Amazon.IoTSiteWise.Model.PortalStatus object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.DeletePortalResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.DeletePortalResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWPortalCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

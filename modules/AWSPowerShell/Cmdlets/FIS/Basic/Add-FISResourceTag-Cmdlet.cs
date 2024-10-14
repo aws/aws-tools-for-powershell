@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.FIS.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.FIS.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FIS.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FIS.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddFISResourceTagCmdlet : AmazonFISClientCmdlet, IExecutor
     {

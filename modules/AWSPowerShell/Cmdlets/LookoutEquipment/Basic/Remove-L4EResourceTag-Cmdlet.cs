@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutEquipment.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutEquipment.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutEquipment.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveL4EResourceTagCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

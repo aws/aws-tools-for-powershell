@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange ListJobs API operation.", Operation = new[] {"ListJobs"}, SelectReturnType = typeof(Amazon.DataExchange.Model.ListJobsResponse))]
     [AWSCmdletOutput("Amazon.DataExchange.Model.JobEntry or Amazon.DataExchange.Model.ListJobsResponse",
         "This cmdlet returns a collection of Amazon.DataExchange.Model.JobEntry objects.",
-        "The service call response (type Amazon.DataExchange.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataExchange.Model.ListJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDTEXJobListCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

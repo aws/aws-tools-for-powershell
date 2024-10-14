@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda PutFunctionRecursionConfig API operation.", Operation = new[] {"PutFunctionRecursionConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutFunctionRecursionConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.RecursiveLoop or Amazon.Lambda.Model.PutFunctionRecursionConfigResponse",
         "This cmdlet returns an Amazon.Lambda.RecursiveLoop object.",
-        "The service call response (type Amazon.Lambda.Model.PutFunctionRecursionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.PutFunctionRecursionConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteLMFunctionRecursionConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

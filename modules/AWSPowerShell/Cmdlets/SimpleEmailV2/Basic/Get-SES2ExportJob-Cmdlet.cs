@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.GetExportJobResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetExportJob API operation.", Operation = new[] {"GetExportJob"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetExportJobResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetExportJobResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetExportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetExportJobResponse object containing multiple properties."
     )]
     public partial class GetSES2ExportJobCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

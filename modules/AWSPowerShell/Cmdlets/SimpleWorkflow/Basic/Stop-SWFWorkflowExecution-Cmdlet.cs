@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) TerminateWorkflowExecution API operation.", Operation = new[] {"TerminateWorkflowExecution"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.TerminateWorkflowExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.TerminateWorkflowExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.TerminateWorkflowExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.TerminateWorkflowExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSWFWorkflowExecutionCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteServerlessCacheSnapshot API operation.", Operation = new[] {"DeleteServerlessCacheSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCacheSnapshot or Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCacheSnapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECServerlessCacheSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

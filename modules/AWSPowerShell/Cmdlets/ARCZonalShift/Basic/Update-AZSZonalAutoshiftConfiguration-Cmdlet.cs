@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [OutputType("Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse")]
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift UpdateZonalAutoshiftConfiguration API operation.", Operation = new[] {"UpdateZonalAutoshiftConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateAZSZonalAutoshiftConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

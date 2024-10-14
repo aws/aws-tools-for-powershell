@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutDashboard API operation.", Operation = new[] {"PutDashboard"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutDashboardResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.DashboardValidationMessage or Amazon.CloudWatch.Model.PutDashboardResponse",
         "This cmdlet returns a collection of Amazon.CloudWatch.Model.DashboardValidationMessage objects.",
-        "The service call response (type Amazon.CloudWatch.Model.PutDashboardResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.PutDashboardResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCWDashboardCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

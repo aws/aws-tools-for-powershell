@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.GetResourceProfileResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 GetResourceProfile API operation.", Operation = new[] {"GetResourceProfile"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetResourceProfileResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GetResourceProfileResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.GetResourceProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.GetResourceProfileResponse object containing multiple properties."
     )]
     public partial class GetMAC2ResourceProfileCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

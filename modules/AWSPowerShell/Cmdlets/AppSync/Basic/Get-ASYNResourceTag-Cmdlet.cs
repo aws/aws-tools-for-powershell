@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.AppSync.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppSync.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AppSync.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASYNResourceTagCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton DeleteRepository API operation.", Operation = new[] {"DeleteRepository"}, SelectReturnType = typeof(Amazon.Proton.Model.DeleteRepositoryResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Repository or Amazon.Proton.Model.DeleteRepositoryResponse",
         "This cmdlet returns an Amazon.Proton.Model.Repository object.",
-        "The service call response (type Amazon.Proton.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.DeleteRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePRORepositoryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

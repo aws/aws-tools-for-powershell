@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.MergeBranchesByFastForwardResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit MergeBranchesByFastForward API operation.", Operation = new[] {"MergeBranchesByFastForward"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergeBranchesByFastForwardResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.MergeBranchesByFastForwardResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesByFastForwardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesByFastForwardResponse object containing multiple properties."
     )]
     public partial class MergeCCBranchesByFastForwardCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

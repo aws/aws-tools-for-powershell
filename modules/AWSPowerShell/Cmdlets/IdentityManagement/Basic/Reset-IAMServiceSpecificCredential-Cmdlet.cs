@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management ResetServiceSpecificCredential API operation.", Operation = new[] {"ResetServiceSpecificCredential"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServiceSpecificCredential or Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.ServiceSpecificCredential object.",
-        "The service call response (type Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetIAMServiceSpecificCredentialCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachLoadBalancers API operation.", Operation = new[] {"AttachLoadBalancers"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachLoadBalancersResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachLoadBalancersResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

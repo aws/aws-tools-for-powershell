@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore CreateContainer API operation.", Operation = new[] {"CreateContainer"}, SelectReturnType = typeof(Amazon.MediaStore.Model.CreateContainerResponse))]
     [AWSCmdletOutput("Amazon.MediaStore.Model.Container or Amazon.MediaStore.Model.CreateContainerResponse",
         "This cmdlet returns an Amazon.MediaStore.Model.Container object.",
-        "The service call response (type Amazon.MediaStore.Model.CreateContainerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaStore.Model.CreateContainerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMSContainerCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

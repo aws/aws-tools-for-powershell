@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service QueryAssistant API operation.", Operation = new[] {"QueryAssistant"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.QueryAssistantResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.ResultData or Amazon.ConnectWisdomService.Model.QueryAssistantResponse",
         "This cmdlet returns a collection of Amazon.ConnectWisdomService.Model.ResultData objects.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.QueryAssistantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.QueryAssistantResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.")]
     public partial class SearchWSDMAssistantCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor

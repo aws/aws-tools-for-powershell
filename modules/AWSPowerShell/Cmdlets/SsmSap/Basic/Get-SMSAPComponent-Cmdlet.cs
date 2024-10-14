@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP GetComponent API operation.", Operation = new[] {"GetComponent"}, SelectReturnType = typeof(Amazon.SsmSap.Model.GetComponentResponse))]
     [AWSCmdletOutput("Amazon.SsmSap.Model.Component or Amazon.SsmSap.Model.GetComponentResponse",
         "This cmdlet returns an Amazon.SsmSap.Model.Component object.",
-        "The service call response (type Amazon.SsmSap.Model.GetComponentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.GetComponentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSAPComponentCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

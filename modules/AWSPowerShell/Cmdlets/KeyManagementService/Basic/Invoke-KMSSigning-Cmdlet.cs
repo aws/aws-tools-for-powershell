@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service Sign API operation.", Operation = new[] {"Sign"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.SignResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.KeyManagementService.Model.SignResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.KeyManagementService.Model.SignResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.SignResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeKMSSigningCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

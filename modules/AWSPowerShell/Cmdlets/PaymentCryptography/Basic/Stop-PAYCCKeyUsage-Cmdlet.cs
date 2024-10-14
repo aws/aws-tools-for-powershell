@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane StopKeyUsage API operation.", Operation = new[] {"StopKeyUsage"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.StopKeyUsageResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.StopKeyUsageResponse",
         "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.StopKeyUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.StopKeyUsageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopPAYCCKeyUsageCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

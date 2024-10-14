@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DisableGateway API operation.", Operation = new[] {"DisableGateway"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DisableGatewayResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.DisableGatewayResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DisableGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DisableGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

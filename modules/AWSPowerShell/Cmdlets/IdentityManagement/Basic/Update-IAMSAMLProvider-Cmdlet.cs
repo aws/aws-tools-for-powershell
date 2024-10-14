@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateSAMLProvider API operation.", Operation = new[] {"UpdateSAMLProvider"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse))]
     [AWSCmdletOutput("System.String or Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

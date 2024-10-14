@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeTagsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.Tag or Amazon.WorkSpaces.Model.DescribeTagsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpaces.Model.Tag objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

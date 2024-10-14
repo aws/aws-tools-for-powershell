@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     [OutputType("Amazon.CloudWatchRUM.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the CloudWatch RUM ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchRUM.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.CloudWatchRUM.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchRUM.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetCWRUMResourceTagCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {

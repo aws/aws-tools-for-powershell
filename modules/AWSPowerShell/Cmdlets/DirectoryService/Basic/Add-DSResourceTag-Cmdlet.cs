@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

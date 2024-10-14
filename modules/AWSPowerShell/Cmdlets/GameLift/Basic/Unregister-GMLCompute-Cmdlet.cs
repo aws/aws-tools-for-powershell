@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DeregisterCompute API operation.", Operation = new[] {"DeregisterCompute"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeregisterComputeResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.DeregisterComputeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeregisterComputeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.DeregisterComputeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

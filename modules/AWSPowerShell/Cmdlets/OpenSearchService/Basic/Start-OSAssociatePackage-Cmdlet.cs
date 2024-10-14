@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service AssociatePackage API operation.", Operation = new[] {"AssociatePackage"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.AssociatePackageResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainPackageDetails or Amazon.OpenSearchService.Model.AssociatePackageResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.DomainPackageDetails object.",
-        "The service call response (type Amazon.OpenSearchService.Model.AssociatePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.AssociatePackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartOSAssociatePackageCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

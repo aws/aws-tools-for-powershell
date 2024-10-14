@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway GetGatewayResponses API operation.", Operation = new[] {"GetGatewayResponses"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetGatewayResponsesResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GatewayResponse or Amazon.APIGateway.Model.GetGatewayResponsesResponse",
         "This cmdlet returns a collection of Amazon.APIGateway.Model.GatewayResponse objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetGatewayResponsesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.APIGateway.Model.GetGatewayResponsesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAGGatewayResponseListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Position $null' for the first call and '-Position $AWSHistory.LastServiceResponse.Position' for subsequent calls.
+        /// <br/>'Position' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Position' to null for the first call then set the 'Position' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

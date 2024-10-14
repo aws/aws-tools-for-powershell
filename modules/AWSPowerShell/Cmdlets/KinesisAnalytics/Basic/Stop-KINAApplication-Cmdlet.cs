@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdlet("Calls the Amazon Kinesis Analytics StopApplication API operation.", Operation = new[] {"StopApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalytics.Model.StopApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisAnalytics.Model.StopApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalytics.Model.StopApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisAnalytics.Model.StopApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopKINAApplicationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {

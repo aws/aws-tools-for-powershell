@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream CreateThemeForStack API operation.", Operation = new[] {"CreateThemeForStack"}, SelectReturnType = typeof(Amazon.AppStream.Model.CreateThemeForStackResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.Theme or Amazon.AppStream.Model.CreateThemeForStackResponse",
         "This cmdlet returns an Amazon.AppStream.Model.Theme object.",
-        "The service call response (type Amazon.AppStream.Model.CreateThemeForStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.CreateThemeForStackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAPSThemeForStackCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

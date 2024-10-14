@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [OutputType("Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer CheckAccessNotGranted API operation.", Operation = new[] {"CheckAccessNotGranted"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse object containing multiple properties."
     )]
     public partial class TestIAMAAAccessNotGrantedCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

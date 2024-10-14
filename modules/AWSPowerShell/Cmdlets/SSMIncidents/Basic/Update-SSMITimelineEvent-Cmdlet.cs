@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager UpdateTimelineEvent API operation.", Operation = new[] {"UpdateTimelineEvent"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.UpdateTimelineEventResponse))]
     [AWSCmdletOutput("None or Amazon.SSMIncidents.Model.UpdateTimelineEventResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMIncidents.Model.UpdateTimelineEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMIncidents.Model.UpdateTimelineEventResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMITimelineEventCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

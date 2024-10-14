@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DisassociateLenses API operation.", Operation = new[] {"DisassociateLenses"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DisassociateLensesResponse), LegacyAlias="Remove-WATLense")]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DisassociateLensesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DisassociateLensesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DisassociateLensesResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWATLensCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.DeleteServiceResponse")]
     [AWSCmdlet("Calls the AWS App Runner DeleteService API operation.", Operation = new[] {"DeleteService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DeleteServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.DeleteServiceResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.DeleteServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.DeleteServiceResponse object containing multiple properties."
     )]
     public partial class RemoveAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

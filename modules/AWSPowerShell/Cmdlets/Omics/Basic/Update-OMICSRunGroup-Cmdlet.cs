@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics UpdateRunGroup API operation.", Operation = new[] {"UpdateRunGroup"}, SelectReturnType = typeof(Amazon.Omics.Model.UpdateRunGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.UpdateRunGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.UpdateRunGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.UpdateRunGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateOMICSRunGroupCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

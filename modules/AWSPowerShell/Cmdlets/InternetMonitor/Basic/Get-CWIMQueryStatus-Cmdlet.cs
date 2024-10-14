@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor GetQueryStatus API operation.", Operation = new[] {"GetQueryStatus"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.GetQueryStatusResponse))]
     [AWSCmdletOutput("Amazon.InternetMonitor.QueryStatus or Amazon.InternetMonitor.Model.GetQueryStatusResponse",
         "This cmdlet returns an Amazon.InternetMonitor.QueryStatus object.",
-        "The service call response (type Amazon.InternetMonitor.Model.GetQueryStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.InternetMonitor.Model.GetQueryStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWIMQueryStatusCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball UpdateJobShipmentState API operation.", Operation = new[] {"UpdateJobShipmentState"}, SelectReturnType = typeof(Amazon.Snowball.Model.UpdateJobShipmentStateResponse))]
     [AWSCmdletOutput("None or Amazon.Snowball.Model.UpdateJobShipmentStateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Snowball.Model.UpdateJobShipmentStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Snowball.Model.UpdateJobShipmentStateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSNOWJobShipmentStateCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

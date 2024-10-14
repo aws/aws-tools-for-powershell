@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [OutputType("Amazon.AmplifyBackend.Model.DeleteBackendStorageResponse")]
     [AWSCmdlet("Calls the Amplify Backend DeleteBackendStorage API operation.", Operation = new[] {"DeleteBackendStorage"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.DeleteBackendStorageResponse))]
     [AWSCmdletOutput("Amazon.AmplifyBackend.Model.DeleteBackendStorageResponse",
-        "This cmdlet returns an Amazon.AmplifyBackend.Model.DeleteBackendStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyBackend.Model.DeleteBackendStorageResponse object containing multiple properties."
     )]
     public partial class RemoveAMPBBackendStorageCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

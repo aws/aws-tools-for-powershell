@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph UndeploySystemInstance API operation.", Operation = new[] {"UndeploySystemInstance"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.UndeploySystemInstanceResponse))]
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.SystemInstanceSummary or Amazon.IoTThingsGraph.Model.UndeploySystemInstanceResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.SystemInstanceSummary object.",
-        "The service call response (type Amazon.IoTThingsGraph.Model.UndeploySystemInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTThingsGraph.Model.UndeploySystemInstanceResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class RemoveIOTTGSystemInstanceDeploymentCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

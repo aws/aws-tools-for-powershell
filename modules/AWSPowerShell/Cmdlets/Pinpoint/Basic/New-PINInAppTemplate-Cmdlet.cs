@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint CreateInAppTemplate API operation.", Operation = new[] {"CreateInAppTemplate"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.CreateInAppTemplateResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.TemplateCreateMessageBody or Amazon.Pinpoint.Model.CreateInAppTemplateResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.TemplateCreateMessageBody object.",
-        "The service call response (type Amazon.Pinpoint.Model.CreateInAppTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.CreateInAppTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPINInAppTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

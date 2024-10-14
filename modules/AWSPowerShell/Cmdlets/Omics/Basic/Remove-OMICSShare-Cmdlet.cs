@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics DeleteShare API operation.", Operation = new[] {"DeleteShare"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteShareResponse))]
     [AWSCmdletOutput("Amazon.Omics.ShareStatus or Amazon.Omics.Model.DeleteShareResponse",
         "This cmdlet returns an Amazon.Omics.ShareStatus object.",
-        "The service call response (type Amazon.Omics.Model.DeleteShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.DeleteShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSShareCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

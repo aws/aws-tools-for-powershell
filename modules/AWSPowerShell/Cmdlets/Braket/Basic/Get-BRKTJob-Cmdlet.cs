@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     [OutputType("Amazon.Braket.Model.GetJobResponse")]
     [AWSCmdlet("Calls the Amazon Braket GetJob API operation.", Operation = new[] {"GetJob"}, SelectReturnType = typeof(Amazon.Braket.Model.GetJobResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.GetJobResponse",
-        "This cmdlet returns an Amazon.Braket.Model.GetJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Braket.Model.GetJobResponse object containing multiple properties."
     )]
     public partial class GetBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {

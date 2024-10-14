@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty CreateDetector API operation.", Operation = new[] {"CreateDetector"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.CreateDetectorResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.CreateDetectorResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GuardDuty.Model.CreateDetectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.CreateDetectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

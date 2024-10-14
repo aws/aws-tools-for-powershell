@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.ExecuteCommandResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service ExecuteCommand API operation.", Operation = new[] {"ExecuteCommand"}, SelectReturnType = typeof(Amazon.ECS.Model.ExecuteCommandResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.ExecuteCommandResponse",
-        "This cmdlet returns an Amazon.ECS.Model.ExecuteCommandResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.ExecuteCommandResponse object containing multiple properties."
     )]
     public partial class InvokeECSCommandCmdlet : AmazonECSClientCmdlet, IExecutor
     {

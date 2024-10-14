@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ResetDBClusterParameterGroup API operation.", Operation = new[] {"ResetDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.ResetDBClusterParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetDOCDBClusterParameterGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

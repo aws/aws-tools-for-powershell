@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify CreateWebhook API operation.", Operation = new[] {"CreateWebhook"}, SelectReturnType = typeof(Amazon.Amplify.Model.CreateWebhookResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.Webhook or Amazon.Amplify.Model.CreateWebhookResponse",
         "This cmdlet returns an Amazon.Amplify.Model.Webhook object.",
-        "The service call response (type Amazon.Amplify.Model.CreateWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.CreateWebhookResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMPWebhookCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

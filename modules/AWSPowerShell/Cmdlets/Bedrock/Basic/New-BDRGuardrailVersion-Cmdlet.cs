@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [OutputType("Amazon.Bedrock.Model.CreateGuardrailVersionResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock CreateGuardrailVersion API operation.", Operation = new[] {"CreateGuardrailVersion"}, SelectReturnType = typeof(Amazon.Bedrock.Model.CreateGuardrailVersionResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.CreateGuardrailVersionResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.CreateGuardrailVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.CreateGuardrailVersionResponse object containing multiple properties."
     )]
     public partial class NewBDRGuardrailVersionCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

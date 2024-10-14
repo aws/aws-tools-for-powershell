@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBClusterSnapshot API operation.", Operation = new[] {"CreateDBClusterSnapshot"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBClusterSnapshotResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot or Amazon.RDS.Model.CreateDBClusterSnapshotResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBClusterSnapshot object.",
-        "The service call response (type Amazon.RDS.Model.CreateDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBClusterSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

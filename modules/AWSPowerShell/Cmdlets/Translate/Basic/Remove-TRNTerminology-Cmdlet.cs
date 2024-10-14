@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [AWSCmdlet("Calls the Amazon Translate DeleteTerminology API operation.", Operation = new[] {"DeleteTerminology"}, SelectReturnType = typeof(Amazon.Translate.Model.DeleteTerminologyResponse))]
     [AWSCmdletOutput("None or Amazon.Translate.Model.DeleteTerminologyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Translate.Model.DeleteTerminologyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Translate.Model.DeleteTerminologyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTRNTerminologyCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

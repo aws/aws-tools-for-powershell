@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings StartMeetingTranscription API operation.", Operation = new[] {"StartMeetingTranscription"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.StartMeetingTranscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.StartMeetingTranscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.StartMeetingTranscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMeetings.Model.StartMeetingTranscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCHMTGMeetingTranscriptionCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

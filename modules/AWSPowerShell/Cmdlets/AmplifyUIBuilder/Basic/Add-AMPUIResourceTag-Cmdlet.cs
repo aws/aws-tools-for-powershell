@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AmplifyUIBuilder.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AmplifyUIBuilder.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AmplifyUIBuilder.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddAMPUIResourceTagCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

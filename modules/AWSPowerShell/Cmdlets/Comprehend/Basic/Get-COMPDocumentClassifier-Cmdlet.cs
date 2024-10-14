@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DescribeDocumentClassifier API operation.", Operation = new[] {"DescribeDocumentClassifier"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DescribeDocumentClassifierResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.DocumentClassifierProperties or Amazon.Comprehend.Model.DescribeDocumentClassifierResponse",
         "This cmdlet returns an Amazon.Comprehend.Model.DocumentClassifierProperties object.",
-        "The service call response (type Amazon.Comprehend.Model.DescribeDocumentClassifierResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DescribeDocumentClassifierResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOMPDocumentClassifierCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

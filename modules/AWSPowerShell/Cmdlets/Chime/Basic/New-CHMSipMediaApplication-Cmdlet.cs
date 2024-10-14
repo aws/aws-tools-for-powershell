@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime CreateSipMediaApplication API operation.", Operation = new[] {"CreateSipMediaApplication"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateSipMediaApplicationResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.SipMediaApplication or Amazon.Chime.Model.CreateSipMediaApplicationResponse",
         "This cmdlet returns an Amazon.Chime.Model.SipMediaApplication object.",
-        "The service call response (type Amazon.Chime.Model.CreateSipMediaApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.CreateSipMediaApplicationResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
     public partial class NewCHMSipMediaApplicationCmdlet : AmazonChimeClientCmdlet, IExecutor

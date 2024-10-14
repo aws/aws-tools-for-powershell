@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DeleteParameterGroup API operation.", Operation = new[] {"DeleteParameterGroup"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DeleteParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ParameterGroup or Amazon.MemoryDB.Model.DeleteParameterGroupResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.ParameterGroup object.",
-        "The service call response (type Amazon.MemoryDB.Model.DeleteParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DeleteParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBParameterGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner DeleteVpcIngressConnection API operation.", Operation = new[] {"DeleteVpcIngressConnection"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DeleteVpcIngressConnectionResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.VpcIngressConnection or Amazon.AppRunner.Model.DeleteVpcIngressConnectionResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.VpcIngressConnection object.",
-        "The service call response (type Amazon.AppRunner.Model.DeleteVpcIngressConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.DeleteVpcIngressConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAARVpcIngressConnectionCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

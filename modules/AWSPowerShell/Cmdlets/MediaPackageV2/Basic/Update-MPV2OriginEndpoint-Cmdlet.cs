@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [OutputType("Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 UpdateOriginEndpoint API operation.", Operation = new[] {"UpdateOriginEndpoint"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse",
-        "This cmdlet returns an Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.UpdateOriginEndpointResponse object containing multiple properties."
     )]
     public partial class UpdateMPV2OriginEndpointCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

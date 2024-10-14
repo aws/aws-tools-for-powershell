@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     [AWSCmdlet("Calls the AWS License Manager - Linux Subscriptions UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.LicenseManagerLinuxSubscriptions.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LicenseManagerLinuxSubscriptions.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LicenseManagerLinuxSubscriptions.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LicenseManagerLinuxSubscriptions.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLLMSResourceTagCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {

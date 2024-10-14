@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway CreateNFSFileShare API operation.", Operation = new[] {"CreateNFSFileShare"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.CreateNFSFileShareResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.CreateNFSFileShareResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.CreateNFSFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.CreateNFSFileShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

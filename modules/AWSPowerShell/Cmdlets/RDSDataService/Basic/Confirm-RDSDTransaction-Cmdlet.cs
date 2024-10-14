@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     [AWSCmdlet("Calls the AWS RDS DataService CommitTransaction API operation.", Operation = new[] {"CommitTransaction"}, SelectReturnType = typeof(Amazon.RDSDataService.Model.CommitTransactionResponse), LegacyAlias="Commit-RDSDTransaction")]
     [AWSCmdletOutput("System.String or Amazon.RDSDataService.Model.CommitTransactionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.RDSDataService.Model.CommitTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDSDataService.Model.CommitTransactionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmRDSDTransactionCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.StartReplayResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge StartReplay API operation.", Operation = new[] {"StartReplay"}, SelectReturnType = typeof(Amazon.EventBridge.Model.StartReplayResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.StartReplayResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.StartReplayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.StartReplayResponse object containing multiple properties."
     )]
     public partial class StartEVBReplayCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

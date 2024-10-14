@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DescribeDomainChangeProgress API operation.", Operation = new[] {"DescribeDomainChangeProgress"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ChangeProgressStatusDetails or Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ChangeProgressStatusDetails object.",
-        "The service call response (type Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DescribeDomainChangeProgressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetESDomainChangeProgressCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

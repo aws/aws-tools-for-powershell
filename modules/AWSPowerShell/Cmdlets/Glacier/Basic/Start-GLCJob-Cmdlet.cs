@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [OutputType("Amazon.Glacier.Model.InitiateJobResponse")]
     [AWSCmdlet("Calls the Amazon Glacier InitiateJob API operation.", Operation = new[] {"InitiateJob"}, SelectReturnType = typeof(Amazon.Glacier.Model.InitiateJobResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.InitiateJobResponse",
-        "This cmdlet returns an Amazon.Glacier.Model.InitiateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glacier.Model.InitiateJobResponse object containing multiple properties."
     )]
     public partial class StartGLCJobCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

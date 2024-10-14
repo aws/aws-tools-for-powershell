@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DescribeAnalysisPermissionsResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DescribeAnalysisPermissions API operation.", Operation = new[] {"DescribeAnalysisPermissions"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeAnalysisPermissionsResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DescribeAnalysisPermissionsResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DescribeAnalysisPermissionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DescribeAnalysisPermissionsResponse object containing multiple properties."
     )]
     public partial class GetQSAnalysisPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

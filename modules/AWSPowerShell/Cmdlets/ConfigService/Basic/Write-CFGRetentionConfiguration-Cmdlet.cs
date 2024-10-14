@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutRetentionConfiguration API operation.", Operation = new[] {"PutRetentionConfiguration"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutRetentionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.RetentionConfiguration or Amazon.ConfigService.Model.PutRetentionConfigurationResponse",
         "This cmdlet returns an Amazon.ConfigService.Model.RetentionConfiguration object.",
-        "The service call response (type Amazon.ConfigService.Model.PutRetentionConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutRetentionConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGRetentionConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

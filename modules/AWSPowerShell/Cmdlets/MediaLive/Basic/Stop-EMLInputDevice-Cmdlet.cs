@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive StopInputDevice API operation.", Operation = new[] {"StopInputDevice"}, SelectReturnType = typeof(Amazon.MediaLive.Model.StopInputDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.StopInputDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.StopInputDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.StopInputDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

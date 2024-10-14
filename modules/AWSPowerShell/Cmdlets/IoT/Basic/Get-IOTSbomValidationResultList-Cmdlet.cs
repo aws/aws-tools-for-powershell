@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ListSbomValidationResults API operation.", Operation = new[] {"ListSbomValidationResults"}, SelectReturnType = typeof(Amazon.IoT.Model.ListSbomValidationResultsResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.SbomValidationResultSummary or Amazon.IoT.Model.ListSbomValidationResultsResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.SbomValidationResultSummary objects.",
-        "The service call response (type Amazon.IoT.Model.ListSbomValidationResultsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListSbomValidationResultsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTSbomValidationResultListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

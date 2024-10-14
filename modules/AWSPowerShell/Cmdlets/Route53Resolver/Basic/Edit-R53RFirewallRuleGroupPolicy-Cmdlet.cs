@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver PutFirewallRuleGroupPolicy API operation.", Operation = new[] {"PutFirewallRuleGroupPolicy"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.PutFirewallRuleGroupPolicyResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.Route53Resolver.Model.PutFirewallRuleGroupPolicyResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Route53Resolver.Model.PutFirewallRuleGroupPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.PutFirewallRuleGroupPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditR53RFirewallRuleGroupPolicyCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

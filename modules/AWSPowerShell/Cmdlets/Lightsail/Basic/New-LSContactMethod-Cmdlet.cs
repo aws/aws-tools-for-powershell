@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail CreateContactMethod API operation.", Operation = new[] {"CreateContactMethod"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateContactMethodResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.CreateContactMethodResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.CreateContactMethodResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.CreateContactMethodResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

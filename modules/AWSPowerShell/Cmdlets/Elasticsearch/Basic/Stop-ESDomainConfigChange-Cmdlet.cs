@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch CancelDomainConfigChange API operation.", Operation = new[] {"CancelDomainConfigChange"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.CancelDomainConfigChangeResponse object containing multiple properties."
     )]
     public partial class StopESDomainConfigChangeCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

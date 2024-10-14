@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [OutputType("Amazon.KinesisFirehose.Model.PutRecordBatchResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Firehose PutRecordBatch API operation.", Operation = new[] {"PutRecordBatch"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.PutRecordBatchResponse))]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.PutRecordBatchResponse",
-        "This cmdlet returns an Amazon.KinesisFirehose.Model.PutRecordBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisFirehose.Model.PutRecordBatchResponse object containing multiple properties."
     )]
     public partial class WriteKINFRecordBatchCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {

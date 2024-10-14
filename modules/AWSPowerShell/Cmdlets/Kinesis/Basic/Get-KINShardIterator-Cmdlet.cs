@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis GetShardIterator API operation.", Operation = new[] {"GetShardIterator"}, SelectReturnType = typeof(Amazon.Kinesis.Model.GetShardIteratorResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kinesis.Model.GetShardIteratorResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kinesis.Model.GetShardIteratorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kinesis.Model.GetShardIteratorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINShardIteratorCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

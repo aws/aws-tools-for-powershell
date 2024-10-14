@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.Tag or Amazon.S3Control.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.Tag objects.",
-        "The service call response (type Amazon.S3Control.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CResourceTagCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

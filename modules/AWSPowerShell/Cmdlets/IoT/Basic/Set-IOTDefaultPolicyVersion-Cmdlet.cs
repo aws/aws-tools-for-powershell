@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT SetDefaultPolicyVersion API operation.", Operation = new[] {"SetDefaultPolicyVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.SetDefaultPolicyVersionResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.SetDefaultPolicyVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.SetDefaultPolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.SetDefaultPolicyVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetIOTDefaultPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

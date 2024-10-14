@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics BatchDeleteReadSet API operation.", Operation = new[] {"BatchDeleteReadSet"}, SelectReturnType = typeof(Amazon.Omics.Model.BatchDeleteReadSetResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.ReadSetBatchError or Amazon.Omics.Model.BatchDeleteReadSetResponse",
         "This cmdlet returns a collection of Amazon.Omics.Model.ReadSetBatchError objects.",
-        "The service call response (type Amazon.Omics.Model.BatchDeleteReadSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.BatchDeleteReadSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSReadSetCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

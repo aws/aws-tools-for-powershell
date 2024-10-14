@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCPolicyCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

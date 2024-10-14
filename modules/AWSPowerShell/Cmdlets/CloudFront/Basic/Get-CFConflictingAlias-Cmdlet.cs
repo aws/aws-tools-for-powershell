@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront ListConflictingAliases API operation.", Operation = new[] {"ListConflictingAliases"}, SelectReturnType = typeof(Amazon.CloudFront.Model.ListConflictingAliasesResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.ConflictingAliasesList or Amazon.CloudFront.Model.ListConflictingAliasesResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.ConflictingAliasesList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListConflictingAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListConflictingAliasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFConflictingAliasCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

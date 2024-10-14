@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeSnapshotsResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Snapshot or Amazon.MemoryDB.Model.DescribeSnapshotsResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.Snapshot objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeSnapshotsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBSnapshotCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

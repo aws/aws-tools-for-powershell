@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager DeleteAssessment API operation.", Operation = new[] {"DeleteAssessment"}, SelectReturnType = typeof(Amazon.AuditManager.Model.DeleteAssessmentResponse))]
     [AWSCmdletOutput("None or Amazon.AuditManager.Model.DeleteAssessmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AuditManager.Model.DeleteAssessmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AuditManager.Model.DeleteAssessmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAUDMAssessmentCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

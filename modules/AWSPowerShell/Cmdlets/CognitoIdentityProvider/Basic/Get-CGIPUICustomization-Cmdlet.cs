@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUICustomization API operation.", Operation = new[] {"GetUICustomization"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UICustomizationType or Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.UICustomizationType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPUICustomizationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

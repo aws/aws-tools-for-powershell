@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups UpdateAccountSettings API operation.", Operation = new[] {"UpdateAccountSettings"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.AccountSettings or Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.AccountSettings object.",
-        "The service call response (type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRGAccountSettingCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

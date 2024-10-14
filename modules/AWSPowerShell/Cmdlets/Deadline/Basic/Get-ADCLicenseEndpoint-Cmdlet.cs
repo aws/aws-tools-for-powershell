@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.GetLicenseEndpointResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud GetLicenseEndpoint API operation.", Operation = new[] {"GetLicenseEndpoint"}, SelectReturnType = typeof(Amazon.Deadline.Model.GetLicenseEndpointResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.GetLicenseEndpointResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.GetLicenseEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.GetLicenseEndpointResponse object containing multiple properties."
     )]
     public partial class GetADCLicenseEndpointCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

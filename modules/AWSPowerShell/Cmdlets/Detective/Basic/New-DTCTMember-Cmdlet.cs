@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [OutputType("Amazon.Detective.Model.CreateMembersResponse")]
     [AWSCmdlet("Calls the Amazon Detective CreateMembers API operation.", Operation = new[] {"CreateMembers"}, SelectReturnType = typeof(Amazon.Detective.Model.CreateMembersResponse))]
     [AWSCmdletOutput("Amazon.Detective.Model.CreateMembersResponse",
-        "This cmdlet returns an Amazon.Detective.Model.CreateMembersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Detective.Model.CreateMembersResponse object containing multiple properties."
     )]
     public partial class NewDTCTMemberCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 DeleteDeployment API operation.", Operation = new[] {"DeleteDeployment"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.DeleteDeploymentResponse))]
     [AWSCmdletOutput("None or Amazon.GreengrassV2.Model.DeleteDeploymentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GreengrassV2.Model.DeleteDeploymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GreengrassV2.Model.DeleteDeploymentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGV2DeploymentCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

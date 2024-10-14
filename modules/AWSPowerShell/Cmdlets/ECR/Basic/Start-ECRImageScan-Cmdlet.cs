@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.StartImageScanResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry StartImageScan API operation.", Operation = new[] {"StartImageScan"}, SelectReturnType = typeof(Amazon.ECR.Model.StartImageScanResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.StartImageScanResponse",
-        "This cmdlet returns an Amazon.ECR.Model.StartImageScanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.StartImageScanResponse object containing multiple properties."
     )]
     public partial class StartECRImageScanCmdlet : AmazonECRClientCmdlet, IExecutor
     {

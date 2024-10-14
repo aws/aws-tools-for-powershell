@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteDomainEntry API operation.", Operation = new[] {"DeleteDomainEntry"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteDomainEntryResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteDomainEntryResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteDomainEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteDomainEntryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSDomainEntryCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

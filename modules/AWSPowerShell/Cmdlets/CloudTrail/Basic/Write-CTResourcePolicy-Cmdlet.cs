@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.PutResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.PutResourcePolicyResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.PutResourcePolicyResponse object containing multiple properties."
     )]
     public partial class WriteCTResourcePolicyCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

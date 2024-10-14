@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.RotateChannelCredentialsResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage RotateChannelCredentials API operation.", Operation = new[] {"RotateChannelCredentials"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.RotateChannelCredentialsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.RotateChannelCredentialsResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.RotateChannelCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.RotateChannelCredentialsResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API is deprecated. Please use RotateIngestEndpointCredentials instead")]
     public partial class InvokeEMPChannelCredentialRotationCmdlet : AmazonMediaPackageClientCmdlet, IExecutor

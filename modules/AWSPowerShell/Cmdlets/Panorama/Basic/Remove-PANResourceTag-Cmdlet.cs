@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Panorama.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Panorama.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Panorama.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Panorama.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePANResourceTagCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

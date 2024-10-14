@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations CloseAccount API operation.", Operation = new[] {"CloseAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.CloseAccountResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.CloseAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.CloseAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.CloseAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class CloseORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

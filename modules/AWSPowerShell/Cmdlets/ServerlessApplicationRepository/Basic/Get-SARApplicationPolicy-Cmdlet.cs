@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     [AWSCmdlet("Calls the AWS Serverless Application Repository GetApplicationPolicy API operation.", Operation = new[] {"GetApplicationPolicy"}, SelectReturnType = typeof(Amazon.ServerlessApplicationRepository.Model.GetApplicationPolicyResponse))]
     [AWSCmdletOutput("Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement or Amazon.ServerlessApplicationRepository.Model.GetApplicationPolicyResponse",
         "This cmdlet returns a collection of Amazon.ServerlessApplicationRepository.Model.ApplicationPolicyStatement objects.",
-        "The service call response (type Amazon.ServerlessApplicationRepository.Model.GetApplicationPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerlessApplicationRepository.Model.GetApplicationPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSARApplicationPolicyCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {

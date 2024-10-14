@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Omics.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddOMICSResourceTagCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

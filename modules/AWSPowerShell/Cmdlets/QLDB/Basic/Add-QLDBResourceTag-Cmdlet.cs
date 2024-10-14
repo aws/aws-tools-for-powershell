@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [AWSCmdlet("Calls the Amazon QLDB TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.QLDB.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.QLDB.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QLDB.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QLDB.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddQLDBResourceTagCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

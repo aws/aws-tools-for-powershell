@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild DeleteSourceCredentials API operation.", Operation = new[] {"DeleteSourceCredentials"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteSourceCredentialsResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeBuild.Model.DeleteSourceCredentialsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeBuild.Model.DeleteSourceCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.DeleteSourceCredentialsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCBSourceCredentialCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

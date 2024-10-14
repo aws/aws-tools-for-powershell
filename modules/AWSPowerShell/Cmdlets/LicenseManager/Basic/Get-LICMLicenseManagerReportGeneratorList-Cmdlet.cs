@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager ListLicenseManagerReportGenerators API operation.", Operation = new[] {"ListLicenseManagerReportGenerators"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.ListLicenseManagerReportGeneratorsResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.ReportGenerator or Amazon.LicenseManager.Model.ListLicenseManagerReportGeneratorsResponse",
         "This cmdlet returns a collection of Amazon.LicenseManager.Model.ReportGenerator objects.",
-        "The service call response (type Amazon.LicenseManager.Model.ListLicenseManagerReportGeneratorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManager.Model.ListLicenseManagerReportGeneratorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLICMLicenseManagerReportGeneratorListCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

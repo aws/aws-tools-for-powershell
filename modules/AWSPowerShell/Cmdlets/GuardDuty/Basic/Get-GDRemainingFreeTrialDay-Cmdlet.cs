@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetRemainingFreeTrialDays API operation.", Operation = new[] {"GetRemainingFreeTrialDays"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse object containing multiple properties."
     )]
     public partial class GetGDRemainingFreeTrialDayCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [OutputType("Amazon.RoboMaker.Model.UpdateWorldTemplateResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker UpdateWorldTemplate API operation.", Operation = new[] {"UpdateWorldTemplate"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.UpdateWorldTemplateResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.UpdateWorldTemplateResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.UpdateWorldTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.UpdateWorldTemplateResponse object containing multiple properties."
     )]
     public partial class UpdateROBOWorldTemplateCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.AddTagsResponse), LegacyAlias="Add-DPTags")]
     [AWSCmdletOutput("None or Amazon.DataPipeline.Model.AddTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataPipeline.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.AddTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDPResourceTagCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

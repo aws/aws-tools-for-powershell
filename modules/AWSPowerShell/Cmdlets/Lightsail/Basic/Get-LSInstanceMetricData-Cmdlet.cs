@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.GetInstanceMetricDataResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail GetInstanceMetricData API operation.", Operation = new[] {"GetInstanceMetricData"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetInstanceMetricDataResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.GetInstanceMetricDataResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.GetInstanceMetricDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.GetInstanceMetricDataResponse object containing multiple properties."
     )]
     public partial class GetLSInstanceMetricDataCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

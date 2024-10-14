@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeTrafficDistributionGroup API operation.", Operation = new[] {"DescribeTrafficDistributionGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeTrafficDistributionGroupResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.TrafficDistributionGroup or Amazon.Connect.Model.DescribeTrafficDistributionGroupResponse",
         "This cmdlet returns an Amazon.Connect.Model.TrafficDistributionGroup object.",
-        "The service call response (type Amazon.Connect.Model.DescribeTrafficDistributionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeTrafficDistributionGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

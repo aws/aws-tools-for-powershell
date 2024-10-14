@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [OutputType("Amazon.Outposts.Model.GetSiteAddressResponse")]
     [AWSCmdlet("Calls the AWS Outposts GetSiteAddress API operation.", Operation = new[] {"GetSiteAddress"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetSiteAddressResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.GetSiteAddressResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.GetSiteAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Outposts.Model.GetSiteAddressResponse object containing multiple properties."
     )]
     public partial class GetOUTPSiteAddressCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

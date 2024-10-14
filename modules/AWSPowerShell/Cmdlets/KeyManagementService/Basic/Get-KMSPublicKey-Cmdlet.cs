@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.GetPublicKeyResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service GetPublicKey API operation.", Operation = new[] {"GetPublicKey"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.GetPublicKeyResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GetPublicKeyResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.GetPublicKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.GetPublicKeyResponse object containing multiple properties."
     )]
     public partial class GetKMSPublicKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray GetInsight API operation.", Operation = new[] {"GetInsight"}, SelectReturnType = typeof(Amazon.XRay.Model.GetInsightResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.Insight or Amazon.XRay.Model.GetInsightResponse",
         "This cmdlet returns an Amazon.XRay.Model.Insight object.",
-        "The service call response (type Amazon.XRay.Model.GetInsightResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.XRay.Model.GetInsightResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetXRInsightCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

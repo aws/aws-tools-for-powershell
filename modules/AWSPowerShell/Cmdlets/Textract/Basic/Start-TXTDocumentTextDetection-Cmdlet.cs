@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract StartDocumentTextDetection API operation.", Operation = new[] {"StartDocumentTextDetection"}, SelectReturnType = typeof(Amazon.Textract.Model.StartDocumentTextDetectionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Textract.Model.StartDocumentTextDetectionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Textract.Model.StartDocumentTextDetectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.StartDocumentTextDetectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartTXTDocumentTextDetectionCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

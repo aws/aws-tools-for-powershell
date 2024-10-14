@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify CreateBranch API operation.", Operation = new[] {"CreateBranch"}, SelectReturnType = typeof(Amazon.Amplify.Model.CreateBranchResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.Branch or Amazon.Amplify.Model.CreateBranchResponse",
         "This cmdlet returns an Amazon.Amplify.Model.Branch object.",
-        "The service call response (type Amazon.Amplify.Model.CreateBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.CreateBranchResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMPBranchCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

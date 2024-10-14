@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [OutputType("Amazon.ECRPublic.Model.DeleteRepositoryPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public DeleteRepositoryPolicy API operation.", Operation = new[] {"DeleteRepositoryPolicy"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.DeleteRepositoryPolicyResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.DeleteRepositoryPolicyResponse",
-        "This cmdlet returns an Amazon.ECRPublic.Model.DeleteRepositoryPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECRPublic.Model.DeleteRepositoryPolicyResponse object containing multiple properties."
     )]
     public partial class RemoveECRPRepositoryPolicyCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

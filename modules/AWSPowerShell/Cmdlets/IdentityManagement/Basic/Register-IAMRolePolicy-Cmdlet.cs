@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management AttachRolePolicy API operation.", Operation = new[] {"AttachRolePolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.AttachRolePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.AttachRolePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.AttachRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.AttachRolePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

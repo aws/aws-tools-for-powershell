@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateIntegrationAssociationResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateIntegrationAssociation API operation.", Operation = new[] {"CreateIntegrationAssociation"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateIntegrationAssociationResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateIntegrationAssociationResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateIntegrationAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateIntegrationAssociationResponse object containing multiple properties."
     )]
     public partial class NewCONNIntegrationAssociationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

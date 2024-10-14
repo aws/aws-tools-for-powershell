@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail DeleteTrail API operation.", Operation = new[] {"DeleteTrail"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DeleteTrailResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.DeleteTrailResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

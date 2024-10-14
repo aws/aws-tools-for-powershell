@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru DescribeEventSourcesConfig API operation.", Operation = new[] {"DescribeEventSourcesConfig"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DescribeEventSourcesConfigResponse))]
     [AWSCmdletOutput("Amazon.DevOpsGuru.Model.EventSourcesConfig or Amazon.DevOpsGuru.Model.DescribeEventSourcesConfigResponse",
         "This cmdlet returns an Amazon.DevOpsGuru.Model.EventSourcesConfig object.",
-        "The service call response (type Amazon.DevOpsGuru.Model.DescribeEventSourcesConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DevOpsGuru.Model.DescribeEventSourcesConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDGURUEventSourcesConfigCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

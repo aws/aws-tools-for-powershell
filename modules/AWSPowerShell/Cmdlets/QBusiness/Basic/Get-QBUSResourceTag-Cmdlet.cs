@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.Tag or Amazon.QBusiness.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.Tag objects.",
-        "The service call response (type Amazon.QBusiness.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSResourceTagCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

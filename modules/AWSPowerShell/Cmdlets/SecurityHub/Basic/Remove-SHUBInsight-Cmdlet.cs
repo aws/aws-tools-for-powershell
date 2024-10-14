@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DeleteInsight API operation.", Operation = new[] {"DeleteInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteInsightResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.DeleteInsightResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityHub.Model.DeleteInsightResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.DeleteInsightResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHUBInsightCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

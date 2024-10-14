@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect StartBgpFailoverTest API operation.", Operation = new[] {"StartBgpFailoverTest"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.StartBgpFailoverTestResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterfaceTestHistory or Amazon.DirectConnect.Model.StartBgpFailoverTestResponse",
         "This cmdlet returns an Amazon.DirectConnect.Model.VirtualInterfaceTestHistory object.",
-        "The service call response (type Amazon.DirectConnect.Model.StartBgpFailoverTestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.StartBgpFailoverTestResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDCBgpFailoverTestCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

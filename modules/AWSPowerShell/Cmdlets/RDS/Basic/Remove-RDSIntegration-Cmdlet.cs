@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DeleteIntegrationResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteIntegration API operation.", Operation = new[] {"DeleteIntegration"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteIntegrationResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DeleteIntegrationResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteIntegrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.DeleteIntegrationResponse object containing multiple properties."
     )]
     public partial class RemoveRDSIntegrationCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

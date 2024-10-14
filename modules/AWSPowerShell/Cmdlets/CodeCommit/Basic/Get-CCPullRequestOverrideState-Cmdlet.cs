@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.GetPullRequestOverrideStateResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit GetPullRequestOverrideState API operation.", Operation = new[] {"GetPullRequestOverrideState"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetPullRequestOverrideStateResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.GetPullRequestOverrideStateResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.GetPullRequestOverrideStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.GetPullRequestOverrideStateResponse object containing multiple properties."
     )]
     public partial class GetCCPullRequestOverrideStateCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

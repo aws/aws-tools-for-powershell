@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeExportTasks API operation.", Operation = new[] {"DescribeExportTasks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeExportTasksResponse), LegacyAlias="Get-EC2ExportTasks")]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportTask or Amazon.EC2.Model.DescribeExportTasksResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.ExportTask objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeExportTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2ExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

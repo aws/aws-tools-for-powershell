@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker DeleteFleet API operation.", Operation = new[] {"DeleteFleet"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.DeleteFleetResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.DeleteFleetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.DeleteFleetResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class RemoveROBOFleetCmdlet : AmazonRoboMakerClientCmdlet, IExecutor

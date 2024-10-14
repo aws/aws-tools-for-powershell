@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DisassociateVPCFromHostedZone API operation.", Operation = new[] {"DisassociateVPCFromHostedZone"}, SelectReturnType = typeof(Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse",
         "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterR53VPCFromHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     [AWSCmdlet("Calls the Amazon Polly StartSpeechSynthesisTask API operation.", Operation = new[] {"StartSpeechSynthesisTask"}, SelectReturnType = typeof(Amazon.Polly.Model.StartSpeechSynthesisTaskResponse))]
     [AWSCmdletOutput("Amazon.Polly.Model.SynthesisTask or Amazon.Polly.Model.StartSpeechSynthesisTaskResponse",
         "This cmdlet returns an Amazon.Polly.Model.SynthesisTask object.",
-        "The service call response (type Amazon.Polly.Model.StartSpeechSynthesisTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Polly.Model.StartSpeechSynthesisTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartPOLSpeechSynthesisTaskCmdlet : AmazonPollyClientCmdlet, IExecutor
     {

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreatePresignedDomainUrl API operation.", Operation = new[] {"CreatePresignedDomainUrl"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMPresignedDomainUrlCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

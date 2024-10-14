@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeleteApplicationAuthenticationMethod API operation.", Operation = new[] {"DeleteApplicationAuthenticationMethod"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeleteApplicationAuthenticationMethodResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DeleteApplicationAuthenticationMethodResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DeleteApplicationAuthenticationMethodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DeleteApplicationAuthenticationMethodResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNApplicationAuthenticationMethodCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

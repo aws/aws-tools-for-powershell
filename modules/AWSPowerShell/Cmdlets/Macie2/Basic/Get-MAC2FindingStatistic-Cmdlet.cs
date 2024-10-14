@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 GetFindingStatistics API operation.", Operation = new[] {"GetFindingStatistics"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetFindingStatisticsResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GroupCount or Amazon.Macie2.Model.GetFindingStatisticsResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.GroupCount objects.",
-        "The service call response (type Amazon.Macie2.Model.GetFindingStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.GetFindingStatisticsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2FindingStatisticCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

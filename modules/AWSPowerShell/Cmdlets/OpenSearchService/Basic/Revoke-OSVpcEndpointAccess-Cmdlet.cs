@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service RevokeVpcEndpointAccess API operation.", Operation = new[] {"RevokeVpcEndpointAccess"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.RevokeVpcEndpointAccessResponse))]
     [AWSCmdletOutput("None or Amazon.OpenSearchService.Model.RevokeVpcEndpointAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpenSearchService.Model.RevokeVpcEndpointAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpenSearchService.Model.RevokeVpcEndpointAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeOSVpcEndpointAccessCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.TestAvailabilityConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail TestAvailabilityConfiguration API operation.", Operation = new[] {"TestAvailabilityConfiguration"}, SelectReturnType = typeof(Amazon.WorkMail.Model.TestAvailabilityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.TestAvailabilityConfigurationResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.TestAvailabilityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.TestAvailabilityConfigurationResponse object containing multiple properties."
     )]
     public partial class TestWMAvailabilityConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

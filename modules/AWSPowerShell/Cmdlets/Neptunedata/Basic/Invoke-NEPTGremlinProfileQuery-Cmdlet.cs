@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [AWSCmdlet("Calls the Amazon NeptuneData ExecuteGremlinProfileQuery API operation.", Operation = new[] {"ExecuteGremlinProfileQuery"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ExecuteGremlinProfileQueryResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.Neptunedata.Model.ExecuteGremlinProfileQueryResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.Neptunedata.Model.ExecuteGremlinProfileQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptunedata.Model.ExecuteGremlinProfileQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeNEPTGremlinProfileQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

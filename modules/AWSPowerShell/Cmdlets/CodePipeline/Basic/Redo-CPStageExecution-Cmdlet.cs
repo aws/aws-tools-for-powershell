@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline RetryStageExecution API operation.", Operation = new[] {"RetryStageExecution"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.RetryStageExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodePipeline.Model.RetryStageExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodePipeline.Model.RetryStageExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.RetryStageExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RedoCPStageExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

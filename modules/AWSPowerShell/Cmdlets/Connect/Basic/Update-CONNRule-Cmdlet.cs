@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateRule API operation.", Operation = new[] {"UpdateRule"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateRuleResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNRuleCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

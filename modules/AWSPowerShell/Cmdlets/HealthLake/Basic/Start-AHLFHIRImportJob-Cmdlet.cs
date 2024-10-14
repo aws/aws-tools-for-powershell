@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [OutputType("Amazon.HealthLake.Model.StartFHIRImportJobResponse")]
     [AWSCmdlet("Calls the Amazon HealthLake StartFHIRImportJob API operation.", Operation = new[] {"StartFHIRImportJob"}, SelectReturnType = typeof(Amazon.HealthLake.Model.StartFHIRImportJobResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.StartFHIRImportJobResponse",
-        "This cmdlet returns an Amazon.HealthLake.Model.StartFHIRImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.HealthLake.Model.StartFHIRImportJobResponse object containing multiple properties."
     )]
     public partial class StartAHLFHIRImportJobCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

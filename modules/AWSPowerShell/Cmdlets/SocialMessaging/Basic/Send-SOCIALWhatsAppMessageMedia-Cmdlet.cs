@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social PostWhatsAppMessageMedia API operation.", Operation = new[] {"PostWhatsAppMessageMedia"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.PostWhatsAppMessageMediaResponse))]
     [AWSCmdletOutput("System.String or Amazon.SocialMessaging.Model.PostWhatsAppMessageMediaResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SocialMessaging.Model.PostWhatsAppMessageMediaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SocialMessaging.Model.PostWhatsAppMessageMediaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSOCIALWhatsAppMessageMediaCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

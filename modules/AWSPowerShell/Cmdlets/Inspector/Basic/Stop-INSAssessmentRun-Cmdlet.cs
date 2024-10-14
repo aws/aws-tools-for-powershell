@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector StopAssessmentRun API operation.", Operation = new[] {"StopAssessmentRun"}, SelectReturnType = typeof(Amazon.Inspector.Model.StopAssessmentRunResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.StopAssessmentRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.StopAssessmentRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.StopAssessmentRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

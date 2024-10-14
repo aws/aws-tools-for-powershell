@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor GetChannelPolicy API operation.", Operation = new[] {"GetChannelPolicy"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.GetChannelPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.MediaTailor.Model.GetChannelPolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MediaTailor.Model.GetChannelPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaTailor.Model.GetChannelPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMTChannelPolicyCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DeleteMembers API operation.", Operation = new[] {"DeleteMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteMembersResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.DeleteMembersResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
-        "The service call response (type Amazon.SecurityHub.Model.DeleteMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.DeleteMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHUBMemberCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

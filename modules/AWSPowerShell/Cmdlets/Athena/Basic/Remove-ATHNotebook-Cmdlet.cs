@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena DeleteNotebook API operation.", Operation = new[] {"DeleteNotebook"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteNotebookResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteNotebookResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.DeleteNotebookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.DeleteNotebookResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

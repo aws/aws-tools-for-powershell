@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLaunchTemplate API operation.", Operation = new[] {"CreateLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLaunchTemplateResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LaunchTemplate or Amazon.EC2.Model.CreateLaunchTemplateResponse",
         "This cmdlet returns an Amazon.EC2.Model.LaunchTemplate object.",
-        "The service call response (type Amazon.EC2.Model.CreateLaunchTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateLaunchTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2LaunchTemplateCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

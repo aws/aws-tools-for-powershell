@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListBatchJobExecutions API operation.", Operation = new[] {"ListBatchJobExecutions"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.BatchJobExecutionSummary or Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse",
         "This cmdlet returns a collection of Amazon.MainframeModernization.Model.BatchJobExecutionSummary objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListBatchJobExecutionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMBatchJobExecutionListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

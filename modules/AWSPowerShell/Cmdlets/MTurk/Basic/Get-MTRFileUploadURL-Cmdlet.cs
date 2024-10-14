@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service GetFileUploadURL API operation.", Operation = new[] {"GetFileUploadURL"}, SelectReturnType = typeof(Amazon.MTurk.Model.GetFileUploadURLResponse))]
     [AWSCmdletOutput("System.String or Amazon.MTurk.Model.GetFileUploadURLResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MTurk.Model.GetFileUploadURLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MTurk.Model.GetFileUploadURLResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMTRFileUploadURLCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

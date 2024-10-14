@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ ListTags API operation.", Operation = new[] {"ListTags"}, SelectReturnType = typeof(Amazon.MQ.Model.ListTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.MQ.Model.ListTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.MQ.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MQ.Model.ListTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMQTagListCmdlet : AmazonMQClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Machine Learning CreateRealtimeEndpoint API operation.", Operation = new[] {"CreateRealtimeEndpoint"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse))]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse",
-        "This cmdlet returns an Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse object containing multiple properties."
     )]
     public partial class NewMLRealtimeEndpointCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

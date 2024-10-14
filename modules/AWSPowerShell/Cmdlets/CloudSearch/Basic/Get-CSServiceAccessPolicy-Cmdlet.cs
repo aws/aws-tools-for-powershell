@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DescribeServiceAccessPolicies API operation.", Operation = new[] {"DescribeServiceAccessPolicies"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse), LegacyAlias="Get-CSServiceAccessPolicies")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AccessPoliciesStatus or Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.AccessPoliciesStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) UpdateReceiptRule API operation.", Operation = new[] {"UpdateReceiptRule"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

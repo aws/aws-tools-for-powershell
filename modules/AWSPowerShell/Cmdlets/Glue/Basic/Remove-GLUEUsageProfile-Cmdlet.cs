@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteUsageProfile API operation.", Operation = new[] {"DeleteUsageProfile"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteUsageProfileResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteUsageProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteUsageProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteUsageProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEUsageProfileCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

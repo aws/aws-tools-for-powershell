@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.DescribeDefaultEncryptionConfigurationResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise DescribeDefaultEncryptionConfiguration API operation.", Operation = new[] {"DescribeDefaultEncryptionConfiguration"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribeDefaultEncryptionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribeDefaultEncryptionConfigurationResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeDefaultEncryptionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeDefaultEncryptionConfigurationResponse object containing multiple properties."
     )]
     public partial class GetIOTSWDefaultEncryptionConfigurationCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

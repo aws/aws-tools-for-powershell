@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteSlotTypeVersion API operation.", Operation = new[] {"DeleteSlotTypeVersion"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.DeleteSlotTypeVersionResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelBuildingService.Model.DeleteSlotTypeVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelBuildingService.Model.DeleteSlotTypeVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelBuildingService.Model.DeleteSlotTypeVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBSlotTypeVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

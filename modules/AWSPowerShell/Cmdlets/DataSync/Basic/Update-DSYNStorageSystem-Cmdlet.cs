@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync UpdateStorageSystem API operation.", Operation = new[] {"UpdateStorageSystem"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateStorageSystemResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateStorageSystemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateStorageSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateStorageSystemResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSYNStorageSystemCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

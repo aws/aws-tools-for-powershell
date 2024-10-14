@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline EvaluateExpression API operation.", Operation = new[] {"EvaluateExpression"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.EvaluateExpressionResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataPipeline.Model.EvaluateExpressionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataPipeline.Model.EvaluateExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.EvaluateExpressionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeDPExpressionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge ActivateEventSource API operation.", Operation = new[] {"ActivateEventSource"}, SelectReturnType = typeof(Amazon.EventBridge.Model.ActivateEventSourceResponse))]
     [AWSCmdletOutput("None or Amazon.EventBridge.Model.ActivateEventSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EventBridge.Model.ActivateEventSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EventBridge.Model.ActivateEventSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableEVBEventSourceCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

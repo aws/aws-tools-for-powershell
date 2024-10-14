@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 GetTrafficPolicy API operation.", Operation = new[] {"GetTrafficPolicy"}, SelectReturnType = typeof(Amazon.Route53.Model.GetTrafficPolicyResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.TrafficPolicy or Amazon.Route53.Model.GetTrafficPolicyResponse",
         "This cmdlet returns an Amazon.Route53.Model.TrafficPolicy object.",
-        "The service call response (type Amazon.Route53.Model.GetTrafficPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetTrafficPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

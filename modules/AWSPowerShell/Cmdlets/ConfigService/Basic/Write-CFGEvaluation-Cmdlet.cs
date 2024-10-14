@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutEvaluations API operation.", Operation = new[] {"PutEvaluations"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutEvaluationsResponse), LegacyAlias="Write-CFGEvaluations")]
     [AWSCmdletOutput("Amazon.ConfigService.Model.Evaluation or Amazon.ConfigService.Model.PutEvaluationsResponse",
         "This cmdlet returns a collection of Amazon.ConfigService.Model.Evaluation objects.",
-        "The service call response (type Amazon.ConfigService.Model.PutEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutEvaluationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

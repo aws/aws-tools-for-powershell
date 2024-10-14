@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.UngroupResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups UngroupResources API operation.", Operation = new[] {"UngroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UngroupResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.UngroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties."
     )]
     public partial class RemoveRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

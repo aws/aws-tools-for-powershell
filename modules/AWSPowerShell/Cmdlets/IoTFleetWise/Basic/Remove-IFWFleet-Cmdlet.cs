@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [OutputType("Amazon.IoTFleetWise.Model.DeleteFleetResponse")]
     [AWSCmdlet("Calls the AWS IoT FleetWise DeleteFleet API operation.", Operation = new[] {"DeleteFleet"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.DeleteFleetResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.DeleteFleetResponse",
-        "This cmdlet returns an Amazon.IoTFleetWise.Model.DeleteFleetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTFleetWise.Model.DeleteFleetResponse object containing multiple properties."
     )]
     public partial class RemoveIFWFleetCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

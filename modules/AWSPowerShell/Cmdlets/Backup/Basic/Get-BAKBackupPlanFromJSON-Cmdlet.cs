@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup GetBackupPlanFromJSON API operation.", Operation = new[] {"GetBackupPlanFromJSON"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupPlanFromJSONResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.BackupPlan or Amazon.Backup.Model.GetBackupPlanFromJSONResponse",
         "This cmdlet returns an Amazon.Backup.Model.BackupPlan object.",
-        "The service call response (type Amazon.Backup.Model.GetBackupPlanFromJSONResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Backup.Model.GetBackupPlanFromJSONResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBAKBackupPlanFromJSONCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

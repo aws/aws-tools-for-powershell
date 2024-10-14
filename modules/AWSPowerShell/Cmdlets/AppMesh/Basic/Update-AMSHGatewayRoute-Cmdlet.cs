@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh UpdateGatewayRoute API operation.", Operation = new[] {"UpdateGatewayRoute"}, SelectReturnType = typeof(Amazon.AppMesh.Model.UpdateGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.GatewayRouteData or Amazon.AppMesh.Model.UpdateGatewayRouteResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.GatewayRouteData object.",
-        "The service call response (type Amazon.AppMesh.Model.UpdateGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.UpdateGatewayRouteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMSHGatewayRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

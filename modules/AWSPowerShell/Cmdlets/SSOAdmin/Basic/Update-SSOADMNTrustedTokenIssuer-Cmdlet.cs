@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin UpdateTrustedTokenIssuer API operation.", Operation = new[] {"UpdateTrustedTokenIssuer"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.UpdateTrustedTokenIssuerResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.UpdateTrustedTokenIssuerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.UpdateTrustedTokenIssuerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.UpdateTrustedTokenIssuerResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSOADMNTrustedTokenIssuerCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

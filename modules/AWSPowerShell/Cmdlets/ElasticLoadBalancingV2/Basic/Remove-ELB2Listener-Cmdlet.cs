@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteListener API operation.", Operation = new[] {"DeleteListener"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteListenerResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteListenerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteListenerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteListenerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station DeleteEphemeris API operation.", Operation = new[] {"DeleteEphemeris"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DeleteEphemerisResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.DeleteEphemerisResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.DeleteEphemerisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.DeleteEphemerisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGSEphemerisCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

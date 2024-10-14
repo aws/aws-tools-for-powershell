@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AGM
     [AWSCmdlet("Calls the Amazon API Gateway Management API DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.ApiGatewayManagementApi.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.ApiGatewayManagementApi.Model.DeleteConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayManagementApi.Model.DeleteConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApiGatewayManagementApi.Model.DeleteConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGMConnectionCmdlet : AmazonApiGatewayManagementApiClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore ListContainers API operation.", Operation = new[] {"ListContainers"}, SelectReturnType = typeof(Amazon.MediaStore.Model.ListContainersResponse))]
     [AWSCmdletOutput("Amazon.MediaStore.Model.Container or Amazon.MediaStore.Model.ListContainersResponse",
         "This cmdlet returns a collection of Amazon.MediaStore.Model.Container objects.",
-        "The service call response (type Amazon.MediaStore.Model.ListContainersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaStore.Model.ListContainersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMSContainerListCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetCampaignDateRangeKpi API operation.", Operation = new[] {"GetCampaignDateRangeKpi"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetCampaignDateRangeKpiResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignDateRangeKpiResponse or Amazon.Pinpoint.Model.GetCampaignDateRangeKpiResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.CampaignDateRangeKpiResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetCampaignDateRangeKpiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetCampaignDateRangeKpiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINCampaignDateRangeKpiCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetRuntimeManagementConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetRuntimeManagementConfig API operation.", Operation = new[] {"GetRuntimeManagementConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetRuntimeManagementConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetRuntimeManagementConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetRuntimeManagementConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.GetRuntimeManagementConfigResponse object containing multiple properties."
     )]
     public partial class GetLMRuntimeManagementConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

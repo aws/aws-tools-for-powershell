@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeChangeSetHooks API operation.", Operation = new[] {"DescribeChangeSetHooks"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse object containing multiple properties."
     )]
     public partial class GetCFNChangeSetHookCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

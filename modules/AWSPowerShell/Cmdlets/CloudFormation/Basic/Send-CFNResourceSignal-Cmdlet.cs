@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation SignalResource API operation.", Operation = new[] {"SignalResource"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.SignalResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.SignalResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.SignalResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.SignalResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendCFNResourceSignalCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

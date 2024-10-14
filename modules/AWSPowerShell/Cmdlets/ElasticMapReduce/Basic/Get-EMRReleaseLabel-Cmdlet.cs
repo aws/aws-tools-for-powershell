@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce DescribeReleaseLabel API operation.", Operation = new[] {"DescribeReleaseLabel"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse object containing multiple properties."
     )]
     public partial class GetEMRReleaseLabelCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

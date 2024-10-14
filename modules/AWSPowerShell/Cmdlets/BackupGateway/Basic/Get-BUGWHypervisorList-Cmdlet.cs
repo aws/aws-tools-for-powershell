@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway ListHypervisors API operation.", Operation = new[] {"ListHypervisors"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.ListHypervisorsResponse))]
     [AWSCmdletOutput("Amazon.BackupGateway.Model.Hypervisor or Amazon.BackupGateway.Model.ListHypervisorsResponse",
         "This cmdlet returns a collection of Amazon.BackupGateway.Model.Hypervisor objects.",
-        "The service call response (type Amazon.BackupGateway.Model.ListHypervisorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.ListHypervisorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBUGWHypervisorListCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

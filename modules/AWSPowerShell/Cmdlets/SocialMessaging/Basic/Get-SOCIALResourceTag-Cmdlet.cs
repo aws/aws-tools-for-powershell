@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [OutputType("Amazon.SocialMessaging.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the AWS End User Messaging Social ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SocialMessaging.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.SocialMessaging.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SocialMessaging.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetSOCIALResourceTagCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

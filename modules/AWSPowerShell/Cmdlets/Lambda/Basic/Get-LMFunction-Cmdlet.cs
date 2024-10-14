@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetFunction API operation.", Operation = new[] {"GetFunction"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetFunctionResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.GetFunctionResponse object containing multiple properties."
     )]
     public partial class GetLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

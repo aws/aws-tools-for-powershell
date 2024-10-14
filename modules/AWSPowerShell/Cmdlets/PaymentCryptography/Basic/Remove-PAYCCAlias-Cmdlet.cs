@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane DeleteAlias API operation.", Operation = new[] {"DeleteAlias"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.DeleteAliasResponse))]
     [AWSCmdletOutput("None or Amazon.PaymentCryptography.Model.DeleteAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PaymentCryptography.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PaymentCryptography.Model.DeleteAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePAYCCAliasCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

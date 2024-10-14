@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield CreateSubscription API operation.", Operation = new[] {"CreateSubscription"}, SelectReturnType = typeof(Amazon.Shield.Model.CreateSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.CreateSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.CreateSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.CreateSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSHLDSubscriptionCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service UpdatePackage API operation.", Operation = new[] {"UpdatePackage"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.UpdatePackageResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.PackageDetails or Amazon.OpenSearchService.Model.UpdatePackageResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.PackageDetails object.",
-        "The service call response (type Amazon.OpenSearchService.Model.UpdatePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.UpdatePackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSPackageCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

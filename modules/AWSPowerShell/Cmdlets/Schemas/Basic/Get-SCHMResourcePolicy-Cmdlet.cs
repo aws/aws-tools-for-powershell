@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.GetResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Schemas.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.GetResourcePolicyResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
     public partial class GetSCHMResourcePolicyCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

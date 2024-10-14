@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DescribeReplicationInstanceTaskLogs API operation.", Operation = new[] {"DescribeReplicationInstanceTaskLogs"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeReplicationInstanceTaskLogsResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationInstanceTaskLog or Amazon.DatabaseMigrationService.Model.DescribeReplicationInstanceTaskLogsResponse",
         "This cmdlet returns a collection of Amazon.DatabaseMigrationService.Model.ReplicationInstanceTaskLog objects.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationInstanceTaskLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationInstanceTaskLogsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDMSReplicationInstanceTaskLogCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

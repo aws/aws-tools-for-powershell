@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [OutputType("Amazon.CognitoSync.Model.SetIdentityPoolConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Sync SetIdentityPoolConfiguration API operation.", Operation = new[] {"SetIdentityPoolConfiguration"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.SetIdentityPoolConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.SetIdentityPoolConfigurationResponse",
-        "This cmdlet returns an Amazon.CognitoSync.Model.SetIdentityPoolConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoSync.Model.SetIdentityPoolConfigurationResponse object containing multiple properties."
     )]
     public partial class SetCGISIdentityPoolConfigurationCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

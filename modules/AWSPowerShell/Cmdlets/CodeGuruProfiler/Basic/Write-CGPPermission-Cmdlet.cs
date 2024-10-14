@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [OutputType("Amazon.CodeGuruProfiler.Model.PutPermissionResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler PutPermission API operation.", Operation = new[] {"PutPermission"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.PutPermissionResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.PutPermissionResponse",
-        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.PutPermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.PutPermissionResponse object containing multiple properties."
     )]
     public partial class WriteCGPPermissionCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

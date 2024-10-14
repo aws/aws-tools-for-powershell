@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Synthetics.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWSYNResourceTagCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

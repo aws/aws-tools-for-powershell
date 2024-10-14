@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings BatchUpdateAttendeeCapabilitiesExcept API operation.", Operation = new[] {"BatchUpdateAttendeeCapabilitiesExcept"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMeetings.Model.BatchUpdateAttendeeCapabilitiesExceptResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMTGUpdateAttendeeCapabilitiesExceptCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

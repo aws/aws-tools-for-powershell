@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy DeleteResourcesByExternalId API operation.", Operation = new[] {"DeleteResourcesByExternalId"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.DeleteResourcesByExternalIdResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.DeleteResourcesByExternalIdResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.DeleteResourcesByExternalIdResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.DeleteResourcesByExternalIdResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDResourcesByExternalIdCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

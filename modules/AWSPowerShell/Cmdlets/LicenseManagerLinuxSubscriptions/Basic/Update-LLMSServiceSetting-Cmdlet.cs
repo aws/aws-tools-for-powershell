@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
     [OutputType("Amazon.LicenseManagerLinuxSubscriptions.Model.UpdateServiceSettingsResponse")]
     [AWSCmdlet("Calls the AWS License Manager - Linux Subscriptions UpdateServiceSettings API operation.", Operation = new[] {"UpdateServiceSettings"}, SelectReturnType = typeof(Amazon.LicenseManagerLinuxSubscriptions.Model.UpdateServiceSettingsResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerLinuxSubscriptions.Model.UpdateServiceSettingsResponse",
-        "This cmdlet returns an Amazon.LicenseManagerLinuxSubscriptions.Model.UpdateServiceSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManagerLinuxSubscriptions.Model.UpdateServiceSettingsResponse object containing multiple properties."
     )]
     public partial class UpdateLLMSServiceSettingCmdlet : AmazonLicenseManagerLinuxSubscriptionsClientCmdlet, IExecutor
     {

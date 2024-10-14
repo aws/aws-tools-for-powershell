@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DeleteElasticsearchServiceRole API operation.", Operation = new[] {"DeleteElasticsearchServiceRole"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse))]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveESElasticsearchServiceRoleCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

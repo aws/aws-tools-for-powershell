@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CreateSession API operation.", Operation = new[] {"CreateSession"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateSessionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.Session or Amazon.Glue.Model.CreateSessionResponse",
         "This cmdlet returns an Amazon.Glue.Model.Session object.",
-        "The service call response (type Amazon.Glue.Model.CreateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.CreateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGLUESessionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

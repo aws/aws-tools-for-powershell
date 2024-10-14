@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
     [AWSCmdlet("Calls the CleanRoomsML ListConfiguredAudienceModels API operation.", Operation = new[] {"ListConfiguredAudienceModels"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.ListConfiguredAudienceModelsResponse))]
     [AWSCmdletOutput("Amazon.CleanRoomsML.Model.ConfiguredAudienceModelSummary or Amazon.CleanRoomsML.Model.ListConfiguredAudienceModelsResponse",
         "This cmdlet returns a collection of Amazon.CleanRoomsML.Model.ConfiguredAudienceModelSummary objects.",
-        "The service call response (type Amazon.CleanRoomsML.Model.ListConfiguredAudienceModelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRoomsML.Model.ListConfiguredAudienceModelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRMLConfiguredAudienceModelListCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
     {

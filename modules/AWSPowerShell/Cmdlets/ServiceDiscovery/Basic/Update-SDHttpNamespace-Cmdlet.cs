@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map UpdateHttpNamespace API operation.", Operation = new[] {"UpdateHttpNamespace"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.UpdateHttpNamespaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceDiscovery.Model.UpdateHttpNamespaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.UpdateHttpNamespaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.UpdateHttpNamespaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSDHttpNamespaceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

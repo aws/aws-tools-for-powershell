@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail SetIpAddressType API operation.", Operation = new[] {"SetIpAddressType"}, SelectReturnType = typeof(Amazon.Lightsail.Model.SetIpAddressTypeResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.SetIpAddressTypeResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.SetIpAddressTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.SetIpAddressTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetLSIpAddressTypeCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

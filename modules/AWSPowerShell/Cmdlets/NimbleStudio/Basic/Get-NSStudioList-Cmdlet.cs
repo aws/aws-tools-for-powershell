@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio ListStudios API operation.", Operation = new[] {"ListStudios"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.ListStudiosResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.Studio or Amazon.NimbleStudio.Model.ListStudiosResponse",
         "This cmdlet returns a collection of Amazon.NimbleStudio.Model.Studio objects.",
-        "The service call response (type Amazon.NimbleStudio.Model.ListStudiosResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.ListStudiosResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSStudioListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

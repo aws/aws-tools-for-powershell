@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     [AWSCmdlet("Calls the AWS Comprehend Medical StopRxNormInferenceJob API operation.", Operation = new[] {"StopRxNormInferenceJob"}, SelectReturnType = typeof(Amazon.ComprehendMedical.Model.StopRxNormInferenceJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.ComprehendMedical.Model.StopRxNormInferenceJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ComprehendMedical.Model.StopRxNormInferenceJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ComprehendMedical.Model.StopRxNormInferenceJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopCMPMRxNormInferenceJobCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     [OutputType("Amazon.BedrockRuntime.Model.ConverseResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock Runtime Converse API operation.", Operation = new[] {"Converse"}, SelectReturnType = typeof(Amazon.BedrockRuntime.Model.ConverseResponse))]
     [AWSCmdletOutput("Amazon.BedrockRuntime.Model.ConverseResponse",
-        "This cmdlet returns an Amazon.BedrockRuntime.Model.ConverseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockRuntime.Model.ConverseResponse object containing multiple properties."
     )]
     public partial class InvokeBDRRConverseCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {

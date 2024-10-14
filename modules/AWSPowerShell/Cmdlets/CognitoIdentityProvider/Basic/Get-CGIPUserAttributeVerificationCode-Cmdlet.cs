@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUserAttributeVerificationCode API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetUserAttributeVerificationCode"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType or Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPUserAttributeVerificationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

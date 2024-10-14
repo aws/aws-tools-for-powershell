@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [OutputType("Amazon.CodeGuruProfiler.Model.RemovePermissionResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler RemovePermission API operation.", Operation = new[] {"RemovePermission"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.RemovePermissionResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.RemovePermissionResponse",
-        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.RemovePermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.RemovePermissionResponse object containing multiple properties."
     )]
     public partial class RemoveCGPPermissionCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

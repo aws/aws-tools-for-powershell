@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower DisableControl API operation.", Operation = new[] {"DisableControl"}, SelectReturnType = typeof(Amazon.ControlTower.Model.DisableControlResponse))]
     [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.DisableControlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ControlTower.Model.DisableControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ControlTower.Model.DisableControlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableACTControlCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

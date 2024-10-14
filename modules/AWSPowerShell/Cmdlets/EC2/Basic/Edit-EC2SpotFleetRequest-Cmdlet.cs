@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySpotFleetRequest API operation.", Operation = new[] {"ModifySpotFleetRequest"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySpotFleetRequestResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifySpotFleetRequestResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.ModifySpotFleetRequestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifySpotFleetRequestResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

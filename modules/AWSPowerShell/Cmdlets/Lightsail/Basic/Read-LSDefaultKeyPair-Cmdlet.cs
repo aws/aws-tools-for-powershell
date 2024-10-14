@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail DownloadDefaultKeyPair API operation.", Operation = new[] {"DownloadDefaultKeyPair"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse object containing multiple properties."
     )]
     public partial class ReadLSDefaultKeyPairCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

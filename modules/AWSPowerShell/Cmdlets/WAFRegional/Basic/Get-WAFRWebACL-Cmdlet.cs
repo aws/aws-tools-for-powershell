@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional GetWebACL API operation.", Operation = new[] {"GetWebACL"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.GetWebACLResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.WebACL or Amazon.WAFRegional.Model.GetWebACLResponse",
         "This cmdlet returns an Amazon.WAFRegional.Model.WebACL object.",
-        "The service call response (type Amazon.WAFRegional.Model.GetWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.GetWebACLResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRWebACLCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

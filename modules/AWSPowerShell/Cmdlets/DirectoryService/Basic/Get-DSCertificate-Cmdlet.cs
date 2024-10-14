@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DescribeCertificate API operation.", Operation = new[] {"DescribeCertificate"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeCertificateResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Certificate or Amazon.DirectoryService.Model.DescribeCertificateResponse",
         "This cmdlet returns an Amazon.DirectoryService.Model.Certificate object.",
-        "The service call response (type Amazon.DirectoryService.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.DescribeCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDSCertificateCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

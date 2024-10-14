@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DeleteDashboard API operation.", Operation = new[] {"DeleteDashboard"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteDashboardResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.DeleteDashboardResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.DeleteDashboardResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.DeleteDashboardResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWDashboardCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

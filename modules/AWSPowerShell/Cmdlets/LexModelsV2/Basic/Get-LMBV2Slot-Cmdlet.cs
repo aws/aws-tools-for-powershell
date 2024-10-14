@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.DescribeSlotResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DescribeSlot API operation.", Operation = new[] {"DescribeSlot"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DescribeSlotResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.DescribeSlotResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.DescribeSlotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.DescribeSlotResponse object containing multiple properties."
     )]
     public partial class GetLMBV2SlotCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

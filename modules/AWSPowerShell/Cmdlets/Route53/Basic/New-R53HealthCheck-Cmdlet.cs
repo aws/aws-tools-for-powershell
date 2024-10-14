@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateHealthCheckResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 CreateHealthCheck API operation.", Operation = new[] {"CreateHealthCheck"}, SelectReturnType = typeof(Amazon.Route53.Model.CreateHealthCheckResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResponse",
-        "This cmdlet returns an Amazon.Route53.Model.CreateHealthCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.CreateHealthCheckResponse object containing multiple properties."
     )]
     public partial class NewR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

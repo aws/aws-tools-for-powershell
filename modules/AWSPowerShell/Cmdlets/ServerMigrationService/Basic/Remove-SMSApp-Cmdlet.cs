@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service DeleteApp API operation.", Operation = new[] {"DeleteApp"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.DeleteAppResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.DeleteAppResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.DeleteAppResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSAppCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

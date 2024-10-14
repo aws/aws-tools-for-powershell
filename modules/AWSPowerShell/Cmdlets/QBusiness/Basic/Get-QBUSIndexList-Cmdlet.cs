@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness ListIndices API operation.", Operation = new[] {"ListIndices"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ListIndicesResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.Index or Amazon.QBusiness.Model.ListIndicesResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.Index objects.",
-        "The service call response (type Amazon.QBusiness.Model.ListIndicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.ListIndicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSIndexListCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

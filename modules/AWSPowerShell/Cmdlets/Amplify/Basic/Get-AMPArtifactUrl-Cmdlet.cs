@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [OutputType("Amazon.Amplify.Model.GetArtifactUrlResponse")]
     [AWSCmdlet("Calls the AWS Amplify GetArtifactUrl API operation.", Operation = new[] {"GetArtifactUrl"}, SelectReturnType = typeof(Amazon.Amplify.Model.GetArtifactUrlResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.GetArtifactUrlResponse",
-        "This cmdlet returns an Amazon.Amplify.Model.GetArtifactUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Amplify.Model.GetArtifactUrlResponse object containing multiple properties."
     )]
     public partial class GetAMPArtifactUrlCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

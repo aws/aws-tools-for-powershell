@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteGlobalCluster API operation.", Operation = new[] {"DeleteGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.DeleteGlobalClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.GlobalCluster object.",
-        "The service call response (type Amazon.RDS.Model.DeleteGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

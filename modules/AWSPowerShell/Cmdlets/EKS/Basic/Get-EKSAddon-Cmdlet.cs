@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeAddon API operation.", Operation = new[] {"DescribeAddon"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeAddonResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Addon or Amazon.EKS.Model.DescribeAddonResponse",
         "This cmdlet returns an Amazon.EKS.Model.Addon object.",
-        "The service call response (type Amazon.EKS.Model.DescribeAddonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DescribeAddonResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEKSAddonCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DisassociateWorkspaceApplication API operation.", Operation = new[] {"DisassociateWorkspaceApplication"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DisassociateWorkspaceApplicationResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceResourceAssociation or Amazon.WorkSpaces.Model.DisassociateWorkspaceApplicationResponse",
         "This cmdlet returns an Amazon.WorkSpaces.Model.WorkspaceResourceAssociation object.",
-        "The service call response (type Amazon.WorkSpaces.Model.DisassociateWorkspaceApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DisassociateWorkspaceApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWKSWorkspaceApplicationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

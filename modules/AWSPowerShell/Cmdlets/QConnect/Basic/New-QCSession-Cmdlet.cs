@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect CreateSession API operation.", Operation = new[] {"CreateSession"}, SelectReturnType = typeof(Amazon.QConnect.Model.CreateSessionResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.SessionData or Amazon.QConnect.Model.CreateSessionResponse",
         "This cmdlet returns an Amazon.QConnect.Model.SessionData object.",
-        "The service call response (type Amazon.QConnect.Model.CreateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.CreateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewQCSessionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

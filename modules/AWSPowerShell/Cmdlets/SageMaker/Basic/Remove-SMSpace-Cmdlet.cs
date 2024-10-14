@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteSpace API operation.", Operation = new[] {"DeleteSpace"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteSpaceResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteSpaceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteSpaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteSpaceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSpaceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT StartThingRegistrationTask API operation.", Operation = new[] {"StartThingRegistrationTask"}, SelectReturnType = typeof(Amazon.IoT.Model.StartThingRegistrationTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoT.Model.StartThingRegistrationTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoT.Model.StartThingRegistrationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.StartThingRegistrationTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartIOTThingRegistrationTaskCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

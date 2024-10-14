@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.CreateDataCatalogResponse")]
     [AWSCmdlet("Calls the Amazon Athena CreateDataCatalog API operation.", Operation = new[] {"CreateDataCatalog"}, SelectReturnType = typeof(Amazon.Athena.Model.CreateDataCatalogResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.CreateDataCatalogResponse",
-        "This cmdlet returns an Amazon.Athena.Model.CreateDataCatalogResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.CreateDataCatalogResponse object containing multiple properties."
     )]
     public partial class NewATHDataCatalogCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

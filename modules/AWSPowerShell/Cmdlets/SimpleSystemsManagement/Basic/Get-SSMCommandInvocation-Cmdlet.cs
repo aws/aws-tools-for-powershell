@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager ListCommandInvocations API operation.", Operation = new[] {"ListCommandInvocations"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CommandInvocation or Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.CommandInvocation objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMCommandInvocationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

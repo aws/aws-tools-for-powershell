@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RestoreImageFromRecycleBin API operation.", Operation = new[] {"RestoreImageFromRecycleBin"}, SelectReturnType = typeof(Amazon.EC2.Model.RestoreImageFromRecycleBinResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.RestoreImageFromRecycleBinResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.RestoreImageFromRecycleBinResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RestoreImageFromRecycleBinResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreEC2ImageFromRecycleBinCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

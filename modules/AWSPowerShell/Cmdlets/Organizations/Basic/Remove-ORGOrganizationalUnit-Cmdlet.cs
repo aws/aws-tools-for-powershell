@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DeleteOrganizationalUnit API operation.", Operation = new[] {"DeleteOrganizationalUnit"}, SelectReturnType = typeof(Amazon.Organizations.Model.DeleteOrganizationalUnitResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.DeleteOrganizationalUnitResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.DeleteOrganizationalUnitResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.DeleteOrganizationalUnitResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveORGOrganizationalUnitCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

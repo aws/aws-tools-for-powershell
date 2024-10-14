@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MHC
     [AWSCmdlet("Calls the AWS Migration Hub Config DeleteHomeRegionControl API operation.", Operation = new[] {"DeleteHomeRegionControl"}, SelectReturnType = typeof(Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubConfig.Model.DeleteHomeRegionControlResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHCHomeRegionControlCmdlet : AmazonMigrationHubConfigClientCmdlet, IExecutor
     {

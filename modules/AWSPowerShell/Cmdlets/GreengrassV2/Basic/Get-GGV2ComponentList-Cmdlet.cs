@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 ListComponents API operation.", Operation = new[] {"ListComponents"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.ListComponentsResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.Component or Amazon.GreengrassV2.Model.ListComponentsResponse",
         "This cmdlet returns a collection of Amazon.GreengrassV2.Model.Component objects.",
-        "The service call response (type Amazon.GreengrassV2.Model.ListComponentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.ListComponentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGV2ComponentListCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

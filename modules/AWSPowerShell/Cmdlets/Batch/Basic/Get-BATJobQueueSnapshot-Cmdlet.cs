@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch GetJobQueueSnapshot API operation.", Operation = new[] {"GetJobQueueSnapshot"}, SelectReturnType = typeof(Amazon.Batch.Model.GetJobQueueSnapshotResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.FrontOfQueueDetail or Amazon.Batch.Model.GetJobQueueSnapshotResponse",
         "This cmdlet returns an Amazon.Batch.Model.FrontOfQueueDetail object.",
-        "The service call response (type Amazon.Batch.Model.GetJobQueueSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Batch.Model.GetJobQueueSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBATJobQueueSnapshotCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

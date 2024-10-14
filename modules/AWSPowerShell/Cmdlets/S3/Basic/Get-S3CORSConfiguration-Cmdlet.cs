@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetCORSConfiguration API operation.", Operation = new[] {"GetCORSConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetCORSConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.CORSConfiguration or Amazon.S3.Model.GetCORSConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.CORSConfiguration object.",
-        "The service call response (type Amazon.S3.Model.GetCORSConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetCORSConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CORSConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

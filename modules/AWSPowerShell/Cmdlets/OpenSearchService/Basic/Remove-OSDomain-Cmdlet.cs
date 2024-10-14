@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainStatus or Amazon.OpenSearchService.Model.DeleteDomainResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.DomainStatus object.",
-        "The service call response (type Amazon.OpenSearchService.Model.DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSDomainCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton AcceptEnvironmentAccountConnection API operation.", Operation = new[] {"AcceptEnvironmentAccountConnection"}, SelectReturnType = typeof(Amazon.Proton.Model.AcceptEnvironmentAccountConnectionResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.EnvironmentAccountConnection or Amazon.Proton.Model.AcceptEnvironmentAccountConnectionResponse",
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentAccountConnection object.",
-        "The service call response (type Amazon.Proton.Model.AcceptEnvironmentAccountConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.AcceptEnvironmentAccountConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApprovePROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

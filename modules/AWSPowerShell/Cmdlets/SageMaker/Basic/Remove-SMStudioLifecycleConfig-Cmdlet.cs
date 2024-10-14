@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteStudioLifecycleConfig API operation.", Operation = new[] {"DeleteStudioLifecycleConfig"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteStudioLifecycleConfigResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteStudioLifecycleConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteStudioLifecycleConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteStudioLifecycleConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMStudioLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     [AWSCmdlet("Calls the Amazon Nimble Studio GetStreamingSession API operation.", Operation = new[] {"GetStreamingSession"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.GetStreamingSessionResponse))]
     [AWSCmdletOutput("Amazon.NimbleStudio.Model.StreamingSession or Amazon.NimbleStudio.Model.GetStreamingSessionResponse",
         "This cmdlet returns an Amazon.NimbleStudio.Model.StreamingSession object.",
-        "The service call response (type Amazon.NimbleStudio.Model.GetStreamingSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NimbleStudio.Model.GetStreamingSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNSStreamingSessionCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.CreateGroupResponse")]
     [AWSCmdlet("Calls the AWS Greengrass CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.Greengrass.Model.CreateGroupResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.CreateGroupResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.CreateGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.CreateGroupResponse object containing multiple properties."
     )]
     public partial class NewGGGroupCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

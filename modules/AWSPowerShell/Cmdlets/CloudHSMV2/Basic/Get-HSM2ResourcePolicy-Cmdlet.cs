@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudHSMV2.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetHSM2ResourcePolicyCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

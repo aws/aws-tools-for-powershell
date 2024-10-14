@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteContinuousDeploymentPolicy API operation.", Operation = new[] {"DeleteContinuousDeploymentPolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteContinuousDeploymentPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteContinuousDeploymentPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteContinuousDeploymentPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteContinuousDeploymentPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFContinuousDeploymentPolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

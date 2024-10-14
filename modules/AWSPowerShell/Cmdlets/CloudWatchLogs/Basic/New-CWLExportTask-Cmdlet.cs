@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs CreateExportTask API operation.", Operation = new[] {"CreateExportTask"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CreateExportTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudWatchLogs.Model.CreateExportTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

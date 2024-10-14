@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch TerminateJob API operation.", Operation = new[] {"TerminateJob"}, SelectReturnType = typeof(Amazon.Batch.Model.TerminateJobResponse))]
     [AWSCmdletOutput("None or Amazon.Batch.Model.TerminateJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.TerminateJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Batch.Model.TerminateJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

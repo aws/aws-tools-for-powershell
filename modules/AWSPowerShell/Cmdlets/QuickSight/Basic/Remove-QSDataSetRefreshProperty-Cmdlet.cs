@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteDataSetRefreshProperties API operation.", Operation = new[] {"DeleteDataSetRefreshProperties"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse object containing multiple properties."
     )]
     public partial class RemoveQSDataSetRefreshPropertyCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

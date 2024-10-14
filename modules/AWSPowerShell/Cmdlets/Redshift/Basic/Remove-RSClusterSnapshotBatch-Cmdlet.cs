@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.BatchDeleteClusterSnapshotsResponse")]
     [AWSCmdlet("Calls the Amazon Redshift BatchDeleteClusterSnapshots API operation.", Operation = new[] {"BatchDeleteClusterSnapshots"}, SelectReturnType = typeof(Amazon.Redshift.Model.BatchDeleteClusterSnapshotsResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.BatchDeleteClusterSnapshotsResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.BatchDeleteClusterSnapshotsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.BatchDeleteClusterSnapshotsResponse object containing multiple properties."
     )]
     public partial class RemoveRSClusterSnapshotBatchCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service StartDBInstanceAutomatedBackupsReplication API operation.", Operation = new[] {"StartDBInstanceAutomatedBackupsReplication"}, SelectReturnType = typeof(Amazon.RDS.Model.StartDBInstanceAutomatedBackupsReplicationResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstanceAutomatedBackup or Amazon.RDS.Model.StartDBInstanceAutomatedBackupsReplicationResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBInstanceAutomatedBackup object.",
-        "The service call response (type Amazon.RDS.Model.StartDBInstanceAutomatedBackupsReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.StartDBInstanceAutomatedBackupsReplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartRDSDBInstanceAutomatedBackupsReplicationCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

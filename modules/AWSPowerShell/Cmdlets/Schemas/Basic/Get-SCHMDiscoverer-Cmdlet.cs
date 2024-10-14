@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.DescribeDiscovererResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry DescribeDiscoverer API operation.", Operation = new[] {"DescribeDiscoverer"}, SelectReturnType = typeof(Amazon.Schemas.Model.DescribeDiscovererResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.DescribeDiscovererResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.DescribeDiscovererResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.DescribeDiscovererResponse object containing multiple properties."
     )]
     public partial class GetSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

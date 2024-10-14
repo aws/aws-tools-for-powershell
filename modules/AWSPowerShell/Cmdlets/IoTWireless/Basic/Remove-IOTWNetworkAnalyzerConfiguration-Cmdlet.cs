@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless DeleteNetworkAnalyzerConfiguration API operation.", Operation = new[] {"DeleteNetworkAnalyzerConfiguration"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.DeleteNetworkAnalyzerConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.DeleteNetworkAnalyzerConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.DeleteNetworkAnalyzerConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.DeleteNetworkAnalyzerConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTWNetworkAnalyzerConfigurationCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

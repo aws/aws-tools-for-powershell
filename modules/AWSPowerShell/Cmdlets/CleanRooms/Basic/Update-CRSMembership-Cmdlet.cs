@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service UpdateMembership API operation.", Operation = new[] {"UpdateMembership"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UpdateMembershipResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.Membership or Amazon.CleanRooms.Model.UpdateMembershipResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.Membership object.",
-        "The service call response (type Amazon.CleanRooms.Model.UpdateMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.UpdateMembershipResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCRSMembershipCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

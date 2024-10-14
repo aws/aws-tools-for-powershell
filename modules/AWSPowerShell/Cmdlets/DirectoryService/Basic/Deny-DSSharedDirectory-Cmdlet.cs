@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service RejectSharedDirectory API operation.", Operation = new[] {"RejectSharedDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.RejectSharedDirectoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.RejectSharedDirectoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.RejectSharedDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.RejectSharedDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyDSSharedDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

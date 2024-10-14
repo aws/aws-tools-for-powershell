@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.GetGlobalSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Chime GetGlobalSettings API operation.", Operation = new[] {"GetGlobalSettings"}, SelectReturnType = typeof(Amazon.Chime.Model.GetGlobalSettingsResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.GetGlobalSettingsResponse",
-        "This cmdlet returns an Amazon.Chime.Model.GetGlobalSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.GetGlobalSettingsResponse object containing multiple properties."
     )]
     public partial class GetCHMGlobalSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

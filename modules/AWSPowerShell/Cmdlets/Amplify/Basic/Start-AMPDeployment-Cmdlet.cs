@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify StartDeployment API operation.", Operation = new[] {"StartDeployment"}, SelectReturnType = typeof(Amazon.Amplify.Model.StartDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.JobSummary or Amazon.Amplify.Model.StartDeploymentResponse",
         "This cmdlet returns an Amazon.Amplify.Model.JobSummary object.",
-        "The service call response (type Amazon.Amplify.Model.StartDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.StartDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartAMPDeploymentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow DeleteFlow API operation.", Operation = new[] {"DeleteFlow"}, SelectReturnType = typeof(Amazon.Appflow.Model.DeleteFlowResponse))]
     [AWSCmdletOutput("None or Amazon.Appflow.Model.DeleteFlowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Appflow.Model.DeleteFlowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Appflow.Model.DeleteFlowResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

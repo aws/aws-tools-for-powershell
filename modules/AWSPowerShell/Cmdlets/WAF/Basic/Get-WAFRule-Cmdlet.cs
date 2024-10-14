@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF GetRule API operation.", Operation = new[] {"GetRule"}, SelectReturnType = typeof(Amazon.WAF.Model.GetRuleResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.Rule or Amazon.WAF.Model.GetRuleResponse",
         "This cmdlet returns an Amazon.WAF.Model.Rule object.",
-        "The service call response (type Amazon.WAF.Model.GetRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

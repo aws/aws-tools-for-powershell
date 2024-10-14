@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReleaseAddress API operation.", Operation = new[] {"ReleaseAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.ReleaseAddressResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ReleaseAddressResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ReleaseAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReleaseAddressResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateAccountPasswordPolicy API operation.", Operation = new[] {"UpdateAccountPasswordPolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -28,14 +28,14 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the log sources in the current Amazon Web Services Region.
+    /// Retrieves the log sources.
     /// </summary>
     [Cmdlet("Get", "SLKLogSourceList")]
     [OutputType("Amazon.SecurityLake.Model.LogSource")]
     [AWSCmdlet("Calls the Amazon Security Lake ListLogSources API operation.", Operation = new[] {"ListLogSources"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.ListLogSourcesResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.LogSource or Amazon.SecurityLake.Model.ListLogSourcesResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.LogSource objects.",
-        "The service call response (type Amazon.SecurityLake.Model.ListLogSourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.ListLogSourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSLKLogSourceListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

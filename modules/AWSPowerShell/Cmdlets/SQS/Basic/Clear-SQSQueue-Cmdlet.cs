@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) PurgeQueue API operation.", Operation = new[] {"PurgeQueue"}, SelectReturnType = typeof(Amazon.SQS.Model.PurgeQueueResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.PurgeQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.PurgeQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.PurgeQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class ClearSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

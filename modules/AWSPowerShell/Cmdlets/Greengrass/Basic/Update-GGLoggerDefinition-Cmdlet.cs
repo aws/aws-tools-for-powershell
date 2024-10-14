@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass UpdateLoggerDefinition API operation.", Operation = new[] {"UpdateLoggerDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.UpdateLoggerDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.UpdateLoggerDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.UpdateLoggerDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.UpdateLoggerDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateGGLoggerDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service UpdateScript API operation.", Operation = new[] {"UpdateScript"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateScriptResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Script or Amazon.GameLift.Model.UpdateScriptResponse",
         "This cmdlet returns an Amazon.GameLift.Model.Script object.",
-        "The service call response (type Amazon.GameLift.Model.UpdateScriptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.UpdateScriptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGMLScriptCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

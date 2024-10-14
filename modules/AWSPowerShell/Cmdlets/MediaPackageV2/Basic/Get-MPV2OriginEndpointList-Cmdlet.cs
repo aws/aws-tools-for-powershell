@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 ListOriginEndpoints API operation.", Operation = new[] {"ListOriginEndpoints"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.ListOriginEndpointsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.OriginEndpointListConfiguration or Amazon.MediaPackageV2.Model.ListOriginEndpointsResponse",
         "This cmdlet returns a collection of Amazon.MediaPackageV2.Model.OriginEndpointListConfiguration objects.",
-        "The service call response (type Amazon.MediaPackageV2.Model.ListOriginEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaPackageV2.Model.ListOriginEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMPV2OriginEndpointListCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     [OutputType("Amazon.SSOOIDC.Model.CreateTokenResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On OIDC CreateToken API operation.", Operation = new[] {"CreateToken"}, SelectReturnType = typeof(Amazon.SSOOIDC.Model.CreateTokenResponse))]
     [AWSCmdletOutput("Amazon.SSOOIDC.Model.CreateTokenResponse",
-        "This cmdlet returns an Amazon.SSOOIDC.Model.CreateTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOOIDC.Model.CreateTokenResponse object containing multiple properties."
     )]
     public partial class NewSSOOIDCTokenCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
     [AWSCmdlet("Calls the AWS Mainframe Modernization Application Testing TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.AppTest.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AppTest.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppTest.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppTest.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddATResourceTagCmdlet : AmazonAppTestClientCmdlet, IExecutor
     {

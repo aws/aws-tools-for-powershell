@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow ResetConnectorMetadataCache API operation.", Operation = new[] {"ResetConnectorMetadataCache"}, SelectReturnType = typeof(Amazon.Appflow.Model.ResetConnectorMetadataCacheResponse))]
     [AWSCmdletOutput("None or Amazon.Appflow.Model.ResetConnectorMetadataCacheResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Appflow.Model.ResetConnectorMetadataCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Appflow.Model.ResetConnectorMetadataCacheResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetAFConnectorMetadataCacheCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

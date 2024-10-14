@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamExternalResourceVerificationToken API operation.", Operation = new[] {"DeleteIpamExternalResourceVerificationToken"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamExternalResourceVerificationToken or Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamExternalResourceVerificationToken object.",
-        "The service call response (type Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2IpamExternalResourceVerificationTokenCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

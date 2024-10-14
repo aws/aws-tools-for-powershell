@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [OutputType("Amazon.SSOAdmin.Model.DescribeApplicationAssignmentResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribeApplicationAssignment API operation.", Operation = new[] {"DescribeApplicationAssignment"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribeApplicationAssignmentResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.DescribeApplicationAssignmentResponse",
-        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeApplicationAssignmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeApplicationAssignmentResponse object containing multiple properties."
     )]
     public partial class GetSSOADMNApplicationAssignmentCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

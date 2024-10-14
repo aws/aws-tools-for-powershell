@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise CreateBulkImportJob API operation.", Operation = new[] {"CreateBulkImportJob"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.CreateBulkImportJobResponse object containing multiple properties."
     )]
     public partial class NewIOTSWBulkImportJobCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

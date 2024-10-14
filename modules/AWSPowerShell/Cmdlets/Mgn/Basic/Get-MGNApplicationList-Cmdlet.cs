@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListApplications API operation.", Operation = new[] {"ListApplications"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListApplicationsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.Application or Amazon.Mgn.Model.ListApplicationsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.Application objects.",
-        "The service call response (type Amazon.Mgn.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNApplicationListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

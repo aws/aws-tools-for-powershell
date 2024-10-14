@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [OutputType("Amazon.TimestreamInfluxDB.Model.CreateDbParameterGroupResponse")]
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB CreateDbParameterGroup API operation.", Operation = new[] {"CreateDbParameterGroup"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.CreateDbParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.CreateDbParameterGroupResponse",
-        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.CreateDbParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.CreateDbParameterGroupResponse object containing multiple properties."
     )]
     public partial class NewTIDBDbParameterGroupCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {

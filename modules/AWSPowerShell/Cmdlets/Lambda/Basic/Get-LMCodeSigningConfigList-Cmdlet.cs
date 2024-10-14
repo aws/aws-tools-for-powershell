@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.ListCodeSigningConfigsResponse")]
     [AWSCmdlet("Calls the AWS Lambda ListCodeSigningConfigs API operation.", Operation = new[] {"ListCodeSigningConfigs"}, SelectReturnType = typeof(Amazon.Lambda.Model.ListCodeSigningConfigsResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.ListCodeSigningConfigsResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.ListCodeSigningConfigsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.ListCodeSigningConfigsResponse object containing multiple properties."
     )]
     public partial class GetLMCodeSigningConfigListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetCostEstimate API operation.", Operation = new[] {"GetCostEstimate"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetCostEstimateResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.ResourceBudgetEstimate or Amazon.Lightsail.Model.GetCostEstimateResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.ResourceBudgetEstimate objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetCostEstimateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetCostEstimateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSCostEstimateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

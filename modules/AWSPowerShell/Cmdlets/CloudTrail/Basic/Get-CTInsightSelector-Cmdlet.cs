@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.GetInsightSelectorsResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail GetInsightSelectors API operation.", Operation = new[] {"GetInsightSelectors"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetInsightSelectorsResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetInsightSelectorsResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.GetInsightSelectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.GetInsightSelectorsResponse object containing multiple properties."
     )]
     public partial class GetCTInsightSelectorCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

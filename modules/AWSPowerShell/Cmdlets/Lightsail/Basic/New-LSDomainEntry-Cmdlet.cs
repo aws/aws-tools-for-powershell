@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail CreateDomainEntry API operation.", Operation = new[] {"CreateDomainEntry"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateDomainEntryResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.CreateDomainEntryResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.CreateDomainEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.CreateDomainEntryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewLSDomainEntryCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

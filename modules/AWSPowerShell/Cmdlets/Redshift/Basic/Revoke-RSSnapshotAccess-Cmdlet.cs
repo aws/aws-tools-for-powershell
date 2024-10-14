@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift RevokeSnapshotAccess API operation.", Operation = new[] {"RevokeSnapshotAccess"}, SelectReturnType = typeof(Amazon.Redshift.Model.RevokeSnapshotAccessResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot or Amazon.Redshift.Model.RevokeSnapshotAccessResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Snapshot object.",
-        "The service call response (type Amazon.Redshift.Model.RevokeSnapshotAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RevokeSnapshotAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RevokeRSSnapshotAccessCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config GetAggregateResourceConfig API operation.", Operation = new[] {"GetAggregateResourceConfig"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetAggregateResourceConfigResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationItem or Amazon.ConfigService.Model.GetAggregateResourceConfigResponse",
         "This cmdlet returns an Amazon.ConfigService.Model.ConfigurationItem object.",
-        "The service call response (type Amazon.ConfigService.Model.GetAggregateResourceConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetAggregateResourceConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGAggregateResourceConfigCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

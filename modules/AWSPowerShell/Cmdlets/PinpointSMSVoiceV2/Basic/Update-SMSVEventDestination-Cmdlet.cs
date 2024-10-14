@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.UpdateEventDestinationResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 UpdateEventDestination API operation.", Operation = new[] {"UpdateEventDestination"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.UpdateEventDestinationResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.UpdateEventDestinationResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.UpdateEventDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.UpdateEventDestinationResponse object containing multiple properties."
     )]
     public partial class UpdateSMSVEventDestinationCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

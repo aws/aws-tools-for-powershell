@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog UpdateProvisioningArtifact API operation.", Operation = new[] {"UpdateProvisioningArtifact"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse object containing multiple properties."
     )]
     public partial class UpdateSCProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetJobDocument API operation.", Operation = new[] {"GetJobDocument"}, SelectReturnType = typeof(Amazon.IoT.Model.GetJobDocumentResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoT.Model.GetJobDocumentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoT.Model.GetJobDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetJobDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTJobDocumentCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Calls the Amazon Cognito Identity UnlinkDeveloperIdentity API operation.", Operation = new[] {"UnlinkDeveloperIdentity"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.UnlinkDeveloperIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentity.Model.UnlinkDeveloperIdentityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentity.Model.UnlinkDeveloperIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.UnlinkDeveloperIdentityResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountCGIDeveloperIdentityCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

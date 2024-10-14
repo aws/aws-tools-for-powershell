@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.PutResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.PutResourcePolicyResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.PutResourcePolicyResponse object containing multiple properties."
     )]
     public partial class WriteSECResourcePolicyCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

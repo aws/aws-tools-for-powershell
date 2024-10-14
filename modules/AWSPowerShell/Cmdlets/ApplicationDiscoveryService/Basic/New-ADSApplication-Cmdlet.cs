@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

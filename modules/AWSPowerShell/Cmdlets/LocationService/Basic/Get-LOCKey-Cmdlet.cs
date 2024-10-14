@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.DescribeKeyResponse")]
     [AWSCmdlet("Calls the Amazon Location Service DescribeKey API operation.", Operation = new[] {"DescribeKey"}, SelectReturnType = typeof(Amazon.LocationService.Model.DescribeKeyResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.DescribeKeyResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.DescribeKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.DescribeKeyResponse object containing multiple properties."
     )]
     public partial class GetLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

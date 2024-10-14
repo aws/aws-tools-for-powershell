@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless ListScheduledActions API operation.", Operation = new[] {"ListScheduledActions"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListScheduledActionsResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.ScheduledActionAssociation or Amazon.RedshiftServerless.Model.ListScheduledActionsResponse",
         "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.ScheduledActionAssociation objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.ListScheduledActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSScheduledActionListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

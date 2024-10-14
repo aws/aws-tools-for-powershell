@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse")]
     [AWSCmdlet("Calls the Amazon Location Service SearchPlaceIndexForPosition API operation.", Operation = new[] {"SearchPlaceIndexForPosition"}, SelectReturnType = typeof(Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.SearchPlaceIndexForPositionResponse object containing multiple properties."
     )]
     public partial class SearchLOCPlaceIndexForPositionCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

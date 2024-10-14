@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service RegisterEventTopic API operation.", Operation = new[] {"RegisterEventTopic"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.RegisterEventTopicResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.RegisterEventTopicResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.RegisterEventTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.RegisterEventTopicResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterDSEventTopicCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

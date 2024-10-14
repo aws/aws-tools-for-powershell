@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [AWSCmdlet("Calls the AmazonMWAA TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MWAA.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MWAA.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MWAA.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMWAAResourceTagCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service DeleteLaunchAction API operation.", Operation = new[] {"DeleteLaunchAction"}, SelectReturnType = typeof(Amazon.Drs.Model.DeleteLaunchActionResponse))]
     [AWSCmdletOutput("None or Amazon.Drs.Model.DeleteLaunchActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.DeleteLaunchActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Drs.Model.DeleteLaunchActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEDRSLaunchActionCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

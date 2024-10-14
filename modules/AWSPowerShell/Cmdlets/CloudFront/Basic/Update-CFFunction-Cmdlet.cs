@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateFunction API operation.", Operation = new[] {"UpdateFunction"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateFunctionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.FunctionSummary or Amazon.CloudFront.Model.UpdateFunctionResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.FunctionSummary object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateFunctionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

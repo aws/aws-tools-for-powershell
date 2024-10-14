@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.AcceptPredictionsResponse")]
     [AWSCmdlet("Calls the Amazon DataZone AcceptPredictions API operation.", Operation = new[] {"AcceptPredictions"}, SelectReturnType = typeof(Amazon.DataZone.Model.AcceptPredictionsResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.AcceptPredictionsResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.AcceptPredictionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.AcceptPredictionsResponse object containing multiple properties."
     )]
     public partial class ApproveDZPredictionCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

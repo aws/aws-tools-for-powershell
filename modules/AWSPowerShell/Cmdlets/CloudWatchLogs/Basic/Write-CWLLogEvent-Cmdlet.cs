@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs PutLogEvents API operation.", Operation = new[] {"PutLogEvents"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.PutLogEventsResponse), LegacyAlias="Write-CWLLogEvents")]
     [AWSCmdletOutput("System.String or Amazon.CloudWatchLogs.Model.PutLogEventsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.PutLogEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutLogEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCWLLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy ContinueDeployment API operation.", Operation = new[] {"ContinueDeployment"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.ContinueDeploymentResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.ContinueDeploymentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.ContinueDeploymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.ContinueDeploymentResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResumeCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

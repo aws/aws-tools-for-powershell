@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.RegisterTaskDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service RegisterTaskDefinition API operation.", Operation = new[] {"RegisterTaskDefinition"}, SelectReturnType = typeof(Amazon.ECS.Model.RegisterTaskDefinitionResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.RegisterTaskDefinitionResponse",
-        "This cmdlet returns an Amazon.ECS.Model.RegisterTaskDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.RegisterTaskDefinitionResponse object containing multiple properties."
     )]
     public partial class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {

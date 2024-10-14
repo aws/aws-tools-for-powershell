@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime CreateAppInstanceUser API operation.", Operation = new[] {"CreateAppInstanceUser"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateAppInstanceUserResponse))]
     [AWSCmdletOutput("System.String or Amazon.Chime.Model.CreateAppInstanceUserResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Chime.Model.CreateAppInstanceUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.CreateAppInstanceUserResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by CreateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
     public partial class NewCHMAppInstanceUserCmdlet : AmazonChimeClientCmdlet, IExecutor

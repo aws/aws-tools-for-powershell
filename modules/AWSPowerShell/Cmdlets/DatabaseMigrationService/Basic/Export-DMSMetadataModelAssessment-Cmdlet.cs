@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [OutputType("Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse")]
     [AWSCmdlet("Calls the AWS Database Migration Service ExportMetadataModelAssessment API operation.", Operation = new[] {"ExportMetadataModelAssessment"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse",
-        "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ExportMetadataModelAssessmentResponse object containing multiple properties."
     )]
     public partial class ExportDMSMetadataModelAssessmentCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

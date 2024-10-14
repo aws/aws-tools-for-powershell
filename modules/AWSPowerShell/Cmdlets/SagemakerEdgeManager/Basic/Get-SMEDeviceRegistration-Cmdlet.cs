@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SME
     [OutputType("Amazon.SagemakerEdgeManager.Model.GetDeviceRegistrationResponse")]
     [AWSCmdlet("Calls the Amazon Sagemaker Edge Manager GetDeviceRegistration API operation.", Operation = new[] {"GetDeviceRegistration"}, SelectReturnType = typeof(Amazon.SagemakerEdgeManager.Model.GetDeviceRegistrationResponse))]
     [AWSCmdletOutput("Amazon.SagemakerEdgeManager.Model.GetDeviceRegistrationResponse",
-        "This cmdlet returns an Amazon.SagemakerEdgeManager.Model.GetDeviceRegistrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SagemakerEdgeManager.Model.GetDeviceRegistrationResponse object containing multiple properties."
     )]
     public partial class GetSMEDeviceRegistrationCmdlet : AmazonSagemakerEdgeManagerClientCmdlet, IExecutor
     {

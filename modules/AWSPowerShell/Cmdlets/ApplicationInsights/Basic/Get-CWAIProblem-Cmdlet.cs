@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeProblem API operation.", Operation = new[] {"DescribeProblem"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeProblemResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.Problem or Amazon.ApplicationInsights.Model.DescribeProblemResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.Problem object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeProblemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.DescribeProblemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWAIProblemCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

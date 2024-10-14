@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DescribeMultiRegionAccessPointOperation API operation.", Operation = new[] {"DescribeMultiRegionAccessPointOperation"}, SelectReturnType = typeof(Amazon.S3Control.Model.DescribeMultiRegionAccessPointOperationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.AsyncOperation or Amazon.S3Control.Model.DescribeMultiRegionAccessPointOperationResponse",
         "This cmdlet returns an Amazon.S3Control.Model.AsyncOperation object.",
-        "The service call response (type Amazon.S3Control.Model.DescribeMultiRegionAccessPointOperationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.DescribeMultiRegionAccessPointOperationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CMultiRegionAccessPointOperationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

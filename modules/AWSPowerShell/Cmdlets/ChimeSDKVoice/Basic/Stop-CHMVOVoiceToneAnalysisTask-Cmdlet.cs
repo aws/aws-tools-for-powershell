@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice StopVoiceToneAnalysisTask API operation.", Operation = new[] {"StopVoiceToneAnalysisTask"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.StopVoiceToneAnalysisTaskResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKVoice.Model.StopVoiceToneAnalysisTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKVoice.Model.StopVoiceToneAnalysisTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKVoice.Model.StopVoiceToneAnalysisTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCHMVOVoiceToneAnalysisTaskCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

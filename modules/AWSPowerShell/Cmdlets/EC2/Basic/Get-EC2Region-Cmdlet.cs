@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeRegions API operation.", Operation = new[] {"DescribeRegions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeRegionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Region or Amazon.EC2.Model.DescribeRegionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Region objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeRegionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2RegionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

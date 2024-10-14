@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder CreateDistributionConfiguration API operation.", Operation = new[] {"CreateDistributionConfiguration"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CreateDistributionConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CreateDistributionConfigurationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.CreateDistributionConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.CreateDistributionConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2IBDistributionConfigurationCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AuthorizeClientVpnIngress API operation.", Operation = new[] {"AuthorizeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.AuthorizeClientVpnIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus or Amazon.EC2.Model.AuthorizeClientVpnIngressResponse",
         "This cmdlet returns an Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus object.",
-        "The service call response (type Amazon.EC2.Model.AuthorizeClientVpnIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AuthorizeClientVpnIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GrantEC2ClientVpnIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

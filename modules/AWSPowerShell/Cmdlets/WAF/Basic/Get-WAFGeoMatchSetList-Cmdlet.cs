@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF ListGeoMatchSets API operation.", Operation = new[] {"ListGeoMatchSets"}, SelectReturnType = typeof(Amazon.WAF.Model.ListGeoMatchSetsResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.GeoMatchSetSummary or Amazon.WAF.Model.ListGeoMatchSetsResponse",
         "This cmdlet returns a collection of Amazon.WAF.Model.GeoMatchSetSummary objects.",
-        "The service call response (type Amazon.WAF.Model.ListGeoMatchSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.ListGeoMatchSetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFGeoMatchSetListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'NextMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextMarker' to null for the first call then set the 'NextMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

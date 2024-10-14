@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeEnvironmentResources API operation.", Operation = new[] {"DescribeEnvironmentResources"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse), LegacyAlias="Get-EBEnvironmentResources")]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription or Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse",
         "This cmdlet returns an Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEBEnvironmentResourceCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

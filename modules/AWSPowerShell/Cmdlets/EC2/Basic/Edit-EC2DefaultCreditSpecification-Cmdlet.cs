@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyDefaultCreditSpecification API operation.", Operation = new[] {"ModifyDefaultCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceFamilyCreditSpecification or Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceFamilyCreditSpecification object.",
-        "The service call response (type Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyDefaultCreditSpecificationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2DefaultCreditSpecificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

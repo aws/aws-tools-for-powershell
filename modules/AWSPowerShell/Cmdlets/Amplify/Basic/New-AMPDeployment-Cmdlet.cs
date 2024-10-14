@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [OutputType("Amazon.Amplify.Model.CreateDeploymentResponse")]
     [AWSCmdlet("Calls the AWS Amplify CreateDeployment API operation.", Operation = new[] {"CreateDeployment"}, SelectReturnType = typeof(Amazon.Amplify.Model.CreateDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.CreateDeploymentResponse",
-        "This cmdlet returns an Amazon.Amplify.Model.CreateDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Amplify.Model.CreateDeploymentResponse object containing multiple properties."
     )]
     public partial class NewAMPDeploymentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

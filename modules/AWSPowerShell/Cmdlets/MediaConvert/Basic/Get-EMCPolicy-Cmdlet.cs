@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert GetPolicy API operation.", Operation = new[] {"GetPolicy"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.GetPolicyResponse))]
     [AWSCmdletOutput("Amazon.MediaConvert.Model.Policy or Amazon.MediaConvert.Model.GetPolicyResponse",
         "This cmdlet returns an Amazon.MediaConvert.Model.Policy object.",
-        "The service call response (type Amazon.MediaConvert.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConvert.Model.GetPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMCPolicyCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

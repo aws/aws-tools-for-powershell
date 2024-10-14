@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager CreateIngressPoint API operation.", Operation = new[] {"CreateIngressPoint"}, SelectReturnType = typeof(Amazon.MailManager.Model.CreateIngressPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.MailManager.Model.CreateIngressPointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MailManager.Model.CreateIngressPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.CreateIngressPointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMMGRIngressPointCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

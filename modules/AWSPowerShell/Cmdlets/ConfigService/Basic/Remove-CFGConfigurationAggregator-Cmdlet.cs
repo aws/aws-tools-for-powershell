@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteConfigurationAggregator API operation.", Operation = new[] {"DeleteConfigurationAggregator"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteConfigurationAggregatorResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteConfigurationAggregatorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationAggregatorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationAggregatorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGConfigurationAggregatorCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

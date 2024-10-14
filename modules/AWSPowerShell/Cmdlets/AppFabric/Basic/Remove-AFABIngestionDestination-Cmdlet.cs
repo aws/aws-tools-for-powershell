@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric DeleteIngestionDestination API operation.", Operation = new[] {"DeleteIngestionDestination"}, SelectReturnType = typeof(Amazon.AppFabric.Model.DeleteIngestionDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.AppFabric.Model.DeleteIngestionDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppFabric.Model.DeleteIngestionDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppFabric.Model.DeleteIngestionDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAFABIngestionDestinationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

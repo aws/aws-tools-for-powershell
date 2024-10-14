@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst DeleteAccessToken API operation.", Operation = new[] {"DeleteAccessToken"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.DeleteAccessTokenResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCatalyst.Model.DeleteAccessTokenResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCatalyst.Model.DeleteAccessTokenResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCatalyst.Model.DeleteAccessTokenResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCATAccessTokenCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

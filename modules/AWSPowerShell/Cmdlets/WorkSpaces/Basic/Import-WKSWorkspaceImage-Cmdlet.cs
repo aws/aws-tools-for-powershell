@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ImportWorkspaceImage API operation.", Operation = new[] {"ImportWorkspaceImage"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ImportWorkspaceImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpaces.Model.ImportWorkspaceImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpaces.Model.ImportWorkspaceImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.ImportWorkspaceImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

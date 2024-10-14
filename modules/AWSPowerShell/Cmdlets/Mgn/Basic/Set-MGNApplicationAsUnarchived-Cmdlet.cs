@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.UnarchiveApplicationResponse")]
     [AWSCmdlet("Calls the Application Migration Service UnarchiveApplication API operation.", Operation = new[] {"UnarchiveApplication"}, SelectReturnType = typeof(Amazon.Mgn.Model.UnarchiveApplicationResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.UnarchiveApplicationResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.UnarchiveApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.UnarchiveApplicationResponse object containing multiple properties."
     )]
     public partial class SetMGNApplicationAsUnarchivedCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

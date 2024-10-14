@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     [OutputType("Amazon.ManagedBlockchainQuery.Model.GetAssetContractResponse")]
     [AWSCmdlet("Calls the Amazon Managed Blockchain Query GetAssetContract API operation.", Operation = new[] {"GetAssetContract"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.GetAssetContractResponse))]
     [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.GetAssetContractResponse",
-        "This cmdlet returns an Amazon.ManagedBlockchainQuery.Model.GetAssetContractResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ManagedBlockchainQuery.Model.GetAssetContractResponse object containing multiple properties."
     )]
     public partial class GetMBCQAssetContractCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
     {

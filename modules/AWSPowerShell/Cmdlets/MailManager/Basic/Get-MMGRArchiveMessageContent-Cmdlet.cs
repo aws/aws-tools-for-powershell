@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetArchiveMessageContent API operation.", Operation = new[] {"GetArchiveMessageContent"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetArchiveMessageContentResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.MessageBody or Amazon.MailManager.Model.GetArchiveMessageContentResponse",
         "This cmdlet returns an Amazon.MailManager.Model.MessageBody object.",
-        "The service call response (type Amazon.MailManager.Model.GetArchiveMessageContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.GetArchiveMessageContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMMGRArchiveMessageContentCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

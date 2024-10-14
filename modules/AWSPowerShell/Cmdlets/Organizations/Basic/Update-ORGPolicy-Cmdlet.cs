@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations UpdatePolicy API operation.", Operation = new[] {"UpdatePolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.UpdatePolicyResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.Policy or Amazon.Organizations.Model.UpdatePolicyResponse",
         "This cmdlet returns an Amazon.Organizations.Model.Policy object.",
-        "The service call response (type Amazon.Organizations.Model.UpdatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.UpdatePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.CreateBucketAccessKeyResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail CreateBucketAccessKey API operation.", Operation = new[] {"CreateBucketAccessKey"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateBucketAccessKeyResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.CreateBucketAccessKeyResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.CreateBucketAccessKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.CreateBucketAccessKeyResponse object containing multiple properties."
     )]
     public partial class NewLSBucketAccessKeyCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

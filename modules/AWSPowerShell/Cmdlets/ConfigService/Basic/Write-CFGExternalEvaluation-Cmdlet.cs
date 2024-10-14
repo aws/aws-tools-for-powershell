@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutExternalEvaluation API operation.", Operation = new[] {"PutExternalEvaluation"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutExternalEvaluationResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.PutExternalEvaluationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.PutExternalEvaluationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutExternalEvaluationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGExternalEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

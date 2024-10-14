@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateConnectionAlias API operation.", Operation = new[] {"CreateConnectionAlias"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateConnectionAliasResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpaces.Model.CreateConnectionAliasResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpaces.Model.CreateConnectionAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.CreateConnectionAliasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWKSConnectionAliasCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

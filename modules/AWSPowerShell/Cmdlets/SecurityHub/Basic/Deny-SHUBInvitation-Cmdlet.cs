@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DeclineInvitations API operation.", Operation = new[] {"DeclineInvitations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeclineInvitationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Result or Amazon.SecurityHub.Model.DeclineInvitationsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.Result objects.",
-        "The service call response (type Amazon.SecurityHub.Model.DeclineInvitationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.DeclineInvitationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenySHUBInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

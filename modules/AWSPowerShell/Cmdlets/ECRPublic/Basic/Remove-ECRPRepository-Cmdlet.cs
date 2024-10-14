@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public DeleteRepository API operation.", Operation = new[] {"DeleteRepository"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.DeleteRepositoryResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.Repository or Amazon.ECRPublic.Model.DeleteRepositoryResponse",
         "This cmdlet returns an Amazon.ECRPublic.Model.Repository object.",
-        "The service call response (type Amazon.ECRPublic.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECRPublic.Model.DeleteRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECRPRepositoryCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

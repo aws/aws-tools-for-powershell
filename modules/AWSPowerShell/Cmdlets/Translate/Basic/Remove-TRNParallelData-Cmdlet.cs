@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [OutputType("Amazon.Translate.Model.DeleteParallelDataResponse")]
     [AWSCmdlet("Calls the Amazon Translate DeleteParallelData API operation.", Operation = new[] {"DeleteParallelData"}, SelectReturnType = typeof(Amazon.Translate.Model.DeleteParallelDataResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.DeleteParallelDataResponse",
-        "This cmdlet returns an Amazon.Translate.Model.DeleteParallelDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Translate.Model.DeleteParallelDataResponse object containing multiple properties."
     )]
     public partial class RemoveTRNParallelDataCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

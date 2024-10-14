@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Cloud9.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Cloud9.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Cloud9.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Cloud9.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveC9ResourceTagCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

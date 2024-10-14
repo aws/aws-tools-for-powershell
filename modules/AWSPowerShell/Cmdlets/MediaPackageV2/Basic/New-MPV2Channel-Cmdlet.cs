@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [OutputType("Amazon.MediaPackageV2.Model.CreateChannelResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.CreateChannelResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.CreateChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackageV2.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.CreateChannelResponse object containing multiple properties."
     )]
     public partial class NewMPV2ChannelCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

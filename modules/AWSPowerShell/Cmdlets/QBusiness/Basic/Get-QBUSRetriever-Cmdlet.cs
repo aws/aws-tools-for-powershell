@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.GetRetrieverResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness GetRetriever API operation.", Operation = new[] {"GetRetriever"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetRetrieverResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.GetRetrieverResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.GetRetrieverResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.GetRetrieverResponse object containing multiple properties."
     )]
     public partial class GetQBUSRetrieverCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

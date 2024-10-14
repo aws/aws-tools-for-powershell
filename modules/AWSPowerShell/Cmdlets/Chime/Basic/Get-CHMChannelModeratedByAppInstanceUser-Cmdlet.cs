@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DescribeChannelModeratedByAppInstanceUser API operation.", Operation = new[] {"DescribeChannelModeratedByAppInstanceUser"}, SelectReturnType = typeof(Amazon.Chime.Model.DescribeChannelModeratedByAppInstanceUserResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.ChannelModeratedByAppInstanceUserSummary or Amazon.Chime.Model.DescribeChannelModeratedByAppInstanceUserResponse",
         "This cmdlet returns an Amazon.Chime.Model.ChannelModeratedByAppInstanceUserSummary object.",
-        "The service call response (type Amazon.Chime.Model.DescribeChannelModeratedByAppInstanceUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.DescribeChannelModeratedByAppInstanceUserResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMChannelModeratedByAppInstanceUserCmdlet : AmazonChimeClientCmdlet, IExecutor

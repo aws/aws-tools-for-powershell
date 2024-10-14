@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     [AWSCmdlet("Calls the Amazon EventBridge Scheduler ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Scheduler.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Scheduler.Model.Tag or Amazon.Scheduler.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Scheduler.Model.Tag objects.",
-        "The service call response (type Amazon.Scheduler.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Scheduler.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCHResourceTagCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {

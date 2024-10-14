@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda PutFunctionConcurrency API operation.", Operation = new[] {"PutFunctionConcurrency"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutFunctionConcurrencyResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.Lambda.Model.PutFunctionConcurrencyResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.Lambda.Model.PutFunctionConcurrencyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.PutFunctionConcurrencyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteLMFunctionConcurrencyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

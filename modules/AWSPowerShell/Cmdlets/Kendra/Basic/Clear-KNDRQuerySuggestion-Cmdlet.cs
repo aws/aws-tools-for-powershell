@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra ClearQuerySuggestions API operation.", Operation = new[] {"ClearQuerySuggestions"}, SelectReturnType = typeof(Amazon.Kendra.Model.ClearQuerySuggestionsResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.ClearQuerySuggestionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.ClearQuerySuggestionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.ClearQuerySuggestionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class ClearKNDRQuerySuggestionCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

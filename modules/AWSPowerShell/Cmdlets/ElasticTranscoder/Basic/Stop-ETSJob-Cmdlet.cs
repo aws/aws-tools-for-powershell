@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Calls the Amazon Elastic Transcoder CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.CancelJobResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticTranscoder.Model.CancelJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticTranscoder.Model.CancelJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticTranscoder.Model.CancelJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock StopIngestionJob API operation.", Operation = new[] {"StopIngestionJob"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.StopIngestionJobResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.IngestionJob or Amazon.BedrockAgent.Model.StopIngestionJobResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.IngestionJob object.",
-        "The service call response (type Amazon.BedrockAgent.Model.StopIngestionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.StopIngestionJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopAABIngestionJobCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

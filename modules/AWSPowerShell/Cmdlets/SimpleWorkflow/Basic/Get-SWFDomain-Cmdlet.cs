@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) DescribeDomain API operation.", Operation = new[] {"DescribeDomain"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.DescribeDomainResponse))]
     [AWSCmdletOutput("Amazon.SimpleWorkflow.Model.DomainDetail or Amazon.SimpleWorkflow.Model.DescribeDomainResponse",
         "This cmdlet returns an Amazon.SimpleWorkflow.Model.DomainDetail object.",
-        "The service call response (type Amazon.SimpleWorkflow.Model.DescribeDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleWorkflow.Model.DescribeDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSWFDomainCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

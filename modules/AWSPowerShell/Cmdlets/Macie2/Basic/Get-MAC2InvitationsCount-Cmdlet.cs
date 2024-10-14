@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 GetInvitationsCount API operation.", Operation = new[] {"GetInvitationsCount"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetInvitationsCountResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.Macie2.Model.GetInvitationsCountResponse",
         "This cmdlet returns a System.Int64 object.",
-        "The service call response (type Amazon.Macie2.Model.GetInvitationsCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.GetInvitationsCountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2InvitationsCountCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

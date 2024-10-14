@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail PutInboundDmarcSettings API operation.", Operation = new[] {"PutInboundDmarcSettings"}, SelectReturnType = typeof(Amazon.WorkMail.Model.PutInboundDmarcSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.PutInboundDmarcSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.PutInboundDmarcSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.PutInboundDmarcSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteWMInboundDmarcSettingCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

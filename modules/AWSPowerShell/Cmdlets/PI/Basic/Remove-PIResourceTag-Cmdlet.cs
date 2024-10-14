@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PI.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PI.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PI.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PI.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePIResourceTagCmdlet : AmazonPIClientCmdlet, IExecutor
     {

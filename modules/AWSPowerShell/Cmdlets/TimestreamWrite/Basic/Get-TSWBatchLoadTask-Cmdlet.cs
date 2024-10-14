@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [AWSCmdlet("Calls the Amazon Timestream Write DescribeBatchLoadTask API operation.", Operation = new[] {"DescribeBatchLoadTask"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.DescribeBatchLoadTaskResponse))]
     [AWSCmdletOutput("Amazon.TimestreamWrite.Model.BatchLoadTaskDescription or Amazon.TimestreamWrite.Model.DescribeBatchLoadTaskResponse",
         "This cmdlet returns an Amazon.TimestreamWrite.Model.BatchLoadTaskDescription object.",
-        "The service call response (type Amazon.TimestreamWrite.Model.DescribeBatchLoadTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamWrite.Model.DescribeBatchLoadTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTSWBatchLoadTaskCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

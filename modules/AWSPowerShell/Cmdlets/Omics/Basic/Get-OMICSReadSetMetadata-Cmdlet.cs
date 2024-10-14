@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.GetReadSetMetadataResponse")]
     [AWSCmdlet("Calls the Amazon Omics GetReadSetMetadata API operation.", Operation = new[] {"GetReadSetMetadata"}, SelectReturnType = typeof(Amazon.Omics.Model.GetReadSetMetadataResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.GetReadSetMetadataResponse",
-        "This cmdlet returns an Amazon.Omics.Model.GetReadSetMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.GetReadSetMetadataResponse object containing multiple properties."
     )]
     public partial class GetOMICSReadSetMetadataCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

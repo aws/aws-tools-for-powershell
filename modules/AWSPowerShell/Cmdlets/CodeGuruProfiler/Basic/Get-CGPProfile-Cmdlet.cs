@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [OutputType("Amazon.CodeGuruProfiler.Model.GetProfileResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler GetProfile API operation.", Operation = new[] {"GetProfile"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.GetProfileResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.GetProfileResponse",
-        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.GetProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruProfiler.Model.GetProfileResponse object containing multiple properties."
     )]
     public partial class GetCGPProfileCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

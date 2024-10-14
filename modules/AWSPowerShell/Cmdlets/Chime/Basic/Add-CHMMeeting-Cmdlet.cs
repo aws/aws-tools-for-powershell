@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime TagMeeting API operation.", Operation = new[] {"TagMeeting"}, SelectReturnType = typeof(Amazon.Chime.Model.TagMeetingResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.TagMeetingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.TagMeetingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.TagMeetingResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Use TagResource in the Amazon Chime SDK Meetings Namespace.")]
     public partial class AddCHMMeetingCmdlet : AmazonChimeClientCmdlet, IExecutor

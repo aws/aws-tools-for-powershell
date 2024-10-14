@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListFindings API operation.", Operation = new[] {"ListFindings"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListFindingsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.Finding or Amazon.Inspector2.Model.ListFindingsResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.Finding objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2FindingListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

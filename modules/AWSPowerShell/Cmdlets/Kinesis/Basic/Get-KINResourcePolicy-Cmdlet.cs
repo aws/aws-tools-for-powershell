@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Kinesis.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kinesis.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kinesis.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kinesis.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINResourcePolicyCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

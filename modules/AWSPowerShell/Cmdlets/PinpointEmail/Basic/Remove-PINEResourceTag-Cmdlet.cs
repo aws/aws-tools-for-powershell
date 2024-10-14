@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [AWSCmdlet("Calls the Amazon Pinpoint Email UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PinpointEmail.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointEmail.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PinpointEmail.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePINEResourceTagCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

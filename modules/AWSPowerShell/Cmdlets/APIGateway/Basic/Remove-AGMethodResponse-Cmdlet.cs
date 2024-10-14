@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteMethodResponse API operation.", Operation = new[] {"DeleteMethodResponse"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteMethodResponseResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteMethodResponseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteMethodResponseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteMethodResponseResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGMethodResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

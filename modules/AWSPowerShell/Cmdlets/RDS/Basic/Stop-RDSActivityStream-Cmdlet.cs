@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.StopActivityStreamResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service StopActivityStream API operation.", Operation = new[] {"StopActivityStream"}, SelectReturnType = typeof(Amazon.RDS.Model.StopActivityStreamResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.StopActivityStreamResponse",
-        "This cmdlet returns an Amazon.RDS.Model.StopActivityStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.StopActivityStreamResponse object containing multiple properties."
     )]
     public partial class StopRDSActivityStreamCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

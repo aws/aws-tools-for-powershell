@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync UnsubscribeFromDataset API operation.", Operation = new[] {"UnsubscribeFromDataset"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.UnsubscribeFromDatasetResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoSync.Model.UnsubscribeFromDatasetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoSync.Model.UnsubscribeFromDatasetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoSync.Model.UnsubscribeFromDatasetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGISDatasetSubscriptionCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

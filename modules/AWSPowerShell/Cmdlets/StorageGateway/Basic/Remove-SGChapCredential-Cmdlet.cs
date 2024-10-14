@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DeleteChapCredentials API operation.", Operation = new[] {"DeleteChapCredentials"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DeleteChapCredentialsResponse), LegacyAlias="Remove-SGChapCredentials")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DeleteChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DeleteChapCredentialsResponse object containing multiple properties."
     )]
     public partial class RemoveSGChapCredentialCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

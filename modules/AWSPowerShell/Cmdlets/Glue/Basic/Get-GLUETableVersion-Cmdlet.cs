@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetTableVersion API operation.", Operation = new[] {"GetTableVersion"}, SelectReturnType = typeof(Amazon.Glue.Model.GetTableVersionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.TableVersion or Amazon.Glue.Model.GetTableVersionResponse",
         "This cmdlet returns an Amazon.Glue.Model.TableVersion object.",
-        "The service call response (type Amazon.Glue.Model.GetTableVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetTableVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUETableVersionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutLifecycleConfiguration API operation.", Operation = new[] {"PutLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.TransitionDefaultMinimumObjectSize or Amazon.S3.Model.PutLifecycleConfigurationResponse",
         "This cmdlet returns an Amazon.S3.TransitionDefaultMinimumObjectSize object.",
-        "The service call response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

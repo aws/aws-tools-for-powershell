@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline ReportTaskRunnerHeartbeat API operation.", Operation = new[] {"ReportTaskRunnerHeartbeat"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDPTaskRunnerHeartbeatCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

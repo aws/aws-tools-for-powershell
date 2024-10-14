@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     [AWSCmdlet("Calls the Amazon EBS CompleteSnapshot API operation.", Operation = new[] {"CompleteSnapshot"}, SelectReturnType = typeof(Amazon.EBS.Model.CompleteSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EBS.Status or Amazon.EBS.Model.CompleteSnapshotResponse",
         "This cmdlet returns an Amazon.EBS.Status object.",
-        "The service call response (type Amazon.EBS.Model.CompleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EBS.Model.CompleteSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CompleteEBSSnapshotCmdlet : AmazonEBSClientCmdlet, IExecutor
     {

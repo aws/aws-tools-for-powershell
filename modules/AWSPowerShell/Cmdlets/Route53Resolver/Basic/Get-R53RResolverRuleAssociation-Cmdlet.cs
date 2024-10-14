@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver GetResolverRuleAssociation API operation.", Operation = new[] {"GetResolverRuleAssociation"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.GetResolverRuleAssociationResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverRuleAssociation or Amazon.Route53Resolver.Model.GetResolverRuleAssociationResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverRuleAssociation object.",
-        "The service call response (type Amazon.Route53Resolver.Model.GetResolverRuleAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.GetResolverRuleAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RResolverRuleAssociationCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

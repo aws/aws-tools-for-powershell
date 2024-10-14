@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service StopMonitoringSchedule API operation.", Operation = new[] {"StopMonitoringSchedule"}, SelectReturnType = typeof(Amazon.SageMaker.Model.StopMonitoringScheduleResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.StopMonitoringScheduleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.StopMonitoringScheduleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.StopMonitoringScheduleResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSMMonitoringScheduleCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

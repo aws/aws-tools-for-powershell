@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive ClaimDevice API operation.", Operation = new[] {"ClaimDevice"}, SelectReturnType = typeof(Amazon.MediaLive.Model.ClaimDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.ClaimDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.ClaimDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.ClaimDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RequestEMLDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

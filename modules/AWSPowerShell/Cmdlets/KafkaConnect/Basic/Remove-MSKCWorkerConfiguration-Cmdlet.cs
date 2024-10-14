@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [OutputType("Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse")]
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect DeleteWorkerConfiguration API operation.", Operation = new[] {"DeleteWorkerConfiguration"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse object containing multiple properties."
     )]
     public partial class RemoveMSKCWorkerConfigurationCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTransitGatewayMulticastDomain API operation.", Operation = new[] {"DisassociateTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations or Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations object.",
-        "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayMulticastDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2TransitGatewayMulticastDomainCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

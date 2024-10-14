@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations CreateGovCloudAccount API operation.", Operation = new[] {"CreateGovCloudAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.CreateGovCloudAccountResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.CreateAccountStatus or Amazon.Organizations.Model.CreateGovCloudAccountResponse",
         "This cmdlet returns an Amazon.Organizations.Model.CreateAccountStatus object.",
-        "The service call response (type Amazon.Organizations.Model.CreateGovCloudAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.CreateGovCloudAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewORGGovCloudAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

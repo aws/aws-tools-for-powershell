@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline DeleteWebhook API operation.", Operation = new[] {"DeleteWebhook"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.DeleteWebhookResponse))]
     [AWSCmdletOutput("None or Amazon.CodePipeline.Model.DeleteWebhookResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodePipeline.Model.DeleteWebhookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.DeleteWebhookResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCPWebhookCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

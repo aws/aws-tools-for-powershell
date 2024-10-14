@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateLambdaFunction API operation.", Operation = new[] {"DisassociateLambdaFunction"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateLambdaFunctionResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateLambdaFunctionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateLambdaFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateLambdaFunctionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNLambdaFunctionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

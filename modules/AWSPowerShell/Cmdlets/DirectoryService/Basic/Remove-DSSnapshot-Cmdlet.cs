@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.DeleteSnapshotResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.DeleteSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

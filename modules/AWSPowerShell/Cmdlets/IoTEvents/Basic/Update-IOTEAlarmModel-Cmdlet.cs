@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [OutputType("Amazon.IoTEvents.Model.UpdateAlarmModelResponse")]
     [AWSCmdlet("Calls the AWS IoT Events UpdateAlarmModel API operation.", Operation = new[] {"UpdateAlarmModel"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.UpdateAlarmModelResponse))]
     [AWSCmdletOutput("Amazon.IoTEvents.Model.UpdateAlarmModelResponse",
-        "This cmdlet returns an Amazon.IoTEvents.Model.UpdateAlarmModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTEvents.Model.UpdateAlarmModelResponse object containing multiple properties."
     )]
     public partial class UpdateIOTEAlarmModelCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

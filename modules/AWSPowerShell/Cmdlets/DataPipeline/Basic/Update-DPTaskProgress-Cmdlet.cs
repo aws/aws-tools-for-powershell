@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline ReportTaskProgress API operation.", Operation = new[] {"ReportTaskProgress"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.ReportTaskProgressResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.DataPipeline.Model.ReportTaskProgressResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.DataPipeline.Model.ReportTaskProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.ReportTaskProgressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDPTaskProgressCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

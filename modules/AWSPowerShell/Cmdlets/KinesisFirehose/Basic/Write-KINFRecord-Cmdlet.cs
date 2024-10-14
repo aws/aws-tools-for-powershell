@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose PutRecord API operation.", Operation = new[] {"PutRecord"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.PutRecordResponse))]
     [AWSCmdletOutput("System.String or Amazon.KinesisFirehose.Model.PutRecordResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KinesisFirehose.Model.PutRecordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisFirehose.Model.PutRecordResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {

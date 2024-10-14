@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift RotateEncryptionKey API operation.", Operation = new[] {"RotateEncryptionKey"}, SelectReturnType = typeof(Amazon.Redshift.Model.RotateEncryptionKeyResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.RotateEncryptionKeyResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.RotateEncryptionKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RotateEncryptionKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SwitchRSEncryptionKeyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

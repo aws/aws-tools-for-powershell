@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteIntent API operation.", Operation = new[] {"DeleteIntent"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.DeleteIntentResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelBuildingService.Model.DeleteIntentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBIntentCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

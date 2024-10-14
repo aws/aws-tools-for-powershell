@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway FlushStageCache API operation.", Operation = new[] {"FlushStageCache"}, SelectReturnType = typeof(Amazon.APIGateway.Model.FlushStageCacheResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.FlushStageCacheResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.FlushStageCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.FlushStageCacheResponse) be returned by specifying '-Select *'."
     )]
     public partial class ClearAGStageCacheCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch GetCompatibleElasticsearchVersions API operation.", Operation = new[] {"GetCompatibleElasticsearchVersions"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.CompatibleVersionsMap or Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse",
         "This cmdlet returns a collection of Amazon.Elasticsearch.Model.CompatibleVersionsMap objects.",
-        "The service call response (type Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.GetCompatibleElasticsearchVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetESCompatibleElasticsearchVersionCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

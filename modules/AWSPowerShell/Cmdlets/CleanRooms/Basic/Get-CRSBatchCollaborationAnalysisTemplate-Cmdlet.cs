@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [OutputType("Amazon.CleanRooms.Model.BatchGetCollaborationAnalysisTemplateResponse")]
     [AWSCmdlet("Calls the AWS Clean Rooms Service BatchGetCollaborationAnalysisTemplate API operation.", Operation = new[] {"BatchGetCollaborationAnalysisTemplate"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.BatchGetCollaborationAnalysisTemplateResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.BatchGetCollaborationAnalysisTemplateResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetCollaborationAnalysisTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetCollaborationAnalysisTemplateResponse object containing multiple properties."
     )]
     public partial class GetCRSBatchCollaborationAnalysisTemplateCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

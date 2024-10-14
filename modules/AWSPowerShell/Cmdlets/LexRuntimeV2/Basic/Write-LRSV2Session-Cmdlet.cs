@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     [OutputType("Amazon.LexRuntimeV2.Model.PutSessionResponse")]
     [AWSCmdlet("Calls the Amazon Lex Runtime V2 PutSession API operation.", Operation = new[] {"PutSession"}, SelectReturnType = typeof(Amazon.LexRuntimeV2.Model.PutSessionResponse))]
     [AWSCmdletOutput("Amazon.LexRuntimeV2.Model.PutSessionResponse",
-        "This cmdlet returns an Amazon.LexRuntimeV2.Model.PutSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexRuntimeV2.Model.PutSessionResponse object containing multiple properties."
     )]
     public partial class WriteLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {

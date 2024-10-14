@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator CreateCustomRoutingListener API operation.", Operation = new[] {"CreateCustomRoutingListener"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.CreateCustomRoutingListenerResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.CustomRoutingListener or Amazon.GlobalAccelerator.Model.CreateCustomRoutingListenerResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.CustomRoutingListener object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.CreateCustomRoutingListenerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.CreateCustomRoutingListenerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGACLCustomRoutingListenerCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

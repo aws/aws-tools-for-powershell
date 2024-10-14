@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeleteWarmPool API operation.", Operation = new[] {"DeleteWarmPool"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeleteWarmPoolResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeleteWarmPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeleteWarmPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteWarmPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASWarmPoolCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

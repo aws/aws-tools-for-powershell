@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) SetIdentityFeedbackForwardingEnabled API operation.", Operation = new[] {"SetIdentityFeedbackForwardingEnabled"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSESIdentityFeedbackForwardingEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

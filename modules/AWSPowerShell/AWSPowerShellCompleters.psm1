@@ -67978,19 +67978,24 @@ $SUPCH_SelectMap = @{
     "Select"=@("New-SUPCHBillOfMaterialsImportJob",
                "New-SUPCHDataIntegrationFlow",
                "New-SUPCHDataLakeDataset",
+               "New-SUPCHInstance",
                "Remove-SUPCHDataIntegrationFlow",
                "Remove-SUPCHDataLakeDataset",
+               "Remove-SUPCHInstance",
                "Get-SUPCHBillOfMaterialsImportJob",
                "Get-SUPCHDataIntegrationFlow",
                "Get-SUPCHDataLakeDataset",
+               "Get-SUPCHInstance",
                "Get-SUPCHDataIntegrationFlowList",
                "Get-SUPCHDataLakeDatasetList",
+               "Get-SUPCHInstanceList",
                "Get-SUPCHResourceTag",
                "Send-SUPCHDataIntegrationEvent",
                "Add-SUPCHResourceTag",
                "Remove-SUPCHResourceTag",
                "Update-SUPCHDataIntegrationFlow",
-               "Update-SUPCHDataLakeDataset")
+               "Update-SUPCHDataLakeDataset",
+               "Update-SUPCHInstance")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_SelectCompleters $SUPCH_SelectMap
@@ -69815,6 +69820,7 @@ $TFR_SelectMap = @{
                "Get-TFRCertificateList",
                "Get-TFRConnectorList",
                "Get-TFRExecutionList",
+               "Get-TFRFileTransferResultList",
                "Get-TFRHostKeyList",
                "Get-TFRProfileList",
                "Get-TFRSecurityPolicyList",

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin PutApplicationAuthenticationMethod API operation.", Operation = new[] {"PutApplicationAuthenticationMethod"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.PutApplicationAuthenticationMethodResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.PutApplicationAuthenticationMethodResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.PutApplicationAuthenticationMethodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.PutApplicationAuthenticationMethodResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSSOADMNApplicationAuthenticationMethodCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

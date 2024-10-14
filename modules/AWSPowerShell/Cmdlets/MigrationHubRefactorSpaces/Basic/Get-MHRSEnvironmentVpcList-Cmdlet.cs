@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces ListEnvironmentVpcs API operation.", Operation = new[] {"ListEnvironmentVpcs"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.ListEnvironmentVpcsResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubRefactorSpaces.Model.EnvironmentVpc or Amazon.MigrationHubRefactorSpaces.Model.ListEnvironmentVpcsResponse",
         "This cmdlet returns a collection of Amazon.MigrationHubRefactorSpaces.Model.EnvironmentVpc objects.",
-        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListEnvironmentVpcsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListEnvironmentVpcsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHRSEnvironmentVpcListCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

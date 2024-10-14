@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DetachTrafficSources API operation.", Operation = new[] {"DetachTrafficSources"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DetachTrafficSourcesResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DetachTrafficSourcesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DetachTrafficSourcesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DetachTrafficSourcesResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountASTrafficSourceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

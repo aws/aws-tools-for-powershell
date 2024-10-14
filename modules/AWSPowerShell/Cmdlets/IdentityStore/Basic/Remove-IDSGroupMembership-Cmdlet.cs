@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [AWSCmdlet("Calls the AWS Identity Store DeleteGroupMembership API operation.", Operation = new[] {"DeleteGroupMembership"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.DeleteGroupMembershipResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityStore.Model.DeleteGroupMembershipResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityStore.Model.DeleteGroupMembershipResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityStore.Model.DeleteGroupMembershipResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIDSGroupMembershipCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow CreateFlow API operation.", Operation = new[] {"CreateFlow"}, SelectReturnType = typeof(Amazon.Appflow.Model.CreateFlowResponse))]
     [AWSCmdletOutput("System.String or Amazon.Appflow.Model.CreateFlowResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Appflow.Model.CreateFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.CreateFlowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

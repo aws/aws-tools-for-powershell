@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.RemoveTagsFromResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DocDB.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DocDB.Model.RemoveTagsFromResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCResourceTagCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

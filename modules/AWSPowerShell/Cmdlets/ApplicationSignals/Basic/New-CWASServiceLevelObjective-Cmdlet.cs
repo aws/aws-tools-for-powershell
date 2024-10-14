@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals CreateServiceLevelObjective API operation.", Operation = new[] {"CreateServiceLevelObjective"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveResponse))]
     [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ServiceLevelObjective or Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveResponse",
         "This cmdlet returns an Amazon.ApplicationSignals.Model.ServiceLevelObjective object.",
-        "The service call response (type Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationSignals.Model.CreateServiceLevelObjectiveResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWASServiceLevelObjectiveCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

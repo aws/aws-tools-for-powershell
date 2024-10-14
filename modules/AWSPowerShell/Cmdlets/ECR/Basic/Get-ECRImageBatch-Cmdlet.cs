@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.BatchGetImageResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchGetImage API operation.", Operation = new[] {"BatchGetImage"}, SelectReturnType = typeof(Amazon.ECR.Model.BatchGetImageResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchGetImageResponse",
-        "This cmdlet returns an Amazon.ECR.Model.BatchGetImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.BatchGetImageResponse object containing multiple properties."
     )]
     public partial class GetECRImageBatchCmdlet : AmazonECRClientCmdlet, IExecutor
     {

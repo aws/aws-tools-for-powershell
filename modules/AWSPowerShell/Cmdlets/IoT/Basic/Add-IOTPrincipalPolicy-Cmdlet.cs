@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT AttachPrincipalPolicy API operation.", Operation = new[] {"AttachPrincipalPolicy"}, SelectReturnType = typeof(Amazon.IoT.Model.AttachPrincipalPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.AttachPrincipalPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.AttachPrincipalPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.AttachPrincipalPolicyResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Deprecated in favor of AttachPolicy.")]
     public partial class AddIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor

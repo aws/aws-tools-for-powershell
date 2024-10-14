@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteSecurityProfile API operation.", Operation = new[] {"DeleteSecurityProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteSecurityProfileResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteSecurityProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteSecurityProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteSecurityProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNSecurityProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service PreviewPrivacyImpact API operation.", Operation = new[] {"PreviewPrivacyImpact"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.PreviewPrivacyImpactResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.PrivacyImpact or Amazon.CleanRooms.Model.PreviewPrivacyImpactResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.PrivacyImpact object.",
-        "The service call response (type Amazon.CleanRooms.Model.PreviewPrivacyImpactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.PreviewPrivacyImpactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCRSPrivacyImpactCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

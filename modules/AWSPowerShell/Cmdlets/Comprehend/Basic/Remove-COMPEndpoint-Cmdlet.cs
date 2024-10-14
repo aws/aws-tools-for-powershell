@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DeleteEndpointResponse))]
     [AWSCmdletOutput("None or Amazon.Comprehend.Model.DeleteEndpointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Comprehend.Model.DeleteEndpointResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCOMPEndpointCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs CreateComment API operation.", Operation = new[] {"CreateComment"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.CreateCommentResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.Comment or Amazon.WorkDocs.Model.CreateCommentResponse",
         "This cmdlet returns an Amazon.WorkDocs.Model.Comment object.",
-        "The service call response (type Amazon.WorkDocs.Model.CreateCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.CreateCommentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWDCommentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

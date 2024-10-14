@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.CreateAIAgentVersionResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect CreateAIAgentVersion API operation.", Operation = new[] {"CreateAIAgentVersion"}, SelectReturnType = typeof(Amazon.QConnect.Model.CreateAIAgentVersionResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.CreateAIAgentVersionResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.CreateAIAgentVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.CreateAIAgentVersionResponse object containing multiple properties."
     )]
     public partial class NewQCAIAgentVersionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations EnablePolicyType API operation.", Operation = new[] {"EnablePolicyType"}, SelectReturnType = typeof(Amazon.Organizations.Model.EnablePolicyTypeResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.Root or Amazon.Organizations.Model.EnablePolicyTypeResponse",
         "This cmdlet returns an Amazon.Organizations.Model.Root object.",
-        "The service call response (type Amazon.Organizations.Model.EnablePolicyTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.EnablePolicyTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableORGPolicyTypeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

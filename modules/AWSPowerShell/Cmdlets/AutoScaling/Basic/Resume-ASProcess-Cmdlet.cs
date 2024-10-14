@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling ResumeProcesses API operation.", Operation = new[] {"ResumeProcesses"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.ResumeProcessesResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.ResumeProcessesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.ResumeProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.ResumeProcessesResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResumeASProcessCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

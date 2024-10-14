@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [OutputType("Amazon.AppSync.Model.GetDataSourceIntrospectionResponse")]
     [AWSCmdlet("Calls the AWS AppSync GetDataSourceIntrospection API operation.", Operation = new[] {"GetDataSourceIntrospection"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetDataSourceIntrospectionResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.GetDataSourceIntrospectionResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.GetDataSourceIntrospectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppSync.Model.GetDataSourceIntrospectionResponse object containing multiple properties."
     )]
     public partial class GetASYNDataSourceIntrospectionCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

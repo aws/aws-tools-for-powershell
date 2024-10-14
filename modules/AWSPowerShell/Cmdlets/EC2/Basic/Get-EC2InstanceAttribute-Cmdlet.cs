@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceAttribute API operation.", Operation = new[] {"DescribeInstanceAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceAttribute or Amazon.EC2.Model.DescribeInstanceAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceAttribute object.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceAttributeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer DescribeCostCategoryDefinition API operation.", Operation = new[] {"DescribeCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DescribeCostCategoryDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostCategory or Amazon.CostExplorer.Model.DescribeCostCategoryDefinitionResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.CostCategory object.",
-        "The service call response (type Amazon.CostExplorer.Model.DescribeCostCategoryDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.DescribeCostCategoryDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCECostCategoryDefinitionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

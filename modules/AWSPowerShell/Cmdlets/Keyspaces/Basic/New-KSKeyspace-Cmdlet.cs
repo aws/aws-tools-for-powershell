@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces CreateKeyspace API operation.", Operation = new[] {"CreateKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.CreateKeyspaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Keyspaces.Model.CreateKeyspaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Keyspaces.Model.CreateKeyspaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.CreateKeyspaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

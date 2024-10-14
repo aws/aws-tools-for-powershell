@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DescribeChannelPlacementGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DescribeChannelPlacementGroup API operation.", Operation = new[] {"DescribeChannelPlacementGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DescribeChannelPlacementGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DescribeChannelPlacementGroupResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DescribeChannelPlacementGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DescribeChannelPlacementGroupResponse object containing multiple properties."
     )]
     public partial class GetEMLChannelPlacementGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

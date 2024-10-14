@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.BatchDisassociateScramSecretResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) BatchDisassociateScramSecret API operation.", Operation = new[] {"BatchDisassociateScramSecret"}, SelectReturnType = typeof(Amazon.Kafka.Model.BatchDisassociateScramSecretResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.BatchDisassociateScramSecretResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.BatchDisassociateScramSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.BatchDisassociateScramSecretResponse object containing multiple properties."
     )]
     public partial class UnregisterMSKDisassociateScramSecretCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

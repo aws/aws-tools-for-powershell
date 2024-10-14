@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 SendMediaMessage API operation.", Operation = new[] {"SendMediaMessage"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.SendMediaMessageResponse))]
     [AWSCmdletOutput("System.String or Amazon.PinpointSMSVoiceV2.Model.SendMediaMessageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.PinpointSMSVoiceV2.Model.SendMediaMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PinpointSMSVoiceV2.Model.SendMediaMessageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSMSVMediaMessageCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

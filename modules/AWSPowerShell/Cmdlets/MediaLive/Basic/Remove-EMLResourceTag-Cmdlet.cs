@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMLResourceTagCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

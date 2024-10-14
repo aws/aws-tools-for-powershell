@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMAAResourceTagCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

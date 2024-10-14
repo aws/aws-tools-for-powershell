@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     [OutputType("Amazon.CloudWatchRUM.Model.BatchCreateRumMetricDefinitionsResponse")]
     [AWSCmdlet("Calls the CloudWatch RUM BatchCreateRumMetricDefinitions API operation.", Operation = new[] {"BatchCreateRumMetricDefinitions"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.BatchCreateRumMetricDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchRUM.Model.BatchCreateRumMetricDefinitionsResponse",
-        "This cmdlet returns an Amazon.CloudWatchRUM.Model.BatchCreateRumMetricDefinitionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchRUM.Model.BatchCreateRumMetricDefinitionsResponse object containing multiple properties."
     )]
     public partial class AddCWRUMCreateRumMetricDefinitionCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.AttachVolumeResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway AttachVolume API operation.", Operation = new[] {"AttachVolume"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.AttachVolumeResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.AttachVolumeResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.AttachVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.AttachVolumeResponse object containing multiple properties."
     )]
     public partial class MountSGVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

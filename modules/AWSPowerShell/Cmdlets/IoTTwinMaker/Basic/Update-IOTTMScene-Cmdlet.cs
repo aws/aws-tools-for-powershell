@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker UpdateScene API operation.", Operation = new[] {"UpdateScene"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.UpdateSceneResponse))]
     [AWSCmdletOutput("System.DateTime or Amazon.IoTTwinMaker.Model.UpdateSceneResponse",
         "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.UpdateSceneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTTwinMaker.Model.UpdateSceneResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTTMSceneCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

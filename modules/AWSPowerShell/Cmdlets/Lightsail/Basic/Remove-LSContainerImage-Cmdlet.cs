@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteContainerImage API operation.", Operation = new[] {"DeleteContainerImage"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteContainerImageResponse))]
     [AWSCmdletOutput("None or Amazon.Lightsail.Model.DeleteContainerImageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lightsail.Model.DeleteContainerImageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lightsail.Model.DeleteContainerImageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSContainerImageCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

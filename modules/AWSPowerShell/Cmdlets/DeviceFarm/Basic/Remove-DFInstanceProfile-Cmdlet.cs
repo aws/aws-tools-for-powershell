@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm DeleteInstanceProfile API operation.", Operation = new[] {"DeleteInstanceProfile"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.DeleteInstanceProfileResponse))]
     [AWSCmdletOutput("None or Amazon.DeviceFarm.Model.DeleteInstanceProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DeviceFarm.Model.DeleteInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DeviceFarm.Model.DeleteInstanceProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDFInstanceProfileCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

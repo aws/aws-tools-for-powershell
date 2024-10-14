@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.IoT.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIOTResourceTagCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SupplyChain.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SupplyChain.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SupplyChain.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSUPCHResourceTagCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

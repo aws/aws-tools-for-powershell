@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeLifecycleHookTypes API operation.", Operation = new[] {"DescribeLifecycleHookTypes"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse), LegacyAlias="Get-ASLifecycleHookTypes")]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASLifecycleHookTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

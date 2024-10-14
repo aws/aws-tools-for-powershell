@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.CreateAssetResponse")]
     [AWSCmdlet("Calls the Amazon DataZone CreateAsset API operation.", Operation = new[] {"CreateAsset"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateAssetResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.CreateAssetResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateAssetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.CreateAssetResponse object containing multiple properties."
     )]
     public partial class NewDZAssetCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

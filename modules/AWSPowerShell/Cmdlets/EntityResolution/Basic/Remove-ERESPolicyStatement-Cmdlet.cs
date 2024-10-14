@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.DeletePolicyStatementResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution DeletePolicyStatement API operation.", Operation = new[] {"DeletePolicyStatement"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.DeletePolicyStatementResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.DeletePolicyStatementResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.DeletePolicyStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.DeletePolicyStatementResponse object containing multiple properties."
     )]
     public partial class RemoveERESPolicyStatementCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

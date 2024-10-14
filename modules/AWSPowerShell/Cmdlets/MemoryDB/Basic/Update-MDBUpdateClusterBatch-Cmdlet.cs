@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [OutputType("Amazon.MemoryDB.Model.BatchUpdateClusterResponse")]
     [AWSCmdlet("Calls the Amazon MemoryDB BatchUpdateCluster API operation.", Operation = new[] {"BatchUpdateCluster"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.BatchUpdateClusterResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.BatchUpdateClusterResponse",
-        "This cmdlet returns an Amazon.MemoryDB.Model.BatchUpdateClusterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MemoryDB.Model.BatchUpdateClusterResponse object containing multiple properties."
     )]
     public partial class UpdateMDBUpdateClusterBatchCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

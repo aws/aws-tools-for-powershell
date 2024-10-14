@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListResourceRecordSetsResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 ListResourceRecordSets API operation.", Operation = new[] {"ListResourceRecordSets"}, SelectReturnType = typeof(Amazon.Route53.Model.ListResourceRecordSetsResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ListResourceRecordSetsResponse",
-        "This cmdlet returns an Amazon.Route53.Model.ListResourceRecordSetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.ListResourceRecordSetsResponse object containing multiple properties."
     )]
     public partial class GetR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

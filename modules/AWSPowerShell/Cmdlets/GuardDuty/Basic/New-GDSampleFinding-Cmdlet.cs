@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty CreateSampleFindings API operation.", Operation = new[] {"CreateSampleFindings"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.CreateSampleFindingsResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.CreateSampleFindingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.CreateSampleFindingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.CreateSampleFindingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewGDSampleFindingCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

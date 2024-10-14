@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeregisterVolume API operation.", Operation = new[] {"DeregisterVolume"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeregisterVolumeResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeregisterVolumeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

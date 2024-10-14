@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.BatchGetCommitsResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit BatchGetCommits API operation.", Operation = new[] {"BatchGetCommits"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.BatchGetCommitsResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BatchGetCommitsResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.BatchGetCommitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.BatchGetCommitsResponse object containing multiple properties."
     )]
     public partial class GetCCCommitBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

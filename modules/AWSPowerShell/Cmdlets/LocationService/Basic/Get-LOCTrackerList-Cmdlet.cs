@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service ListTrackers API operation.", Operation = new[] {"ListTrackers"}, SelectReturnType = typeof(Amazon.LocationService.Model.ListTrackersResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.ListTrackersResponseEntry or Amazon.LocationService.Model.ListTrackersResponse",
         "This cmdlet returns a collection of Amazon.LocationService.Model.ListTrackersResponseEntry objects.",
-        "The service call response (type Amazon.LocationService.Model.ListTrackersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LocationService.Model.ListTrackersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOCTrackerListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

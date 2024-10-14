@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub AssociateDiscoveredResource API operation.", Operation = new[] {"AssociateDiscoveredResource"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMHDiscoveredResourceCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

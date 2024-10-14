@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail RebootInstance API operation.", Operation = new[] {"RebootInstance"}, SelectReturnType = typeof(Amazon.Lightsail.Model.RebootInstanceResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.RebootInstanceResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.RebootInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.RebootInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestartLSInstanceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

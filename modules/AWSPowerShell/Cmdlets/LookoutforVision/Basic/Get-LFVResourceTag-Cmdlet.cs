@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.LookoutforVision.Model.Tag or Amazon.LookoutforVision.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.LookoutforVision.Model.Tag objects.",
-        "The service call response (type Amazon.LookoutforVision.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLFVResourceTagCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

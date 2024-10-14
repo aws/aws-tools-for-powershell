@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain CreateDataLakeDataset API operation.", Operation = new[] {"CreateDataLakeDataset"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.DataLakeDataset or Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse",
         "This cmdlet returns an Amazon.SupplyChain.Model.DataLakeDataset object.",
-        "The service call response (type Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSUPCHDataLakeDatasetCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

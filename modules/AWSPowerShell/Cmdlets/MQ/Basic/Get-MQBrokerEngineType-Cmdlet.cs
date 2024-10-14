@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ DescribeBrokerEngineTypes API operation.", Operation = new[] {"DescribeBrokerEngineTypes"}, SelectReturnType = typeof(Amazon.MQ.Model.DescribeBrokerEngineTypesResponse))]
     [AWSCmdletOutput("Amazon.MQ.Model.BrokerEngineType or Amazon.MQ.Model.DescribeBrokerEngineTypesResponse",
         "This cmdlet returns a collection of Amazon.MQ.Model.BrokerEngineType objects.",
-        "The service call response (type Amazon.MQ.Model.DescribeBrokerEngineTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MQ.Model.DescribeBrokerEngineTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMQBrokerEngineTypeCmdlet : AmazonMQClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

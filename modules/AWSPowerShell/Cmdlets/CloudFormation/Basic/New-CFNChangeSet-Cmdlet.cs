@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation CreateChangeSet API operation.", Operation = new[] {"CreateChangeSet"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.CreateChangeSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.CreateChangeSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.CreateChangeSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.CreateChangeSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool AssociateLenses API operation.", Operation = new[] {"AssociateLenses"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.AssociateLensesResponse), LegacyAlias="Add-WATLense")]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.AssociateLensesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.AssociateLensesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.AssociateLensesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterWATLensCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [OutputType("Amazon.Imagebuilder.Model.DeleteComponentResponse")]
     [AWSCmdlet("Calls the EC2 Image Builder DeleteComponent API operation.", Operation = new[] {"DeleteComponent"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.DeleteComponentResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.DeleteComponentResponse",
-        "This cmdlet returns an Amazon.Imagebuilder.Model.DeleteComponentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Imagebuilder.Model.DeleteComponentResponse object containing multiple properties."
     )]
     public partial class RemoveEC2IBComponentCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MoveAddressToVpc API operation.", Operation = new[] {"MoveAddressToVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveAddressToVpcResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.MoveAddressToVpcResponse",
-        "This cmdlet returns an Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties."
     )]
     public partial class MoveEC2AddressToVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

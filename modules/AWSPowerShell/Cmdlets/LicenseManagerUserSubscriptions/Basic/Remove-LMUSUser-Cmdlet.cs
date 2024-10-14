@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     [AWSCmdlet("Calls the AWS License Manager User Subscription DisassociateUser API operation.", Operation = new[] {"DisassociateUser"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.DisassociateUserResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.InstanceUserSummary or Amazon.LicenseManagerUserSubscriptions.Model.DisassociateUserResponse",
         "This cmdlet returns an Amazon.LicenseManagerUserSubscriptions.Model.InstanceUserSummary object.",
-        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.DisassociateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.DisassociateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMUSUserCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {

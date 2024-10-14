@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena DeletePreparedStatement API operation.", Operation = new[] {"DeletePreparedStatement"}, SelectReturnType = typeof(Amazon.Athena.Model.DeletePreparedStatementResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.DeletePreparedStatementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.DeletePreparedStatementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.DeletePreparedStatementResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHPreparedStatementCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

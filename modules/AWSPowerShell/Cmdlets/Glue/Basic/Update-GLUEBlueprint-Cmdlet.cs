@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateBlueprint API operation.", Operation = new[] {"UpdateBlueprint"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateBlueprintResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.UpdateBlueprintResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.UpdateBlueprintResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.UpdateBlueprintResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEBlueprintCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

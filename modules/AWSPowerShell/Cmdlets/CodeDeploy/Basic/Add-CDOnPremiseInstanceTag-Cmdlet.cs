@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy AddTagsToOnPremisesInstances API operation.", Operation = new[] {"AddTagsToOnPremisesInstances"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

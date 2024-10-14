@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [OutputType("Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse")]
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift CreatePracticeRunConfiguration API operation.", Operation = new[] {"CreatePracticeRunConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.CreatePracticeRunConfigurationResponse object containing multiple properties."
     )]
     public partial class NewAZSPracticeRunConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

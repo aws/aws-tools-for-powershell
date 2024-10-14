@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync BulkPublish API operation.", Operation = new[] {"BulkPublish"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.BulkPublishResponse))]
     [AWSCmdletOutput("System.String or Amazon.CognitoSync.Model.BulkPublishResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CognitoSync.Model.BulkPublishResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.BulkPublishResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishCGISBulkDatasetCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

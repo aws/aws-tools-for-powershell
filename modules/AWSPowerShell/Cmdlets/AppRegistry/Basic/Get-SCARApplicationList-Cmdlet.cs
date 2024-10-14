@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry ListApplications API operation.", Operation = new[] {"ListApplications"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.ListApplicationsResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.ApplicationSummary or Amazon.AppRegistry.Model.ListApplicationsResponse",
         "This cmdlet returns a collection of Amazon.AppRegistry.Model.ApplicationSummary objects.",
-        "The service call response (type Amazon.AppRegistry.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.ListApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCARApplicationListCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

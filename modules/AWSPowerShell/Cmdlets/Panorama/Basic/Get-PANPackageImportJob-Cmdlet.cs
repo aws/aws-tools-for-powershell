@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [OutputType("Amazon.Panorama.Model.DescribePackageImportJobResponse")]
     [AWSCmdlet("Calls the AWS Panorama DescribePackageImportJob API operation.", Operation = new[] {"DescribePackageImportJob"}, SelectReturnType = typeof(Amazon.Panorama.Model.DescribePackageImportJobResponse))]
     [AWSCmdletOutput("Amazon.Panorama.Model.DescribePackageImportJobResponse",
-        "This cmdlet returns an Amazon.Panorama.Model.DescribePackageImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Panorama.Model.DescribePackageImportJobResponse object containing multiple properties."
     )]
     public partial class GetPANPackageImportJobCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

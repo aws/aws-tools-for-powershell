@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SupplyChain.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SupplyChain.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SupplyChain.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSUPCHResourceTagCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

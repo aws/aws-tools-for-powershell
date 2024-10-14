@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.Tag or Amazon.CloudWatch.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.CloudWatch.Model.Tag objects.",
-        "The service call response (type Amazon.CloudWatch.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWResourceTagCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

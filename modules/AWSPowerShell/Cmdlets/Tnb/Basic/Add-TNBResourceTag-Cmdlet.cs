@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Tnb.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Tnb.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Tnb.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Tnb.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddTNBResourceTagCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

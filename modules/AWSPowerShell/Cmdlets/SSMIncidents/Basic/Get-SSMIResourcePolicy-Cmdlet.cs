@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager GetResourcePolicies API operation.", Operation = new[] {"GetResourcePolicies"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.GetResourcePoliciesResponse))]
     [AWSCmdletOutput("Amazon.SSMIncidents.Model.ResourcePolicy or Amazon.SSMIncidents.Model.GetResourcePoliciesResponse",
         "This cmdlet returns a collection of Amazon.SSMIncidents.Model.ResourcePolicy objects.",
-        "The service call response (type Amazon.SSMIncidents.Model.GetResourcePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMIncidents.Model.GetResourcePoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMIResourcePolicyCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

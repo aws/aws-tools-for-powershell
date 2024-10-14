@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateAvailabilityConfiguration API operation.", Operation = new[] {"UpdateAvailabilityConfiguration"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateAvailabilityConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateAvailabilityConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateAvailabilityConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateAvailabilityConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMAvailabilityConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

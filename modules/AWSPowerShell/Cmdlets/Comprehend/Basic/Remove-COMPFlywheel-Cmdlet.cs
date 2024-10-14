@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DeleteFlywheel API operation.", Operation = new[] {"DeleteFlywheel"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DeleteFlywheelResponse))]
     [AWSCmdletOutput("None or Amazon.Comprehend.Model.DeleteFlywheelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.DeleteFlywheelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Comprehend.Model.DeleteFlywheelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCOMPFlywheelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

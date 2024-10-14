@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub CreateApp API operation.", Operation = new[] {"CreateApp"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.CreateAppResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.App or Amazon.ResilienceHub.Model.CreateAppResponse",
         "This cmdlet returns an Amazon.ResilienceHub.Model.App object.",
-        "The service call response (type Amazon.ResilienceHub.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.CreateAppResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRESHAppCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) BundleInstance API operation.", Operation = new[] {"BundleInstance"}, SelectReturnType = typeof(Amazon.EC2.Model.BundleInstanceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.BundleTask or Amazon.EC2.Model.BundleInstanceResponse",
         "This cmdlet returns an Amazon.EC2.Model.BundleTask object.",
-        "The service call response (type Amazon.EC2.Model.BundleInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.BundleInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2InstanceBundleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

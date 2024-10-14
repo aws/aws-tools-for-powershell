@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru DeleteInsight API operation.", Operation = new[] {"DeleteInsight"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DeleteInsightResponse))]
     [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.DeleteInsightResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DevOpsGuru.Model.DeleteInsightResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.DeleteInsightResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDGURUInsightCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

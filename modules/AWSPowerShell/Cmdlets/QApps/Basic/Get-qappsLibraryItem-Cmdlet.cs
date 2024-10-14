@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [OutputType("Amazon.QApps.Model.GetLibraryItemResponse")]
     [AWSCmdlet("Calls the Amazon Q Apps GetLibraryItem API operation.", Operation = new[] {"GetLibraryItem"}, SelectReturnType = typeof(Amazon.QApps.Model.GetLibraryItemResponse))]
     [AWSCmdletOutput("Amazon.QApps.Model.GetLibraryItemResponse",
-        "This cmdlet returns an Amazon.QApps.Model.GetLibraryItemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QApps.Model.GetLibraryItemResponse object containing multiple properties."
     )]
     public partial class GetqappsLibraryItemCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

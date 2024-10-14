@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy RegisterApplicationRevision API operation.", Operation = new[] {"RegisterApplicationRevision"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

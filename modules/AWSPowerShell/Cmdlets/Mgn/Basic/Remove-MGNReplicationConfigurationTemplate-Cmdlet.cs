@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service DeleteReplicationConfigurationTemplate API operation.", Operation = new[] {"DeleteReplicationConfigurationTemplate"}, SelectReturnType = typeof(Amazon.Mgn.Model.DeleteReplicationConfigurationTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.DeleteReplicationConfigurationTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.DeleteReplicationConfigurationTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.DeleteReplicationConfigurationTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGNReplicationConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

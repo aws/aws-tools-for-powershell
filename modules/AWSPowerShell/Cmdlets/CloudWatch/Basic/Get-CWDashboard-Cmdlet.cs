@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [OutputType("Amazon.CloudWatch.Model.GetDashboardResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch GetDashboard API operation.", Operation = new[] {"GetDashboard"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.GetDashboardResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.GetDashboardResponse",
-        "This cmdlet returns an Amazon.CloudWatch.Model.GetDashboardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatch.Model.GetDashboardResponse object containing multiple properties."
     )]
     public partial class GetCWDashboardCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

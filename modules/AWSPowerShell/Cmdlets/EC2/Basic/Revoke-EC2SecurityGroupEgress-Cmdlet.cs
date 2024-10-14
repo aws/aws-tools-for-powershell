@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.RevokeSecurityGroupEgressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RevokeSecurityGroupEgress API operation.", Operation = new[] {"RevokeSecurityGroupEgress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeSecurityGroupEgressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.RevokeSecurityGroupEgressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.RevokeSecurityGroupEgressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.RevokeSecurityGroupEgressResponse object containing multiple properties."
     )]
     public partial class RevokeEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

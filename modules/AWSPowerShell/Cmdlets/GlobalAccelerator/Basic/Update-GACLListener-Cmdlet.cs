@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator UpdateListener API operation.", Operation = new[] {"UpdateListener"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.UpdateListenerResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.Listener or Amazon.GlobalAccelerator.Model.UpdateListenerResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.Listener object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateListenerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateListenerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGACLListenerCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.CancelExportTaskResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service CancelExportTask API operation.", Operation = new[] {"CancelExportTask"}, SelectReturnType = typeof(Amazon.RDS.Model.CancelExportTaskResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.CancelExportTaskResponse",
-        "This cmdlet returns an Amazon.RDS.Model.CancelExportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.CancelExportTaskResponse object containing multiple properties."
     )]
     public partial class StopRDSExportTaskCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

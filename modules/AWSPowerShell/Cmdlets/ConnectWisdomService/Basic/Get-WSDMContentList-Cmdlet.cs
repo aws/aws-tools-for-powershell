@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service ListContents API operation.", Operation = new[] {"ListContents"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.ListContentsResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.ContentSummary or Amazon.ConnectWisdomService.Model.ListContentsResponse",
         "This cmdlet returns a collection of Amazon.ConnectWisdomService.Model.ContentSummary objects.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.ListContentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.ListContentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSDMContentListCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

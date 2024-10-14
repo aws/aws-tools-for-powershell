@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

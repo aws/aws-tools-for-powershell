@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     [AWSCmdlet("Calls the AWS License Manager User Subscription StartProductSubscription API operation.", Operation = new[] {"StartProductSubscription"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.StartProductSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.ProductUserSummary or Amazon.LicenseManagerUserSubscriptions.Model.StartProductSubscriptionResponse",
         "This cmdlet returns an Amazon.LicenseManagerUserSubscriptions.Model.ProductUserSummary object.",
-        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.StartProductSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.StartProductSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartLMUSProductSubscriptionCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {

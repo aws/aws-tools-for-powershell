@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DeregisterCertificate API operation.", Operation = new[] {"DeregisterCertificate"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeregisterCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DeregisterCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DeregisterCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DeregisterCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterDSCertificateCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

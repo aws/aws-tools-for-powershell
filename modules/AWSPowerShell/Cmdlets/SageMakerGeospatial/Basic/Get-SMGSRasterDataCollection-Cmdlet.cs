@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     [OutputType("Amazon.SageMakerGeospatial.Model.GetRasterDataCollectionResponse")]
     [AWSCmdlet("Calls the SageMaker Geospatial GetRasterDataCollection API operation.", Operation = new[] {"GetRasterDataCollection"}, SelectReturnType = typeof(Amazon.SageMakerGeospatial.Model.GetRasterDataCollectionResponse))]
     [AWSCmdletOutput("Amazon.SageMakerGeospatial.Model.GetRasterDataCollectionResponse",
-        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.GetRasterDataCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.GetRasterDataCollectionResponse object containing multiple properties."
     )]
     public partial class GetSMGSRasterDataCollectionCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {

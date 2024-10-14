@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge TestEventPattern API operation.", Operation = new[] {"TestEventPattern"}, SelectReturnType = typeof(Amazon.EventBridge.Model.TestEventPatternResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EventBridge.Model.TestEventPatternResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EventBridge.Model.TestEventPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.TestEventPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestEVBEventPatternCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains UpdateDomainContactPrivacy API operation.", Operation = new[] {"UpdateDomainContactPrivacy"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

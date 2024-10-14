@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [OutputType("Amazon.Drs.Model.RetryDataReplicationResponse")]
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service RetryDataReplication API operation.", Operation = new[] {"RetryDataReplication"}, SelectReturnType = typeof(Amazon.Drs.Model.RetryDataReplicationResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.RetryDataReplicationResponse",
-        "This cmdlet returns an Amazon.Drs.Model.RetryDataReplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Drs.Model.RetryDataReplicationResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("WARNING: RetryDataReplication is deprecated")]
     public partial class RestartEDRSDataReplicationCmdlet : AmazonDrsClientCmdlet, IExecutor

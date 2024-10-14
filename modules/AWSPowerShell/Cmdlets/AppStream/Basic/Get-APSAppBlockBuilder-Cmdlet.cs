@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DescribeAppBlockBuilders API operation.", Operation = new[] {"DescribeAppBlockBuilders"}, SelectReturnType = typeof(Amazon.AppStream.Model.DescribeAppBlockBuildersResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.AppBlockBuilder or Amazon.AppStream.Model.DescribeAppBlockBuildersResponse",
         "This cmdlet returns a collection of Amazon.AppStream.Model.AppBlockBuilder objects.",
-        "The service call response (type Amazon.AppStream.Model.DescribeAppBlockBuildersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.DescribeAppBlockBuildersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAPSAppBlockBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

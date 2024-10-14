@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.CopyPackageVersionsResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact CopyPackageVersions API operation.", Operation = new[] {"CopyPackageVersions"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.CopyPackageVersionsResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.CopyPackageVersionsResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.CopyPackageVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.CopyPackageVersionsResponse object containing multiple properties."
     )]
     public partial class CopyCAPackageVersionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

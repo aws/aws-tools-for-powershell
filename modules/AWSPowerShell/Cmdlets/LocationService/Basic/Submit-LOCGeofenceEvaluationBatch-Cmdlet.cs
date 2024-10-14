@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.BatchEvaluateGeofencesResponse")]
     [AWSCmdlet("Calls the Amazon Location Service BatchEvaluateGeofences API operation.", Operation = new[] {"BatchEvaluateGeofences"}, SelectReturnType = typeof(Amazon.LocationService.Model.BatchEvaluateGeofencesResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.BatchEvaluateGeofencesResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.BatchEvaluateGeofencesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.BatchEvaluateGeofencesResponse object containing multiple properties."
     )]
     public partial class SubmitLOCGeofenceEvaluationBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

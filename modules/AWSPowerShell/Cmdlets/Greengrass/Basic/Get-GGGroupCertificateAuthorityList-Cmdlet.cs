@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass ListGroupCertificateAuthorities API operation.", Operation = new[] {"ListGroupCertificateAuthorities"}, SelectReturnType = typeof(Amazon.Greengrass.Model.ListGroupCertificateAuthoritiesResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GroupCertificateAuthorityProperties or Amazon.Greengrass.Model.ListGroupCertificateAuthoritiesResponse",
         "This cmdlet returns a collection of Amazon.Greengrass.Model.GroupCertificateAuthorityProperties objects.",
-        "The service call response (type Amazon.Greengrass.Model.ListGroupCertificateAuthoritiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Greengrass.Model.ListGroupCertificateAuthoritiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGGGroupCertificateAuthorityListCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

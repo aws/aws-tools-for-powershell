@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice DeleteListener API operation.", Operation = new[] {"DeleteListener"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteListenerResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteListenerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VPCLattice.Model.DeleteListenerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VPCLattice.Model.DeleteListenerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveVPCLListenerCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

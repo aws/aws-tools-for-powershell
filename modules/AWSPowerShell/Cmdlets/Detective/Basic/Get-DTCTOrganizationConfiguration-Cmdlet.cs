@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective DescribeOrganizationConfiguration API operation.", Operation = new[] {"DescribeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.Detective.Model.DescribeOrganizationConfigurationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.Detective.Model.DescribeOrganizationConfigurationResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.Detective.Model.DescribeOrganizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Detective.Model.DescribeOrganizationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDTCTOrganizationConfigurationCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

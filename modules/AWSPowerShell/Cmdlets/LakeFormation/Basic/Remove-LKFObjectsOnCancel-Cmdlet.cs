@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation DeleteObjectsOnCancel API operation.", Operation = new[] {"DeleteObjectsOnCancel"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.DeleteObjectsOnCancelResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.DeleteObjectsOnCancelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.DeleteObjectsOnCancelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.DeleteObjectsOnCancelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLKFObjectsOnCancelCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

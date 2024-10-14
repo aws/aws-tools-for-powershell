@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority DeletePolicy API operation.", Operation = new[] {"DeletePolicy"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.DeletePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.DeletePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.DeletePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAPolicyCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutMetricData API operation.", Operation = new[] {"PutMetricData"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutMetricDataResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutMetricDataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutMetricDataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutMetricDataResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWMetricDataCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

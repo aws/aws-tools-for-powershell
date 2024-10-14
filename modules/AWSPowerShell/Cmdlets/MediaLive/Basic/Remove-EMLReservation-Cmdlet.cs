@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DeleteReservationResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteReservation API operation.", Operation = new[] {"DeleteReservation"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteReservationResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DeleteReservationResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DeleteReservationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DeleteReservationResponse object containing multiple properties."
     )]
     public partial class RemoveEMLReservationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

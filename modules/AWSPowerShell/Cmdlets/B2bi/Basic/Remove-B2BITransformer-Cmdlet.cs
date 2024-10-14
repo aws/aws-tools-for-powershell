@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange DeleteTransformer API operation.", Operation = new[] {"DeleteTransformer"}, SelectReturnType = typeof(Amazon.B2bi.Model.DeleteTransformerResponse))]
     [AWSCmdletOutput("None or Amazon.B2bi.Model.DeleteTransformerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.B2bi.Model.DeleteTransformerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.B2bi.Model.DeleteTransformerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveB2BITransformerCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

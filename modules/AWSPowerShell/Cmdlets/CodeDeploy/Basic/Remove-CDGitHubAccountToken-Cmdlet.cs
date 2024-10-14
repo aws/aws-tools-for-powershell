@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy DeleteGitHubAccountToken API operation.", Operation = new[] {"DeleteGitHubAccountToken"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.DeleteGitHubAccountTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDGitHubAccountTokenCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

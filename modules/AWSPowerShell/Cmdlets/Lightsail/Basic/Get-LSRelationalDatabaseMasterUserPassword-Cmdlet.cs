@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.GetRelationalDatabaseMasterUserPasswordResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail GetRelationalDatabaseMasterUserPassword API operation.", Operation = new[] {"GetRelationalDatabaseMasterUserPassword"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetRelationalDatabaseMasterUserPasswordResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.GetRelationalDatabaseMasterUserPasswordResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.GetRelationalDatabaseMasterUserPasswordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.GetRelationalDatabaseMasterUserPasswordResponse object containing multiple properties."
     )]
     public partial class GetLSRelationalDatabaseMasterUserPasswordCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

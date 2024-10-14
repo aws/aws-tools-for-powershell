@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier ListMultipartUploads API operation.", Operation = new[] {"ListMultipartUploads"}, SelectReturnType = typeof(Amazon.Glacier.Model.ListMultipartUploadsResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.UploadListElement or Amazon.Glacier.Model.ListMultipartUploadsResponse",
         "This cmdlet returns a collection of Amazon.Glacier.Model.UploadListElement objects.",
-        "The service call response (type Amazon.Glacier.Model.ListMultipartUploadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glacier.Model.ListMultipartUploadsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLCMultipartUploadListCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-UploadIdMarker $null' for the first call and '-UploadIdMarker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'UploadIdMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-UploadIdMarker' to null for the first call then set the 'UploadIdMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

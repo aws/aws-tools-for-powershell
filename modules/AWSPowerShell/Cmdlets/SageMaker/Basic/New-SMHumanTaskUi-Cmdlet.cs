@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateHumanTaskUi API operation.", Operation = new[] {"CreateHumanTaskUi"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateHumanTaskUiResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateHumanTaskUiResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateHumanTaskUiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateHumanTaskUiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMHumanTaskUiCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

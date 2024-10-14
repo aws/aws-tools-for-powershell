@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.RebootBrokerResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) RebootBroker API operation.", Operation = new[] {"RebootBroker"}, SelectReturnType = typeof(Amazon.Kafka.Model.RebootBrokerResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.RebootBrokerResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.RebootBrokerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.RebootBrokerResponse object containing multiple properties."
     )]
     public partial class RestartMSKBrokerCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [OutputType("Amazon.PaymentCryptography.Model.GetParametersForImportResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Control Plane GetParametersForImport API operation.", Operation = new[] {"GetParametersForImport"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.GetParametersForImportResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.GetParametersForImportResponse",
-        "This cmdlet returns an Amazon.PaymentCryptography.Model.GetParametersForImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptography.Model.GetParametersForImportResponse object containing multiple properties."
     )]
     public partial class GetPAYCCParametersForImportCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

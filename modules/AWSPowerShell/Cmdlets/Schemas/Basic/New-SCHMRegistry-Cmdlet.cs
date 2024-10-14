@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.CreateRegistryResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry CreateRegistry API operation.", Operation = new[] {"CreateRegistry"}, SelectReturnType = typeof(Amazon.Schemas.Model.CreateRegistryResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.CreateRegistryResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.CreateRegistryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.CreateRegistryResponse object containing multiple properties."
     )]
     public partial class NewSCHMRegistryCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

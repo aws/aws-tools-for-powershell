@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     [OutputType("Amazon.Pipes.Model.StopPipeResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Pipes StopPipe API operation.", Operation = new[] {"StopPipe"}, SelectReturnType = typeof(Amazon.Pipes.Model.StopPipeResponse))]
     [AWSCmdletOutput("Amazon.Pipes.Model.StopPipeResponse",
-        "This cmdlet returns an Amazon.Pipes.Model.StopPipeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Pipes.Model.StopPipeResponse object containing multiple properties."
     )]
     public partial class StopPIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {

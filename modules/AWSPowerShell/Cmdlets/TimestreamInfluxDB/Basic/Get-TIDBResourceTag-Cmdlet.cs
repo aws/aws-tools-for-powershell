@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.TimestreamInfluxDB.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.TimestreamInfluxDB.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamInfluxDB.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTIDBResourceTagCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {

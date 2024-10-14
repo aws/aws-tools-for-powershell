@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT SetV2LoggingLevel API operation.", Operation = new[] {"SetV2LoggingLevel"}, SelectReturnType = typeof(Amazon.IoT.Model.SetV2LoggingLevelResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.SetV2LoggingLevelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.SetV2LoggingLevelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.SetV2LoggingLevelResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetIOTV2LoggingLevelCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

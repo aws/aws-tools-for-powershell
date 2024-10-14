@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.GetGlobalSettingsResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool GetGlobalSettings API operation.", Operation = new[] {"GetGlobalSettings"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.GetGlobalSettingsResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.GetGlobalSettingsResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.GetGlobalSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.GetGlobalSettingsResponse object containing multiple properties."
     )]
     public partial class GetWATGlobalSettingCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

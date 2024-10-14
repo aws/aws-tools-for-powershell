@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [OutputType("Amazon.Route53Domains.Model.TransferDomainToAnotherAwsAccountResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 Domains TransferDomainToAnotherAwsAccount API operation.", Operation = new[] {"TransferDomainToAnotherAwsAccount"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.TransferDomainToAnotherAwsAccountResponse))]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.TransferDomainToAnotherAwsAccountResponse",
-        "This cmdlet returns an Amazon.Route53Domains.Model.TransferDomainToAnotherAwsAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53Domains.Model.TransferDomainToAnotherAwsAccountResponse object containing multiple properties."
     )]
     public partial class MoveR53DDomainToAnotherAwsAccountCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

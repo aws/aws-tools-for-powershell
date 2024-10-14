@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeMaintenanceStartTime API operation.", Operation = new[] {"DescribeMaintenanceStartTime"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse object containing multiple properties."
     )]
     public partial class GetSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.CreateNamespaceResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight CreateNamespace API operation.", Operation = new[] {"CreateNamespace"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateNamespaceResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.CreateNamespaceResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CreateNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.CreateNamespaceResponse object containing multiple properties."
     )]
     public partial class NewQSNamespaceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

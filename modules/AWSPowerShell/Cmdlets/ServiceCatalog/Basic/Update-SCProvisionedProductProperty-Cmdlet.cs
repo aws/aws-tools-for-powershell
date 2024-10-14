@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.UpdateProvisionedProductPropertiesResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog UpdateProvisionedProductProperties API operation.", Operation = new[] {"UpdateProvisionedProductProperties"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.UpdateProvisionedProductPropertiesResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateProvisionedProductPropertiesResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdateProvisionedProductPropertiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdateProvisionedProductPropertiesResponse object containing multiple properties."
     )]
     public partial class UpdateSCProvisionedProductPropertyCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

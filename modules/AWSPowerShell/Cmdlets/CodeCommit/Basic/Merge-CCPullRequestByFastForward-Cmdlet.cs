@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit MergePullRequestByFastForward API operation.", Operation = new[] {"MergePullRequestByFastForward"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergePullRequestByFastForwardResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PullRequest or Amazon.CodeCommit.Model.MergePullRequestByFastForwardResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.PullRequest object.",
-        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestByFastForwardResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestByFastForwardResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MergeCCPullRequestByFastForwardCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.UpdateTargetGroupResponse")]
     [AWSCmdlet("Calls the VPC Lattice UpdateTargetGroup API operation.", Operation = new[] {"UpdateTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateTargetGroupResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.UpdateTargetGroupResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.UpdateTargetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.UpdateTargetGroupResponse object containing multiple properties."
     )]
     public partial class UpdateVPCLTargetGroupCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

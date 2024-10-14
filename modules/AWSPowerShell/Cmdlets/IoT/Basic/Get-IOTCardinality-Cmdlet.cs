@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetCardinality API operation.", Operation = new[] {"GetCardinality"}, SelectReturnType = typeof(Amazon.IoT.Model.GetCardinalityResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.IoT.Model.GetCardinalityResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.IoT.Model.GetCardinalityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetCardinalityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTCardinalityCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

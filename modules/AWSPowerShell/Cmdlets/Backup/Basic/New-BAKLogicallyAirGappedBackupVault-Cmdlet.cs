@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse")]
     [AWSCmdlet("Calls the AWS Backup CreateLogicallyAirGappedBackupVault API operation.", Operation = new[] {"CreateLogicallyAirGappedBackupVault"}, SelectReturnType = typeof(Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse",
-        "This cmdlet returns an Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.CreateLogicallyAirGappedBackupVaultResponse object containing multiple properties."
     )]
     public partial class NewBAKLogicallyAirGappedBackupVaultCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

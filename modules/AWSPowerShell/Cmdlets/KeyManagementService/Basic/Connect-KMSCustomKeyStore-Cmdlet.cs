@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service ConnectCustomKeyStore API operation.", Operation = new[] {"ConnectCustomKeyStore"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.ConnectCustomKeyStoreResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.ConnectCustomKeyStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.ConnectCustomKeyStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.ConnectCustomKeyStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConnectKMSCustomKeyStoreCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

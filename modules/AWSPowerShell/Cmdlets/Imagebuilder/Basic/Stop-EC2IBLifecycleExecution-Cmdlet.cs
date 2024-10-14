@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder CancelLifecycleExecution API operation.", Operation = new[] {"CancelLifecycleExecution"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CancelLifecycleExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CancelLifecycleExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.CancelLifecycleExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.CancelLifecycleExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEC2IBLifecycleExecutionCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

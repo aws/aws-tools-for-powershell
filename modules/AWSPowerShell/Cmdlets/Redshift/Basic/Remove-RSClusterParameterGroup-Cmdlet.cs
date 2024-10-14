@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DeleteClusterParameterGroup API operation.", Operation = new[] {"DeleteClusterParameterGroup"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteClusterParameterGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.DeleteClusterParameterGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.DeleteClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteClusterParameterGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

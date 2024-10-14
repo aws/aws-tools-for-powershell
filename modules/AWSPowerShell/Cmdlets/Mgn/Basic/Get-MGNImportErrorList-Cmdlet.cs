@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListImportErrors API operation.", Operation = new[] {"ListImportErrors"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListImportErrorsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.ImportTaskError or Amazon.Mgn.Model.ListImportErrorsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.ImportTaskError objects.",
-        "The service call response (type Amazon.Mgn.Model.ListImportErrorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListImportErrorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNImportErrorListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

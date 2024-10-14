@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service CreateContainerGroupDefinition API operation.", Operation = new[] {"CreateContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.ContainerGroupDefinition or Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse",
         "This cmdlet returns an Amazon.GameLift.Model.ContainerGroupDefinition object.",
-        "The service call response (type Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

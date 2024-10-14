@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball ListLongTermPricing API operation.", Operation = new[] {"ListLongTermPricing"}, SelectReturnType = typeof(Amazon.Snowball.Model.ListLongTermPricingResponse))]
     [AWSCmdletOutput("Amazon.Snowball.Model.LongTermPricingListEntry or Amazon.Snowball.Model.ListLongTermPricingResponse",
         "This cmdlet returns a collection of Amazon.Snowball.Model.LongTermPricingListEntry objects.",
-        "The service call response (type Amazon.Snowball.Model.ListLongTermPricingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Snowball.Model.ListLongTermPricingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNOWLongTermPricingCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.GetResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.GetResourcePolicyResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
     public partial class GetDDBResourcePolicyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

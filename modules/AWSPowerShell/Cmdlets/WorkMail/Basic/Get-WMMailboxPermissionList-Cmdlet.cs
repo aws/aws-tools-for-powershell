@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail ListMailboxPermissions API operation.", Operation = new[] {"ListMailboxPermissions"}, SelectReturnType = typeof(Amazon.WorkMail.Model.ListMailboxPermissionsResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.Permission or Amazon.WorkMail.Model.ListMailboxPermissionsResponse",
         "This cmdlet returns a collection of Amazon.WorkMail.Model.Permission objects.",
-        "The service call response (type Amazon.WorkMail.Model.ListMailboxPermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMail.Model.ListMailboxPermissionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWMMailboxPermissionListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

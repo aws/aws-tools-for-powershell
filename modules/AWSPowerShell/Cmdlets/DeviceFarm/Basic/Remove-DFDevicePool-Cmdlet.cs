@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm DeleteDevicePool API operation.", Operation = new[] {"DeleteDevicePool"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.DeleteDevicePoolResponse))]
     [AWSCmdletOutput("None or Amazon.DeviceFarm.Model.DeleteDevicePoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DeviceFarm.Model.DeleteDevicePoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DeviceFarm.Model.DeleteDevicePoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker GetWorldTemplateBody API operation.", Operation = new[] {"GetWorldTemplateBody"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.GetWorldTemplateBodyResponse))]
     [AWSCmdletOutput("System.String or Amazon.RoboMaker.Model.GetWorldTemplateBodyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.RoboMaker.Model.GetWorldTemplateBodyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.GetWorldTemplateBodyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetROBOWorldTemplateBodyCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

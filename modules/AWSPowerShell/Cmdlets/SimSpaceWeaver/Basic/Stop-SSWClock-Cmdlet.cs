@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [AWSCmdlet("Calls the AWS SimSpace Weaver StopClock API operation.", Operation = new[] {"StopClock"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.StopClockResponse))]
     [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.StopClockResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimSpaceWeaver.Model.StopClockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimSpaceWeaver.Model.StopClockResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSSWClockCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

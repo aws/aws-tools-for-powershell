@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.ListTopicRefreshSchedulesResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight ListTopicRefreshSchedules API operation.", Operation = new[] {"ListTopicRefreshSchedules"}, SelectReturnType = typeof(Amazon.QuickSight.Model.ListTopicRefreshSchedulesResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.ListTopicRefreshSchedulesResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.ListTopicRefreshSchedulesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.ListTopicRefreshSchedulesResponse object containing multiple properties."
     )]
     public partial class GetQSTopicRefreshScheduleListCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [OutputType("Amazon.KinesisAnalyticsV2.Model.DiscoverInputSchemaResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 DiscoverInputSchema API operation.", Operation = new[] {"DiscoverInputSchema"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.DiscoverInputSchemaResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.DiscoverInputSchemaResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.DiscoverInputSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.DiscoverInputSchemaResponse object containing multiple properties."
     )]
     public partial class FindKINA2InputSchemaCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

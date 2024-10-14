@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.DeleteDataCatalogResponse")]
     [AWSCmdlet("Calls the Amazon Athena DeleteDataCatalog API operation.", Operation = new[] {"DeleteDataCatalog"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteDataCatalogResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.DeleteDataCatalogResponse",
-        "This cmdlet returns an Amazon.Athena.Model.DeleteDataCatalogResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.DeleteDataCatalogResponse object containing multiple properties."
     )]
     public partial class RemoveATHDataCatalogCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

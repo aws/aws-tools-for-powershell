@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config StartConfigRulesEvaluation API operation.", Operation = new[] {"StartConfigRulesEvaluation"}, SelectReturnType = typeof(Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCFGConfigRulesEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

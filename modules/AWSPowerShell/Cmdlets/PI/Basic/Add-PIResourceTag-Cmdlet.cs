@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PI.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PI.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PI.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PI.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPIResourceTagCmdlet : AmazonPIClientCmdlet, IExecutor
     {

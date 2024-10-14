@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service CreateCapacityProvider API operation.", Operation = new[] {"CreateCapacityProvider"}, SelectReturnType = typeof(Amazon.ECS.Model.CreateCapacityProviderResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.CapacityProvider or Amazon.ECS.Model.CreateCapacityProviderResponse",
         "This cmdlet returns an Amazon.ECS.Model.CapacityProvider object.",
-        "The service call response (type Amazon.ECS.Model.CreateCapacityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.CreateCapacityProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECSCapacityProviderCmdlet : AmazonECSClientCmdlet, IExecutor
     {

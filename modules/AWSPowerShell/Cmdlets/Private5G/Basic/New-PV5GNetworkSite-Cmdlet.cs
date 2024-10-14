@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G CreateNetworkSite API operation.", Operation = new[] {"CreateNetworkSite"}, SelectReturnType = typeof(Amazon.Private5G.Model.CreateNetworkSiteResponse))]
     [AWSCmdletOutput("Amazon.Private5G.Model.NetworkSite or Amazon.Private5G.Model.CreateNetworkSiteResponse",
         "This cmdlet returns an Amazon.Private5G.Model.NetworkSite object.",
-        "The service call response (type Amazon.Private5G.Model.CreateNetworkSiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Private5G.Model.CreateNetworkSiteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPV5GNetworkSiteCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

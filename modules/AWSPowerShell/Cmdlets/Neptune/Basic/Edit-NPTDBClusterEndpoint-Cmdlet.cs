@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [OutputType("Amazon.Neptune.Model.ModifyDBClusterEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Neptune ModifyDBClusterEndpoint API operation.", Operation = new[] {"ModifyDBClusterEndpoint"}, SelectReturnType = typeof(Amazon.Neptune.Model.ModifyDBClusterEndpointResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.ModifyDBClusterEndpointResponse",
-        "This cmdlet returns an Amazon.Neptune.Model.ModifyDBClusterEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptune.Model.ModifyDBClusterEndpointResponse object containing multiple properties."
     )]
     public partial class EditNPTDBClusterEndpointCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

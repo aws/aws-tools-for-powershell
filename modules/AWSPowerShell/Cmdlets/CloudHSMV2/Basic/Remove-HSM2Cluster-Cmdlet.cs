@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Cluster or Amazon.CloudHSMV2.Model.DeleteClusterResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.Cluster object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.DeleteClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveHSM2ClusterCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

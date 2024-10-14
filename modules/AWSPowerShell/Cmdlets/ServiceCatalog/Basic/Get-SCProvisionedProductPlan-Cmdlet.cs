@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisionedProductPlan API operation.", Operation = new[] {"DescribeProvisionedProductPlan"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeProvisionedProductPlanResponse object containing multiple properties."
     )]
     public partial class GetSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ServiceCatalog module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// <br/>'PageToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PageToken' to null for the first call then set the 'PageToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

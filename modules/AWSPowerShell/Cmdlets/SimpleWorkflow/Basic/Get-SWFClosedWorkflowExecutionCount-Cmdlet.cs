@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) CountClosedWorkflowExecutions API operation.", Operation = new[] {"CountClosedWorkflowExecutions"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.CountClosedWorkflowExecutionsResponse))]
     [AWSCmdletOutput("Amazon.SimpleWorkflow.Model.WorkflowExecutionCount or Amazon.SimpleWorkflow.Model.CountClosedWorkflowExecutionsResponse",
         "This cmdlet returns an Amazon.SimpleWorkflow.Model.WorkflowExecutionCount object.",
-        "The service call response (type Amazon.SimpleWorkflow.Model.CountClosedWorkflowExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleWorkflow.Model.CountClosedWorkflowExecutionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSWFClosedWorkflowExecutionCountCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

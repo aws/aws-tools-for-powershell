@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager ListSinks API operation.", Operation = new[] {"ListSinks"}, SelectReturnType = typeof(Amazon.OAM.Model.ListSinksResponse))]
     [AWSCmdletOutput("Amazon.OAM.Model.ListSinksItem or Amazon.OAM.Model.ListSinksResponse",
         "This cmdlet returns a collection of Amazon.OAM.Model.ListSinksItem objects.",
-        "The service call response (type Amazon.OAM.Model.ListSinksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OAM.Model.ListSinksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWOAMSinkListCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

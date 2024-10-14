@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 ListAutomatedDiscoveryAccounts API operation.", Operation = new[] {"ListAutomatedDiscoveryAccounts"}, SelectReturnType = typeof(Amazon.Macie2.Model.ListAutomatedDiscoveryAccountsResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.AutomatedDiscoveryAccount or Amazon.Macie2.Model.ListAutomatedDiscoveryAccountsResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.AutomatedDiscoveryAccount objects.",
-        "The service call response (type Amazon.Macie2.Model.ListAutomatedDiscoveryAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.ListAutomatedDiscoveryAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2AutomatedDiscoveryAccountListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [AWSCmdlet("Calls the AmazonMWAA CreateEnvironment API operation.", Operation = new[] {"CreateEnvironment"}, SelectReturnType = typeof(Amazon.MWAA.Model.CreateEnvironmentResponse))]
     [AWSCmdletOutput("System.String or Amazon.MWAA.Model.CreateEnvironmentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MWAA.Model.CreateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MWAA.Model.CreateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {

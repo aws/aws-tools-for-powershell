@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs GetLogGroupFields API operation.", Operation = new[] {"GetLogGroupFields"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetLogGroupFieldsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.LogGroupField or Amazon.CloudWatchLogs.Model.GetLogGroupFieldsResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchLogs.Model.LogGroupField objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.GetLogGroupFieldsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.GetLogGroupFieldsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWLLogGroupFieldCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange SendDataSetNotification API operation.", Operation = new[] {"SendDataSetNotification"}, SelectReturnType = typeof(Amazon.DataExchange.Model.SendDataSetNotificationResponse))]
     [AWSCmdletOutput("None or Amazon.DataExchange.Model.SendDataSetNotificationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.SendDataSetNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataExchange.Model.SendDataSetNotificationResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendDTEXDataSetNotificationCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

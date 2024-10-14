@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
     [AWSCmdlet("Calls the AWS Single Sign-On GetRoleCredentials API operation.", Operation = new[] {"GetRoleCredentials"}, SelectReturnType = typeof(Amazon.SSO.Model.GetRoleCredentialsResponse))]
     [AWSCmdletOutput("Amazon.SSO.Model.RoleCredentials or Amazon.SSO.Model.GetRoleCredentialsResponse",
         "This cmdlet returns an Amazon.SSO.Model.RoleCredentials object.",
-        "The service call response (type Amazon.SSO.Model.GetRoleCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSO.Model.GetRoleCredentialsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSORoleCredentialCmdlet : AmazonSSOClientCmdlet, IExecutor
     {

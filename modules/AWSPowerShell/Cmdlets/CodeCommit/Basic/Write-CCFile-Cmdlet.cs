@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.PutFileResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit PutFile API operation.", Operation = new[] {"PutFile"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.PutFileResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PutFileResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.PutFileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.PutFileResponse object containing multiple properties."
     )]
     public partial class WriteCCFileCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

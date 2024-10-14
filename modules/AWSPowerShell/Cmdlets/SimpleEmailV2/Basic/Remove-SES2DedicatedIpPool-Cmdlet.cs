@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteDedicatedIpPool API operation.", Operation = new[] {"DeleteDedicatedIpPool"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.DeleteDedicatedIpPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSES2DedicatedIpPoolCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

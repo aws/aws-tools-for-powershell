@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID OptOutSpeaker API operation.", Operation = new[] {"OptOutSpeaker"}, SelectReturnType = typeof(Amazon.VoiceID.Model.OptOutSpeakerResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.Speaker or Amazon.VoiceID.Model.OptOutSpeakerResponse",
         "This cmdlet returns an Amazon.VoiceID.Model.Speaker object.",
-        "The service call response (type Amazon.VoiceID.Model.OptOutSpeakerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VoiceID.Model.OptOutSpeakerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetVIDOptOutSpeakerCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

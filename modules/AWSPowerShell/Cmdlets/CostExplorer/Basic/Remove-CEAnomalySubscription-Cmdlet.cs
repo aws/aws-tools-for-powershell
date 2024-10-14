@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer DeleteAnomalySubscription API operation.", Operation = new[] {"DeleteAnomalySubscription"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteAnomalySubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.CostExplorer.Model.DeleteAnomalySubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CostExplorer.Model.DeleteAnomalySubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostExplorer.Model.DeleteAnomalySubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCEAnomalySubscriptionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

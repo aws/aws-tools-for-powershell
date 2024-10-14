@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ListTablesResponse), LegacyAlias="Get-DDBTables")]
     [AWSCmdletOutput("System.String or Amazon.DynamoDBv2.Model.ListTablesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ListTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBTableListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-ExclusiveStartTableName $null' for the first call and '-ExclusiveStartTableName $AWSHistory.LastServiceResponse.LastEvaluatedTableName' for subsequent calls.
+        /// <br/>'ExclusiveStartTableName' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-ExclusiveStartTableName' to null for the first call then set the 'ExclusiveStartTableName' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

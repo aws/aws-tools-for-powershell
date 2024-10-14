@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service ListCertificates API operation.", Operation = new[] {"ListCertificates"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ListCertificatesResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.CertificateInfo or Amazon.DirectoryService.Model.ListCertificatesResponse",
         "This cmdlet returns a collection of Amazon.DirectoryService.Model.CertificateInfo objects.",
-        "The service call response (type Amazon.DirectoryService.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.ListCertificatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDSCertificateListCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

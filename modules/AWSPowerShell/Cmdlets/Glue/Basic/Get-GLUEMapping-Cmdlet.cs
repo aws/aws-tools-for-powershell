@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetMapping API operation.", Operation = new[] {"GetMapping"}, SelectReturnType = typeof(Amazon.Glue.Model.GetMappingResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.MappingEntry or Amazon.Glue.Model.GetMappingResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.MappingEntry objects.",
-        "The service call response (type Amazon.Glue.Model.GetMappingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetMappingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUEMappingCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

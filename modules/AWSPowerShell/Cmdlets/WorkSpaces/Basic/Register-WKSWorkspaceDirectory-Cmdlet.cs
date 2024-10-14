@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces RegisterWorkspaceDirectory API operation.", Operation = new[] {"RegisterWorkspaceDirectory"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse",
-        "This cmdlet returns an Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpaces.Model.RegisterWorkspaceDirectoryResponse object containing multiple properties."
     )]
     public partial class RegisterWKSWorkspaceDirectoryCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

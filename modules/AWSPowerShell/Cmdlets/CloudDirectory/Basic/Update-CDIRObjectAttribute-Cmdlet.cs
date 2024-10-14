@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory UpdateObjectAttributes API operation.", Operation = new[] {"UpdateObjectAttributes"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCDIRObjectAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

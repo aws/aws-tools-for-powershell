@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DisableMetricsCollection API operation.", Operation = new[] {"DisableMetricsCollection"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DisableMetricsCollectionResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DisableMetricsCollectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DisableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DisableMetricsCollectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

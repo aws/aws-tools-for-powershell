@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.UpdateConnectionResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.UpdateConnectionResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.UpdateConnectionResponse object containing multiple properties."
     )]
     public partial class UpdateDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

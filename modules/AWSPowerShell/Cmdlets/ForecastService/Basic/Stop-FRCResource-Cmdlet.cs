@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service StopResource API operation.", Operation = new[] {"StopResource"}, SelectReturnType = typeof(Amazon.ForecastService.Model.StopResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.StopResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.StopResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.StopResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopFRCResourceCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

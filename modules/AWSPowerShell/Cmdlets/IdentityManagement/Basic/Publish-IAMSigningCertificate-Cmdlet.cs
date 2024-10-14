@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UploadSigningCertificate API operation.", Operation = new[] {"UploadSigningCertificate"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UploadSigningCertificateResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SigningCertificate or Amazon.IdentityManagement.Model.UploadSigningCertificateResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.SigningCertificate object.",
-        "The service call response (type Amazon.IdentityManagement.Model.UploadSigningCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UploadSigningCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishIAMSigningCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

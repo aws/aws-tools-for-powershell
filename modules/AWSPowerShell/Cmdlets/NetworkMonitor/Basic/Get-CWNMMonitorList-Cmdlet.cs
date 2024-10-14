@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
     [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor ListMonitors API operation.", Operation = new[] {"ListMonitors"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.ListMonitorsResponse))]
     [AWSCmdletOutput("Amazon.NetworkMonitor.Model.MonitorSummary or Amazon.NetworkMonitor.Model.ListMonitorsResponse",
         "This cmdlet returns a collection of Amazon.NetworkMonitor.Model.MonitorSummary objects.",
-        "The service call response (type Amazon.NetworkMonitor.Model.ListMonitorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkMonitor.Model.ListMonitorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWNMMonitorListCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {

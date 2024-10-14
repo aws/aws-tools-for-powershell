@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.CheckSchemaVersionValidityResponse")]
     [AWSCmdlet("Calls the AWS Glue CheckSchemaVersionValidity API operation.", Operation = new[] {"CheckSchemaVersionValidity"}, SelectReturnType = typeof(Amazon.Glue.Model.CheckSchemaVersionValidityResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.CheckSchemaVersionValidityResponse",
-        "This cmdlet returns an Amazon.Glue.Model.CheckSchemaVersionValidityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.CheckSchemaVersionValidityResponse object containing multiple properties."
     )]
     public partial class GetGLUESchemaVersionValidityCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

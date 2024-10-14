@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [OutputType("Amazon.LakeFormation.Model.DescribeLakeFormationIdentityCenterConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation DescribeLakeFormationIdentityCenterConfiguration API operation.", Operation = new[] {"DescribeLakeFormationIdentityCenterConfiguration"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.DescribeLakeFormationIdentityCenterConfigurationResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.DescribeLakeFormationIdentityCenterConfigurationResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.DescribeLakeFormationIdentityCenterConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.DescribeLakeFormationIdentityCenterConfigurationResponse object containing multiple properties."
     )]
     public partial class GetLKFLakeFormationIdentityCenterConfigurationCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

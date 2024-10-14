@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing AttachLoadBalancerToSubnets API operation.", Operation = new[] {"AttachLoadBalancerToSubnets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddELBLoadBalancerToSubnetCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

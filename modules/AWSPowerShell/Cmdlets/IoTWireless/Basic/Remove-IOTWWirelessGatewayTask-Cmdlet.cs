@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless DeleteWirelessGatewayTask API operation.", Operation = new[] {"DeleteWirelessGatewayTask"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.DeleteWirelessGatewayTaskResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.DeleteWirelessGatewayTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.DeleteWirelessGatewayTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.DeleteWirelessGatewayTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTWWirelessGatewayTaskCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

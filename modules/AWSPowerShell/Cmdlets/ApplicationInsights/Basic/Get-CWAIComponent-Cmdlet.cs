@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [OutputType("Amazon.ApplicationInsights.Model.DescribeComponentResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponent API operation.", Operation = new[] {"DescribeComponent"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.DescribeComponentResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.DescribeComponentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationInsights.Model.DescribeComponentResponse object containing multiple properties."
     )]
     public partial class GetCWAIComponentCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

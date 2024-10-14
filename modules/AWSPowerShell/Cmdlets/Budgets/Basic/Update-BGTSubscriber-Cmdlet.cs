@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [AWSCmdlet("Calls the AWS Budgets UpdateSubscriber API operation.", Operation = new[] {"UpdateSubscriber"}, SelectReturnType = typeof(Amazon.Budgets.Model.UpdateSubscriberResponse))]
     [AWSCmdletOutput("None or Amazon.Budgets.Model.UpdateSubscriberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Budgets.Model.UpdateSubscriberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Budgets.Model.UpdateSubscriberResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateBGTSubscriberCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

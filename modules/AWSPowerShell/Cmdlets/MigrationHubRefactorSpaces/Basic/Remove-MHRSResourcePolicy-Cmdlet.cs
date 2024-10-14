@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubRefactorSpaces.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHRSResourcePolicyCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

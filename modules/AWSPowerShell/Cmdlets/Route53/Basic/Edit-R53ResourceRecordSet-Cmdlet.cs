@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 ChangeResourceRecordSets API operation.", Operation = new[] {"ChangeResourceRecordSets"}, SelectReturnType = typeof(Amazon.Route53.Model.ChangeResourceRecordSetsResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.ChangeResourceRecordSetsResponse",
         "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.ChangeResourceRecordSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ChangeResourceRecordSetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

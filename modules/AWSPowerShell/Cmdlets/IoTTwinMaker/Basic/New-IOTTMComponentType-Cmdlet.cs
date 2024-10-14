@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker CreateComponentType API operation.", Operation = new[] {"CreateComponentType"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse object containing multiple properties."
     )]
     public partial class NewIOTTMComponentTypeCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

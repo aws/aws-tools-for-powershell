@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless DeleteNamespace API operation.", Operation = new[] {"DeleteNamespace"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteNamespaceResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Namespace or Amazon.RedshiftServerless.Model.DeleteNamespaceResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.Namespace object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.DeleteNamespaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.DeleteNamespaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSNamespaceCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

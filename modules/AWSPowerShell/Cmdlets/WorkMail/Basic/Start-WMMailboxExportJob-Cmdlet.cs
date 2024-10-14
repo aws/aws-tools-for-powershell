@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail StartMailboxExportJob API operation.", Operation = new[] {"StartMailboxExportJob"}, SelectReturnType = typeof(Amazon.WorkMail.Model.StartMailboxExportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkMail.Model.StartMailboxExportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkMail.Model.StartMailboxExportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMail.Model.StartMailboxExportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartWMMailboxExportJobCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

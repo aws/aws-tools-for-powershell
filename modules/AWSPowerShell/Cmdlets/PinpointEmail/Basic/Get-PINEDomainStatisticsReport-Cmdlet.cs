@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [OutputType("Amazon.PinpointEmail.Model.GetDomainStatisticsReportResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint Email GetDomainStatisticsReport API operation.", Operation = new[] {"GetDomainStatisticsReport"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.GetDomainStatisticsReportResponse))]
     [AWSCmdletOutput("Amazon.PinpointEmail.Model.GetDomainStatisticsReportResponse",
-        "This cmdlet returns an Amazon.PinpointEmail.Model.GetDomainStatisticsReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointEmail.Model.GetDomainStatisticsReportResponse object containing multiple properties."
     )]
     public partial class GetPINEDomainStatisticsReportCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

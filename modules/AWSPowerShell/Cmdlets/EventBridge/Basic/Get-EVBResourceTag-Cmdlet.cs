@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.EventBridge.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.Tag or Amazon.EventBridge.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.EventBridge.Model.Tag objects.",
-        "The service call response (type Amazon.EventBridge.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEVBResourceTagCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

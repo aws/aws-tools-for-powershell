@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateDhcpOptions API operation.", Operation = new[] {"AssociateDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateDhcpOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.AssociateDhcpOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.AssociateDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.AssociateDhcpOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

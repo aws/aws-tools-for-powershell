@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageDeregistrationProtection API operation.", Operation = new[] {"EnableImageDeregistrationProtection"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageDeregistrationProtectionResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.EnableImageDeregistrationProtectionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.EnableImageDeregistrationProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.EnableImageDeregistrationProtectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2ImageDeregistrationProtectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [OutputType("Amazon.ChimeSDKMessaging.Model.PutChannelExpirationSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging PutChannelExpirationSettings API operation.", Operation = new[] {"PutChannelExpirationSettings"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.PutChannelExpirationSettingsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.PutChannelExpirationSettingsResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.PutChannelExpirationSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.PutChannelExpirationSettingsResponse object containing multiple properties."
     )]
     public partial class WriteCHMMGChannelExpirationSettingCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

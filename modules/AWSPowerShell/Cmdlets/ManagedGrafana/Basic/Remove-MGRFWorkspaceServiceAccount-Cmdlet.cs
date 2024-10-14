@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [OutputType("Amazon.ManagedGrafana.Model.DeleteWorkspaceServiceAccountResponse")]
     [AWSCmdlet("Calls the Amazon Managed Grafana DeleteWorkspaceServiceAccount API operation.", Operation = new[] {"DeleteWorkspaceServiceAccount"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DeleteWorkspaceServiceAccountResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.DeleteWorkspaceServiceAccountResponse",
-        "This cmdlet returns an Amazon.ManagedGrafana.Model.DeleteWorkspaceServiceAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ManagedGrafana.Model.DeleteWorkspaceServiceAccountResponse object containing multiple properties."
     )]
     public partial class RemoveMGRFWorkspaceServiceAccountCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

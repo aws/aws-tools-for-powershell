@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.CreateAppInstanceAdminResponse")]
     [AWSCmdlet("Calls the Amazon Chime CreateAppInstanceAdmin API operation.", Operation = new[] {"CreateAppInstanceAdmin"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateAppInstanceAdminResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.CreateAppInstanceAdminResponse",
-        "This cmdlet returns an Amazon.Chime.Model.CreateAppInstanceAdminResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.CreateAppInstanceAdminResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
     public partial class NewCHMAppInstanceAdminCmdlet : AmazonChimeClientCmdlet, IExecutor

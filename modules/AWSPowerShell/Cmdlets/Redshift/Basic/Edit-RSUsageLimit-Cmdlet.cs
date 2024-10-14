@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ModifyUsageLimitResponse")]
     [AWSCmdlet("Calls the Amazon Redshift ModifyUsageLimit API operation.", Operation = new[] {"ModifyUsageLimit"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyUsageLimitResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ModifyUsageLimitResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.ModifyUsageLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.ModifyUsageLimitResponse object containing multiple properties."
     )]
     public partial class EditRSUsageLimitCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging ListChannelMembershipsForAppInstanceUser API operation.", Operation = new[] {"ListChannelMembershipsForAppInstanceUser"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.ListChannelMembershipsForAppInstanceUserResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ChannelMembershipForAppInstanceUserSummary or Amazon.ChimeSDKMessaging.Model.ListChannelMembershipsForAppInstanceUserResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKMessaging.Model.ChannelMembershipForAppInstanceUserSummary objects.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.ListChannelMembershipsForAppInstanceUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.ListChannelMembershipsForAppInstanceUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMMGChannelMembershipsForAppInstanceUserListCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

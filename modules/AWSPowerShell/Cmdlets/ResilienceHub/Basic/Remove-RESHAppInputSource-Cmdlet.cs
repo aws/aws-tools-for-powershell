@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub DeleteAppInputSource API operation.", Operation = new[] {"DeleteAppInputSource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse object containing multiple properties."
     )]
     public partial class RemoveRESHAppInputSourceCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker CancelSimulationJob API operation.", Operation = new[] {"CancelSimulationJob"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CancelSimulationJobResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.CancelSimulationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.CancelSimulationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.CancelSimulationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopROBOSimulationJobCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.ExportEC2InstanceRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer ExportEC2InstanceRecommendations API operation.", Operation = new[] {"ExportEC2InstanceRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportEC2InstanceRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportEC2InstanceRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportEC2InstanceRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportEC2InstanceRecommendationsResponse object containing multiple properties."
     )]
     public partial class ExportCOEC2InstanceRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

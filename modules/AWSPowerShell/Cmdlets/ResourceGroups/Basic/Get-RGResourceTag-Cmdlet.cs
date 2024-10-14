@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GetTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ResourceGroups.Model.GetTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ResourceGroups.Model.GetTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.GetTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRGResourceTagCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

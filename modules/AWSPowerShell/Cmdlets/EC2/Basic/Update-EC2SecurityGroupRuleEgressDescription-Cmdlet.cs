@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UpdateSecurityGroupRuleDescriptionsEgress API operation.", Operation = new[] {"UpdateSecurityGroupRuleDescriptionsEgress"}, SelectReturnType = typeof(Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsEgressResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsEgressResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsEgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsEgressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEC2SecurityGroupRuleEgressDescriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

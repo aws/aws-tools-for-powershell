@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayConnect API operation.", Operation = new[] {"CreateTransitGatewayConnect"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayConnectResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayConnect or Amazon.EC2.Model.CreateTransitGatewayConnectResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayConnect object.",
-        "The service call response (type Amazon.EC2.Model.CreateTransitGatewayConnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateTransitGatewayConnectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2TransitGatewayConnectCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

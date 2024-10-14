@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.CreateCodeSigningConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda CreateCodeSigningConfig API operation.", Operation = new[] {"CreateCodeSigningConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.CreateCodeSigningConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateCodeSigningConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.CreateCodeSigningConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.CreateCodeSigningConfigResponse object containing multiple properties."
     )]
     public partial class NewLMCodeSigningConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

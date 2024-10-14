@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime ResetPersonalPIN API operation.", Operation = new[] {"ResetPersonalPIN"}, SelectReturnType = typeof(Amazon.Chime.Model.ResetPersonalPINResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.User or Amazon.Chime.Model.ResetPersonalPINResponse",
         "This cmdlet returns an Amazon.Chime.Model.User object.",
-        "The service call response (type Amazon.Chime.Model.ResetPersonalPINResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.ResetPersonalPINResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetCHMPersonalPINCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

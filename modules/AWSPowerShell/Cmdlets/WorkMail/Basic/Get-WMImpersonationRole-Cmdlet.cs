@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.GetImpersonationRoleResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail GetImpersonationRole API operation.", Operation = new[] {"GetImpersonationRole"}, SelectReturnType = typeof(Amazon.WorkMail.Model.GetImpersonationRoleResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.GetImpersonationRoleResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.GetImpersonationRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.GetImpersonationRoleResponse object containing multiple properties."
     )]
     public partial class GetWMImpersonationRoleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

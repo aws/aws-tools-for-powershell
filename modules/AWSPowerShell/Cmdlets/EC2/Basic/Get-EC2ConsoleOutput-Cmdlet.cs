@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetConsoleOutputResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetConsoleOutput API operation.", Operation = new[] {"GetConsoleOutput"}, SelectReturnType = typeof(Amazon.EC2.Model.GetConsoleOutputResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleOutputResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetConsoleOutputResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.GetConsoleOutputResponse object containing multiple properties."
     )]
     public partial class GetEC2ConsoleOutputCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

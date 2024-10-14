@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeClusters API operation.", Operation = new[] {"DescribeClusters"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeClustersResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Cluster or Amazon.MemoryDB.Model.DescribeClustersResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.Cluster objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeClustersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBClusterCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

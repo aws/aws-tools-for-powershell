@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.UpdateSlotResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 UpdateSlot API operation.", Operation = new[] {"UpdateSlot"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.UpdateSlotResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.UpdateSlotResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.UpdateSlotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.UpdateSlotResponse object containing multiple properties."
     )]
     public partial class UpdateLMBV2SlotCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

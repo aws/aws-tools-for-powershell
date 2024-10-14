@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     [OutputType("Amazon.RecycleBin.Model.LockRuleResponse")]
     [AWSCmdlet("Calls the Amazon Recycle Bin LockRule API operation.", Operation = new[] {"LockRule"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.LockRuleResponse))]
     [AWSCmdletOutput("Amazon.RecycleBin.Model.LockRuleResponse",
-        "This cmdlet returns an Amazon.RecycleBin.Model.LockRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RecycleBin.Model.LockRuleResponse object containing multiple properties."
     )]
     public partial class LockRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {

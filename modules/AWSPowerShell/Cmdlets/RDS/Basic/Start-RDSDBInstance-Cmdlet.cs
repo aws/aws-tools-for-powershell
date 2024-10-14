@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service StartDBInstance API operation.", Operation = new[] {"StartDBInstance"}, SelectReturnType = typeof(Amazon.RDS.Model.StartDBInstanceResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance or Amazon.RDS.Model.StartDBInstanceResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBInstance object.",
-        "The service call response (type Amazon.RDS.Model.StartDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.StartDBInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

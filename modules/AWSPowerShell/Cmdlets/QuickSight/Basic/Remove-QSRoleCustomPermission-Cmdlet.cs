@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteRoleCustomPermissionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteRoleCustomPermission API operation.", Operation = new[] {"DeleteRoleCustomPermission"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteRoleCustomPermissionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteRoleCustomPermissionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteRoleCustomPermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteRoleCustomPermissionResponse object containing multiple properties."
     )]
     public partial class RemoveQSRoleCustomPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

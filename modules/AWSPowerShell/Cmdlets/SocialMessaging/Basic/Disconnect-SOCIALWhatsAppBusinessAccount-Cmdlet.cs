@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social DisassociateWhatsAppBusinessAccount API operation.", Operation = new[] {"DisassociateWhatsAppBusinessAccount"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.DisassociateWhatsAppBusinessAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SocialMessaging.Model.DisassociateWhatsAppBusinessAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SocialMessaging.Model.DisassociateWhatsAppBusinessAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SocialMessaging.Model.DisassociateWhatsAppBusinessAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectSOCIALWhatsAppBusinessAccountCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

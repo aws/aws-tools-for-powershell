@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift GetAutoshiftObserverNotificationStatus API operation.", Operation = new[] {"GetAutoshiftObserverNotificationStatus"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.GetAutoshiftObserverNotificationStatusResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus or Amazon.ARCZonalShift.Model.GetAutoshiftObserverNotificationStatusResponse",
         "This cmdlet returns an Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus object.",
-        "The service call response (type Amazon.ARCZonalShift.Model.GetAutoshiftObserverNotificationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ARCZonalShift.Model.GetAutoshiftObserverNotificationStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAZSAutoshiftObserverNotificationStatusCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

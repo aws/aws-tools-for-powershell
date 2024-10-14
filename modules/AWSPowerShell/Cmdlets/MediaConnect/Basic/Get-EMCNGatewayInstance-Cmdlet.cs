@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect DescribeGatewayInstance API operation.", Operation = new[] {"DescribeGatewayInstance"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DescribeGatewayInstanceResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.GatewayInstance or Amazon.MediaConnect.Model.DescribeGatewayInstanceResponse",
         "This cmdlet returns an Amazon.MediaConnect.Model.GatewayInstance object.",
-        "The service call response (type Amazon.MediaConnect.Model.DescribeGatewayInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConnect.Model.DescribeGatewayInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMCNGatewayInstanceCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

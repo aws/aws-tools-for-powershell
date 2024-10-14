@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectLegalHold API operation.", Operation = new[] {"PutObjectLegalHold"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectLegalHoldResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectLegalHoldResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
-        "The service call response (type Amazon.S3.Model.PutObjectLegalHoldResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.PutObjectLegalHoldResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteS3ObjectLegalHoldCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

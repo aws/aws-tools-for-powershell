@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield UpdateProtectionGroup API operation.", Operation = new[] {"UpdateProtectionGroup"}, SelectReturnType = typeof(Amazon.Shield.Model.UpdateProtectionGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.UpdateProtectionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.UpdateProtectionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.UpdateProtectionGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSHLDProtectionGroupCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

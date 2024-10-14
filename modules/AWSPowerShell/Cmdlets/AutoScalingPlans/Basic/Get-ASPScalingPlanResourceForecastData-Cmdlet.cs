@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     [AWSCmdlet("Calls the AWS Auto Scaling Plans GetScalingPlanResourceForecastData API operation.", Operation = new[] {"GetScalingPlanResourceForecastData"}, SelectReturnType = typeof(Amazon.AutoScalingPlans.Model.GetScalingPlanResourceForecastDataResponse))]
     [AWSCmdletOutput("Amazon.AutoScalingPlans.Model.Datapoint or Amazon.AutoScalingPlans.Model.GetScalingPlanResourceForecastDataResponse",
         "This cmdlet returns a collection of Amazon.AutoScalingPlans.Model.Datapoint objects.",
-        "The service call response (type Amazon.AutoScalingPlans.Model.GetScalingPlanResourceForecastDataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScalingPlans.Model.GetScalingPlanResourceForecastDataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASPScalingPlanResourceForecastDataCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {

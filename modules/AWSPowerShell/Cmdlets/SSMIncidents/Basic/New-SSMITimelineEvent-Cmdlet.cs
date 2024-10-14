@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [OutputType("Amazon.SSMIncidents.Model.CreateTimelineEventResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager CreateTimelineEvent API operation.", Operation = new[] {"CreateTimelineEvent"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.CreateTimelineEventResponse))]
     [AWSCmdletOutput("Amazon.SSMIncidents.Model.CreateTimelineEventResponse",
-        "This cmdlet returns an Amazon.SSMIncidents.Model.CreateTimelineEventResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSMIncidents.Model.CreateTimelineEventResponse object containing multiple properties."
     )]
     public partial class NewSSMITimelineEventCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

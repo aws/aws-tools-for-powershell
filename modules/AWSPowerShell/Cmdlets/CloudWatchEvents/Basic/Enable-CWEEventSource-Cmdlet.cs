@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events ActivateEventSource API operation.", Operation = new[] {"ActivateEventSource"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.ActivateEventSourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.ActivateEventSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.ActivateEventSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.ActivateEventSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableCWEEventSourceCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

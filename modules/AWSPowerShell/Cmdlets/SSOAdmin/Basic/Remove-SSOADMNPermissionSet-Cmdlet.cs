@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeletePermissionSet API operation.", Operation = new[] {"DeletePermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeletePermissionSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DeletePermissionSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DeletePermissionSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DeletePermissionSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

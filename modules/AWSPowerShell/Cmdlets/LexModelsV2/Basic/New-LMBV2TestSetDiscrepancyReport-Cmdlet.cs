@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.CreateTestSetDiscrepancyReportResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 CreateTestSetDiscrepancyReport API operation.", Operation = new[] {"CreateTestSetDiscrepancyReport"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.CreateTestSetDiscrepancyReportResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.CreateTestSetDiscrepancyReportResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateTestSetDiscrepancyReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateTestSetDiscrepancyReportResponse object containing multiple properties."
     )]
     public partial class NewLMBV2TestSetDiscrepancyReportCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.TestStateResponse")]
     [AWSCmdlet("Calls the AWS Step Functions TestState API operation.", Operation = new[] {"TestState"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.TestStateResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.TestStateResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.TestStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.TestStateResponse object containing multiple properties."
     )]
     public partial class TestSFNStateCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk CreateApplicationVersion API operation.", Operation = new[] {"CreateApplicationVersion"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.CreateApplicationVersionResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription or Amazon.ElasticBeanstalk.Model.CreateApplicationVersionResponse",
         "This cmdlet returns an Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

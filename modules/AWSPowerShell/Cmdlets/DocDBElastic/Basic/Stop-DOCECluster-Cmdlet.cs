@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters StopCluster API operation.", Operation = new[] {"StopCluster"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.StopClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDBElastic.Model.Cluster or Amazon.DocDBElastic.Model.StopClusterResponse",
         "This cmdlet returns an Amazon.DocDBElastic.Model.Cluster object.",
-        "The service call response (type Amazon.DocDBElastic.Model.StopClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDBElastic.Model.StopClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopDOCEClusterCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild UpdateProject API operation.", Operation = new[] {"UpdateProject"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.UpdateProjectResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Project or Amazon.CodeBuild.Model.UpdateProjectResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Project object.",
-        "The service call response (type Amazon.CodeBuild.Model.UpdateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.UpdateProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

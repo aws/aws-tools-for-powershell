@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     [AWSCmdlet("Calls the AWS IoT Events Data DescribeDetector API operation.", Operation = new[] {"DescribeDetector"}, SelectReturnType = typeof(Amazon.IoTEventsData.Model.DescribeDetectorResponse))]
     [AWSCmdletOutput("Amazon.IoTEventsData.Model.Detector or Amazon.IoTEventsData.Model.DescribeDetectorResponse",
         "This cmdlet returns an Amazon.IoTEventsData.Model.Detector object.",
-        "The service call response (type Amazon.IoTEventsData.Model.DescribeDetectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEventsData.Model.DescribeDetectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTEDDetectorCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {

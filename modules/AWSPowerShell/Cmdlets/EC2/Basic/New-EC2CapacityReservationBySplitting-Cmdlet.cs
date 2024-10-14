@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCapacityReservationBySplitting API operation.", Operation = new[] {"CreateCapacityReservationBySplitting"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse object containing multiple properties."
     )]
     public partial class NewEC2CapacityReservationBySplittingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

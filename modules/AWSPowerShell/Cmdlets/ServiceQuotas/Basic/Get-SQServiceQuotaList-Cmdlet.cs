@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     [AWSCmdlet("Calls the AWS Service Quotas ListServiceQuotas API operation.", Operation = new[] {"ListServiceQuotas"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.ListServiceQuotasResponse))]
     [AWSCmdletOutput("Amazon.ServiceQuotas.Model.ServiceQuota or Amazon.ServiceQuotas.Model.ListServiceQuotasResponse",
         "This cmdlet returns a collection of Amazon.ServiceQuotas.Model.ServiceQuota objects.",
-        "The service call response (type Amazon.ServiceQuotas.Model.ListServiceQuotasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceQuotas.Model.ListServiceQuotasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSQServiceQuotaListCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

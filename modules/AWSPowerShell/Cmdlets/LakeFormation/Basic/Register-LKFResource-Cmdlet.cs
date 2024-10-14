@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation RegisterResource API operation.", Operation = new[] {"RegisterResource"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.RegisterResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.RegisterResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.RegisterResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.RegisterResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

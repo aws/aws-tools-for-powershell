@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.GetGroupResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness GetGroup API operation.", Operation = new[] {"GetGroup"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetGroupResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.GetGroupResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.GetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.GetGroupResponse object containing multiple properties."
     )]
     public partial class GetQBUSGroupCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections ListRepositorySyncDefinitions API operation.", Operation = new[] {"ListRepositorySyncDefinitions"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.ListRepositorySyncDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.RepositorySyncDefinition or Amazon.CodeConnections.Model.ListRepositorySyncDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.CodeConnections.Model.RepositorySyncDefinition objects.",
-        "The service call response (type Amazon.CodeConnections.Model.ListRepositorySyncDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.ListRepositorySyncDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCONRepositorySyncDefinitionListCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.MergeBranchesByThreeWayResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit MergeBranchesByThreeWay API operation.", Operation = new[] {"MergeBranchesByThreeWay"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergeBranchesByThreeWayResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.MergeBranchesByThreeWayResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesByThreeWayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesByThreeWayResponse object containing multiple properties."
     )]
     public partial class MergeCCBranchesByThreeWayCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

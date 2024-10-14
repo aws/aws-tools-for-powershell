@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DescribeAvailabilityOptions API operation.", Operation = new[] {"DescribeAvailabilityOptions"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse), LegacyAlias="Get-CSAvailabilityOptions")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AvailabilityOptionsStatus or Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.AvailabilityOptionsStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSAvailabilityOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

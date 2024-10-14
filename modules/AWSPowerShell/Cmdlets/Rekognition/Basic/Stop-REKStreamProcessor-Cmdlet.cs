@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition StopStreamProcessor API operation.", Operation = new[] {"StopStreamProcessor"}, SelectReturnType = typeof(Amazon.Rekognition.Model.StopStreamProcessorResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.StopStreamProcessorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.StopStreamProcessorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.StopStreamProcessorResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopREKStreamProcessorCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

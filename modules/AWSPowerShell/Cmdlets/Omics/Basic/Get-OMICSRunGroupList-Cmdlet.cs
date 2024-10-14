@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics ListRunGroups API operation.", Operation = new[] {"ListRunGroups"}, SelectReturnType = typeof(Amazon.Omics.Model.ListRunGroupsResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.RunGroupListItem or Amazon.Omics.Model.ListRunGroupsResponse",
         "This cmdlet returns a collection of Amazon.Omics.Model.RunGroupListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListRunGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.ListRunGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOMICSRunGroupListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.GetAuthPolicyResponse")]
     [AWSCmdlet("Calls the VPC Lattice GetAuthPolicy API operation.", Operation = new[] {"GetAuthPolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.GetAuthPolicyResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.GetAuthPolicyResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.GetAuthPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.GetAuthPolicyResponse object containing multiple properties."
     )]
     public partial class GetVPCLAuthPolicyCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

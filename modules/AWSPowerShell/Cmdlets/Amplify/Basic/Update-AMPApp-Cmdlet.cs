@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify UpdateApp API operation.", Operation = new[] {"UpdateApp"}, SelectReturnType = typeof(Amazon.Amplify.Model.UpdateAppResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.App or Amazon.Amplify.Model.UpdateAppResponse",
         "This cmdlet returns an Amazon.Amplify.Model.App object.",
-        "The service call response (type Amazon.Amplify.Model.UpdateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.UpdateAppResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMPAppCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

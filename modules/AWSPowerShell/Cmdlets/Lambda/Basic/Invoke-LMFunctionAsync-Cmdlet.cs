@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda InvokeAsync API operation.", Operation = new[] {"InvokeAsync"}, SelectReturnType = typeof(Amazon.Lambda.Model.InvokeAsyncResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.Lambda.Model.InvokeAsyncResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.Lambda.Model.InvokeAsyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.InvokeAsyncResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This Cmdlet is deprecated. We recommend to use the Invoke-LMFunction Cmdlet instead.")]
     public partial class InvokeLMFunctionAsyncCmdlet : AmazonLambdaClientCmdlet, IExecutor

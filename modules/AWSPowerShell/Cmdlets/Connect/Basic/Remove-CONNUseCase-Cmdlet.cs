@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteUseCase API operation.", Operation = new[] {"DeleteUseCase"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteUseCaseResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteUseCaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteUseCaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteUseCaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNUseCaseCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify UpdateDomainAssociation API operation.", Operation = new[] {"UpdateDomainAssociation"}, SelectReturnType = typeof(Amazon.Amplify.Model.UpdateDomainAssociationResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.DomainAssociation or Amazon.Amplify.Model.UpdateDomainAssociationResponse",
         "This cmdlet returns an Amazon.Amplify.Model.DomainAssociation object.",
-        "The service call response (type Amazon.Amplify.Model.UpdateDomainAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.UpdateDomainAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMPDomainAssociationCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

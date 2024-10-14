@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Personalize.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePERSResourceTagCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

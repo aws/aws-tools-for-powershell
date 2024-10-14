@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service ListStagingAccounts API operation.", Operation = new[] {"ListStagingAccounts"}, SelectReturnType = typeof(Amazon.Drs.Model.ListStagingAccountsResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.Account or Amazon.Drs.Model.ListStagingAccountsResponse",
         "This cmdlet returns a collection of Amazon.Drs.Model.Account objects.",
-        "The service call response (type Amazon.Drs.Model.ListStagingAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.ListStagingAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEDRSStagingAccountListCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

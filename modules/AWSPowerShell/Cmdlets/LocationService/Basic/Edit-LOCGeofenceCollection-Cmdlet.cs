@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.UpdateGeofenceCollectionResponse")]
     [AWSCmdlet("Calls the Amazon Location Service UpdateGeofenceCollection API operation.", Operation = new[] {"UpdateGeofenceCollection"}, SelectReturnType = typeof(Amazon.LocationService.Model.UpdateGeofenceCollectionResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.UpdateGeofenceCollectionResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.UpdateGeofenceCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.UpdateGeofenceCollectionResponse object containing multiple properties."
     )]
     public partial class EditLOCGeofenceCollectionCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

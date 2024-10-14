@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.Greengrass.Model.DeleteGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.DeleteGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.DeleteGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGGroupCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

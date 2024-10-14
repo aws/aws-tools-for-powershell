@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime AssociateSigninDelegateGroupsWithAccount API operation.", Operation = new[] {"AssociateSigninDelegateGroupsWithAccount"}, SelectReturnType = typeof(Amazon.Chime.Model.AssociateSigninDelegateGroupsWithAccountResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.AssociateSigninDelegateGroupsWithAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.AssociateSigninDelegateGroupsWithAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.AssociateSigninDelegateGroupsWithAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCHMSigninDelegateGroupsToAccountCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

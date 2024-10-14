@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ListDetectMitigationActionsTasks API operation.", Operation = new[] {"ListDetectMitigationActionsTasks"}, SelectReturnType = typeof(Amazon.IoT.Model.ListDetectMitigationActionsTasksResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.DetectMitigationActionsTaskSummary or Amazon.IoT.Model.ListDetectMitigationActionsTasksResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.DetectMitigationActionsTaskSummary objects.",
-        "The service call response (type Amazon.IoT.Model.ListDetectMitigationActionsTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListDetectMitigationActionsTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTDetectMitigationActionsTaskListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

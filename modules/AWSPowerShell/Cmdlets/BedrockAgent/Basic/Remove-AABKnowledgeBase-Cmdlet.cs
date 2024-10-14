@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [OutputType("Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse")]
     [AWSCmdlet("Calls the Agents for Amazon Bedrock DeleteKnowledgeBase API operation.", Operation = new[] {"DeleteKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse object containing multiple properties."
     )]
     public partial class RemoveAABKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service PutAdminAccount API operation.", Operation = new[] {"PutAdminAccount"}, SelectReturnType = typeof(Amazon.FMS.Model.PutAdminAccountResponse))]
     [AWSCmdletOutput("None or Amazon.FMS.Model.PutAdminAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.PutAdminAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FMS.Model.PutAdminAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteFMSAdminAccountCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

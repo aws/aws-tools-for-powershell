@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ResetEbsDefaultKmsKeyId API operation.", Operation = new[] {"ResetEbsDefaultKmsKeyId"}, SelectReturnType = typeof(Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ResetEbsDefaultKmsKeyIdResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetEC2EbsDefaultKmsKeyIdCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

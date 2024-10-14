@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams GetDataEndpoint API operation.", Operation = new[] {"GetDataEndpoint"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.GetDataEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.KinesisVideo.Model.GetDataEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KinesisVideo.Model.GetDataEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisVideo.Model.GetDataEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKVDataEndpointCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

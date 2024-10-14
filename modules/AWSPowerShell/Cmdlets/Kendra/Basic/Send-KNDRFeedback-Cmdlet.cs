@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra SubmitFeedback API operation.", Operation = new[] {"SubmitFeedback"}, SelectReturnType = typeof(Amazon.Kendra.Model.SubmitFeedbackResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.SubmitFeedbackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.SubmitFeedbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.SubmitFeedbackResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendKNDRFeedbackCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

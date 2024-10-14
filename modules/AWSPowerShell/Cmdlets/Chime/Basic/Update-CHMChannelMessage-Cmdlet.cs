@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.UpdateChannelMessageResponse")]
     [AWSCmdlet("Calls the Amazon Chime UpdateChannelMessage API operation.", Operation = new[] {"UpdateChannelMessage"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdateChannelMessageResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.UpdateChannelMessageResponse",
-        "This cmdlet returns an Amazon.Chime.Model.UpdateChannelMessageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.UpdateChannelMessageResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace")]
     public partial class UpdateCHMChannelMessageCmdlet : AmazonChimeClientCmdlet, IExecutor

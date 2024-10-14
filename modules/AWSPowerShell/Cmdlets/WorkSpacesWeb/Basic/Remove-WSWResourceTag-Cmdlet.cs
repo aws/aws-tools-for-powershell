@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSWResourceTagCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator UpdateEndpointGroup API operation.", Operation = new[] {"UpdateEndpointGroup"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.EndpointGroup or Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.EndpointGroup object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateEndpointGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGACLEndpointGroupCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

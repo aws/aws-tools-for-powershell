@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateMailboxQuota API operation.", Operation = new[] {"UpdateMailboxQuota"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateMailboxQuotaResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateMailboxQuotaResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateMailboxQuotaResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateMailboxQuotaResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMMailboxQuotaCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

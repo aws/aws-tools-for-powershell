@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service DescribeWorkspace API operation.", Operation = new[] {"DescribeWorkspace"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeWorkspaceResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.WorkspaceDescription or Amazon.PrometheusService.Model.DescribeWorkspaceResponse",
         "This cmdlet returns an Amazon.PrometheusService.Model.WorkspaceDescription object.",
-        "The service call response (type Amazon.PrometheusService.Model.DescribeWorkspaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.DescribeWorkspaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMWorkspaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

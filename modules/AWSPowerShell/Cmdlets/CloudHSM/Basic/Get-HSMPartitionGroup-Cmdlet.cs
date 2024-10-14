@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.DescribeHapgResponse")]
     [AWSCmdlet("Calls the AWS CloudHSM DescribeHapg API operation.", Operation = new[] {"DescribeHapg"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.DescribeHapgResponse))]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHapgResponse",
-        "This cmdlet returns an Amazon.CloudHSM.Model.DescribeHapgResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudHSM.Model.DescribeHapgResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

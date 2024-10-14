@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DescribeLags API operation.", Operation = new[] {"DescribeLags"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeLagsResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Lag or Amazon.DirectConnect.Model.DescribeLagsResponse",
         "This cmdlet returns a collection of Amazon.DirectConnect.Model.Lag objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeLagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeLagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

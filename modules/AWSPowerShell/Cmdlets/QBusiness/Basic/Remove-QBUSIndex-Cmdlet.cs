@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness DeleteIndex API operation.", Operation = new[] {"DeleteIndex"}, SelectReturnType = typeof(Amazon.QBusiness.Model.DeleteIndexResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.DeleteIndexResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.DeleteIndexResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.DeleteIndexResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQBUSIndexCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

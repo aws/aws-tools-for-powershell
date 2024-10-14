@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [OutputType("Amazon.NeptuneGraph.Model.CancelImportTaskResponse")]
     [AWSCmdlet("Calls the Amazon Neptune Graph CancelImportTask API operation.", Operation = new[] {"CancelImportTask"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.CancelImportTaskResponse))]
     [AWSCmdletOutput("Amazon.NeptuneGraph.Model.CancelImportTaskResponse",
-        "This cmdlet returns an Amazon.NeptuneGraph.Model.CancelImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NeptuneGraph.Model.CancelImportTaskResponse object containing multiple properties."
     )]
     public partial class StopNEPTGImportTaskCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

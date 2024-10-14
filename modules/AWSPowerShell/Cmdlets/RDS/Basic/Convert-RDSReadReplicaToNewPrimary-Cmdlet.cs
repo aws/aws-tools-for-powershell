@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service SwitchoverReadReplica API operation.", Operation = new[] {"SwitchoverReadReplica"}, SelectReturnType = typeof(Amazon.RDS.Model.SwitchoverReadReplicaResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance or Amazon.RDS.Model.SwitchoverReadReplicaResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBInstance object.",
-        "The service call response (type Amazon.RDS.Model.SwitchoverReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.SwitchoverReadReplicaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConvertRDSReadReplicaToNewPrimaryCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

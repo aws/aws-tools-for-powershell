@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint PhoneNumberValidate API operation.", Operation = new[] {"PhoneNumberValidate"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.PhoneNumberValidateResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.NumberValidateResponse or Amazon.Pinpoint.Model.PhoneNumberValidateResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.NumberValidateResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.PhoneNumberValidateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.PhoneNumberValidateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmPINPhoneNumberCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

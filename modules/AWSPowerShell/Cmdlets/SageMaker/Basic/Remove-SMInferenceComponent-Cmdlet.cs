@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteInferenceComponent API operation.", Operation = new[] {"DeleteInferenceComponent"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteInferenceComponentResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteInferenceComponentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteInferenceComponentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteInferenceComponentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMInferenceComponentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

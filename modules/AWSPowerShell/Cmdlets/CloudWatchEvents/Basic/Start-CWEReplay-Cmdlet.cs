@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [OutputType("Amazon.CloudWatchEvents.Model.StartReplayResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Events StartReplay API operation.", Operation = new[] {"StartReplay"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.StartReplayResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.StartReplayResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvents.Model.StartReplayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvents.Model.StartReplayResponse object containing multiple properties."
     )]
     public partial class StartCWEReplayCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

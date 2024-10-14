@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetIdentityMailFromDomainAttributes API operation.", Operation = new[] {"GetIdentityMailFromDomainAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetIdentityMailFromDomainAttributesResponse), LegacyAlias="Get-SESIdentityMailFromDomainAttributes")]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmail.Model.GetIdentityMailFromDomainAttributesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityMailFromDomainAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityMailFromDomainAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESIdentityMailFromDomainAttributeCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetStaticIp API operation.", Operation = new[] {"GetStaticIp"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetStaticIpResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.StaticIp or Amazon.Lightsail.Model.GetStaticIpResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.StaticIp object.",
-        "The service call response (type Amazon.Lightsail.Model.GetStaticIpResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetStaticIpResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSStaticIpCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

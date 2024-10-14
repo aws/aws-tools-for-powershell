@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.MQ.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.MQ.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MQ.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMQTagCmdlet : AmazonMQClientCmdlet, IExecutor
     {

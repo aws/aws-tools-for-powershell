@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [OutputType("Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse")]
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB UpdateDbInstance API operation.", Operation = new[] {"UpdateDbInstance"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse))]
     [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse",
-        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse object containing multiple properties."
     )]
     public partial class UpdateTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DeleteParameterGroup API operation.", Operation = new[] {"DeleteParameterGroup"}, SelectReturnType = typeof(Amazon.DAX.Model.DeleteParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.DAX.Model.DeleteParameterGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DAX.Model.DeleteParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.DeleteParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDAXParameterGroupCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

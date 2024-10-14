@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     [AWSCmdlet("Calls the AWS Snow Device Management CreateTask API operation.", Operation = new[] {"CreateTask"}, SelectReturnType = typeof(Amazon.SnowDeviceManagement.Model.CreateTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.SnowDeviceManagement.Model.CreateTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SnowDeviceManagement.Model.CreateTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SnowDeviceManagement.Model.CreateTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSDMSTaskCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {

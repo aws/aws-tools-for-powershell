@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation UpdateStackInstances API operation.", Operation = new[] {"UpdateStackInstances"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.UpdateStackInstancesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.UpdateStackInstancesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.UpdateStackInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.UpdateStackInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFNStackInstanceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

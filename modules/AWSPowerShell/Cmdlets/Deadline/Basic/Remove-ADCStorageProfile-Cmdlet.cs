@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DeleteStorageProfile API operation.", Operation = new[] {"DeleteStorageProfile"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteStorageProfileResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteStorageProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteStorageProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DeleteStorageProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCStorageProfileCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StartNetworkInsightsAnalysis API operation.", Operation = new[] {"StartNetworkInsightsAnalysis"}, SelectReturnType = typeof(Amazon.EC2.Model.StartNetworkInsightsAnalysisResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInsightsAnalysis or Amazon.EC2.Model.StartNetworkInsightsAnalysisResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkInsightsAnalysis object.",
-        "The service call response (type Amazon.EC2.Model.StartNetworkInsightsAnalysisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.StartNetworkInsightsAnalysisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartEC2NetworkInsightsAnalysisCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

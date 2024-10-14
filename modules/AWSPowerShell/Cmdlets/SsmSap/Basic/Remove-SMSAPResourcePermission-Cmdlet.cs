@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP DeleteResourcePermission API operation.", Operation = new[] {"DeleteResourcePermission"}, SelectReturnType = typeof(Amazon.SsmSap.Model.DeleteResourcePermissionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SsmSap.Model.DeleteResourcePermissionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SsmSap.Model.DeleteResourcePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.DeleteResourcePermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSAPResourcePermissionCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBClusterParameterGroup API operation.", Operation = new[] {"DeleteDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("None or Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DocDB.Model.DeleteDBClusterParameterGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCDBClusterParameterGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

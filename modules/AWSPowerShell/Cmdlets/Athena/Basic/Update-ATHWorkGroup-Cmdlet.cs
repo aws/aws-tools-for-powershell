@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena UpdateWorkGroup API operation.", Operation = new[] {"UpdateWorkGroup"}, SelectReturnType = typeof(Amazon.Athena.Model.UpdateWorkGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.UpdateWorkGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.UpdateWorkGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.UpdateWorkGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateATHWorkGroupCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

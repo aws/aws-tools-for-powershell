@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision DeleteModel API operation.", Operation = new[] {"DeleteModel"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.DeleteModelResponse))]
     [AWSCmdletOutput("System.String or Amazon.LookoutforVision.Model.DeleteModelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LookoutforVision.Model.DeleteModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.DeleteModelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLFVModelCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

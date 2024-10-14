@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeleteAccountAssignment API operation.", Operation = new[] {"DeleteAccountAssignment"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeleteAccountAssignmentResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus or Amazon.SSOAdmin.Model.DeleteAccountAssignmentResponse",
         "This cmdlet returns an Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus object.",
-        "The service call response (type Amazon.SSOAdmin.Model.DeleteAccountAssignmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.DeleteAccountAssignmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNAccountAssignmentCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

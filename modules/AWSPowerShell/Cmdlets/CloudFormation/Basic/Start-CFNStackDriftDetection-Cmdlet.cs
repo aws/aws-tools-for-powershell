@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DetectStackDrift API operation.", Operation = new[] {"DetectStackDrift"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DetectStackDriftResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.DetectStackDriftResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.DetectStackDriftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DetectStackDriftResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCFNStackDriftDetectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

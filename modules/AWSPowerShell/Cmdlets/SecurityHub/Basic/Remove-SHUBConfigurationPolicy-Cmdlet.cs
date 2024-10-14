@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DeleteConfigurationPolicy API operation.", Operation = new[] {"DeleteConfigurationPolicy"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.DeleteConfigurationPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHUBConfigurationPolicyCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

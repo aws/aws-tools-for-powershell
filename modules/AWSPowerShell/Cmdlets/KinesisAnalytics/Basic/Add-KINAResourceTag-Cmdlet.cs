@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdlet("Calls the Amazon Kinesis Analytics TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.KinesisAnalytics.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisAnalytics.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalytics.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisAnalytics.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKINAResourceTagCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteEdgeDeploymentStage API operation.", Operation = new[] {"DeleteEdgeDeploymentStage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteEdgeDeploymentStageResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteEdgeDeploymentStageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteEdgeDeploymentStageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteEdgeDeploymentStageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMEdgeDeploymentStageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

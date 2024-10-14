@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune CreateGlobalCluster API operation.", Operation = new[] {"CreateGlobalCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.CreateGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.GlobalCluster or Amazon.Neptune.Model.CreateGlobalClusterResponse",
         "This cmdlet returns an Amazon.Neptune.Model.GlobalCluster object.",
-        "The service call response (type Amazon.Neptune.Model.CreateGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.CreateGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNPTGlobalClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

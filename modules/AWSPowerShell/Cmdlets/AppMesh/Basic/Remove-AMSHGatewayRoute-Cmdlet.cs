@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DeleteGatewayRoute API operation.", Operation = new[] {"DeleteGatewayRoute"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DeleteGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.GatewayRouteData or Amazon.AppMesh.Model.DeleteGatewayRouteResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.GatewayRouteData object.",
-        "The service call response (type Amazon.AppMesh.Model.DeleteGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DeleteGatewayRouteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMSHGatewayRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [OutputType("Amazon.MigrationHubOrchestrator.Model.ListWorkflowStepGroupsResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator ListWorkflowStepGroups API operation.", Operation = new[] {"ListWorkflowStepGroups"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.ListWorkflowStepGroupsResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubOrchestrator.Model.ListWorkflowStepGroupsResponse",
-        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.ListWorkflowStepGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.ListWorkflowStepGroupsResponse object containing multiple properties."
     )]
     public partial class GetMHOWorkflowStepGroupListCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

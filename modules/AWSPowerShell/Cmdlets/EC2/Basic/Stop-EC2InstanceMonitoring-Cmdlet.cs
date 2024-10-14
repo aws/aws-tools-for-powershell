@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnmonitorInstances API operation.", Operation = new[] {"UnmonitorInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.UnmonitorInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceMonitoring or Amazon.EC2.Model.UnmonitorInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceMonitoring objects.",
-        "The service call response (type Amazon.EC2.Model.UnmonitorInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.UnmonitorInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEC2InstanceMonitoringCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

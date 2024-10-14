@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayPrefixListReference API operation.", Operation = new[] {"DeleteTransitGatewayPrefixListReference"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPrefixListReference or Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPrefixListReference object.",
-        "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayPrefixListReferenceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2TransitGatewayPrefixListReferenceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

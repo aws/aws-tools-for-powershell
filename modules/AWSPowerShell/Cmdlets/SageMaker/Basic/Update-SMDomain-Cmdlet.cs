@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service UpdateDomain API operation.", Operation = new[] {"UpdateDomain"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateDomainResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateDomainResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

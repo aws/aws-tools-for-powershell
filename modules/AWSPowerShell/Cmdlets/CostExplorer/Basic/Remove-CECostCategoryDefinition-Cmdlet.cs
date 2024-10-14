@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [OutputType("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Cost Explorer DeleteCostCategoryDefinition API operation.", Operation = new[] {"DeleteCostCategoryDefinition"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse",
-        "This cmdlet returns an Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostExplorer.Model.DeleteCostCategoryDefinitionResponse object containing multiple properties."
     )]
     public partial class RemoveCECostCategoryDefinitionCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
     [AWSCmdlet("Calls the AWS Savings Plans ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SavingsPlans.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.SavingsPlans.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SavingsPlans.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SavingsPlans.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSPResourceTagCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DeleteAuthenticationProfile API operation.", Operation = new[] {"DeleteAuthenticationProfile"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteAuthenticationProfileResponse))]
     [AWSCmdletOutput("System.String or Amazon.Redshift.Model.DeleteAuthenticationProfileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Redshift.Model.DeleteAuthenticationProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DeleteAuthenticationProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSAuthenticationProfileCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

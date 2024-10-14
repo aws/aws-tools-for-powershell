@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot DescribeSlackUserIdentities API operation.", Operation = new[] {"DescribeSlackUserIdentities"}, SelectReturnType = typeof(Amazon.Chatbot.Model.DescribeSlackUserIdentitiesResponse))]
     [AWSCmdletOutput("Amazon.Chatbot.Model.SlackUserIdentity or Amazon.Chatbot.Model.DescribeSlackUserIdentitiesResponse",
         "This cmdlet returns a collection of Amazon.Chatbot.Model.SlackUserIdentity objects.",
-        "The service call response (type Amazon.Chatbot.Model.DescribeSlackUserIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chatbot.Model.DescribeSlackUserIdentitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHATSlackUserIdentityCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

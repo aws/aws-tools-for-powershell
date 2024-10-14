@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateUseCaseResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateUseCase API operation.", Operation = new[] {"CreateUseCase"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateUseCaseResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateUseCaseResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateUseCaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateUseCaseResponse object containing multiple properties."
     )]
     public partial class NewCONNUseCaseCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

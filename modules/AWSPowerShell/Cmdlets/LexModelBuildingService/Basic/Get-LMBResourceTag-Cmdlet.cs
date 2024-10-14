@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdlet("Calls the Amazon Lex Model Building Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.Tag or Amazon.LexModelBuildingService.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.LexModelBuildingService.Model.Tag objects.",
-        "The service call response (type Amazon.LexModelBuildingService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LexModelBuildingService.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMBResourceTagCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     [AWSCmdlet("Calls the AWS Cost and Usage Report PutReportDefinition API operation.", Operation = new[] {"PutReportDefinition"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {

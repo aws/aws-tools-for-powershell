@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.QApps.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.QApps.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.QApps.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QApps.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetqappsResourceTagCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

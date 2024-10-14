@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.PostCommentForPullRequestResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit PostCommentForPullRequest API operation.", Operation = new[] {"PostCommentForPullRequest"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.PostCommentForPullRequestResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PostCommentForPullRequestResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.PostCommentForPullRequestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.PostCommentForPullRequestResponse object containing multiple properties."
     )]
     public partial class SendCCCommentForPullRequestCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

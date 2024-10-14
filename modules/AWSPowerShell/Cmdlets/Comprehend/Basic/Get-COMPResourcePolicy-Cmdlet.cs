@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.DescribeResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend DescribeResourcePolicy API operation.", Operation = new[] {"DescribeResourcePolicy"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DescribeResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.DescribeResourcePolicyResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.DescribeResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.DescribeResourcePolicyResponse object containing multiple properties."
     )]
     public partial class GetCOMPResourcePolicyCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

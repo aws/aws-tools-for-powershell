@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces RestoreWorkspace API operation.", Operation = new[] {"RestoreWorkspace"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.RestoreWorkspaceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.RestoreWorkspaceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.RestoreWorkspaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.RestoreWorkspaceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestoreWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

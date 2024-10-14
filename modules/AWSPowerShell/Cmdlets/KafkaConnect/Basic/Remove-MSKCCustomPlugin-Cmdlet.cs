@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [OutputType("Amazon.KafkaConnect.Model.DeleteCustomPluginResponse")]
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect DeleteCustomPlugin API operation.", Operation = new[] {"DeleteCustomPlugin"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.DeleteCustomPluginResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.DeleteCustomPluginResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteCustomPluginResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteCustomPluginResponse object containing multiple properties."
     )]
     public partial class RemoveMSKCCustomPluginCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

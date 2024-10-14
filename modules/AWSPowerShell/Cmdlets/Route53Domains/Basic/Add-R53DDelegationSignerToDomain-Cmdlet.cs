@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains AssociateDelegationSignerToDomain API operation.", Operation = new[] {"AssociateDelegationSignerToDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.AssociateDelegationSignerToDomainResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.AssociateDelegationSignerToDomainResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.AssociateDelegationSignerToDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.AssociateDelegationSignerToDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddR53DDelegationSignerToDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.CreateDomainResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainStatus or Amazon.OpenSearchService.Model.CreateDomainResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.DomainStatus object.",
-        "The service call response (type Amazon.OpenSearchService.Model.CreateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.CreateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewOSDomainCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

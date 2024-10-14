@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.DescribeGeofenceCollectionResponse")]
     [AWSCmdlet("Calls the Amazon Location Service DescribeGeofenceCollection API operation.", Operation = new[] {"DescribeGeofenceCollection"}, SelectReturnType = typeof(Amazon.LocationService.Model.DescribeGeofenceCollectionResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.DescribeGeofenceCollectionResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.DescribeGeofenceCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.DescribeGeofenceCollectionResponse object containing multiple properties."
     )]
     public partial class GetLOCGeofenceCollectionCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

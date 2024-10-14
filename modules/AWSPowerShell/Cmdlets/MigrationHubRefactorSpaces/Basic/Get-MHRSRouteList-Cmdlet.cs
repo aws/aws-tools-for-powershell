@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces ListRoutes API operation.", Operation = new[] {"ListRoutes"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.ListRoutesResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubRefactorSpaces.Model.RouteSummary or Amazon.MigrationHubRefactorSpaces.Model.ListRoutesResponse",
         "This cmdlet returns a collection of Amazon.MigrationHubRefactorSpaces.Model.RouteSummary objects.",
-        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListRoutesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubRefactorSpaces.Model.ListRoutesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHRSRouteListCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

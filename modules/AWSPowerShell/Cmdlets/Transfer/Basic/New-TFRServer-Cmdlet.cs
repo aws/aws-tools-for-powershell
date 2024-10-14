@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP CreateServer API operation.", Operation = new[] {"CreateServer"}, SelectReturnType = typeof(Amazon.Transfer.Model.CreateServerResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.CreateServerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.CreateServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.CreateServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A trigger that starts a workflow if a file is only partially uploaded. You can attach
-        /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para>
+        /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para><note><para><c>OnPartialUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</para><para>To remove an associated workflow from a server, you can provide an empty <c>OnUpload</c>
         /// object, as in the following example.</para><para><c>aws transfer update-server --server-id s-01234567890abcdef --workflow-details
-        /// '{"OnUpload":[]}'</c></para>
+        /// '{"OnUpload":[]}'</c></para><note><para><c>OnUpload</c> can contain a maximum of one <c>WorkflowDetail</c> object.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

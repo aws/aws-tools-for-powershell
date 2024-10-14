@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetGcmChannel API operation.", Operation = new[] {"GetGcmChannel"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetGcmChannelResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.GCMChannelResponse or Amazon.Pinpoint.Model.GetGcmChannelResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.GCMChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetGcmChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetGcmChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINGcmChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ DeleteBroker API operation.", Operation = new[] {"DeleteBroker"}, SelectReturnType = typeof(Amazon.MQ.Model.DeleteBrokerResponse))]
     [AWSCmdletOutput("System.String or Amazon.MQ.Model.DeleteBrokerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MQ.Model.DeleteBrokerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MQ.Model.DeleteBrokerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query ExecuteScheduledQuery API operation.", Operation = new[] {"ExecuteScheduledQuery"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.ExecuteScheduledQueryResponse))]
     [AWSCmdletOutput("None or Amazon.TimestreamQuery.Model.ExecuteScheduledQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamQuery.Model.ExecuteScheduledQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TimestreamQuery.Model.ExecuteScheduledQueryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartTSQScheduledQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

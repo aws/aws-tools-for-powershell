@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager DeleteCertificate API operation.", Operation = new[] {"DeleteCertificate"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.DeleteCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.CertificateManager.Model.DeleteCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CertificateManager.Model.DeleteCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.DeleteCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

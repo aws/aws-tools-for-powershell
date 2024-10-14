@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DescribeSubnetGroups API operation.", Operation = new[] {"DescribeSubnetGroups"}, SelectReturnType = typeof(Amazon.DAX.Model.DescribeSubnetGroupsResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.SubnetGroup or Amazon.DAX.Model.DescribeSubnetGroupsResponse",
         "This cmdlet returns a collection of Amazon.DAX.Model.SubnetGroup objects.",
-        "The service call response (type Amazon.DAX.Model.DescribeSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.DescribeSubnetGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDAXSubnetGroupCmdlet : AmazonDAXClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

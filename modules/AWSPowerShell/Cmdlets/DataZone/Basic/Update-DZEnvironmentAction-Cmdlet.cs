@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.UpdateEnvironmentActionResponse")]
     [AWSCmdlet("Calls the Amazon DataZone UpdateEnvironmentAction API operation.", Operation = new[] {"UpdateEnvironmentAction"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateEnvironmentActionResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.UpdateEnvironmentActionResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.UpdateEnvironmentActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.UpdateEnvironmentActionResponse object containing multiple properties."
     )]
     public partial class UpdateDZEnvironmentActionCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

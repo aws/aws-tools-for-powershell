@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectWisdomService.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectWisdomService.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectWisdomService.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWSDMResourceTagCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetPercentiles API operation.", Operation = new[] {"GetPercentiles"}, SelectReturnType = typeof(Amazon.IoT.Model.GetPercentilesResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.PercentPair or Amazon.IoT.Model.GetPercentilesResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.PercentPair objects.",
-        "The service call response (type Amazon.IoT.Model.GetPercentilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetPercentilesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTPercentileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

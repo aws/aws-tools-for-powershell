@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetAnalyzedResource API operation.", Operation = new[] {"GetAnalyzedResource"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetAnalyzedResourceResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.AnalyzedResource or Amazon.AccessAnalyzer.Model.GetAnalyzedResourceResponse",
         "This cmdlet returns an Amazon.AccessAnalyzer.Model.AnalyzedResource object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.GetAnalyzedResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.GetAnalyzedResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAAAnalyzedResourceCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

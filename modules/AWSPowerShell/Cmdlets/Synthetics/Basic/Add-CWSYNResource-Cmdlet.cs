@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics AssociateResource API operation.", Operation = new[] {"AssociateResource"}, SelectReturnType = typeof(Amazon.Synthetics.Model.AssociateResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.AssociateResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.AssociateResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.AssociateResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCWSYNResourceCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [OutputType("Amazon.AutoScaling.Model.PutScalingPolicyResponse")]
     [AWSCmdlet("Calls the AWS Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutScalingPolicyResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.PutScalingPolicyResponse",
-        "This cmdlet returns an Amazon.AutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AutoScaling.Model.PutScalingPolicyResponse object containing multiple properties."
     )]
     public partial class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

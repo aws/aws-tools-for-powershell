@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service TagContact API operation.", Operation = new[] {"TagContact"}, SelectReturnType = typeof(Amazon.Connect.Model.TagContactResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.TagContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.TagContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.TagContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNContactTagCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

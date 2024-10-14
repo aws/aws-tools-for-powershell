@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteCertificate API operation.", Operation = new[] {"DeleteCertificate"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.DeleteCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTFRCertificateCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

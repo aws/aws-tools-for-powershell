@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin GetApplicationAssignmentConfiguration API operation.", Operation = new[] {"GetApplicationAssignmentConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.GetApplicationAssignmentConfigurationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.SSOAdmin.Model.GetApplicationAssignmentConfigurationResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationAssignmentConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.GetApplicationAssignmentConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSOADMNApplicationAssignmentConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

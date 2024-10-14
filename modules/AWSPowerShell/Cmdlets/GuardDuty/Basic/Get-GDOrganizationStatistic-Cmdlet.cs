@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty GetOrganizationStatistics API operation.", Operation = new[] {"GetOrganizationStatistics"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetOrganizationStatisticsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.OrganizationDetails or Amazon.GuardDuty.Model.GetOrganizationStatisticsResponse",
         "This cmdlet returns an Amazon.GuardDuty.Model.OrganizationDetails object.",
-        "The service call response (type Amazon.GuardDuty.Model.GetOrganizationStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.GetOrganizationStatisticsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDOrganizationStatisticCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

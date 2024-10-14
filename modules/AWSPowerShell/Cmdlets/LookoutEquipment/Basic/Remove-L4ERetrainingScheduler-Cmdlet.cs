@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment DeleteRetrainingScheduler API operation.", Operation = new[] {"DeleteRetrainingScheduler"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.DeleteRetrainingSchedulerResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutEquipment.Model.DeleteRetrainingSchedulerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutEquipment.Model.DeleteRetrainingSchedulerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutEquipment.Model.DeleteRetrainingSchedulerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveL4ERetrainingSchedulerCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

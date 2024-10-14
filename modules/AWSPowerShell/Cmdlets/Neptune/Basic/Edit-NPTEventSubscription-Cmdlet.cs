@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune ModifyEventSubscription API operation.", Operation = new[] {"ModifyEventSubscription"}, SelectReturnType = typeof(Amazon.Neptune.Model.ModifyEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.EventSubscription or Amazon.Neptune.Model.ModifyEventSubscriptionResponse",
         "This cmdlet returns an Amazon.Neptune.Model.EventSubscription object.",
-        "The service call response (type Amazon.Neptune.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.ModifyEventSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditNPTEventSubscriptionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

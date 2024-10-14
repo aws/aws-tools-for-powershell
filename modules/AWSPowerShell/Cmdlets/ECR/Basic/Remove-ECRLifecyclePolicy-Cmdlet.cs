@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.DeleteLifecyclePolicyResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry DeleteLifecyclePolicy API operation.", Operation = new[] {"DeleteLifecyclePolicy"}, SelectReturnType = typeof(Amazon.ECR.Model.DeleteLifecyclePolicyResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DeleteLifecyclePolicyResponse",
-        "This cmdlet returns an Amazon.ECR.Model.DeleteLifecyclePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.DeleteLifecyclePolicyResponse object containing multiple properties."
     )]
     public partial class RemoveECRLifecyclePolicyCmdlet : AmazonECRClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service UnshareDirectory API operation.", Operation = new[] {"UnshareDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.UnshareDirectoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.UnshareDirectoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.UnshareDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.UnshareDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableDSDirectoryShareCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.GetParametersForImportResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service GetParametersForImport API operation.", Operation = new[] {"GetParametersForImport"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.GetParametersForImportResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GetParametersForImportResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.GetParametersForImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.GetParametersForImportResponse object containing multiple properties."
     )]
     public partial class GetKMSParametersForImportCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

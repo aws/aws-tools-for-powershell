@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteLink API operation.", Operation = new[] {"DeleteLink"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteLinkResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Link or Amazon.NetworkManager.Model.DeleteLinkResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Link object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRLinkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

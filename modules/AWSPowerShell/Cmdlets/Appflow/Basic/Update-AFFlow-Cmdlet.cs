@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow UpdateFlow API operation.", Operation = new[] {"UpdateFlow"}, SelectReturnType = typeof(Amazon.Appflow.Model.UpdateFlowResponse))]
     [AWSCmdletOutput("Amazon.Appflow.FlowStatus or Amazon.Appflow.Model.UpdateFlowResponse",
         "This cmdlet returns an Amazon.Appflow.FlowStatus object.",
-        "The service call response (type Amazon.Appflow.Model.UpdateFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.UpdateFlowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

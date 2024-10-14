@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder GetMetadata API operation.", Operation = new[] {"GetMetadata"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.GetMetadataResponse))]
     [AWSCmdletOutput("System.String or Amazon.AmplifyUIBuilder.Model.GetMetadataResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.GetMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.GetMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMPUIMetadataCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

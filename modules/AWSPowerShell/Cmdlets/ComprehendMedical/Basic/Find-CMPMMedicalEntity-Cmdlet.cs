@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     [OutputType("Amazon.ComprehendMedical.Model.DetectEntitiesResponse")]
     [AWSCmdlet("Calls the AWS Comprehend Medical DetectEntities API operation.", Operation = new[] {"DetectEntities"}, SelectReturnType = typeof(Amazon.ComprehendMedical.Model.DetectEntitiesResponse))]
     [AWSCmdletOutput("Amazon.ComprehendMedical.Model.DetectEntitiesResponse",
-        "This cmdlet returns an Amazon.ComprehendMedical.Model.DetectEntitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComprehendMedical.Model.DetectEntitiesResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use DetectEntitiesV2 instead.")]
     public partial class FindCMPMMedicalEntityCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeAutoScalingNotificationTypes API operation.", Operation = new[] {"DescribeAutoScalingNotificationTypes"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse))]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASAutoScalingNotificationTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

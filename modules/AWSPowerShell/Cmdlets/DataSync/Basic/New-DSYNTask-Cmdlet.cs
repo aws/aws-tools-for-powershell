@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateTask API operation.", Operation = new[] {"CreateTask"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

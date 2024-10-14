@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently ListProjects API operation.", Operation = new[] {"ListProjects"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.ListProjectsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.ProjectSummary or Amazon.CloudWatchEvidently.Model.ListProjectsResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.ProjectSummary objects.",
-        "The service call response (type Amazon.CloudWatchEvidently.Model.ListProjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvidently.Model.ListProjectsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWEVDProjectListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

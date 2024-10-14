@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce ModifyInstanceGroups API operation.", Operation = new[] {"ModifyInstanceGroups"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

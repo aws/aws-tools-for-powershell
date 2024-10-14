@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SSMQuickSetup.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMQuickSetup.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMQuickSetup.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMQSResourceTagCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

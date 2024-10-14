@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 PutFindingsPublicationConfiguration API operation.", Operation = new[] {"PutFindingsPublicationConfiguration"}, SelectReturnType = typeof(Amazon.Macie2.Model.PutFindingsPublicationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.PutFindingsPublicationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.PutFindingsPublicationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.PutFindingsPublicationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteMAC2FindingsPublicationConfigurationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

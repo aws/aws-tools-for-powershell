@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     [AWSCmdlet("Calls the AWS Snow Device Management ListExecutions API operation.", Operation = new[] {"ListExecutions"}, SelectReturnType = typeof(Amazon.SnowDeviceManagement.Model.ListExecutionsResponse))]
     [AWSCmdletOutput("Amazon.SnowDeviceManagement.Model.ExecutionSummary or Amazon.SnowDeviceManagement.Model.ListExecutionsResponse",
         "This cmdlet returns a collection of Amazon.SnowDeviceManagement.Model.ExecutionSummary objects.",
-        "The service call response (type Amazon.SnowDeviceManagement.Model.ListExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SnowDeviceManagement.Model.ListExecutionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDMSExecutionListCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {

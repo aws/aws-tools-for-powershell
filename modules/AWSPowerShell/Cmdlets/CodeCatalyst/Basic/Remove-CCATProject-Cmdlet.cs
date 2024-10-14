@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.DeleteProjectResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst DeleteProject API operation.", Operation = new[] {"DeleteProject"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.DeleteProjectResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.DeleteProjectResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteProjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteProjectResponse object containing multiple properties."
     )]
     public partial class RemoveCCATProjectCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

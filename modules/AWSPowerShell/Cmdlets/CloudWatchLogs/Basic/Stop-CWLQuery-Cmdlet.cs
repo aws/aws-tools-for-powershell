@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs StopQuery API operation.", Operation = new[] {"StopQuery"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.StopQueryResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.CloudWatchLogs.Model.StopQueryResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.StopQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.StopQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopCWLQueryCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

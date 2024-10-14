@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk CheckDNSAvailability API operation.", Operation = new[] {"CheckDNSAvailability"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse object containing multiple properties."
     )]
     public partial class GetEBDNSAvailabilityCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

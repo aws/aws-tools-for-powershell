@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketPolicyStatus API operation.", Operation = new[] {"GetBucketPolicyStatus"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketPolicyStatusResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.PolicyStatus or Amazon.S3.Model.GetBucketPolicyStatusResponse",
         "This cmdlet returns an Amazon.S3.Model.PolicyStatus object.",
-        "The service call response (type Amazon.S3.Model.GetBucketPolicyStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketPolicyStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3BucketPolicyStatusCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

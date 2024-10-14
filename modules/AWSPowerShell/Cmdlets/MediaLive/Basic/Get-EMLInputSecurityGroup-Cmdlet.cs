@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DescribeInputSecurityGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DescribeInputSecurityGroup API operation.", Operation = new[] {"DescribeInputSecurityGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DescribeInputSecurityGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DescribeInputSecurityGroupResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DescribeInputSecurityGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DescribeInputSecurityGroupResponse object containing multiple properties."
     )]
     public partial class GetEMLInputSecurityGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

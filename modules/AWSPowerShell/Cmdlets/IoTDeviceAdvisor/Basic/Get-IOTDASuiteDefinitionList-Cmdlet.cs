@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor ListSuiteDefinitions API operation.", Operation = new[] {"ListSuiteDefinitions"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.ListSuiteDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.SuiteDefinitionInformation or Amazon.IoTDeviceAdvisor.Model.ListSuiteDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.IoTDeviceAdvisor.Model.SuiteDefinitionInformation objects.",
-        "The service call response (type Amazon.IoTDeviceAdvisor.Model.ListSuiteDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTDeviceAdvisor.Model.ListSuiteDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTDASuiteDefinitionListCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

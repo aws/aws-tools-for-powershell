@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
     [AWSCmdlet("Calls the Amazon Forecast Query Service QueryForecast API operation.", Operation = new[] {"QueryForecast"}, SelectReturnType = typeof(Amazon.ForecastQueryService.Model.QueryForecastResponse))]
     [AWSCmdletOutput("Amazon.ForecastQueryService.Model.Forecast or Amazon.ForecastQueryService.Model.QueryForecastResponse",
         "This cmdlet returns an Amazon.ForecastQueryService.Model.Forecast object.",
-        "The service call response (type Amazon.ForecastQueryService.Model.QueryForecastResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ForecastQueryService.Model.QueryForecastResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SelectFRCQForecastCmdlet : AmazonForecastQueryServiceClientCmdlet, IExecutor
     {

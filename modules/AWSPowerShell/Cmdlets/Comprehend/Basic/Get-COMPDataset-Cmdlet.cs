@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DescribeDataset API operation.", Operation = new[] {"DescribeDataset"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DescribeDatasetResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.DatasetProperties or Amazon.Comprehend.Model.DescribeDatasetResponse",
         "This cmdlet returns an Amazon.Comprehend.Model.DatasetProperties object.",
-        "The service call response (type Amazon.Comprehend.Model.DescribeDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DescribeDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOMPDatasetCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

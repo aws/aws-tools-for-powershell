@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager CreateSite API operation.", Operation = new[] {"CreateSite"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateSiteResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Site or Amazon.NetworkManager.Model.CreateSiteResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Site object.",
-        "The service call response (type Amazon.NetworkManager.Model.CreateSiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.CreateSiteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNMGRSiteCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

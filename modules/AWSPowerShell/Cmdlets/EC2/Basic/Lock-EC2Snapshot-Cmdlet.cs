@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.LockSnapshotResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) LockSnapshot API operation.", Operation = new[] {"LockSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.LockSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LockSnapshotResponse",
-        "This cmdlet returns an Amazon.EC2.Model.LockSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.LockSnapshotResponse object containing multiple properties."
     )]
     public partial class LockEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

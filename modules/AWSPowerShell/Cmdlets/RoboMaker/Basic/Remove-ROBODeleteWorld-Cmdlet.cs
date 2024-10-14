@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker BatchDeleteWorlds API operation.", Operation = new[] {"BatchDeleteWorlds"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.BatchDeleteWorldsResponse))]
     [AWSCmdletOutput("System.String or Amazon.RoboMaker.Model.BatchDeleteWorldsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.RoboMaker.Model.BatchDeleteWorldsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.BatchDeleteWorldsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveROBODeleteWorldCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CreateDBSubnetGroup API operation.", Operation = new[] {"CreateDBSubnetGroup"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateDBSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBSubnetGroup or Amazon.DocDB.Model.CreateDBSubnetGroupResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBSubnetGroup object.",
-        "The service call response (type Amazon.DocDB.Model.CreateDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.CreateDBSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDOCDBSubnetGroupCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

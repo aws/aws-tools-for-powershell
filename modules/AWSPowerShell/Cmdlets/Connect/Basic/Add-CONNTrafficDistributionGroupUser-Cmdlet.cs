@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateTrafficDistributionGroupUser API operation.", Operation = new[] {"AssociateTrafficDistributionGroupUser"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateTrafficDistributionGroupUserResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateTrafficDistributionGroupUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateTrafficDistributionGroupUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateTrafficDistributionGroupUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNTrafficDistributionGroupUserCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

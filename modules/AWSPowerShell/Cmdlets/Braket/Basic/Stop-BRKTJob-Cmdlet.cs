@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     [OutputType("Amazon.Braket.Model.CancelJobResponse")]
     [AWSCmdlet("Calls the Amazon Braket CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.Braket.Model.CancelJobResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.CancelJobResponse",
-        "This cmdlet returns an Amazon.Braket.Model.CancelJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Braket.Model.CancelJobResponse object containing multiple properties."
     )]
     public partial class StopBRKTJobCmdlet : AmazonBraketClientCmdlet, IExecutor
     {

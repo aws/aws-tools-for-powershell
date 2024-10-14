@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateInstanceAttribute API operation.", Operation = new[] {"UpdateInstanceAttribute"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateInstanceAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateInstanceAttributeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateInstanceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateInstanceAttributeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNInstanceAttributeCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

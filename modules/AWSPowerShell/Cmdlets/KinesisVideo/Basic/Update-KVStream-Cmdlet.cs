@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams UpdateStream API operation.", Operation = new[] {"UpdateStream"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.UpdateStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.UpdateStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideo.Model.UpdateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.UpdateStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateKVStreamCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

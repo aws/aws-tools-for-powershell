@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB ExportTableToPointInTime API operation.", Operation = new[] {"ExportTableToPointInTime"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ExportTableToPointInTimeResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ExportDescription or Amazon.DynamoDBv2.Model.ExportTableToPointInTimeResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.ExportDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ExportTableToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ExportTableToPointInTimeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportDDBTableToPointInTimeCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

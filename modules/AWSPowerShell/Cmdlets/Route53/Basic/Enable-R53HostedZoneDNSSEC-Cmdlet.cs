@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 EnableHostedZoneDNSSEC API operation.", Operation = new[] {"EnableHostedZoneDNSSEC"}, SelectReturnType = typeof(Amazon.Route53.Model.EnableHostedZoneDNSSECResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.EnableHostedZoneDNSSECResponse",
         "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.EnableHostedZoneDNSSECResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.EnableHostedZoneDNSSECResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableR53HostedZoneDNSSECCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

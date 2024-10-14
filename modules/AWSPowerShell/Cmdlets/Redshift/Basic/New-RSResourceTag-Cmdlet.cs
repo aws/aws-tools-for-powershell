@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateTagsResponse), LegacyAlias="New-RSTags")]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewRSResourceTagCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

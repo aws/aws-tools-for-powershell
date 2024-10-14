@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect AllocatePrivateVirtualInterface API operation.", Operation = new[] {"AllocatePrivateVirtualInterface"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse object containing multiple properties."
     )]
     public partial class EnableDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

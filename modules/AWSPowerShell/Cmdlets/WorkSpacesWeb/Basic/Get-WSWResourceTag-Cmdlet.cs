@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.Tag or Amazon.WorkSpacesWeb.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.WorkSpacesWeb.Model.Tag objects.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWResourceTagCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

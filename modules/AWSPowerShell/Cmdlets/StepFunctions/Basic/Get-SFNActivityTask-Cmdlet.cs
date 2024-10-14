@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.GetActivityTaskResponse")]
     [AWSCmdlet("Calls the AWS Step Functions GetActivityTask API operation.", Operation = new[] {"GetActivityTask"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.GetActivityTaskResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.GetActivityTaskResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.GetActivityTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.GetActivityTaskResponse object containing multiple properties."
     )]
     public partial class GetSFNActivityTaskCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

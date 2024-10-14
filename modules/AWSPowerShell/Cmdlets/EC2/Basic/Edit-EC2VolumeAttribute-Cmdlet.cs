@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVolumeAttribute API operation.", Operation = new[] {"ModifyVolumeAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVolumeAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifyVolumeAttributeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ModifyVolumeAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyVolumeAttributeResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEC2VolumeAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

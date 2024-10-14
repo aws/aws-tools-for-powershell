@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service CreateAlias API operation.", Operation = new[] {"CreateAlias"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.CreateAliasResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.CreateAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.CreateAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

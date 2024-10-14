@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.DescribeDimensionResponse")]
     [AWSCmdlet("Calls the AWS IoT DescribeDimension API operation.", Operation = new[] {"DescribeDimension"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeDimensionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.DescribeDimensionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.DescribeDimensionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.DescribeDimensionResponse object containing multiple properties."
     )]
     public partial class GetIOTDimensionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

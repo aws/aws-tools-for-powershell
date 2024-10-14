@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager DeleteArchive API operation.", Operation = new[] {"DeleteArchive"}, SelectReturnType = typeof(Amazon.MailManager.Model.DeleteArchiveResponse))]
     [AWSCmdletOutput("None or Amazon.MailManager.Model.DeleteArchiveResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MailManager.Model.DeleteArchiveResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MailManager.Model.DeleteArchiveResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMMGRArchiveCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

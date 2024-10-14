@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce DescribeJobFlows API operation.", Operation = new[] {"DescribeJobFlows"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.JobFlowDetail or Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse",
         "This cmdlet returns a collection of Amazon.ElasticMapReduce.Model.JobFlowDetail objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated and will eventually be removed. We recommend that you use ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and ListBootstrapActions instead.")]
     public partial class GetEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor

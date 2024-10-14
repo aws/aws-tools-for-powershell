@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     [AWSCmdlet("Calls the AWSBillingAndCostManagementDataExports ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.BCMDataExports.Model.ListTablesResponse))]
     [AWSCmdletOutput("Amazon.BCMDataExports.Model.Table or Amazon.BCMDataExports.Model.ListTablesResponse",
         "This cmdlet returns a collection of Amazon.BCMDataExports.Model.Table objects.",
-        "The service call response (type Amazon.BCMDataExports.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BCMDataExports.Model.ListTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBCMDETableListCmdlet : AmazonBCMDataExportsClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     [OutputType("Amazon.MarketplaceCatalog.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Catalog Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceCatalog.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetMCATResourceTagCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {

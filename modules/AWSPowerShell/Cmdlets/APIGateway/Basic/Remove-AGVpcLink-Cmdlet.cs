@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteVpcLink API operation.", Operation = new[] {"DeleteVpcLink"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteVpcLinkResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteVpcLinkResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteVpcLinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteVpcLinkResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGVpcLinkCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

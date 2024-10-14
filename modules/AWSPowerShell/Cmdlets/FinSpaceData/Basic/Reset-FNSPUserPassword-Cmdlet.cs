@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [OutputType("Amazon.FinSpaceData.Model.ResetUserPasswordResponse")]
     [AWSCmdlet("Calls the FinSpace Public API ResetUserPassword API operation.", Operation = new[] {"ResetUserPassword"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.ResetUserPasswordResponse))]
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.ResetUserPasswordResponse",
-        "This cmdlet returns an Amazon.FinSpaceData.Model.ResetUserPasswordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FinSpaceData.Model.ResetUserPasswordResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class ResetFNSPUserPasswordCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

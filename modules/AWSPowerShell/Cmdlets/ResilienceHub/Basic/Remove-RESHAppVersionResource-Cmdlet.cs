@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.DeleteAppVersionResourceResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub DeleteAppVersionResource API operation.", Operation = new[] {"DeleteAppVersionResource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DeleteAppVersionResourceResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.DeleteAppVersionResourceResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.DeleteAppVersionResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.DeleteAppVersionResourceResponse object containing multiple properties."
     )]
     public partial class RemoveRESHAppVersionResourceCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

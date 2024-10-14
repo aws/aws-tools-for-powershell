@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.StartDeleteMonitorDeploymentResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive StartDeleteMonitorDeployment API operation.", Operation = new[] {"StartDeleteMonitorDeployment"}, SelectReturnType = typeof(Amazon.MediaLive.Model.StartDeleteMonitorDeploymentResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.StartDeleteMonitorDeploymentResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.StartDeleteMonitorDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.StartDeleteMonitorDeploymentResponse object containing multiple properties."
     )]
     public partial class StartEMLDeleteMonitorDeploymentCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

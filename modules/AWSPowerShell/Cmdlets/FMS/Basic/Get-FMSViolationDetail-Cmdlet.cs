@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service GetViolationDetails API operation.", Operation = new[] {"GetViolationDetails"}, SelectReturnType = typeof(Amazon.FMS.Model.GetViolationDetailsResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.ViolationDetail or Amazon.FMS.Model.GetViolationDetailsResponse",
         "This cmdlet returns an Amazon.FMS.Model.ViolationDetail object.",
-        "The service call response (type Amazon.FMS.Model.GetViolationDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.GetViolationDetailsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSViolationDetailCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

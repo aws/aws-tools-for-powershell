@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteSession API operation.", Operation = new[] {"DeleteSession"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteSessionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.DeleteSessionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.DeleteSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUESessionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

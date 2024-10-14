@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListWirelessDevices API operation.", Operation = new[] {"ListWirelessDevices"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListWirelessDevicesResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.WirelessDeviceStatistics or Amazon.IoTWireless.Model.ListWirelessDevicesResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.WirelessDeviceStatistics objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListWirelessDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListWirelessDevicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWWirelessDeviceListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

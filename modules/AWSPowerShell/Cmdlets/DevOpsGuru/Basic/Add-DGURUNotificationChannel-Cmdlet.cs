@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru AddNotificationChannel API operation.", Operation = new[] {"AddNotificationChannel"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.AddNotificationChannelResponse))]
     [AWSCmdletOutput("System.String or Amazon.DevOpsGuru.Model.AddNotificationChannelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DevOpsGuru.Model.AddNotificationChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DevOpsGuru.Model.AddNotificationChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddDGURUNotificationChannelCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin PutPermissionsBoundaryToPermissionSet API operation.", Operation = new[] {"PutPermissionsBoundaryToPermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.PutPermissionsBoundaryToPermissionSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.PutPermissionsBoundaryToPermissionSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.PutPermissionsBoundaryToPermissionSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.PutPermissionsBoundaryToPermissionSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSSOADMNPermissionsBoundaryToPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

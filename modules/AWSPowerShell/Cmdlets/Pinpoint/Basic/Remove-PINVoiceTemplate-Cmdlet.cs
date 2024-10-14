@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint DeleteVoiceTemplate API operation.", Operation = new[] {"DeleteVoiceTemplate"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.DeleteVoiceTemplateResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.MessageBody or Amazon.Pinpoint.Model.DeleteVoiceTemplateResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.MessageBody object.",
-        "The service call response (type Amazon.Pinpoint.Model.DeleteVoiceTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.DeleteVoiceTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePINVoiceTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

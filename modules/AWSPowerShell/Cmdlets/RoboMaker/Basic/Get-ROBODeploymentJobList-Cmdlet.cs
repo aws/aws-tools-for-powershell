@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker ListDeploymentJobs API operation.", Operation = new[] {"ListDeploymentJobs"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.ListDeploymentJobsResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.DeploymentJob or Amazon.RoboMaker.Model.ListDeploymentJobsResponse",
         "This cmdlet returns a collection of Amazon.RoboMaker.Model.DeploymentJob objects.",
-        "The service call response (type Amazon.RoboMaker.Model.ListDeploymentJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.ListDeploymentJobsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class GetROBODeploymentJobListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

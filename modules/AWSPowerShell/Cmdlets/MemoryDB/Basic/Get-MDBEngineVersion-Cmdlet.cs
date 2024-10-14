@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeEngineVersions API operation.", Operation = new[] {"DescribeEngineVersions"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeEngineVersionsResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.EngineVersionInfo or Amazon.MemoryDB.Model.DescribeEngineVersionsResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.EngineVersionInfo objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeEngineVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBEngineVersionCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

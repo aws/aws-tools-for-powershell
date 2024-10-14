@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend ContainsPiiEntities API operation.", Operation = new[] {"ContainsPiiEntities"}, SelectReturnType = typeof(Amazon.Comprehend.Model.ContainsPiiEntitiesResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.EntityLabel or Amazon.Comprehend.Model.ContainsPiiEntitiesResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.EntityLabel objects.",
-        "The service call response (type Amazon.Comprehend.Model.ContainsPiiEntitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.ContainsPiiEntitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCOMPPiiEntityTypeCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteDataQualityJobDefinition API operation.", Operation = new[] {"DeleteDataQualityJobDefinition"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteDataQualityJobDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteDataQualityJobDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteDataQualityJobDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteDataQualityJobDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMDataQualityJobDefinitionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

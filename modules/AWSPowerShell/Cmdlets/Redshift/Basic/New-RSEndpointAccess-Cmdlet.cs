@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.CreateEndpointAccessResponse")]
     [AWSCmdlet("Calls the Amazon Redshift CreateEndpointAccess API operation.", Operation = new[] {"CreateEndpointAccess"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateEndpointAccessResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.CreateEndpointAccessResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.CreateEndpointAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.CreateEndpointAccessResponse object containing multiple properties."
     )]
     public partial class NewRSEndpointAccessCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.UntagResourceResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Tag or Amazon.MemoryDB.Model.UntagResourceResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.Tag objects.",
-        "The service call response (type Amazon.MemoryDB.Model.UntagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.UntagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBResourceTagCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateServiceSetting API operation.", Operation = new[] {"UpdateServiceSetting"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateServiceSettingResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateServiceSettingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateServiceSettingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateServiceSettingResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMServiceSettingCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

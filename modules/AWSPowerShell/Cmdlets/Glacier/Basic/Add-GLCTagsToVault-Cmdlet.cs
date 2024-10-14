@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier AddTagsToVault API operation.", Operation = new[] {"AddTagsToVault"}, SelectReturnType = typeof(Amazon.Glacier.Model.AddTagsToVaultResponse))]
     [AWSCmdletOutput("None or Amazon.Glacier.Model.AddTagsToVaultResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glacier.Model.AddTagsToVaultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glacier.Model.AddTagsToVaultResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddGLCTagsToVaultCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

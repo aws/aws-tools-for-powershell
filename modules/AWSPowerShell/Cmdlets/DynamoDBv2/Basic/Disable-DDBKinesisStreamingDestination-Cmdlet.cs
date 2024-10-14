@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB DisableKinesisStreamingDestination API operation.", Operation = new[] {"DisableKinesisStreamingDestination"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.DisableKinesisStreamingDestinationResponse object containing multiple properties."
     )]
     public partial class DisableDDBKinesisStreamingDestinationCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

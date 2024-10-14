@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs CreateCustomMetadata API operation.", Operation = new[] {"CreateCustomMetadata"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.CreateCustomMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.CreateCustomMetadataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.CreateCustomMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.CreateCustomMetadataResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewWDCustomMetadataCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

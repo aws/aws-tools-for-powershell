@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     [AWSCmdlet("Calls the AWS Serverless Application Repository ListApplicationVersions API operation.", Operation = new[] {"ListApplicationVersions"}, SelectReturnType = typeof(Amazon.ServerlessApplicationRepository.Model.ListApplicationVersionsResponse))]
     [AWSCmdletOutput("Amazon.ServerlessApplicationRepository.Model.VersionSummary or Amazon.ServerlessApplicationRepository.Model.ListApplicationVersionsResponse",
         "This cmdlet returns a collection of Amazon.ServerlessApplicationRepository.Model.VersionSummary objects.",
-        "The service call response (type Amazon.ServerlessApplicationRepository.Model.ListApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerlessApplicationRepository.Model.ListApplicationVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSARApplicationVersionListCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

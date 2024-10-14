@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [OutputType("Amazon.KafkaConnect.Model.CreateConnectorResponse")]
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect CreateConnector API operation.", Operation = new[] {"CreateConnector"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.CreateConnectorResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.CreateConnectorResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.CreateConnectorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KafkaConnect.Model.CreateConnectorResponse object containing multiple properties."
     )]
     public partial class NewMSKCConnectorCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

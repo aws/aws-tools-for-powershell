@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness PutFeedback API operation.", Operation = new[] {"PutFeedback"}, SelectReturnType = typeof(Amazon.QBusiness.Model.PutFeedbackResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.PutFeedbackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.PutFeedbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.PutFeedbackResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteQBUSFeedbackCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

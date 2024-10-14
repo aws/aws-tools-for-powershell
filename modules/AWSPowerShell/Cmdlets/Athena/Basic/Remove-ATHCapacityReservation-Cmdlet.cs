@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena DeleteCapacityReservation API operation.", Operation = new[] {"DeleteCapacityReservation"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteCapacityReservationResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteCapacityReservationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.DeleteCapacityReservationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.DeleteCapacityReservationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHCapacityReservationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

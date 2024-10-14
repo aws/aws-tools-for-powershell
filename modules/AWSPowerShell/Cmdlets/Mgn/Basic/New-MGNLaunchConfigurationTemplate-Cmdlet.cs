@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.CreateLaunchConfigurationTemplateResponse")]
     [AWSCmdlet("Calls the Application Migration Service CreateLaunchConfigurationTemplate API operation.", Operation = new[] {"CreateLaunchConfigurationTemplate"}, SelectReturnType = typeof(Amazon.Mgn.Model.CreateLaunchConfigurationTemplateResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.CreateLaunchConfigurationTemplateResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.CreateLaunchConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.CreateLaunchConfigurationTemplateResponse object containing multiple properties."
     )]
     public partial class NewMGNLaunchConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

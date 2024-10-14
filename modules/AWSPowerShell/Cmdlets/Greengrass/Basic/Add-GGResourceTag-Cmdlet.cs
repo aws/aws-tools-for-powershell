@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Greengrass.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddGGResourceTagCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

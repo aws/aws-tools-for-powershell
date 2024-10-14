@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DeleteLogSubscription API operation.", Operation = new[] {"DeleteLogSubscription"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeleteLogSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DeleteLogSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DeleteLogSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DeleteLogSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSLogSubscriptionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

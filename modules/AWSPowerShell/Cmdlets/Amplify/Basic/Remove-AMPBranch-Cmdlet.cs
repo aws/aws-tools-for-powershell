@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteBranch API operation.", Operation = new[] {"DeleteBranch"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteBranchResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.Branch or Amazon.Amplify.Model.DeleteBranchResponse",
         "This cmdlet returns an Amazon.Amplify.Model.Branch object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteBranchResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPBranchCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

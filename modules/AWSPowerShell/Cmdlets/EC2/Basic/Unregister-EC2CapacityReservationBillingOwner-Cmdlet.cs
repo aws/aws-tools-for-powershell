@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateCapacityReservationBillingOwner API operation.", Operation = new[] {"DisassociateCapacityReservationBillingOwner"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisassociateCapacityReservationBillingOwnerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2CapacityReservationBillingOwnerCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

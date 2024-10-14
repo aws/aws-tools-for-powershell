@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DeleteCustomVocabulary API operation.", Operation = new[] {"DeleteCustomVocabulary"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteCustomVocabularyResponse object containing multiple properties."
     )]
     public partial class RemoveLMBV2CustomVocabularyCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

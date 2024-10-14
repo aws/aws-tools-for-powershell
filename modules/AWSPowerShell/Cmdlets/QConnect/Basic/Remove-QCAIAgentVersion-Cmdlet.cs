@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect DeleteAIAgentVersion API operation.", Operation = new[] {"DeleteAIAgentVersion"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteAIAgentVersionResponse))]
     [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteAIAgentVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QConnect.Model.DeleteAIAgentVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QConnect.Model.DeleteAIAgentVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQCAIAgentVersionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

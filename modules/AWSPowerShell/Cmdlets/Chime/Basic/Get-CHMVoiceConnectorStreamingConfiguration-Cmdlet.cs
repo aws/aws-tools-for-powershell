@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetVoiceConnectorStreamingConfiguration API operation.", Operation = new[] {"GetVoiceConnectorStreamingConfiguration"}, SelectReturnType = typeof(Amazon.Chime.Model.GetVoiceConnectorStreamingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.StreamingConfiguration or Amazon.Chime.Model.GetVoiceConnectorStreamingConfigurationResponse",
         "This cmdlet returns an Amazon.Chime.Model.StreamingConfiguration object.",
-        "The service call response (type Amazon.Chime.Model.GetVoiceConnectorStreamingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetVoiceConnectorStreamingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by GetVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
     public partial class GetCHMVoiceConnectorStreamingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor

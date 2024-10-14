@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyReservedInstances API operation.", Operation = new[] {"ModifyReservedInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyReservedInstancesResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ModifyReservedInstancesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry DeleteDiscoverer API operation.", Operation = new[] {"DeleteDiscoverer"}, SelectReturnType = typeof(Amazon.Schemas.Model.DeleteDiscovererResponse))]
     [AWSCmdletOutput("None or Amazon.Schemas.Model.DeleteDiscovererResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Schemas.Model.DeleteDiscovererResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Schemas.Model.DeleteDiscovererResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

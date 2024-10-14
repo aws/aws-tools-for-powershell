@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DisassociateHealthCheck API operation.", Operation = new[] {"DisassociateHealthCheck"}, SelectReturnType = typeof(Amazon.Shield.Model.DisassociateHealthCheckResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.DisassociateHealthCheckResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.DisassociateHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.DisassociateHealthCheckResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHLDHealthCheckCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

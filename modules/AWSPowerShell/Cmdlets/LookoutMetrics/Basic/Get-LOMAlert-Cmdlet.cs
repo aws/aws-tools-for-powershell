@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics DescribeAlert API operation.", Operation = new[] {"DescribeAlert"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.DescribeAlertResponse))]
     [AWSCmdletOutput("Amazon.LookoutMetrics.Model.Alert or Amazon.LookoutMetrics.Model.DescribeAlertResponse",
         "This cmdlet returns an Amazon.LookoutMetrics.Model.Alert object.",
-        "The service call response (type Amazon.LookoutMetrics.Model.DescribeAlertResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutMetrics.Model.DescribeAlertResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOMAlertCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

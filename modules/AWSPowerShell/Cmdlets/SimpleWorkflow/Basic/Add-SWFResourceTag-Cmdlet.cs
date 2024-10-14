@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSWFResourceTagCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

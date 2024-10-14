@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteDataQualityRuleset API operation.", Operation = new[] {"DeleteDataQualityRuleset"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteDataQualityRulesetResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteDataQualityRulesetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteDataQualityRulesetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteDataQualityRulesetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEDataQualityRulesetCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces UpdateWorkspaceImagePermission API operation.", Operation = new[] {"UpdateWorkspaceImagePermission"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.UpdateWorkspaceImagePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.UpdateWorkspaceImagePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.UpdateWorkspaceImagePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.UpdateWorkspaceImagePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWKSWorkspaceImagePermissionCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

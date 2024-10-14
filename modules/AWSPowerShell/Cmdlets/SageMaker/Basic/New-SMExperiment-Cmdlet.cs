@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateExperiment API operation.", Operation = new[] {"CreateExperiment"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateExperimentResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateExperimentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateExperimentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateExperimentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMExperimentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

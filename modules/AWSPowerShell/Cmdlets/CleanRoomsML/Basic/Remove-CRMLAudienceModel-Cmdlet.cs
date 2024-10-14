@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
     [AWSCmdlet("Calls the CleanRoomsML DeleteAudienceModel API operation.", Operation = new[] {"DeleteAudienceModel"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.DeleteAudienceModelResponse))]
     [AWSCmdletOutput("None or Amazon.CleanRoomsML.Model.DeleteAudienceModelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CleanRoomsML.Model.DeleteAudienceModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CleanRoomsML.Model.DeleteAudienceModelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCRMLAudienceModelCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
     {

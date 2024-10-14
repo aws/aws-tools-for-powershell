@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     [AWSCmdlet("Calls the AWS IoT Fleet Hub UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.IoTFleetHub.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.IoTFleetHub.Model.UpdateApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTFleetHub.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTFleetHub.Model.UpdateApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTFHApplicationCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {

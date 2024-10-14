@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.GetSceneResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker GetScene API operation.", Operation = new[] {"GetScene"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.GetSceneResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.GetSceneResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetSceneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.GetSceneResponse object containing multiple properties."
     )]
     public partial class GetIOTTMSceneCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

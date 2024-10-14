@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect DeleteBridge API operation.", Operation = new[] {"DeleteBridge"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DeleteBridgeResponse))]
     [AWSCmdletOutput("System.String or Amazon.MediaConnect.Model.DeleteBridgeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MediaConnect.Model.DeleteBridgeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConnect.Model.DeleteBridgeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCNBridgeCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

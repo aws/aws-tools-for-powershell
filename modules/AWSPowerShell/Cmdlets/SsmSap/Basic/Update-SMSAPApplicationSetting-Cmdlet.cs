@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [OutputType("Amazon.SsmSap.Model.UpdateApplicationSettingsResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager for SAP UpdateApplicationSettings API operation.", Operation = new[] {"UpdateApplicationSettings"}, SelectReturnType = typeof(Amazon.SsmSap.Model.UpdateApplicationSettingsResponse))]
     [AWSCmdletOutput("Amazon.SsmSap.Model.UpdateApplicationSettingsResponse",
-        "This cmdlet returns an Amazon.SsmSap.Model.UpdateApplicationSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SsmSap.Model.UpdateApplicationSettingsResponse object containing multiple properties."
     )]
     public partial class UpdateSMSAPApplicationSettingCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

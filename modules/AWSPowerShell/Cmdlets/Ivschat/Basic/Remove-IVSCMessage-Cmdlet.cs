@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat DeleteMessage API operation.", Operation = new[] {"DeleteMessage"}, SelectReturnType = typeof(Amazon.Ivschat.Model.DeleteMessageResponse))]
     [AWSCmdletOutput("System.String or Amazon.Ivschat.Model.DeleteMessageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Ivschat.Model.DeleteMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Ivschat.Model.DeleteMessageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSCMessageCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

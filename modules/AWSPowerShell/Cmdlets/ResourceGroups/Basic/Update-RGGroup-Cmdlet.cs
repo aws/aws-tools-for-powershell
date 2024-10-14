@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.Group or Amazon.ResourceGroups.Model.UpdateGroupResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.Group object.",
-        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

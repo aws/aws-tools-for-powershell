@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteMobileDeviceAccessOverride API operation.", Operation = new[] {"DeleteMobileDeviceAccessOverride"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteMobileDeviceAccessOverrideResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteMobileDeviceAccessOverrideResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteMobileDeviceAccessOverrideResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteMobileDeviceAccessOverrideResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMMobileDeviceAccessOverrideCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

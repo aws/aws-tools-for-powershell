@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew StopJobRun API operation.", Operation = new[] {"StopJobRun"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.StopJobRunResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlueDataBrew.Model.StopJobRunResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GlueDataBrew.Model.StopJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.StopJobRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopGDBJobRunCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

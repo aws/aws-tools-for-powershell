@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.GetResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.GetResourcePolicyResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
     public partial class GetSECResourcePolicyCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

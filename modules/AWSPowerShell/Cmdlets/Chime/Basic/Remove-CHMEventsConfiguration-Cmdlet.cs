@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteEventsConfiguration API operation.", Operation = new[] {"DeleteEventsConfiguration"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteEventsConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteEventsConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteEventsConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteEventsConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMEventsConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

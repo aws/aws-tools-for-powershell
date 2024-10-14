@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.CreateChannelBanResponse")]
     [AWSCmdlet("Calls the Amazon Chime CreateChannelBan API operation.", Operation = new[] {"CreateChannelBan"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateChannelBanResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.CreateChannelBanResponse",
-        "This cmdlet returns an Amazon.Chime.Model.CreateChannelBanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.CreateChannelBanResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace")]
     public partial class NewCHMChannelBanCmdlet : AmazonChimeClientCmdlet, IExecutor

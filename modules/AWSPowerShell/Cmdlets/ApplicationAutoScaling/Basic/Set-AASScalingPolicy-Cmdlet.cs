@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [OutputType("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse")]
     [AWSCmdlet("Calls the Application Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse), LegacyAlias="Write-AASScalingPolicy")]
     [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse",
-        "This cmdlet returns an Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse object containing multiple properties."
     )]
     public partial class SetAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

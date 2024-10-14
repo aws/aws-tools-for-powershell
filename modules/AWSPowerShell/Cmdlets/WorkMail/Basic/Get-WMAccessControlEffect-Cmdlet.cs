@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.GetAccessControlEffectResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail GetAccessControlEffect API operation.", Operation = new[] {"GetAccessControlEffect"}, SelectReturnType = typeof(Amazon.WorkMail.Model.GetAccessControlEffectResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.GetAccessControlEffectResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.GetAccessControlEffectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.GetAccessControlEffectResponse object containing multiple properties."
     )]
     public partial class GetWMAccessControlEffectCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     [AWSCmdlet("Calls the Amazon ApplicationCostProfiler DeleteReportDefinition API operation.", Operation = new[] {"DeleteReportDefinition"}, SelectReturnType = typeof(Amazon.ApplicationCostProfiler.Model.DeleteReportDefinitionResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationCostProfiler.Model.DeleteReportDefinitionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationCostProfiler.Model.DeleteReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationCostProfiler.Model.DeleteReportDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveACPReportDefinitionCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {

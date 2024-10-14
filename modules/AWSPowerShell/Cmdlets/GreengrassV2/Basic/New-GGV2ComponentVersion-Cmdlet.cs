@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [OutputType("Amazon.GreengrassV2.Model.CreateComponentVersionResponse")]
     [AWSCmdlet("Calls the AWS GreengrassV2 CreateComponentVersion API operation.", Operation = new[] {"CreateComponentVersion"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.CreateComponentVersionResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.CreateComponentVersionResponse",
-        "This cmdlet returns an Amazon.GreengrassV2.Model.CreateComponentVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GreengrassV2.Model.CreateComponentVersionResponse object containing multiple properties."
     )]
     public partial class NewGGV2ComponentVersionCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

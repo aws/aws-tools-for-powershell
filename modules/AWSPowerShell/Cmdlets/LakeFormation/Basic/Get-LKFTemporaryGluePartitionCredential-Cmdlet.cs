@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [OutputType("Amazon.LakeFormation.Model.GetTemporaryGluePartitionCredentialsResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation GetTemporaryGluePartitionCredentials API operation.", Operation = new[] {"GetTemporaryGluePartitionCredentials"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetTemporaryGluePartitionCredentialsResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.GetTemporaryGluePartitionCredentialsResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.GetTemporaryGluePartitionCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetTemporaryGluePartitionCredentialsResponse object containing multiple properties."
     )]
     public partial class GetLKFTemporaryGluePartitionCredentialCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

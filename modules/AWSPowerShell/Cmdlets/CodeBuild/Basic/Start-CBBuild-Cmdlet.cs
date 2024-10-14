@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild StartBuild API operation.", Operation = new[] {"StartBuild"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.StartBuildResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Build or Amazon.CodeBuild.Model.StartBuildResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Build object.",
-        "The service call response (type Amazon.CodeBuild.Model.StartBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.StartBuildResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCBBuildCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

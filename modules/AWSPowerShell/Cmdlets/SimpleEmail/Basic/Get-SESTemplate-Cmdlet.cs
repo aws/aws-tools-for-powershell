@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetTemplateResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.Template or Amazon.SimpleEmail.Model.GetTemplateResponse",
         "This cmdlet returns an Amazon.SimpleEmail.Model.Template object.",
-        "The service call response (type Amazon.SimpleEmail.Model.GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESTemplateCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

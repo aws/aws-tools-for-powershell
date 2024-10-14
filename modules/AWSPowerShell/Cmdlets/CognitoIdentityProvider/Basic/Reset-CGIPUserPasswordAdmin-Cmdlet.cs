@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminResetUserPassword API operation.", Operation = new[] {"AdminResetUserPassword"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetCGIPUserPasswordAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteFlowDefinition API operation.", Operation = new[] {"DeleteFlowDefinition"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteFlowDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteFlowDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteFlowDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteFlowDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMFlowDefinitionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

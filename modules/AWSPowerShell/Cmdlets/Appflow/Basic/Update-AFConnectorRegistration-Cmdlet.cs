@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow UpdateConnectorRegistration API operation.", Operation = new[] {"UpdateConnectorRegistration"}, SelectReturnType = typeof(Amazon.Appflow.Model.UpdateConnectorRegistrationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Appflow.Model.UpdateConnectorRegistrationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Appflow.Model.UpdateConnectorRegistrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.UpdateConnectorRegistrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAFConnectorRegistrationCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

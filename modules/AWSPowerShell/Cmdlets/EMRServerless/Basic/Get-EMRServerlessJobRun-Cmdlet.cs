@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     [AWSCmdlet("Calls the EMR Serverless GetJobRun API operation.", Operation = new[] {"GetJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.GetJobRunResponse))]
     [AWSCmdletOutput("Amazon.EMRServerless.Model.JobRun or Amazon.EMRServerless.Model.GetJobRunResponse",
         "This cmdlet returns an Amazon.EMRServerless.Model.JobRun object.",
-        "The service call response (type Amazon.EMRServerless.Model.GetJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRServerless.Model.GetJobRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRServerlessJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {

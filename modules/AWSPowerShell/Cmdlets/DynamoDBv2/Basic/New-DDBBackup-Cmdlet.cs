@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB CreateBackup API operation.", Operation = new[] {"CreateBackup"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.CreateBackupResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.BackupDetails or Amazon.DynamoDBv2.Model.CreateBackupResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.BackupDetails object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.CreateBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.CreateBackupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDDBBackupCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

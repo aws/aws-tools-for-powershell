@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeOrganizationsAccess API operation.", Operation = new[] {"DescribeOrganizationsAccess"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeOrganizationsAccessResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.OrganizationStatus or Amazon.CloudFormation.Model.DescribeOrganizationsAccessResponse",
         "This cmdlet returns an Amazon.CloudFormation.OrganizationStatus object.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeOrganizationsAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeOrganizationsAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNOrganizationsAccessCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

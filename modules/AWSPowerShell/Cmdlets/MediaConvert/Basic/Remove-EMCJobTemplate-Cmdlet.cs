@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert DeleteJobTemplate API operation.", Operation = new[] {"DeleteJobTemplate"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.DeleteJobTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.DeleteJobTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.DeleteJobTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.DeleteJobTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCJobTemplateCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

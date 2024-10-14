@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service UpdateContainerAgent API operation.", Operation = new[] {"UpdateContainerAgent"}, SelectReturnType = typeof(Amazon.ECS.Model.UpdateContainerAgentResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.ContainerInstance or Amazon.ECS.Model.UpdateContainerAgentResponse",
         "This cmdlet returns an Amazon.ECS.Model.ContainerInstance object.",
-        "The service call response (type Amazon.ECS.Model.UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateContainerAgentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateECSContainerAgentCmdlet : AmazonECSClientCmdlet, IExecutor
     {

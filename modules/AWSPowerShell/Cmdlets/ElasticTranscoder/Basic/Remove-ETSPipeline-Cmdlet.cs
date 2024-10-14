@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Calls the Amazon Elastic Transcoder DeletePipeline API operation.", Operation = new[] {"DeletePipeline"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.DeletePipelineResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticTranscoder.Model.DeletePipelineResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticTranscoder.Model.DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticTranscoder.Model.DeletePipelineResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {

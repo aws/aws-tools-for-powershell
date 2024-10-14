@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [AWSCmdlet("Calls the AWS SimSpace Weaver DeleteApp API operation.", Operation = new[] {"DeleteApp"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.DeleteAppResponse))]
     [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.DeleteAppResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimSpaceWeaver.Model.DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimSpaceWeaver.Model.DeleteAppResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSWAppCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

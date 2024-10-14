@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.RejectResourceGroupingRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub RejectResourceGroupingRecommendations API operation.", Operation = new[] {"RejectResourceGroupingRecommendations"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.RejectResourceGroupingRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.RejectResourceGroupingRecommendationsResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.RejectResourceGroupingRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.RejectResourceGroupingRecommendationsResponse object containing multiple properties."
     )]
     public partial class DenyRESHResourceGroupingRecommendationCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

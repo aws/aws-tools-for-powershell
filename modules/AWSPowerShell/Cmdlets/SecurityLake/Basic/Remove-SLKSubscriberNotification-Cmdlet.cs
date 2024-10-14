@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the specified notification subscription in Amazon Security Lake for the organization
+    /// Deletes the specified subscription notification in Amazon Security Lake for the organization
     /// you specify.
     /// </summary>
     [Cmdlet("Remove", "SLKSubscriberNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake DeleteSubscriberNotification API operation.", Operation = new[] {"DeleteSubscriberNotification"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.DeleteSubscriberNotificationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSLKSubscriberNotificationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

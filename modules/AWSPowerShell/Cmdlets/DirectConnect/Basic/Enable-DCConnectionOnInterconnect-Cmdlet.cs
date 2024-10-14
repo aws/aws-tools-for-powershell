@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect AllocateConnectionOnInterconnect API operation.", Operation = new[] {"AllocateConnectionOnInterconnect"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Deprecated in favor of AllocateHostedConnection.")]
     public partial class EnableDCConnectionOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor

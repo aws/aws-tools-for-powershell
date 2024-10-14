@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Calls the Amazon Elastic Transcoder ListPresets API operation.", Operation = new[] {"ListPresets"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.ListPresetsResponse))]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Preset or Amazon.ElasticTranscoder.Model.ListPresetsResponse",
         "This cmdlet returns a collection of Amazon.ElasticTranscoder.Model.Preset objects.",
-        "The service call response (type Amazon.ElasticTranscoder.Model.ListPresetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.ListPresetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// <br/>'PageToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PageToken' to null for the first call then set the 'PageToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

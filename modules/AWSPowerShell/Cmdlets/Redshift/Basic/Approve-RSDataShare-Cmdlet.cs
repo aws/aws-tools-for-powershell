@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.AuthorizeDataShareResponse")]
     [AWSCmdlet("Calls the Amazon Redshift AuthorizeDataShare API operation.", Operation = new[] {"AuthorizeDataShare"}, SelectReturnType = typeof(Amazon.Redshift.Model.AuthorizeDataShareResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.AuthorizeDataShareResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.AuthorizeDataShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.AuthorizeDataShareResponse object containing multiple properties."
     )]
     public partial class ApproveRSDataShareCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

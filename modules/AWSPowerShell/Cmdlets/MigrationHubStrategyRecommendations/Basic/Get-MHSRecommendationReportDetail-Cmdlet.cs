@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [OutputType("Amazon.MigrationHubStrategyRecommendations.Model.GetRecommendationReportDetailsResponse")]
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations GetRecommendationReportDetails API operation.", Operation = new[] {"GetRecommendationReportDetails"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.GetRecommendationReportDetailsResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubStrategyRecommendations.Model.GetRecommendationReportDetailsResponse",
-        "This cmdlet returns an Amazon.MigrationHubStrategyRecommendations.Model.GetRecommendationReportDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubStrategyRecommendations.Model.GetRecommendationReportDetailsResponse object containing multiple properties."
     )]
     public partial class GetMHSRecommendationReportDetailCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

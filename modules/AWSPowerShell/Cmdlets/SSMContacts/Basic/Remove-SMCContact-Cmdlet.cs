@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts DeleteContact API operation.", Operation = new[] {"DeleteContact"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteContactResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeleteContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.DeleteContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.DeleteContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMCContactCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

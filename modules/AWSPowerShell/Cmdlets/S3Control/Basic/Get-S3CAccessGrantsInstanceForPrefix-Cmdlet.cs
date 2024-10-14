@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control GetAccessGrantsInstanceForPrefix API operation.", Operation = new[] {"GetAccessGrantsInstanceForPrefix"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.GetAccessGrantsInstanceForPrefixResponse object containing multiple properties."
     )]
     public partial class GetS3CAccessGrantsInstanceForPrefixCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

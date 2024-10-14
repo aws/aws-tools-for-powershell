@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectRetention API operation.", Operation = new[] {"GetObjectRetention"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectRetentionResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ObjectLockRetention or Amazon.S3.Model.GetObjectRetentionResponse",
         "This cmdlet returns an Amazon.S3.Model.ObjectLockRetention object.",
-        "The service call response (type Amazon.S3.Model.GetObjectRetentionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetObjectRetentionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3ObjectRetentionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

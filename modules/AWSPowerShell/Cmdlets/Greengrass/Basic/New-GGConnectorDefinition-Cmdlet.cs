@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.CreateConnectorDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Greengrass CreateConnectorDefinition API operation.", Operation = new[] {"CreateConnectorDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.CreateConnectorDefinitionResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.CreateConnectorDefinitionResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.CreateConnectorDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.CreateConnectorDefinitionResponse object containing multiple properties."
     )]
     public partial class NewGGConnectorDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

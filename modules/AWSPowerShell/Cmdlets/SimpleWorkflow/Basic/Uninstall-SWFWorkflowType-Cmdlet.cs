@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) DeleteWorkflowType API operation.", Operation = new[] {"DeleteWorkflowType"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.DeleteWorkflowTypeResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.DeleteWorkflowTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.DeleteWorkflowTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.DeleteWorkflowTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UninstallSWFWorkflowTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces RebootWorkspaces API operation.", Operation = new[] {"RebootWorkspaces"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.RebootWorkspacesResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest or Amazon.WorkSpaces.Model.RebootWorkspacesResponse",
         "This cmdlet returns a collection of Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.RebootWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.RebootWorkspacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

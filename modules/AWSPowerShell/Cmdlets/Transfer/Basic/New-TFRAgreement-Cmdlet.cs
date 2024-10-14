@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP CreateAgreement API operation.", Operation = new[] {"CreateAgreement"}, SelectReturnType = typeof(Amazon.Transfer.Model.CreateAgreementResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.CreateAgreementResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.CreateAgreementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.CreateAgreementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewTFRAgreementCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter BaseDirectory
         /// <summary>
         /// <para>
-        /// <para>The landing directory (folder) for files transferred by using the AS2 protocol.</para><para>A <c>BaseDirectory</c> example is <c>/DOC-EXAMPLE-BUCKET/home/mydirectory</c>.</para>
+        /// <para>The landing directory (folder) for files transferred by using the AS2 protocol.</para><para>A <c>BaseDirectory</c> example is <c>/<i>amzn-s3-demo-bucket</i>/home/mydirectory</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

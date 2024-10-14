@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIdFormat API operation.", Operation = new[] {"ModifyIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIdFormatResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifyIdFormatResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ModifyIdFormatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyIdFormatResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

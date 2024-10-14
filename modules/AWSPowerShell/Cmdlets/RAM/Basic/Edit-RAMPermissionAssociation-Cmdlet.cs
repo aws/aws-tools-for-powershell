@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ReplacePermissionAssociations API operation.", Operation = new[] {"ReplacePermissionAssociations"}, SelectReturnType = typeof(Amazon.RAM.Model.ReplacePermissionAssociationsResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ReplacePermissionAssociationsWork or Amazon.RAM.Model.ReplacePermissionAssociationsResponse",
         "This cmdlet returns an Amazon.RAM.Model.ReplacePermissionAssociationsWork object.",
-        "The service call response (type Amazon.RAM.Model.ReplacePermissionAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.ReplacePermissionAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRAMPermissionAssociationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync DeleteLocation API operation.", Operation = new[] {"DeleteLocation"}, SelectReturnType = typeof(Amazon.DataSync.Model.DeleteLocationResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.DeleteLocationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.DeleteLocationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.DeleteLocationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSYNLocationCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

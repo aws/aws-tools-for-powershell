@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeployWorkspaceApplications API operation.", Operation = new[] {"DeployWorkspaceApplications"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeployWorkspaceApplicationsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkSpaceApplicationDeployment or Amazon.WorkSpaces.Model.DeployWorkspaceApplicationsResponse",
         "This cmdlet returns an Amazon.WorkSpaces.Model.WorkSpaceApplicationDeployment object.",
-        "The service call response (type Amazon.WorkSpaces.Model.DeployWorkspaceApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DeployWorkspaceApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishWKSWorkspaceApplicationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

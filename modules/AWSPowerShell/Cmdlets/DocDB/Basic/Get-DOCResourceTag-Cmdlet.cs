@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.DocDB.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.Tag or Amazon.DocDB.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.DocDB.Model.Tag objects.",
-        "The service call response (type Amazon.DocDB.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDOCResourceTagCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

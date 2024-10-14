@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.PutSourceServerActionResponse")]
     [AWSCmdlet("Calls the Application Migration Service PutSourceServerAction API operation.", Operation = new[] {"PutSourceServerAction"}, SelectReturnType = typeof(Amazon.Mgn.Model.PutSourceServerActionResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.PutSourceServerActionResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.PutSourceServerActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.PutSourceServerActionResponse object containing multiple properties."
     )]
     public partial class WriteMGNSourceServerActionCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

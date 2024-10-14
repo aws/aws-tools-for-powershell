@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.CreateEnvironmentProfileResponse")]
     [AWSCmdlet("Calls the Amazon DataZone CreateEnvironmentProfile API operation.", Operation = new[] {"CreateEnvironmentProfile"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateEnvironmentProfileResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.CreateEnvironmentProfileResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateEnvironmentProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.CreateEnvironmentProfileResponse object containing multiple properties."
     )]
     public partial class NewDZEnvironmentProfileCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

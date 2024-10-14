@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB ListImports API operation.", Operation = new[] {"ListImports"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ListImportsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ImportSummary or Amazon.DynamoDBv2.Model.ListImportsResponse",
         "This cmdlet returns a collection of Amazon.DynamoDBv2.Model.ImportSummary objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ListImportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ListImportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBImportListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

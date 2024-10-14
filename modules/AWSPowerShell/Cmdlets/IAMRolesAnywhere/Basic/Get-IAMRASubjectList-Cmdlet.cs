@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere ListSubjects API operation.", Operation = new[] {"ListSubjects"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.ListSubjectsResponse))]
     [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.SubjectSummary or Amazon.IAMRolesAnywhere.Model.ListSubjectsResponse",
         "This cmdlet returns a collection of Amazon.IAMRolesAnywhere.Model.SubjectSummary objects.",
-        "The service call response (type Amazon.IAMRolesAnywhere.Model.ListSubjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.ListSubjectsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMRASubjectListCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

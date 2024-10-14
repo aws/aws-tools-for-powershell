@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) SendBulkEmail API operation.", Operation = new[] {"SendBulkEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendBulkEmailResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.BulkEmailEntryResult or Amazon.SimpleEmailV2.Model.SendBulkEmailResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.BulkEmailEntryResult objects.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.SendBulkEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.SendBulkEmailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSES2BulkEmailCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

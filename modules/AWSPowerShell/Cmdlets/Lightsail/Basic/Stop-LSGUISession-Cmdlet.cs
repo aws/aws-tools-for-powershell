@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail StopGUISession API operation.", Operation = new[] {"StopGUISession"}, SelectReturnType = typeof(Amazon.Lightsail.Model.StopGUISessionResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.StopGUISessionResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.StopGUISessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.StopGUISessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopLSGUISessionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

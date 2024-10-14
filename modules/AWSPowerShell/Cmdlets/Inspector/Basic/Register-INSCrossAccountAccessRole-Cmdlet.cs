@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector RegisterCrossAccountAccessRole API operation.", Operation = new[] {"RegisterCrossAccountAccessRole"}, SelectReturnType = typeof(Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterINSCrossAccountAccessRoleCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

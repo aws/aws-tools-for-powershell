@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
     [AWSCmdlet("Calls the Amazon Managed Blockchain Query GetTransaction API operation.", Operation = new[] {"GetTransaction"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse))]
     [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.Transaction or Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse",
         "This cmdlet returns an Amazon.ManagedBlockchainQuery.Model.Transaction object.",
-        "The service call response (type Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedBlockchainQuery.Model.GetTransactionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMBCQTransactionCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
     {

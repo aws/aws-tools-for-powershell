@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     [OutputType("Amazon.ServerlessApplicationRepository.Model.UpdateApplicationResponse")]
     [AWSCmdlet("Calls the AWS Serverless Application Repository UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.ServerlessApplicationRepository.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("Amazon.ServerlessApplicationRepository.Model.UpdateApplicationResponse",
-        "This cmdlet returns an Amazon.ServerlessApplicationRepository.Model.UpdateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServerlessApplicationRepository.Model.UpdateApplicationResponse object containing multiple properties."
     )]
     public partial class UpdateSARApplicationCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {

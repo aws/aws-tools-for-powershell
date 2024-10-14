@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail CreateLoadBalancerTlsCertificate API operation.", Operation = new[] {"CreateLoadBalancerTlsCertificate"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateLoadBalancerTlsCertificateResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.CreateLoadBalancerTlsCertificateResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.CreateLoadBalancerTlsCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.CreateLoadBalancerTlsCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewLSLoadBalancerTlsCertificateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

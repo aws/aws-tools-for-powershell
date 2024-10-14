@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator UpdateSafetyLeverState API operation.", Operation = new[] {"UpdateSafetyLeverState"}, SelectReturnType = typeof(Amazon.FIS.Model.UpdateSafetyLeverStateResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.SafetyLever or Amazon.FIS.Model.UpdateSafetyLeverStateResponse",
         "This cmdlet returns an Amazon.FIS.Model.SafetyLever object.",
-        "The service call response (type Amazon.FIS.Model.UpdateSafetyLeverStateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.UpdateSafetyLeverStateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateFISSafetyLeverStateCmdlet : AmazonFISClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcClassicLink API operation.", Operation = new[] {"DescribeVpcClassicLink"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcClassicLinkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcClassicLink or Amazon.EC2.Model.DescribeVpcClassicLinkResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.VpcClassicLink objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeVpcClassicLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeVpcClassicLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2VpcClassicLinkCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

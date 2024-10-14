@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight UpdateIpRestriction API operation.", Operation = new[] {"UpdateIpRestriction"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateIpRestrictionResponse))]
     [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.UpdateIpRestrictionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QuickSight.Model.UpdateIpRestrictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.UpdateIpRestrictionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQSIpRestrictionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

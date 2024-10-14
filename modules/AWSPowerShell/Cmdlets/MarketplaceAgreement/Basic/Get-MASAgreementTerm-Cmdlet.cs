@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     [AWSCmdlet("Calls the AWS Marketplace Agreement Service GetAgreementTerms API operation.", Operation = new[] {"GetAgreementTerms"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.AcceptedTerm or Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse",
         "This cmdlet returns a collection of Amazon.MarketplaceAgreement.Model.AcceptedTerm objects.",
-        "The service call response (type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MarketplaceAgreement.Model.GetAgreementTermsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMASAgreementTermCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {

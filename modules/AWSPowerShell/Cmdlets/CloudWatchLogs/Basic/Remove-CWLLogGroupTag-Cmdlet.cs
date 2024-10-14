@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UntagLogGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UntagLogGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Please use the generic tagging API UntagResource")]
     public partial class RemoveCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor

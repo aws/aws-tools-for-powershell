@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteGlobalReplicationGroup API operation.", Operation = new[] {"DeleteGlobalReplicationGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteGlobalReplicationGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.GlobalReplicationGroup or Amazon.ElastiCache.Model.DeleteGlobalReplicationGroupResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.GlobalReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteGlobalReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteGlobalReplicationGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECGlobalReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [AWSCmdlet("Calls the AWS WAF V2 GetWebACLForResource API operation.", Operation = new[] {"GetWebACLForResource"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLForResourceResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.WebACL or Amazon.WAFV2.Model.GetWebACLForResourceResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.WebACL object.",
-        "The service call response (type Amazon.WAFV2.Model.GetWebACLForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFV2.Model.GetWebACLForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAF2WebACLForResourceCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {

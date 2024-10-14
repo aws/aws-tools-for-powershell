@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains RejectDomainTransferFromAnotherAwsAccount API operation.", Operation = new[] {"RejectDomainTransferFromAnotherAwsAccount"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.RejectDomainTransferFromAnotherAwsAccountResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.RejectDomainTransferFromAnotherAwsAccountResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.RejectDomainTransferFromAnotherAwsAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.RejectDomainTransferFromAnotherAwsAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyR53DDomainTransferFromAnotherAwsAccountCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

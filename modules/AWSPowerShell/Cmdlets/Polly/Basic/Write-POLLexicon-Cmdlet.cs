@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     [AWSCmdlet("Calls the Amazon Polly PutLexicon API operation.", Operation = new[] {"PutLexicon"}, SelectReturnType = typeof(Amazon.Polly.Model.PutLexiconResponse))]
     [AWSCmdletOutput("None or Amazon.Polly.Model.PutLexiconResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Polly.Model.PutLexiconResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Polly.Model.PutLexiconResponse) be returned by specifying '-Select *'."
     )]
     public partial class WritePOLLexiconCmdlet : AmazonPollyClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.EMRContainers.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EMRContainers.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EMRContainers.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEMRCResourceTagCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

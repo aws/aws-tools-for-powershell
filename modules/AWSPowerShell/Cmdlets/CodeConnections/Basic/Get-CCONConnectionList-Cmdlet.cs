@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections ListConnections API operation.", Operation = new[] {"ListConnections"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.ListConnectionsResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.Connection or Amazon.CodeConnections.Model.ListConnectionsResponse",
         "This cmdlet returns a collection of Amazon.CodeConnections.Model.Connection objects.",
-        "The service call response (type Amazon.CodeConnections.Model.ListConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.ListConnectionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCONConnectionListCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.GetResourceSetResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetResourceSet API operation.", Operation = new[] {"GetResourceSet"}, SelectReturnType = typeof(Amazon.FMS.Model.GetResourceSetResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.GetResourceSetResponse",
-        "This cmdlet returns an Amazon.FMS.Model.GetResourceSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.GetResourceSetResponse object containing multiple properties."
     )]
     public partial class GetFMSResourceSetCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

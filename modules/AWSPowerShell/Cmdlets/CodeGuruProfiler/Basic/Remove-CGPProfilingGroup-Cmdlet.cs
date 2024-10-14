@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler DeleteProfilingGroup API operation.", Operation = new[] {"DeleteProfilingGroup"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.DeleteProfilingGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CodeGuruProfiler.Model.DeleteProfilingGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruProfiler.Model.DeleteProfilingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeGuruProfiler.Model.DeleteProfilingGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGPProfilingGroupCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

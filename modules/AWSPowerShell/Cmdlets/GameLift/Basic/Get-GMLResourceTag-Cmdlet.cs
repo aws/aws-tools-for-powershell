@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Tag or Amazon.GameLift.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.Tag objects.",
-        "The service call response (type Amazon.GameLift.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLResourceTagCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

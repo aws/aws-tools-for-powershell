@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.BatchGetDevicePositionResponse")]
     [AWSCmdlet("Calls the Amazon Location Service BatchGetDevicePosition API operation.", Operation = new[] {"BatchGetDevicePosition"}, SelectReturnType = typeof(Amazon.LocationService.Model.BatchGetDevicePositionResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.BatchGetDevicePositionResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.BatchGetDevicePositionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.BatchGetDevicePositionResponse object containing multiple properties."
     )]
     public partial class GetLOCDevicePositionBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

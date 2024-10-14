@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.UpdateEvaluationFormResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service UpdateEvaluationForm API operation.", Operation = new[] {"UpdateEvaluationForm"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateEvaluationFormResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.UpdateEvaluationFormResponse",
-        "This cmdlet returns an Amazon.Connect.Model.UpdateEvaluationFormResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.UpdateEvaluationFormResponse object containing multiple properties."
     )]
     public partial class UpdateCONNEvaluationFormCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

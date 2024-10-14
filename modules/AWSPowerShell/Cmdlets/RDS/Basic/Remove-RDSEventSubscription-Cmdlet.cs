@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteEventSubscription API operation.", Operation = new[] {"DeleteEventSubscription"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteEventSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription or Amazon.RDS.Model.DeleteEventSubscriptionResponse",
         "This cmdlet returns an Amazon.RDS.Model.EventSubscription object.",
-        "The service call response (type Amazon.RDS.Model.DeleteEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteEventSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [OutputType("Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse")]
     [AWSCmdlet("Calls the AWS Parallel Computing Service RegisterComputeNodeGroupInstance API operation.", Operation = new[] {"RegisterComputeNodeGroupInstance"}, SelectReturnType = typeof(Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse))]
     [AWSCmdletOutput("Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse",
-        "This cmdlet returns an Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse object containing multiple properties."
     )]
     public partial class RegisterPCSComputeNodeGroupInstanceCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

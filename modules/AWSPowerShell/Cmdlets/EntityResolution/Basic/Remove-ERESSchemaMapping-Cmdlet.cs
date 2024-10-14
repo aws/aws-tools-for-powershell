@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution DeleteSchemaMapping API operation.", Operation = new[] {"DeleteSchemaMapping"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.DeleteSchemaMappingResponse))]
     [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.DeleteSchemaMappingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EntityResolution.Model.DeleteSchemaMappingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.DeleteSchemaMappingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

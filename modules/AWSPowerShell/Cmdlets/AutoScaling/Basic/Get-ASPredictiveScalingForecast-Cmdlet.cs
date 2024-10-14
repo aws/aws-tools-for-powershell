@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [OutputType("Amazon.AutoScaling.Model.GetPredictiveScalingForecastResponse")]
     [AWSCmdlet("Calls the AWS Auto Scaling GetPredictiveScalingForecast API operation.", Operation = new[] {"GetPredictiveScalingForecast"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.GetPredictiveScalingForecastResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.GetPredictiveScalingForecastResponse",
-        "This cmdlet returns an Amazon.AutoScaling.Model.GetPredictiveScalingForecastResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AutoScaling.Model.GetPredictiveScalingForecastResponse object containing multiple properties."
     )]
     public partial class GetASPredictiveScalingForecastCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

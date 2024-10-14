@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift RestoreTableFromClusterSnapshot API operation.", Operation = new[] {"RestoreTableFromClusterSnapshot"}, SelectReturnType = typeof(Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.TableRestoreStatus or Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse",
         "This cmdlet returns an Amazon.Redshift.Model.TableRestoreStatus object.",
-        "The service call response (type Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreRSTableFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

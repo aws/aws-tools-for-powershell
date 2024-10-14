@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub PutResourceAttributes API operation.", Operation = new[] {"PutResourceAttributes"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.PutResourceAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.PutResourceAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHub.Model.PutResourceAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHub.Model.PutResourceAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetMHResourceAttributeCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

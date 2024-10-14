@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.ImportClientBrandingResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces ImportClientBranding API operation.", Operation = new[] {"ImportClientBranding"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ImportClientBrandingResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.ImportClientBrandingResponse",
-        "This cmdlet returns an Amazon.WorkSpaces.Model.ImportClientBrandingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpaces.Model.ImportClientBrandingResponse object containing multiple properties."
     )]
     public partial class ImportWKSClientBrandingCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail UpdateRelationalDatabase API operation.", Operation = new[] {"UpdateRelationalDatabase"}, SelectReturnType = typeof(Amazon.Lightsail.Model.UpdateRelationalDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.UpdateRelationalDatabaseResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.UpdateRelationalDatabaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.UpdateRelationalDatabaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateLSRelationalDatabaseCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

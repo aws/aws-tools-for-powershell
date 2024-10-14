@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetSchemaByDefinitionResponse")]
     [AWSCmdlet("Calls the AWS Glue GetSchemaByDefinition API operation.", Operation = new[] {"GetSchemaByDefinition"}, SelectReturnType = typeof(Amazon.Glue.Model.GetSchemaByDefinitionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetSchemaByDefinitionResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetSchemaByDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetSchemaByDefinitionResponse object containing multiple properties."
     )]
     public partial class GetGLUESchemaByDefinitionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [OutputType("Amazon.AppSync.Model.GetSchemaCreationStatusResponse")]
     [AWSCmdlet("Calls the AWS AppSync GetSchemaCreationStatus API operation.", Operation = new[] {"GetSchemaCreationStatus"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetSchemaCreationStatusResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.GetSchemaCreationStatusResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.GetSchemaCreationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppSync.Model.GetSchemaCreationStatusResponse object containing multiple properties."
     )]
     public partial class GetASYNSchemaCreationStatusCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

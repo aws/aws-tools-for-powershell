@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateDocumentMetadata API operation.", Operation = new[] {"UpdateDocumentMetadata"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentMetadataResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMDocumentMetadataCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

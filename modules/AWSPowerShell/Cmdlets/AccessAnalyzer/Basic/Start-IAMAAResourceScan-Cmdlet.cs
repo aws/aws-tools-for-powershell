@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer StartResourceScan API operation.", Operation = new[] {"StartResourceScan"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.StartResourceScanResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.StartResourceScanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.StartResourceScanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.StartResourceScanResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartIAMAAResourceScanCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

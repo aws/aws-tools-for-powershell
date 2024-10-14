@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [AWSCmdlet("Calls the AWS Identity Store UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityStore.Model.UpdateGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityStore.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityStore.Model.UpdateGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIDSGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

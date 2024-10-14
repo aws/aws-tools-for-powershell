@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream CopyImage API operation.", Operation = new[] {"CopyImage"}, SelectReturnType = typeof(Amazon.AppStream.Model.CopyImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppStream.Model.CopyImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AppStream.Model.CopyImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.CopyImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyAPSImageCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

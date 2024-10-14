@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere PutAttributeMapping API operation.", Operation = new[] {"PutAttributeMapping"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.PutAttributeMappingResponse))]
     [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.ProfileDetail or Amazon.IAMRolesAnywhere.Model.PutAttributeMappingResponse",
         "This cmdlet returns an Amazon.IAMRolesAnywhere.Model.ProfileDetail object.",
-        "The service call response (type Amazon.IAMRolesAnywhere.Model.PutAttributeMappingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.PutAttributeMappingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteIAMRAAttributeMappingCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AssociateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateNatGatewayAddress API operation.", Operation = new[] {"AssociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AssociateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AssociateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class RegisterEC2NatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

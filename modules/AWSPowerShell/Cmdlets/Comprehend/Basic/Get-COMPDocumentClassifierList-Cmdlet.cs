@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend ListDocumentClassifiers API operation.", Operation = new[] {"ListDocumentClassifiers"}, SelectReturnType = typeof(Amazon.Comprehend.Model.ListDocumentClassifiersResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.DocumentClassifierProperties or Amazon.Comprehend.Model.ListDocumentClassifiersResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.DocumentClassifierProperties objects.",
-        "The service call response (type Amazon.Comprehend.Model.ListDocumentClassifiersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.ListDocumentClassifiersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOMPDocumentClassifierListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

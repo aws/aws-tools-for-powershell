@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeregisterWorkspaceDirectory API operation.", Operation = new[] {"DeregisterWorkspaceDirectory"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeregisterWorkspaceDirectoryResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DeregisterWorkspaceDirectoryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DeregisterWorkspaceDirectoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DeregisterWorkspaceDirectoryResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWKSWorkspaceDirectoryCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

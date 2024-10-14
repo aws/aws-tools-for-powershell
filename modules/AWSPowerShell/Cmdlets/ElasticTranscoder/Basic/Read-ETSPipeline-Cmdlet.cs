@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Calls the Amazon Elastic Transcoder ReadPipeline API operation.", Operation = new[] {"ReadPipeline"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.ReadPipelineResponse))]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline or Amazon.ElasticTranscoder.Model.ReadPipelineResponse",
         "This cmdlet returns an Amazon.ElasticTranscoder.Model.Pipeline object.",
-        "The service call response (type Amazon.ElasticTranscoder.Model.ReadPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.ReadPipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ReadETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {

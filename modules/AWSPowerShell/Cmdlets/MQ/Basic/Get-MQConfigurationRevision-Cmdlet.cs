@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [OutputType("Amazon.MQ.Model.DescribeConfigurationRevisionResponse")]
     [AWSCmdlet("Calls the Amazon MQ DescribeConfigurationRevision API operation.", Operation = new[] {"DescribeConfigurationRevision"}, SelectReturnType = typeof(Amazon.MQ.Model.DescribeConfigurationRevisionResponse))]
     [AWSCmdletOutput("Amazon.MQ.Model.DescribeConfigurationRevisionResponse",
-        "This cmdlet returns an Amazon.MQ.Model.DescribeConfigurationRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MQ.Model.DescribeConfigurationRevisionResponse object containing multiple properties."
     )]
     public partial class GetMQConfigurationRevisionCmdlet : AmazonMQClientCmdlet, IExecutor
     {

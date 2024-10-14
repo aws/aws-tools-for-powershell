@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateSecurityProfileResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateSecurityProfile API operation.", Operation = new[] {"CreateSecurityProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateSecurityProfileResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateSecurityProfileResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateSecurityProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateSecurityProfileResponse object containing multiple properties."
     )]
     public partial class NewCONNSecurityProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

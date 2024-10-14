@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetCapacityReservationUsageResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetCapacityReservationUsage API operation.", Operation = new[] {"GetCapacityReservationUsage"}, SelectReturnType = typeof(Amazon.EC2.Model.GetCapacityReservationUsageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetCapacityReservationUsageResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetCapacityReservationUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.GetCapacityReservationUsageResponse object containing multiple properties."
     )]
     public partial class GetEC2CapacityReservationUsageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.EC2 module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

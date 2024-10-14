@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [OutputType("Amazon.NetworkFirewall.Model.DisassociateSubnetsResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall DisassociateSubnets API operation.", Operation = new[] {"DisassociateSubnets"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DisassociateSubnetsResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DisassociateSubnetsResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.DisassociateSubnetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.DisassociateSubnetsResponse object containing multiple properties."
     )]
     public partial class UnregisterNWFWSubnetCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.DescribeAuditSuppressionResponse")]
     [AWSCmdlet("Calls the AWS IoT DescribeAuditSuppression API operation.", Operation = new[] {"DescribeAuditSuppression"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeAuditSuppressionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.DescribeAuditSuppressionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.DescribeAuditSuppressionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.DescribeAuditSuppressionResponse object containing multiple properties."
     )]
     public partial class GetIOTAuditSuppressionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

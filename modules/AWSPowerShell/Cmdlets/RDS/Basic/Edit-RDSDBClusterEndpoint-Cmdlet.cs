@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.ModifyDBClusterEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBClusterEndpoint API operation.", Operation = new[] {"ModifyDBClusterEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyDBClusterEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ModifyDBClusterEndpointResponse",
-        "This cmdlet returns an Amazon.RDS.Model.ModifyDBClusterEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.ModifyDBClusterEndpointResponse object containing multiple properties."
     )]
     public partial class EditRDSDBClusterEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVerifiedAccessGroup API operation.", Operation = new[] {"DeleteVerifiedAccessGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessGroup or Amazon.EC2.Model.DeleteVerifiedAccessGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessGroup object.",
-        "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2VerifiedAccessGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

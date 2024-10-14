@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) UntagQueue API operation.", Operation = new[] {"UntagQueue"}, SelectReturnType = typeof(Amazon.SQS.Model.UntagQueueResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.UntagQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.UntagQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.UntagQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSQSResourceTagCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

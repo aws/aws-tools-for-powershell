@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse")]
     [AWSCmdlet("Calls the AWS Identity and Access Management GetOpenIDConnectProvider API operation.", Operation = new[] {"GetOpenIDConnectProvider"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse object containing multiple properties."
     )]
     public partial class GetIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

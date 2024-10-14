@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
     [AWSCmdlet("Calls the Amazon Route 53 Profiles ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Route53Profiles.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Profiles.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Route53Profiles.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Profiles.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53PResourceTagCmdlet : AmazonRoute53ProfilesClientCmdlet, IExecutor
     {

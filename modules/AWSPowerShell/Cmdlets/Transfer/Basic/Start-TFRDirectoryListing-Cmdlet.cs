@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [OutputType("Amazon.Transfer.Model.StartDirectoryListingResponse")]
     [AWSCmdlet("Calls the AWS Transfer for SFTP StartDirectoryListing API operation.", Operation = new[] {"StartDirectoryListing"}, SelectReturnType = typeof(Amazon.Transfer.Model.StartDirectoryListingResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.StartDirectoryListingResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.StartDirectoryListingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Transfer.Model.StartDirectoryListingResponse object containing multiple properties."
     )]
     public partial class StartTFRDirectoryListingCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig DeleteConfigurationProfile API operation.", Operation = new[] {"DeleteConfigurationProfile"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteConfigurationProfileResponse))]
     [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteConfigurationProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteConfigurationProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppConfig.Model.DeleteConfigurationProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPPCConfigurationProfileCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

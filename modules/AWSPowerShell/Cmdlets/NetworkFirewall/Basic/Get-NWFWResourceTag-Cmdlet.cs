@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [AWSCmdlet("Calls the AWS Network Firewall ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.Tag or Amazon.NetworkFirewall.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.Tag objects.",
-        "The service call response (type Amazon.NetworkFirewall.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkFirewall.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNWFWResourceTagCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

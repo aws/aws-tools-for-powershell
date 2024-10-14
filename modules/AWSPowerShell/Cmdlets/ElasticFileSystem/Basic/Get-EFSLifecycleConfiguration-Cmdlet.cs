@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DescribeLifecycleConfiguration API operation.", Operation = new[] {"DescribeLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.LifecyclePolicy or Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse",
         "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.LifecyclePolicy objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEFSLifecycleConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

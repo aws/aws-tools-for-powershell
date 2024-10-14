@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     [AWSCmdlet("Calls the AWS License Manager User Subscription RegisterIdentityProvider API operation.", Operation = new[] {"RegisterIdentityProvider"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.RegisterIdentityProviderResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.IdentityProviderSummary or Amazon.LicenseManagerUserSubscriptions.Model.RegisterIdentityProviderResponse",
         "This cmdlet returns an Amazon.LicenseManagerUserSubscriptions.Model.IdentityProviderSummary object.",
-        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.RegisterIdentityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.RegisterIdentityProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterLMUSIdentityProviderCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {

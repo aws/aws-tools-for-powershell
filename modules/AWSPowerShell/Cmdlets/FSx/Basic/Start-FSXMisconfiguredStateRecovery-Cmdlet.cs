@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx StartMisconfiguredStateRecovery API operation.", Operation = new[] {"StartMisconfiguredStateRecovery"}, SelectReturnType = typeof(Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.FileSystem or Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse",
         "This cmdlet returns an Amazon.FSx.Model.FileSystem object.",
-        "The service call response (type Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.StartMisconfiguredStateRecoveryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartFSXMisconfiguredStateRecoveryCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

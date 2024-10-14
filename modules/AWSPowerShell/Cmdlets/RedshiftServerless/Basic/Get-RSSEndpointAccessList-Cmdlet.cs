@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless ListEndpointAccess API operation.", Operation = new[] {"ListEndpointAccess"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListEndpointAccessResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.EndpointAccess or Amazon.RedshiftServerless.Model.ListEndpointAccessResponse",
         "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.EndpointAccess objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSEndpointAccessListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

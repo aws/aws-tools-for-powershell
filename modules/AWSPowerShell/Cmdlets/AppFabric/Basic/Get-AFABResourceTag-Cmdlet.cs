@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.AppFabric.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.Tag or Amazon.AppFabric.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.AppFabric.Model.Tag objects.",
-        "The service call response (type Amazon.AppFabric.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFABResourceTagCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

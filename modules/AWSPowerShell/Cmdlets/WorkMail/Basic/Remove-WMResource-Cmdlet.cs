@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteResource API operation.", Operation = new[] {"DeleteResource"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

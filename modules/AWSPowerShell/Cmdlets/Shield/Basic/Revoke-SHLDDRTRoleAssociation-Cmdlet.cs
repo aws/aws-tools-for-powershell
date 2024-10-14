@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DisassociateDRTRole API operation.", Operation = new[] {"DisassociateDRTRole"}, SelectReturnType = typeof(Amazon.Shield.Model.DisassociateDRTRoleResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.DisassociateDRTRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.DisassociateDRTRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.DisassociateDRTRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeSHLDDRTRoleAssociationCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

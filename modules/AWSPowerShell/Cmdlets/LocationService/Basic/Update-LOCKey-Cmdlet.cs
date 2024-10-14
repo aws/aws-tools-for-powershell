@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.UpdateKeyResponse")]
     [AWSCmdlet("Calls the Amazon Location Service UpdateKey API operation.", Operation = new[] {"UpdateKey"}, SelectReturnType = typeof(Amazon.LocationService.Model.UpdateKeyResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.UpdateKeyResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.UpdateKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.UpdateKeyResponse object containing multiple properties."
     )]
     public partial class UpdateLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

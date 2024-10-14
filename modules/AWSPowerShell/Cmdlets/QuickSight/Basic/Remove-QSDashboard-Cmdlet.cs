@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteDashboardResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteDashboard API operation.", Operation = new[] {"DeleteDashboard"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteDashboardResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteDashboardResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteDashboardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteDashboardResponse object containing multiple properties."
     )]
     public partial class RemoveQSDashboardCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

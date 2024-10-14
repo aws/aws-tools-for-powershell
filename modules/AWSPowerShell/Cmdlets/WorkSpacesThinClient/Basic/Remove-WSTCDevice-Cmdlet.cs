@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client DeleteDevice API operation.", Operation = new[] {"DeleteDevice"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.DeleteDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesThinClient.Model.DeleteDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesThinClient.Model.DeleteDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesThinClient.Model.DeleteDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSTCDeviceCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

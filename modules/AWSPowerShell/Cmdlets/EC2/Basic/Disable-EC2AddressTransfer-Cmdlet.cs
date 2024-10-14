@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableAddressTransfer API operation.", Operation = new[] {"DisableAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAddressTransferResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AddressTransfer or Amazon.EC2.Model.DisableAddressTransferResponse",
         "This cmdlet returns an Amazon.EC2.Model.AddressTransfer object.",
-        "The service call response (type Amazon.EC2.Model.DisableAddressTransferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisableAddressTransferResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableEC2AddressTransferCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases ListFieldOptions API operation.", Operation = new[] {"ListFieldOptions"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.ListFieldOptionsResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.FieldOption or Amazon.ConnectCases.Model.ListFieldOptionsResponse",
         "This cmdlet returns a collection of Amazon.ConnectCases.Model.FieldOption objects.",
-        "The service call response (type Amazon.ConnectCases.Model.ListFieldOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCases.Model.ListFieldOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCASFieldOptionListCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

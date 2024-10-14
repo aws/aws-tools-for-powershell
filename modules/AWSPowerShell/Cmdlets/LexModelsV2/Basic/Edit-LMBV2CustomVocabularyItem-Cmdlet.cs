@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.BatchUpdateCustomVocabularyItemResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 BatchUpdateCustomVocabularyItem API operation.", Operation = new[] {"BatchUpdateCustomVocabularyItem"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.BatchUpdateCustomVocabularyItemResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.BatchUpdateCustomVocabularyItemResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.BatchUpdateCustomVocabularyItemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.BatchUpdateCustomVocabularyItemResponse object containing multiple properties."
     )]
     public partial class EditLMBV2CustomVocabularyItemCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

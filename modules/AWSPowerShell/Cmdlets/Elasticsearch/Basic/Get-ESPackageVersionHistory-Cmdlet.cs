@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch GetPackageVersionHistory API operation.", Operation = new[] {"GetPackageVersionHistory"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.GetPackageVersionHistoryResponse object containing multiple properties."
     )]
     public partial class GetESPackageVersionHistoryCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

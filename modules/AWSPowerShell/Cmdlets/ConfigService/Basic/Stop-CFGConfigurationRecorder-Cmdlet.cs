@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config StopConfigurationRecorder API operation.", Operation = new[] {"StopConfigurationRecorder"}, SelectReturnType = typeof(Amazon.ConfigService.Model.StopConfigurationRecorderResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.StopConfigurationRecorderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.StopConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.StopConfigurationRecorderResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

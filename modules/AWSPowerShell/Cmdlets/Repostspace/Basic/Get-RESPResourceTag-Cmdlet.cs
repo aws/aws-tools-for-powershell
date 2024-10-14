@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Repostspace.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Repostspace.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Repostspace.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Repostspace.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRESPResourceTagCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

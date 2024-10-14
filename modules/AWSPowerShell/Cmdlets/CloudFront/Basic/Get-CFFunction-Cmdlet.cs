@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.GetFunctionResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront GetFunction API operation.", Operation = new[] {"GetFunction"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetFunctionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.GetFunctionResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.GetFunctionResponse object containing multiple properties."
     )]
     public partial class GetCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

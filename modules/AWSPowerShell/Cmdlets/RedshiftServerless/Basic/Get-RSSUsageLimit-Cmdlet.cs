@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless GetUsageLimit API operation.", Operation = new[] {"GetUsageLimit"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.GetUsageLimitResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.UsageLimit or Amazon.RedshiftServerless.Model.GetUsageLimitResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.UsageLimit object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.GetUsageLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.GetUsageLimitResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSUsageLimitCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

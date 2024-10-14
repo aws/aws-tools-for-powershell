@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) StartVpcEndpointServicePrivateDnsVerification API operation.", Operation = new[] {"StartVpcEndpointServicePrivateDnsVerification"}, SelectReturnType = typeof(Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.StartVpcEndpointServicePrivateDnsVerificationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartEC2VpcEndpointServicePrivateDnsVerificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

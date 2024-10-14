@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.APIGateway.Model.GetTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.APIGateway.Model.GetTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAGResourceTagCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager DescribePatchGroupState API operation.", Operation = new[] {"DescribePatchGroupState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DescribePatchGroupStateResponse object containing multiple properties."
     )]
     public partial class GetSSMPatchGroupStateCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

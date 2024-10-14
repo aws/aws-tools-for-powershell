@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [OutputType("Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Identity ListAppInstanceAdmins API operation.", Operation = new[] {"ListAppInstanceAdmins"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse",
-        "This cmdlet returns an Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKIdentity.Model.ListAppInstanceAdminsResponse object containing multiple properties."
     )]
     public partial class GetCHMIDAppInstanceAdminListCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

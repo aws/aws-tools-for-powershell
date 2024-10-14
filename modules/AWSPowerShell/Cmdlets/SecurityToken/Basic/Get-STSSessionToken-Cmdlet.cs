@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdlet("Calls the AWS Security Token Service (STS) GetSessionToken API operation.", Operation = new[] {"GetSessionToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetSessionTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.Credentials or Amazon.SecurityToken.Model.GetSessionTokenResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.Credentials object.",
-        "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NeptuneGraph.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NeptuneGraph.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NeptuneGraph.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveNEPTGResourceTagCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

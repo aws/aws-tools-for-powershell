@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.CreateGroupProfileResponse")]
     [AWSCmdlet("Calls the Amazon DataZone CreateGroupProfile API operation.", Operation = new[] {"CreateGroupProfile"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateGroupProfileResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.CreateGroupProfileResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.CreateGroupProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.CreateGroupProfileResponse object containing multiple properties."
     )]
     public partial class NewDZGroupProfileCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

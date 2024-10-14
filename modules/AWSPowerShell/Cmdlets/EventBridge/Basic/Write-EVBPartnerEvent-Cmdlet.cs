@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge PutPartnerEvents API operation.", Operation = new[] {"PutPartnerEvents"}, SelectReturnType = typeof(Amazon.EventBridge.Model.PutPartnerEventsResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.PutPartnerEventsResultEntry or Amazon.EventBridge.Model.PutPartnerEventsResponse",
         "This cmdlet returns a collection of Amazon.EventBridge.Model.PutPartnerEventsResultEntry objects.",
-        "The service call response (type Amazon.EventBridge.Model.PutPartnerEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.PutPartnerEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteEVBPartnerEventCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateKeyPair API operation.", Operation = new[] {"CreateKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.KeyPair or Amazon.EC2.Model.CreateKeyPairResponse",
         "This cmdlet returns an Amazon.EC2.Model.KeyPair object.",
-        "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events DeleteApiDestination API operation.", Operation = new[] {"DeleteApiDestination"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DeleteApiDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.DeleteApiDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.DeleteApiDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.DeleteApiDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEApiDestinationCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

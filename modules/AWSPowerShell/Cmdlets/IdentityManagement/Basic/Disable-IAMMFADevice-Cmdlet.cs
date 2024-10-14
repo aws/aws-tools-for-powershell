@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeactivateMFADevice API operation.", Operation = new[] {"DeactivateMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableIAMMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

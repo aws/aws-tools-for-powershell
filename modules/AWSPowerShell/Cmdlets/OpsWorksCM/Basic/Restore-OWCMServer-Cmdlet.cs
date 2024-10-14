@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [OutputType("Amazon.OpsWorksCM.Model.RestoreServerResponse")]
     [AWSCmdlet("Calls the AWS OpsWorksCM RestoreServer API operation.", Operation = new[] {"RestoreServer"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.RestoreServerResponse))]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.RestoreServerResponse",
-        "This cmdlet returns an Amazon.OpsWorksCM.Model.RestoreServerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpsWorksCM.Model.RestoreServerResponse object containing multiple properties."
     )]
     public partial class RestoreOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetBehaviorModelTrainingSummaries API operation.", Operation = new[] {"GetBehaviorModelTrainingSummaries"}, SelectReturnType = typeof(Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.BehaviorModelTrainingSummary or Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.BehaviorModelTrainingSummary objects.",
-        "The service call response (type Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTBehaviorModelTrainingSummaryCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

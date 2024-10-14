@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DeleteFilter API operation.", Operation = new[] {"DeleteFilter"}, SelectReturnType = typeof(Amazon.Personalize.Model.DeleteFilterResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.DeleteFilterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.DeleteFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.DeleteFilterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePERSFilterCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

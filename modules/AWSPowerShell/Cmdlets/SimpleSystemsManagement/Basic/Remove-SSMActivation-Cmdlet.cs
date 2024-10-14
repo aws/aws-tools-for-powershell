@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeleteActivation API operation.", Operation = new[] {"DeleteActivation"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteActivationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMActivationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     [AWSCmdlet("Calls the Amazon AppIntegrations Service DeleteEventIntegration API operation.", Operation = new[] {"DeleteEventIntegration"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.DeleteEventIntegrationResponse))]
     [AWSCmdletOutput("None or Amazon.AppIntegrationsService.Model.DeleteEventIntegrationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppIntegrationsService.Model.DeleteEventIntegrationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppIntegrationsService.Model.DeleteEventIntegrationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAISEventIntegrationCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {

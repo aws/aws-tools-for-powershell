@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkAcl API operation.", Operation = new[] {"CreateNetworkAcl"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkAclResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkAcl or Amazon.EC2.Model.CreateNetworkAclResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkAcl object.",
-        "The service call response (type Amazon.EC2.Model.CreateNetworkAclResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateNetworkAclResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2NetworkAclCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

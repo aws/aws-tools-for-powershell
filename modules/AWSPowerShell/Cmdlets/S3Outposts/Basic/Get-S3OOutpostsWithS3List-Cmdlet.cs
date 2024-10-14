@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     [AWSCmdlet("Calls the Amazon S3 Outposts ListOutpostsWithS3 API operation.", Operation = new[] {"ListOutpostsWithS3"}, SelectReturnType = typeof(Amazon.S3Outposts.Model.ListOutpostsWithS3Response))]
     [AWSCmdletOutput("Amazon.S3Outposts.Model.Outpost or Amazon.S3Outposts.Model.ListOutpostsWithS3Response",
         "This cmdlet returns a collection of Amazon.S3Outposts.Model.Outpost objects.",
-        "The service call response (type Amazon.S3Outposts.Model.ListOutpostsWithS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Outposts.Model.ListOutpostsWithS3Response) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3OOutpostsWithS3ListCmdlet : AmazonS3OutpostsClientCmdlet, IExecutor
     {

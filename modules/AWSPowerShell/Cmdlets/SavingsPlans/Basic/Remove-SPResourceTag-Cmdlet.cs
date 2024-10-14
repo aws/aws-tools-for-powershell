@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
     [AWSCmdlet("Calls the AWS Savings Plans UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SavingsPlans.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SavingsPlans.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SavingsPlans.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SavingsPlans.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSPResourceTagCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {

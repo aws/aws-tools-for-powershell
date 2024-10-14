@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog AssociatePrincipalWithPortfolio API operation.", Operation = new[] {"AssociatePrincipalWithPortfolio"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterSCPrincipalWithPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

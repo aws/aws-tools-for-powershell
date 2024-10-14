@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service PutAccountSettingDefault API operation.", Operation = new[] {"PutAccountSettingDefault"}, SelectReturnType = typeof(Amazon.ECS.Model.PutAccountSettingDefaultResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.Setting or Amazon.ECS.Model.PutAccountSettingDefaultResponse",
         "This cmdlet returns an Amazon.ECS.Model.Setting object.",
-        "The service call response (type Amazon.ECS.Model.PutAccountSettingDefaultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.PutAccountSettingDefaultResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteECSAccountSettingDefaultCmdlet : AmazonECSClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSnapshotResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.DataExchange.Model.CancelJobResponse))]
     [AWSCmdletOutput("None or Amazon.DataExchange.Model.CancelJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.CancelJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataExchange.Model.CancelJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopDTEXJobCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

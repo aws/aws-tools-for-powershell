@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Cloud9.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Cloud9.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Cloud9.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Cloud9.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddC9ResourceTagCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

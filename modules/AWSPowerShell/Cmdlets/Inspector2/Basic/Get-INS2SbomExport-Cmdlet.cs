@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.GetSbomExportResponse")]
     [AWSCmdlet("Calls the Inspector2 GetSbomExport API operation.", Operation = new[] {"GetSbomExport"}, SelectReturnType = typeof(Amazon.Inspector2.Model.GetSbomExportResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.GetSbomExportResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.GetSbomExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.GetSbomExportResponse object containing multiple properties."
     )]
     public partial class GetINS2SbomExportCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

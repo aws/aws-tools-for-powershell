@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [OutputType("Amazon.Tnb.Model.ValidateSolFunctionPackageContentResponse")]
     [AWSCmdlet("Calls the AWS Telco Network Builder ValidateSolFunctionPackageContent API operation.", Operation = new[] {"ValidateSolFunctionPackageContent"}, SelectReturnType = typeof(Amazon.Tnb.Model.ValidateSolFunctionPackageContentResponse))]
     [AWSCmdletOutput("Amazon.Tnb.Model.ValidateSolFunctionPackageContentResponse",
-        "This cmdlet returns an Amazon.Tnb.Model.ValidateSolFunctionPackageContentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Tnb.Model.ValidateSolFunctionPackageContentResponse object containing multiple properties."
     )]
     public partial class TestTNBSolFunctionPackageContentCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [OutputType("Amazon.CostExplorer.Model.GetUsageForecastResponse")]
     [AWSCmdlet("Calls the AWS Cost Explorer GetUsageForecast API operation.", Operation = new[] {"GetUsageForecast"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetUsageForecastResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetUsageForecastResponse",
-        "This cmdlet returns an Amazon.CostExplorer.Model.GetUsageForecastResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostExplorer.Model.GetUsageForecastResponse object containing multiple properties."
     )]
     public partial class GetCEUsageForecastCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

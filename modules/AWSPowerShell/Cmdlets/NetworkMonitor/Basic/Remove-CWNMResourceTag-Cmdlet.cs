@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
     [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkMonitor.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkMonitor.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkMonitor.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWNMResourceTagCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {

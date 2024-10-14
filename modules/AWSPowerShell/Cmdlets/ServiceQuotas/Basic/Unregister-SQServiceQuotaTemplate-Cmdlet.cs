@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     [AWSCmdlet("Calls the AWS Service Quotas DisassociateServiceQuotaTemplate API operation.", Operation = new[] {"DisassociateServiceQuotaTemplate"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.DisassociateServiceQuotaTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceQuotas.Model.DisassociateServiceQuotaTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceQuotas.Model.DisassociateServiceQuotaTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceQuotas.Model.DisassociateServiceQuotaTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSQServiceQuotaTemplateCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {

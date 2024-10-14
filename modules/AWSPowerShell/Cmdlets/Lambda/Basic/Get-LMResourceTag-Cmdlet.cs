@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda ListTags API operation.", Operation = new[] {"ListTags"}, SelectReturnType = typeof(Amazon.Lambda.Model.ListTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Lambda.Model.ListTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Lambda.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.ListTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMResourceTagCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

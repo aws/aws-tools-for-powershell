@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CreatePartitionIndex API operation.", Operation = new[] {"CreatePartitionIndex"}, SelectReturnType = typeof(Amazon.Glue.Model.CreatePartitionIndexResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.CreatePartitionIndexResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreatePartitionIndexResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.CreatePartitionIndexResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewGLUEPartitionIndexCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminDeleteUserAttributes API operation.", Operation = new[] {"AdminDeleteUserAttributes"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGIPUserAttributeAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

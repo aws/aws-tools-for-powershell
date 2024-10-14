@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager CreateRuleSet API operation.", Operation = new[] {"CreateRuleSet"}, SelectReturnType = typeof(Amazon.MailManager.Model.CreateRuleSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.MailManager.Model.CreateRuleSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MailManager.Model.CreateRuleSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.CreateRuleSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMMGRRuleSetCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

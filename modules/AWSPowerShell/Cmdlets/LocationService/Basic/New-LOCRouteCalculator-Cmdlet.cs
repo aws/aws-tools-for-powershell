@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.CreateRouteCalculatorResponse")]
     [AWSCmdlet("Calls the Amazon Location Service CreateRouteCalculator API operation.", Operation = new[] {"CreateRouteCalculator"}, SelectReturnType = typeof(Amazon.LocationService.Model.CreateRouteCalculatorResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.CreateRouteCalculatorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.CreateRouteCalculatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.CreateRouteCalculatorResponse object containing multiple properties."
     )]
     public partial class NewLOCRouteCalculatorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

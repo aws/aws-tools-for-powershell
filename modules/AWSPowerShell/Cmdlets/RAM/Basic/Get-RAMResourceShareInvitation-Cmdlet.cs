@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) GetResourceShareInvitations API operation.", Operation = new[] {"GetResourceShareInvitations"}, SelectReturnType = typeof(Amazon.RAM.Model.GetResourceShareInvitationsResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceShareInvitation or Amazon.RAM.Model.GetResourceShareInvitationsResponse",
         "This cmdlet returns a collection of Amazon.RAM.Model.ResourceShareInvitation objects.",
-        "The service call response (type Amazon.RAM.Model.GetResourceShareInvitationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.GetResourceShareInvitationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRAMResourceShareInvitationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy GetDeploymentInstance API operation.", Operation = new[] {"GetDeploymentInstance"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.InstanceSummary or Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse",
         "This cmdlet returns an Amazon.CodeDeploy.Model.InstanceSummary object.",
-        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use GetDeploymentTarget instead.")]
     public partial class GetCDDeploymentInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor

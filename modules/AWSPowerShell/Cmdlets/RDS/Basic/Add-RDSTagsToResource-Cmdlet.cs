@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.RDS.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddRDSTagsToResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

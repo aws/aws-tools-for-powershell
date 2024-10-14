@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteRemediationConfiguration API operation.", Operation = new[] {"DeleteRemediationConfiguration"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteRemediationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteRemediationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteRemediationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteRemediationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGRemediationConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

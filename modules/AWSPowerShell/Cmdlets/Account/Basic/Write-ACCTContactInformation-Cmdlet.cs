@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account PutContactInformation API operation.", Operation = new[] {"PutContactInformation"}, SelectReturnType = typeof(Amazon.Account.Model.PutContactInformationResponse))]
     [AWSCmdletOutput("None or Amazon.Account.Model.PutContactInformationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.PutContactInformationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Account.Model.PutContactInformationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteACCTContactInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

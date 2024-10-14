@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [OutputType("Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer CheckNoPublicAccess API operation.", Operation = new[] {"CheckNoPublicAccess"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse object containing multiple properties."
     )]
     public partial class TestIAMAANoPublicAccessCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

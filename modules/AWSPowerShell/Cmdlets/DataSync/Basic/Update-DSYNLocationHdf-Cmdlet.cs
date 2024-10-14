@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync UpdateLocationHdfs API operation.", Operation = new[] {"UpdateLocationHdfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationHdfsResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationHdfsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateLocationHdfsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationHdfsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSYNLocationHdfCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

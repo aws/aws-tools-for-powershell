@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateDocument API operation.", Operation = new[] {"UpdateDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription or Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

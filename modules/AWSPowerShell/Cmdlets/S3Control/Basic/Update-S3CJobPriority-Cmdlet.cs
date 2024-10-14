@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.UpdateJobPriorityResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control UpdateJobPriority API operation.", Operation = new[] {"UpdateJobPriority"}, SelectReturnType = typeof(Amazon.S3Control.Model.UpdateJobPriorityResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.UpdateJobPriorityResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.UpdateJobPriorityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.UpdateJobPriorityResponse object containing multiple properties."
     )]
     public partial class UpdateS3CJobPriorityCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

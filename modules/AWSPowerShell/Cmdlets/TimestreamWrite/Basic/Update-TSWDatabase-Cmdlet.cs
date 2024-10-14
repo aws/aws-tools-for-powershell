@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [AWSCmdlet("Calls the Amazon Timestream Write UpdateDatabase API operation.", Operation = new[] {"UpdateDatabase"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.UpdateDatabaseResponse))]
     [AWSCmdletOutput("Amazon.TimestreamWrite.Model.Database or Amazon.TimestreamWrite.Model.UpdateDatabaseResponse",
         "This cmdlet returns an Amazon.TimestreamWrite.Model.Database object.",
-        "The service call response (type Amazon.TimestreamWrite.Model.UpdateDatabaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamWrite.Model.UpdateDatabaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTSWDatabaseCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

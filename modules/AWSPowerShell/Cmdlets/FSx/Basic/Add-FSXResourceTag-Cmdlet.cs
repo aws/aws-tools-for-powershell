@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.FSx.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.FSx.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FSx.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FSx.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddFSXResourceTagCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

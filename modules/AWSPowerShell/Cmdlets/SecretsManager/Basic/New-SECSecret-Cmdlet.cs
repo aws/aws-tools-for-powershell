@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.CreateSecretResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager CreateSecret API operation.", Operation = new[] {"CreateSecret"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.CreateSecretResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.CreateSecretResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.CreateSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.CreateSecretResponse object containing multiple properties."
     )]
     public partial class NewSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

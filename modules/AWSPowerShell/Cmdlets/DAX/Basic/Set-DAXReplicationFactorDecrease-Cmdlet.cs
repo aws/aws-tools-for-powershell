@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DecreaseReplicationFactor API operation.", Operation = new[] {"DecreaseReplicationFactor"}, SelectReturnType = typeof(Amazon.DAX.Model.DecreaseReplicationFactorResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster or Amazon.DAX.Model.DecreaseReplicationFactorResponse",
         "This cmdlet returns an Amazon.DAX.Model.Cluster object.",
-        "The service call response (type Amazon.DAX.Model.DecreaseReplicationFactorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.DecreaseReplicationFactorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetDAXReplicationFactorDecreaseCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

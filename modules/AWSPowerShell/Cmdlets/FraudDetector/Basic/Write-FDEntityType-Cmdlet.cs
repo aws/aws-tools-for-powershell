@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector PutEntityType API operation.", Operation = new[] {"PutEntityType"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.PutEntityTypeResponse))]
     [AWSCmdletOutput("None or Amazon.FraudDetector.Model.PutEntityTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.PutEntityTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.PutEntityTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteFDEntityTypeCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

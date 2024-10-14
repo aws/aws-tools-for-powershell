@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [OutputType("Amazon.Bedrock.Model.GetInferenceProfileResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock GetInferenceProfile API operation.", Operation = new[] {"GetInferenceProfile"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetInferenceProfileResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.GetInferenceProfileResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetInferenceProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.GetInferenceProfileResponse object containing multiple properties."
     )]
     public partial class GetBDRInferenceProfileCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

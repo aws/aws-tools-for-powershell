@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager DeregisterTargetFromMaintenanceWindow API operation.", Operation = new[] {"DeregisterTargetFromMaintenanceWindow"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse object containing multiple properties."
     )]
     public partial class UnregisterSSMTargetFromMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteBucketPolicy API operation.", Operation = new[] {"DeleteBucketPolicy"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.DeleteBucketPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.DeleteBucketPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.DeleteBucketPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

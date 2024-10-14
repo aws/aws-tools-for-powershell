@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue StopCrawlerSchedule API operation.", Operation = new[] {"StopCrawlerSchedule"}, SelectReturnType = typeof(Amazon.Glue.Model.StopCrawlerScheduleResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.StopCrawlerScheduleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.StopCrawlerScheduleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.StopCrawlerScheduleResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGLUECrawlerScheduleCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

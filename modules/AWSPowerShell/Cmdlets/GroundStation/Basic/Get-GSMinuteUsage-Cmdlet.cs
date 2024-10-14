@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.GetMinuteUsageResponse")]
     [AWSCmdlet("Calls the AWS Ground Station GetMinuteUsage API operation.", Operation = new[] {"GetMinuteUsage"}, SelectReturnType = typeof(Amazon.GroundStation.Model.GetMinuteUsageResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.GetMinuteUsageResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.GetMinuteUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.GetMinuteUsageResponse object containing multiple properties."
     )]
     public partial class GetGSMinuteUsageCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

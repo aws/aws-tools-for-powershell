@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [OutputType("Amazon.HealthLake.Model.CreateFHIRDatastoreResponse")]
     [AWSCmdlet("Calls the Amazon HealthLake CreateFHIRDatastore API operation.", Operation = new[] {"CreateFHIRDatastore"}, SelectReturnType = typeof(Amazon.HealthLake.Model.CreateFHIRDatastoreResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.CreateFHIRDatastoreResponse",
-        "This cmdlet returns an Amazon.HealthLake.Model.CreateFHIRDatastoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.HealthLake.Model.CreateFHIRDatastoreResponse object containing multiple properties."
     )]
     public partial class NewAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

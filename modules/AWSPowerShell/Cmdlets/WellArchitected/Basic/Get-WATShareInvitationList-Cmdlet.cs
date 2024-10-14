@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool ListShareInvitations API operation.", Operation = new[] {"ListShareInvitations"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListShareInvitationsResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.ShareInvitationSummary or Amazon.WellArchitected.Model.ListShareInvitationsResponse",
         "This cmdlet returns a collection of Amazon.WellArchitected.Model.ShareInvitationSummary objects.",
-        "The service call response (type Amazon.WellArchitected.Model.ListShareInvitationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.ListShareInvitationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWATShareInvitationListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.GetImportResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail GetImport API operation.", Operation = new[] {"GetImport"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetImportResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetImportResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.GetImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.GetImportResponse object containing multiple properties."
     )]
     public partial class GetCTImportCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

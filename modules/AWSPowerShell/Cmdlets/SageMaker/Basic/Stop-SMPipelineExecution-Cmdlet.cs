@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service StopPipelineExecution API operation.", Operation = new[] {"StopPipelineExecution"}, SelectReturnType = typeof(Amazon.SageMaker.Model.StopPipelineExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.StopPipelineExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.StopPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.StopPipelineExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSMPipelineExecutionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

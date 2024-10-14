@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager GetReplicationSet API operation.", Operation = new[] {"GetReplicationSet"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.GetReplicationSetResponse))]
     [AWSCmdletOutput("Amazon.SSMIncidents.Model.ReplicationSet or Amazon.SSMIncidents.Model.GetReplicationSetResponse",
         "This cmdlet returns an Amazon.SSMIncidents.Model.ReplicationSet object.",
-        "The service call response (type Amazon.SSMIncidents.Model.GetReplicationSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMIncidents.Model.GetReplicationSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMIReplicationSetCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

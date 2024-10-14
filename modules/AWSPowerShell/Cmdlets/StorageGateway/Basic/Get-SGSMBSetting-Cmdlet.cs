@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeSMBSettingsResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeSMBSettings API operation.", Operation = new[] {"DescribeSMBSettings"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeSMBSettingsResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeSMBSettingsResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeSMBSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeSMBSettingsResponse object containing multiple properties."
     )]
     public partial class GetSGSMBSettingCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

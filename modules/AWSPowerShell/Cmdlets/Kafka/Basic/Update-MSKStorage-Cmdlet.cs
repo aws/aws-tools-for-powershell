@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.UpdateStorageResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateStorage API operation.", Operation = new[] {"UpdateStorage"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateStorageResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateStorageResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.UpdateStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.UpdateStorageResponse object containing multiple properties."
     )]
     public partial class UpdateMSKStorageCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

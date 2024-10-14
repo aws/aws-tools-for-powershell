@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize StopRecommender API operation.", Operation = new[] {"StopRecommender"}, SelectReturnType = typeof(Amazon.Personalize.Model.StopRecommenderResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.StopRecommenderResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.StopRecommenderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.StopRecommenderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopPERSRecommenderCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

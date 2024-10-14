@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime StopComposition API operation.", Operation = new[] {"StopComposition"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.StopCompositionResponse))]
     [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.StopCompositionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.StopCompositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVSRealTime.Model.StopCompositionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopIVSRTCompositionCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

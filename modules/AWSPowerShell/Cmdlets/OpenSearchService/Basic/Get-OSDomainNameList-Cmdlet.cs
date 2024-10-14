@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service ListDomainNames API operation.", Operation = new[] {"ListDomainNames"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.ListDomainNamesResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DomainInfo or Amazon.OpenSearchService.Model.ListDomainNamesResponse",
         "This cmdlet returns a collection of Amazon.OpenSearchService.Model.DomainInfo objects.",
-        "The service call response (type Amazon.OpenSearchService.Model.ListDomainNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.ListDomainNamesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSDomainNameListCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

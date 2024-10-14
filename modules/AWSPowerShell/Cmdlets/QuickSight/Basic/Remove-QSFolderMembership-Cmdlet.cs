@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteFolderMembershipResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteFolderMembership API operation.", Operation = new[] {"DeleteFolderMembership"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteFolderMembershipResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteFolderMembershipResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteFolderMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteFolderMembershipResponse object containing multiple properties."
     )]
     public partial class RemoveQSFolderMembershipCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

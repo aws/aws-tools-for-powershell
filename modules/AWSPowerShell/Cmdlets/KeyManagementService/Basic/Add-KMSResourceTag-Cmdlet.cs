@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKMSResourceTagCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

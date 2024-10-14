@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.PutSchemaResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions PutSchema API operation.", Operation = new[] {"PutSchema"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.PutSchemaResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PutSchemaResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.PutSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.PutSchemaResponse object containing multiple properties."
     )]
     public partial class WriteAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

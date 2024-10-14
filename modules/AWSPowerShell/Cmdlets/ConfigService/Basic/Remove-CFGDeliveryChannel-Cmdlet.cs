@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteDeliveryChannel API operation.", Operation = new[] {"DeleteDeliveryChannel"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteDeliveryChannelResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteDeliveryChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

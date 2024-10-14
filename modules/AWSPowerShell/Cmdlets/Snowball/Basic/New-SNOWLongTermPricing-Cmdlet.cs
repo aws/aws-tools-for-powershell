@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball CreateLongTermPricing API operation.", Operation = new[] {"CreateLongTermPricing"}, SelectReturnType = typeof(Amazon.Snowball.Model.CreateLongTermPricingResponse))]
     [AWSCmdletOutput("System.String or Amazon.Snowball.Model.CreateLongTermPricingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Snowball.Model.CreateLongTermPricingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Snowball.Model.CreateLongTermPricingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSNOWLongTermPricingCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

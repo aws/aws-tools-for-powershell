@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [AWSCmdlet("Calls the Amazon Pinpoint Email GetBlacklistReports API operation.", Operation = new[] {"GetBlacklistReports"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.GetBlacklistReportsResponse))]
     [AWSCmdletOutput("System.String or Amazon.PinpointEmail.Model.GetBlacklistReportsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.PinpointEmail.Model.GetBlacklistReportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PinpointEmail.Model.GetBlacklistReportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINEBlacklistReportCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

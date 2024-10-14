@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty AcceptAdministratorInvitation API operation.", Operation = new[] {"AcceptAdministratorInvitation"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.AcceptAdministratorInvitationResponse) be returned by specifying '-Select *'."
     )]
     public partial class ReceiveGDAdministratorInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

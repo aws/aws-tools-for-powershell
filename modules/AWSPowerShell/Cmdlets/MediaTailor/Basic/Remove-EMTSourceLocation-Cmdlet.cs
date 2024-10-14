@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor DeleteSourceLocation API operation.", Operation = new[] {"DeleteSourceLocation"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.DeleteSourceLocationResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.DeleteSourceLocationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.DeleteSourceLocationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.DeleteSourceLocationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMTSourceLocationCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

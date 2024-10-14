@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub GetAdministratorAccount API operation.", Operation = new[] {"GetAdministratorAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetAdministratorAccountResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.Invitation or Amazon.SecurityHub.Model.GetAdministratorAccountResponse",
         "This cmdlet returns an Amazon.SecurityHub.Model.Invitation object.",
-        "The service call response (type Amazon.SecurityHub.Model.GetAdministratorAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.GetAdministratorAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSHUBAdministratorAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

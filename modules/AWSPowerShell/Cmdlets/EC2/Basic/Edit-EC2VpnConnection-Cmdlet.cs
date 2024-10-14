@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpnConnection API operation.", Operation = new[] {"ModifyVpnConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpnConnectionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConnection or Amazon.EC2.Model.ModifyVpnConnectionResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpnConnection object.",
-        "The service call response (type Amazon.EC2.Model.ModifyVpnConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyVpnConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

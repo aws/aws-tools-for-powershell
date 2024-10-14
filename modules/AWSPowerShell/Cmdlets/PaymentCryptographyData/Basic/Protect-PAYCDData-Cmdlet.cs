@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     [OutputType("Amazon.PaymentCryptographyData.Model.EncryptDataResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Data EncryptData API operation.", Operation = new[] {"EncryptData"}, SelectReturnType = typeof(Amazon.PaymentCryptographyData.Model.EncryptDataResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptographyData.Model.EncryptDataResponse",
-        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.EncryptDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.EncryptDataResponse object containing multiple properties."
     )]
     public partial class ProtectPAYCDDataCmdlet : AmazonPaymentCryptographyDataClientCmdlet, IExecutor
     {

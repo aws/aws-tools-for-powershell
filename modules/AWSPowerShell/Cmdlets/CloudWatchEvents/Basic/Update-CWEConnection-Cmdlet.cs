@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [OutputType("Amazon.CloudWatchEvents.Model.UpdateConnectionResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Events UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.UpdateConnectionResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.UpdateConnectionResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvents.Model.UpdateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvents.Model.UpdateConnectionResponse object containing multiple properties."
     )]
     public partial class UpdateCWEConnectionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

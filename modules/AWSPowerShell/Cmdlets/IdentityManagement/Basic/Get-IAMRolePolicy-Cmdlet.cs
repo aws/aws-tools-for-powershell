@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetRolePolicyResponse")]
     [AWSCmdlet("Calls the AWS Identity and Access Management GetRolePolicy API operation.", Operation = new[] {"GetRolePolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetRolePolicyResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetRolePolicyResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.GetRolePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetRolePolicyResponse object containing multiple properties."
     )]
     public partial class GetIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

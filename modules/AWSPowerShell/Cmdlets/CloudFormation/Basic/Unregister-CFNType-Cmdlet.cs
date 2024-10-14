@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeregisterType API operation.", Operation = new[] {"DeregisterType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeregisterTypeResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeregisterTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeregisterTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeregisterTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

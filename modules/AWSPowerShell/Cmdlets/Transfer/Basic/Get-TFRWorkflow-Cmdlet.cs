@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeWorkflow API operation.", Operation = new[] {"DescribeWorkflow"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeWorkflowResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.DescribedWorkflow or Amazon.Transfer.Model.DescribeWorkflowResponse",
         "This cmdlet returns an Amazon.Transfer.Model.DescribedWorkflow object.",
-        "The service call response (type Amazon.Transfer.Model.DescribeWorkflowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.DescribeWorkflowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTFRWorkflowCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

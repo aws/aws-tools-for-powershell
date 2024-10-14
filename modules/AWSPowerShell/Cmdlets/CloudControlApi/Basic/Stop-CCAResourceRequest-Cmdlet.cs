@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     [AWSCmdlet("Calls the AWS Cloud Control API CancelResourceRequest API operation.", Operation = new[] {"CancelResourceRequest"}, SelectReturnType = typeof(Amazon.CloudControlApi.Model.CancelResourceRequestResponse))]
     [AWSCmdletOutput("Amazon.CloudControlApi.Model.ProgressEvent or Amazon.CloudControlApi.Model.CancelResourceRequestResponse",
         "This cmdlet returns an Amazon.CloudControlApi.Model.ProgressEvent object.",
-        "The service call response (type Amazon.CloudControlApi.Model.CancelResourceRequestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudControlApi.Model.CancelResourceRequestResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopCCAResourceRequestCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {

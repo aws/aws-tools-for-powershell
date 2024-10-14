@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh CreateVirtualGateway API operation.", Operation = new[] {"CreateVirtualGateway"}, SelectReturnType = typeof(Amazon.AppMesh.Model.CreateVirtualGatewayResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.VirtualGatewayData or Amazon.AppMesh.Model.CreateVirtualGatewayResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.VirtualGatewayData object.",
-        "The service call response (type Amazon.AppMesh.Model.CreateVirtualGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.CreateVirtualGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMSHVirtualGatewayCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

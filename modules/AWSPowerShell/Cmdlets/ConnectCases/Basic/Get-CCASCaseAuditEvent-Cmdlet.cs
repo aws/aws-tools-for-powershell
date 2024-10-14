@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases GetCaseAuditEvents API operation.", Operation = new[] {"GetCaseAuditEvents"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetCaseAuditEventsResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.AuditEvent or Amazon.ConnectCases.Model.GetCaseAuditEventsResponse",
         "This cmdlet returns a collection of Amazon.ConnectCases.Model.AuditEvent objects.",
-        "The service call response (type Amazon.ConnectCases.Model.GetCaseAuditEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCases.Model.GetCaseAuditEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCASCaseAuditEventCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

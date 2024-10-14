@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager AssociateOpsItemRelatedItem API operation.", Operation = new[] {"AssociateOpsItemRelatedItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.AssociateOpsItemRelatedItemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterSSMOpsItemRelatedItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

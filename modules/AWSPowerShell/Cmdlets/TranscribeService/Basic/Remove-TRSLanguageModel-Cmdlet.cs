@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service DeleteLanguageModel API operation.", Operation = new[] {"DeleteLanguageModel"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.DeleteLanguageModelResponse))]
     [AWSCmdletOutput("None or Amazon.TranscribeService.Model.DeleteLanguageModelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TranscribeService.Model.DeleteLanguageModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TranscribeService.Model.DeleteLanguageModelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTRSLanguageModelCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

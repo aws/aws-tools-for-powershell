@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm RenewOffering API operation.", Operation = new[] {"RenewOffering"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.RenewOfferingResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.OfferingTransaction or Amazon.DeviceFarm.Model.RenewOfferingResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.OfferingTransaction object.",
-        "The service call response (type Amazon.DeviceFarm.Model.RenewOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.RenewOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDFOfferingRenewalCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

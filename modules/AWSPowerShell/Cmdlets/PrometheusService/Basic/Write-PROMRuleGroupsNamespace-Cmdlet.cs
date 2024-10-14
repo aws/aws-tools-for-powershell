@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [OutputType("Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse")]
     [AWSCmdlet("Calls the Amazon Prometheus Service PutRuleGroupsNamespace API operation.", Operation = new[] {"PutRuleGroupsNamespace"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse object containing multiple properties."
     )]
     public partial class WritePROMRuleGroupsNamespaceCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KVM
     [OutputType("Amazon.KinesisVideoMedia.Model.GetMediaResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams Media GetMedia API operation.", Operation = new[] {"GetMedia"}, SelectReturnType = typeof(Amazon.KinesisVideoMedia.Model.GetMediaResponse))]
     [AWSCmdletOutput("Amazon.KinesisVideoMedia.Model.GetMediaResponse",
-        "This cmdlet returns an Amazon.KinesisVideoMedia.Model.GetMediaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisVideoMedia.Model.GetMediaResponse object containing multiple properties."
     )]
     public partial class GetKVMMediaCmdlet : AmazonKinesisVideoMediaClientCmdlet, IExecutor
     {

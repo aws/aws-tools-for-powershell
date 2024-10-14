@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [AWSCmdlet("Calls the AWS SimSpace Weaver StopApp API operation.", Operation = new[] {"StopApp"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.StopAppResponse))]
     [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.StopAppResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimSpaceWeaver.Model.StopAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimSpaceWeaver.Model.StopAppResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSSWAppCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

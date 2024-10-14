@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) CheckIfPhoneNumberIsOptedOut API operation.", Operation = new[] {"CheckIfPhoneNumberIsOptedOut"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestSNSIfPhoneNumberIsOptedOutCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

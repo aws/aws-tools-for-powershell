@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     [AWSCmdlet("Calls the AWS Comprehend Medical InferICD10CM API operation.", Operation = new[] {"InferICD10CM"}, SelectReturnType = typeof(Amazon.ComprehendMedical.Model.InferICD10CMResponse))]
     [AWSCmdletOutput("Amazon.ComprehendMedical.Model.ICD10CMEntity or Amazon.ComprehendMedical.Model.InferICD10CMResponse",
         "This cmdlet returns a collection of Amazon.ComprehendMedical.Model.ICD10CMEntity objects.",
-        "The service call response (type Amazon.ComprehendMedical.Model.InferICD10CMResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ComprehendMedical.Model.InferICD10CMResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCMPMICD10CMCmdlet : AmazonComprehendMedicalClientCmdlet, IExecutor
     {

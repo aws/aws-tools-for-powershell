@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm GetNetworkProfile API operation.", Operation = new[] {"GetNetworkProfile"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetNetworkProfileResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.NetworkProfile or Amazon.DeviceFarm.Model.GetNetworkProfileResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.NetworkProfile object.",
-        "The service call response (type Amazon.DeviceFarm.Model.GetNetworkProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetNetworkProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFNetworkProfileCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

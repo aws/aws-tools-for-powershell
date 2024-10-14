@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DescribeLoggingStatusResponse")]
     [AWSCmdlet("Calls the Amazon Redshift DescribeLoggingStatus API operation.", Operation = new[] {"DescribeLoggingStatus"}, SelectReturnType = typeof(Amazon.Redshift.Model.DescribeLoggingStatusResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.DescribeLoggingStatusResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.DescribeLoggingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.DescribeLoggingStatusResponse object containing multiple properties."
     )]
     public partial class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

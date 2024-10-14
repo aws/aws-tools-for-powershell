@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.GetBotResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service GetBot API operation.", Operation = new[] {"GetBot"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.GetBotResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetBotResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetBotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.GetBotResponse object containing multiple properties."
     )]
     public partial class GetLMBBotCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

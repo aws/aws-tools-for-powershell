@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru UpdateResourceCollection API operation.", Operation = new[] {"UpdateResourceCollection"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.UpdateResourceCollectionResponse))]
     [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.UpdateResourceCollectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DevOpsGuru.Model.UpdateResourceCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.UpdateResourceCollectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDGURUResourceCollectionCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

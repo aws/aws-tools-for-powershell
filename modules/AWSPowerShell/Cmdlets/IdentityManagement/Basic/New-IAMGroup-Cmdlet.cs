@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.CreateGroupResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Group or Amazon.IdentityManagement.Model.CreateGroupResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.Group object.",
-        "The service call response (type Amazon.IdentityManagement.Model.CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

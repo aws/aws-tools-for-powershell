@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics DeleteWorkflow API operation.", Operation = new[] {"DeleteWorkflow"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteWorkflowResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.DeleteWorkflowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.DeleteWorkflowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.DeleteWorkflowResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSWorkflowCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

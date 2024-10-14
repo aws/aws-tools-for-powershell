@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph UpdateFlowTemplate API operation.", Operation = new[] {"UpdateFlowTemplate"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.UpdateFlowTemplateResponse))]
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.FlowTemplateSummary or Amazon.IoTThingsGraph.Model.UpdateFlowTemplateResponse",
         "This cmdlet returns an Amazon.IoTThingsGraph.Model.FlowTemplateSummary object.",
-        "The service call response (type Amazon.IoTThingsGraph.Model.UpdateFlowTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTThingsGraph.Model.UpdateFlowTemplateResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class UpdateIOTTGFlowTemplateCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

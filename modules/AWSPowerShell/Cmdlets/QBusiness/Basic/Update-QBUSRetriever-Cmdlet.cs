@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness UpdateRetriever API operation.", Operation = new[] {"UpdateRetriever"}, SelectReturnType = typeof(Amazon.QBusiness.Model.UpdateRetrieverResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.UpdateRetrieverResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.UpdateRetrieverResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.UpdateRetrieverResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateQBUSRetrieverCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

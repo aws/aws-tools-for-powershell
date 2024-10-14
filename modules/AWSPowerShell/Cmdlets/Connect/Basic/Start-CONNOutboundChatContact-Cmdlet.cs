@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service StartOutboundChatContact API operation.", Operation = new[] {"StartOutboundChatContact"}, SelectReturnType = typeof(Amazon.Connect.Model.StartOutboundChatContactResponse))]
     [AWSCmdletOutput("System.String or Amazon.Connect.Model.StartOutboundChatContactResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Connect.Model.StartOutboundChatContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.StartOutboundChatContactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCONNOutboundChatContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

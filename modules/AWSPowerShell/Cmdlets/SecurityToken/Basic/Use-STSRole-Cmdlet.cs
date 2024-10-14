@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleResponse")]
     [AWSCmdlet("Calls the AWS Security Token Service (STS) AssumeRole API operation.", Operation = new[] {"AssumeRole"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.AssumeRoleResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleResponse",
-        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties."
     )]
     public partial class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

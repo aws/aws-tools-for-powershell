@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcEndpointServiceConfiguration API operation.", Operation = new[] {"ModifyVpcEndpointServiceConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2VpcEndpointServiceConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

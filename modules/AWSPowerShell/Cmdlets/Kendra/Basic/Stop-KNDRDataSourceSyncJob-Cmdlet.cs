@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra StopDataSourceSyncJob API operation.", Operation = new[] {"StopDataSourceSyncJob"}, SelectReturnType = typeof(Amazon.Kendra.Model.StopDataSourceSyncJobResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.StopDataSourceSyncJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.StopDataSourceSyncJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.StopDataSourceSyncJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopKNDRDataSourceSyncJobCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

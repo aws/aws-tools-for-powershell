@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams TagStream API operation.", Operation = new[] {"TagStream"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.TagStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.TagStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideo.Model.TagStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.TagStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKVStreamTagCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

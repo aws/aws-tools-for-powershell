@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm GetVPCEConfiguration API operation.", Operation = new[] {"GetVPCEConfiguration"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.VPCEConfiguration or Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.VPCEConfiguration object.",
-        "The service call response (type Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetVPCEConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFVPCEConfigurationCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB FailoverShard API operation.", Operation = new[] {"FailoverShard"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.FailoverShardResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Cluster or Amazon.MemoryDB.Model.FailoverShardResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.Cluster object.",
-        "The service call response (type Amazon.MemoryDB.Model.FailoverShardResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.FailoverShardResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMDBFailoverShardCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

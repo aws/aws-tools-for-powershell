@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler PostAgentProfile API operation.", Operation = new[] {"PostAgentProfile"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.PostAgentProfileResponse))]
     [AWSCmdletOutput("None or Amazon.CodeGuruProfiler.Model.PostAgentProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruProfiler.Model.PostAgentProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeGuruProfiler.Model.PostAgentProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendCGPAgentProfileCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [OutputType("Amazon.Finspace.Model.GetKxEnvironmentResponse")]
     [AWSCmdlet("Calls the FinSpace User Environment Management Service GetKxEnvironment API operation.", Operation = new[] {"GetKxEnvironment"}, SelectReturnType = typeof(Amazon.Finspace.Model.GetKxEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Finspace.Model.GetKxEnvironmentResponse",
-        "This cmdlet returns an Amazon.Finspace.Model.GetKxEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Finspace.Model.GetKxEnvironmentResponse object containing multiple properties."
     )]
     public partial class GetFINSPKxEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

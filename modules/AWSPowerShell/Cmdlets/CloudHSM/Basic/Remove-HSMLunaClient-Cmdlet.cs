@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Calls the AWS CloudHSM DeleteLunaClient API operation.", Operation = new[] {"DeleteLunaClient"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.DeleteLunaClientResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudHSM.Model.DeleteLunaClientResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudHSM.Model.DeleteLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.DeleteLunaClientResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class RemoveHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

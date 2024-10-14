@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateCustomMetricResponse")]
     [AWSCmdlet("Calls the AWS IoT CreateCustomMetric API operation.", Operation = new[] {"CreateCustomMetric"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateCustomMetricResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateCustomMetricResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateCustomMetricResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreateCustomMetricResponse object containing multiple properties."
     )]
     public partial class NewIOTCustomMetricCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

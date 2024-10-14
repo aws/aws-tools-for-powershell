@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromMasterAccount API operation.", Operation = new[] {"DisassociateFromMasterAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.DisassociateFromMasterAccountResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use DisassociateFromAdministratorAccount instead")]
     public partial class UnregisterGDFromMasterAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor

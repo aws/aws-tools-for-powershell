@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service CreateExtendedSourceServer API operation.", Operation = new[] {"CreateExtendedSourceServer"}, SelectReturnType = typeof(Amazon.Drs.Model.CreateExtendedSourceServerResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.SourceServer or Amazon.Drs.Model.CreateExtendedSourceServerResponse",
         "This cmdlet returns an Amazon.Drs.Model.SourceServer object.",
-        "The service call response (type Amazon.Drs.Model.CreateExtendedSourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.CreateExtendedSourceServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEDRSExtendedSourceServerCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

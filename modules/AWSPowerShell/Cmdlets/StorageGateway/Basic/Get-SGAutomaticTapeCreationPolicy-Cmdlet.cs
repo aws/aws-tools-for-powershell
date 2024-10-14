@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway ListAutomaticTapeCreationPolicies API operation.", Operation = new[] {"ListAutomaticTapeCreationPolicies"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.ListAutomaticTapeCreationPoliciesResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.AutomaticTapeCreationPolicyInfo or Amazon.StorageGateway.Model.ListAutomaticTapeCreationPoliciesResponse",
         "This cmdlet returns a collection of Amazon.StorageGateway.Model.AutomaticTapeCreationPolicyInfo objects.",
-        "The service call response (type Amazon.StorageGateway.Model.ListAutomaticTapeCreationPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ListAutomaticTapeCreationPoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSGAutomaticTapeCreationPolicyCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

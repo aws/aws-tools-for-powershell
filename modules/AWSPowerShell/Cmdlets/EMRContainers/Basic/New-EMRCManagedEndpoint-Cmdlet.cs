@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [OutputType("Amazon.EMRContainers.Model.CreateManagedEndpointResponse")]
     [AWSCmdlet("Calls the Amazon EMR Containers CreateManagedEndpoint API operation.", Operation = new[] {"CreateManagedEndpoint"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.CreateManagedEndpointResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.CreateManagedEndpointResponse",
-        "This cmdlet returns an Amazon.EMRContainers.Model.CreateManagedEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRContainers.Model.CreateManagedEndpointResponse object containing multiple properties."
     )]
     public partial class NewEMRCManagedEndpointCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

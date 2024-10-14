@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.Tag or Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.Tag objects.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2ResourceTagCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

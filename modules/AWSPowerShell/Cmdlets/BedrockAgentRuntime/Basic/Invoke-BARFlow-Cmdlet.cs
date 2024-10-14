@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     [AWSCmdlet("Calls the Amazon Bedrock Agent Runtime InvokeFlow API operation.", Operation = new[] {"InvokeFlow"}, SelectReturnType = typeof(Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentRuntime.Model.FlowResponseStream or Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse",
         "This cmdlet returns an Amazon.BedrockAgentRuntime.Model.FlowResponseStream object.",
-        "The service call response (type Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeBARFlowCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {

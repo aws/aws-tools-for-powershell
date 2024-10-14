@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [AWSCmdlet("Calls the AWS IoT FleetWise PutLoggingOptions API operation.", Operation = new[] {"PutLoggingOptions"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.PutLoggingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTFleetWise.Model.PutLoggingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTFleetWise.Model.PutLoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTFleetWise.Model.PutLoggingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIFWLoggingOptionCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

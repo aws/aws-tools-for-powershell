@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.ListBotRecommendationsResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 ListBotRecommendations API operation.", Operation = new[] {"ListBotRecommendations"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.ListBotRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.ListBotRecommendationsResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.ListBotRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.ListBotRecommendationsResponse object containing multiple properties."
     )]
     public partial class GetLMBV2BotRecommendationListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

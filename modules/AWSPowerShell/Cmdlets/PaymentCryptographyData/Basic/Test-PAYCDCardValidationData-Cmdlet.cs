@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     [OutputType("Amazon.PaymentCryptographyData.Model.VerifyCardValidationDataResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Data VerifyCardValidationData API operation.", Operation = new[] {"VerifyCardValidationData"}, SelectReturnType = typeof(Amazon.PaymentCryptographyData.Model.VerifyCardValidationDataResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptographyData.Model.VerifyCardValidationDataResponse",
-        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.VerifyCardValidationDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.VerifyCardValidationDataResponse object containing multiple properties."
     )]
     public partial class TestPAYCDCardValidationDataCmdlet : AmazonPaymentCryptographyDataClientCmdlet, IExecutor
     {

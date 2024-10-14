@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteCrawler API operation.", Operation = new[] {"DeleteCrawler"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteCrawlerResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteCrawlerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteCrawlerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteCrawlerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUECrawlerCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

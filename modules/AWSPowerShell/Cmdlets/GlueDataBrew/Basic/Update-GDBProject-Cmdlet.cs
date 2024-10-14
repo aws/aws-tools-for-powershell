@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [OutputType("Amazon.GlueDataBrew.Model.UpdateProjectResponse")]
     [AWSCmdlet("Calls the AWS Glue DataBrew UpdateProject API operation.", Operation = new[] {"UpdateProject"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.UpdateProjectResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.UpdateProjectResponse",
-        "This cmdlet returns an Amazon.GlueDataBrew.Model.UpdateProjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlueDataBrew.Model.UpdateProjectResponse object containing multiple properties."
     )]
     public partial class UpdateGDBProjectCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

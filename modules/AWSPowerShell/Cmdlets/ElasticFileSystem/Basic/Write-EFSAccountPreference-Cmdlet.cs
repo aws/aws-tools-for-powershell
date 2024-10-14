@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System PutAccountPreferences API operation.", Operation = new[] {"PutAccountPreferences"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.PutAccountPreferencesResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.ResourceIdPreference or Amazon.ElasticFileSystem.Model.PutAccountPreferencesResponse",
         "This cmdlet returns an Amazon.ElasticFileSystem.Model.ResourceIdPreference object.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.PutAccountPreferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.PutAccountPreferencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteEFSAccountPreferenceCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

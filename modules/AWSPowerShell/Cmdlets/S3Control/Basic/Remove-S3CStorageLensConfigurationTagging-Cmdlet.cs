@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteStorageLensConfigurationTagging API operation.", Operation = new[] {"DeleteStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DeleteStorageLensConfigurationTaggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CStorageLensConfigurationTaggingCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

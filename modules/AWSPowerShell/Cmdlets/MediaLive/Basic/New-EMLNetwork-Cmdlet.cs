@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.CreateNetworkResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreateNetwork API operation.", Operation = new[] {"CreateNetwork"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreateNetworkResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.CreateNetworkResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.CreateNetworkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.CreateNetworkResponse object containing multiple properties."
     )]
     public partial class NewEMLNetworkCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

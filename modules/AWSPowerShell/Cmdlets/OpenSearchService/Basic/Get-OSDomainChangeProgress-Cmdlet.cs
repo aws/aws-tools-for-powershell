@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeDomainChangeProgress API operation.", Operation = new[] {"DescribeDomainChangeProgress"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeDomainChangeProgressResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.ChangeProgressStatusDetails or Amazon.OpenSearchService.Model.DescribeDomainChangeProgressResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.ChangeProgressStatusDetails object.",
-        "The service call response (type Amazon.OpenSearchService.Model.DescribeDomainChangeProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DescribeDomainChangeProgressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSDomainChangeProgressCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

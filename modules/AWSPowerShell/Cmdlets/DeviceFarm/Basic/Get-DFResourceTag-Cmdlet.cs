@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Tag or Amazon.DeviceFarm.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.DeviceFarm.Model.Tag objects.",
-        "The service call response (type Amazon.DeviceFarm.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFResourceTagCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

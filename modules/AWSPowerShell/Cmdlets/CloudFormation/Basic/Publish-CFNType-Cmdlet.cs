@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation PublishType API operation.", Operation = new[] {"PublishType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.PublishTypeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.PublishTypeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.PublishTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.PublishTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

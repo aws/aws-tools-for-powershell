@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTFRUserCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify GenerateAccessLogs API operation.", Operation = new[] {"GenerateAccessLogs"}, SelectReturnType = typeof(Amazon.Amplify.Model.GenerateAccessLogsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Amplify.Model.GenerateAccessLogsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Amplify.Model.GenerateAccessLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.GenerateAccessLogsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMPAccessLogCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

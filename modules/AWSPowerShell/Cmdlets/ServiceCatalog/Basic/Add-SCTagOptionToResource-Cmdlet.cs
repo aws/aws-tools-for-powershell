@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog AssociateTagOptionWithResource API operation.", Operation = new[] {"AssociateTagOptionWithResource"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.AssociateTagOptionWithResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.AssociateTagOptionWithResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.AssociateTagOptionWithResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.AssociateTagOptionWithResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSCTagOptionToResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteHealthCheck API operation.", Operation = new[] {"DeleteHealthCheck"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteHealthCheckResponse))]
     [AWSCmdletOutput("None or Amazon.Route53.Model.DeleteHealthCheckResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53.Model.DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteHealthCheckResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

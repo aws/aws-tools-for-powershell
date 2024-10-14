@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service PutAttributes API operation.", Operation = new[] {"PutAttributes"}, SelectReturnType = typeof(Amazon.ECS.Model.PutAttributesResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.Attribute or Amazon.ECS.Model.PutAttributesResponse",
         "This cmdlet returns a collection of Amazon.ECS.Model.Attribute objects.",
-        "The service call response (type Amazon.ECS.Model.PutAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.PutAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteECSAttributeCmdlet : AmazonECSClientCmdlet, IExecutor
     {

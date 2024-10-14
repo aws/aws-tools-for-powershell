@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     [OutputType("Amazon.MarketplaceCatalog.Model.DescribeChangeSetResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Catalog Service DescribeChangeSet API operation.", Operation = new[] {"DescribeChangeSet"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.DescribeChangeSetResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceCatalog.Model.DescribeChangeSetResponse",
-        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.DescribeChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.DescribeChangeSetResponse object containing multiple properties."
     )]
     public partial class GetMCATChangeSetCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {

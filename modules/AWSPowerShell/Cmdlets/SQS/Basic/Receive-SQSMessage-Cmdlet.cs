@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) ReceiveMessage API operation.", Operation = new[] {"ReceiveMessage"}, SelectReturnType = typeof(Amazon.SQS.Model.ReceiveMessageResponse))]
     [AWSCmdletOutput("Amazon.SQS.Model.Message or Amazon.SQS.Model.ReceiveMessageResponse",
         "This cmdlet returns a collection of Amazon.SQS.Model.Message objects.",
-        "The service call response (type Amazon.SQS.Model.ReceiveMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ReceiveMessageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ReceiveSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

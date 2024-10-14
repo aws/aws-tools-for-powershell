@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder PutMetadataFlag API operation.", Operation = new[] {"PutMetadataFlag"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.PutMetadataFlagResponse))]
     [AWSCmdletOutput("None or Amazon.AmplifyUIBuilder.Model.PutMetadataFlagResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AmplifyUIBuilder.Model.PutMetadataFlagResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AmplifyUIBuilder.Model.PutMetadataFlagResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteAMPUIMetadataFlagCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

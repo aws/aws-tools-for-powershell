@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DescribeInterconnectLoa API operation.", Operation = new[] {"DescribeInterconnectLoa"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Loa or Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse",
         "This cmdlet returns an Amazon.DirectConnect.Model.Loa object.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Deprecated in favor of DescribeLoa.")]
     public partial class GetDCInterconnectLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor

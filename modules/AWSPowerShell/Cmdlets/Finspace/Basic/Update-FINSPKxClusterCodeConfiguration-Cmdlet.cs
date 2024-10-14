@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxClusterCodeConfiguration API operation.", Operation = new[] {"UpdateKxClusterCodeConfiguration"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.UpdateKxClusterCodeConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateFINSPKxClusterCodeConfigurationCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

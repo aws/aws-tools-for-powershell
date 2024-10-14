@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag or Amazon.ElastiCache.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ElastiCache.Model.Tag objects.",
-        "The service call response (type Amazon.ElastiCache.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

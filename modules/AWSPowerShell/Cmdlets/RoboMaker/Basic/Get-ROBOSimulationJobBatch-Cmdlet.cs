@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [OutputType("Amazon.RoboMaker.Model.DescribeSimulationJobBatchResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker DescribeSimulationJobBatch API operation.", Operation = new[] {"DescribeSimulationJobBatch"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.DescribeSimulationJobBatchResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.DescribeSimulationJobBatchResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.DescribeSimulationJobBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.DescribeSimulationJobBatchResponse object containing multiple properties."
     )]
     public partial class GetROBOSimulationJobBatchCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

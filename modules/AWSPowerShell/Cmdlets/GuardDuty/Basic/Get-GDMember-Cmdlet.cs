@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetMembersResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetMembers API operation.", Operation = new[] {"GetMembers"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetMembersResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetMembersResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetMembersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetMembersResponse object containing multiple properties."
     )]
     public partial class GetGDMemberCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

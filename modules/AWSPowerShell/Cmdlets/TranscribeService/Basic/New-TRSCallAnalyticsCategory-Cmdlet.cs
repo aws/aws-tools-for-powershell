@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service CreateCallAnalyticsCategory API operation.", Operation = new[] {"CreateCallAnalyticsCategory"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse))]
     [AWSCmdletOutput("Amazon.TranscribeService.Model.CategoryProperties or Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse",
         "This cmdlet returns an Amazon.TranscribeService.Model.CategoryProperties object.",
-        "The service call response (type Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewTRSCallAnalyticsCategoryCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

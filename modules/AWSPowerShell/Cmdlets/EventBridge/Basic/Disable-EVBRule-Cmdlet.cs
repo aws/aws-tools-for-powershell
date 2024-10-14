@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge DisableRule API operation.", Operation = new[] {"DisableRule"}, SelectReturnType = typeof(Amazon.EventBridge.Model.DisableRuleResponse))]
     [AWSCmdletOutput("None or Amazon.EventBridge.Model.DisableRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EventBridge.Model.DisableRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EventBridge.Model.DisableRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableEVBRuleCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

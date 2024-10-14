@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream UpdateFleet API operation.", Operation = new[] {"UpdateFleet"}, SelectReturnType = typeof(Amazon.AppStream.Model.UpdateFleetResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.Fleet or Amazon.AppStream.Model.UpdateFleetResponse",
         "This cmdlet returns an Amazon.AppStream.Model.Fleet object.",
-        "The service call response (type Amazon.AppStream.Model.UpdateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.UpdateFleetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

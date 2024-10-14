@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
     [AWSCmdlet("Calls the AWS Artifact PutAccountSettings API operation.", Operation = new[] {"PutAccountSettings"}, SelectReturnType = typeof(Amazon.Artifact.Model.PutAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.Artifact.Model.AccountSettings or Amazon.Artifact.Model.PutAccountSettingsResponse",
         "This cmdlet returns an Amazon.Artifact.Model.AccountSettings object.",
-        "The service call response (type Amazon.Artifact.Model.PutAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Artifact.Model.PutAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteARTAccountSettingCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {

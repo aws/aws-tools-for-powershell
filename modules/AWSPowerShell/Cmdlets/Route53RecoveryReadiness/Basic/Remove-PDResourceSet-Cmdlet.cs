@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness DeleteResourceSet API operation.", Operation = new[] {"DeleteResourceSet"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.DeleteResourceSetResponse))]
     [AWSCmdletOutput("None or Amazon.Route53RecoveryReadiness.Model.DeleteResourceSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteResourceSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteResourceSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePDResourceSetCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

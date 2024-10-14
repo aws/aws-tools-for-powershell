@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake ListDataLakeExceptions API operation.", Operation = new[] {"ListDataLakeExceptions"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.ListDataLakeExceptionsResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeException or Amazon.SecurityLake.Model.ListDataLakeExceptionsResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeException objects.",
-        "The service call response (type Amazon.SecurityLake.Model.ListDataLakeExceptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.ListDataLakeExceptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSLKDataLakeExceptionListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>List the maximum number of failures in Security Lake.</para>
+        /// <para>Lists the maximum number of failures in Security Lake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>List if there are more results available. The value of nextToken is a unique pagination
+        /// <para>Lists if there are more results available. The value of nextToken is a unique pagination
         /// token for each page. Repeat the call using the returned token to retrieve the next
         /// page. Keep all other arguments unchanged.</para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
         /// return an HTTP 400 InvalidToken error.</para>

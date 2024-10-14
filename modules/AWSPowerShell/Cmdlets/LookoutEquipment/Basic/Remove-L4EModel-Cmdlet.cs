@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment DeleteModel API operation.", Operation = new[] {"DeleteModel"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.DeleteModelResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutEquipment.Model.DeleteModelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutEquipment.Model.DeleteModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutEquipment.Model.DeleteModelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveL4EModelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

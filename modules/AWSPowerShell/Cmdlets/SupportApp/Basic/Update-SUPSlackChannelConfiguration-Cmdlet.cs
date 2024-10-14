@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [OutputType("Amazon.SupportApp.Model.UpdateSlackChannelConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Support App UpdateSlackChannelConfiguration API operation.", Operation = new[] {"UpdateSlackChannelConfiguration"}, SelectReturnType = typeof(Amazon.SupportApp.Model.UpdateSlackChannelConfigurationResponse))]
     [AWSCmdletOutput("Amazon.SupportApp.Model.UpdateSlackChannelConfigurationResponse",
-        "This cmdlet returns an Amazon.SupportApp.Model.UpdateSlackChannelConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SupportApp.Model.UpdateSlackChannelConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateSUPSlackChannelConfigurationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

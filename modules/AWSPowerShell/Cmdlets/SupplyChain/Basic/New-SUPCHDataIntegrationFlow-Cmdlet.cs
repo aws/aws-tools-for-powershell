@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [OutputType("Amazon.SupplyChain.Model.CreateDataIntegrationFlowResponse")]
     [AWSCmdlet("Calls the AWS Supply Chain CreateDataIntegrationFlow API operation.", Operation = new[] {"CreateDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.CreateDataIntegrationFlowResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.CreateDataIntegrationFlowResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.CreateDataIntegrationFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SupplyChain.Model.CreateDataIntegrationFlowResponse object containing multiple properties."
     )]
     public partial class NewSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

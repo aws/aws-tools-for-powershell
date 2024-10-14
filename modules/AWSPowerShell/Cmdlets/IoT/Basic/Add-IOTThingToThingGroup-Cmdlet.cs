@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT AddThingToThingGroup API operation.", Operation = new[] {"AddThingToThingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.AddThingToThingGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.AddThingToThingGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.AddThingToThingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.AddThingToThingGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIOTThingToThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

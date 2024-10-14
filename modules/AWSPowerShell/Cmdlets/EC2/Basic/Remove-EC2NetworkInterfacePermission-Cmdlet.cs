@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteNetworkInterfacePermission API operation.", Operation = new[] {"DeleteNetworkInterfacePermission"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteNetworkInterfacePermissionResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DeleteNetworkInterfacePermissionResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DeleteNetworkInterfacePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteNetworkInterfacePermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2NetworkInterfacePermissionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

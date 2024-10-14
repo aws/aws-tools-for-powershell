@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail StartEventDataStoreIngestion API operation.", Operation = new[] {"StartEventDataStoreIngestion"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.StartEventDataStoreIngestionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCTEventDataStoreIngestionCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

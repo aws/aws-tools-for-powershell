@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder DeleteTheme API operation.", Operation = new[] {"DeleteTheme"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.DeleteThemeResponse))]
     [AWSCmdletOutput("None or Amazon.AmplifyUIBuilder.Model.DeleteThemeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AmplifyUIBuilder.Model.DeleteThemeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AmplifyUIBuilder.Model.DeleteThemeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPUIThemeCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

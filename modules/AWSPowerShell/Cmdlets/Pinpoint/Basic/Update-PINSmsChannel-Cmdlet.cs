@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint UpdateSmsChannel API operation.", Operation = new[] {"UpdateSmsChannel"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.UpdateSmsChannelResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse or Amazon.Pinpoint.Model.UpdateSmsChannelResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.SMSChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.UpdateSmsChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

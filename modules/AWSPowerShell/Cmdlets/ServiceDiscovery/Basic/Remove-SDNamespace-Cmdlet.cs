@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map DeleteNamespace API operation.", Operation = new[] {"DeleteNamespace"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DeleteNamespaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceDiscovery.Model.DeleteNamespaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.DeleteNamespaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.DeleteNamespaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSDNamespaceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

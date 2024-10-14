@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector GetTelemetryMetadata API operation.", Operation = new[] {"GetTelemetryMetadata"}, SelectReturnType = typeof(Amazon.Inspector.Model.GetTelemetryMetadataResponse))]
     [AWSCmdletOutput("Amazon.Inspector.Model.TelemetryMetadata or Amazon.Inspector.Model.GetTelemetryMetadataResponse",
         "This cmdlet returns a collection of Amazon.Inspector.Model.TelemetryMetadata objects.",
-        "The service call response (type Amazon.Inspector.Model.GetTelemetryMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.GetTelemetryMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINSTelemetryMetadataCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

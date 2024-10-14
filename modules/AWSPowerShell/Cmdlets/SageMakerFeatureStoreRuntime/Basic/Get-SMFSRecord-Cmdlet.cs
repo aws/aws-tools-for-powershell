@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     [AWSCmdlet("Calls the Amazon SageMaker Feature Store Runtime GetRecord API operation.", Operation = new[] {"GetRecord"}, SelectReturnType = typeof(Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordResponse))]
     [AWSCmdletOutput("Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue or Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordResponse",
         "This cmdlet returns a collection of Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue objects.",
-        "The service call response (type Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMakerFeatureStoreRuntime.Model.GetRecordResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [OutputType("Amazon.BackupGateway.Model.GetBandwidthRateLimitScheduleResponse")]
     [AWSCmdlet("Calls the AWS Backup Gateway GetBandwidthRateLimitSchedule API operation.", Operation = new[] {"GetBandwidthRateLimitSchedule"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.GetBandwidthRateLimitScheduleResponse))]
     [AWSCmdletOutput("Amazon.BackupGateway.Model.GetBandwidthRateLimitScheduleResponse",
-        "This cmdlet returns an Amazon.BackupGateway.Model.GetBandwidthRateLimitScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BackupGateway.Model.GetBandwidthRateLimitScheduleResponse object containing multiple properties."
     )]
     public partial class GetBUGWBandwidthRateLimitScheduleCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

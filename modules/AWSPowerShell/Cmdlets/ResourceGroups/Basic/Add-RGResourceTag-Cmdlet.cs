@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.TagResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups Tag API operation.", Operation = new[] {"Tag"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.TagResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.TagResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.TagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.TagResponse object containing multiple properties."
     )]
     public partial class AddRGResourceTagCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

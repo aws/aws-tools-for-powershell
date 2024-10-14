@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateLocationFsxLustre API operation.", Operation = new[] {"CreateLocationFsxLustre"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationFsxLustreResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationFsxLustreResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateLocationFsxLustreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateLocationFsxLustreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNLocationFsxLustreCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

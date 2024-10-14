@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator CreateCrossAccountAttachment API operation.", Operation = new[] {"CreateCrossAccountAttachment"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.Attachment or Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.Attachment object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.CreateCrossAccountAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGACLCrossAccountAttachmentCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

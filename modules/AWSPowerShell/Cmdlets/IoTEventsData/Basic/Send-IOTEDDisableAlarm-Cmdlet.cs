@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     [AWSCmdlet("Calls the AWS IoT Events Data BatchDisableAlarm API operation.", Operation = new[] {"BatchDisableAlarm"}, SelectReturnType = typeof(Amazon.IoTEventsData.Model.BatchDisableAlarmResponse))]
     [AWSCmdletOutput("Amazon.IoTEventsData.Model.BatchAlarmActionErrorEntry or Amazon.IoTEventsData.Model.BatchDisableAlarmResponse",
         "This cmdlet returns a collection of Amazon.IoTEventsData.Model.BatchAlarmActionErrorEntry objects.",
-        "The service call response (type Amazon.IoTEventsData.Model.BatchDisableAlarmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEventsData.Model.BatchDisableAlarmResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendIOTEDDisableAlarmCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {

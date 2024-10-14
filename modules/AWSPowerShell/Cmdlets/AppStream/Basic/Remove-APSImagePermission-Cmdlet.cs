@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteImagePermissions API operation.", Operation = new[] {"DeleteImagePermissions"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteImagePermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DeleteImagePermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DeleteImagePermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DeleteImagePermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSImagePermissionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

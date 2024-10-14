@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) CountPendingActivityTasks API operation.", Operation = new[] {"CountPendingActivityTasks"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.CountPendingActivityTasksResponse))]
     [AWSCmdletOutput("Amazon.SimpleWorkflow.Model.PendingTaskCount or Amazon.SimpleWorkflow.Model.CountPendingActivityTasksResponse",
         "This cmdlet returns an Amazon.SimpleWorkflow.Model.PendingTaskCount object.",
-        "The service call response (type Amazon.SimpleWorkflow.Model.CountPendingActivityTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleWorkflow.Model.CountPendingActivityTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSWFPendingActivityTaskCountCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

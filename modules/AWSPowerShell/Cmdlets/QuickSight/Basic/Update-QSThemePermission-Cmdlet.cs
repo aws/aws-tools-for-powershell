@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateThemePermissionsResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateThemePermissions API operation.", Operation = new[] {"UpdateThemePermissions"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateThemePermissionsResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateThemePermissionsResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateThemePermissionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateThemePermissionsResponse object containing multiple properties."
     )]
     public partial class UpdateQSThemePermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

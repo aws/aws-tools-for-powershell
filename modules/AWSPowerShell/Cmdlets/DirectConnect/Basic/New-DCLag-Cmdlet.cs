@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.CreateLagResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect CreateLag API operation.", Operation = new[] {"CreateLag"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.CreateLagResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateLagResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.CreateLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.CreateLagResponse object containing multiple properties."
     )]
     public partial class NewDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

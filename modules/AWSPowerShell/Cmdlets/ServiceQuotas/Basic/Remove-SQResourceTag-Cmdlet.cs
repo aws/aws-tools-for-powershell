@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     [AWSCmdlet("Calls the AWS Service Quotas UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceQuotas.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceQuotas.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceQuotas.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSQResourceTagCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {

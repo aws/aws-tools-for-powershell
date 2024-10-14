@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteAccountPolicy API operation.", Operation = new[] {"DeleteAccountPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.DeleteAccountPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWLAccountPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

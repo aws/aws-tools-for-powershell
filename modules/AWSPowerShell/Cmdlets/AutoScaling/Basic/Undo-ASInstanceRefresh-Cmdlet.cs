@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling RollbackInstanceRefresh API operation.", Operation = new[] {"RollbackInstanceRefresh"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse))]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UndoASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [OutputType("Amazon.ResourceExplorer2.Model.ListResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Explorer ListResources API operation.", Operation = new[] {"ListResources"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.ListResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.ListResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.ListResourcesResponse object containing multiple properties."
     )]
     public partial class GetAREXResourceListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

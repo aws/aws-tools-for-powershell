@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [AWSCmdlet("Calls the AWS Support App PutAccountAlias API operation.", Operation = new[] {"PutAccountAlias"}, SelectReturnType = typeof(Amazon.SupportApp.Model.PutAccountAliasResponse))]
     [AWSCmdletOutput("None or Amazon.SupportApp.Model.PutAccountAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SupportApp.Model.PutAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SupportApp.Model.PutAccountAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSUPAccountAliasCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

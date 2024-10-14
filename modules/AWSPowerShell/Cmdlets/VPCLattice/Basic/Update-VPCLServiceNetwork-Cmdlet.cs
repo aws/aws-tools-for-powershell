@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.UpdateServiceNetworkResponse")]
     [AWSCmdlet("Calls the VPC Lattice UpdateServiceNetwork API operation.", Operation = new[] {"UpdateServiceNetwork"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.UpdateServiceNetworkResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.UpdateServiceNetworkResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.UpdateServiceNetworkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.UpdateServiceNetworkResponse object containing multiple properties."
     )]
     public partial class UpdateVPCLServiceNetworkCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

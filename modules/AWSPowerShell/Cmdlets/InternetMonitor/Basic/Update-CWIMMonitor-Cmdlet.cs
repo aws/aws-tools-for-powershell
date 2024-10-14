@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [OutputType("Amazon.InternetMonitor.Model.UpdateMonitorResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor UpdateMonitor API operation.", Operation = new[] {"UpdateMonitor"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.UpdateMonitorResponse))]
     [AWSCmdletOutput("Amazon.InternetMonitor.Model.UpdateMonitorResponse",
-        "This cmdlet returns an Amazon.InternetMonitor.Model.UpdateMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.InternetMonitor.Model.UpdateMonitorResponse object containing multiple properties."
     )]
     public partial class UpdateCWIMMonitorCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {

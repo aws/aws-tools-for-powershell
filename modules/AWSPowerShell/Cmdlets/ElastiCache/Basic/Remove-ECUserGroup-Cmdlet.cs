@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [OutputType("Amazon.ElastiCache.Model.DeleteUserGroupResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteUserGroup API operation.", Operation = new[] {"DeleteUserGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteUserGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.DeleteUserGroupResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserGroupResponse object containing multiple properties."
     )]
     public partial class RemoveECUserGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

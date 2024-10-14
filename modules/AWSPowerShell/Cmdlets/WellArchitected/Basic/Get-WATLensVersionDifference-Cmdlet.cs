@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool GetLensVersionDifference API operation.", Operation = new[] {"GetLensVersionDifference"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.GetLensVersionDifferenceResponse object containing multiple properties."
     )]
     public partial class GetWATLensVersionDifferenceCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

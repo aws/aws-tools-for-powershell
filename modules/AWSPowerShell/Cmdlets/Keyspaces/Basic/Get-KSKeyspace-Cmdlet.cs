@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]
     [AWSCmdlet("Calls the Amazon Keyspaces GetKeyspace API operation.", Operation = new[] {"GetKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetKeyspaceResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.GetKeyspaceResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties."
     )]
     public partial class GetKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

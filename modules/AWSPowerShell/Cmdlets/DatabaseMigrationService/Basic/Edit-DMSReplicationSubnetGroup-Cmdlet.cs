@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service ModifyReplicationSubnetGroup API operation.", Operation = new[] {"ModifyReplicationSubnetGroup"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.ModifyReplicationSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup or Amazon.DatabaseMigrationService.Model.ModifyReplicationSubnetGroupResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyReplicationSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyReplicationSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditDMSReplicationSubnetGroupCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

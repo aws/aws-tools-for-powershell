@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map UpdateInstanceCustomHealthStatus API operation.", Operation = new[] {"UpdateInstanceCustomHealthStatus"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.UpdateInstanceCustomHealthStatusResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceDiscovery.Model.UpdateInstanceCustomHealthStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceDiscovery.Model.UpdateInstanceCustomHealthStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceDiscovery.Model.UpdateInstanceCustomHealthStatusResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSDInstanceCustomHealthStatusCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

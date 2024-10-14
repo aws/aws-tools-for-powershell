@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [OutputType("Amazon.SimSpaceWeaver.Model.DescribeSimulationResponse")]
     [AWSCmdlet("Calls the AWS SimSpace Weaver DescribeSimulation API operation.", Operation = new[] {"DescribeSimulation"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.DescribeSimulationResponse))]
     [AWSCmdletOutput("Amazon.SimSpaceWeaver.Model.DescribeSimulationResponse",
-        "This cmdlet returns an Amazon.SimSpaceWeaver.Model.DescribeSimulationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimSpaceWeaver.Model.DescribeSimulationResponse object containing multiple properties."
     )]
     public partial class GetSSWSimulationCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

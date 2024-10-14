@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory GetObjectAttributes API operation.", Operation = new[] {"GetObjectAttributes"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.GetObjectAttributesResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.AttributeKeyAndValue or Amazon.CloudDirectory.Model.GetObjectAttributesResponse",
         "This cmdlet returns a collection of Amazon.CloudDirectory.Model.AttributeKeyAndValue objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.GetObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.GetObjectAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCDIRObjectAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

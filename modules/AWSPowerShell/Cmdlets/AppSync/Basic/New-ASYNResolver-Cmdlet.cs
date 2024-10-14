@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync CreateResolver API operation.", Operation = new[] {"CreateResolver"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateResolverResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.Resolver or Amazon.AppSync.Model.CreateResolverResponse",
         "This cmdlet returns an Amazon.AppSync.Model.Resolver object.",
-        "The service call response (type Amazon.AppSync.Model.CreateResolverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.CreateResolverResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASYNResolverCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

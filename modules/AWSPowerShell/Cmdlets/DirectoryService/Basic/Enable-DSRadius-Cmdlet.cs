@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service EnableRadius API operation.", Operation = new[] {"EnableRadius"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.EnableRadiusResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.EnableRadiusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.EnableRadiusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.EnableRadiusResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

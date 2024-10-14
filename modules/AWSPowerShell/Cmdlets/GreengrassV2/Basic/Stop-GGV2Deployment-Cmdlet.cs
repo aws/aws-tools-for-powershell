@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 CancelDeployment API operation.", Operation = new[] {"CancelDeployment"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.CancelDeploymentResponse))]
     [AWSCmdletOutput("System.String or Amazon.GreengrassV2.Model.CancelDeploymentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GreengrassV2.Model.CancelDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.CancelDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopGGV2DeploymentCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment UpdateLabelGroup API operation.", Operation = new[] {"UpdateLabelGroup"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.UpdateLabelGroupResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutEquipment.Model.UpdateLabelGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutEquipment.Model.UpdateLabelGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutEquipment.Model.UpdateLabelGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateL4ELabelGroupCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

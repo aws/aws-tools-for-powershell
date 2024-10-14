@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Private5G.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Private5G.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Private5G.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Private5G.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPV5GResourceTagCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

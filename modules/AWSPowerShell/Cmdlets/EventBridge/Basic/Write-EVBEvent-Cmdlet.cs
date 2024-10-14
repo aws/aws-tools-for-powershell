@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.PutEventsResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge PutEvents API operation.", Operation = new[] {"PutEvents"}, SelectReturnType = typeof(Amazon.EventBridge.Model.PutEventsResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.PutEventsResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.PutEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.PutEventsResponse object containing multiple properties."
     )]
     public partial class WriteEVBEventCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

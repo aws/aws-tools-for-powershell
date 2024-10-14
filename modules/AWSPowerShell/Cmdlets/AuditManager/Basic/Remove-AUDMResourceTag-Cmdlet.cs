@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.AuditManager.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AuditManager.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AuditManager.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AuditManager.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAUDMResourceTagCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.PCS.Model.CreateClusterResponse))]
     [AWSCmdletOutput("Amazon.PCS.Model.Cluster or Amazon.PCS.Model.CreateClusterResponse",
         "This cmdlet returns an Amazon.PCS.Model.Cluster object.",
-        "The service call response (type Amazon.PCS.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PCS.Model.CreateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPCSClusterCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

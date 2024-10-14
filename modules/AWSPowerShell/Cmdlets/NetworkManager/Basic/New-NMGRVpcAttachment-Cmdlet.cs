@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager CreateVpcAttachment API operation.", Operation = new[] {"CreateVpcAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.CreateVpcAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.VpcAttachment or Amazon.NetworkManager.Model.CreateVpcAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.VpcAttachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.CreateVpcAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.CreateVpcAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewNMGRVpcAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

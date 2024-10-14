@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) ChangeMessageVisibility API operation.", Operation = new[] {"ChangeMessageVisibility"}, SelectReturnType = typeof(Amazon.SQS.Model.ChangeMessageVisibilityResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.ChangeMessageVisibilityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.ChangeMessageVisibilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.ChangeMessageVisibilityResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditSQSMessageVisibilityCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

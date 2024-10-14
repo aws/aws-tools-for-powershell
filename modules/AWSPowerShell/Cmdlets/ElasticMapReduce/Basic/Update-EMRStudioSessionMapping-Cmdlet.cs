@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce UpdateStudioSessionMapping API operation.", Operation = new[] {"UpdateStudioSessionMapping"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.UpdateStudioSessionMappingResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.UpdateStudioSessionMappingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.UpdateStudioSessionMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.UpdateStudioSessionMappingResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateEMRStudioSessionMappingCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

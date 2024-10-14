@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ApplySecurityGroupsToClientVpnTargetNetwork API operation.", Operation = new[] {"ApplySecurityGroupsToClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ApplySecurityGroupsToClientVpnTargetNetworkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddEC2SecurityGroupToClientVpnTargetNetworkCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

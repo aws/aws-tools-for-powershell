@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service AddRegion API operation.", Operation = new[] {"AddRegion"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.AddRegionResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.AddRegionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.AddRegionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.AddRegionResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDSRegionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

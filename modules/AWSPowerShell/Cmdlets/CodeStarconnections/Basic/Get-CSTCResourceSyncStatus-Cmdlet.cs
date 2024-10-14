@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [OutputType("Amazon.CodeStarconnections.Model.GetResourceSyncStatusResponse")]
     [AWSCmdlet("Calls the AWS CodeStar Connections GetResourceSyncStatus API operation.", Operation = new[] {"GetResourceSyncStatus"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.GetResourceSyncStatusResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.GetResourceSyncStatusResponse",
-        "This cmdlet returns an Amazon.CodeStarconnections.Model.GetResourceSyncStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeStarconnections.Model.GetResourceSyncStatusResponse object containing multiple properties."
     )]
     public partial class GetCSTCResourceSyncStatusCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

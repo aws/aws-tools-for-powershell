@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service GetComputeNodeGroup API operation.", Operation = new[] {"GetComputeNodeGroup"}, SelectReturnType = typeof(Amazon.PCS.Model.GetComputeNodeGroupResponse))]
     [AWSCmdletOutput("Amazon.PCS.Model.ComputeNodeGroup or Amazon.PCS.Model.GetComputeNodeGroupResponse",
         "This cmdlet returns an Amazon.PCS.Model.ComputeNodeGroup object.",
-        "The service call response (type Amazon.PCS.Model.GetComputeNodeGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PCS.Model.GetComputeNodeGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCSComputeNodeGroupCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

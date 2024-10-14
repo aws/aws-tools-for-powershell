@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     [OutputType("Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Catalog Service CancelChangeSet API operation.", Operation = new[] {"CancelChangeSet"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse",
-        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceCatalog.Model.CancelChangeSetResponse object containing multiple properties."
     )]
     public partial class StopMCATChangeSetCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service GetIdNamespaceAssociation API operation.", Operation = new[] {"GetIdNamespaceAssociation"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.IdNamespaceAssociation or Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.IdNamespaceAssociation object.",
-        "The service call response (type Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSIdNamespaceAssociationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

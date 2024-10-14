@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless GetAccessPolicy API operation.", Operation = new[] {"GetAccessPolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.AccessPolicyDetail or Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.AccessPolicyDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.GetAccessPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSSAccessPolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

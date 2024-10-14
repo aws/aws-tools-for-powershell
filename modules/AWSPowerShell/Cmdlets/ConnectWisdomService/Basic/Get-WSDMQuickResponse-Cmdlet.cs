@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service GetQuickResponse API operation.", Operation = new[] {"GetQuickResponse"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.GetQuickResponseResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.QuickResponseData or Amazon.ConnectWisdomService.Model.GetQuickResponseResponse",
         "This cmdlet returns an Amazon.ConnectWisdomService.Model.QuickResponseData object.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.GetQuickResponseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.GetQuickResponseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSDMQuickResponseCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

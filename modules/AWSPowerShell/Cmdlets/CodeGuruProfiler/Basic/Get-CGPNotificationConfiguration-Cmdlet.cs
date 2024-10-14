@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler GetNotificationConfiguration API operation.", Operation = new[] {"GetNotificationConfiguration"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.GetNotificationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.NotificationConfiguration or Amazon.CodeGuruProfiler.Model.GetNotificationConfigurationResponse",
         "This cmdlet returns an Amazon.CodeGuruProfiler.Model.NotificationConfiguration object.",
-        "The service call response (type Amazon.CodeGuruProfiler.Model.GetNotificationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruProfiler.Model.GetNotificationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGPNotificationConfigurationCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

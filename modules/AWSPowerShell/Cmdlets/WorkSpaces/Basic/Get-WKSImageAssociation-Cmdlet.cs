@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DescribeImageAssociations API operation.", Operation = new[] {"DescribeImageAssociations"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeImageAssociationsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.ImageResourceAssociation or Amazon.WorkSpaces.Model.DescribeImageAssociationsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpaces.Model.ImageResourceAssociation objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeImageAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeImageAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWKSImageAssociationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.MainframeModernization.Model.UpdateApplicationResponse",
         "This cmdlet returns a System.Int32 object.",
-        "The service call response (type Amazon.MainframeModernization.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.UpdateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

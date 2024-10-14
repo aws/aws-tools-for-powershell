@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social DeleteWhatsAppMessageMedia API operation.", Operation = new[] {"DeleteWhatsAppMessageMedia"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.DeleteWhatsAppMessageMediaResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.SocialMessaging.Model.DeleteWhatsAppMessageMediaResponse",
         "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.SocialMessaging.Model.DeleteWhatsAppMessageMediaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SocialMessaging.Model.DeleteWhatsAppMessageMediaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSOCIALWhatsAppMessageMediaCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

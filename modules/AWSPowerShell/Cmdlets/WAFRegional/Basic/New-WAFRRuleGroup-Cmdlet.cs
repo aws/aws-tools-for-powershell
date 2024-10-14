@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateRuleGroupResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateRuleGroup API operation.", Operation = new[] {"CreateRuleGroup"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateRuleGroupResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateRuleGroupResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateRuleGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateRuleGroupResponse object containing multiple properties."
     )]
     public partial class NewWAFRRuleGroupCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

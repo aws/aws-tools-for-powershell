@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
     [OutputType("Amazon.NetworkMonitor.Model.UpdateMonitorResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Network Monitor UpdateMonitor API operation.", Operation = new[] {"UpdateMonitor"}, SelectReturnType = typeof(Amazon.NetworkMonitor.Model.UpdateMonitorResponse))]
     [AWSCmdletOutput("Amazon.NetworkMonitor.Model.UpdateMonitorResponse",
-        "This cmdlet returns an Amazon.NetworkMonitor.Model.UpdateMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkMonitor.Model.UpdateMonitorResponse object containing multiple properties."
     )]
     public partial class UpdateCWNMMonitorCmdlet : AmazonNetworkMonitorClientCmdlet, IExecutor
     {

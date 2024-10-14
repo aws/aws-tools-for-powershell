@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange TestMapping API operation.", Operation = new[] {"TestMapping"}, SelectReturnType = typeof(Amazon.B2bi.Model.TestMappingResponse))]
     [AWSCmdletOutput("System.String or Amazon.B2bi.Model.TestMappingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.B2bi.Model.TestMappingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.TestMappingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestB2BIMappingCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

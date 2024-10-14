@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateIdentityPropagationConfigResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateIdentityPropagationConfig API operation.", Operation = new[] {"UpdateIdentityPropagationConfig"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateIdentityPropagationConfigResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateIdentityPropagationConfigResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateIdentityPropagationConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateIdentityPropagationConfigResponse object containing multiple properties."
     )]
     public partial class UpdateQSIdentityPropagationConfigCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

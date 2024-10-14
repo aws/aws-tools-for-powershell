@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     [AWSCmdlet("Calls the AWS RDS DataService BatchExecuteStatement API operation.", Operation = new[] {"BatchExecuteStatement"}, SelectReturnType = typeof(Amazon.RDSDataService.Model.BatchExecuteStatementResponse))]
     [AWSCmdletOutput("Amazon.RDSDataService.Model.UpdateResult or Amazon.RDSDataService.Model.BatchExecuteStatementResponse",
         "This cmdlet returns a collection of Amazon.RDSDataService.Model.UpdateResult objects.",
-        "The service call response (type Amazon.RDSDataService.Model.BatchExecuteStatementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDSDataService.Model.BatchExecuteStatementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeRDSDStatementBatchCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {

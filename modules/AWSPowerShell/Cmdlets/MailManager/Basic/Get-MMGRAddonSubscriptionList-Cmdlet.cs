@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager ListAddonSubscriptions API operation.", Operation = new[] {"ListAddonSubscriptions"}, SelectReturnType = typeof(Amazon.MailManager.Model.ListAddonSubscriptionsResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.AddonSubscription or Amazon.MailManager.Model.ListAddonSubscriptionsResponse",
         "This cmdlet returns a collection of Amazon.MailManager.Model.AddonSubscription objects.",
-        "The service call response (type Amazon.MailManager.Model.ListAddonSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.ListAddonSubscriptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMMGRAddonSubscriptionListCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

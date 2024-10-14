@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP ListCertificates API operation.", Operation = new[] {"ListCertificates"}, SelectReturnType = typeof(Amazon.Transfer.Model.ListCertificatesResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.ListedCertificate or Amazon.Transfer.Model.ListCertificatesResponse",
         "This cmdlet returns a collection of Amazon.Transfer.Model.ListedCertificate objects.",
-        "The service call response (type Amazon.Transfer.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.ListCertificatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTFRCertificateListCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

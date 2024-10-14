@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetSecurityConfiguration API operation.", Operation = new[] {"GetSecurityConfiguration"}, SelectReturnType = typeof(Amazon.Glue.Model.GetSecurityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.SecurityConfiguration or Amazon.Glue.Model.GetSecurityConfigurationResponse",
         "This cmdlet returns an Amazon.Glue.Model.SecurityConfiguration object.",
-        "The service call response (type Amazon.Glue.Model.GetSecurityConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetSecurityConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUESecurityConfigurationCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

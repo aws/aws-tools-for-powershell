@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.GetRelationalDatabaseLogEventsResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail GetRelationalDatabaseLogEvents API operation.", Operation = new[] {"GetRelationalDatabaseLogEvents"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetRelationalDatabaseLogEventsResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.GetRelationalDatabaseLogEventsResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.GetRelationalDatabaseLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.GetRelationalDatabaseLogEventsResponse object containing multiple properties."
     )]
     public partial class GetLSRelationalDatabaseLogEventCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

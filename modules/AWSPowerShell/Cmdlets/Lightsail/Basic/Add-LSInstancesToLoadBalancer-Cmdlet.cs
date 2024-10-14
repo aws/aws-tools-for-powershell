@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail AttachInstancesToLoadBalancer API operation.", Operation = new[] {"AttachInstancesToLoadBalancer"}, SelectReturnType = typeof(Amazon.Lightsail.Model.AttachInstancesToLoadBalancerResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.AttachInstancesToLoadBalancerResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.AttachInstancesToLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.AttachInstancesToLoadBalancerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddLSInstancesToLoadBalancerCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

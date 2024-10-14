@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.BatchGetTableOptimizerResponse")]
     [AWSCmdlet("Calls the AWS Glue BatchGetTableOptimizer API operation.", Operation = new[] {"BatchGetTableOptimizer"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchGetTableOptimizerResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchGetTableOptimizerResponse",
-        "This cmdlet returns an Amazon.Glue.Model.BatchGetTableOptimizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.BatchGetTableOptimizerResponse object containing multiple properties."
     )]
     public partial class GetGLUETableOptimizerBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

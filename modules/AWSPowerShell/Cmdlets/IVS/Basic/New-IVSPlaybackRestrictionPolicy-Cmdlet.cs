@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service CreatePlaybackRestrictionPolicy API operation.", Operation = new[] {"CreatePlaybackRestrictionPolicy"}, SelectReturnType = typeof(Amazon.IVS.Model.CreatePlaybackRestrictionPolicyResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.PlaybackRestrictionPolicy or Amazon.IVS.Model.CreatePlaybackRestrictionPolicyResponse",
         "This cmdlet returns an Amazon.IVS.Model.PlaybackRestrictionPolicy object.",
-        "The service call response (type Amazon.IVS.Model.CreatePlaybackRestrictionPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.CreatePlaybackRestrictionPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIVSPlaybackRestrictionPolicyCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

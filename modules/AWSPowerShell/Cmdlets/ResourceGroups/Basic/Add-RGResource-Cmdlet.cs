@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.GroupResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups GroupResources API operation.", Operation = new[] {"GroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GroupResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.GroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.GroupResourcesResponse object containing multiple properties."
     )]
     public partial class AddRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {

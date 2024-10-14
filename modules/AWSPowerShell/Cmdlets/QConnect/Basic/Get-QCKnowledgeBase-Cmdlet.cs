@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect GetKnowledgeBase API operation.", Operation = new[] {"GetKnowledgeBase"}, SelectReturnType = typeof(Amazon.QConnect.Model.GetKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.KnowledgeBaseData or Amazon.QConnect.Model.GetKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.QConnect.Model.KnowledgeBaseData object.",
-        "The service call response (type Amazon.QConnect.Model.GetKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.GetKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQCKnowledgeBaseCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

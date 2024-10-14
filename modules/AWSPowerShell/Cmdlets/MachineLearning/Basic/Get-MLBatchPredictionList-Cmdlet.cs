@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning DescribeBatchPredictions API operation.", Operation = new[] {"DescribeBatchPredictions"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse), LegacyAlias="Get-MLBatchPredictions")]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.BatchPrediction or Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse",
         "This cmdlet returns a collection of Amazon.MachineLearning.Model.BatchPrediction objects.",
-        "The service call response (type Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMLBatchPredictionListCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

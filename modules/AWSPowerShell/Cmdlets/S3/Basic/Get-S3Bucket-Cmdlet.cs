@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListBuckets API operation.", Operation = new[] {"ListBuckets"}, SelectReturnType = typeof(Amazon.S3.Model.ListBucketsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket or Amazon.S3.Model.ListBucketsResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Bucket objects.",
-        "The service call response (type Amazon.S3.Model.ListBucketsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.ListBucketsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

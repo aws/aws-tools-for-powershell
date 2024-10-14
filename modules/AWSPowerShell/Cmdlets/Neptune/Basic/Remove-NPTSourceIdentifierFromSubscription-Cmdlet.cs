@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune RemoveSourceIdentifierFromSubscription API operation.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"}, SelectReturnType = typeof(Amazon.Neptune.Model.RemoveSourceIdentifierFromSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.EventSubscription or Amazon.Neptune.Model.RemoveSourceIdentifierFromSubscriptionResponse",
         "This cmdlet returns an Amazon.Neptune.Model.EventSubscription object.",
-        "The service call response (type Amazon.Neptune.Model.RemoveSourceIdentifierFromSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.RemoveSourceIdentifierFromSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNPTSourceIdentifierFromSubscriptionCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.GetSchemaMappingResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution GetSchemaMapping API operation.", Operation = new[] {"GetSchemaMapping"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetSchemaMappingResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.GetSchemaMappingResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.GetSchemaMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.GetSchemaMappingResponse object containing multiple properties."
     )]
     public partial class GetERESSchemaMappingCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

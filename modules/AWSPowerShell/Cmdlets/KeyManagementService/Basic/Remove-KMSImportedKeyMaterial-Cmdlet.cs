@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DeleteImportedKeyMaterial API operation.", Operation = new[] {"DeleteImportedKeyMaterial"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKMSImportedKeyMaterialCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

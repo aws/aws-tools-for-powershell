@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service DeleteReplicationJob API operation.", Operation = new[] {"DeleteReplicationJob"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSReplicationJobCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

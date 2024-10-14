@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.CreateRepositoryCreationTemplateResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry CreateRepositoryCreationTemplate API operation.", Operation = new[] {"CreateRepositoryCreationTemplate"}, SelectReturnType = typeof(Amazon.ECR.Model.CreateRepositoryCreationTemplateResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.CreateRepositoryCreationTemplateResponse",
-        "This cmdlet returns an Amazon.ECR.Model.CreateRepositoryCreationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.CreateRepositoryCreationTemplateResponse object containing multiple properties."
     )]
     public partial class NewECRRepositoryCreationTemplateCmdlet : AmazonECRClientCmdlet, IExecutor
     {

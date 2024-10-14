@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync CreateApiKey API operation.", Operation = new[] {"CreateApiKey"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateApiKeyResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.ApiKey or Amazon.AppSync.Model.CreateApiKeyResponse",
         "This cmdlet returns an Amazon.AppSync.Model.ApiKey object.",
-        "The service call response (type Amazon.AppSync.Model.CreateApiKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.CreateApiKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASYNApiKeyCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

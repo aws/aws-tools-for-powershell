@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [OutputType("Amazon.NetworkManager.Model.GetNetworkRoutesResponse")]
     [AWSCmdlet("Calls the AWS Network Manager GetNetworkRoutes API operation.", Operation = new[] {"GetNetworkRoutes"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetNetworkRoutesResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.GetNetworkRoutesResponse",
-        "This cmdlet returns an Amazon.NetworkManager.Model.GetNetworkRoutesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkManager.Model.GetNetworkRoutesResponse object containing multiple properties."
     )]
     public partial class GetNMGRNetworkRouteCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

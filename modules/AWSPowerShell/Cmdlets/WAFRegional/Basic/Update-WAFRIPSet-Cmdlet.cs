@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional UpdateIPSet API operation.", Operation = new[] {"UpdateIPSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.UpdateIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.UpdateIPSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.UpdateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.UpdateIPSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWAFRIPSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [OutputType("Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse")]
     [AWSCmdlet("Calls the AWS Supply Chain DeleteDataIntegrationFlow API operation.", Operation = new[] {"DeleteDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse object containing multiple properties."
     )]
     public partial class RemoveSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

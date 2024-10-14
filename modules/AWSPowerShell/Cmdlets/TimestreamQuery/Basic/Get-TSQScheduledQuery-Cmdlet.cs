@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query DescribeScheduledQuery API operation.", Operation = new[] {"DescribeScheduledQuery"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.DescribeScheduledQueryResponse))]
     [AWSCmdletOutput("Amazon.TimestreamQuery.Model.ScheduledQueryDescription or Amazon.TimestreamQuery.Model.DescribeScheduledQueryResponse",
         "This cmdlet returns an Amazon.TimestreamQuery.Model.ScheduledQueryDescription object.",
-        "The service call response (type Amazon.TimestreamQuery.Model.DescribeScheduledQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamQuery.Model.DescribeScheduledQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTSQScheduledQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

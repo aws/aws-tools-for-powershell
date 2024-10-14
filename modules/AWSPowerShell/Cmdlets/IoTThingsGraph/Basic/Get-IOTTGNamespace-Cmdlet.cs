@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [OutputType("Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse")]
     [AWSCmdlet("Calls the AWS IoT Things Graph DescribeNamespace API operation.", Operation = new[] {"DescribeNamespace"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse))]
     [AWSCmdletOutput("Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse",
-        "This cmdlet returns an Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTThingsGraph.Model.DescribeNamespaceResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class GetIOTTGNamespaceCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

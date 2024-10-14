@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceRouteTableAssociation API operation.", Operation = new[] {"ReplaceRouteTableAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteTableAssociationResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.ReplaceRouteTableAssociationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.ReplaceRouteTableAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ReplaceRouteTableAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetEC2RouteTableAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

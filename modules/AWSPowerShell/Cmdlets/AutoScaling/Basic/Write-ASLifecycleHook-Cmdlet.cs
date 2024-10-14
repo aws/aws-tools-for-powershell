@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling PutLifecycleHook API operation.", Operation = new[] {"PutLifecycleHook"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutLifecycleHookResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.PutLifecycleHookResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.PutLifecycleHookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutLifecycleHookResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteASLifecycleHookCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

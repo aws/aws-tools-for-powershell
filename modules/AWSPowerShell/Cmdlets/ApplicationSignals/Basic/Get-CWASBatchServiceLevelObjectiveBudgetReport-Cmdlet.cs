@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [OutputType("Amazon.ApplicationSignals.Model.BatchGetServiceLevelObjectiveBudgetReportResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals BatchGetServiceLevelObjectiveBudgetReport API operation.", Operation = new[] {"BatchGetServiceLevelObjectiveBudgetReport"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.BatchGetServiceLevelObjectiveBudgetReportResponse))]
     [AWSCmdletOutput("Amazon.ApplicationSignals.Model.BatchGetServiceLevelObjectiveBudgetReportResponse",
-        "This cmdlet returns an Amazon.ApplicationSignals.Model.BatchGetServiceLevelObjectiveBudgetReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationSignals.Model.BatchGetServiceLevelObjectiveBudgetReportResponse object containing multiple properties."
     )]
     public partial class GetCWASBatchServiceLevelObjectiveBudgetReportCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

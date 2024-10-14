@@ -28,14 +28,14 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves the details of exception notifications for the account in Amazon Security
-    /// Lake.
+    /// Retrieves the protocol and endpoint that were provided when subscribing to Amazon
+    /// SNS topics for exception notifications.
     /// </summary>
     [Cmdlet("Get", "SLKDataLakeExceptionSubscription")]
     [OutputType("Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse")]
     [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeExceptionSubscription API operation.", Operation = new[] {"GetDataLakeExceptionSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeExceptionSubscriptionResponse object containing multiple properties."
     )]
     public partial class GetSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

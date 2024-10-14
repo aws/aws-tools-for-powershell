@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service UpdateScheduledAction API operation.", Operation = new[] {"UpdateScheduledAction"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.UpdateScheduledActionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.ScheduledAction or Amazon.OpenSearchService.Model.UpdateScheduledActionResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.ScheduledAction object.",
-        "The service call response (type Amazon.OpenSearchService.Model.UpdateScheduledActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.UpdateScheduledActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSScheduledActionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

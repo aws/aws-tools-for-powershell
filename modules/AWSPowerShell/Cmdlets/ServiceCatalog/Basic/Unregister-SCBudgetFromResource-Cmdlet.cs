@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DisassociateBudgetFromResource API operation.", Operation = new[] {"DisassociateBudgetFromResource"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DisassociateBudgetFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DisassociateBudgetFromResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DisassociateBudgetFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DisassociateBudgetFromResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSCBudgetFromResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

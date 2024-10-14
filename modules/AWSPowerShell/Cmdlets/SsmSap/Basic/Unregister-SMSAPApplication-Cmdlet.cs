@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP DeregisterApplication API operation.", Operation = new[] {"DeregisterApplication"}, SelectReturnType = typeof(Amazon.SsmSap.Model.DeregisterApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.SsmSap.Model.DeregisterApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SsmSap.Model.DeregisterApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SsmSap.Model.DeregisterApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSMSAPApplicationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

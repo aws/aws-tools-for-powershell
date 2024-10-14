@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains DeleteTagsForDomain API operation.", Operation = new[] {"DeleteTagsForDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.DeleteTagsForDomainResponse))]
     [AWSCmdletOutput("None or Amazon.Route53Domains.Model.DeleteTagsForDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53Domains.Model.DeleteTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.DeleteTagsForDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

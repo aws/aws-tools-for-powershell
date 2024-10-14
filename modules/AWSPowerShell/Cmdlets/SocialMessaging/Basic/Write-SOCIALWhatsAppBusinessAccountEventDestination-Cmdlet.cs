@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SOCIAL
     [AWSCmdlet("Calls the AWS End User Messaging Social PutWhatsAppBusinessAccountEventDestinations API operation.", Operation = new[] {"PutWhatsAppBusinessAccountEventDestinations"}, SelectReturnType = typeof(Amazon.SocialMessaging.Model.PutWhatsAppBusinessAccountEventDestinationsResponse))]
     [AWSCmdletOutput("None or Amazon.SocialMessaging.Model.PutWhatsAppBusinessAccountEventDestinationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SocialMessaging.Model.PutWhatsAppBusinessAccountEventDestinationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SocialMessaging.Model.PutWhatsAppBusinessAccountEventDestinationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSOCIALWhatsAppBusinessAccountEventDestinationCmdlet : AmazonSocialMessagingClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings DeleteMeeting API operation.", Operation = new[] {"DeleteMeeting"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.DeleteMeetingResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.DeleteMeetingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.DeleteMeetingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMeetings.Model.DeleteMeetingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMTGMeetingCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

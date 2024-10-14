@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager CreateAssociationBatch API operation.", Operation = new[] {"CreateAssociationBatch"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse object containing multiple properties."
     )]
     public partial class NewSSMAssociationFromBatchCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

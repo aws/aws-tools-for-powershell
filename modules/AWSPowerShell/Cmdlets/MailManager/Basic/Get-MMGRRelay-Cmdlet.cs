@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [OutputType("Amazon.MailManager.Model.GetRelayResponse")]
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetRelay API operation.", Operation = new[] {"GetRelay"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetRelayResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.GetRelayResponse",
-        "This cmdlet returns an Amazon.MailManager.Model.GetRelayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MailManager.Model.GetRelayResponse object containing multiple properties."
     )]
     public partial class GetMMGRRelayCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

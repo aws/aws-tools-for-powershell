@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetEvaluationResponse")]
     [AWSCmdlet("Calls the Amazon Machine Learning GetEvaluation API operation.", Operation = new[] {"GetEvaluation"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.GetEvaluationResponse))]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetEvaluationResponse",
-        "This cmdlet returns an Amazon.MachineLearning.Model.GetEvaluationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MachineLearning.Model.GetEvaluationResponse object containing multiple properties."
     )]
     public partial class GetMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

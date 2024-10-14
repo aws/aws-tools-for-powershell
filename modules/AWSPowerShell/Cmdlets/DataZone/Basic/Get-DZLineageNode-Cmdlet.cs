@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.GetLineageNodeResponse")]
     [AWSCmdlet("Calls the Amazon DataZone GetLineageNode API operation.", Operation = new[] {"GetLineageNode"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetLineageNodeResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.GetLineageNodeResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetLineageNodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.GetLineageNodeResponse object containing multiple properties."
     )]
     public partial class GetDZLineageNodeCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
