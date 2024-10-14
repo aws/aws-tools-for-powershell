@@ -24,11 +24,6 @@ cloudformation_ListStacks:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.3.1.ps1
-        - description: '<emphasis role="bold">Example 4: Returns summary information for all stacks that are currently being created or updated using manual paging of the results. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.4.1.ps1
   services:
     cloudformation:
       ListStacks:

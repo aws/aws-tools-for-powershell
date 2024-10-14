@@ -24,21 +24,11 @@ cloudtrail_LookupEvents:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.3.1.ps1
-        - description: "<emphasis role=\"bold\">Example 4: Returns the first 5 available events. The token to use to retrieve further events is attached as a note property named 'NextToken' to the <code>$AWSHistory.LastServiceResponse</code> member.</emphasis>"
+        - description: "<emphasis role=\"bold\">Example 4: Returns the first 5 available events.</emphasis>"
           snippet_files: []
         - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.4.1.ps1
-        - description: "<emphasis role=\"bold\">Example 5: Returns the next 10 events using the 'next page' token from a previous call to indicate where to start returning events from in the sequence.</emphasis>"
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.5.1.ps1
-        - description: '<emphasis role="bold">Example 6: This example shows how to loop through the available events using manual paging, fetching a maximum of 5 events per call.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.6.1.ps1
   services:
     cloudtrail:
       LookupEvents:

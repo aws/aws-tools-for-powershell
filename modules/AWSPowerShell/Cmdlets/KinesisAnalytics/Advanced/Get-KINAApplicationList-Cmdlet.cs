@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdlet("Calls the Amazon Kinesis Analytics ListApplications API operation.", Operation = new[] {"ListApplications"}, SelectReturnType = typeof(Amazon.KinesisAnalytics.Model.ListApplicationsResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalytics.Model.ApplicationSummary or Amazon.KinesisAnalytics.Model.ListApplicationsResponse",
         "This cmdlet returns a collection of Amazon.KinesisAnalytics.Model.ApplicationSummary objects.",
-        "The service call response (type Amazon.KinesisAnalytics.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisAnalytics.Model.ListApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINAApplicationListCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-ExclusiveStartApplicationName $null' for the first call and '-ExclusiveStartApplicationName $AWSHistory.LastServiceResponse.ApplicationSummaries' for subsequent calls.
+        /// <br/>ExclusiveStartApplicationName is only output from the cmdlet when <code>-Select *</code> is specified. In order to manually control output pagination, set '-ExclusiveStartApplicationName' to null for the first call then input the 'ApplicationSummaries' output from the previous call for subsequent calls.        
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -1,0 +1,4 @@
+{
+    "Type": "Patch",
+    "Description": "Deprecated AWSHistory which will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output."
+}

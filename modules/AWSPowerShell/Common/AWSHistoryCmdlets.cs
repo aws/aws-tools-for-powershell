@@ -35,6 +35,7 @@ namespace Amazon.PowerShell.Common
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
             AWSCmdletHistoryBuffer.Instance.Clear();
         }
     }
@@ -86,6 +87,8 @@ namespace Amazon.PowerShell.Common
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+
+            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
 
             if (MaxCmdletHistory != null)
             {

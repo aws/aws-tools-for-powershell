@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB CreateTable API operation.", Operation = new [] {"CreateTable"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.CreateTableResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription or Amazon.DynamoDBv2.Model.CreateTableResponse",
         "This cmdlet returns aN Amazon.DynamoDBv2.Model.TableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.CreateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.CreateTableResponse) can be returned by specifying '-Select *'."
     )]
     public class NewDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

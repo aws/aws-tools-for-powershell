@@ -19,11 +19,6 @@ cloudformation_DescribeStacks:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStack.2.1.ps1
-        - description: "<emphasis role=\"bold\">Example 3: Returns a collection of Stack instances describing all of the user's stacks using manual paging. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</emphasis>"
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/cloudformation_Get-CFNStack.3.1.ps1
   services:
     cloudformation:
       DescribeStacks:

@@ -19,11 +19,6 @@ route-53_ListHostedZonesByName:
         - snippet_files:
           - .doc_gen/snippet_files/route-53_Get-R53HostedZonesByName.2.1.ps1
           description:
-        - snippet_files: []
-          description: '<emphasis role="bold">Example 3: This example shows how to manually enumerate the hosted zones by first retrieving a single item and then iterating two at a time until all zones have been returned, using marker properties attached to the service response in the <code>$AWSHistory</code> stack after each call.</emphasis>'
-        - snippet_files:
-          - .doc_gen/snippet_files/route-53_Get-R53HostedZonesByName.3.1.ps1
-          description:
   services:
     route-53:
       ListHostedZonesByName:

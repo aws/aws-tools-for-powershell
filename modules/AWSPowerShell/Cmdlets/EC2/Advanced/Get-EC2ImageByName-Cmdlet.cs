@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             + "is output. To see all available versions of the image matching the name, use the -AllAvailable switch. "
             + "If more than one value is supplied to the -Name parameter, all images matching the set of name patterns are output (irrespective of "
             + "whether the names are built-in or custom). ",
-        "The service calls(s) made by the cmdlet to obtain the Image collection (type Amazon.EC2.Model.DescribeImagesResponse) are added to the cmdlet entry in the $AWSHistory stack."
+        "The service responses (type Amazon.EC2.Model.DescribeImagesResponse) can be returned by specifying '-Select *'."
     )]
     [AWSCmdletOutput("string", "If no parameters are supplied the cmdlet emits the built-in logical names that can be used with the -Name parameter.")]
 #if MODULAR
