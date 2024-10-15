@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter UserGroup
         /// <summary>
         /// <para>
-        /// <para>The groups that a user associated with the chat input belongs to.</para>
+        /// <para>The group names that a user associated with the chat input belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

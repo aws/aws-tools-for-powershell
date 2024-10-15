@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Retrieves your account's CloudFormation limits, such as the maximum number of stacks
     /// that you can create in your account. For more information about account limits, see
-    /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
-    /// Quotas</a> in the <i>CloudFormation User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">Understand
+    /// CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNAccountLimit")]
     [OutputType("Amazon.CloudFormation.Model.AccountLimit")]

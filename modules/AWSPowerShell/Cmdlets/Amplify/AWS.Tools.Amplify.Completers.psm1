@@ -117,6 +117,13 @@ $AMP_Completers = {
             break
         }
 
+        # Amazon.Amplify.SourceUrlType
+        "Start-AMPDeployment/SourceUrlType"
+        {
+            $v = "BUCKET_PREFIX","ZIP"
+            break
+        }
+
         # Amazon.Amplify.Stage
         {
             ($_ -eq "New-AMPApp/AutoBranchCreationConfig_Stage") -Or
@@ -143,6 +150,7 @@ $AMP_map = @{
     "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
+    "SourceUrlType"=@("Start-AMPDeployment")
     "Stage"=@("New-AMPBranch","Update-AMPBranch")
 }
 

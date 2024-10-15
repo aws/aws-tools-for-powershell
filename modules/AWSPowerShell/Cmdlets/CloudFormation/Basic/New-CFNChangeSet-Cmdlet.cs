@@ -73,17 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>In some cases, you must explicitly acknowledge that your stack template contains certain
         /// capabilities in order for CloudFormation to create the stack.</para><ul><li><para><c>CAPABILITY_IAM</c> and <c>CAPABILITY_NAMED_IAM</c></para><para>Some stack templates might include resources that can affect permissions in your Amazon
-        /// Web Services account; for example, by creating new Identity and Access Management
-        /// (IAM) users. For those stacks, you must explicitly acknowledge this by specifying
-        /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <c>CAPABILITY_IAM</c>
+        /// Web Services account; for example, by creating new IAM users. For those stacks, you
+        /// must explicitly acknowledge this by specifying one of these capabilities.</para><para>The following IAM resources require you to specify either the <c>CAPABILITY_IAM</c>
         /// or <c>CAPABILITY_NAMED_IAM</c> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <c>CAPABILITY_NAMED_IAM</c>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <c>InsufficientCapabilities</c>
         /// error.</para></li></ul><para>If your stack template contains these resources, we suggest that you review all permissions
-        /// associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-        /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
+        /// associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html">
+        /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html">
+        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">
         /// AWS::IAM::Policy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-        /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+        /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html">
+        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html">AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging
         /// IAM resources in CloudFormation templates</a>.</para></li><li><para><c>CAPABILITY_AUTO_EXPAND</c></para><para>Some template contain macros. Macros perform custom processing on templates; this
         /// can include simple actions like find-and-replace operations, all the way to extensive
         /// transformations of entire templates. Because of this, users typically create a change
@@ -96,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// transforms, which are macros hosted by CloudFormation.</para><note><para>This capacity doesn't apply to creating change sets, and specifying it when creating
         /// change sets has no effect.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
         /// nested stacks, you must create or update the stack directly from the template using
-        /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
-        /// CloudFormation macros to perform custom processing on templates</a>.</para></li></ul><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
+        /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Perform
+        /// custom processing on CloudFormation templates with template macros</a>.</para></li></ul><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The type of change set operation. To create a change set for a new stack, specify
         /// <c>CREATE</c>. To create a change set for an existing stack, specify <c>UPDATE</c>.
         /// To create a change set for an import operation, specify <c>IMPORT</c>.</para><para>If you create a change set for a new stack, CloudFormation creates a stack with a
-        /// unique stack ID, but no template or resources. The stack will be in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995">REVIEW_IN_PROGRESS</a>
+        /// unique stack ID, but no template or resources. The stack will be in the <c>REVIEW_IN_PROGRESS</c>
         /// state until you execute the change set.</para><para>By default, CloudFormation specifies <c>UPDATE</c>. You can't use the <c>UPDATE</c>
         /// type to create a change set for a new stack or the <c>CREATE</c> type to create a
         /// change set for an existing stack.</para>
@@ -158,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html">name
         /// type</a> in the <i>CloudFormation User Guide</i>. To import resources that do not
         /// accept custom names, such as EC2 instances, use the resource import feature instead.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">Bringing
-        /// existing resources into CloudFormation management</a> in the <i>CloudFormation User
-        /// Guide</i>.</para></note>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html">Import
+        /// Amazon Web Services resources into a CloudFormation stack with a resource import</a>
+        /// in the <i>CloudFormation User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,9 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NotificationARNs
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon SNS)
-        /// topics that CloudFormation associates with the stack. To remove all associated notification
-        /// topics, specify an empty list.</para>
+        /// <para>The Amazon Resource Names (ARNs) of Amazon SNS topics that CloudFormation associates
+        /// with the stack. To remove all associated notification topics, specify an empty list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,8 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The template resource types that you have permissions to work with if you execute
         /// this change set, such as <c>AWS::EC2::Instance</c>, <c>AWS::EC2::*</c>, or <c>Custom::MyCustomInstance</c>.</para><para>If the list of resource types doesn't include a resource type that you're updating,
         /// the stack update fails. By default, CloudFormation grants permissions to all resource
-        /// types. Identity and Access Management (IAM) uses this parameter for condition keys
-        /// in IAM policies for CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
+        /// types. IAM uses this parameter for condition keys in IAM policies for CloudFormation.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Control
         /// access with Identity and Access Management</a> in the <i>CloudFormation User Guide</i>.</para><note><para>Only one of the <c>Capabilities</c> and <c>ResourceType</c> parameters can be specified.</para></note>
         /// </para>
         /// </summary>
@@ -255,12 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
-        /// CloudFormation assumes when executing the change set. CloudFormation uses the role's
-        /// credentials to make calls on your behalf. CloudFormation uses this role for all future
-        /// operations on the stack. Provided that users have permission to operate on the stack,
-        /// CloudFormation uses this role even if the users don't have permission to pass it.
-        /// Ensure that the role grants least permission.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when executing
+        /// the change set. CloudFormation uses the role's credentials to make calls on your behalf.
+        /// CloudFormation uses this role for all future operations on the stack. Provided that
+        /// users have permission to operate on the stack, CloudFormation uses this role even
+        /// if the users don't have permission to pass it. Ensure that the role grants least permission.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
         /// with the stack. If no role is available, CloudFormation uses a temporary session that
         /// is generated from your user credentials.</para>
         /// </para>

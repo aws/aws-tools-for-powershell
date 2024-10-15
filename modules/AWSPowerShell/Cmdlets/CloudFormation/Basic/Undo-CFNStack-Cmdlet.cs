@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management role that CloudFormation
-        /// assumes to rollback the stack.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to rollback
+        /// the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

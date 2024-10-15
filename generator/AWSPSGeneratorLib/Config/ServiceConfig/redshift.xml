@@ -123,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRedshiftIdcApplication" OutputProperty="RedshiftIdcApplication" Verb="New" Noun="RedshiftIdcApplication" ShouldProcessTarget="IdcInstanceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -192,6 +196,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHsmConfiguration" Verb="Remove" Noun="HsmConfiguration" ShouldProcessTarget="HsmConfigurationIdentifier" PipelineParameter="HsmConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" OutputProperty="*" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -330,6 +338,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInboundIntegrations" OutputProperty="InboundIntegrations" Verb="Get" Noun="InboundIntegration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIntegrations" OutputProperty="Integrations" Verb="Get" Noun="Integration" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -498,6 +510,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationArn" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

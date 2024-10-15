@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
-        /// <para>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-        /// Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>. You
-        /// can specify either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c> parameter,
-        /// but not both.</para>
+        /// <para>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent
+        /// updates to stack resources</a> in the <i>CloudFormation User Guide</i>. You can specify
+        /// either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c> parameter, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

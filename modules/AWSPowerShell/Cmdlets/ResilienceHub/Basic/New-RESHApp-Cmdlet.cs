@@ -74,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
         #endregion
         
+        #region Parameter AwsApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry
+        /// application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter PermissionModel_CrossAccountRoleArn
         /// <summary>
         /// <para>
@@ -256,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssessmentSchedule = this.AssessmentSchedule;
+            context.AwsApplicationArn = this.AwsApplicationArn;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.EventSubscription != null)
@@ -303,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AssessmentSchedule != null)
             {
                 request.AssessmentSchedule = cmdletContext.AssessmentSchedule;
+            }
+            if (cmdletContext.AwsApplicationArn != null)
+            {
+                request.AwsApplicationArn = cmdletContext.AwsApplicationArn;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -429,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
+            public System.String AwsApplicationArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.ResilienceHub.Model.EventSubscription> EventSubscription { get; set; }

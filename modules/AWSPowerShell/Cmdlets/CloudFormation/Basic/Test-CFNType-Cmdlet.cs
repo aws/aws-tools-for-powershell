@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// For modules, this includes determining if the module's model meets all necessary requirements.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing">Testing
-    /// your public extension prior to publishing</a> in the <i>CloudFormation CLI User Guide</i>.
+    /// your public extension before publishing</a> in the <i>CloudFormation Command Line
+    /// Interface (CLI) User Guide</i>.
     /// </para><para>
     /// If you don't specify a version, CloudFormation uses the default version of the extension
     /// in your account and Region for testing.
@@ -51,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </para><para>
     /// An extension must have a test status of <c>PASSED</c> before it can be published.
     /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing
-    /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
-    /// User Guide</i>.
+    /// extensions to make them available for public use</a> in the <i>CloudFormation Command
+    /// Line Interface (CLI) User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Test", "CFNType")]
@@ -83,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The S3 bucket to which CloudFormation delivers the contract test execution logs.</para><para>CloudFormation delivers the logs by the time contract testing has completed and the
         /// extension has been assigned a test type status of <c>PASSED</c> or <c>FAILED</c>.</para><para>The user calling <c>TestType</c> must be able to access items in the specified S3
         /// bucket. Specifically, the user needs the following permissions:</para><ul><li><para><c>GetObject</c></para></li><li><para><c>PutObject</c></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html">Actions,
-        /// Resources, and Condition Keys for Amazon S3</a> in the <i>Amazon Web Services Identity
-        /// and Access Management User Guide</i>.</para>
+        /// Resources, and Condition Keys for Amazon S3</a> in the <i>Identity and Access Management
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

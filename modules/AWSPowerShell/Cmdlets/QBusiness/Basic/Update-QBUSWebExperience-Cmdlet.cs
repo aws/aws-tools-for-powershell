@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String SamlConfiguration_MetadataXML { get; set; }
         #endregion
         
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// Amazon.QBusiness.Model.UpdateWebExperienceRequest.Origins
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Origins")]
+        public System.String[] Origin { get; set; }
+        #endregion
+        
         #region Parameter SamlConfiguration_RoleArn
         /// <summary>
         /// <para>
@@ -284,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
             context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
             context.SamlConfiguration_AuthenticationUrl = this.SamlConfiguration_AuthenticationUrl;
+            if (this.Origin != null)
+            {
+                context.Origin = new List<System.String>(this.Origin);
+            }
             context.RoleArn = this.RoleArn;
             context.SamplePromptsControlMode = this.SamplePromptsControlMode;
             context.Subtitle = this.Subtitle;
@@ -449,6 +464,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.IdentityProviderConfiguration = null;
             }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origins = cmdletContext.Origin;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -542,6 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
             public System.String SamlConfiguration_AuthenticationUrl { get; set; }
+            public List<System.String> Origin { get; set; }
             public System.String RoleArn { get; set; }
             public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
             public System.String Subtitle { get; set; }

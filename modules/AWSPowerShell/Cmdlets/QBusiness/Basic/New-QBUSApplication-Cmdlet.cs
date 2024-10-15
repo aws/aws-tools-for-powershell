@@ -171,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon
-        /// CloudWatch logs and metrics.</para>
+        /// CloudWatch logs and metrics. If this property is not specified, Amazon Q Business
+        /// will create a <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions">service
+        /// linked role (SLR)</a> and use it as the application's role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

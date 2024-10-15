@@ -1,4 +1,26 @@
-﻿### 4.1.677 (2024-10-14 20:59Z)
+﻿### 4.1.678 (2024-10-15 20:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.906.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet Start-AMPDeployment: added parameter SourceUrlType.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameters ProxyConfiguration_DefaultBehavior and ProxyConfiguration_OrderedProxyRule.
+    * Modified cmdlet Update-CBFleet: added parameters ProxyConfiguration_DefaultBehavior and ProxyConfiguration_OrderedProxyRule.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSWebExperience: added parameter Origin.
+    * Modified cmdlet Update-QBUSWebExperience: added parameter Origin.
+  * Amazon Redshift
+    * Added cmdlet Edit-RSIntegration leveraging the ModifyIntegration service API.
+    * Added cmdlet Get-RSIntegration leveraging the DescribeIntegrations service API.
+    * Added cmdlet New-RSIntegration leveraging the CreateIntegration service API.
+    * Added cmdlet Remove-RSIntegration leveraging the DeleteIntegration service API.
+  * Amazon Resilience Hub
+    * Modified cmdlet Get-RESHAppList: added parameter AwsApplicationArn.
+    * Modified cmdlet New-RESHApp: added parameter AwsApplicationArn.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2ConfigurationSet: added parameter DeliveryOptions_MaxDeliverySecond.
+    * Modified cmdlet Write-SES2ConfigurationSetDeliveryOption: added parameter MaxDeliverySecond.
+
+### 4.1.677 (2024-10-14 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.905.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SES Mail Manager
     * Modified cmdlet Start-MMGRArchiveExport: added parameter IncludeMetadata.

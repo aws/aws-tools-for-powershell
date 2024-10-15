@@ -22,79 +22,95 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns the description for the specified stack; if no stack name was specified, then
-    /// it returns the description for all the stacks created. For more information about
-    /// a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand
-    /// CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.
-    /// 
-    ///  <note><para>
-    /// If the stack doesn't exist, a <c>ValidationError</c> is returned.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes one or more zero-ETL integrations with Amazon Redshift.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CFNStack")]
-    [OutputType("Amazon.CloudFormation.Model.Stack")]
-    [AWSCmdlet("Calls the AWS CloudFormation DescribeStacks API operation.", Operation = new[] {"DescribeStacks"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStacksResponse))]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.Stack or Amazon.CloudFormation.Model.DescribeStacksResponse",
-        "This cmdlet returns a collection of Amazon.CloudFormation.Model.Stack objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "RSIntegration")]
+    [OutputType("Amazon.Redshift.Model.Integration")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeIntegrations API operation.", Operation = new[] {"DescribeIntegrations"}, SelectReturnType = typeof(Amazon.Redshift.Model.DescribeIntegrationsResponse))]
+    [AWSCmdletOutput("Amazon.Redshift.Model.Integration or Amazon.Redshift.Model.DescribeIntegrationsResponse",
+        "This cmdlet returns a collection of Amazon.Redshift.Model.Integration objects.",
+        "The service call response (type Amazon.Redshift.Model.DescribeIntegrationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetRSIntegrationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StackName
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <note><para>If you don't pass a parameter to <c>StackName</c>, the API returns a response that
-        /// describes all resources in the account, which can impact performance. This requires
-        /// <c>ListStacks</c> and <c>DescribeStacks</c> permissions.</para><para>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <c>StackName</c>.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
-        /// permissions and avoid returning a response when no parameter is sent in the request:</para><para>{ "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
-        /// "NotResource": "arn:aws:cloudformation:*:*:stack/*/*" }] }</para></note><para>The name or the unique stack ID that's associated with the stack, which aren't always
-        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StackName { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A string that identifies the next page of stacks that you want to retrieve.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
+        /// <para>A filter that specifies one or more resources to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        [Alias("Filters")]
+        public Amazon.Redshift.Model.DescribeIntegrationsFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationArn
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String IntegrationArn { get; set; }
+        #endregion
+        
+        #region Parameter Marker
+        /// <summary>
+        /// <para>
+        /// <para>An optional pagination token provided by a previous <c>DescribeIntegrations</c> request.
+        /// If this parameter is specified, the response includes only records beyond the marker,
+        /// up to the value specified by <c>MaxRecords</c>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter MaxRecord
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
+        /// response records exceeds the specified <c>MaxRecords</c> value, a value is returned
+        /// in a <c>marker</c> field of the response. You can retrieve the next set of records
+        /// by retrying the command with the returned marker value. </para><para>Default: <c>100</c></para><para>Constraints: minimum 20, maximum 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Stacks'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.DescribeStacksResponse).
-        /// Specifying the name of a property of type Amazon.CloudFormation.Model.DescribeStacksResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Integrations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.DescribeIntegrationsResponse).
+        /// Specifying the name of a property of type Amazon.Redshift.Model.DescribeIntegrationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Stacks";
+        public string Select { get; set; } = "Integrations";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StackName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StackName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IntegrationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IntegrationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IntegrationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
-        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of Marker
         /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.DescribeStacksResponse, GetCFNStackCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.DescribeIntegrationsResponse, GetRSIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,11 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StackName;
+                context.Select = (response, cmdlet) => this.IntegrationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.NextToken = this.NextToken;
-            context.StackName = this.StackName;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Redshift.Model.DescribeIntegrationsFilter>(this.Filter);
+            }
+            context.IntegrationArn = this.IntegrationArn;
+            context.Marker = this.Marker;
+            context.MaxRecord = this.MaxRecord;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,21 +175,29 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudFormation.Model.DescribeStacksRequest();
+            var request = new Amazon.Redshift.Model.DescribeIntegrationsRequest();
             
-            if (cmdletContext.StackName != null)
+            if (cmdletContext.Filter != null)
             {
-                request.StackName = cmdletContext.StackName;
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IntegrationArn != null)
+            {
+                request.IntegrationArn = cmdletContext.IntegrationArn;
+            }
+            if (cmdletContext.MaxRecord != null)
+            {
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             
             // Initialize loop variant and commence piping
-            var _nextToken = cmdletContext.NextToken;
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
+            var _nextToken = cmdletContext.Marker;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.Marker));
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
             {
-                request.NextToken = _nextToken;
+                request.Marker = _nextToken;
                 
                 CmdletOutput output;
                 
@@ -188,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                         ServiceResponse = response
                     };
                     
-                    _nextToken = response.NextToken;
+                    _nextToken = response.Marker;
                 }
                 catch (Exception e)
                 {
@@ -217,15 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFormation.Model.DescribeStacksResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeStacksRequest request)
+        private Amazon.Redshift.Model.DescribeIntegrationsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeIntegrationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeStacks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeIntegrations");
             try
             {
                 #if DESKTOP
-                return client.DescribeStacks(request);
+                return client.DescribeIntegrations(request);
                 #elif CORECLR
-                return client.DescribeStacksAsync(request).GetAwaiter().GetResult();
+                return client.DescribeIntegrationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,10 +274,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NextToken { get; set; }
-            public System.String StackName { get; set; }
-            public System.Func<Amazon.CloudFormation.Model.DescribeStacksResponse, GetCFNStackCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Stacks;
+            public List<Amazon.Redshift.Model.DescribeIntegrationsFilter> Filter { get; set; }
+            public System.String IntegrationArn { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxRecord { get; set; }
+            public System.Func<Amazon.Redshift.Model.DescribeIntegrationsResponse, GetRSIntegrationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Integrations;
         }
         
     }

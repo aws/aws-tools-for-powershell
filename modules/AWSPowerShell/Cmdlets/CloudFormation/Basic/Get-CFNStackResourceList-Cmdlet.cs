@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// You must specify either <c>StackName</c> or <c>PhysicalResourceId</c>, but not both.
     /// In addition, you can specify <c>LogicalResourceId</c> to filter the returned result.
     /// For more information about resources, the <c>LogicalResourceId</c> and <c>PhysicalResourceId</c>,
-    /// go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation
+    /// see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation
     /// User Guide</a>.
     /// </para><note><para>
     /// A <c>ValidationError</c> is returned if you specify both <c>StackName</c> and <c>PhysicalResourceId</c>

@@ -23571,6 +23571,8 @@ Set-Alias -Name Create-RSHsmClientCertificate -Value New-RSHsmClientCertificate
 Set-Alias -Name RS-CreateHsmClientCertificate -Value New-RSHsmClientCertificate
 Set-Alias -Name Create-RSHsmConfiguration -Value New-RSHsmConfiguration
 Set-Alias -Name RS-CreateHsmConfiguration -Value New-RSHsmConfiguration
+Set-Alias -Name Create-RSIntegration -Value New-RSIntegration
+Set-Alias -Name RS-CreateIntegration -Value New-RSIntegration
 Set-Alias -Name Create-RSRedshiftIdcApplication -Value New-RSRedshiftIdcApplication
 Set-Alias -Name RS-CreateRedshiftIdcApplication -Value New-RSRedshiftIdcApplication
 Set-Alias -Name Create-RSScheduledAction -Value New-RSScheduledAction
@@ -23608,6 +23610,8 @@ Set-Alias -Name Delete-RSHsmClientCertificate -Value Remove-RSHsmClientCertifica
 Set-Alias -Name RS-DeleteHsmClientCertificate -Value Remove-RSHsmClientCertificate
 Set-Alias -Name Delete-RSHsmConfiguration -Value Remove-RSHsmConfiguration
 Set-Alias -Name RS-DeleteHsmConfiguration -Value Remove-RSHsmConfiguration
+Set-Alias -Name Delete-RSIntegration -Value Remove-RSIntegration
+Set-Alias -Name RS-DeleteIntegration -Value Remove-RSIntegration
 Set-Alias -Name Delete-RSPartner -Value Remove-RSPartner
 Set-Alias -Name RS-DeletePartner -Value Remove-RSPartner
 Set-Alias -Name Delete-RSRedshiftIdcApplication -Value Remove-RSRedshiftIdcApplication
@@ -23693,6 +23697,9 @@ Set-Alias -Name RS-DescribeHsmConfigurations -Value Get-RSHsmConfiguration
 Set-Alias -Name Describe-RSInboundIntegrations -Value Get-RSInboundIntegration
 Set-Alias -Name Describe-RSInboundIntegration -Value Get-RSInboundIntegration
 Set-Alias -Name RS-DescribeInboundIntegrations -Value Get-RSInboundIntegration
+Set-Alias -Name Describe-RSIntegrations -Value Get-RSIntegration
+Set-Alias -Name Describe-RSIntegration -Value Get-RSIntegration
+Set-Alias -Name RS-DescribeIntegrations -Value Get-RSIntegration
 Set-Alias -Name Describe-RSLoggingStatus -Value Get-RSLoggingStatus
 Set-Alias -Name RS-DescribeLoggingStatus -Value Get-RSLoggingStatus
 Set-Alias -Name Describe-RSNodeConfigurationOptions -Value Get-RSNodeConfigurationOption
@@ -23783,6 +23790,8 @@ Set-Alias -Name Modify-RSEndpointAccess -Value Edit-RSEndpointAccess
 Set-Alias -Name RS-ModifyEndpointAccess -Value Edit-RSEndpointAccess
 Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
+Set-Alias -Name Modify-RSIntegration -Value Edit-RSIntegration
+Set-Alias -Name RS-ModifyIntegration -Value Edit-RSIntegration
 Set-Alias -Name Modify-RSRedshiftIdcApplication -Value Edit-RSRedshiftIdcApplication
 Set-Alias -Name RS-ModifyRedshiftIdcApplication -Value Edit-RSRedshiftIdcApplication
 Set-Alias -Name Modify-RSScheduledAction -Value Edit-RSScheduledAction

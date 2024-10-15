@@ -688,6 +688,13 @@ $AMP_Completers = {
             break
         }
 
+        # Amazon.Amplify.SourceUrlType
+        "Start-AMPDeployment/SourceUrlType"
+        {
+            $v = "BUCKET_PREFIX","ZIP"
+            break
+        }
+
         # Amazon.Amplify.Stage
         {
             ($_ -eq "New-AMPApp/AutoBranchCreationConfig_Stage") -Or
@@ -714,6 +721,7 @@ $AMP_map = @{
     "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
+    "SourceUrlType"=@("Start-AMPDeployment")
     "Stage"=@("New-AMPBranch","Update-AMPBranch")
 }
 
@@ -12575,6 +12583,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.FleetProxyRuleBehavior
+        {
+            ($_ -eq "New-CBFleet/ProxyConfiguration_DefaultBehavior") -Or
+            ($_ -eq "Update-CBFleet/ProxyConfiguration_DefaultBehavior")
+        }
+        {
+            $v = "ALLOW_ALL","DENY_ALL"
+            break
+        }
+
         # Amazon.CodeBuild.FleetScalingType
         {
             ($_ -eq "New-CBFleet/ScalingConfiguration_ScalingType") -Or
@@ -12824,6 +12842,7 @@ $CB_map = @{
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
+    "ProxyConfiguration_DefaultBehavior"=@("New-CBFleet","Update-CBFleet")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")
@@ -56886,6 +56905,7 @@ $RS_SelectMap = @{
                "New-RSEventSubscription",
                "New-RSHsmClientCertificate",
                "New-RSHsmConfiguration",
+               "New-RSIntegration",
                "New-RSRedshiftIdcApplication",
                "New-RSScheduledAction",
                "New-RSSnapshotCopyGrant",
@@ -56904,6 +56924,7 @@ $RS_SelectMap = @{
                "Remove-RSEventSubscription",
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
+               "Remove-RSIntegration",
                "Remove-RSPartner",
                "Remove-RSRedshiftIdcApplication",
                "Remove-RSResourcePolicy",
@@ -56936,6 +56957,7 @@ $RS_SelectMap = @{
                "Get-RSHsmClientCertificate",
                "Get-RSHsmConfiguration",
                "Get-RSInboundIntegration",
+               "Get-RSIntegration",
                "Get-RSLoggingStatus",
                "Get-RSNodeConfigurationOption",
                "Get-RSOrderableClusterOption",
@@ -56977,6 +56999,7 @@ $RS_SelectMap = @{
                "Edit-RSCustomDomainAssociation",
                "Edit-RSEndpointAccess",
                "Edit-RSEventSubscription",
+               "Edit-RSIntegration",
                "Edit-RSRedshiftIdcApplication",
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",

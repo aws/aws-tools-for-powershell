@@ -212,6 +212,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.FleetProxyRuleBehavior
+        {
+            ($_ -eq "New-CBFleet/ProxyConfiguration_DefaultBehavior") -Or
+            ($_ -eq "Update-CBFleet/ProxyConfiguration_DefaultBehavior")
+        }
+        {
+            $v = "ALLOW_ALL","DENY_ALL"
+            break
+        }
+
         # Amazon.CodeBuild.FleetScalingType
         {
             ($_ -eq "New-CBFleet/ScalingConfiguration_ScalingType") -Or
@@ -461,6 +471,7 @@ $CB_map = @{
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
+    "ProxyConfiguration_DefaultBehavior"=@("New-CBFleet","Update-CBFleet")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")

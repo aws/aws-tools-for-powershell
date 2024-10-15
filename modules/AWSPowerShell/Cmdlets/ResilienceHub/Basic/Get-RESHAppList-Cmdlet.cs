@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
+        #region Parameter AwsApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry
+        /// application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsApplicationArn { get; set; }
+        #endregion
+        
         #region Parameter FromLastAssessmentTime
         /// <summary>
         /// <para>
@@ -171,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AppArn = this.AppArn;
+            context.AwsApplicationArn = this.AwsApplicationArn;
             context.FromLastAssessmentTime = this.FromLastAssessmentTime;
             context.MaxResult = this.MaxResult;
             context.Name = this.Name;
@@ -198,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.AwsApplicationArn != null)
+            {
+                request.AwsApplicationArn = cmdletContext.AwsApplicationArn;
             }
             if (cmdletContext.FromLastAssessmentTime != null)
             {
@@ -305,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public System.String AwsApplicationArn { get; set; }
             public System.DateTime? FromLastAssessmentTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String Name { get; set; }

@@ -22,45 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns information about a stack drift detection operation. A stack drift detection
-    /// operation detects whether a stack's actual configuration differs, or has <i>drifted</i>,
-    /// from its expected configuration, as defined in the stack template and any values specified
-    /// as template parameters. A stack is considered to have drifted if one or more of its
-    /// resources have drifted. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
-    /// unmanaged configuration changes to stacks and resources with drift detection</a>.
-    /// 
-    ///  
-    /// <para>
-    /// Use <a>DetectStackDrift</a> to initiate a stack drift detection operation. <c>DetectStackDrift</c>
-    /// returns a <c>StackDriftDetectionId</c> you can use to monitor the progress of the
-    /// operation using <c>DescribeStackDriftDetectionStatus</c>. Once the drift detection
-    /// operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information
-    /// about the stack and its resources.
-    /// </para>
+    /// Modifies a zero-ETL integration with Amazon Redshift.
     /// </summary>
-    [Cmdlet("Get", "CFNStackDriftDetectionStatus")]
-    [OutputType("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse")]
-    [AWSCmdlet("Calls the AWS CloudFormation DescribeStackDriftDetectionStatus API operation.", Operation = new[] {"DescribeStackDriftDetectionStatus"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse))]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse object containing multiple properties."
+    [Cmdlet("Edit", "RSIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.ModifyIntegrationResponse")]
+    [AWSCmdlet("Calls the Amazon Redshift ModifyIntegration API operation.", Operation = new[] {"ModifyIntegration"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyIntegrationResponse))]
+    [AWSCmdletOutput("Amazon.Redshift.Model.ModifyIntegrationResponse",
+        "This cmdlet returns an Amazon.Redshift.Model.ModifyIntegrationResponse object containing multiple properties."
     )]
-    public partial class GetCFNStackDriftDetectionStatusCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class EditRSIntegrationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StackDriftDetectionId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The ID of the drift detection results of this operation.</para><para>CloudFormation generates new results, with a new drift detection ID, each time this
-        /// operation is run. However, the number of drift results CloudFormation retains for
-        /// any given stack, and for how long, may vary.</para>
+        /// <para>A new description for the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationArn
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the integration to modify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,14 +65,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String StackDriftDetectionId { get; set; }
+        public System.String IntegrationArn { get; set; }
+        #endregion
+        
+        #region Parameter IntegrationName
+        /// <summary>
+        /// <para>
+        /// <para>A new name for the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse).
-        /// Specifying the name of a property of type Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.ModifyIntegrationResponse).
+        /// Specifying the name of a property of type Amazon.Redshift.Model.ModifyIntegrationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,18 +91,34 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StackDriftDetectionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StackDriftDetectionId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IntegrationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IntegrationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackDriftDetectionId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IntegrationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IntegrationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RSIntegration (ModifyIntegration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -108,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse, GetCFNStackDriftDetectionStatusCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.ModifyIntegrationResponse, EditRSIntegrationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,16 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StackDriftDetectionId;
+                context.Select = (response, cmdlet) => this.IntegrationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.StackDriftDetectionId = this.StackDriftDetectionId;
+            context.Description = this.Description;
+            context.IntegrationArn = this.IntegrationArn;
             #if MODULAR
-            if (this.StackDriftDetectionId == null && ParameterWasBound(nameof(this.StackDriftDetectionId)))
+            if (this.IntegrationArn == null && ParameterWasBound(nameof(this.IntegrationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter StackDriftDetectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IntegrationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IntegrationName = this.IntegrationName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,11 +163,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusRequest();
+            var request = new Amazon.Redshift.Model.ModifyIntegrationRequest();
             
-            if (cmdletContext.StackDriftDetectionId != null)
+            if (cmdletContext.Description != null)
             {
-                request.StackDriftDetectionId = cmdletContext.StackDriftDetectionId;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.IntegrationArn != null)
+            {
+                request.IntegrationArn = cmdletContext.IntegrationArn;
+            }
+            if (cmdletContext.IntegrationName != null)
+            {
+                request.IntegrationName = cmdletContext.IntegrationName;
             }
             
             CmdletOutput output;
@@ -180,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusRequest request)
+        private Amazon.Redshift.Model.ModifyIntegrationResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifyIntegrationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeStackDriftDetectionStatus");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "ModifyIntegration");
             try
             {
                 #if DESKTOP
-                return client.DescribeStackDriftDetectionStatus(request);
+                return client.ModifyIntegration(request);
                 #elif CORECLR
-                return client.DescribeStackDriftDetectionStatusAsync(request).GetAwaiter().GetResult();
+                return client.ModifyIntegrationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,8 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String StackDriftDetectionId { get; set; }
-            public System.Func<Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse, GetCFNStackDriftDetectionStatusCmdlet, object> Select { get; set; } =
+            public System.String Description { get; set; }
+            public System.String IntegrationArn { get; set; }
+            public System.String IntegrationName { get; set; }
+            public System.Func<Amazon.Redshift.Model.ModifyIntegrationResponse, EditRSIntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

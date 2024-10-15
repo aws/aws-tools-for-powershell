@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType ComputeType { get; set; }
         #endregion
         
+        #region Parameter ProxyConfiguration_DefaultBehavior
+        /// <summary>
+        /// <para>
+        /// <para>The default behavior of outgoing traffic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.FleetProxyRuleBehavior")]
+        public Amazon.CodeBuild.FleetProxyRuleBehavior ProxyConfiguration_DefaultBehavior { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentType
         /// <summary>
         /// <para>
@@ -167,6 +178,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProxyConfiguration_OrderedProxyRule
+        /// <summary>
+        /// <para>
+        /// <para>An array of <c>FleetProxyRule</c> objects that represent the specified destination
+        /// domains or IPs to allow or deny network access control to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProxyConfiguration_OrderedProxyRules")]
+        public Amazon.CodeBuild.Model.FleetProxyRule[] ProxyConfiguration_OrderedProxyRule { get; set; }
         #endregion
         
         #region Parameter OverflowBehavior
@@ -324,6 +347,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #endif
             context.OverflowBehavior = this.OverflowBehavior;
+            context.ProxyConfiguration_DefaultBehavior = this.ProxyConfiguration_DefaultBehavior;
+            if (this.ProxyConfiguration_OrderedProxyRule != null)
+            {
+                context.ProxyConfiguration_OrderedProxyRule = new List<Amazon.CodeBuild.Model.FleetProxyRule>(this.ProxyConfiguration_OrderedProxyRule);
+            }
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_ScalingType = this.ScalingConfiguration_ScalingType;
             if (this.ScalingConfiguration_TargetTrackingScalingConfig != null)
@@ -386,6 +414,35 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.OverflowBehavior != null)
             {
                 request.OverflowBehavior = cmdletContext.OverflowBehavior;
+            }
+            
+             // populate ProxyConfiguration
+            var requestProxyConfigurationIsNull = true;
+            request.ProxyConfiguration = new Amazon.CodeBuild.Model.ProxyConfiguration();
+            Amazon.CodeBuild.FleetProxyRuleBehavior requestProxyConfiguration_proxyConfiguration_DefaultBehavior = null;
+            if (cmdletContext.ProxyConfiguration_DefaultBehavior != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_DefaultBehavior = cmdletContext.ProxyConfiguration_DefaultBehavior;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_DefaultBehavior != null)
+            {
+                request.ProxyConfiguration.DefaultBehavior = requestProxyConfiguration_proxyConfiguration_DefaultBehavior;
+                requestProxyConfigurationIsNull = false;
+            }
+            List<Amazon.CodeBuild.Model.FleetProxyRule> requestProxyConfiguration_proxyConfiguration_OrderedProxyRule = null;
+            if (cmdletContext.ProxyConfiguration_OrderedProxyRule != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_OrderedProxyRule = cmdletContext.ProxyConfiguration_OrderedProxyRule;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_OrderedProxyRule != null)
+            {
+                request.ProxyConfiguration.OrderedProxyRules = requestProxyConfiguration_proxyConfiguration_OrderedProxyRule;
+                requestProxyConfigurationIsNull = false;
+            }
+             // determine if request.ProxyConfiguration should be set to null
+            if (requestProxyConfigurationIsNull)
+            {
+                request.ProxyConfiguration = null;
             }
             
              // populate ScalingConfiguration
@@ -537,6 +594,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String ImageId { get; set; }
             public System.String Name { get; set; }
             public Amazon.CodeBuild.FleetOverflowBehavior OverflowBehavior { get; set; }
+            public Amazon.CodeBuild.FleetProxyRuleBehavior ProxyConfiguration_DefaultBehavior { get; set; }
+            public List<Amazon.CodeBuild.Model.FleetProxyRule> ProxyConfiguration_OrderedProxyRule { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public Amazon.CodeBuild.FleetScalingType ScalingConfiguration_ScalingType { get; set; }
             public List<Amazon.CodeBuild.Model.TargetTrackingScalingConfiguration> ScalingConfiguration_TargetTrackingScalingConfig { get; set; }

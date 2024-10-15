@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
     /// Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
-    /// not connected to a repository. 
+    /// not connected to a Git repository. 
     /// 
     ///  
     /// <para>
