@@ -1,4 +1,9 @@
-﻿### 4.1.678 (2024-10-15 20:51Z)
+﻿### 4.1.679 (2024-10-16 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.907.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3Bucket: added parameters BucketRegion and Prefix.
+
+### 4.1.678 (2024-10-15 20:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.906.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet Start-AMPDeployment: added parameter SourceUrlType.

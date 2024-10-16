@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><note><para>
     ///  Only 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
     /// managed key</a> is supported per directory bucket for the lifetime of the bucket.
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed key</a> (<c>aws/s3</c>) isn't supported. After you specify SSE-KMS
     /// as your bucket's default encryption configuration with a customer managed key, you
     /// can't change the customer managed key for the bucket's SSE-KMS configuration. 

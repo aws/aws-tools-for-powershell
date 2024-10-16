@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// server-side encryption with KMS for new object uploads</a>.
     /// </para></li><li><para>
     /// Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-    /// managed key</a> per directory bucket for the lifetime of the bucket. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// managed key</a> per directory bucket for the lifetime of the bucket. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed key</a> (<c>aws/s3</c>) isn't supported. 
     /// </para></li><li><para>
     /// S3 Bucket Keys are always enabled for <c>GET</c> and <c>PUT</c> operations in a directory

@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BucketRegion
+        /// <summary>
+        /// <para>
+        /// <para>Limits the response to buckets that are located in the specified Amazon Web Services region.</para><note><para>Requests made to an endpoint in a region that is different from the bucket-region parameter are not supported. For example, if you want to limit the response to your buckets in us-west-2 region, the request must be made to an endpoint in us-west-2.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BucketRegion { get; set; }
+        #endregion
+        
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
@@ -72,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxBuckets")]
         public System.Int32? MaxBucket { get; set; }
+        #endregion
+        
+        #region Parameter Prefix
+        /// <summary>
+        /// <para>
+        /// Limits the response to bucket names that begin with the specified bucket name prefix.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Prefix { get; set; }
         #endregion
         
         #region Parameter Select
@@ -102,6 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             context.ContinuationToken = this.ContinuationToken;
             context.MaxBucket = this.MaxBucket;
+            context.Prefix = this.Prefix;
+            context.BucketRegion = this.BucketRegion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,6 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.MaxBucket != null)
             {
                 request.MaxBuckets = cmdletContext.MaxBucket.Value;
+            }
+            if (cmdletContext.Prefix != null)
+            {
+                request.Prefix = cmdletContext.Prefix;
+            }
+            if (cmdletContext.BucketRegion != null)
+            {
+                request.BucketRegion = cmdletContext.BucketRegion;
             }
             
             CmdletOutput output;
@@ -189,6 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String ContinuationToken { get; set; }
             public System.Int32? MaxBucket { get; set; }
+            public System.String Prefix { get; set; }
+            public System.String BucketRegion { get; set; }
             public System.Func<Amazon.S3.Model.ListBucketsResponse, GetS3BucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Buckets;
         }
