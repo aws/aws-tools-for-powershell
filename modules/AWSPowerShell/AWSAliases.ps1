@@ -7001,8 +7001,12 @@ Set-Alias -Name GDB-UpdateRecipe -Value Update-GDBRecipe
 Set-Alias -Name GDB-UpdateRecipeJob -Value Update-GDBRecipeJob
 Set-Alias -Name GDB-UpdateRuleset -Value Update-GDBRuleset
 Set-Alias -Name GDB-UpdateSchedule -Value Update-GDBSchedule
+Set-Alias -Name Accept-DTEXDataGrant -Value Receive-DTEXDataGrant
+Set-Alias -Name DTEX-AcceptDataGrant -Value Receive-DTEXDataGrant
 Set-Alias -Name Cancel-DTEXJob -Value Stop-DTEXJob
 Set-Alias -Name DTEX-CancelJob -Value Stop-DTEXJob
+Set-Alias -Name Create-DTEXDataGrant -Value New-DTEXDataGrant
+Set-Alias -Name DTEX-CreateDataGrant -Value New-DTEXDataGrant
 Set-Alias -Name Create-DTEXDataSet -Value New-DTEXDataSet
 Set-Alias -Name DTEX-CreateDataSet -Value New-DTEXDataSet
 Set-Alias -Name Create-DTEXEventAction -Value New-DTEXEventAction
@@ -7013,6 +7017,8 @@ Set-Alias -Name Create-DTEXRevision -Value New-DTEXRevision
 Set-Alias -Name DTEX-CreateRevision -Value New-DTEXRevision
 Set-Alias -Name Delete-DTEXAsset -Value Remove-DTEXAsset
 Set-Alias -Name DTEX-DeleteAsset -Value Remove-DTEXAsset
+Set-Alias -Name Delete-DTEXDataGrant -Value Remove-DTEXDataGrant
+Set-Alias -Name DTEX-DeleteDataGrant -Value Remove-DTEXDataGrant
 Set-Alias -Name Delete-DTEXDataSet -Value Remove-DTEXDataSet
 Set-Alias -Name DTEX-DeleteDataSet -Value Remove-DTEXDataSet
 Set-Alias -Name Delete-DTEXEventAction -Value Remove-DTEXEventAction
@@ -7020,10 +7026,15 @@ Set-Alias -Name DTEX-DeleteEventAction -Value Remove-DTEXEventAction
 Set-Alias -Name Delete-DTEXRevision -Value Remove-DTEXRevision
 Set-Alias -Name DTEX-DeleteRevision -Value Remove-DTEXRevision
 Set-Alias -Name DTEX-GetAsset -Value Get-DTEXAsset
+Set-Alias -Name DTEX-GetDataGrant -Value Get-DTEXDataGrant
 Set-Alias -Name DTEX-GetDataSet -Value Get-DTEXDataSet
 Set-Alias -Name DTEX-GetEventAction -Value Get-DTEXEventAction
 Set-Alias -Name DTEX-GetJob -Value Get-DTEXJob
+Set-Alias -Name DTEX-GetReceivedDataGrant -Value Get-DTEXReceivedDataGrant
 Set-Alias -Name DTEX-GetRevision -Value Get-DTEXRevision
+Set-Alias -Name List-DTEXDataGrants -Value Get-DTEXDataGrantList
+Set-Alias -Name List-DTEXDataGrantList -Value Get-DTEXDataGrantList
+Set-Alias -Name DTEX-ListDataGrants -Value Get-DTEXDataGrantList
 Set-Alias -Name List-DTEXDataSetRevisions -Value Get-DTEXDataSetRevisionList
 Set-Alias -Name List-DTEXDataSetRevisionList -Value Get-DTEXDataSetRevisionList
 Set-Alias -Name DTEX-ListDataSetRevisions -Value Get-DTEXDataSetRevisionList
@@ -7036,6 +7047,9 @@ Set-Alias -Name DTEX-ListEventActions -Value Get-DTEXEventActionList
 Set-Alias -Name List-DTEXJobs -Value Get-DTEXJobList
 Set-Alias -Name List-DTEXJobList -Value Get-DTEXJobList
 Set-Alias -Name DTEX-ListJobs -Value Get-DTEXJobList
+Set-Alias -Name List-DTEXReceivedDataGrants -Value Get-DTEXReceivedDataGrantList
+Set-Alias -Name List-DTEXReceivedDataGrantList -Value Get-DTEXReceivedDataGrantList
+Set-Alias -Name DTEX-ListReceivedDataGrants -Value Get-DTEXReceivedDataGrantList
 Set-Alias -Name List-DTEXRevisionAssets -Value Get-DTEXRevisionAssetList
 Set-Alias -Name List-DTEXRevisionAssetList -Value Get-DTEXRevisionAssetList
 Set-Alias -Name DTEX-ListRevisionAssets -Value Get-DTEXRevisionAssetList
@@ -23031,6 +23045,7 @@ Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
 Set-Alias -Name QS-StartAssetBundleExportJob -Value Start-QSAssetBundleExportJob
 Set-Alias -Name QS-StartAssetBundleImportJob -Value Start-QSAssetBundleImportJob
 Set-Alias -Name QS-StartDashboardSnapshotJob -Value Start-QSDashboardSnapshotJob
+Set-Alias -Name QS-StartDashboardSnapshotJobSchedule -Value Start-QSDashboardSnapshotJobSchedule
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomization

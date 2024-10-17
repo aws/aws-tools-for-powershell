@@ -19,7 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptDataGrant" OutputProperty="*" Verb="Receive" Noun="DataGrant" ShouldProcessTarget="DataGrantArn" PipelineParameter="DataGrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataGrant" OutputProperty="*" Verb="New" Noun="DataGrant" ShouldProcessTarget="SourceDataSetId" PipelineParameter="SourceDataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -46,6 +54,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataGrant" Verb="Remove" Noun="DataGrant" ShouldProcessTarget="DataGrantId" PipelineParameter="DataGrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSet" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataGrant" OutputProperty="*" Verb="Get" Noun="DataGrant" PipelineParameter="DataGrantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataSet" OutputProperty="*" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -74,7 +90,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetReceivedDataGrant" OutputProperty="*" Verb="Get" Noun="ReceivedDataGrant" PipelineParameter="DataGrantArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRevision" OutputProperty="*" Verb="Get" Noun="Revision" PipelineParameter="RevisionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="DataGrantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceivedDataGrants" OutputProperty="DataGrantSummaries" Verb="Get" Noun="ReceivedDataGrantList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

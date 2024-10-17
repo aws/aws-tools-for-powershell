@@ -22,29 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.DataExchange;
+using Amazon.DataExchange.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.DTEX
 {
     /// <summary>
-    /// Restores an analysis.
+    /// This operation accepts a data grant.
     /// </summary>
-    [Cmdlet("Restore", "QSAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.RestoreAnalysisResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight RestoreAnalysis API operation.", Operation = new[] {"RestoreAnalysis"}, SelectReturnType = typeof(Amazon.QuickSight.Model.RestoreAnalysisResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.RestoreAnalysisResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.RestoreAnalysisResponse object containing multiple properties."
+    [Cmdlet("Receive", "DTEXDataGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataExchange.Model.AcceptDataGrantResponse")]
+    [AWSCmdlet("Calls the AWS Data Exchange AcceptDataGrant API operation.", Operation = new[] {"AcceptDataGrant"}, SelectReturnType = typeof(Amazon.DataExchange.Model.AcceptDataGrantResponse))]
+    [AWSCmdletOutput("Amazon.DataExchange.Model.AcceptDataGrantResponse",
+        "This cmdlet returns an Amazon.DataExchange.Model.AcceptDataGrantResponse object containing multiple properties."
     )]
-    public partial class RestoreQSAnalysisCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class ReceiveDTEXDataGrantCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AnalysisId
+        #region Parameter DataGrantArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the analysis that you're restoring.</para>
+        /// <para>The Amazon Resource Name (ARN) of the data grant to accept.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,46 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AnalysisId { get; set; }
-        #endregion
-        
-        #region Parameter AwsAccountId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the analysis.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
-        #endregion
-        
-        #region Parameter RestoreToFolder
-        /// <summary>
-        /// <para>
-        /// <para>A boolean value that determines if the analysis will be restored to folders that it
-        /// previously resided in. A <c>True</c> value restores analysis back to all folders that
-        /// it previously resided in. A <c>False</c> value restores the analysis but does not
-        /// restore the analysis back to all previously resided folders. Restoring a restricted
-        /// analysis requires this parameter to be set to <c>True</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RestoreToFolders")]
-        public System.Boolean? RestoreToFolder { get; set; }
+        public System.String DataGrantArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.RestoreAnalysisResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.RestoreAnalysisResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataExchange.Model.AcceptDataGrantResponse).
+        /// Specifying the name of a property of type Amazon.DataExchange.Model.AcceptDataGrantResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AnalysisId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DataGrantArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DataGrantArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataGrantArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AnalysisId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-QSAnalysis (RestoreAnalysis)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataGrantArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Receive-DTEXDataGrant (AcceptDataGrant)"))
             {
                 return;
             }
@@ -140,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.AcceptDataGrantResponse, ReceiveDTEXDataGrantCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,24 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AnalysisId;
+                context.Select = (response, cmdlet) => this.DataGrantArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AnalysisId = this.AnalysisId;
+            context.DataGrantArn = this.DataGrantArn;
             #if MODULAR
-            if (this.AnalysisId == null && ParameterWasBound(nameof(this.AnalysisId)))
+            if (this.DataGrantArn == null && ParameterWasBound(nameof(this.DataGrantArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AnalysisId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DataGrantArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AwsAccountId = this.AwsAccountId;
-            #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RestoreToFolder = this.RestoreToFolder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.RestoreAnalysisRequest();
+            var request = new Amazon.DataExchange.Model.AcceptDataGrantRequest();
             
-            if (cmdletContext.AnalysisId != null)
+            if (cmdletContext.DataGrantArn != null)
             {
-                request.AnalysisId = cmdletContext.AnalysisId;
-            }
-            if (cmdletContext.AwsAccountId != null)
-            {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
-            }
-            if (cmdletContext.RestoreToFolder != null)
-            {
-                request.RestoreToFolders = cmdletContext.RestoreToFolder.Value;
+                request.DataGrantArn = cmdletContext.DataGrantArn;
             }
             
             CmdletOutput output;
@@ -228,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.RestoreAnalysisResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.RestoreAnalysisRequest request)
+        private Amazon.DataExchange.Model.AcceptDataGrantResponse CallAWSServiceOperation(IAmazonDataExchange client, Amazon.DataExchange.Model.AcceptDataGrantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "RestoreAnalysis");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "AcceptDataGrant");
             try
             {
                 #if DESKTOP
-                return client.RestoreAnalysis(request);
+                return client.AcceptDataGrant(request);
                 #elif CORECLR
-                return client.RestoreAnalysisAsync(request).GetAwaiter().GetResult();
+                return client.AcceptDataGrantAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -256,10 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AnalysisId { get; set; }
-            public System.String AwsAccountId { get; set; }
-            public System.Boolean? RestoreToFolder { get; set; }
-            public System.Func<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet, object> Select { get; set; } =
+            public System.String DataGrantArn { get; set; }
+            public System.Func<Amazon.DataExchange.Model.AcceptDataGrantResponse, ReceiveDTEXDataGrantCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

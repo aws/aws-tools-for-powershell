@@ -28,36 +28,24 @@ using Amazon.DataExchange.Model;
 namespace Amazon.PowerShell.Cmdlets.DTEX
 {
     /// <summary>
-    /// This operation lists your data sets. When listing by origin OWNED, results are sorted
-    /// by CreatedAt in descending order. When listing by origin ENTITLED, there is no order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This operation returns information about all data grants.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DTEXDataSetList")]
-    [OutputType("Amazon.DataExchange.Model.DataSetEntry")]
-    [AWSCmdlet("Calls the AWS Data Exchange ListDataSets API operation.", Operation = new[] {"ListDataSets"}, SelectReturnType = typeof(Amazon.DataExchange.Model.ListDataSetsResponse))]
-    [AWSCmdletOutput("Amazon.DataExchange.Model.DataSetEntry or Amazon.DataExchange.Model.ListDataSetsResponse",
-        "This cmdlet returns a collection of Amazon.DataExchange.Model.DataSetEntry objects.",
-        "The service call response (type Amazon.DataExchange.Model.ListDataSetsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "DTEXDataGrantList")]
+    [OutputType("Amazon.DataExchange.Model.DataGrantSummaryEntry")]
+    [AWSCmdlet("Calls the AWS Data Exchange ListDataGrants API operation.", Operation = new[] {"ListDataGrants"}, SelectReturnType = typeof(Amazon.DataExchange.Model.ListDataGrantsResponse))]
+    [AWSCmdletOutput("Amazon.DataExchange.Model.DataGrantSummaryEntry or Amazon.DataExchange.Model.ListDataGrantsResponse",
+        "This cmdlet returns a collection of Amazon.DataExchange.Model.DataGrantSummaryEntry objects.",
+        "The service call response (type Amazon.DataExchange.Model.ListDataGrantsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDTEXDataSetListCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
+    public partial class GetDTEXDataGrantListCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Origin
-        /// <summary>
-        /// <para>
-        /// <para>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
-        /// to the account (for subscribers).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Origin { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by a single call.</para>
+        /// <para>The maximum number of results to be included in the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token value retrieved from a previous call to access the next page of results.</para>
+        /// <para>The pagination token used to retrieve the next page of results for this operation.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,23 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataSets'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataExchange.Model.ListDataSetsResponse).
-        /// Specifying the name of a property of type Amazon.DataExchange.Model.ListDataSetsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataGrantSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataExchange.Model.ListDataGrantsResponse).
+        /// Specifying the name of a property of type Amazon.DataExchange.Model.ListDataGrantsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DataSets";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Origin parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Origin' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Origin' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "DataGrantSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -120,24 +98,13 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.ListDataSetsResponse, GetDTEXDataSetListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.ListDataGrantsResponse, GetDTEXDataGrantListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Origin;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Origin = this.Origin;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,20 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.DataExchange.Model.ListDataSetsRequest();
+            var request = new Amazon.DataExchange.Model.ListDataGrantsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Origin != null)
-            {
-                request.Origin = cmdletContext.Origin;
             }
             
             // Initialize loop variant and commence piping
@@ -223,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         #region AWS Service Operation Call
         
-        private Amazon.DataExchange.Model.ListDataSetsResponse CallAWSServiceOperation(IAmazonDataExchange client, Amazon.DataExchange.Model.ListDataSetsRequest request)
+        private Amazon.DataExchange.Model.ListDataGrantsResponse CallAWSServiceOperation(IAmazonDataExchange client, Amazon.DataExchange.Model.ListDataGrantsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "ListDataSets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "ListDataGrants");
             try
             {
                 #if DESKTOP
-                return client.ListDataSets(request);
+                return client.ListDataGrants(request);
                 #elif CORECLR
-                return client.ListDataSetsAsync(request).GetAwaiter().GetResult();
+                return client.ListDataGrantsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,9 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String Origin { get; set; }
-            public System.Func<Amazon.DataExchange.Model.ListDataSetsResponse, GetDTEXDataSetListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DataSets;
+            public System.Func<Amazon.DataExchange.Model.ListDataGrantsResponse, GetDTEXDataGrantListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DataGrantSummaries;
         }
         
     }

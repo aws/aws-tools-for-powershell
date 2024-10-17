@@ -229,6 +229,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-QSAssetBundleExportJob', 
         'Start-QSAssetBundleImportJob', 
         'Start-QSDashboardSnapshotJob', 
+        'Start-QSDashboardSnapshotJobSchedule', 
         'Stop-QSIngestion', 
         'Update-QSAccountCustomization', 
         'Update-QSAccountSetting', 

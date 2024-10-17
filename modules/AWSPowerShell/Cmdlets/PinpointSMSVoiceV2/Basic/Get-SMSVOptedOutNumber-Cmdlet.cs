@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// out numbers or filters, the output includes information for all opted out destination
     /// numbers in your opt-out list.
     /// </para><para>
-    /// If you specify an opted out number that isn't valid, an error is returned.
+    /// If you specify an opted out number that isn't valid, an exception is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVOptedOutNumber")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter OptedOutNumber
         /// <summary>
         /// <para>
-        /// <para>An array of phone numbers to search for in the OptOutList.</para>
+        /// <para>An array of phone numbers to search for in the OptOutList.</para><para>If you specify an opted out number that isn't valid, an exception is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

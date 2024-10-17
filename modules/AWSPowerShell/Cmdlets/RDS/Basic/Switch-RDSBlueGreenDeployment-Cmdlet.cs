@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BlueGreenDeploymentIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the blue/green deployment.</para><para>Constraints:</para><ul><li><para>Must match an existing blue/green deployment identifier.</para></li></ul>
+        /// <para>The resource ID of the blue/green deployment.</para><para>Constraints:</para><ul><li><para>Must match an existing blue/green deployment resource ID.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

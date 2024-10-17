@@ -729,6 +729,7 @@ $QS_SelectMap = @{
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
                "Start-QSDashboardSnapshotJob",
+               "Start-QSDashboardSnapshotJobSchedule",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",

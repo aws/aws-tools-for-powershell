@@ -28,40 +28,36 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Restores an analysis.
+    /// Starts an asynchronous job that runs an existing dashboard schedule and sends the
+    /// dashboard snapshot through email. 
+    /// 
+    ///  
+    /// <para>
+    /// Only one job can run simultaneously in a given schedule. Repeated requests are skipped
+    /// with a <c>202</c> HTTP status code.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html">Scheduling
+    /// and sending Amazon QuickSight reports by email</a> and <a href="https://docs.aws.amazon.com/quicksight/latest/user/email-reports-from-dashboard.html">Configuring
+    /// email report settings for a Amazon QuickSight dashboard</a> in the <i>Amazon QuickSight
+    /// User Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Restore", "QSAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.RestoreAnalysisResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight RestoreAnalysis API operation.", Operation = new[] {"RestoreAnalysis"}, SelectReturnType = typeof(Amazon.QuickSight.Model.RestoreAnalysisResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.RestoreAnalysisResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.RestoreAnalysisResponse object containing multiple properties."
+    [Cmdlet("Start", "QSDashboardSnapshotJobSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight StartDashboardSnapshotJobSchedule API operation.", Operation = new[] {"StartDashboardSnapshotJobSchedule"}, SelectReturnType = typeof(Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse object containing multiple properties."
     )]
-    public partial class RestoreQSAnalysisCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class StartQSDashboardSnapshotJobScheduleCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AnalysisId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the analysis that you're restoring.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AnalysisId { get; set; }
-        #endregion
-        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the analysis.</para>
+        /// <para>The ID of the Amazon Web Services account that the dashboard snapshot job is executed
+        /// in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,26 +71,47 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
-        #region Parameter RestoreToFolder
+        #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>A boolean value that determines if the analysis will be restored to folders that it
-        /// previously resided in. A <c>True</c> value restores analysis back to all folders that
-        /// it previously resided in. A <c>False</c> value restores the analysis but does not
-        /// restore the analysis back to all previously resided folders. Restoring a restricted
-        /// analysis requires this parameter to be set to <c>True</c>.</para>
+        /// <para>The ID of the dashboard that you want to start a snapshot job schedule for. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RestoreToFolders")]
-        public System.Boolean? RestoreToFolder { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DashboardId { get; set; }
+        #endregion
+        
+        #region Parameter ScheduleId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the schedule that you want to start a snapshot job schedule for. The schedule
+        /// ID can be found in the Amazon QuickSight console in the <b>Schedules</b> pane of the
+        /// dashboard that the schedule is configured for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ScheduleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.RestoreAnalysisResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.RestoreAnalysisResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AnalysisId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ScheduleId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ScheduleId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScheduleId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AnalysisId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-QSAnalysis (RestoreAnalysis)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-QSDashboardSnapshotJobSchedule (StartDashboardSnapshotJobSchedule)"))
             {
                 return;
             }
@@ -140,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse, StartQSDashboardSnapshotJobScheduleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,16 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AnalysisId;
+                context.Select = (response, cmdlet) => this.ScheduleId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AnalysisId = this.AnalysisId;
-            #if MODULAR
-            if (this.AnalysisId == null && ParameterWasBound(nameof(this.AnalysisId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AnalysisId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
             if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
@@ -166,7 +176,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RestoreToFolder = this.RestoreToFolder;
+            context.DashboardId = this.DashboardId;
+            #if MODULAR
+            if (this.DashboardId == null && ParameterWasBound(nameof(this.DashboardId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DashboardId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ScheduleId = this.ScheduleId;
+            #if MODULAR
+            if (this.ScheduleId == null && ParameterWasBound(nameof(this.ScheduleId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScheduleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,19 +204,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.RestoreAnalysisRequest();
+            var request = new Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleRequest();
             
-            if (cmdletContext.AnalysisId != null)
-            {
-                request.AnalysisId = cmdletContext.AnalysisId;
-            }
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.RestoreToFolder != null)
+            if (cmdletContext.DashboardId != null)
             {
-                request.RestoreToFolders = cmdletContext.RestoreToFolder.Value;
+                request.DashboardId = cmdletContext.DashboardId;
+            }
+            if (cmdletContext.ScheduleId != null)
+            {
+                request.ScheduleId = cmdletContext.ScheduleId;
             }
             
             CmdletOutput output;
@@ -228,15 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.RestoreAnalysisResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.RestoreAnalysisRequest request)
+        private Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "RestoreAnalysis");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "StartDashboardSnapshotJobSchedule");
             try
             {
                 #if DESKTOP
-                return client.RestoreAnalysis(request);
+                return client.StartDashboardSnapshotJobSchedule(request);
                 #elif CORECLR
-                return client.RestoreAnalysisAsync(request).GetAwaiter().GetResult();
+                return client.StartDashboardSnapshotJobScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -256,10 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AnalysisId { get; set; }
             public System.String AwsAccountId { get; set; }
-            public System.Boolean? RestoreToFolder { get; set; }
-            public System.Func<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet, object> Select { get; set; } =
+            public System.String DashboardId { get; set; }
+            public System.String ScheduleId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.StartDashboardSnapshotJobScheduleResponse, StartQSDashboardSnapshotJobScheduleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBShardGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-supplied DB shard group identifier or the Amazon Resource Name (ARN) of the
-        /// DB shard group. If this parameter is specified, information for only the specific
-        /// DB shard group is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB shard group identifier.</para></li></ul>
+        /// <para>The user-supplied DB shard group identifier. If this parameter is specified, information
+        /// for only the specific DB shard group is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB shard group identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

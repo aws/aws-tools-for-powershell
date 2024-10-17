@@ -610,6 +610,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDashboardSnapshotJobSchedule" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJobSchedule" AnonymousShouldProcessTarget="true" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

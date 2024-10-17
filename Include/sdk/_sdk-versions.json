@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.907.0",
+    "ProductVersion"    : "3.7.908.0",
     "CoreVersion"       : "3.7.400.36",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.401.14",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.402.32",
+            "Version" : "3.7.402.33",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.404.9",
+            "Version" : "3.7.404.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -388,7 +388,7 @@
             "InPreview"               : false
         },
         "WorkSpaces"                : {
-            "Version" : "3.7.403.14",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1196,7 +1196,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.406.7",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1548,7 +1548,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "3.7.400.36",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -2372,7 +2372,7 @@
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "3.7.401.13",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -2588,7 +2588,7 @@
             "InPreview"               : false
         },
         "Pipes"                               : {
-            "Version" : "3.7.401.18",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -2916,7 +2916,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "3.7.405.9",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"

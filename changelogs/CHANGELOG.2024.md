@@ -1,4 +1,18 @@
-﻿### 4.1.679 (2024-10-16 21:16Z)
+﻿### 4.1.680 (2024-10-17 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.908.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Data Exchange
+    * Added cmdlet Get-DTEXDataGrant leveraging the GetDataGrant service API.
+    * Added cmdlet Get-DTEXDataGrantList leveraging the ListDataGrants service API.
+    * Added cmdlet Get-DTEXReceivedDataGrant leveraging the GetReceivedDataGrant service API.
+    * Added cmdlet Get-DTEXReceivedDataGrantList leveraging the ListReceivedDataGrants service API.
+    * Added cmdlet New-DTEXDataGrant leveraging the CreateDataGrant service API.
+    * Added cmdlet Receive-DTEXDataGrant leveraging the AcceptDataGrant service API.
+    * Added cmdlet Remove-DTEXDataGrant leveraging the DeleteDataGrant service API.
+  * Amazon QuickSight
+    * Added cmdlet Start-QSDashboardSnapshotJobSchedule leveraging the StartDashboardSnapshotJobSchedule service API.
+    * Modified cmdlet Restore-QSAnalysis: added parameter RestoreToFolder.
+
+### 4.1.679 (2024-10-16 21:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.907.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Storage Service (S3)
     * Modified cmdlet Get-S3Bucket: added parameters BucketRegion and Prefix.

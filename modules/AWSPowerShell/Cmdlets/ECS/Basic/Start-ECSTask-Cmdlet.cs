@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ReferenceId
         /// <summary>
         /// <para>
-        /// <para>The reference ID to use for the task.</para>
+        /// <para>This parameter is only used by Amazon ECS. It is not intended for use by customers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

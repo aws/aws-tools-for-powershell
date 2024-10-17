@@ -22,29 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QuickSight;
-using Amazon.QuickSight.Model;
+using Amazon.DataExchange;
+using Amazon.DataExchange.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QS
+namespace Amazon.PowerShell.Cmdlets.DTEX
 {
     /// <summary>
-    /// Restores an analysis.
+    /// This operation deletes a data grant.
     /// </summary>
-    [Cmdlet("Restore", "QSAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.RestoreAnalysisResponse")]
-    [AWSCmdlet("Calls the Amazon QuickSight RestoreAnalysis API operation.", Operation = new[] {"RestoreAnalysis"}, SelectReturnType = typeof(Amazon.QuickSight.Model.RestoreAnalysisResponse))]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.RestoreAnalysisResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.RestoreAnalysisResponse object containing multiple properties."
+    [Cmdlet("Remove", "DTEXDataGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Data Exchange DeleteDataGrant API operation.", Operation = new[] {"DeleteDataGrant"}, SelectReturnType = typeof(Amazon.DataExchange.Model.DeleteDataGrantResponse))]
+    [AWSCmdletOutput("None or Amazon.DataExchange.Model.DeleteDataGrantResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataExchange.Model.DeleteDataGrantResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RestoreQSAnalysisCmdlet : AmazonQuickSightClientCmdlet, IExecutor
+    public partial class RemoveDTEXDataGrantCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AnalysisId
+        #region Parameter DataGrantId
         /// <summary>
         /// <para>
-        /// <para>The ID of the analysis that you're restoring.</para>
+        /// <para>The ID of the data grant to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,46 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AnalysisId { get; set; }
-        #endregion
-        
-        #region Parameter AwsAccountId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the Amazon Web Services account that contains the analysis.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsAccountId { get; set; }
-        #endregion
-        
-        #region Parameter RestoreToFolder
-        /// <summary>
-        /// <para>
-        /// <para>A boolean value that determines if the analysis will be restored to folders that it
-        /// previously resided in. A <c>True</c> value restores analysis back to all folders that
-        /// it previously resided in. A <c>False</c> value restores the analysis but does not
-        /// restore the analysis back to all previously resided folders. Restoring a restricted
-        /// analysis requires this parameter to be set to <c>True</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RestoreToFolders")]
-        public System.Boolean? RestoreToFolder { get; set; }
+        public System.String DataGrantId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.RestoreAnalysisResponse).
-        /// Specifying the name of a property of type Amazon.QuickSight.Model.RestoreAnalysisResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataExchange.Model.DeleteDataGrantResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AnalysisId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DataGrantId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DataGrantId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalysisId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataGrantId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AnalysisId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-QSAnalysis (RestoreAnalysis)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataGrantId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DTEXDataGrant (DeleteDataGrant)"))
             {
                 return;
             }
@@ -140,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.DeleteDataGrantResponse, RemoveDTEXDataGrantCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,24 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AnalysisId;
+                context.Select = (response, cmdlet) => this.DataGrantId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AnalysisId = this.AnalysisId;
+            context.DataGrantId = this.DataGrantId;
             #if MODULAR
-            if (this.AnalysisId == null && ParameterWasBound(nameof(this.AnalysisId)))
+            if (this.DataGrantId == null && ParameterWasBound(nameof(this.DataGrantId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AnalysisId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DataGrantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AwsAccountId = this.AwsAccountId;
-            #if MODULAR
-            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RestoreToFolder = this.RestoreToFolder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QuickSight.Model.RestoreAnalysisRequest();
+            var request = new Amazon.DataExchange.Model.DeleteDataGrantRequest();
             
-            if (cmdletContext.AnalysisId != null)
+            if (cmdletContext.DataGrantId != null)
             {
-                request.AnalysisId = cmdletContext.AnalysisId;
-            }
-            if (cmdletContext.AwsAccountId != null)
-            {
-                request.AwsAccountId = cmdletContext.AwsAccountId;
-            }
-            if (cmdletContext.RestoreToFolder != null)
-            {
-                request.RestoreToFolders = cmdletContext.RestoreToFolder.Value;
+                request.DataGrantId = cmdletContext.DataGrantId;
             }
             
             CmdletOutput output;
@@ -228,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         #region AWS Service Operation Call
         
-        private Amazon.QuickSight.Model.RestoreAnalysisResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.RestoreAnalysisRequest request)
+        private Amazon.DataExchange.Model.DeleteDataGrantResponse CallAWSServiceOperation(IAmazonDataExchange client, Amazon.DataExchange.Model.DeleteDataGrantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "RestoreAnalysis");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "DeleteDataGrant");
             try
             {
                 #if DESKTOP
-                return client.RestoreAnalysis(request);
+                return client.DeleteDataGrant(request);
                 #elif CORECLR
-                return client.RestoreAnalysisAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataGrantAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -256,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AnalysisId { get; set; }
-            public System.String AwsAccountId { get; set; }
-            public System.Boolean? RestoreToFolder { get; set; }
-            public System.Func<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String DataGrantId { get; set; }
+            public System.Func<Amazon.DataExchange.Model.DeleteDataGrantResponse, RemoveDTEXDataGrantCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -294,8 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ReferenceId
         /// <summary>
         /// <para>
-        /// <para>The reference ID to use for the task. The reference ID can have a maximum length of
-        /// 1024 characters.</para>
+        /// <para>This parameter is only used by Amazon ECS. It is not intended for use by customers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
