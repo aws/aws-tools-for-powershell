@@ -14,6 +14,9 @@
 
 .Example
     Confirm-StagedArtifact -ExpectedVersion 3.3.283.0
+
+.Example
+    Confirm-StagedArtifact -ExpectedVersion 3.3.283.0 -PreviewLabel 'preview003'
 #>
 Param (
     # The expected version of the module. This will be verified against
@@ -29,7 +32,10 @@ Param (
     # Specifies the type of build that is being verified. For PREVIEW build types AWSPowerShell.NetCore 
     # will be verified. Otherwise AWSPowerShell, AWSPowerShell.NetCore, and AWS.Tools.* will be verified.
     [Parameter()]
-    [string] $BuildType = "RELEASE"
+    [string] $BuildType = "RELEASE",
+
+    [Parameter()]
+    [string] $PreviewLabel = ""
 )
 
 function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
@@ -50,6 +56,13 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
         }
         else {
             throw "Manifest has version $manifestVersion, not expected version $ExpectedVersion"
+        }
+        # validate pre-release
+        if($manifest.PrivateData.PSData.ContainsKey('Prerelease') -ne $isPreRelease){
+            throw "Unexpected Manifest Prerelease. For a prerelease version Prerelease tag should be set and for a non-prerelease version, the prerelease tag should not be set"
+        }
+        if($isPreRelease -and $manifest.PrivateData.PSData.Prerelease -ne $PreviewLabel){
+            throw "Manifest has prerelease tag $($manifest.PrivateData.PSData.Prerelease), expected $PreviewLabel"
         }
     }
 
@@ -88,11 +101,11 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
         $changelogHeader = Get-Content -TotalCount 1 -Path $changelogFile
         Write-Host "...inspecting latest changelog header: $changelogHeader"
         $headerParts = $changelogHeader.Split()
-        if ($headerParts[1] -eq $ExpectedVersion) {
+        if ($headerParts[1] -eq $expectedVersionWithPreviewLabel) {
             Write-Host '...changelog file version check - PASS'
         }
         else {
-            throw 'Changelog does not appear to contain details of the new version'
+            throw "Changelog does not appear to contain details of the new version. Expected $expectedVersionWithPreviewLabel, Actual $($headerParts[1])"
         }
     }
 
@@ -108,6 +121,13 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
         throw "The module failed to load `n" + $testOutput
     }
 }
+
+$isPreRelease = ![string]::IsNullOrEmpty($PreviewLabel)
+$expectedVersionWithPreviewLabel = $ExpectedVersion
+if($isPreRelease){
+    $expectedVersionWithPreviewLabel = "$ExpectedVersion-$PreviewLabel"
+}
+
 
 if (Get-Module AWSPowerShell, AWSPowerShell.NetCore, AWS.Tools.*) {
     throw 'Cannot validate modules if any AWS Tools for PowerShell module is already imported'
