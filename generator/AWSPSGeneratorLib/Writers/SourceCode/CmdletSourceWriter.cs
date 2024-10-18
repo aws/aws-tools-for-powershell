@@ -102,8 +102,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine($"public partial class {Operation.SelectedVerb}{Operation.SelectedNoun}Cmdlet : {ServiceConfig.GetServiceCmdletClassName(Operation.RequiresAnonymousAuthentication)}Cmdlet, IExecutor");
                 writer.OpenRegion();
                 {
-                    WriteSensitiveDataFlags(writer);
-
                     writer.WriteLine();
 
                     WriteGeneratedCmdletFlag(writer);
@@ -233,20 +231,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.CloseRegion();
             }
             writer.CloseRegion();
-        }
-
-        private void WriteSensitiveDataFlags(IndentedTextWriter writer)
-        {
-            if (ContainsSensitiveData(MethodAnalysis.RequestType))
-            {
-                writer.WriteLine();
-                writer.WriteLine("protected override bool IsSensitiveRequest { get; set; } = true;");
-            }
-            if (ContainsSensitiveData(MethodAnalysis.ResponseType))
-            {
-                writer.WriteLine();
-                writer.WriteLine("protected override bool IsSensitiveResponse { get; set; } = true;");
-            }
         }
 
         private void WriteGeneratedCmdletFlag(IndentedTextWriter writer)

@@ -71,10 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private const long OneGigabyte = 1024 * 1024 * 1024;
         private const long FiveGigabytes = 5 * OneGigabyte;
 
-        protected override bool IsSensitiveRequest { get; set; } = true;
-
-        protected override bool IsSensitiveResponse { get; set; } = true;
-
         #region Parameter BucketName
         /// <summary>
         /// <para>

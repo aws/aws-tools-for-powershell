@@ -44,8 +44,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3PreSignedURLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        protected override bool IsSensitiveRequest { get; set; } = true;
-
         #region Parameter BucketName
         /// <summary>
         /// <para>

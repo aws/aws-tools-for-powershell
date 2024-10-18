@@ -55,16 +55,7 @@ namespace Amazon.PowerShell.Common
 
         static readonly object[] EmptyObjectArray = new object[0];
 
-        // True if request contain any sensitive data
-        protected virtual bool IsSensitiveRequest { get; set; }
-
-        // True if response contain any sensitive data
-        protected virtual bool IsSensitiveResponse { get; set; }
-
         protected virtual bool IsGeneratedCmdlet { get; set; }
-
-        private bool IsSanitizingRequestError { get; set; }
-        private bool IsSanitizingResponseError { get; set; }
 
         private TraceSpan TraceSpan { get; set; }
 
@@ -332,8 +323,6 @@ namespace Amazon.PowerShell.Common
                 return new object[] { value };
         }
 
-        protected AWSCmdletHistory ServiceCalls { get; private set; }
-
         protected override void BeginProcessing()
         {
             string serviceId = AWSServiceId.Replace(" ", "");
@@ -348,41 +337,13 @@ namespace Amazon.PowerShell.Common
                 AWSPowerShellUserAgentSet = true;
             }
 
-            // wanted to emit just the stack, or copy of it (to prevent modification) but if we do that,
-            // we see only the Count of entries, not the actual content - need to figure out
-            if (this.SessionState.PSVariable.Get(SessionKeys.AWSCallHistoryName) == null)
-                this.SessionState.PSVariable.Set(SessionKeys.AWSCallHistoryName, new PSObject(AWSCmdletHistoryBuffer.Instance));
-
-            ServiceCalls = AWSCmdletHistoryBuffer.Instance.StartCmdletHistory(this.MyInvocation.MyCommand.Name);
         }
 
         protected override void EndProcessing()
         {
             // if we get here, there were no terminating errors during ProcessRecord
-            AWSCmdletHistoryBuffer.Instance.PushCmdletHistory(ServiceCalls);
             base.EndProcessing();
             
-            // Writing Non-terminating error in EndProcessing since we should only write a single error message when commands are run in a pipeline
-            // Moved this.WriteError from ResponseEventHandler to EndProcessing since Write Methods can be only called from BeginProcessing, ProcessRecord and EndProcessing
-            if (IsSanitizingRequestError || IsSanitizingResponseError)
-            {
-                // Build error message
-                string failedType = "";
-                if (IsSanitizingRequestError && IsSanitizingResponseError)
-                {
-                    failedType = "Request and Response are";
-                }
-                else if (IsSanitizingRequestError) { 
-                    failedType = "Request is";
-                }
-                else if (IsSanitizingResponseError) { 
-                    failedType = "Response is";
-                }
-
-                string errorMessage = $"Error occurred in sensitive data redaction, as a result {failedType} being omitted from $AWSHistory. In case you rely on $AWSHistory, run Set-AWSHistoryConfiguration -IncludeSensitiveData command to skip sensitive data redaction. Please report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.";
-                this.WriteError(new ErrorRecord(new Exception(errorMessage), "", ErrorCategory.InvalidOperation, this));
-            }
-
             base.EndProcessing();
 
             TraceSpan?.Dispose();
@@ -396,37 +357,22 @@ namespace Amazon.PowerShell.Common
 
             if (cmdletOutput.ErrorResponse != null)
             {
-                ServiceCalls.PushServiceResponse(cmdletOutput.ErrorResponse, null);
-                // need to manually end the history data here, as once we throw the error we won't
-                // get called to run EndProcessing...
-                AWSCmdletHistoryBuffer.Instance.PushCmdletHistory(ServiceCalls);
-
                 ThrowExecutionError(cmdletOutput.ErrorResponse.Message, this, cmdletOutput.ErrorResponse);
             }
-            else
+            else if (cmdletOutput.PipelineOutput != null)
             {
-                // pipe the output manually, so we can track the number of emitted objects to add
-                // as a convenience note on the LastServiceResponse
-                int emittedObjectCount = 0;
-                if (cmdletOutput.PipelineOutput != null)
+                IEnumerator enumerator = LanguagePrimitives.GetEnumerator(cmdletOutput.PipelineOutput);
+                if (enumerator == null)
                 {
-                    IEnumerator enumerator = LanguagePrimitives.GetEnumerator(cmdletOutput.PipelineOutput);
-                    if (enumerator == null)
-                    {
-                        WriteObject(cmdletOutput.PipelineOutput);
-                        emittedObjectCount++;
-                    }
-                    else
-                    {
-                        while (enumerator.MoveNext())
-                        {
-                            WriteObject(enumerator.Current);
-                            emittedObjectCount++;
-                        }
-                    }
+                    WriteObject(cmdletOutput.PipelineOutput);
                 }
-
-                ServiceCalls.EmittedObjectsCount += emittedObjectCount;
+                else
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        WriteObject(enumerator.Current);
+                    }
+                }       
             }
         }
 
@@ -437,41 +383,6 @@ namespace Amazon.PowerShell.Common
 
             var response = wsrea.Response;
             if (response == null) return;
-
-            AmazonWebServiceResponse sanitizedResponse = GetSanitizedData(response);
-            if (sanitizedResponse == null) return;
-
-            ServiceCalls.PushServiceResponse(sanitizedResponse);
-
-        }
-
-        private AmazonWebServiceResponse GetSanitizedData(AmazonWebServiceResponse response)
-        {
-            var sanitizedResponse = response;
-
-            try
-            {
-                if (!AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData)
-                {
-                    if (!IsGeneratedCmdlet && !IsSensitiveResponse)
-                    {
-                        // Evaluate IsSensitiveResponse for Advanced Cmdlets if not already overridden
-                        IsSensitiveResponse = SensitiveData.TypeContainsSensitiveData(response.GetType());
-                    }
-
-                    if (IsSensitiveResponse)
-                    {
-                        sanitizedResponse = SensitiveData.GetSanitizedData(response) as AmazonWebServiceResponse;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                IsSanitizingResponseError = true;
-                return null;
-            }
-
-            return sanitizedResponse;
         }
 
         protected void RequestEventHandler(object sender, RequestEventArgs args)
@@ -489,43 +400,6 @@ namespace Amazon.PowerShell.Common
             var request = wsrea.Request;
 
             if (request == null) return;
-
-            AmazonWebServiceRequest sanitizedRequest = GetSanitizedData(request);
-
-            if (sanitizedRequest == null) return;
-
-            ServiceCalls.PushServiceRequest(sanitizedRequest, this.MyInvocation);
-        }
-
-        private AmazonWebServiceRequest GetSanitizedData(AmazonWebServiceRequest request)
-        {
-            var sanitizedRequest = request;
-
-            if (!AWSCmdletHistoryBuffer.Instance.RecordServiceRequests) return null;
-
-            try
-            {
-                if (!AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData)
-                {
-                    if (!IsGeneratedCmdlet && !IsSensitiveRequest)
-                    {
-                        // Evaluate IsSensitiveRequest for Advanced Cmdlets if not already overridden
-                        IsSensitiveRequest = SensitiveData.TypeContainsSensitiveData(request.GetType());
-                    }
-
-                    if (IsSensitiveRequest)
-                    {
-                        sanitizedRequest = SensitiveData.GetSanitizedData(sanitizedRequest) as AmazonWebServiceRequest;
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                IsSanitizingRequestError = true;
-                return null;
-            }
-            return sanitizedRequest;
         }
 
         #endregion

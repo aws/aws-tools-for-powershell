@@ -65,25 +65,45 @@ Describe -Tag "Smoke" "CloudWatch" {
 
         # test using service api names for tokenization
         It "Can manually iterate with service token names, max 2 per call" {
-            [int]$numPerPage = 2
-            $manualIter1 = (Get-CWAlarm -MaxRecords $numPerPage | Measure-Object).Count
-            while ($awshistory.LastServiceResponse.NextToken -ne $null)
-            {
-                $manualIter1 += (Get-CWAlarm -MaxRecords $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | Measure-Object).Count
-            }
+            $numPerPage = 2
 
-            $manualIter1 | Should -Be $allAlarms.Count
+            $cwAlarms = do
+            {
+                $splatParams = @{
+                    
+                    MaxRecord = $numPerPage 
+                    NextToken = $result.NextToken
+                    Select = '*'
+                    NoAutoIteration = $true
+                }
+                $result = Get-CWAlarm @splatParams
+                
+                $result.MetricAlarms
+            }
+            while ($null -ne $result.NextToken)
+
+            $allAlarms.count | Should -Be $cwAlarms.Count
         }
 
         It "Can manually iterate with token aliases, max 2 per call" {
-            [int]$numPerPage = 2
-            $manualIter2 = (Get-CWAlarm -MaxItems $numPerPage | Measure-Object).Count
-            while ($awshistory.LastServiceResponse.NextToken -ne $null)
-            {
-                $manualIter2 += (Get-CWAlarm -MaxItems $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | Measure-Object).Count
-            }
+            $numPerPage = 2
 
-            $manualIter2 | Should -Be $allAlarms.Count
+            $cwAlarms = do
+            {
+                $splatParams = @{
+                    
+                    MaxItems = $numPerPage 
+                    NextToken = $result.NextToken
+                    Select = '*'
+                    NoAutoIteration = $true
+                }
+                $result = Get-CWAlarm @splatParams
+                
+                $result.MetricAlarms
+            }
+            while ($null -ne $result.NextToken)
+
+            $allAlarms.count | Should -Be $cwAlarms.Count
         }
     }
 }
