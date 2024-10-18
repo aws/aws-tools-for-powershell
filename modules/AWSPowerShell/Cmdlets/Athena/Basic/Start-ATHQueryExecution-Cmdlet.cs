@@ -203,11 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter AclConfiguration_S3AclOption
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
-        /// the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a query runs
-        /// in a workgroup and the workgroup overrides client-side settings, then the Amazon S3
-        /// canned ACL specified in the workgroup's settings is used for all queries that run
-        /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
+        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results, including
+        /// data files inserted by Athena as the result of statements like CTAS or INSERT INTO.
+        /// Currently the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a
+        /// query runs in a workgroup and the workgroup overrides client-side settings, then the
+        /// Amazon S3 canned ACL specified in the workgroup's settings is used for all queries
+        /// that run in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
         /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>

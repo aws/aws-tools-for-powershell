@@ -4526,7 +4526,7 @@ $ATH_Completers = {
             ($_ -eq "Update-ATHDataCatalog/Type")
         }
         {
-            $v = "FEDERATED","GLUE","HIVE","LAMBDA"
+            $v = "GLUE","HIVE","LAMBDA"
             break
         }
 
@@ -19192,7 +19192,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/Project_ProjectDesignation")
         }
         {
-            $v = "CONTRIBUTOR","OWNER"
+            $v = "CONTRIBUTOR","OWNER","PROJECT_CATALOG_STEWARD"
             break
         }
 
@@ -19320,7 +19320,7 @@ $DZ_Completers = {
         # Amazon.DataZone.UserDesignation
         "New-DZProjectMembership/Designation"
         {
-            $v = "PROJECT_CONTRIBUTOR","PROJECT_OWNER"
+            $v = "PROJECT_CATALOG_CONSUMER","PROJECT_CATALOG_STEWARD","PROJECT_CATALOG_VIEWER","PROJECT_CONTRIBUTOR","PROJECT_OWNER"
             break
         }
 

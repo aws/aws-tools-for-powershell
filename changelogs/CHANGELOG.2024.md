@@ -1,4 +1,10 @@
-﻿### 4.1.680 (2024-10-17 21:14Z)
+﻿### 4.1.681 (2024-10-18 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.909.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * [Breaking Change] Modified cmdlet New-ATHDataCatalog: output changed from Amazon.Athena.Model.CreateDataCatalogResponse to None.
+    * [Breaking Change] Modified cmdlet Remove-ATHDataCatalog: output changed from Amazon.Athena.Model.DeleteDataCatalogResponse to None.
+
+### 4.1.680 (2024-10-17 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.908.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Data Exchange
     * Added cmdlet Get-DTEXDataGrant leveraging the GetDataGrant service API.
