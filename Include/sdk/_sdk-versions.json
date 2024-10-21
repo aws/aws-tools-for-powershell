@@ -2059,14 +2059,6 @@
             },
             "InPreview"               : false
         },
-        "NimbleStudio"                    : {
-            "Version" : "3.7.400.38",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.400.38"
-            },
-            "InPreview"               : false
-        },
         "FinSpaceData"                    : {
             "Version" : "3.7.400.38",
             "AssemblyVersionOverride" : "3.3",
