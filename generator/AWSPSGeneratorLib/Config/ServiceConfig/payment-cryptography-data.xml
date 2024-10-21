@@ -34,6 +34,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateMacEmvPinChange" OutputProperty="*" Verb="New" Noun="MacEmvPinChange" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentEncryptedPinBlock" NewName="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentEncryptedPinBlock" />
+                <Param Name="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" NewName="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentEncryptedPinBlock" />
+                <Param Name="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentPinPekIdentifier" NewName="DerivationMethodAttributes_Amex_CurrentPinAttributes_CurrentPinPekIdentifier" />
+                <Param Name="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentPinPekIdentifier" NewName="DerivationMethodAttributes_Visa_CurrentPinAttributes_CurrentPinPekIdentifier" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GeneratePinData" OutputProperty="*" Verb="New" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="GenerationKeyIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

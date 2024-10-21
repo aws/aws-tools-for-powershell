@@ -38,6 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// The <c>KeyArn</c> for use with this operation must be in a compatible key state with
     /// <c>KeyModesOfUse</c> set to <c>Encrypt</c>. 
     /// </para><para>
+    /// This operation also supports dynamic keys, allowing you to pass a dynamic encryption
+    /// key as a TR-31 WrappedKeyBlock. This can be used when key material is frequently rotated,
+    /// such as during every card transaction, and there is need to avoid importing short-lived
+    /// keys into Amazon Web Services Payment Cryptography. To re-encrypt using dynamic keys,
+    /// the <c>keyARN</c> is the Key Encryption Key (KEK) of the TR-31 wrapped encryption
+    /// key material. The incoming wrapped key shall have a key purpose of D0 with a mode
+    /// of use of B or D. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html">Using
+    /// Dynamic Keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
+    /// </para><para>
     /// For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography supports
     /// <c>TDES</c> and <c>AES</c> algorithms. To encrypt using DUKPT, a DUKPT key must already
     /// exist within your account with <c>KeyModesOfUse</c> set to <c>DeriveKey</c> or a new

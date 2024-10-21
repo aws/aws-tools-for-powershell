@@ -1,4 +1,19 @@
-﻿### 4.1.681 (2024-10-18 20:53Z)
+﻿### 4.1.682 (2024-10-21 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.910.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters OrchestrationConfiguration_AdditionalModelRequestField, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP and RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate.
+  * Amazon CloudWatch Application Insights
+    * Modified cmdlet New-CWAIApplication: added parameter SNSNotificationArn.
+    * Modified cmdlet Update-CWAIApplication: added parameter SNSNotificationArn.
+  * Amazon Database Migration Service
+    * Modified cmdlet Start-DMSReplicationTaskAssessmentRun: added parameter Tag.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter ZonalShiftConfig_Enabled.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter ZonalShiftConfig_Enabled.
+  * Amazon Payment Cryptography Data
+    * Added cmdlet New-PAYCDMacEmvPinChange leveraging the GenerateMacEmvPinChange service API.
+
+### 4.1.681 (2024-10-18 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.909.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * [Breaking Change] Modified cmdlet New-ATHDataCatalog: output changed from Amazon.Athena.Model.CreateDataCatalogResponse to None.

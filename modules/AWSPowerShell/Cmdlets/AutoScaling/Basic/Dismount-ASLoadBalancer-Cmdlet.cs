@@ -29,22 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>DetachTrafficSources</a>, which can detach
-    /// multiple traffic sources types. We recommend using <c>DetachTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>DetachLoadBalancers</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a>,
+    /// which can detach multiple traffic sources types. We recommend using <c>DetachTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>DetachLoadBalancers</c>.
     /// You can use both the original <c>DetachLoadBalancers</c> API operation and <c>DetachTrafficSources</c>
     /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
     /// </para><para>
     /// This operation detaches only Classic Load Balancers. If you have Application Load
-    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a>
+    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <c>Removing</c> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
-    /// describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances
-    /// remain running.
+    /// describe the load balancer using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+    /// API call. The instances remain running.
     /// </para>
     /// </summary>
     [Cmdlet("Dismount", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

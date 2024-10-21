@@ -35,9 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html">Scheduled
     /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a>
+    /// You can view the scheduled actions for an Auto Scaling group using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScheduledActions.html">DescribeScheduledActions</a>
     /// API call. If you are no longer using a scheduled action, you can delete it by calling
-    /// the <a>DeleteScheduledAction</a> API.
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteScheduledAction.html">DeleteScheduledAction</a>
+    /// API.
     /// </para><para>
     /// If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
     /// error message.

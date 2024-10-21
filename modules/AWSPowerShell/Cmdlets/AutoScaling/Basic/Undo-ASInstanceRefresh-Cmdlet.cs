@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li></ul><para>
     /// When you receive a successful response from this operation, Amazon EC2 Auto Scaling
     /// immediately begins replacing instances. You can check the status of this operation
-    /// through the <a>DescribeInstanceRefreshes</a> API operation. 
+    /// through the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a>
+    /// API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("Undo", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

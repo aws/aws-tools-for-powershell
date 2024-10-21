@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UnusedReservationBillingOwnerId
         /// <summary>
         /// <para>
-        /// <para>The ID of the consumer account to which assign billing.</para>
+        /// <para>The ID of the consumer account to which to assign billing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

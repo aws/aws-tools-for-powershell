@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  
     /// <para>
-    /// You can only use this if <c>ManagedByFirewallManager</c> is false in the specified
-    /// <a>WebACL</a>. 
+    /// You can only use this if <c>ManagedByFirewallManager</c> is false in the web ACL.
+    /// 
     /// </para><note><para>
     /// Before deleting any web ACL, first disassociate it from all resources.
     /// </para><ul><li><para>

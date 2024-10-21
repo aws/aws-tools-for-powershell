@@ -40,21 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// begin the process of updating instances in the group. 
     /// </para><para>
     /// If successful, the request's response contains a unique ID that you can use to track
-    /// the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a>
-    /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
-    /// API. To cancel an instance refresh that is in progress, use the <a>CancelInstanceRefresh</a>
+    /// the progress of the instance refresh. To query its status, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a>
+    /// API. To describe the instance refreshes that have already run, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a>
+    /// API. To cancel an instance refresh that is in progress, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CancelInstanceRefresh.html">CancelInstanceRefresh</a>
     /// API. 
     /// </para><para>
     /// An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured
     /// health checks, or not ignoring or allowing the termination of instances that are in
     /// <c>Standby</c> state or protected from scale in. You can monitor for failed EC2 launches
-    /// using the scaling activities. To find the scaling activities, call the <a>DescribeScalingActivities</a>
+    /// using the scaling activities. To find the scaling activities, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
     /// API.
     /// </para><para>
     /// If you enable auto rollback, your Auto Scaling group will be rolled back automatically
     /// when the instance refresh fails. You can enable this feature before starting an instance
     /// refresh by specifying the <c>AutoRollback</c> property in the instance refresh preferences.
-    /// Otherwise, to roll back an instance refresh before it finishes, use the <a>RollbackInstanceRefresh</a>
+    /// Otherwise, to roll back an instance refresh before it finishes, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html">RollbackInstanceRefresh</a>
     /// API. 
     /// </para>
     /// </summary>

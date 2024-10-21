@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the owner of the workload.</para>
+        /// <para>The Amazon Web Services account ID of the owner of the workload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

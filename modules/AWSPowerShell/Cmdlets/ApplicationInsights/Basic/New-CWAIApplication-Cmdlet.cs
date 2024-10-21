@@ -132,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
+        #region Parameter SNSNotificationArn
+        /// <summary>
+        /// <para>
+        /// <para> The SNS notification topic ARN. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SNSNotificationArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -215,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
             context.ResourceGroupName = this.ResourceGroupName;
+            context.SNSNotificationArn = this.SNSNotificationArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ApplicationInsights.Model.Tag>(this.Tag);
@@ -266,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
+            }
+            if (cmdletContext.SNSNotificationArn != null)
+            {
+                request.SNSNotificationArn = cmdletContext.SNSNotificationArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -340,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.String ResourceGroupName { get; set; }
+            public System.String SNSNotificationArn { get; set; }
             public List<Amazon.ApplicationInsights.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.CreateApplicationResponse, NewCWAIApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationInfo;

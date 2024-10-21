@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.909.0",
+    "ProductVersion"    : "3.7.910.0",
     "CoreVersion"       : "3.7.400.36",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -16,7 +16,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.401.34",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.410.0",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.401.3",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1044,7 +1044,7 @@
             "InPreview"               : false
         },
         "FMS"                             : {
-            "Version" : "3.7.400.36",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1116,7 +1116,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.402.32",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1428,7 +1428,7 @@
             "InPreview"               : false
         },
         "ApplicationInsights"             : {
-            "Version" : "3.7.400.36",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -1572,7 +1572,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.401.24",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -2700,7 +2700,7 @@
             "InPreview"               : false
         },
         "PaymentCryptographyData"             : {
-            "Version" : "3.7.400.36",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"
@@ -2892,7 +2892,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.405.8",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.36"

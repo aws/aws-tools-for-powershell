@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe
-    /// multiple traffic sources types. We recommend using <c>DescribeTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>DescribeLoadBalancers</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>,
+    /// which can describe multiple traffic sources types. We recommend using <c>DescribeTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>DescribeLoadBalancers</c>.
     /// You can use both the original <c>DescribeLoadBalancers</c> API operation and <c>DescribeTrafficSources</c>
     /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Gets information about the load balancers for the specified Auto Scaling group.
     /// </para><para>
     /// This operation describes only Classic Load Balancers. If you have Application Load
-    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a>
+    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
     /// To determine the attachment status of the load balancer, use the <c>State</c> element
@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// any instances that are reported as unhealthy. If no registered instances pass the
     /// health checks, the load balancer doesn't enter the <c>InService</c> state. 
     /// </para><para>
-    /// Load balancers also have an <c>InService</c> state if you attach them in the <a>CreateAutoScalingGroup</a>
+    /// Load balancers also have an <c>InService</c> state if you attach them in the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
     /// API call. If your load balancer state is <c>InService</c>, but it is not working properly,
-    /// check the scaling activities by calling <a>DescribeScalingActivities</a> and take
-    /// any corrective actions necessary.
+    /// check the scaling activities by calling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
+    /// and take any corrective actions necessary.
     /// </para><para>
     /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
     /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>DetachTrafficSources</a>, which can detach
-    /// multiple traffic sources types. We recommend using <c>DetachTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>DetachLoadBalancerTargetGroups</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DetachTrafficSources</a>,
+    /// which can detach multiple traffic sources types. We recommend using <c>DetachTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>DetachLoadBalancerTargetGroups</c>.
     /// You can use both the original <c>DetachLoadBalancerTargetGroups</c> API operation
     /// and <c>DetachTrafficSources</c> on the same Auto Scaling group.
     /// </para></note><para>
@@ -39,11 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// When you detach a target group, it enters the <c>Removing</c> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
-    /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
-    /// The instances remain running.
+    /// describe the target group using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
+    /// API call. The instances remain running.
     /// </para><note><para>
-    /// You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
-    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+    /// You can use this operation to detach target groups that were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html">AttachLoadBalancerTargetGroups</a>,
+    /// but not for target groups that were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Dismount", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

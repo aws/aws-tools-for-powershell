@@ -37,11 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// will also terminate the EC2 instances. If the group has a warm pool, the force delete
     /// option also deletes the warm pool.
     /// </para><para>
-    /// To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a>
+    /// To remove instances from the Auto Scaling group before deleting it, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html">DetachInstances</a>
     /// API with the list of instances and the option to decrement the desired capacity. This
     /// ensures that Amazon EC2 Auto Scaling does not launch replacement instances.
     /// </para><para>
-    /// To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a>
+    /// To terminate all instances before deleting the Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html">UpdateAutoScalingGroup</a>
     /// API and set the minimum size and desired capacity of the Auto Scaling group to zero.
     /// </para><para>
     /// If the group has scaling policies, deleting the group deletes the policies, the underlying

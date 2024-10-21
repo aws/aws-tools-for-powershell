@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// and the new <c>MaxSize</c> is smaller than the current size of the group, this sets
     /// the group's <c>DesiredCapacity</c> to the new <c>MaxSize</c> value.
     /// </para></li></ul><para>
-    /// To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API.
-    /// To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a>
-    /// API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a>
+    /// To see which properties have been set, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a>
+    /// API. To view the scaling policies for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a>
+    /// API. If the group has scaling policies, you can update them by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a>
     /// API.
     /// </para>
     /// </summary>
@@ -353,8 +353,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementGroup
         /// <summary>
         /// <para>
-        /// <para>The name of an existing placement group into which to launch your instances. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// <para>The name of an existing placement group into which to launch your instances. To remove
+        /// the placement group setting, pass an empty string for <c>placement-group</c>. For
+        /// more information about placement groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>A <i>cluster</i> placement group is a logical grouping of instances within a single
         /// Availability Zone. You cannot specify multiple Availability Zones and a cluster placement
         /// group. </para></note>

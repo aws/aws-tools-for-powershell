@@ -41,6 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// DUKPT or from BDK for DUKPT to PEK. Amazon Web Services Payment Cryptography supports
     /// <c>TDES</c> and <c>AES</c> key derivation type for DUKPT translations. 
     /// </para><para>
+    /// This operation also supports dynamic keys, allowing you to pass a dynamic PEK as a
+    /// TR-31 WrappedKeyBlock. This can be used when key material is frequently rotated, such
+    /// as during every card transaction, and there is need to avoid importing short-lived
+    /// keys into Amazon Web Services Payment Cryptography. To translate PIN block using dynamic
+    /// keys, the <c>keyARN</c> is the Key Encryption Key (KEK) of the TR-31 wrapped PEK.
+    /// The incoming wrapped key shall have a key purpose of P0 with a mode of use of B or
+    /// D. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html">Using
+    /// Dynamic Keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
+    /// </para><para>
     /// The allowed combinations of PIN block format translations are guided by PCI. It is
     /// important to note that not all encrypted PIN block formats (example, format 1) require
     /// PAN (Primary Account Number) as input. And as such, PIN block format that requires

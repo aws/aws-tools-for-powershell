@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Only the AMI owner can disable an AMI.
     /// </para><para>
-    /// You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.
+    /// You can re-enable a disabled AMI using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable
     /// an AMI</a> in the <i>Amazon EC2 User Guide</i>.

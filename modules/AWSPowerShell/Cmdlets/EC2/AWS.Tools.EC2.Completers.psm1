@@ -807,7 +807,7 @@ $EC2_Completers = {
         # Amazon.EC2.NetworkInterfaceCreationType
         "New-EC2NetworkInterface/InterfaceType"
         {
-            $v = "branch","efa","trunk"
+            $v = "branch","efa","efa-only","trunk"
             break
         }
 

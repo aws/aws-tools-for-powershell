@@ -37,11 +37,21 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// You can generate an encryption key within Amazon Web Services Payment Cryptography
     /// by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
     /// You can import your own encryption key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
+    /// </para><para>
     /// For this operation, the key must have <c>KeyModesOfUse</c> set to <c>Encrypt</c>.
     /// In asymmetric encryption, plaintext is encrypted using public component. You can import
     /// the public component of an asymmetric key pair created outside Amazon Web Services
     /// Payment Cryptography by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
     /// 
+    /// </para><para>
+    /// This operation also supports dynamic keys, allowing you to pass a dynamic encryption
+    /// key as a TR-31 WrappedKeyBlock. This can be used when key material is frequently rotated,
+    /// such as during every card transaction, and there is need to avoid importing short-lived
+    /// keys into Amazon Web Services Payment Cryptography. To encrypt using dynamic keys,
+    /// the <c>keyARN</c> is the Key Encryption Key (KEK) of the TR-31 wrapped encryption
+    /// key material. The incoming wrapped key shall have a key purpose of D0 with a mode
+    /// of use of B or D. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/use-cases-acquirers-dynamickeys.html">Using
+    /// Dynamic Keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// </para><para>
     /// For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography supports
     /// <c>TDES</c> and <c>AES</c> algorithms. For EMV encryption, Amazon Web Services Payment
@@ -268,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <summary>
         /// <para>
         /// <para>A number that identifies and differentiates payment cards with the same Primary Account
-        /// Number (PAN).</para>
+        /// Number (PAN). Typically 00 is used, if no value is provided by the terminal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

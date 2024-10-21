@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// translates to a <c>750,000</c> rank. A <c>Medium</c> severity pattern translates to
         /// a <c>500,000</c> rank. And a <c>High</c> severity pattern translates to a <c>250,000</c>
         /// rank. Rank values less than <c>1</c> or greater than <c>1,000,000</c> are reserved
-        /// for AWS-provided patterns. </para>
+        /// for Amazon Web Services provided patterns. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

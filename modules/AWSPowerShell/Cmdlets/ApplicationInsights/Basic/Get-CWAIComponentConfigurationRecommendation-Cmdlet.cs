@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>The name of the workload.</para>
+        /// <para>The name of the workload. The name of the workload is required when the tier of the
+        /// application component is <c>SAP_ASE_SINGLE_NODE</c> or <c>SAP_ASE_HIGH_AVAILABILITY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

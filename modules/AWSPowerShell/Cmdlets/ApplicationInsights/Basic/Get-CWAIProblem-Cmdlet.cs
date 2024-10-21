@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the owner of the resource group affected by the problem.</para>
+        /// <para>The Amazon Web Services account ID for the owner of the resource group affected by
+        /// the problem.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

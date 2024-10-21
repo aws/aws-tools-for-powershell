@@ -21368,6 +21368,8 @@ Set-Alias -Name Generate-PAYCDCardValidationData -Value New-PAYCDCardValidationD
 Set-Alias -Name PAYCD-GenerateCardValidationData -Value New-PAYCDCardValidationData
 Set-Alias -Name Generate-PAYCDMac -Value New-PAYCDMac
 Set-Alias -Name PAYCD-GenerateMac -Value New-PAYCDMac
+Set-Alias -Name Generate-PAYCDMacEmvPinChange -Value New-PAYCDMacEmvPinChange
+Set-Alias -Name PAYCD-GenerateMacEmvPinChange -Value New-PAYCDMacEmvPinChange
 Set-Alias -Name Generate-PAYCDPinData -Value New-PAYCDPinData
 Set-Alias -Name PAYCD-GeneratePinData -Value New-PAYCDPinData
 Set-Alias -Name Re-PAYCDEncryptData -Value Update-PAYCDEncryptData

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Records a heartbeat for the lifecycle action associated with the specified token or
-    /// instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a>
+    /// instance. This extends the timeout by the length of time defined using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a>
     /// API call.
     /// 
     ///  
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// or terminate.
     /// </para></li><li><para><b>If you need more time, record the lifecycle action heartbeat to keep the instance
     /// in a wait state.</b></para></li><li><para>
-    /// If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+    /// If you finish before the timeout period ends, send a callback by using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a>
     /// API call.
     /// </para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon

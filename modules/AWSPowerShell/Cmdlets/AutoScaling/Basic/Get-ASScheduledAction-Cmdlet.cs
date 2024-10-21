@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// To describe the scaling activities for scheduled actions that have already run, call
-    /// the <a>DescribeScalingActivities</a> API.
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
+    /// API.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASScheduledAction")]

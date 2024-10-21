@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
     /// </para><para>
-    /// To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.
+    /// To resume processes that have been suspended, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Suspend", "ASProcess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
