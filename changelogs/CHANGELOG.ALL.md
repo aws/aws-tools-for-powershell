@@ -1,4 +1,20 @@
-﻿### 4.1.682 (2024-10-21 20:56Z)
+﻿### 4.1.683 (2024-10-22 23:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.911.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Image Builder
+    * Modified cmdlet New-EC2IBInfrastructureConfiguration: added parameters Placement_AvailabilityZone, Placement_HostId, Placement_HostResourceGroupArn and Placement_Tenancy.
+    * Modified cmdlet Update-EC2IBInfrastructureConfiguration: added parameters Placement_AvailabilityZone, Placement_HostId, Placement_HostResourceGroupArn and Placement_Tenancy.
+  * Amazon M2
+    * Modified cmdlet Get-AMMBatchJobRestartPointList: added parameter AuthSecretsManagerArn.
+    * Modified cmdlet Start-AMMBatchJob: added parameter AuthSecretsManagerArn.
+    * Modified cmdlet Stop-AMMBatchJobExecution: added parameter AuthSecretsManagerArn.
+  * Amazon re:Post Private
+    * Added cmdlet Add-RESPBatchRole leveraging the BatchAddRole service API.
+    * Added cmdlet Remove-RESPBatchRole leveraging the BatchRemoveRole service API.
+  * Amazon Timestream Query
+    * Modified cmdlet Invoke-TSQQuery: added parameter QueryInsights_Mode.
+    * Modified cmdlet Start-TSQScheduledQuery: added parameter QueryInsights_Mode.
+
+### 4.1.682 (2024-10-21 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.910.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters OrchestrationConfiguration_AdditionalModelRequestField, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP and RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate.

@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies which KMS key is used to encrypt the container image.</para>
+        /// <para>Identifies which KMS key is used to encrypt the Dockerfile template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

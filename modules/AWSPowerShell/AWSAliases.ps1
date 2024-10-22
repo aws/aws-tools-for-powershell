@@ -24102,6 +24102,12 @@ Set-Alias -Name REK-UntagResource -Value Remove-REKResourceTag
 Set-Alias -Name Update-REKDatasetEntries -Value Update-REKDatasetEntry
 Set-Alias -Name REK-UpdateDatasetEntries -Value Update-REKDatasetEntry
 Set-Alias -Name REK-UpdateStreamProcessor -Value Update-REKStreamProcessor
+Set-Alias -Name Batch-RESPAddRole -Value Add-RESPBatchRole
+Set-Alias -Name Batch-RESPBatchRole -Value Add-RESPBatchRole
+Set-Alias -Name RESP-BatchAddRole -Value Add-RESPBatchRole
+Set-Alias -Name Batch-RESPRemoveRole -Value Remove-RESPBatchRole
+Set-Alias -Name Batch-RESPBatchRole -Value Remove-RESPBatchRole
+Set-Alias -Name RESP-BatchRemoveRole -Value Remove-RESPBatchRole
 Set-Alias -Name Create-RESPSpace -Value New-RESPSpace
 Set-Alias -Name RESP-CreateSpace -Value New-RESPSpace
 Set-Alias -Name Delete-RESPSpace -Value Remove-RESPSpace

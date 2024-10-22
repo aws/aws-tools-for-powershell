@@ -29,12 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
     /// <c>Query</c> is a synchronous operation that enables you to run a query against your
-    /// Amazon Timestream data. <c>Query</c> will time out after 60 seconds. You must update
-    /// the default timeout in the SDK to support a timeout of 60 seconds. See the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html">code
-    /// sample</a> for details. 
+    /// Amazon Timestream data.
     /// 
     ///  
     /// <para>
+    /// If you enabled <c>QueryInsights</c>, this API also returns insights and metrics related
+    /// to the query that you executed. <c>QueryInsights</c> helps with performance tuning
+    /// of your query.
+    /// </para><note><para>
+    /// The maximum number of <c>Query</c> API requests you're allowed to make with <c>QueryInsights</c>
+    /// enabled is 1 query per second (QPS). If you exceed this query rate, it might result
+    /// in throttling.
+    /// </para></note><para><c>Query</c> will time out after 60 seconds. You must update the default timeout
+    /// in the SDK to support a timeout of 60 seconds. See the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html">code
+    /// sample</a> for details. 
+    /// </para><para>
     /// Your query request will fail in the following cases:
     /// </para><ul><li><para>
     ///  If you submit a <c>Query</c> request with the same client token outside of the 5-minute
@@ -82,6 +91,19 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxRows")]
         public System.Int32? MaxRow { get; set; }
+        #endregion
+        
+        #region Parameter QueryInsights_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Provides the following modes to enable <c>QueryInsights</c>:</para><ul><li><para><c>ENABLED_WITH_RATE_CONTROL</c> – Enables <c>QueryInsights</c> for the queries being
+        /// processed. This mode also includes a rate control mechanism, which limits the <c>QueryInsights</c>
+        /// feature to 1 query per second (QPS).</para></li><li><para><c>DISABLED</c> – Disables <c>QueryInsights</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamQuery.QueryInsightsMode")]
+        public Amazon.TimestreamQuery.QueryInsightsMode QueryInsights_Mode { get; set; }
         #endregion
         
         #region Parameter QueryString
@@ -207,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             context.ClientToken = this.ClientToken;
             context.MaxRow = this.MaxRow;
             context.NextToken = this.NextToken;
+            context.QueryInsights_Mode = this.QueryInsights_Mode;
             context.QueryString = this.QueryString;
             #if MODULAR
             if (this.QueryString == null && ParameterWasBound(nameof(this.QueryString)))
@@ -241,6 +264,25 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             if (cmdletContext.MaxRow != null)
             {
                 request.MaxRows = cmdletContext.MaxRow.Value;
+            }
+            
+             // populate QueryInsights
+            var requestQueryInsightsIsNull = true;
+            request.QueryInsights = new Amazon.TimestreamQuery.Model.QueryInsights();
+            Amazon.TimestreamQuery.QueryInsightsMode requestQueryInsights_queryInsights_Mode = null;
+            if (cmdletContext.QueryInsights_Mode != null)
+            {
+                requestQueryInsights_queryInsights_Mode = cmdletContext.QueryInsights_Mode;
+            }
+            if (requestQueryInsights_queryInsights_Mode != null)
+            {
+                request.QueryInsights.Mode = requestQueryInsights_queryInsights_Mode;
+                requestQueryInsightsIsNull = false;
+            }
+             // determine if request.QueryInsights should be set to null
+            if (requestQueryInsightsIsNull)
+            {
+                request.QueryInsights = null;
             }
             if (cmdletContext.QueryString != null)
             {
@@ -334,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             public System.String ClientToken { get; set; }
             public System.Int32? MaxRow { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.TimestreamQuery.QueryInsightsMode QueryInsights_Mode { get; set; }
             public System.String QueryString { get; set; }
             public System.Func<Amazon.TimestreamQuery.Model.QueryResponse, InvokeTSQQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Rows;

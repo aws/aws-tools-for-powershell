@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter AuthSecretsManagerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Secrets Manager containing user's credentials for authentication
+        /// and authorization for Start Batch Job execution operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthSecretsManagerArn { get; set; }
+        #endregion
+        
         #region Parameter S3BatchJobIdentifier_Bucket
         /// <summary>
         /// <para>
@@ -74,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter RestartBatchJobIdentifier_ExecutionId
         /// <summary>
         /// <para>
-        /// <para>The executionId from the StartBatchJob response when the job ran for the first time.</para>
+        /// <para>The <c>executionId</c> from the <c>StartBatchJob</c> response when the job ran for
+        /// the first time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter JobStepRestartMarker_FromProcStep
         /// <summary>
         /// <para>
-        /// <para>The procedure step name that a job was restarted from.</para>
+        /// <para>The procedure step name that a batch job was restarted from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter JobStepRestartMarker_FromStep
         /// <summary>
         /// <para>
-        /// <para>The step name that a batch job restart was from.</para>
+        /// <para>The step name that a batch job was restarted from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter JobStepRestartMarker_ToStep
         /// <summary>
         /// <para>
-        /// <para>The step name that a job was restarted to.</para>
+        /// <para>The step name that a batch job was restarted to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthSecretsManagerArn = this.AuthSecretsManagerArn;
             context.FileBatchJobIdentifier_FileName = this.FileBatchJobIdentifier_FileName;
             context.FileBatchJobIdentifier_FolderPath = this.FileBatchJobIdentifier_FolderPath;
             context.RestartBatchJobIdentifier_ExecutionId = this.RestartBatchJobIdentifier_ExecutionId;
@@ -314,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.AuthSecretsManagerArn != null)
+            {
+                request.AuthSecretsManagerArn = cmdletContext.AuthSecretsManagerArn;
             }
             
              // populate BatchJobIdentifier
@@ -600,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String AuthSecretsManagerArn { get; set; }
             public System.String FileBatchJobIdentifier_FileName { get; set; }
             public System.String FileBatchJobIdentifier_FolderPath { get; set; }
             public System.String RestartBatchJobIdentifier_ExecutionId { get; set; }

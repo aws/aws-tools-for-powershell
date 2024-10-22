@@ -33646,7 +33646,7 @@ $EC2IB_Completers = {
             ($_ -eq "New-EC2IBContainerRecipe/PlatformOverride")
         }
         {
-            $v = "Linux","Windows"
+            $v = "Linux","macOS","Windows"
             break
         }
 
@@ -33654,6 +33654,16 @@ $EC2IB_Completers = {
         "Start-EC2IBResourceStateUpdate/State_Status"
         {
             $v = "AVAILABLE","DELETED","DEPRECATED","DISABLED"
+            break
+        }
+
+        # Amazon.Imagebuilder.TenancyType
+        {
+            ($_ -eq "New-EC2IBInfrastructureConfiguration/Placement_Tenancy") -Or
+            ($_ -eq "Update-EC2IBInfrastructureConfiguration/Placement_Tenancy")
+        }
+        {
+            $v = "dedicated","default","host"
             break
         }
 
@@ -33685,6 +33695,7 @@ $EC2IB_map = @{
     "Format"=@("Import-EC2IBComponent")
     "LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
+    "Placement_Tenancy"=@("New-EC2IBInfrastructureConfiguration","Update-EC2IBInfrastructureConfiguration")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
     "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
@@ -57573,6 +57584,16 @@ $RESP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Repostspace.Role
+        {
+            ($_ -eq "Add-RESPBatchRole/Role") -Or
+            ($_ -eq "Remove-RESPBatchRole/Role")
+        }
+        {
+            $v = "ADMINISTRATOR","EXPERT","MODERATOR","SUPPORTREQUESTOR"
+            break
+        }
+
         # Amazon.Repostspace.TierLevel
         {
             ($_ -eq "New-RESPSpace/Tier") -Or
@@ -57592,6 +57613,7 @@ $RESP_Completers = {
 }
 
 $RESP_map = @{
+    "Role"=@("Add-RESPBatchRole","Remove-RESPBatchRole")
     "Tier"=@("New-RESPSpace","Update-RESPSpace")
 }
 
@@ -57645,7 +57667,9 @@ $RESP_SelectCompleters = {
 }
 
 $RESP_SelectMap = @{
-    "Select"=@("New-RESPSpace",
+    "Select"=@("Add-RESPBatchRole",
+               "Remove-RESPBatchRole",
+               "New-RESPSpace",
                "Remove-RESPSpace",
                "Unregister-RESPAdmin",
                "Get-RESPSpace",
@@ -68941,6 +68965,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.QueryInsightsMode
+        "Invoke-TSQQuery/QueryInsights_Mode"
+        {
+            $v = "DISABLED","ENABLED_WITH_RATE_CONTROL"
+            break
+        }
+
         # Amazon.TimestreamQuery.QueryPricingModel
         "Update-TSQAccountSetting/QueryPricingModel"
         {
@@ -68952,6 +68983,13 @@ $TSQ_Completers = {
         "New-TSQScheduledQuery/S3Configuration_EncryptionOption"
         {
             $v = "SSE_KMS","SSE_S3"
+            break
+        }
+
+        # Amazon.TimestreamQuery.ScheduledQueryInsightsMode
+        "Start-TSQScheduledQuery/QueryInsights_Mode"
+        {
+            $v = "DISABLED","ENABLED_WITH_RATE_CONTROL"
             break
         }
 
@@ -68971,6 +69009,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryInsights_Mode"=@("Invoke-TSQQuery","Start-TSQScheduledQuery")
     "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
     "State"=@("Update-TSQScheduledQuery")

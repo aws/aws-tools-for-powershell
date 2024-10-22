@@ -22,58 +22,64 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MainframeModernization;
-using Amazon.MainframeModernization.Model;
+using Amazon.Repostspace;
+using Amazon.Repostspace.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMM
+namespace Amazon.PowerShell.Cmdlets.RESP
 {
     /// <summary>
-    /// Cancels the running of a specific batch job execution.
+    /// Remove role from multiple users or groups in a private re:Post.
     /// </summary>
-    [Cmdlet("Stop", "AMMBatchJobExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the M2 CancelBatchJobExecution API operation.", Operation = new[] {"CancelBatchJobExecution"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse))]
-    [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "RESPBatchRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Repostspace.Model.BatchRemoveRoleResponse")]
+    [AWSCmdlet("Calls the AWS re:Post Private BatchRemoveRole API operation.", Operation = new[] {"BatchRemoveRole"}, SelectReturnType = typeof(Amazon.Repostspace.Model.BatchRemoveRoleResponse))]
+    [AWSCmdletOutput("Amazon.Repostspace.Model.BatchRemoveRoleResponse",
+        "This cmdlet returns an Amazon.Repostspace.Model.BatchRemoveRoleResponse object containing multiple properties."
     )]
-    public partial class StopAMMBatchJobExecutionCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
+    public partial class RemoveRESPBatchRoleCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationId
+        #region Parameter AccessorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the application.</para>
+        /// <para>The user or group accessor identifiers to remove the role from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
+        [Alias("AccessorIds")]
+        public System.String[] AccessorId { get; set; }
         #endregion
         
-        #region Parameter AuthSecretsManagerArn
+        #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Secrets Manager containing user's credentials for authentication
-        /// and authorization for Cancel Batch Job Execution operation.</para>
+        /// <para>The role to remove from the users or groups.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AuthSecretsManagerArn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Repostspace.Role")]
+        public Amazon.Repostspace.Role Role { get; set; }
         #endregion
         
-        #region Parameter ExecutionId
+        #region Parameter SpaceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the batch job execution.</para>
+        /// <para>The unique ID of the private re:Post.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,13 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExecutionId { get; set; }
+        public System.String SpaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Repostspace.Model.BatchRemoveRoleResponse).
+        /// Specifying the name of a property of type Amazon.Repostspace.Model.BatchRemoveRoleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExecutionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExecutionId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SpaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SpaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExecutionId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SpaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExecutionId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-AMMBatchJobExecution (CancelBatchJobExecution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SpaceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RESPBatchRole (BatchRemoveRole)"))
             {
                 return;
             }
@@ -136,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse, StopAMMBatchJobExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Repostspace.Model.BatchRemoveRoleResponse, RemoveRESPBatchRoleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,22 +152,31 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExecutionId;
+                context.Select = (response, cmdlet) => this.SpaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
-            #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.AccessorId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AccessorId = new List<System.String>(this.AccessorId);
+            }
+            #if MODULAR
+            if (this.AccessorId == null && ParameterWasBound(nameof(this.AccessorId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccessorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AuthSecretsManagerArn = this.AuthSecretsManagerArn;
-            context.ExecutionId = this.ExecutionId;
+            context.Role = this.Role;
             #if MODULAR
-            if (this.ExecutionId == null && ParameterWasBound(nameof(this.ExecutionId)))
+            if (this.Role == null && ParameterWasBound(nameof(this.Role)))
             {
-                WriteWarning("You are passing $null as a value for parameter ExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SpaceId = this.SpaceId;
+            #if MODULAR
+            if (this.SpaceId == null && ParameterWasBound(nameof(this.SpaceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SpaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,19 +193,19 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MainframeModernization.Model.CancelBatchJobExecutionRequest();
+            var request = new Amazon.Repostspace.Model.BatchRemoveRoleRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.AccessorId != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                request.AccessorIds = cmdletContext.AccessorId;
             }
-            if (cmdletContext.AuthSecretsManagerArn != null)
+            if (cmdletContext.Role != null)
             {
-                request.AuthSecretsManagerArn = cmdletContext.AuthSecretsManagerArn;
+                request.Role = cmdletContext.Role;
             }
-            if (cmdletContext.ExecutionId != null)
+            if (cmdletContext.SpaceId != null)
             {
-                request.ExecutionId = cmdletContext.ExecutionId;
+                request.SpaceId = cmdletContext.SpaceId;
             }
             
             CmdletOutput output;
@@ -224,15 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         
         #region AWS Service Operation Call
         
-        private Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse CallAWSServiceOperation(IAmazonMainframeModernization client, Amazon.MainframeModernization.Model.CancelBatchJobExecutionRequest request)
+        private Amazon.Repostspace.Model.BatchRemoveRoleResponse CallAWSServiceOperation(IAmazonRepostspace client, Amazon.Repostspace.Model.BatchRemoveRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "CancelBatchJobExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS re:Post Private", "BatchRemoveRole");
             try
             {
                 #if DESKTOP
-                return client.CancelBatchJobExecution(request);
+                return client.BatchRemoveRole(request);
                 #elif CORECLR
-                return client.CancelBatchJobExecutionAsync(request).GetAwaiter().GetResult();
+                return client.BatchRemoveRoleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +268,11 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String AuthSecretsManagerArn { get; set; }
-            public System.String ExecutionId { get; set; }
-            public System.Func<Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse, StopAMMBatchJobExecutionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> AccessorId { get; set; }
+            public Amazon.Repostspace.Role Role { get; set; }
+            public System.String SpaceId { get; set; }
+            public System.Func<Amazon.Repostspace.Model.BatchRemoveRoleResponse, RemoveRESPBatchRoleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

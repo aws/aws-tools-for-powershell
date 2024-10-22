@@ -28,7 +28,14 @@ using Amazon.TimestreamQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.TSQ
 {
     /// <summary>
-    /// You can use this API to run a scheduled query manually.
+    /// You can use this API to run a scheduled query manually. 
+    /// 
+    ///  
+    /// <para>
+    /// If you enabled <c>QueryInsights</c>, this API also returns insights and metrics related
+    /// to the query that you executed as part of an Amazon SNS notification. <c>QueryInsights</c>
+    /// helps with performance tuning of your query.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "TSQScheduledQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -58,6 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? InvocationTime { get; set; }
+        #endregion
+        
+        #region Parameter QueryInsights_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Provides the following modes to enable <c>ScheduledQueryInsights</c>:</para><ul><li><para><c>ENABLED_WITH_RATE_CONTROL</c> – Enables <c>ScheduledQueryInsights</c> for the
+        /// queries being processed. This mode also includes a rate control mechanism, which limits
+        /// the <c>QueryInsights</c> feature to 1 query per second (QPS).</para></li><li><para><c>DISABLED</c> – Disables <c>ScheduledQueryInsights</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamQuery.ScheduledQueryInsightsMode")]
+        public Amazon.TimestreamQuery.ScheduledQueryInsightsMode QueryInsights_Mode { get; set; }
         #endregion
         
         #region Parameter ScheduledQueryArn
@@ -156,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
                 WriteWarning("You are passing $null as a value for parameter InvocationTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryInsights_Mode = this.QueryInsights_Mode;
             context.ScheduledQueryArn = this.ScheduledQueryArn;
             #if MODULAR
             if (this.ScheduledQueryArn == null && ParameterWasBound(nameof(this.ScheduledQueryArn)))
@@ -186,6 +207,25 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             if (cmdletContext.InvocationTime != null)
             {
                 request.InvocationTime = cmdletContext.InvocationTime.Value;
+            }
+            
+             // populate QueryInsights
+            var requestQueryInsightsIsNull = true;
+            request.QueryInsights = new Amazon.TimestreamQuery.Model.ScheduledQueryInsights();
+            Amazon.TimestreamQuery.ScheduledQueryInsightsMode requestQueryInsights_queryInsights_Mode = null;
+            if (cmdletContext.QueryInsights_Mode != null)
+            {
+                requestQueryInsights_queryInsights_Mode = cmdletContext.QueryInsights_Mode;
+            }
+            if (requestQueryInsights_queryInsights_Mode != null)
+            {
+                request.QueryInsights.Mode = requestQueryInsights_queryInsights_Mode;
+                requestQueryInsightsIsNull = false;
+            }
+             // determine if request.QueryInsights should be set to null
+            if (requestQueryInsightsIsNull)
+            {
+                request.QueryInsights = null;
             }
             if (cmdletContext.ScheduledQueryArn != null)
             {
@@ -254,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         {
             public System.String ClientToken { get; set; }
             public System.DateTime? InvocationTime { get; set; }
+            public Amazon.TimestreamQuery.ScheduledQueryInsightsMode QueryInsights_Mode { get; set; }
             public System.String ScheduledQueryArn { get; set; }
             public System.Func<Amazon.TimestreamQuery.Model.ExecuteScheduledQueryResponse, StartTSQScheduledQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

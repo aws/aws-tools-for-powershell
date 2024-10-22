@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Placement_AvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone where your build and test instances will launch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -51,6 +61,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Placement_HostId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Dedicated Host on which build and test instances run. This only applies
+        /// if <c>tenancy</c> is <c>host</c>. If you specify the host ID, you must not specify
+        /// the resource group ARN. If you specify both, Image Builder returns an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_HostId { get; set; }
+        #endregion
+        
+        #region Parameter Placement_HostResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the host resource group in which to launch build
+        /// and test instances. This only applies if <c>tenancy</c> is <c>host</c>. If you specify
+        /// the resource group ARN, you must not specify the host ID. If you specify both, Image
+        /// Builder returns an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_HostResourceGroupArn { get; set; }
         #endregion
         
         #region Parameter InstanceMetadataOptions_HttpPutResponseHopLimit
@@ -208,6 +243,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String SubnetId { get; set; }
         #endregion
         
+        #region Parameter Placement_Tenancy
+        /// <summary>
+        /// <para>
+        /// <para>The tenancy of the instance. An instance with a tenancy of <c>dedicated</c> runs on
+        /// single-tenant hardware. An instance with a tenancy of <c>host</c> runs on a Dedicated
+        /// Host.</para><para>If tenancy is set to <c>host</c>, then you can optionally specify one target for placement
+        /// – either host ID or host resource group ARN. If automatic placement is enabled for
+        /// your host, and you don't specify any placement target, Amazon EC2 will try to find
+        /// an available host for your build and test instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Imagebuilder.TenancyType")]
+        public Amazon.Imagebuilder.TenancyType Placement_Tenancy { get; set; }
+        #endregion
+        
         #region Parameter TerminateInstanceOnFailure
         /// <summary>
         /// <para>
@@ -319,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.KeyPair = this.KeyPair;
             context.S3Logs_S3BucketName = this.S3Logs_S3BucketName;
             context.S3Logs_S3KeyPrefix = this.S3Logs_S3KeyPrefix;
+            context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Placement_HostId = this.Placement_HostId;
+            context.Placement_HostResourceGroupArn = this.Placement_HostResourceGroupArn;
+            context.Placement_Tenancy = this.Placement_Tenancy;
             if (this.ResourceTag != null)
             {
                 context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -447,6 +502,55 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Logging = null;
             }
+            
+             // populate Placement
+            var requestPlacementIsNull = true;
+            request.Placement = new Amazon.Imagebuilder.Model.Placement();
+            System.String requestPlacement_placement_AvailabilityZone = null;
+            if (cmdletContext.Placement_AvailabilityZone != null)
+            {
+                requestPlacement_placement_AvailabilityZone = cmdletContext.Placement_AvailabilityZone;
+            }
+            if (requestPlacement_placement_AvailabilityZone != null)
+            {
+                request.Placement.AvailabilityZone = requestPlacement_placement_AvailabilityZone;
+                requestPlacementIsNull = false;
+            }
+            System.String requestPlacement_placement_HostId = null;
+            if (cmdletContext.Placement_HostId != null)
+            {
+                requestPlacement_placement_HostId = cmdletContext.Placement_HostId;
+            }
+            if (requestPlacement_placement_HostId != null)
+            {
+                request.Placement.HostId = requestPlacement_placement_HostId;
+                requestPlacementIsNull = false;
+            }
+            System.String requestPlacement_placement_HostResourceGroupArn = null;
+            if (cmdletContext.Placement_HostResourceGroupArn != null)
+            {
+                requestPlacement_placement_HostResourceGroupArn = cmdletContext.Placement_HostResourceGroupArn;
+            }
+            if (requestPlacement_placement_HostResourceGroupArn != null)
+            {
+                request.Placement.HostResourceGroupArn = requestPlacement_placement_HostResourceGroupArn;
+                requestPlacementIsNull = false;
+            }
+            Amazon.Imagebuilder.TenancyType requestPlacement_placement_Tenancy = null;
+            if (cmdletContext.Placement_Tenancy != null)
+            {
+                requestPlacement_placement_Tenancy = cmdletContext.Placement_Tenancy;
+            }
+            if (requestPlacement_placement_Tenancy != null)
+            {
+                request.Placement.Tenancy = requestPlacement_placement_Tenancy;
+                requestPlacementIsNull = false;
+            }
+             // determine if request.Placement should be set to null
+            if (requestPlacementIsNull)
+            {
+                request.Placement = null;
+            }
             if (cmdletContext.ResourceTag != null)
             {
                 request.ResourceTags = cmdletContext.ResourceTag;
@@ -538,6 +642,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String KeyPair { get; set; }
             public System.String S3Logs_S3BucketName { get; set; }
             public System.String S3Logs_S3KeyPrefix { get; set; }
+            public System.String Placement_AvailabilityZone { get; set; }
+            public System.String Placement_HostId { get; set; }
+            public System.String Placement_HostResourceGroupArn { get; set; }
+            public Amazon.Imagebuilder.TenancyType Placement_Tenancy { get; set; }
             public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String SnsTopicArn { get; set; }
