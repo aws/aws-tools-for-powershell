@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Meshes.Count;
+                    int _receivedThisCall = response.Meshes?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.VoiceConnectors.Count;
+                    int _receivedThisCall = response.VoiceConnectors?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

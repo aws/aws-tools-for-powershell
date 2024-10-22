@@ -104,10 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class NewMHRSRouteCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DefaultRoute_ActivationState

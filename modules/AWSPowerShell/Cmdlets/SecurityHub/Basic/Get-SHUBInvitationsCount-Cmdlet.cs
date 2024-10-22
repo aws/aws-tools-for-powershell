@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the AWS Security Hub GetInvitationsCount API operation.", Operation = new[] {"GetInvitationsCount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetInvitationsCountResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.SecurityHub.Model.GetInvitationsCountResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.SecurityHub.Model.GetInvitationsCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetSHUBInvitationsCountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor

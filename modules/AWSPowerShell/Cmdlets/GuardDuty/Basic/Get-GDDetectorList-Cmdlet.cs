@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DetectorIds.Count;
+                    int _receivedThisCall = response.DetectorIds?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Backups.Count;
+                    int _receivedThisCall = response.Backups?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

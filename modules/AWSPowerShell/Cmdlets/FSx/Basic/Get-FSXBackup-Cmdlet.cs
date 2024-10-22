@@ -66,8 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter BackupId
@@ -325,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Backups.Count;
+                    int _receivedThisCall = response.Backups?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

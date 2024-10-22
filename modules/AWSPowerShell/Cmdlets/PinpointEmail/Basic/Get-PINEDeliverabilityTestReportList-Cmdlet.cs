@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DeliverabilityTestReports.Count;
+                    int _receivedThisCall = response.DeliverabilityTestReports?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Schemas.Count;
+                    int _receivedThisCall = response.Schemas?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

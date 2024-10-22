@@ -51,8 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGAccountListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult
@@ -267,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Accounts.Count;
+                    int _receivedThisCall = response.Accounts?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

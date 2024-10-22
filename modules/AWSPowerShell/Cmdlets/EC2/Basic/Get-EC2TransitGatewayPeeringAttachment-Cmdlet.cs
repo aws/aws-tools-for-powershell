@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TransitGatewayPeeringAttachments.Count;
+                    int _receivedThisCall = response.TransitGatewayPeeringAttachments?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

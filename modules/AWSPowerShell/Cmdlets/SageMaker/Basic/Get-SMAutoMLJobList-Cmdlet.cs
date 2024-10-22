@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.AutoMLJobSummaries.Count;
+                    int _receivedThisCall = response.AutoMLJobSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

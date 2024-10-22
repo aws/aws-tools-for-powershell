@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Channels.Count;
+                    int _receivedThisCall = response.Channels?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Controlling object ownership and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// The following operations are related to <c>GetBucketAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html">ListObjects</a></para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "S3ACL")]
     [OutputType("Amazon.S3.Model.S3AccessControlList")]
@@ -62,6 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "This cmdlet returns an Amazon.S3.Model.S3AccessControlList object.",
         "The service call response (type Amazon.S3.Model.GetACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.")]
     public partial class GetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
@@ -126,16 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "AccessControlList";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BucketName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3";
@@ -146,21 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.GetACLResponse, GetS3ACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.BucketName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             context.Key = this.Key;

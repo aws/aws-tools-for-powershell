@@ -50,10 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     public partial class GetDSDUserListCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DirectoryId

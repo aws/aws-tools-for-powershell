@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Filter
@@ -286,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Endpoints.Count;
+                    int _receivedThisCall = response.Endpoints?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

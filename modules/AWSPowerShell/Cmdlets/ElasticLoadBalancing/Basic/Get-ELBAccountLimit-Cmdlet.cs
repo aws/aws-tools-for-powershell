@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Limits.Count;
+                    int _receivedThisCall = response.Limits?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

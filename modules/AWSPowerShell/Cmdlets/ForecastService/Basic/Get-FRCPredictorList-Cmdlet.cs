@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Predictors.Count;
+                    int _receivedThisCall = response.Predictors?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

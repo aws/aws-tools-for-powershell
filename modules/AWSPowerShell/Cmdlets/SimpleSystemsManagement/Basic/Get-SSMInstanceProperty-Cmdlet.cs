@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInstancePropertyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FiltersWithOperator

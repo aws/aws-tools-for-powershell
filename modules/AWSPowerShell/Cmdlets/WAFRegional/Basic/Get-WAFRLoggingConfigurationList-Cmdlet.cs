@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.LoggingConfigurations.Count;
+                    int _receivedThisCall = response.LoggingConfigurations?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     public partial class NewTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AllocatedStorage

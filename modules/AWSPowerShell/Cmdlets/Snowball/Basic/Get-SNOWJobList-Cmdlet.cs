@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.JobListEntries.Count;
+                    int _receivedThisCall = response.JobListEntries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

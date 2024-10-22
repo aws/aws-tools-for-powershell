@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Patches.Count;
+                    int _receivedThisCall = response.Patches?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.WorkGroups.Count;
+                    int _receivedThisCall = response.WorkGroups?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

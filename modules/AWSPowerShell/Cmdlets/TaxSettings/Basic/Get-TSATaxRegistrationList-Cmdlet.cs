@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     public partial class GetTSATaxRegistrationListCmdlet : AmazonTaxSettingsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

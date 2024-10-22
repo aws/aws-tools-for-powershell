@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.JobQueues.Count;
+                    int _receivedThisCall = response.JobQueues?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

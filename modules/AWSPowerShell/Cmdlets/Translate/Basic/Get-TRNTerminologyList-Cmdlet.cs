@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TerminologyPropertiesList.Count;
+                    int _receivedThisCall = response.TerminologyPropertiesList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

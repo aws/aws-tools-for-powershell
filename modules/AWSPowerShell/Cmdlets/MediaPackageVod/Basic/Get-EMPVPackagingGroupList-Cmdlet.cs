@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.PackagingGroups.Count;
+                    int _receivedThisCall = response.PackagingGroups?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

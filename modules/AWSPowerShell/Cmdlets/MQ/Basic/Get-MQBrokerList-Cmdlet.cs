@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.BrokerSummaries.Count;
+                    int _receivedThisCall = response.BrokerSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

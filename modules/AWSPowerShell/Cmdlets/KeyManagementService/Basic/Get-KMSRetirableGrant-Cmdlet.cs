@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Grants.Count;
+                    int _receivedThisCall = response.Grants?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

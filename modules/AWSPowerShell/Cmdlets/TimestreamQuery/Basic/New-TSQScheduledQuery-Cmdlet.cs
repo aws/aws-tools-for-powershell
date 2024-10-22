@@ -43,8 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class NewTSQScheduledQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter S3Configuration_BucketName

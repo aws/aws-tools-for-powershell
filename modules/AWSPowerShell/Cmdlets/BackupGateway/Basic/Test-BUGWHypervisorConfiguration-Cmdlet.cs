@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class TestBUGWHypervisorConfigurationCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter GatewayArn

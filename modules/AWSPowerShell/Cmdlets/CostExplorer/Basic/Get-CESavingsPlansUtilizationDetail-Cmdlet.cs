@@ -404,7 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.SavingsPlansUtilizationDetails.Count;
+                    int _receivedThisCall = response.SavingsPlansUtilizationDetails?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

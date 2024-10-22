@@ -386,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DBEngineVersions.Count;
+                    int _receivedThisCall = response.DBEngineVersions?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

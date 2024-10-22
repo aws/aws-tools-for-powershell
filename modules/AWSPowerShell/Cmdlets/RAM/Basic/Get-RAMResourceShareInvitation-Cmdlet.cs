@@ -315,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ResourceShareInvitations.Count;
+                    int _receivedThisCall = response.ResourceShareInvitations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

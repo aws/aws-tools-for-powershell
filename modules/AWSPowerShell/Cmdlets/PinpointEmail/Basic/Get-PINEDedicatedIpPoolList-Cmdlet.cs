@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DedicatedIpPools.Count;
+                    int _receivedThisCall = response.DedicatedIpPools?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

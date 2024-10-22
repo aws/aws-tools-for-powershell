@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class SetLOCGeofenceCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Circle_Center
@@ -154,16 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CollectionName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CollectionName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollectionName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -190,21 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.CollectionName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CollectionName = this.CollectionName;
             #if MODULAR
             if (this.CollectionName == null && ParameterWasBound(nameof(this.CollectionName)))
@@ -227,6 +205,12 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                     context.GeofenceProperty.Add((String)hashKey, (System.String)(this.GeofenceProperty[hashKey]));
                 }
             }
+            if (this.Circle_Center != null)
+            {
+                context.Circle_Center = new List<System.Double>(this.Circle_Center);
+            }
+            context.Circle_Radius = this.Circle_Radius;
+            context.Geometry_Geobuf = this.Geometry_Geobuf;
             if (this.Geometry_Polygon != null)
             {
                 context.Geometry_Polygon = new List<List<List<System.Double>>>();
@@ -241,12 +225,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                     }
                 }
             }
-            if (this.Circle_Center != null)
-            {
-                context.Circle_Center = new List<System.Double>(this.Circle_Center);
-            }
-            context.Circle_Radius = this.Circle_Radius;
-            context.Geometry_Geobuf = this.Geometry_Geobuf;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,16 +261,6 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                  // populate Geometry
                 var requestGeometryIsNull = true;
                 request.Geometry = new Amazon.LocationService.Model.GeofenceGeometry();
-                List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
-                if (cmdletContext.Geometry_Polygon != null)
-                {
-                    requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
-                }
-                if (requestGeometry_geometry_Polygon != null)
-                {
-                    request.Geometry.Polygon = requestGeometry_geometry_Polygon;
-                    requestGeometryIsNull = false;
-                }
                 System.IO.MemoryStream requestGeometry_geometry_Geobuf = null;
                 if (cmdletContext.Geometry_Geobuf != null)
                 {
@@ -302,6 +270,16 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 if (requestGeometry_geometry_Geobuf != null)
                 {
                     request.Geometry.Geobuf = requestGeometry_geometry_Geobuf;
+                    requestGeometryIsNull = false;
+                }
+                List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
+                if (cmdletContext.Geometry_Polygon != null)
+                {
+                    requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
+                }
+                if (requestGeometry_geometry_Polygon != null)
+                {
+                    request.Geometry.Polygon = requestGeometry_geometry_Polygon;
                     requestGeometryIsNull = false;
                 }
                 Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
@@ -416,10 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public System.String CollectionName { get; set; }
             public System.String GeofenceId { get; set; }
             public Dictionary<System.String, System.String> GeofenceProperty { get; set; }
-            public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public List<System.Double> Circle_Center { get; set; }
             public System.Double? Circle_Radius { get; set; }
             public byte[] Geometry_Geobuf { get; set; }
+            public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public System.Func<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

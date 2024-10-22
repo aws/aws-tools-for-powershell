@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DataflowEndpointGroupList.Count;
+                    int _receivedThisCall = response.DataflowEndpointGroupList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.IPSets.Count;
+                    int _receivedThisCall = response.IPSets?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

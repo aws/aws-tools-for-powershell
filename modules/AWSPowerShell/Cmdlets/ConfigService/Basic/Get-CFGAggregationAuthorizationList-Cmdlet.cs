@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.AggregationAuthorizations.Count;
+                    int _receivedThisCall = response.AggregationAuthorizations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

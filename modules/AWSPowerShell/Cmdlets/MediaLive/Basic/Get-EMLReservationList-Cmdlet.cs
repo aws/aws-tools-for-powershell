@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Reservations.Count;
+                    int _receivedThisCall = response.Reservations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Versions.Count;
+                    int _receivedThisCall = response.Versions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

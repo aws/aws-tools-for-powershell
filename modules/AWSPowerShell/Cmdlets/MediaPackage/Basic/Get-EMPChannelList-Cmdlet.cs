@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class GetEMPChannelListCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult
@@ -247,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Channels.Count;
+                    int _receivedThisCall = response.Channels?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

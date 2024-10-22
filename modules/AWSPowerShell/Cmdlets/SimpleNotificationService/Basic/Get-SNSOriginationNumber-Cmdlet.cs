@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class GetSNSOriginationNumberCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

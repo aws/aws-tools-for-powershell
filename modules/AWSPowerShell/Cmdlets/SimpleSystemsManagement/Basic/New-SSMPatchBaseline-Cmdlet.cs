@@ -45,8 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ApprovedPatch

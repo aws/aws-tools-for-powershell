@@ -49,13 +49,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @(
-        @{
-            ModuleName = 'AWS.Tools.Common';
-            RequiredVersion = '0.0.0.0';
-            Guid = 'e5b05bf3-9eee-47b2-81f2-41ddc0501b86' }
     )
 
-    # Assemblies that must be loaded prior to importing this module.
+# Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
         'AWSSDK.S3.dll'
     )
@@ -91,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3ACL', 
         'Get-S3Bucket', 
         'Get-S3BucketAccelerateConfiguration', 
+        'Get-S3BucketACL', 
         'Get-S3BucketAnalyticsConfiguration', 
         'Get-S3BucketAnalyticsConfigurationList', 
         'Get-S3BucketEncryption', 
@@ -116,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3LifecycleConfiguration', 
         'Get-S3MultipartUpload', 
         'Get-S3Object', 
+        'Get-S3ObjectACL', 
         'Get-S3ObjectAttribute', 
         'Get-S3ObjectLegalHold', 
         'Get-S3ObjectLockConfiguration', 
@@ -149,7 +147,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restore-S3Object', 
         'Select-S3ObjectContent', 
         'Set-S3ACL', 
+        'Set-S3BucketACL', 
         'Set-S3BucketEncryption', 
+        'Set-S3ObjectACL', 
         'Test-S3Bucket', 
         'Write-S3BucketAccelerateConfiguration', 
         'Write-S3BucketAnalyticsConfiguration', 
@@ -197,7 +197,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
-            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
+            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
+            Prerelease = 'preview001'
         }
     }
 }

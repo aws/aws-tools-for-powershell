@@ -1,0 +1,3 @@
+﻿# DynamoDBStreams
+
+Export-ModuleMember -Alias *

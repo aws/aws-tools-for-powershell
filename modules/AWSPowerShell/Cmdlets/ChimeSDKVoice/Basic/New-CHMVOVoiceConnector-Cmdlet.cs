@@ -43,8 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class NewCHMVOVoiceConnectorCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AwsRegion

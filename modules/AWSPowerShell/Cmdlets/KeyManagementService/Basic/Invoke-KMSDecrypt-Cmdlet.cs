@@ -95,8 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Recipient_AttestationDocument

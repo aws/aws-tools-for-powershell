@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ConnectorList.Count;
+                    int _receivedThisCall = response.ConnectorList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

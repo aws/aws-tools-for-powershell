@@ -73,8 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class StartSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Input
@@ -153,16 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StateMachineArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StateMachineArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StateMachineArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -189,21 +177,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.StartExecutionResponse, StartSFNExecutionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.StateMachineArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Input = this.Input;
             context.Name = this.Name;
             context.StateMachineArn = this.StateMachineArn;

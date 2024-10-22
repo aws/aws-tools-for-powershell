@@ -51,10 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class ConvertToTRNDocumentCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Settings_Brevity

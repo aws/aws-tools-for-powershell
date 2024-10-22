@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.PolicyList.Count;
+                    int _receivedThisCall = response.PolicyList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -34,13 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the AWS Systems Manager PutParameter API operation.", Operation = new[] {"PutParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutParameterResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.SimpleSystemsManagement.Model.PutParameterResponse",
-        "This cmdlet returns a System.Int64 object.",
+        "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.PutParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class WriteSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -264,16 +262,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public string Select { get; set; } = "Version";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -300,21 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.PutParameterResponse, WriteSSMParameterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Name;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllowedPattern = this.AllowedPattern;
             context.DataType = this.DataType;
             context.Description = this.Description;

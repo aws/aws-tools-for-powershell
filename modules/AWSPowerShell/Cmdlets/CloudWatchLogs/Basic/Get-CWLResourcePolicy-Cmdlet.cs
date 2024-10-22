@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ResourcePolicies.Count;
+                    int _receivedThisCall = response.ResourcePolicies?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

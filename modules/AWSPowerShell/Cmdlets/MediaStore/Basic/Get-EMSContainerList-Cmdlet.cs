@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Containers.Count;
+                    int _receivedThisCall = response.Containers?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

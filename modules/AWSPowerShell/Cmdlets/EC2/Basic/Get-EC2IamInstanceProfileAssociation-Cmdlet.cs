@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.IamInstanceProfileAssociations.Count;
+                    int _receivedThisCall = response.IamInstanceProfileAssociations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

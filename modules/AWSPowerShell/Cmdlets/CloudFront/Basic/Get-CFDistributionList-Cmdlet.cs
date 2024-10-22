@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFDistributionListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Marker
@@ -244,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DistributionList.Items.Count;
+                    int _receivedThisCall = response.DistributionList.Items?.Count ?? 0;
                     
                     _nextToken = response.DistributionList.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

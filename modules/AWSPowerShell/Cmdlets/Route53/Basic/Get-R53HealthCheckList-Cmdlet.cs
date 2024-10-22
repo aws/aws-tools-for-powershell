@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.HealthChecks.Count;
+                    int _receivedThisCall = response.HealthChecks?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

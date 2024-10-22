@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Things.Count;
+                    int _receivedThisCall = response.Things?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

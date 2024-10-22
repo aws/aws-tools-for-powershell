@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class GetCHMVOPhoneNumberListCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FilterName

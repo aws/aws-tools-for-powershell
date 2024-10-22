@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDGroupCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AuthenticationToken
@@ -313,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Groups.Count;
+                    int _receivedThisCall = response.Groups?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

@@ -366,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ProvisionedProductPlans.Count;
+                    int _receivedThisCall = response.ProvisionedProductPlans?.Count ?? 0;
                     
                     _nextToken = response.NextPageToken;
                     _retrievedSoFar += _receivedThisCall;

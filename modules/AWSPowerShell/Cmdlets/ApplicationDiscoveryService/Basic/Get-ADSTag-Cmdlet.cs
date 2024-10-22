@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Tags.Count;
+                    int _receivedThisCall = response.Tags?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

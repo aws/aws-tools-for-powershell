@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ElasticsearchVersions.Count;
+                    int _receivedThisCall = response.ElasticsearchVersions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

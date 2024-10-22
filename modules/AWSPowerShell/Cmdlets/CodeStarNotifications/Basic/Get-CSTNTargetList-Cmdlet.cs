@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     public partial class GetCSTNTargetListCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Filter

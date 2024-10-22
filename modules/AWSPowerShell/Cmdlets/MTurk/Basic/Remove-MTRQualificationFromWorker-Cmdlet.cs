@@ -104,16 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkerId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkerId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkerId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -140,21 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.MTR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.MTurk.Model.DisassociateQualificationFromWorkerResponse, RemoveMTRQualificationFromWorkerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.WorkerId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.QualificationTypeId = this.QualificationTypeId;
             #if MODULAR
             if (this.QualificationTypeId == null && ParameterWasBound(nameof(this.QualificationTypeId)))

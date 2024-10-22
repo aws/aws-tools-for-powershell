@@ -328,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DomainInfos.Infos.Count;
+                    int _receivedThisCall = response.DomainInfos.Infos?.Count ?? 0;
                     
                     _nextToken = response.DomainInfos.NextPageToken;
                     _retrievedSoFar += _receivedThisCall;

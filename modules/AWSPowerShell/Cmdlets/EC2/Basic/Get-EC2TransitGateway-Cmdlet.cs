@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TransitGateways.Count;
+                    int _receivedThisCall = response.TransitGateways?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

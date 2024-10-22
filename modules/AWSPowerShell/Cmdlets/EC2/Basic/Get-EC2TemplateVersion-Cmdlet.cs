@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2TemplateVersionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Filter
@@ -404,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.LaunchTemplateVersions.Count;
+                    int _receivedThisCall = response.LaunchTemplateVersions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

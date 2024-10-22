@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Items.Count;
+                    int _receivedThisCall = response.Items?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

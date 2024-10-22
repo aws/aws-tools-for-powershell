@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.OtaUpdates.Count;
+                    int _receivedThisCall = response.OtaUpdates?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

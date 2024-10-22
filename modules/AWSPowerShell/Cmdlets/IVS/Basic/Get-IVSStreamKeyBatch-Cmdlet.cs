@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class GetIVSStreamKeyBatchCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Arn

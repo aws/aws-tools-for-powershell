@@ -52,8 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class GetLMFunctionListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FunctionVersion
@@ -303,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Functions.Count;
+                    int _receivedThisCall = response.Functions?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.FieldLevelEncryptionList.Items.Count;
+                    int _receivedThisCall = response.FieldLevelEncryptionList.Items?.Count ?? 0;
                     
                     _nextToken = response.FieldLevelEncryptionList.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

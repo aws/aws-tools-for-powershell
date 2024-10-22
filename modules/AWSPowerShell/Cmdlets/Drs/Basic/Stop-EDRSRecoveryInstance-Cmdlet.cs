@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class StopEDRSRecoveryInstanceCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter RecoveryInstanceIDs

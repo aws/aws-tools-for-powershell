@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TranscriptionJobSummaries.Count;
+                    int _receivedThisCall = response.TranscriptionJobSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

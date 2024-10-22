@@ -50,10 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class WriteCHMVoiceConnectorProxyCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DefaultSessionExpiryMinute

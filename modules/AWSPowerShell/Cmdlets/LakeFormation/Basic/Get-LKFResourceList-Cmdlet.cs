@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ResourceInfoList.Count;
+                    int _receivedThisCall = response.ResourceInfoList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

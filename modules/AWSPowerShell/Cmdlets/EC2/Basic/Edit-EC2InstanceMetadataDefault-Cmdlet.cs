@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMetadataDefaults API operation.", Operation = new[] {"ModifyInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse",
-        "This cmdlet returns a System.Boolean object.",
+        "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EditEC2InstanceMetadataDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor

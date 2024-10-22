@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TemplatesMetadata.Count;
+                    int _receivedThisCall = response.TemplatesMetadata?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

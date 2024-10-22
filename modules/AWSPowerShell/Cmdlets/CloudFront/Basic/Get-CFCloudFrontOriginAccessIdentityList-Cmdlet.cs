@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.CloudFrontOriginAccessIdentityList.Items.Count;
+                    int _receivedThisCall = response.CloudFrontOriginAccessIdentityList.Items?.Count ?? 0;
                     
                     _nextToken = response.CloudFrontOriginAccessIdentityList.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

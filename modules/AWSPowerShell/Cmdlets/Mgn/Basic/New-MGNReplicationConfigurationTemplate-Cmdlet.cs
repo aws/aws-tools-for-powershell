@@ -39,10 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class NewMGNReplicationConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AssociateDefaultSecurityGroup

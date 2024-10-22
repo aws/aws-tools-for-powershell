@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ScheduledInstanceSet.Count;
+                    int _receivedThisCall = response.ScheduledInstanceSet?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

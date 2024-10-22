@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableAwsNetworkPerformanceMetricSubscription API operation.", Operation = new[] {"EnableAwsNetworkPerformanceMetricSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableAwsNetworkPerformanceMetricSubscriptionResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableAwsNetworkPerformanceMetricSubscriptionResponse",
-        "This cmdlet returns a System.Boolean object.",
+        "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableAwsNetworkPerformanceMetricSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EnableEC2AwsNetworkPerformanceMetricSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor

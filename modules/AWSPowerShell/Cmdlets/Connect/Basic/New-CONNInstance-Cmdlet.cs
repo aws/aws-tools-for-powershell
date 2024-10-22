@@ -56,8 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class NewCONNInstanceCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DirectoryId

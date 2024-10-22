@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ApplicationInfoList.Count;
+                    int _receivedThisCall = response.ApplicationInfoList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPDocumentClassifierListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Filter_DocumentClassifierName
@@ -405,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DocumentClassifierPropertiesList.Count;
+                    int _receivedThisCall = response.DocumentClassifierPropertiesList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

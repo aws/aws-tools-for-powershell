@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Invitations.Count;
+                    int _receivedThisCall = response.Invitations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

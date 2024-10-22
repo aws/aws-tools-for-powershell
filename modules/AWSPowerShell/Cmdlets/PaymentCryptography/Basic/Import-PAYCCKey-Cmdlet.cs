@@ -149,8 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     public partial class ImportPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier

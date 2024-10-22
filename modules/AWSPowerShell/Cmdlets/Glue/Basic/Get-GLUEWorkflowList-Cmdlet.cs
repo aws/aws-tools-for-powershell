@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Workflows.Count;
+                    int _receivedThisCall = response.Workflows?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

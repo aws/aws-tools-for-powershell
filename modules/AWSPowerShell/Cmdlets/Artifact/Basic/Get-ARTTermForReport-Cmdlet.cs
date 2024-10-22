@@ -79,16 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.ART
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ReportId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -99,21 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.ART
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Artifact.Model.GetTermForReportResponse, GetARTTermForReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ReportId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ReportId = this.ReportId;
             #if MODULAR
             if (this.ReportId == null && ParameterWasBound(nameof(this.ReportId)))

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableReachabilityAnalyzerOrganizationSharing API operation.", Operation = new[] {"EnableReachabilityAnalyzerOrganizationSharing"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse",
-        "This cmdlet returns a System.Boolean object.",
+        "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EnableEC2ReachabilityAnalyzerOrganizationSharingCmdlet : AmazonEC2ClientCmdlet, IExecutor

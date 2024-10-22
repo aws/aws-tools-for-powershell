@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.StreamProcessors.Count;
+                    int _receivedThisCall = response.StreamProcessors?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

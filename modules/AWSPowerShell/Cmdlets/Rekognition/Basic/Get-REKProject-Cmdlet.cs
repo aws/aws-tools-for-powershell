@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ProjectDescriptions.Count;
+                    int _receivedThisCall = response.ProjectDescriptions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

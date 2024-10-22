@@ -55,8 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGAccountHandshakeListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Filter_ActionType
@@ -354,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Handshakes.Count;
+                    int _receivedThisCall = response.Handshakes?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

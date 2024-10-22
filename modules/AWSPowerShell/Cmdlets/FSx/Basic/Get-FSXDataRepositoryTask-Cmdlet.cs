@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DataRepositoryTasks.Count;
+                    int _receivedThisCall = response.DataRepositoryTasks?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

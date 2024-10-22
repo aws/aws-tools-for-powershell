@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
     public partial class NewLWIZDeploymentCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DeploymentPatternName

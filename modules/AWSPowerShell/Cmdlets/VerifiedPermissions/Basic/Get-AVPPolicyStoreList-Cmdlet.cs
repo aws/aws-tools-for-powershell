@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     public partial class GetAVPPolicyStoreListCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

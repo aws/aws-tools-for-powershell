@@ -60,8 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class SetCGIPUserMFAPreferenceCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AccessToken

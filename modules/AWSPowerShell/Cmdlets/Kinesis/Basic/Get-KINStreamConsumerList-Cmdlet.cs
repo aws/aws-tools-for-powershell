@@ -137,16 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public string Select { get; set; } = "Consumers";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamARN' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamARN' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -167,21 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.ListStreamConsumersResponse, GetKINStreamConsumerListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.StreamARN;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -215,9 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
             var request = new Amazon.Kinesis.Model.ListStreamConsumersRequest();
@@ -285,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
             var request = new Amazon.Kinesis.Model.ListStreamConsumersRequest();
@@ -344,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Consumers.Count;
+                    int _receivedThisCall = response.Consumers?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

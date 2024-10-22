@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ReplicationTasks.Count;
+                    int _receivedThisCall = response.ReplicationTasks?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

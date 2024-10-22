@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     public partial class GetADCJobCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FarmId

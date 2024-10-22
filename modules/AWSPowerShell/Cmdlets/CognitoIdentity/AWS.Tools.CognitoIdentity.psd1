@@ -49,17 +49,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @(
-        @{
-            ModuleName = 'AWS.Tools.SecurityToken';
-            RequiredVersion = '0.0.0.0';
-            Guid = 'b760f2e8-291f-4df4-bd69-3a615b47c8d4' },
-        @{
-            ModuleName = 'AWS.Tools.Common';
-            RequiredVersion = '0.0.0.0';
-            Guid = 'e5b05bf3-9eee-47b2-81f2-41ddc0501b86' }
     )
 
-    # Assemblies that must be loaded prior to importing this module.
+# Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
         'AWSSDK.CognitoIdentity.dll'
     )
@@ -136,7 +128,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
-            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
+            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
+            Prerelease = 'preview001'
         }
     }
 }

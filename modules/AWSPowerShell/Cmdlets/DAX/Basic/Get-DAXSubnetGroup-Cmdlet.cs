@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.SubnetGroups.Count;
+                    int _receivedThisCall = response.SubnetGroups?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

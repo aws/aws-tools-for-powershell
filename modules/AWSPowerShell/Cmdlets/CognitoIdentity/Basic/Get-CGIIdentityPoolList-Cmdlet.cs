@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.IdentityPools.Count;
+                    int _receivedThisCall = response.IdentityPools?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

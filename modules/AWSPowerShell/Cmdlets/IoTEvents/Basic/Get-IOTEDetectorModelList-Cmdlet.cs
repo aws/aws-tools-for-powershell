@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DetectorModelSummaries.Count;
+                    int _receivedThisCall = response.DetectorModelSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

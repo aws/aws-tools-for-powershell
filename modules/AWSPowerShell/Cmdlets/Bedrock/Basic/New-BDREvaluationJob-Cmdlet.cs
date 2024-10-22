@@ -43,8 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class NewBDREvaluationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ClientRequestToken

@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.BillingRecords.Count;
+                    int _receivedThisCall = response.BillingRecords?.Count ?? 0;
                     
                     _nextToken = response.NextPageMarker;
                     _retrievedSoFar += _receivedThisCall;

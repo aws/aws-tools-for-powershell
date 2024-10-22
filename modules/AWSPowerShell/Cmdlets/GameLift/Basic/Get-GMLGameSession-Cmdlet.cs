@@ -71,8 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLGameSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AliasId
@@ -374,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.GameSessions.Count;
+                    int _receivedThisCall = response.GameSessions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

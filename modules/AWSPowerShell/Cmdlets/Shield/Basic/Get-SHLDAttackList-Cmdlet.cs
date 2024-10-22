@@ -439,7 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.AttackSummaries.Count;
+                    int _receivedThisCall = response.AttackSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

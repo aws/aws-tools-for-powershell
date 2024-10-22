@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMAccountListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Name
@@ -298,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Accounts.Count;
+                    int _receivedThisCall = response.Accounts?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

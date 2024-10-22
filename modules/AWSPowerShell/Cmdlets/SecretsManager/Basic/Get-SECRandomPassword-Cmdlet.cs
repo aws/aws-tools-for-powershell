@@ -49,8 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class GetSECRandomPasswordCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ExcludeCharacter

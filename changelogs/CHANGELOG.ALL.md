@@ -1,4 +1,8 @@
-﻿### 4.1.666 (2024-09-27 21:23Z)
+﻿### 5.0.0-preview001 (2024-10-22 14:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
+  * Please find a description of the changes for 5.0.0-preview001 at https://github.com/aws/aws-tools-for-powershell/issues/357
+
+### 4.1.666 (2024-09-27 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.894.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon WorkLink
   * Amazon Connect Customer Profiles

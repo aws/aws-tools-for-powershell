@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ReportDefinitions.Count;
+                    int _receivedThisCall = response.ReportDefinitions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

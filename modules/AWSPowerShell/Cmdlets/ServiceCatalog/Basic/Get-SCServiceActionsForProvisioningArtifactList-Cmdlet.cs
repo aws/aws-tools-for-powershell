@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ServiceActionSummaries.Count;
+                    int _receivedThisCall = response.ServiceActionSummaries?.Count ?? 0;
                     
                     _nextToken = response.NextPageToken;
                     _retrievedSoFar += _receivedThisCall;

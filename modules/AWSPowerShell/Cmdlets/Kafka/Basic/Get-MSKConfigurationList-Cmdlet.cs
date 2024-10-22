@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Configurations.Count;
+                    int _receivedThisCall = response.Configurations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

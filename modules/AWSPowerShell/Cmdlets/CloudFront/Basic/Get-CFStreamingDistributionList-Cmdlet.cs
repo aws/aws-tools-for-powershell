@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.StreamingDistributionList.Items.Count;
+                    int _receivedThisCall = response.StreamingDistributionList.Items?.Count ?? 0;
                     
                     _nextToken = response.StreamingDistributionList.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

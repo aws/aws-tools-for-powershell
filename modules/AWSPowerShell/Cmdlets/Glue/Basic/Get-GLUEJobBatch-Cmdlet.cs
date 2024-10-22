@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEJobBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter JobName

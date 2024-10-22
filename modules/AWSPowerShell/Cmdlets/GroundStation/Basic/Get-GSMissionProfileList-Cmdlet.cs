@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.MissionProfileList.Count;
+                    int _receivedThisCall = response.MissionProfileList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

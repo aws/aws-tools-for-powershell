@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class GetFNSPPermissionGroupListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ManagedActionHistoryItems.Count;
+                    int _receivedThisCall = response.ManagedActionHistoryItems?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

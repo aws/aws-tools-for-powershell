@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class StartCCATDevEnvironmentSessionCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ExecuteCommandSessionConfiguration_Argument

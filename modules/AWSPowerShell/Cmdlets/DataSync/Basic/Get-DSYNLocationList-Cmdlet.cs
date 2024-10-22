@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Locations.Count;
+                    int _receivedThisCall = response.Locations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

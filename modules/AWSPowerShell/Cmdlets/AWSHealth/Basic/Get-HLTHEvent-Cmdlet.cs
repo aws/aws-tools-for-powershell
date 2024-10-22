@@ -775,7 +775,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Events.Count;
+                    int _receivedThisCall = response.Events?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

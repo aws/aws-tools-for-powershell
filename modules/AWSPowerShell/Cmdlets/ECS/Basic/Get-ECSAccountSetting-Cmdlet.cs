@@ -331,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Settings.Count;
+                    int _receivedThisCall = response.Settings?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

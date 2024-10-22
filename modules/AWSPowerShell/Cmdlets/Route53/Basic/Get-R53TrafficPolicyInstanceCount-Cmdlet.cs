@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the Amazon Route 53 GetTrafficPolicyInstanceCount API operation.", Operation = new[] {"GetTrafficPolicyInstanceCount"}, SelectReturnType = typeof(Amazon.Route53.Model.GetTrafficPolicyInstanceCountResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.Route53.Model.GetTrafficPolicyInstanceCountResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.Route53.Model.GetTrafficPolicyInstanceCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetR53TrafficPolicyInstanceCountCmdlet : AmazonRoute53ClientCmdlet, IExecutor

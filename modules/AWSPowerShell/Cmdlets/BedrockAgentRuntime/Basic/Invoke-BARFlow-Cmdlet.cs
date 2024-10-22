@@ -47,8 +47,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     public partial class InvokeBARFlowCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FlowAliasIdentifier

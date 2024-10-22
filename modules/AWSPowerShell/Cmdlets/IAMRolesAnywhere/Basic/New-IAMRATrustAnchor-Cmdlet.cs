@@ -48,8 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class NewIAMRATrustAnchorCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter SourceData_AcmPcaArn

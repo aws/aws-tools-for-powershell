@@ -49,8 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMMeetingListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult
@@ -267,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Meetings.Count;
+                    int _receivedThisCall = response.Meetings?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

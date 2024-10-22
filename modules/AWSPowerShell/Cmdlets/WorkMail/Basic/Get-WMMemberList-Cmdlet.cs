@@ -121,16 +121,6 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public string Select { get; set; } = "Members";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -151,21 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.WorkMail.Model.ListGroupMembersResponse, GetWMMemberListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.GroupId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupId = this.GroupId;
             #if MODULAR
             if (this.GroupId == null && ParameterWasBound(nameof(this.GroupId)))
@@ -212,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
             var request = new Amazon.WorkMail.Model.ListGroupMembersRequest();
@@ -282,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
             var request = new Amazon.WorkMail.Model.ListGroupMembersRequest();
@@ -345,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Members.Count;
+                    int _receivedThisCall = response.Members?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

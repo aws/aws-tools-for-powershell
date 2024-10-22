@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.EnvironmentIds.Count;
+                    int _receivedThisCall = response.EnvironmentIds?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Workspaces.Count;
+                    int _receivedThisCall = response.Workspaces?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

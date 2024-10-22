@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the FinSpace Public API AssociateUserToPermissionGroup API operation.", Operation = new[] {"AssociateUserToPermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.AssociateUserToPermissionGroupResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.FinSpaceData.Model.AssociateUserToPermissionGroupResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.FinSpaceData.Model.AssociateUserToPermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]

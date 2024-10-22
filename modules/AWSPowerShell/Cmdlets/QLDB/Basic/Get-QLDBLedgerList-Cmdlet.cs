@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Ledgers.Count;
+                    int _receivedThisCall = response.Ledgers?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

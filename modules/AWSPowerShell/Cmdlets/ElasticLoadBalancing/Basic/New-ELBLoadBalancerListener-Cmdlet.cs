@@ -95,16 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the collection of Listener objects that were created
-        /// The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in future
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -131,21 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersResponse, NewELBLoadBalancerListenerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => context.Listener;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Listener != null)
             {
                 context.Listener = new List<Amazon.ElasticLoadBalancing.Model.Listener>(this.Listener);

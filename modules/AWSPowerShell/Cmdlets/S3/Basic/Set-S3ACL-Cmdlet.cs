@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Endpoints</a> in the Amazon Web Services General Reference.
     /// </para></note></li></ul></dd></dl><para>
     /// The following operations are related to <c>PutBucketAcl</c>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li></ul><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Set", "S3ACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -157,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.S3.Model.PutACLResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.")]
     public partial class SetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
@@ -295,16 +296,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BucketName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BucketName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -331,21 +322,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.PutACLResponse, SetS3ACLCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.BucketName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Owner_DisplayName = this.Owner_DisplayName;
             context.Owner_Id = this.Owner_Id;
             if (this.AccessControlList_Grant != null)

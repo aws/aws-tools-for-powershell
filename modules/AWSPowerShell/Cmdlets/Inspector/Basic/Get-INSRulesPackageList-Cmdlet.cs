@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.RulesPackageArns.Count;
+                    int _receivedThisCall = response.RulesPackageArns?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

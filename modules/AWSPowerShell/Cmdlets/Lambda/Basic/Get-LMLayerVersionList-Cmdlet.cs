@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.LayerVersions.Count;
+                    int _receivedThisCall = response.LayerVersions?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

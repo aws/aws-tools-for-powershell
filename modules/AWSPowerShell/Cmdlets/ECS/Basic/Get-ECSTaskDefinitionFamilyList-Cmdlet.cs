@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Families.Count;
+                    int _receivedThisCall = response.Families?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

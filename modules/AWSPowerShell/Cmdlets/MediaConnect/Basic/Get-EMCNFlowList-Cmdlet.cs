@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Flows.Count;
+                    int _receivedThisCall = response.Flows?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

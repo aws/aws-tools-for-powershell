@@ -420,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Endpoints.Count;
+                    int _receivedThisCall = response.Endpoints?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class GetCBFleetListCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter SortBy

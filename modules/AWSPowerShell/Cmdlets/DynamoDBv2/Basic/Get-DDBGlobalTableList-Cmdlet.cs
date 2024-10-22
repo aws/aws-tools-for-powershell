@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.GlobalTables.Count;
+                    int _receivedThisCall = response.GlobalTables?.Count ?? 0;
                     
                     _nextToken = response.LastEvaluatedGlobalTableName;
                     _retrievedSoFar += _receivedThisCall;

@@ -78,10 +78,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter OntapConfiguration_AutomaticBackupRetentionDay

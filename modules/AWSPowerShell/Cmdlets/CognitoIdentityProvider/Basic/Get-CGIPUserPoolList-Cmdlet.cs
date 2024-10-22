@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.UserPools.Count;
+                    int _receivedThisCall = response.UserPools?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

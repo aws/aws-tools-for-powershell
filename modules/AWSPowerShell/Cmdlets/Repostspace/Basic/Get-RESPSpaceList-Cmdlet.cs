@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     public partial class GetRESPSpaceListCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter MaxResult

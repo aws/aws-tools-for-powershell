@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ReplicationSubnetGroups.Count;
+                    int _receivedThisCall = response.ReplicationSubnetGroups?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

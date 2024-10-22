@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetInvitationsCount API operation.", Operation = new[] {"GetInvitationsCount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetInvitationsCountResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.GuardDuty.Model.GetInvitationsCountResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.GuardDuty.Model.GetInvitationsCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetGDInvitationCountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor

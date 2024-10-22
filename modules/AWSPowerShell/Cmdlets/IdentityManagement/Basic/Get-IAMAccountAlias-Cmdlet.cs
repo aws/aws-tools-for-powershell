@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.AccountAliases.Count;
+                    int _receivedThisCall = response.AccountAliases?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

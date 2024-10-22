@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Qualifications.Count;
+                    int _receivedThisCall = response.Qualifications?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

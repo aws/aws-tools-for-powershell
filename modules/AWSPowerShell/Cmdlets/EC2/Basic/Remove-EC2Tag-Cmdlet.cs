@@ -94,16 +94,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the collection of Tag objects that were deleted
-        /// The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in future
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -130,21 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteTagsResponse, RemoveEC2TagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => context.Tag;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Resource != null)
             {
                 context.Resource = new List<System.String>(this.Resource);

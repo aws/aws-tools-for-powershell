@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.LicenseConfigurations.Count;
+                    int _receivedThisCall = response.LicenseConfigurations?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

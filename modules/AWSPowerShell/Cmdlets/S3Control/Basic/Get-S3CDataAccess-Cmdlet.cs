@@ -51,8 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     public partial class GetS3CDataAccessCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AccountId

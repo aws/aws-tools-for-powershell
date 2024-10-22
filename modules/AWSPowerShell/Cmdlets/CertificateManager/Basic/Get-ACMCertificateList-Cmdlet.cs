@@ -448,7 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.CertificateSummaryList.Count;
+                    int _receivedThisCall = response.CertificateSummaryList?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

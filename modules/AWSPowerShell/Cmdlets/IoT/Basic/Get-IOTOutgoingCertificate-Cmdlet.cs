@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.OutgoingCertificates.Count;
+                    int _receivedThisCall = response.OutgoingCertificates?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

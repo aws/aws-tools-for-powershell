@@ -68,10 +68,6 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class NewNSStudioCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AdminRoleArn

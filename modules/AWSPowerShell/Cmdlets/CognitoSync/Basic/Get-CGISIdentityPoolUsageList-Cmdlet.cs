@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.IdentityPoolUsages.Count;
+                    int _receivedThisCall = response.IdentityPoolUsages?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

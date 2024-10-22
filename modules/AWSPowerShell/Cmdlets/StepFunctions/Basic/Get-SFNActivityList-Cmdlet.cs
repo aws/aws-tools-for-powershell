@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Activities.Count;
+                    int _receivedThisCall = response.Activities?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

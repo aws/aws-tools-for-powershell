@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Lightsail IsVpcPeered API operation.", Operation = new[] {"IsVpcPeered"}, SelectReturnType = typeof(Amazon.Lightsail.Model.IsVpcPeeredResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.Lightsail.Model.IsVpcPeeredResponse",
-        "This cmdlet returns a System.Boolean object.",
+        "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.Lightsail.Model.IsVpcPeeredResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class TestLSVpcPeeredCmdlet : AmazonLightsailClientCmdlet, IExecutor

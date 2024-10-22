@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DelegationSets.Count;
+                    int _receivedThisCall = response.DelegationSets?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

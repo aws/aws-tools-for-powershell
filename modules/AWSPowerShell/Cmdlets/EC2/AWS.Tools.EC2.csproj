@@ -38,7 +38,7 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="PowerShellStandard.Library" Version="5.1.0" />
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
   </ItemGroup>
@@ -49,6 +49,9 @@
     <Reference Include="AWSSDK.EC2">
       <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.EC2.dll</HintPath>
     </Reference>
+        <Reference Include="AWSSDK.AWSSDK.Extensions.EC2.DecryptPassword">
+          <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Extensions.EC2.DecryptPassword.dll</HintPath>
+        </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="../../aws-powershell.snk" />

@@ -66,8 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class GetFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter FileSystemId
@@ -300,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.FileSystems.Count;
+                    int _receivedThisCall = response.FileSystems?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

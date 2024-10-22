@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Bots.Count;
+                    int _receivedThisCall = response.Bots?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

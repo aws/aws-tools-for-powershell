@@ -56,8 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public partial class NewMLDataSourceFromRDSCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ComputeStatistic

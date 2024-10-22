@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TrafficPolicySummaries.Count;
+                    int _receivedThisCall = response.TrafficPolicySummaries?.Count ?? 0;
                     
                     _nextToken = response.TrafficPolicyIdMarker;
                     _retrievedSoFar += _receivedThisCall;

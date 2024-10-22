@@ -40,10 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDActivityCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ActivityType
@@ -495,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.UserActivities.Count;
+                    int _receivedThisCall = response.UserActivities?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

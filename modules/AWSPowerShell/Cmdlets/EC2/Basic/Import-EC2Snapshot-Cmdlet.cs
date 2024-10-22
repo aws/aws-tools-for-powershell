@@ -45,10 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class ImportEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ClientData_Comment

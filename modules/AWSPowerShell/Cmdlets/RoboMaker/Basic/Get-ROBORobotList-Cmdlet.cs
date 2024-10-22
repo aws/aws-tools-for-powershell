@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Robots.Count;
+                    int _receivedThisCall = response.Robots?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

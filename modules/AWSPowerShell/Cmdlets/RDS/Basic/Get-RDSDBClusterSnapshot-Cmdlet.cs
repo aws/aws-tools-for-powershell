@@ -411,7 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.DBClusterSnapshots.Count;
+                    int _receivedThisCall = response.DBClusterSnapshots?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.Keys.Count;
+                    int _receivedThisCall = response.Keys?.Count ?? 0;
                     
                     _nextToken = response.NextMarker;
                     _retrievedSoFar += _receivedThisCall;

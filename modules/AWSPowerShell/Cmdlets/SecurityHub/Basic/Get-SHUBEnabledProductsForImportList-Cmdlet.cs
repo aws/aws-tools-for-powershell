@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.ProductSubscriptions.Count;
+                    int _receivedThisCall = response.ProductSubscriptions?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

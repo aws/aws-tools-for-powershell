@@ -60,10 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     public partial class UpdatePAYCDEncryptDataCmdlet : AmazonPaymentCryptographyDataClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter CipherText

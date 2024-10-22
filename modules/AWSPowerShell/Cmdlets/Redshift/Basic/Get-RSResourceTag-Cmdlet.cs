@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.TaggedResources.Count;
+                    int _receivedThisCall = response.TaggedResources?.Count ?? 0;
                     
                     _nextToken = response.Marker;
                     _retrievedSoFar += _receivedThisCall;

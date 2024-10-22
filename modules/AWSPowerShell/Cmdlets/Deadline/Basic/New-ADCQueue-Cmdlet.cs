@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     public partial class NewADCQueueCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AllowedStorageProfileId

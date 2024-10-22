@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                         PipelineOutput = pipelineOutput,
                         ServiceResponse = response
                     };
-                    int _receivedThisCall = response.PendingAggregationRequests.Count;
+                    int _receivedThisCall = response.PendingAggregationRequests?.Count ?? 0;
                     
                     _nextToken = response.NextToken;
                     _retrievedSoFar += _receivedThisCall;

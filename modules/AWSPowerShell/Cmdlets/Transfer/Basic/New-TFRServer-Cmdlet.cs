@@ -43,8 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class NewTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter EndpointDetails_AddressAllocationId
