@@ -151,11 +151,37 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String RelatedContactId { get; set; }
         #endregion
         
+        #region Parameter Agent_ScreenShare
+        /// <summary>
+        /// <para>
+        /// <para>The screen sharing capability that is enabled for the participant. <c>SEND</c> indicates
+        /// the participant can share their screen.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedCapabilities_Agent_ScreenShare")]
+        [AWSConstantClassSource("Amazon.Connect.ScreenShareCapability")]
+        public Amazon.Connect.ScreenShareCapability Agent_ScreenShare { get; set; }
+        #endregion
+        
+        #region Parameter Customer_ScreenShare
+        /// <summary>
+        /// <para>
+        /// <para>The screen sharing capability that is enabled for the participant. <c>SEND</c> indicates
+        /// the participant can share their screen.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedCapabilities_Customer_ScreenShare")]
+        [AWSConstantClassSource("Amazon.Connect.ScreenShareCapability")]
+        public Amazon.Connect.ScreenShareCapability Customer_ScreenShare { get; set; }
+        #endregion
+        
         #region Parameter Agent_Video
         /// <summary>
         /// <para>
-        /// <para>The configuration having the video sharing capabilities for participants over the
-        /// call.</para>
+        /// <para>The configuration having the video and screen sharing capabilities for participants
+        /// over the call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Customer_Video
         /// <summary>
         /// <para>
-        /// <para>The configuration having the video sharing capabilities for participants over the
-        /// call.</para>
+        /// <para>The configuration having the video and screen sharing capabilities for participants
+        /// over the call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Agent_ScreenShare = this.Agent_ScreenShare;
             context.Agent_Video = this.Agent_Video;
+            context.Customer_ScreenShare = this.Customer_ScreenShare;
             context.Customer_Video = this.Customer_Video;
             if (this.Attribute != null)
             {
@@ -320,6 +348,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
              // populate Agent
             var requestAllowedCapabilities_allowedCapabilities_AgentIsNull = true;
             requestAllowedCapabilities_allowedCapabilities_Agent = new Amazon.Connect.Model.ParticipantCapabilities();
+            Amazon.Connect.ScreenShareCapability requestAllowedCapabilities_allowedCapabilities_Agent_agent_ScreenShare = null;
+            if (cmdletContext.Agent_ScreenShare != null)
+            {
+                requestAllowedCapabilities_allowedCapabilities_Agent_agent_ScreenShare = cmdletContext.Agent_ScreenShare;
+            }
+            if (requestAllowedCapabilities_allowedCapabilities_Agent_agent_ScreenShare != null)
+            {
+                requestAllowedCapabilities_allowedCapabilities_Agent.ScreenShare = requestAllowedCapabilities_allowedCapabilities_Agent_agent_ScreenShare;
+                requestAllowedCapabilities_allowedCapabilities_AgentIsNull = false;
+            }
             Amazon.Connect.VideoCapability requestAllowedCapabilities_allowedCapabilities_Agent_agent_Video = null;
             if (cmdletContext.Agent_Video != null)
             {
@@ -345,6 +383,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
              // populate Customer
             var requestAllowedCapabilities_allowedCapabilities_CustomerIsNull = true;
             requestAllowedCapabilities_allowedCapabilities_Customer = new Amazon.Connect.Model.ParticipantCapabilities();
+            Amazon.Connect.ScreenShareCapability requestAllowedCapabilities_allowedCapabilities_Customer_customer_ScreenShare = null;
+            if (cmdletContext.Customer_ScreenShare != null)
+            {
+                requestAllowedCapabilities_allowedCapabilities_Customer_customer_ScreenShare = cmdletContext.Customer_ScreenShare;
+            }
+            if (requestAllowedCapabilities_allowedCapabilities_Customer_customer_ScreenShare != null)
+            {
+                requestAllowedCapabilities_allowedCapabilities_Customer.ScreenShare = requestAllowedCapabilities_allowedCapabilities_Customer_customer_ScreenShare;
+                requestAllowedCapabilities_allowedCapabilities_CustomerIsNull = false;
+            }
             Amazon.Connect.VideoCapability requestAllowedCapabilities_allowedCapabilities_Customer_customer_Video = null;
             if (cmdletContext.Customer_Video != null)
             {
@@ -478,7 +526,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Connect.ScreenShareCapability Agent_ScreenShare { get; set; }
             public Amazon.Connect.VideoCapability Agent_Video { get; set; }
+            public Amazon.Connect.ScreenShareCapability Customer_ScreenShare { get; set; }
             public Amazon.Connect.VideoCapability Customer_Video { get; set; }
             public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.String ClientToken { get; set; }

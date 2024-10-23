@@ -358,6 +358,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ScreenShareCapability
+        {
+            ($_ -eq "Start-CONNWebRTCContact/Agent_ScreenShare") -Or
+            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare")
+        }
+        {
+            $v = "SEND"
+            break
+        }
+
         # Amazon.Connect.SearchableQueueType
         "Search-CONNQueue/SearchCriteria_QueueTypeCondition"
         {
@@ -529,11 +539,13 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
@@ -832,6 +844,7 @@ $CONN_SelectMap = @{
                "Start-CONNContactStreaming",
                "Start-CONNOutboundChatContact",
                "Start-CONNOutboundVoiceContact",
+               "Start-CONNScreenSharing",
                "Start-CONNTaskContact",
                "Start-CONNWebRTCContact",
                "Stop-CONNContact",

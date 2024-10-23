@@ -49,6 +49,18 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ReEncryptData" OutputProperty="*" Verb="Update" Noun="EncryptData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" />
                 <Param Name="IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="IncomingEncryptionAttributes_Dukpt_DukptKeyDerivationType" />
                 <Param Name="OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType" NewName="OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType" />
                 <Param Name="IncomingEncryptionAttributes_Dukpt_DukptKeyVariant" NewName="IncomingEncryptionAttributes_Dukpt_DukptKeyVariant" />
@@ -72,6 +84,18 @@
         </ServiceOperation>
         <ServiceOperation MethodName="TranslatePinData" OutputProperty="*" Verb="Convert" Noun="PinData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" NewName="OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation" />
                 <Param Name="IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" />
                 <Param Name="OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat0_PrimaryAccountNumber" />
                 <Param Name="IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" />

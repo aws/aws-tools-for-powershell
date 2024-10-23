@@ -881,6 +881,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartScreenSharing" Verb="Start" Noun="ScreenSharing" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartTaskContact" OutputProperty="ContactId" Verb="Start" Noun="TaskContact" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

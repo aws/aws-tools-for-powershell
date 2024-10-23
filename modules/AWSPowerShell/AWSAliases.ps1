@@ -6562,6 +6562,7 @@ Set-Alias -Name CONN-StartContactRecording -Value Start-CONNContactRecording
 Set-Alias -Name CONN-StartContactStreaming -Value Start-CONNContactStreaming
 Set-Alias -Name CONN-StartOutboundChatContact -Value Start-CONNOutboundChatContact
 Set-Alias -Name CONN-StartOutboundVoiceContact -Value Start-CONNOutboundVoiceContact
+Set-Alias -Name CONN-StartScreenSharing -Value Start-CONNScreenSharing
 Set-Alias -Name CONN-StartTaskContact -Value Start-CONNTaskContact
 Set-Alias -Name CONN-StartWebRTCContact -Value Start-CONNWebRTCContact
 Set-Alias -Name CONN-StopContact -Value Stop-CONNContact
@@ -19904,6 +19905,7 @@ Set-Alias -Name MWAA-CreateWebLoginToken -Value New-MWAAWebLoginToken
 Set-Alias -Name Delete-MWAAEnvironment -Value Remove-MWAAEnvironment
 Set-Alias -Name MWAA-DeleteEnvironment -Value Remove-MWAAEnvironment
 Set-Alias -Name MWAA-GetEnvironment -Value Get-MWAAEnvironment
+Set-Alias -Name MWAA-InvokeRestApi -Value Invoke-MWAARestApi
 Set-Alias -Name List-MWAAEnvironments -Value Get-MWAAEnvironmentList
 Set-Alias -Name List-MWAAEnvironmentList -Value Get-MWAAEnvironmentList
 Set-Alias -Name MWAA-ListEnvironments -Value Get-MWAAEnvironmentList

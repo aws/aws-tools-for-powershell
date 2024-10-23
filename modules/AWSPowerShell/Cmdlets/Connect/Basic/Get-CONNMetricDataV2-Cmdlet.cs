@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// the previous version of this API. It has new metrics, offers filtering at a metric
     /// level, and offers the ability to filter and group data by channels, queues, routing
     /// profiles, agents, and agent hierarchy levels. It can retrieve historical data for
-    /// the last 3 months, at varying intervals. 
+    /// the last 3 months, at varying intervals. It does not support agent queues.
     /// </para><para>
     /// For a description of the historical metrics that are supported by <c>GetMetricDataV2</c>
     /// and <c>GetMetricData</c>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// after contact work time</a></para><note><para>Feature is a valid filter but not a valid grouping.</para></note></dd><dt>AVG_AGENT_CONNECTING_TIME</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <c>INITIATION_METHOD</c>. For now, this metric only supports
         /// the following as <c>INITIATION_METHOD</c>: <c>INBOUND</c> | <c>OUTBOUND</c> | <c>CALLBACK</c>
         /// | <c>API</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-avg-agent-api-connecting-time">Average
-        /// agent API connecting time</a></para><note><para>The <c>Negate</c> key in Metric Level Filters is not applicable for this metric.</para></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
+        /// agent API connecting time</a></para><note><para>The <c>Negate</c> key in metric-level filters is not applicable for this metric.</para></note></dd><dt>AVG_AGENT_PAUSE_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-pause-time-historical">Average
         /// agent pause time</a></para></dd><dt>AVG_CASE_RELATED_CONTACTS</dt><dd><para>Unit: Count</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-contacts-case-historical">Average
         /// contacts per case</a></para></dd><dt>AVG_CASE_RESOLUTION_TIME</dt><dd><para>Unit: Seconds</para><para>Required filter key: CASE_TEMPLATE_ARN</para><para>Valid groupings and filters: CASE_TEMPLATE_ARN, CASE_STATUS</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-case-resolution-time-historical">Average
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// in seconds. For <c>Comparison</c>, you can use <c>LT</c> (for "Less than") or <c>LTE</c>
         /// (for "Less than equal").</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-removed-historical">Contacts
         /// removed from queue in X seconds</a></para></dd><dt>CONTACTS_RESOLVED_IN_X</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,
-        /// Q in Connect</para><para>Threshold: For <c>ThresholdValue</c> enter any whole number from 1 to 604800 (inclusive),
+        /// Q in Connect</para><para>Threshold: For <c>ThresholdValue</c>, enter any whole number from 1 to 604800 (inclusive),
         /// in seconds. For <c>Comparison</c>, you can use <c>LT</c> (for "Less than") or <c>LTE</c>
         /// (for "Less than equal").</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-resolved-historical">Contacts
         /// resolved in X</a></para></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contact work time</a></para></dd><dt>SUM_CONNECTING_TIME_AGENT</dt><dd><para>Unit: Seconds</para><para>Valid metric filter key: <c>INITIATION_METHOD</c>. This metric only supports the following
         /// filter keys as <c>INITIATION_METHOD</c>: <c>INBOUND</c> | <c>OUTBOUND</c> | <c>CALLBACK</c>
         /// | <c>API</c></para><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#htm-agent-api-connecting-time">Agent
-        /// API connecting time</a></para><note><para>The <c>Negate</c> key in Metric Level Filters is not applicable for this metric.</para></note></dd><dt>CONTACTS_ABANDONED</dt><dd><para>Unit: Count</para><para>Metric filter: </para><ul><li><para>Valid values: <c>API</c>| <c>Incoming</c> | <c>Outbound</c> | <c>Transfer</c> | <c>Callback</c>
+        /// API connecting time</a></para><note><para>The <c>Negate</c> key in metric-level filters is not applicable for this metric.</para></note></dd><dt>CONTACTS_ABANDONED</dt><dd><para>Unit: Count</para><para>Metric filter: </para><ul><li><para>Valid values: <c>API</c>| <c>Incoming</c> | <c>Outbound</c> | <c>Transfer</c> | <c>Callback</c>
         /// | <c>Queue_Transfer</c>| <c>Disconnect</c></para></li></ul><para>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy,
         /// contact/segmentAttributes/connect:Subtype, RoutingStepExpression, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#contacts-abandoned-historical">Contact
         /// abandoned</a></para></dd><dt>SUM_CONTACTS_ABANDONED_IN_X</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Queue, Channel, Routing Profile, contact/segmentAttributes/connect:Subtype,

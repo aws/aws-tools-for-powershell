@@ -75,6 +75,26 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyArn</c> of the certificate that signed the client's <c>PublicKeyCertificate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyArn</c> of the certificate that signed the client's <c>PublicKeyCertificate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter CipherText
         /// <summary>
         /// <para>
@@ -205,6 +225,28 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String OutgoingEncryptionAttributes_Symmetric_InitializationVector { get; set; }
         #endregion
         
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The key algorithm of the derived ECDH key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm")]
+        public Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The key algorithm of the derived ECDH key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm")]
+        public Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter IncomingWrappedKey_KeyCheckValueAlgorithm
         /// <summary>
         /// <para>
@@ -233,6 +275,50 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm")]
         public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm OutgoingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction
+        /// <summary>
+        /// <para>
+        /// <para>The key derivation function to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyDerivationFunction")]
+        public Amazon.PaymentCryptographyData.KeyDerivationFunction IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction
+        /// <summary>
+        /// <para>
+        /// <para>The key derivation function to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyDerivationFunction")]
+        public Amazon.PaymentCryptographyData.KeyDerivationFunction OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction { get; set; }
+        #endregion
+        
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The hash type to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm")]
+        public Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The hash type to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm")]
+        public Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm { get; set; }
         #endregion
         
         #region Parameter IncomingEncryptionAttributes_Dukpt_KeySerialNumber
@@ -343,6 +429,54 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public Amazon.PaymentCryptographyData.PaddingType OutgoingEncryptionAttributes_Symmetric_PaddingType { get; set; }
         #endregion
         
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The client's public key certificate in PEM format (base64 encoded) to use for ECDH
+        /// key derivation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The client's public key certificate in PEM format (base64 encoded) to use for ECDH
+        /// key derivation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate { get; set; }
+        #endregion
+        
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation
+        /// <summary>
+        /// <para>
+        /// <para>A byte string containing information that binds the ECDH derived key to the two parties
+        /// involved or to the context of the key.</para><para>It may include details like identities of the two parties deriving the key, context
+        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes,
+        /// and re-using shared information for multiple ECDH key derivations is not recommended.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation
+        /// <summary>
+        /// <para>
+        /// <para>A byte string containing information that binds the ECDH derived key to the two parties
+        /// involved or to the context of the key.</para><para>It may include details like identities of the two parties deriving the key, context
+        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes,
+        /// and re-using shared information for multiple ECDH key derivations is not recommended.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation { get; set; }
+        #endregion
+        
         #region Parameter IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock
         /// <summary>
         /// <para>
@@ -428,6 +562,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             #endif
             context.IncomingWrappedKey_KeyCheckValueAlgorithm = this.IncomingWrappedKey_KeyCheckValueAlgorithm;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+            context.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = this.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
             context.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = this.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
             context.OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType = this.OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType;
             context.OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant = this.OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant;
@@ -445,6 +585,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             }
             #endif
             context.OutgoingWrappedKey_KeyCheckValueAlgorithm = this.OutgoingWrappedKey_KeyCheckValueAlgorithm;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = this.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
             context.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = this.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
             
             // allow further manipulation of loaded context prior to processing
@@ -618,6 +764,81 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
                 requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = false;
             }
+            Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
+            
+             // populate DiffieHellmanSymmetricKey
+            var requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = true;
+            requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = new Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes();
+            System.String requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.CertificateAuthorityPublicKeyIdentifier = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyAlgorithm = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.KeyDerivationFunction requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyDerivationFunction = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyDerivationHashAlgorithm = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            System.String requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.PublicKeyCertificate = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            System.String requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.SharedInformation = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+             // determine if requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey should be set to null
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
              // determine if requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial should be set to null
             if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull)
             {
@@ -785,6 +1006,81 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
                 requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = false;
             }
+            Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
+            
+             // populate DiffieHellmanSymmetricKey
+            var requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = true;
+            requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = new Amazon.PaymentCryptographyData.Model.EcdhDerivationAttributes();
+            System.String requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.CertificateAuthorityPublicKeyIdentifier = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyAlgorithm = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.KeyDerivationFunction requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyDerivationFunction = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.KeyDerivationHashAlgorithm = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            System.String requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.PublicKeyCertificate = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+            System.String requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey.SharedInformation = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull = false;
+            }
+             // determine if requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey should be set to null
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKeyIsNull)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey = null;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial.DiffieHellmanSymmetricKey = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
              // determine if requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial should be set to null
             if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull)
             {
@@ -872,6 +1168,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.PaddingType IncomingEncryptionAttributes_Symmetric_PaddingType { get; set; }
             public System.String IncomingKeyIdentifier { get; set; }
             public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm IncomingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+            public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier { get; set; }
+            public Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptographyData.KeyDerivationFunction IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction { get; set; }
+            public Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm { get; set; }
+            public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate { get; set; }
+            public System.String IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation { get; set; }
             public System.String IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
             public Amazon.PaymentCryptographyData.DukptDerivationType OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType { get; set; }
             public Amazon.PaymentCryptographyData.DukptKeyVariant OutgoingEncryptionAttributes_Dukpt_DukptKeyVariant { get; set; }
@@ -883,6 +1185,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.PaddingType OutgoingEncryptionAttributes_Symmetric_PaddingType { get; set; }
             public System.String OutgoingKeyIdentifier { get; set; }
             public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm OutgoingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+            public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_CertificateAuthorityPublicKeyIdentifier { get; set; }
+            public Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptographyData.KeyDerivationFunction OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction { get; set; }
+            public Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm { get; set; }
+            public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_PublicKeyCertificate { get; set; }
+            public System.String OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_SharedInformation { get; set; }
             public System.String OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
             public System.Func<Amazon.PaymentCryptographyData.Model.ReEncryptDataResponse, UpdatePAYCDEncryptDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

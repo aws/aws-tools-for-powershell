@@ -105,6 +105,13 @@ $MWAA_Completers = {
             break
         }
 
+        # Amazon.MWAA.RestApiMethod
+        "Invoke-MWAARestApi/Method"
+        {
+            $v = "DELETE","GET","PATCH","POST","PUT"
+            break
+        }
+
         # Amazon.MWAA.WebserverAccessMode
         {
             ($_ -eq "New-MWAAEnvironment/WebserverAccessMode") -Or
@@ -126,6 +133,7 @@ $MWAA_Completers = {
 $MWAA_map = @{
     "DagProcessingLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "EndpointManagement"=@("New-MWAAEnvironment")
+    "Method"=@("Invoke-MWAARestApi")
     "SchedulerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "TaskLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WebserverAccessMode"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
@@ -188,6 +196,7 @@ $MWAA_SelectMap = @{
                "New-MWAAWebLoginToken",
                "Remove-MWAAEnvironment",
                "Get-MWAAEnvironment",
+               "Invoke-MWAARestApi",
                "Get-MWAAEnvironmentList",
                "Get-MWAAResourceTag",
                "Publish-MWAAMetric",

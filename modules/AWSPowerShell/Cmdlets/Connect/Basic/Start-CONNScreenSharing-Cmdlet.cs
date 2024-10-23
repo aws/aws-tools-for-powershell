@@ -22,30 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MWAA;
-using Amazon.MWAA.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MWAA
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.
+    /// Starts screen sharing for a contact. For more information about screen sharing, see
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set
+    /// up in-app, web, video calling, and screen sharing capabilities</a> in the <i>Amazon
+    /// Connect Administrator Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "MWAAEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Start", "CONNScreenSharing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AmazonMWAA DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.MWAA.Model.DeleteEnvironmentResponse))]
-    [AWSCmdletOutput("None or Amazon.MWAA.Model.DeleteEnvironmentResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service StartScreenSharing API operation.", Operation = new[] {"StartScreenSharing"}, SelectReturnType = typeof(Amazon.Connect.Model.StartScreenSharingResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.StartScreenSharingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.DeleteEnvironmentResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.StartScreenSharingResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
+    public partial class StartCONNScreenSharingCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon MWAA environment. For example, <c>MyMWAAEnvironment</c>.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,13 +59,44 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String ContactId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MWAA.Model.DeleteEnvironmentResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.StartScreenSharingResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MWAAEnvironment (DeleteEnvironment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CONNScreenSharing (StartScreenSharing)"))
             {
                 return;
             }
@@ -108,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MWAA.Model.DeleteEnvironmentResponse, RemoveMWAAEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.StartScreenSharingResponse, StartCONNScreenSharingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,14 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ContactId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.ClientToken = this.ClientToken;
+            context.ContactId = this.ContactId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MWAA.Model.DeleteEnvironmentRequest();
+            var request = new Amazon.Connect.Model.StartScreenSharingRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.ContactId != null)
+            {
+                request.ContactId = cmdletContext.ContactId;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -180,15 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         #region AWS Service Operation Call
         
-        private Amazon.MWAA.Model.DeleteEnvironmentResponse CallAWSServiceOperation(IAmazonMWAA client, Amazon.MWAA.Model.DeleteEnvironmentRequest request)
+        private Amazon.Connect.Model.StartScreenSharingResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.StartScreenSharingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonMWAA", "DeleteEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "StartScreenSharing");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironment(request);
+                return client.StartScreenSharing(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.StartScreenSharingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,8 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Func<Amazon.MWAA.Model.DeleteEnvironmentResponse, RemoveMWAAEnvironmentCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String ContactId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.StartScreenSharingResponse, StartCONNScreenSharingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

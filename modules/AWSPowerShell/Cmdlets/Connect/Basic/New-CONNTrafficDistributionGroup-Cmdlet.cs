@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Creates a traffic distribution group given an Amazon Connect instance that has been
-    /// replicated. 
+    /// replicated.
     /// 
     ///  <note><para>
     /// The <c>SignInConfig</c> distribution is available only on a default <c>TrafficDistributionGroup</c>

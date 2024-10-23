@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TrafficDistributionGroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN if
-        /// the API is being called in the Region where the traffic distribution group was created.
-        /// The ARN must be provided if the call is from the replicated Region.</para>
+        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN of
+        /// the traffic distribution group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
