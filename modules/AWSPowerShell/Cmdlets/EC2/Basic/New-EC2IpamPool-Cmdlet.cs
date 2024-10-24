@@ -184,8 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The locale for the pool should be one of the following:</para><ul><li><para>An Amazon Web Services Region where you want this IPAM pool to be available for allocations.</para></li><li><para>The network border group for an Amazon Web Services Local Zone where you want this
         /// IPAM pool to be available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported
         /// Local Zones</a>). This option is only available for IPAM IPv4 pools in the public
-        /// scope.</para></li></ul><para>If you do not choose a locale, resources in Regions others than the IPAM's home region
-        /// cannot use CIDRs from this pool.</para><para>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local
+        /// scope.</para></li></ul><para>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local
         /// Zone. Default is <c>none</c> and means any locale.</para>
         /// </para>
         /// </summary>
@@ -213,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PubliclyAdvertisable
         /// <summary>
         /// <para>
-        /// <para>Determines if the pool is publicly advertisable. This option is not available for
-        /// pools with AddressFamily set to <c>ipv4</c>.</para>
+        /// <para>Determines if the pool is publicly advertisable. The request can only contain <c>PubliclyAdvertisable</c>
+        /// if <c>AddressFamily</c> is <c>ipv6</c> and <c>PublicIpSource</c> is <c>byoip</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

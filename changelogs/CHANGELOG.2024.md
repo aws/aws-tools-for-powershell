@@ -1,4 +1,12 @@
-﻿### 4.1.684 (2024-10-23 21:17Z)
+﻿### 4.1.685 (2024-10-24 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.913.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Nimble Studio
+  * Amazon AppConfig
+    * Modified cmdlet Stop-APPCDeployment: added parameter AllowRevert.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2InstanceImageMetadata leveraging the DescribeInstanceImageMetadata service API.
+
+### 4.1.684 (2024-10-23 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.912.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA
     * Added cmdlet Invoke-MWAARestApi leveraging the InvokeRestApi service API.

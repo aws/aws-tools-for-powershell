@@ -9588,6 +9588,8 @@ Set-Alias -Name EC2-DescribeInstanceEventNotificationAttributes -Value Get-EC2In
 Set-Alias -Name Describe-EC2InstanceEventWindows -Value Get-EC2InstanceEventWindow
 Set-Alias -Name Describe-EC2InstanceEventWindow -Value Get-EC2InstanceEventWindow
 Set-Alias -Name EC2-DescribeInstanceEventWindows -Value Get-EC2InstanceEventWindow
+Set-Alias -Name Describe-EC2InstanceImageMetadata -Value Get-EC2InstanceImageMetadata
+Set-Alias -Name EC2-DescribeInstanceImageMetadata -Value Get-EC2InstanceImageMetadata
 Set-Alias -Name Describe-EC2Instances -Value Get-EC2Instance
 Set-Alias -Name Describe-EC2Instance -Value Get-EC2Instance
 Set-Alias -Name EC2-DescribeInstances -Value Get-EC2Instance

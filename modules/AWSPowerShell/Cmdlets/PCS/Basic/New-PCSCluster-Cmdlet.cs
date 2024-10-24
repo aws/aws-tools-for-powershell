@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         #region Parameter SlurmConfiguration_ScaleDownIdleTimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The time before an idle node is scaled down.</para>
+        /// <para>The time (in seconds) before an idle node is scaled down.</para><para>Default: <c>600</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

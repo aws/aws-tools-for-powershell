@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// continue using <a>GetConfiguration</a>, we recommend that you include the <c>ClientConfigurationVersion</c>
         /// value with every call to <a>GetConfiguration</a>. The value to use for <c>ClientConfigurationVersion</c>
         /// comes from the <c>ConfigurationVersion</c> attribute returned by <a>GetConfiguration</a>
-        /// when there is new or updated data, and should be saved for subsequent calls to <a>GetConfiguration</a>.</para></important><para>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving
-        /// the Configuration</a> in the <i>AppConfig User Guide</i>.</para>
+        /// when there is new or updated data, and should be saved for subsequent calls to <a>GetConfiguration</a>.</para></important><para>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html">Retrieving
+        /// feature flags and configuration data in AppConfig</a> in the <i>AppConfig User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

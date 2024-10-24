@@ -1666,6 +1666,7 @@ $EC2_SelectMap = @{
                "Get-EC2CreditSpecification",
                "Get-EC2InstanceEventNotificationAttribute",
                "Get-EC2InstanceEventWindow",
+               "Get-EC2InstanceImageMetadata",
                "Get-EC2Instance",
                "Get-EC2InstanceStatus",
                "Get-EC2InstanceTopology",

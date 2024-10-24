@@ -29,7 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Stops a deployment. This API action works only on deployments that have a status of
-    /// <c>DEPLOYING</c>. This action moves the deployment to a status of <c>ROLLED_BACK</c>.
+    /// <c>DEPLOYING</c>, unless an <c>AllowRevert</c> parameter is supplied. If the <c>AllowRevert</c>
+    /// parameter is supplied, the status of an in-progress deployment will be <c>ROLLED_BACK</c>.
+    /// The status of a completed deployment will be <c>REVERTED</c>. AppConfig only allows
+    /// a revert within 72 hours of deployment completion.
     /// </summary>
     [Cmdlet("Stop", "APPCDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.StopDeploymentResponse")]
@@ -41,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AllowRevert
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that enables AppConfig to rollback a <c>COMPLETED</c> deployment to the
+        /// previous configuration version. This action moves the deployment to a status of <c>REVERTED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowRevert { get; set; }
+        #endregion
         
         #region Parameter ApplicationId
         /// <summary>
@@ -154,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 context.Select = (response, cmdlet) => this.DeploymentNumber;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowRevert = this.AllowRevert;
             context.ApplicationId = this.ApplicationId;
             #if MODULAR
             if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
@@ -191,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             // create request
             var request = new Amazon.AppConfig.Model.StopDeploymentRequest();
             
+            if (cmdletContext.AllowRevert != null)
+            {
+                request.AllowRevert = cmdletContext.AllowRevert.Value;
+            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
@@ -264,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowRevert { get; set; }
             public System.String ApplicationId { get; set; }
             public System.Int32? DeploymentNumber { get; set; }
             public System.String EnvironmentId { get; set; }

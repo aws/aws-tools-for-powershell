@@ -1213,6 +1213,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceImageMetadata" OutputProperty="InstanceImageMetadata" Verb="Get" Noun="InstanceImageMetadata" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstances" OutputProperty="Reservations" Verb="Get" Noun="Instance" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
