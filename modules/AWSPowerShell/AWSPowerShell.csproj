@@ -826,9 +826,6 @@
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkMonitor.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.NimbleStudio">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NimbleStudio.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OAM.dll</HintPath>
     </Reference>
@@ -1970,9 +1967,6 @@
     </Reference>
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkMonitor.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.NimbleStudio">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NimbleStudio.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OAM.dll</HintPath>

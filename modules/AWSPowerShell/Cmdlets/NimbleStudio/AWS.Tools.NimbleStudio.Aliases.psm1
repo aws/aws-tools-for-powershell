@@ -1,3 +1,0 @@
-﻿# NimbleStudio
-
-Export-ModuleMember -Alias *
