@@ -53,12 +53,12 @@
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @@(
-        @if (!string.IsNullOrWhiteSpace(PrereleaseTag))
+        @if (string.IsNullOrWhiteSpace(PrereleaseTag))
         {
-            string.Join("," + Environment.NewLine, RequiredModules.Select(module => "        @{"
+            @(string.Join("," + Environment.NewLine, RequiredModules.Select(module => "        @{"
                                                                                     + Environment.NewLine + $"            ModuleName = '{module.Name}';"
                                                                                     + Environment.NewLine + $"            RequiredVersion = '{Version}';"
-                                                                                    + Environment.NewLine + $"            Guid = '{module.Guid}' }}"));
+                                                                                    + Environment.NewLine + $"            Guid = '{module.Guid}' }}")));
 
         }
     )

@@ -47,6 +47,10 @@
         <!-- the four-components version number e.g. 4.0.0.0. -->
         <PatchNumber Condition="'$(PatchNumber)'==''">0.0.0.0</PatchNumber>
 
+        <!-- BuildPatchNumber is passed to create-cmdlets. For previews and stagingbuild, this should be 0.0.0.0 -->
+        <BuildPatchNumber Condition=" '$(IsPreviewBuild)' == 'true' ">0.0.0.0</BuildPatchNumber>
+        <BuildPatchNumber Condition=" '$(IsPreviewBuild)'=='' or '$(IsPreviewBuild)' != 'true' ">$(PatchNumber)</BuildPatchNumber>
+
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)/Deployment</Deployment>
         <DesktopDeploymentArtifacts>$(Deployment)/AWSPowerShell/</DesktopDeploymentArtifacts>
@@ -108,7 +112,7 @@
         </PropertyGroup>
         <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
         <Message Text="Generating cmdlets for all services"/>
-        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber) -pl $(PreviewLabel)" />
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(BuildPatchNumber) -pl $(PreviewLabel)" />
         <Exec Command="pwsh -NoProfile -Command New-Item -Path $(RootPath)/GenerationSucceeded.tag" />
     </Target>
 

@@ -134,7 +134,9 @@ try {
       /p:CleanSdkReferences=false `
       /p:BreakOnNewOperations=true `
       /p:Configuration=$Configuration `
-      /p:SignModules=$SignModules
+      /p:SignModules=$SignModules `
+      /p:PatchNumber=$Version `
+      /p:IsPreviewBuild=true
     $BuildResult = $LASTEXITCODE
   }
   elseif ($BuildType -in 'RELEASE', 'DRY_RUN') {

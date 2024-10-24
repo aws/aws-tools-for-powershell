@@ -38,7 +38,7 @@ Param (
     [string] $PreviewLabel = ""
 )
 
-function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
+function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest, [string]$importCommonModuleCmd) {
 
     Write-Host "Validating module $modulePath"
 
@@ -113,7 +113,8 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
     if (-not ($PSVersionTable.PSVersion.Major -gt 6 -or ($PSVersionTable.PSVersion.Major -eq 6 -And $PSVersionTable.PSVersion.Minor -ge 1))) {
         throw "PowerShell version 6.1 or later is required, found version $($PSVersionTable.PSVersion)"
     }
-    $testOutput = pwsh -noprofile -Command "`$ErrorActionPreference = 'Stop' ; Import-Module '$manifestPath' ; $cmdletToTest"
+   
+    $testOutput = pwsh -noprofile -Command "`$ErrorActionPreference = 'Stop' ; $importCommonModuleCmd ; Import-Module '$manifestPath' ; $cmdletToTest"
     if ($LastExitCode -eq 0) {
         Write-Host '...module loading - PASS'
     }
@@ -147,7 +148,7 @@ if ($BuildType -eq 'PREVIEW') {
 
 $validateModules | ForEach-Object {
     try {
-        ValidateModule $_ $true $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner }
+        ValidateModule $_ $true $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } ""
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -163,16 +164,21 @@ if ($BuildType -ne 'PREVIEW') {
     $OldPath = $Env:PSModulePath
     $Env:PSModulePath = $Env:PSModulePath + ';' + $awsToolsDeploymentPath
 
+    # Import Common module for Preview Release Tools Modules as they don't auto-import it.
+    $importCommonModuleCmd = ""
+    if($isPreRelease){
+        $importCommonModuleCmd = "Import-Module '" + [IO.Path]::Combine($awsToolsDeploymentPath, 'AWS.Tools.Common', 'AWS.Tools.Common.psd1') + "'"
+    }
     Get-ChildItem $awsToolsDeploymentPath -Directory | ForEach-Object {
         try {
             if ($_.Name -eq 'AWS.Tools.S3') {
-                ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
+                ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner } $importCommonModuleCmd
             }
             elseif ($_.Name -eq 'AWS.Tools.Installer') {
-                ValidateModule $_ $false $false $signingCheck { }
+                ValidateModule $_ $false $false $signingCheck { } ""
             }
             else {
-                ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion }
+                ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion } $importCommonModuleCmd 
             }
             Write-Host "PASSED validation for module $_"
         }
