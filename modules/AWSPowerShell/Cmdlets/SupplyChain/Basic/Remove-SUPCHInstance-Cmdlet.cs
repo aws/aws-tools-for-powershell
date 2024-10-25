@@ -28,11 +28,18 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Delete the instance. This is an asynchronous operation. Upon receiving a DeleteInstance
-    /// request, AWS Supply Chain immediately returns a response with the instance resource,
+    /// Enables you to programmatically delete an Amazon Web Services Supply Chain instance
+    /// by deleting the KMS keys and relevant information associated with the API without
+    /// using the Amazon Web Services console.
+    /// 
+    ///  
+    /// <para>
+    /// This is an asynchronous operation. Upon receiving a DeleteInstance request, Amazon
+    /// Web Services Supply Chain immediately returns a response with the instance resource,
     /// delete state while cleaning up all Amazon Web Services resources created during the
     /// instance creation process. You can use the GetInstance action to check the instance
     /// status.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SUPCHInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SupplyChain.Model.Instance")]

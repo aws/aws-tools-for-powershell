@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Delete a data lake dataset.
+    /// Enables you to programmatically delete an Amazon Web Services Supply Chain data lake
+    /// dataset. Developers can delete the existing datasets for a given instance ID, namespace,
+    /// and instance name.
     /// </summary>
     [Cmdlet("Remove", "SUPCHDataLakeDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SupplyChain.Model.DeleteDataLakeDatasetResponse")]

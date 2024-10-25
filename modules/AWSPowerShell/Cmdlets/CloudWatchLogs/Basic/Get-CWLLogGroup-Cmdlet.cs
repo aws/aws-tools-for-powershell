@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// CloudWatch Logs doesn’t support IAM policies that control access to the <c>DescribeLogGroups</c>
+    /// CloudWatch Logs doesn't support IAM policies that control access to the <c>DescribeLogGroups</c>
     /// action by using the <c>aws:ResourceTag/<i>key-name</i></c> condition key. Other CloudWatch
     /// Logs actions do support the use of the <c>aws:ResourceTag/<i>key-name</i></c> condition
     /// key to control access. For more information about using tags to control access, see

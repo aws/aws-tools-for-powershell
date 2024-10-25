@@ -89,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The prefix used as the start of the key for every object exported. If you don't specify
-        /// a value, the default is <c>exportedlogs</c>.</para>
+        /// a value, the default is <c>exportedlogs</c>.</para><para>The length of this parameter must comply with the S3 object key name length limits.
+        /// The object key name is a sequence of Unicode characters with UTF-8 encoding, and can
+        /// be up to 1,024 bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

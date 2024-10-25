@@ -28,7 +28,8 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Lists all the DataIntegrationFlows in a paginated way.
+    /// Enables you to programmatically list all data pipelines for the provided Amazon Web
+    /// Services Supply Chain instance.
     /// </summary>
     [Cmdlet("Get", "SUPCHDataIntegrationFlowList")]
     [OutputType("Amazon.SupplyChain.Model.DataIntegrationFlow")]

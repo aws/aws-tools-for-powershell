@@ -28,7 +28,8 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Get the AWS Supply Chain instance details.
+    /// Enables you to programmatically retrieve the information related to an Amazon Web
+    /// Services Supply Chain instance ID.
     /// </summary>
     [Cmdlet("Get", "SUPCHInstance")]
     [OutputType("Amazon.SupplyChain.Model.Instance")]

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// creating multiple deliveries. You can also create multiple deliveries to configure
     /// multiple delivery sources to send logs to the same delivery destination.
     /// </para><para>
-    /// You can't update an existing delivery. You can only create and delete deliveries.
+    /// To update an existing delivery configuration, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html">UpdateDeliveryConfiguration</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWLDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RecordField
         /// <summary>
         /// <para>
-        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery’s
+        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery's
         /// log source has mandatory fields, they must be included in this list.</para>
         /// </para>
         /// </summary>

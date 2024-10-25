@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// List all the AWS Supply Chain instances in a paginated way.
+    /// List all Amazon Web Services Supply Chain instances for a specific account. Enables
+    /// you to programmatically list all Amazon Web Services Supply Chain instances based
+    /// on their account ID, instance name, and state of the instance (active or delete).
     /// </summary>
     [Cmdlet("Get", "SUPCHInstanceList")]
     [OutputType("Amazon.SupplyChain.Model.Instance")]

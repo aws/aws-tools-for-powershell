@@ -52,6 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Artifacts_ArtifactIdentifier { get; set; }
         #endregion
         
+        #region Parameter AutoRetryLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of additional automatic retries after a failed build. For example,
+        /// if the auto-retry limit is set to 2, CodeBuild will call the <c>RetryBuild</c> API
+        /// to automatically retry your build for up to 2 additional times.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AutoRetryLimit { get; set; }
+        #endregion
+        
         #region Parameter BadgeEnabled
         /// <summary>
         /// <para>
@@ -1061,6 +1073,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter Artifacts_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoRetryLimit = this.AutoRetryLimit;
             context.BadgeEnabled = this.BadgeEnabled;
             context.BuildBatchConfig_BatchReportMode = this.BuildBatchConfig_BatchReportMode;
             context.BuildBatchConfig_CombineArtifact = this.BuildBatchConfig_CombineArtifact;
@@ -1306,6 +1319,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifactsIsNull)
             {
                 request.Artifacts = null;
+            }
+            if (cmdletContext.AutoRetryLimit != null)
+            {
+                request.AutoRetryLimit = cmdletContext.AutoRetryLimit.Value;
             }
             if (cmdletContext.BadgeEnabled != null)
             {
@@ -2018,6 +2035,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ArtifactPackaging Artifacts_Packaging { get; set; }
             public System.String Artifacts_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
+            public System.Int32? AutoRetryLimit { get; set; }
             public System.Boolean? BadgeEnabled { get; set; }
             public Amazon.CodeBuild.BatchReportModeType BuildBatchConfig_BatchReportMode { get; set; }
             public System.Boolean? BuildBatchConfig_CombineArtifact { get; set; }

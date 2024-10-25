@@ -28,7 +28,8 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Delete the DataIntegrationFlow.
+    /// Enable you to programmatically delete an existing data pipeline for the provided Amazon
+    /// Web Services Supply Chain instance and DataIntegrationFlow name.
     /// </summary>
     [Cmdlet("Remove", "SUPCHDataIntegrationFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse")]

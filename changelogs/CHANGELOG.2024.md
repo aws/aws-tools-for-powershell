@@ -1,4 +1,11 @@
-﻿### 4.1.685 (2024-10-24 21:20Z)
+﻿### 4.1.686 (2024-10-25 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.914.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter AutoRetryLimit.
+    * Modified cmdlet Start-CBBuild: added parameter AutoRetryLimitOverride.
+    * Modified cmdlet Update-CBProject: added parameter AutoRetryLimit.
+
+### 4.1.685 (2024-10-24 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.913.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Nimble Studio
   * Amazon AppConfig

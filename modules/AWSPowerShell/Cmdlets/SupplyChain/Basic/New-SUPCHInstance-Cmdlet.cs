@@ -28,11 +28,20 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Create a new instance for AWS Supply Chain. This is an asynchronous operation. Upon
-    /// receiving a CreateInstance request, AWS Supply Chain immediately returns the instance
-    /// resource, with instance ID, and the initializing state while simultaneously creating
-    /// all required Amazon Web Services resources for an instance creation. You can use GetInstance
-    /// to check the status of the instance.
+    /// Enables you to programmatically create an Amazon Web Services Supply Chain instance
+    /// by applying KMS keys and relevant information associated with the API without using
+    /// the Amazon Web Services console.
+    /// 
+    ///  
+    /// <para>
+    /// This is an asynchronous operation. Upon receiving a CreateInstance request, Amazon
+    /// Web Services Supply Chain immediately returns the instance resource, instance ID,
+    /// and the initializing state while simultaneously creating all required Amazon Web Services
+    /// resources for an instance creation. You can use GetInstance to check the status of
+    /// the instance. If the instance results in an unhealthy state, you need to check the
+    /// error message, delete the current instance, and recreate a new one based on the mitigation
+    /// from the error message.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SUPCHInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SupplyChain.Model.Instance")]

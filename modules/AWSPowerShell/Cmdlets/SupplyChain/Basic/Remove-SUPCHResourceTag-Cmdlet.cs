@@ -28,7 +28,10 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Delete tags for an Amazon Web Services Supply chain resource.
+    /// You can delete tags for an Amazon Web Services Supply chain resource such as instance,
+    /// data flow, or dataset in AWS Supply Chain. During the data ingestion process, you
+    /// can delete tags such as dev, test, or prod to data flows created during the data ingestion
+    /// process in the AWS Supply Chain datasets.
     /// </summary>
     [Cmdlet("Remove", "SUPCHResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Update a data lake dataset.
+    /// Enables you to programmatically update an Amazon Web Services Supply Chain data lake
+    /// dataset. Developers can update the description of a data lake dataset for a given
+    /// instance ID, namespace, and dataset name.
     /// </summary>
     [Cmdlet("Update", "SUPCHDataLakeDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SupplyChain.Model.DataLakeDataset")]

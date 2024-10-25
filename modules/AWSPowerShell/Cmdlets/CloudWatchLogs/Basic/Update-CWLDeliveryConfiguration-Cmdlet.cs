@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RecordField
         /// <summary>
         /// <para>
-        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery’s
+        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery's
         /// log source has mandatory fields, they must be included in this list.</para>
         /// </para>
         /// </summary>

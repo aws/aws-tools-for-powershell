@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Use this operation to <i>suppress</i> anomaly detection for a specified anomaly or
-    /// pattern. If you suppress an anomaly, CloudWatch Logs won’t report new occurrences
+    /// pattern. If you suppress an anomaly, CloudWatch Logs won't report new occurrences
     /// of that anomaly and won't update that anomaly with new data. If you suppress a pattern,
-    /// CloudWatch Logs won’t report any anomalies related to that pattern.
+    /// CloudWatch Logs won't report any anomalies related to that pattern.
     /// 
     ///  
     /// <para>

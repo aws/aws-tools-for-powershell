@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Get a data lake dataset.
+    /// Enables you to programmatically view an Amazon Web Services Supply Chain data lake
+    /// dataset. Developers can view the data lake dataset information such as namespace,
+    /// schema, and so on for a given instance ID, namespace, and dataset name.
     /// </summary>
     [Cmdlet("Get", "SUPCHDataLakeDataset")]
     [OutputType("Amazon.SupplyChain.Model.DataLakeDataset")]

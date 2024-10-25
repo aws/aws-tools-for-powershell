@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Create a data lake dataset.
+    /// Enables you to programmatically create an Amazon Web Services Supply Chain data lake
+    /// dataset. Developers can create the datasets using their pre-defined or custom schema
+    /// for a given instance ID, namespace, and dataset name.
     /// </summary>
     [Cmdlet("New", "SUPCHDataLakeDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SupplyChain.Model.DataLakeDataset")]

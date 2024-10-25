@@ -28,7 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Update the instance.
+    /// Enables you to programmatically update an Amazon Web Services Supply Chain instance
+    /// description by providing all the relevant information such as account ID, instance
+    /// ID and so on without using the AWS console.
     /// </summary>
     [Cmdlet("Update", "SUPCHInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SupplyChain.Model.Instance")]
