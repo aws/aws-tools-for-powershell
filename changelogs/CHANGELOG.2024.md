@@ -1,4 +1,18 @@
-﻿### 4.1.686 (2024-10-25 21:26Z)
+﻿### 4.1.687 (2024-10-28 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.915.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaPackage v2
+    * Added cmdlet Get-MPV2HarvestJob leveraging the GetHarvestJob service API.
+    * Added cmdlet Get-MPV2HarvestJobList leveraging the ListHarvestJobs service API.
+    * Added cmdlet New-MPV2HarvestJob leveraging the CreateHarvestJob service API.
+    * Added cmdlet Stop-MPV2HarvestJob leveraging the CancelHarvestJob service API.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter ClusterConfig_NodeOption.
+    * Modified cmdlet Update-OSDomainConfig: added parameter ClusterConfig_NodeOption.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameters EnablePerformanceInsight, MonitoringInterval, MonitoringRoleArn, PerformanceInsightsKMSKeyId and PerformanceInsightsRetentionPeriod.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameters EnablePerformanceInsight, MonitoringInterval, MonitoringRoleArn, PerformanceInsightsKMSKeyId and PerformanceInsightsRetentionPeriod.
+
+### 4.1.686 (2024-10-25 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.914.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBProject: added parameter AutoRetryLimit.

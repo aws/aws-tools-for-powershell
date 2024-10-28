@@ -572,6 +572,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? ClusterConfig_MultiAZWithStandbyEnabled { get; set; }
         #endregion
         
+        #region Parameter ClusterConfig_NodeOption
+        /// <summary>
+        /// <para>
+        /// <para>List of node options for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ClusterConfig_NodeOptions")]
+        public Amazon.OpenSearchService.Model.NodeOption[] ClusterConfig_NodeOption { get; set; }
+        #endregion
+        
         #region Parameter JWTOptions_PublicKey
         /// <summary>
         /// <para>
@@ -881,6 +892,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.ClusterConfig_InstanceCount = this.ClusterConfig_InstanceCount;
             context.ClusterConfig_InstanceType = this.ClusterConfig_InstanceType;
             context.ClusterConfig_MultiAZWithStandbyEnabled = this.ClusterConfig_MultiAZWithStandbyEnabled;
+            if (this.ClusterConfig_NodeOption != null)
+            {
+                context.ClusterConfig_NodeOption = new List<Amazon.OpenSearchService.Model.NodeOption>(this.ClusterConfig_NodeOption);
+            }
             context.ClusterConfig_WarmCount = this.ClusterConfig_WarmCount;
             context.ClusterConfig_WarmEnabled = this.ClusterConfig_WarmEnabled;
             context.ClusterConfig_WarmType = this.ClusterConfig_WarmType;
@@ -1345,6 +1360,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled != null)
             {
                 request.ClusterConfig.MultiAZWithStandbyEnabled = requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled.Value;
+                requestClusterConfigIsNull = false;
+            }
+            List<Amazon.OpenSearchService.Model.NodeOption> requestClusterConfig_clusterConfig_NodeOption = null;
+            if (cmdletContext.ClusterConfig_NodeOption != null)
+            {
+                requestClusterConfig_clusterConfig_NodeOption = cmdletContext.ClusterConfig_NodeOption;
+            }
+            if (requestClusterConfig_clusterConfig_NodeOption != null)
+            {
+                request.ClusterConfig.NodeOptions = requestClusterConfig_clusterConfig_NodeOption;
                 requestClusterConfigIsNull = false;
             }
             System.Int32? requestClusterConfig_clusterConfig_WarmCount = null;
@@ -1905,6 +1930,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Int32? ClusterConfig_InstanceCount { get; set; }
             public Amazon.OpenSearchService.OpenSearchPartitionInstanceType ClusterConfig_InstanceType { get; set; }
             public System.Boolean? ClusterConfig_MultiAZWithStandbyEnabled { get; set; }
+            public List<Amazon.OpenSearchService.Model.NodeOption> ClusterConfig_NodeOption { get; set; }
             public System.Int32? ClusterConfig_WarmCount { get; set; }
             public System.Boolean? ClusterConfig_WarmEnabled { get; set; }
             public Amazon.OpenSearchService.OpenSearchWarmPartitionInstanceType ClusterConfig_WarmType { get; set; }

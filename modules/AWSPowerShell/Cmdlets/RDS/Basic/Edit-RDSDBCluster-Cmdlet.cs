@@ -332,7 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless
-        /// Database to create a DB shard group.</para><para>Valid for: Aurora DB clusters only</para>
+        /// Database to create a DB shard group.</para><para>Valid for: Aurora DB clusters only</para><note><para>This setting is no longer used. Instead use the <c>ClusterScalabilityType</c> setting
+        /// when you create your Aurora Limitless Database DB cluster.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

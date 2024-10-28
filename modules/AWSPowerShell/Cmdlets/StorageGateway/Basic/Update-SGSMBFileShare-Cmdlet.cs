@@ -166,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The name of the file share. Optional.</para><note><para><c>FileShareName</c> must be set if an S3 prefix name is set in <c>LocationARN</c>,
-        /// or if an access point or access point alias is used.</para></note>
+        /// or if an access point or access point alias is used.</para><para>A valid SMB file share name cannot contain the following characters: <c>[</c>,<c>]</c>,<c>#</c>,<c>;</c>,<c>&lt;</c>,<c>&gt;</c>,<c>:</c>,<c>"</c>,<c>\</c>,<c>/</c>,<c>|</c>,<c>?</c>,<c>*</c>,<c>+</c>,
+        /// or ASCII control characters <c>1-31</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

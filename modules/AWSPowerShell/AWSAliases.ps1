@@ -18868,10 +18868,14 @@ Set-Alias -Name EMP-TagResource -Value Add-EMPResourceTag
 Set-Alias -Name EMP-UntagResource -Value Remove-EMPResourceTag
 Set-Alias -Name EMP-UpdateChannel -Value Update-EMPChannel
 Set-Alias -Name EMP-UpdateOriginEndpoint -Value Update-EMPOriginEndpoint
+Set-Alias -Name Cancel-MPV2HarvestJob -Value Stop-MPV2HarvestJob
+Set-Alias -Name MPV2-CancelHarvestJob -Value Stop-MPV2HarvestJob
 Set-Alias -Name Create-MPV2Channel -Value New-MPV2Channel
 Set-Alias -Name MPV2-CreateChannel -Value New-MPV2Channel
 Set-Alias -Name Create-MPV2ChannelGroup -Value New-MPV2ChannelGroup
 Set-Alias -Name MPV2-CreateChannelGroup -Value New-MPV2ChannelGroup
+Set-Alias -Name Create-MPV2HarvestJob -Value New-MPV2HarvestJob
+Set-Alias -Name MPV2-CreateHarvestJob -Value New-MPV2HarvestJob
 Set-Alias -Name Create-MPV2OriginEndpoint -Value New-MPV2OriginEndpoint
 Set-Alias -Name MPV2-CreateOriginEndpoint -Value New-MPV2OriginEndpoint
 Set-Alias -Name Delete-MPV2Channel -Value Remove-MPV2Channel
@@ -18887,6 +18891,7 @@ Set-Alias -Name MPV2-DeleteOriginEndpointPolicy -Value Remove-MPV2OriginEndpoint
 Set-Alias -Name MPV2-GetChannel -Value Get-MPV2Channel
 Set-Alias -Name MPV2-GetChannelGroup -Value Get-MPV2ChannelGroup
 Set-Alias -Name MPV2-GetChannelPolicy -Value Get-MPV2ChannelPolicy
+Set-Alias -Name MPV2-GetHarvestJob -Value Get-MPV2HarvestJob
 Set-Alias -Name MPV2-GetOriginEndpoint -Value Get-MPV2OriginEndpoint
 Set-Alias -Name MPV2-GetOriginEndpointPolicy -Value Get-MPV2OriginEndpointPolicy
 Set-Alias -Name List-MPV2ChannelGroups -Value Get-MPV2ChannelGroupList
@@ -18895,6 +18900,9 @@ Set-Alias -Name MPV2-ListChannelGroups -Value Get-MPV2ChannelGroupList
 Set-Alias -Name List-MPV2Channels -Value Get-MPV2ChannelList
 Set-Alias -Name List-MPV2ChannelList -Value Get-MPV2ChannelList
 Set-Alias -Name MPV2-ListChannels -Value Get-MPV2ChannelList
+Set-Alias -Name List-MPV2HarvestJobs -Value Get-MPV2HarvestJobList
+Set-Alias -Name List-MPV2HarvestJobList -Value Get-MPV2HarvestJobList
+Set-Alias -Name MPV2-ListHarvestJobs -Value Get-MPV2HarvestJobList
 Set-Alias -Name List-MPV2OriginEndpoints -Value Get-MPV2OriginEndpointList
 Set-Alias -Name List-MPV2OriginEndpointList -Value Get-MPV2OriginEndpointList
 Set-Alias -Name MPV2-ListOriginEndpoints -Value Get-MPV2OriginEndpointList
