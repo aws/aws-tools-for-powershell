@@ -6344,6 +6344,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.InferenceProfileType
+        "Get-BDRInferenceProfileList/TypeEqual"
+        {
+            $v = "APPLICATION","SYSTEM_DEFINED"
+            break
+        }
+
         # Amazon.Bedrock.InferenceType
         "Get-BDRFoundationModelList/ByInferenceType"
         {
@@ -6464,6 +6471,7 @@ $BDR_map = @{
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "TypeEqual"=@("Get-BDRInferenceProfileList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -6520,6 +6528,7 @@ $BDR_SelectMap = @{
                "New-BDREvaluationJob",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
+               "New-BDRInferenceProfile",
                "New-BDRModelCopyJob",
                "New-BDRModelCustomizationJob",
                "New-BDRModelImportJob",
@@ -6528,6 +6537,7 @@ $BDR_SelectMap = @{
                "Remove-BDRCustomModel",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
+               "Remove-BDRInferenceProfile",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
                "Get-BDRCustomModel",
@@ -9834,6 +9844,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.AnalyticsEngine
+        "New-CRSCollaboration/AnalyticsEngine"
+        {
+            $v = "CLEAN_ROOMS_SQL","SPARK"
+            break
+        }
+
         # Amazon.CleanRooms.CollaborationQueryLogStatus
         "New-CRSCollaboration/QueryLogStatus"
         {
@@ -9957,6 +9974,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.WorkerComputeType
+        "Start-CRSProtectedQuery/Worker_Type"
+        {
+            $v = "CR.1X","CR.4X"
+            break
+        }
+
 
     }
 
@@ -9970,6 +9994,7 @@ $CRS_map = @{
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
+    "AnalyticsEngine"=@("New-CRSCollaboration")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Format"=@("New-CRSAnalysisTemplate")
@@ -9982,6 +10007,7 @@ $CRS_map = @{
     "Status"=@("Get-CRSMembershipList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedQuery")
+    "Worker_Type"=@("Start-CRSProtectedQuery")
 }
 
 _awsArgumentCompleterRegistration $CRS_Completers $CRS_map
@@ -56970,6 +56996,16 @@ $RSD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftDataAPIService.ResultFormatString
+        {
+            ($_ -eq "Push-RSDBatchStatement/ResultFormat") -Or
+            ($_ -eq "Send-RSDStatement/ResultFormat")
+        }
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.RedshiftDataAPIService.StatusString
         "Get-RSDStatementList/Status"
         {
@@ -56986,6 +57022,7 @@ $RSD_Completers = {
 }
 
 $RSD_map = @{
+    "ResultFormat"=@("Push-RSDBatchStatement","Send-RSDStatement")
     "Status"=@("Get-RSDStatementList")
 }
 
@@ -57045,6 +57082,7 @@ $RSD_SelectMap = @{
                "Get-RSDTable",
                "Send-RSDStatement",
                "Get-RSDStatementResult",
+               "Get-RSDStatementResultV2",
                "Get-RSDDatabasisList",
                "Get-RSDSchemaList",
                "Get-RSDStatementList",
@@ -62027,7 +62065,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 

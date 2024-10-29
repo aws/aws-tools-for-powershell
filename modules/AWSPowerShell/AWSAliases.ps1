@@ -2317,6 +2317,8 @@ Set-Alias -Name Create-BDRGuardrail -Value New-BDRGuardrail
 Set-Alias -Name BDR-CreateGuardrail -Value New-BDRGuardrail
 Set-Alias -Name Create-BDRGuardrailVersion -Value New-BDRGuardrailVersion
 Set-Alias -Name BDR-CreateGuardrailVersion -Value New-BDRGuardrailVersion
+Set-Alias -Name Create-BDRInferenceProfile -Value New-BDRInferenceProfile
+Set-Alias -Name BDR-CreateInferenceProfile -Value New-BDRInferenceProfile
 Set-Alias -Name Create-BDRModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name BDR-CreateModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name Create-BDRModelCustomizationJob -Value New-BDRModelCustomizationJob
@@ -2333,6 +2335,8 @@ Set-Alias -Name Delete-BDRGuardrail -Value Remove-BDRGuardrail
 Set-Alias -Name BDR-DeleteGuardrail -Value Remove-BDRGuardrail
 Set-Alias -Name Delete-BDRImportedModel -Value Remove-BDRImportedModel
 Set-Alias -Name BDR-DeleteImportedModel -Value Remove-BDRImportedModel
+Set-Alias -Name Delete-BDRInferenceProfile -Value Remove-BDRInferenceProfile
+Set-Alias -Name BDR-DeleteInferenceProfile -Value Remove-BDRInferenceProfile
 Set-Alias -Name Delete-BDRModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-DeleteModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name Delete-BDRProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
@@ -23779,6 +23783,7 @@ Set-Alias -Name RSD-DescribeTable -Value Get-RSDTable
 Set-Alias -Name Execute-RSDStatement -Value Send-RSDStatement
 Set-Alias -Name RSD-ExecuteStatement -Value Send-RSDStatement
 Set-Alias -Name RSD-GetStatementResult -Value Get-RSDStatementResult
+Set-Alias -Name RSD-GetStatementResultV2 -Value Get-RSDStatementResultV2
 Set-Alias -Name List-RSDDatabases -Value Get-RSDDatabasisList
 Set-Alias -Name List-RSDDatabasisList -Value Get-RSDDatabasisList
 Set-Alias -Name RSD-ListDatabases -Value Get-RSDDatabasisList

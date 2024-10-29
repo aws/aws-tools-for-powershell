@@ -1,4 +1,22 @@
-﻿### 4.1.687 (2024-10-28 20:59Z)
+﻿### 4.1.688 (2024-10-29 21:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.916.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet New-BDRInferenceProfile leveraging the CreateInferenceProfile service API.
+    * Added cmdlet Remove-BDRInferenceProfile leveraging the DeleteInferenceProfile service API.
+    * Modified cmdlet Get-BDRInferenceProfileList: added parameters PassThru and TypeEqual.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSCollaboration: added parameter AnalyticsEngine.
+    * Modified cmdlet New-CRSMembership: added parameter S3_SingleFileOutput.
+    * Modified cmdlet Start-CRSProtectedQuery: added parameters S3_SingleFileOutput, Worker_Number and Worker_Type.
+    * Modified cmdlet Update-CRSMembership: added parameter S3_SingleFileOutput.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Update-CWLAnomaly: added parameter Baseline.
+  * Amazon Redshift Data API Service
+    * Added cmdlet Get-RSDStatementResultV2 leveraging the GetStatementResultV2 service API.
+    * Modified cmdlet Push-RSDBatchStatement: added parameter ResultFormat.
+    * Modified cmdlet Send-RSDStatement: added parameter ResultFormat.
+
+### 4.1.687 (2024-10-28 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.915.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaPackage v2
     * Added cmdlet Get-MPV2HarvestJob leveraging the GetHarvestJob service API.

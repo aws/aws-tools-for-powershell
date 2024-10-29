@@ -119,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public Amazon.RedshiftDataAPIService.Model.SqlParameter[] Parameter { get; set; }
         #endregion
         
+        #region Parameter ResultFormat
+        /// <summary>
+        /// <para>
+        /// <para>The data format of the result of the SQL statement. If no format is specified, the
+        /// default is JSON.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftDataAPIService.ResultFormatString")]
+        public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
+        #endregion
+        
         #region Parameter SecretArn
         /// <summary>
         /// <para>
@@ -265,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             {
                 context.Parameter = new List<Amazon.RedshiftDataAPIService.Model.SqlParameter>(this.Parameter);
             }
+            context.ResultFormat = this.ResultFormat;
             context.SecretArn = this.SecretArn;
             context.SessionId = this.SessionId;
             context.SessionKeepAliveSecond = this.SessionKeepAliveSecond;
@@ -313,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.ResultFormat != null)
+            {
+                request.ResultFormat = cmdletContext.ResultFormat;
             }
             if (cmdletContext.SecretArn != null)
             {
@@ -408,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
             public List<Amazon.RedshiftDataAPIService.Model.SqlParameter> Parameter { get; set; }
+            public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
             public System.String SecretArn { get; set; }
             public System.String SessionId { get; set; }
             public System.Int32? SessionKeepAliveSecond { get; set; }

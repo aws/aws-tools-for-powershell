@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceProfile" OutputProperty="*" Verb="New" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileName" PipelineParameter="InferenceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteImportedModel" Verb="Remove" Noun="ImportedModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInferenceProfile" Verb="Remove" Noun="InferenceProfile" ShouldProcessTarget="InferenceProfileIdentifier" PipelineParameter="InferenceProfileIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,7 +151,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInferenceProfiles" OutputProperty="InferenceProfileSummaries" Verb="Get" Noun="InferenceProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInferenceProfiles" OutputProperty="InferenceProfileSummaries" Verb="Get" Noun="InferenceProfileList" PipelineParameter="TypeEquals" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

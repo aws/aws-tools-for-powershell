@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSDStatement', 
         'Get-RSDStatementList', 
         'Get-RSDStatementResult', 
+        'Get-RSDStatementResultV2', 
         'Get-RSDTable', 
         'Get-RSDTableList', 
         'Push-RSDBatchStatement', 

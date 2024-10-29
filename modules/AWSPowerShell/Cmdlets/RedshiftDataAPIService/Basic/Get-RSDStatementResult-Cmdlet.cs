@@ -28,8 +28,10 @@ using Amazon.RedshiftDataAPIService.Model;
 namespace Amazon.PowerShell.Cmdlets.RSD
 {
     /// <summary>
-    /// Fetches the temporarily cached result of an SQL statement. A token is returned to
-    /// page through the statement results. 
+    /// Fetches the temporarily cached result of an SQL statement in JSON format. The <c>ExecuteStatement</c>
+    /// or <c>BatchExecuteStatement</c> operation that ran the SQL statement must have specified
+    /// <c>ResultFormat</c> as <c>JSON</c> , or let the format default to JSON. A token is
+    /// returned to page through the statement results.
     /// 
     ///  
     /// <para>

@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Boolean? DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName { get; set; }
         #endregion
         
+        #region Parameter AnalyticsEngine
+        /// <summary>
+        /// <para>
+        /// <para> The analytics engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.AnalyticsEngine")]
+        public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
+        #endregion
+        
         #region Parameter CreatorDisplayName
         /// <summary>
         /// <para>
@@ -266,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.CreateCollaborationResponse, NewCRSCollaborationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AnalyticsEngine = this.AnalyticsEngine;
             context.CreatorDisplayName = this.CreatorDisplayName;
             #if MODULAR
             if (this.CreatorDisplayName == null && ParameterWasBound(nameof(this.CreatorDisplayName)))
@@ -343,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.CreateCollaborationRequest();
             
+            if (cmdletContext.AnalyticsEngine != null)
+            {
+                request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+            }
             if (cmdletContext.CreatorDisplayName != null)
             {
                 request.CreatorDisplayName = cmdletContext.CreatorDisplayName;
@@ -515,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
             public System.String CreatorDisplayName { get; set; }
             public List<System.String> CreatorMemberAbility { get; set; }
             public System.Boolean? QueryCompute_IsResponsible { get; set; }

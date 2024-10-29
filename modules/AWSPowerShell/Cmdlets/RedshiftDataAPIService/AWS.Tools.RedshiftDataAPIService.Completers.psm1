@@ -80,6 +80,16 @@ $RSD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftDataAPIService.ResultFormatString
+        {
+            ($_ -eq "Push-RSDBatchStatement/ResultFormat") -Or
+            ($_ -eq "Send-RSDStatement/ResultFormat")
+        }
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.RedshiftDataAPIService.StatusString
         "Get-RSDStatementList/Status"
         {
@@ -96,6 +106,7 @@ $RSD_Completers = {
 }
 
 $RSD_map = @{
+    "ResultFormat"=@("Push-RSDBatchStatement","Send-RSDStatement")
     "Status"=@("Get-RSDStatementList")
 }
 
@@ -155,6 +166,7 @@ $RSD_SelectMap = @{
                "Get-RSDTable",
                "Send-RSDStatement",
                "Get-RSDStatementResult",
+               "Get-RSDStatementResultV2",
                "Get-RSDDatabasisList",
                "Get-RSDSchemaList",
                "Get-RSDStatementList",

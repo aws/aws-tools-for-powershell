@@ -47,10 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>A list of the Elastic Inference (EI) instance types to associate with this notebook
-        /// instance. Currently only one EI instance type can be associated with a notebook instance.
-        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using
-        /// Elastic Inference in Amazon SageMaker</a>.</para>
+        /// <para>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</para><para>This parameter was used to specify a list of the EI instance types to associate with
+        /// this notebook instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,9 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DisassociateAcceleratorType
         /// <summary>
         /// <para>
-        /// <para>A list of the Elastic Inference (EI) instance types to remove from this notebook instance.
-        /// This operation is idempotent. If you specify an accelerator type that is not associated
-        /// with the notebook instance when you call this method, it does not throw an error.</para>
+        /// <para>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</para><para>This parameter was used to specify a list of the EI instance types to remove from
+        /// this notebook instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

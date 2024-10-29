@@ -28,7 +28,9 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Returns a list of inference profiles that you can use.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of inference profiles that you can use. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">Increase
+    /// throughput and resilience with cross-region inference in Amazon Bedrock</a>. in the
+    /// Amazon Bedrock User Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDRInferenceProfileList")]
     [OutputType("Amazon.Bedrock.Model.InferenceProfileSummary")]
@@ -40,7 +42,24 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class GetBDRInferenceProfileListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter TypeEqual
+        /// <summary>
+        /// <para>
+        /// <para>Filters for inference profiles that match the type you specify.</para><ul><li><para><c>SYSTEM_DEFINED</c> – The inference profile is defined by Amazon Bedrock. You can
+        /// route inference requests across regions with these inference profiles.</para></li><li><para><c>APPLICATION</c> – The inference profile was created by a user. This type of inference
+        /// profile can track metrics and costs when invoking the model in it. The inference profile
+        /// may route requests to one or multiple regions.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("TypeEquals")]
+        [AWSConstantClassSource("Amazon.Bedrock.InferenceProfileType")]
+        public Amazon.Bedrock.InferenceProfileType TypeEqual { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -82,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public string Select { get; set; } = "InferenceProfileSummaries";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the TypeEqual parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TypeEqual' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TypeEqual' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -102,13 +131,24 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListInferenceProfilesResponse, GetBDRInferenceProfileListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.TypeEqual;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.TypeEqual = this.TypeEqual;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,7 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.Bedrock.Model.ListInferenceProfilesRequest();
@@ -130,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.TypeEqual != null)
+            {
+                request.TypeEquals = cmdletContext.TypeEqual;
             }
             
             // Initialize loop variant and commence piping
@@ -218,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Bedrock.InferenceProfileType TypeEqual { get; set; }
             public System.Func<Amazon.Bedrock.Model.ListInferenceProfilesResponse, GetBDRInferenceProfileListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InferenceProfileSummaries;
         }

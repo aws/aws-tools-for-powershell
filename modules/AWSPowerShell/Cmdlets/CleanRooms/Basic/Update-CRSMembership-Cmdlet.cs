@@ -115,6 +115,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String DefaultResultConfiguration_RoleArn { get; set; }
         #endregion
         
+        #region Parameter S3_SingleFileOutput
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether files should be output as a single file (<c>TRUE</c>) or output
+        /// as multiple files (<c>FALSE</c>). This parameter is only supported for analyses with
+        /// the Spark analytics engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultResultConfiguration_OutputConfiguration_S3_SingleFileOutput")]
+        public System.Boolean? S3_SingleFileOutput { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Membership'.
@@ -180,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_Bucket = this.S3_Bucket;
             context.S3_KeyPrefix = this.S3_KeyPrefix;
             context.S3_ResultFormat = this.S3_ResultFormat;
+            context.S3_SingleFileOutput = this.S3_SingleFileOutput;
             context.DefaultResultConfiguration_RoleArn = this.DefaultResultConfiguration_RoleArn;
             context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
@@ -257,6 +271,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_ResultFormat != null)
             {
                 requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3.ResultFormat = requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_ResultFormat;
+                requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3IsNull = false;
+            }
+            System.Boolean? requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_SingleFileOutput = null;
+            if (cmdletContext.S3_SingleFileOutput != null)
+            {
+                requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_SingleFileOutput = cmdletContext.S3_SingleFileOutput.Value;
+            }
+            if (requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_SingleFileOutput != null)
+            {
+                requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3.SingleFileOutput = requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3_s3_SingleFileOutput.Value;
                 requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3IsNull = false;
             }
              // determine if requestDefaultResultConfiguration_defaultResultConfiguration_OutputConfiguration_defaultResultConfiguration_OutputConfiguration_S3 should be set to null
@@ -356,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String S3_Bucket { get; set; }
             public System.String S3_KeyPrefix { get; set; }
             public Amazon.CleanRooms.ResultFormat S3_ResultFormat { get; set; }
+            public System.Boolean? S3_SingleFileOutput { get; set; }
             public System.String DefaultResultConfiguration_RoleArn { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }

@@ -22,85 +22,85 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CleanRooms;
-using Amazon.CleanRooms.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CRS
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists all memberships resources within the caller's account.
+    /// Deletes an application inference profile. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">Increase
+    /// throughput and resilience with cross-region inference in Amazon Bedrock</a>. in the
+    /// Amazon Bedrock User Guide.
     /// </summary>
-    [Cmdlet("Get", "CRSMembershipList")]
-    [OutputType("Amazon.CleanRooms.Model.MembershipSummary")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service ListMemberships API operation.", Operation = new[] {"ListMemberships"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListMembershipsResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.MembershipSummary or Amazon.CleanRooms.Model.ListMembershipsResponse",
-        "This cmdlet returns a collection of Amazon.CleanRooms.Model.MembershipSummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListMembershipsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "BDRInferenceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock DeleteInferenceProfile API operation.", Operation = new[] {"DeleteInferenceProfile"}, SelectReturnType = typeof(Amazon.Bedrock.Model.DeleteInferenceProfileResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.DeleteInferenceProfileResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Bedrock.Model.DeleteInferenceProfileResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetCRSMembershipListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class RemoveBDRInferenceProfileCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Status
+        #region Parameter InferenceProfileIdentifier
         /// <summary>
         /// <para>
-        /// <para>A filter which will return only memberships in the specified status.</para>
+        /// <para>The Amazon Resource Name (ARN) or ID of the application inference profile to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.CleanRooms.MembershipStatus")]
-        public Amazon.CleanRooms.MembershipStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results that are returned for an API request call. The service
-        /// chooses a default number if you don't set one. The service might return a `nextToken`
-        /// even if the `maxResults` value has not been met.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The pagination token that's used to fetch the next set of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InferenceProfileIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MembershipSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.ListMembershipsResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.ListMembershipsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.DeleteInferenceProfileResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MembershipSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Status parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InferenceProfileIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InferenceProfileIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InferenceProfileIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InferenceProfileIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDRInferenceProfile (DeleteInferenceProfile)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListMembershipsResponse, GetCRSMembershipListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.DeleteInferenceProfileResponse, RemoveBDRInferenceProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,12 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Status;
+                context.Select = (response, cmdlet) => this.InferenceProfileIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.Status = this.Status;
+            context.InferenceProfileIdentifier = this.InferenceProfileIdentifier;
+            #if MODULAR
+            if (this.InferenceProfileIdentifier == null && ParameterWasBound(nameof(this.InferenceProfileIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InferenceProfileIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,19 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.ListMembershipsRequest();
+            var request = new Amazon.Bedrock.Model.DeleteInferenceProfileRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.InferenceProfileIdentifier != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
+                request.InferenceProfileIdentifier = cmdletContext.InferenceProfileIdentifier;
             }
             
             CmdletOutput output;
@@ -186,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.ListMembershipsResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.ListMembershipsRequest request)
+        private Amazon.Bedrock.Model.DeleteInferenceProfileResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.DeleteInferenceProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "ListMemberships");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "DeleteInferenceProfile");
             try
             {
                 #if DESKTOP
-                return client.ListMemberships(request);
+                return client.DeleteInferenceProfile(request);
                 #elif CORECLR
-                return client.ListMembershipsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteInferenceProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,11 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public Amazon.CleanRooms.MembershipStatus Status { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.ListMembershipsResponse, GetCRSMembershipListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MembershipSummaries;
+            public System.String InferenceProfileIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.DeleteInferenceProfileResponse, RemoveBDRInferenceProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
