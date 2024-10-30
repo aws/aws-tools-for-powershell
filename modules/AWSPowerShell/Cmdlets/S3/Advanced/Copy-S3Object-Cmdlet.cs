@@ -571,7 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var context = new CmdletContext
             {
                 SourceBucket = this.BucketName,
-                SourceKey = this.Key,
+                SourceKey = this.Key.TrimStart('/'),
                 SourceVersionId = this.VersionId,
                 DestinationBucket = this.DestinationBucket,
                 DestinationKey = this.DestinationKey,
