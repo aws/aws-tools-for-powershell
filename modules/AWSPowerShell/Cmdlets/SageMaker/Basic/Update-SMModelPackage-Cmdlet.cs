@@ -163,6 +163,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SourceUri { get; set; }
         #endregion
         
+        #region Parameter ModelLifeCycle_Stage
+        /// <summary>
+        /// <para>
+        /// <para> The current stage in the model life cycle. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_Stage { get; set; }
+        #endregion
+        
+        #region Parameter ModelLifeCycle_StageDescription
+        /// <summary>
+        /// <para>
+        /// <para> Describes the stage related details. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_StageDescription { get; set; }
+        #endregion
+        
+        #region Parameter ModelLifeCycle_StageStatus
+        /// <summary>
+        /// <para>
+        /// <para> The current status of a stage in model life cycle. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_StageStatus { get; set; }
+        #endregion
+        
         #region Parameter InferenceSpecification_SupportedContentType
         /// <summary>
         /// <para>
@@ -206,6 +236,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InferenceSpecification_SupportedTransformInstanceTypes")]
         public System.String[] InferenceSpecification_SupportedTransformInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para> A unique token that guarantees that the call to this API is idempotent. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -275,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.AdditionalInferenceSpecificationsToAdd = new List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition>(this.AdditionalInferenceSpecificationsToAdd);
             }
             context.ApprovalDescription = this.ApprovalDescription;
+            context.ClientToken = this.ClientToken;
             if (this.CustomerMetadataProperty != null)
             {
                 context.CustomerMetadataProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -310,6 +351,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelApprovalStatus = this.ModelApprovalStatus;
             context.ModelCard_ModelCardContent = this.ModelCard_ModelCardContent;
             context.ModelCard_ModelCardStatus = this.ModelCard_ModelCardStatus;
+            context.ModelLifeCycle_Stage = this.ModelLifeCycle_Stage;
+            context.ModelLifeCycle_StageDescription = this.ModelLifeCycle_StageDescription;
+            context.ModelLifeCycle_StageStatus = this.ModelLifeCycle_StageStatus;
             context.ModelPackageArn = this.ModelPackageArn;
             #if MODULAR
             if (this.ModelPackageArn == null && ParameterWasBound(nameof(this.ModelPackageArn)))
@@ -341,6 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ApprovalDescription != null)
             {
                 request.ApprovalDescription = cmdletContext.ApprovalDescription;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.CustomerMetadataProperty != null)
             {
@@ -442,6 +490,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ModelCard = null;
             }
+            
+             // populate ModelLifeCycle
+            var requestModelLifeCycleIsNull = true;
+            request.ModelLifeCycle = new Amazon.SageMaker.Model.ModelLifeCycle();
+            System.String requestModelLifeCycle_modelLifeCycle_Stage = null;
+            if (cmdletContext.ModelLifeCycle_Stage != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_Stage = cmdletContext.ModelLifeCycle_Stage;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_Stage != null)
+            {
+                request.ModelLifeCycle.Stage = requestModelLifeCycle_modelLifeCycle_Stage;
+                requestModelLifeCycleIsNull = false;
+            }
+            System.String requestModelLifeCycle_modelLifeCycle_StageDescription = null;
+            if (cmdletContext.ModelLifeCycle_StageDescription != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_StageDescription = cmdletContext.ModelLifeCycle_StageDescription;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_StageDescription != null)
+            {
+                request.ModelLifeCycle.StageDescription = requestModelLifeCycle_modelLifeCycle_StageDescription;
+                requestModelLifeCycleIsNull = false;
+            }
+            System.String requestModelLifeCycle_modelLifeCycle_StageStatus = null;
+            if (cmdletContext.ModelLifeCycle_StageStatus != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_StageStatus = cmdletContext.ModelLifeCycle_StageStatus;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_StageStatus != null)
+            {
+                request.ModelLifeCycle.StageStatus = requestModelLifeCycle_modelLifeCycle_StageStatus;
+                requestModelLifeCycleIsNull = false;
+            }
+             // determine if request.ModelLifeCycle should be set to null
+            if (requestModelLifeCycleIsNull)
+            {
+                request.ModelLifeCycle = null;
+            }
             if (cmdletContext.ModelPackageArn != null)
             {
                 request.ModelPackageArn = cmdletContext.ModelPackageArn;
@@ -513,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public List<Amazon.SageMaker.Model.AdditionalInferenceSpecificationDefinition> AdditionalInferenceSpecificationsToAdd { get; set; }
             public System.String ApprovalDescription { get; set; }
+            public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
             public List<System.String> CustomerMetadataPropertiesToRemove { get; set; }
             public List<Amazon.SageMaker.Model.ModelPackageContainerDefinition> InferenceSpecification_Container { get; set; }
@@ -523,6 +611,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
             public System.String ModelCard_ModelCardContent { get; set; }
             public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
+            public System.String ModelLifeCycle_Stage { get; set; }
+            public System.String ModelLifeCycle_StageDescription { get; set; }
+            public System.String ModelLifeCycle_StageStatus { get; set; }
             public System.String ModelPackageArn { get; set; }
             public System.String SourceUri { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateModelPackageResponse, UpdateSMModelPackageCmdlet, object> Select { get; set; } =

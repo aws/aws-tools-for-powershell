@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely
-        /// connect with your location.</para>
+        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect
+        /// with your object storage system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

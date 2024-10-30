@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
     /// Returns a list of all tags associated with the specified Amazon Keyspaces resource.
+    /// 
+    ///  
+    /// <para>
+    /// To read keyspace metadata using <c>ListTagsForResource</c>, the IAM principal needs
+    /// <c>Select</c> action permissions for the specified resource and the system keyspace.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KSResourceTag")]
     [OutputType("Amazon.Keyspaces.Model.Tag")]

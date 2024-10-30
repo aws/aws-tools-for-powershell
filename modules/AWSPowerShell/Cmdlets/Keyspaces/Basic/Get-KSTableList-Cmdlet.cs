@@ -28,7 +28,13 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Returns a list of tables for a specified keyspace.
+    /// The <c>ListTables</c> operation returns a list of tables for a specified keyspace.
+    /// 
+    ///  
+    /// <para>
+    /// To read keyspace metadata using <c>ListTables</c>, the IAM principal needs <c>Select</c>
+    /// action permissions for the system keyspace.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KSTableList")]
     [OutputType("Amazon.Keyspaces.Model.TableSummary")]

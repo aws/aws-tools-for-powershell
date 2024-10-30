@@ -107,6 +107,26 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute
+        {
+            ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_GroupAttribute") -Or
+            ($_ -eq "Update-OSSSecurityConfig/IamIdentityCenterOptionsUpdates_GroupAttribute")
+        }
+        {
+            $v = "GroupId","GroupName"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute
+        {
+            ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_UserAttribute") -Or
+            ($_ -eq "Update-OSSSecurityConfig/IamIdentityCenterOptionsUpdates_UserAttribute")
+        }
+        {
+            $v = "Email","UserId","UserName"
+            break
+        }
+
         # Amazon.OpenSearchServerless.LifecyclePolicyType
         {
             ($_ -eq "Get-OSSLifecyclePolicyList/Type") -Or
@@ -125,7 +145,7 @@ $OSS_Completers = {
             ($_ -eq "New-OSSSecurityConfig/Type")
         }
         {
-            $v = "saml"
+            $v = "iamidentitycenter","saml"
             break
         }
 
@@ -166,6 +186,10 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
+    "IamIdentityCenterOptions_GroupAttribute"=@("New-OSSSecurityConfig")
+    "IamIdentityCenterOptions_UserAttribute"=@("New-OSSSecurityConfig")
+    "IamIdentityCenterOptionsUpdates_GroupAttribute"=@("Update-OSSSecurityConfig")
+    "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
     "StandbyReplica"=@("New-OSSCollection")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")

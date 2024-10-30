@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InterfaceType
         /// <summary>
         /// <para>
-        /// <para>The type of network interface. The default is <c>interface</c>.</para><para>The only supported values are <c>interface</c>, <c>efa</c>, and <c>trunk</c>.</para>
+        /// <para>The type of network interface. The default is <c>interface</c>.</para><para>If you specify <c>efa-only</c>, do not assign any IP addresses to the network interface.
+        /// EFA-only network interfaces do not support IP addresses.</para><para>The only supported values are <c>interface</c>, <c>efa</c>, <c>efa-only</c>, and <c>trunk</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

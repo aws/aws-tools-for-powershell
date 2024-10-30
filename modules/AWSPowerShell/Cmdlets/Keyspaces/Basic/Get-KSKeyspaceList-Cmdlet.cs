@@ -28,7 +28,7 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Returns a list of keyspaces.
+    /// The <c>ListKeyspaces</c> operation returns a list of keyspaces.
     /// </summary>
     [Cmdlet("Get", "KSKeyspaceList")]
     [OutputType("Amazon.Keyspaces.Model.KeyspaceSummary")]

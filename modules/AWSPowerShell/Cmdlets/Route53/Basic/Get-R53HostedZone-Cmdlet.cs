@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Gets information about a specified hosted zone including the four name servers assigned
     /// to the hosted zone.
+    /// 
+    ///  
+    /// <para><code /> returns the VPCs associated with the specified hosted zone and does not reflect
+    /// the VPC associations by Route 53 Profiles. To get the associations to a Profile, call
+    /// the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html">ListProfileAssociations</a>
+    /// API.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "R53HostedZone")]
     [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]

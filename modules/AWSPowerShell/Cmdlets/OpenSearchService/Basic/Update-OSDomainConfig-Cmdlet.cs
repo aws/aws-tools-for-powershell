@@ -352,6 +352,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? OffPeakWindowOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterOptions_EnabledAPIAccess
+        /// <summary>
+        /// <para>
+        /// <para>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
+        #endregion
+        
         #region Parameter DomainEndpointOptions_EnforceHTTPS
         /// <summary>
         /// <para>
@@ -383,6 +393,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Hours")]
         public System.Int64? WindowStartTime_Hour { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterOptions_IdentityCenterInstanceARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for IAM Identity Center Instance which will be used for IAM Identity Center
+        /// Application creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_IdentityPoolId
@@ -633,6 +654,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String SAMLOptions_RolesKey { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterOptions_RolesKey
+        /// <summary>
+        /// <para>
+        /// <para>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity
+        /// Center</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.RolesKeyIdCOption")]
+        public Amazon.OpenSearchService.RolesKeyIdCOption IdentityCenterOptions_RolesKey { get; set; }
+        #endregion
+        
         #region Parameter AutoTuneOptions_RollbackOnDisable
         /// <summary>
         /// <para>
@@ -692,6 +725,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_SubjectKey")]
         public System.String SAMLOptions_SubjectKey { get; set; }
+        #endregion
+        
+        #region Parameter IdentityCenterOptions_SubjectKey
+        /// <summary>
+        /// <para>
+        /// <para>Specify the attribute that contains the subject (username, userID, email) of IAM Identity
+        /// Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.SubjectKeyIdCOption")]
+        public Amazon.OpenSearchService.SubjectKeyIdCOption IdentityCenterOptions_SubjectKey { get; set; }
         #endregion
         
         #region Parameter VPCOptions_SubnetId
@@ -938,6 +983,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
             context.EncryptionAtRestOptions_Enabled = this.EncryptionAtRestOptions_Enabled;
             context.EncryptionAtRestOptions_KmsKeyId = this.EncryptionAtRestOptions_KmsKeyId;
+            context.IdentityCenterOptions_EnabledAPIAccess = this.IdentityCenterOptions_EnabledAPIAccess;
+            context.IdentityCenterOptions_IdentityCenterInstanceARN = this.IdentityCenterOptions_IdentityCenterInstanceARN;
+            context.IdentityCenterOptions_RolesKey = this.IdentityCenterOptions_RolesKey;
+            context.IdentityCenterOptions_SubjectKey = this.IdentityCenterOptions_SubjectKey;
             context.IPAddressType = this.IPAddressType;
             if (this.LogPublishingOption != null)
             {
@@ -1694,6 +1743,55 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.EncryptionAtRestOptions = null;
             }
+            
+             // populate IdentityCenterOptions
+            var requestIdentityCenterOptionsIsNull = true;
+            request.IdentityCenterOptions = new Amazon.OpenSearchService.Model.IdentityCenterOptionsInput();
+            System.Boolean? requestIdentityCenterOptions_identityCenterOptions_EnabledAPIAccess = null;
+            if (cmdletContext.IdentityCenterOptions_EnabledAPIAccess != null)
+            {
+                requestIdentityCenterOptions_identityCenterOptions_EnabledAPIAccess = cmdletContext.IdentityCenterOptions_EnabledAPIAccess.Value;
+            }
+            if (requestIdentityCenterOptions_identityCenterOptions_EnabledAPIAccess != null)
+            {
+                request.IdentityCenterOptions.EnabledAPIAccess = requestIdentityCenterOptions_identityCenterOptions_EnabledAPIAccess.Value;
+                requestIdentityCenterOptionsIsNull = false;
+            }
+            System.String requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceARN = null;
+            if (cmdletContext.IdentityCenterOptions_IdentityCenterInstanceARN != null)
+            {
+                requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceARN = cmdletContext.IdentityCenterOptions_IdentityCenterInstanceARN;
+            }
+            if (requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceARN != null)
+            {
+                request.IdentityCenterOptions.IdentityCenterInstanceARN = requestIdentityCenterOptions_identityCenterOptions_IdentityCenterInstanceARN;
+                requestIdentityCenterOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.RolesKeyIdCOption requestIdentityCenterOptions_identityCenterOptions_RolesKey = null;
+            if (cmdletContext.IdentityCenterOptions_RolesKey != null)
+            {
+                requestIdentityCenterOptions_identityCenterOptions_RolesKey = cmdletContext.IdentityCenterOptions_RolesKey;
+            }
+            if (requestIdentityCenterOptions_identityCenterOptions_RolesKey != null)
+            {
+                request.IdentityCenterOptions.RolesKey = requestIdentityCenterOptions_identityCenterOptions_RolesKey;
+                requestIdentityCenterOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.SubjectKeyIdCOption requestIdentityCenterOptions_identityCenterOptions_SubjectKey = null;
+            if (cmdletContext.IdentityCenterOptions_SubjectKey != null)
+            {
+                requestIdentityCenterOptions_identityCenterOptions_SubjectKey = cmdletContext.IdentityCenterOptions_SubjectKey;
+            }
+            if (requestIdentityCenterOptions_identityCenterOptions_SubjectKey != null)
+            {
+                request.IdentityCenterOptions.SubjectKey = requestIdentityCenterOptions_identityCenterOptions_SubjectKey;
+                requestIdentityCenterOptionsIsNull = false;
+            }
+             // determine if request.IdentityCenterOptions should be set to null
+            if (requestIdentityCenterOptionsIsNull)
+            {
+                request.IdentityCenterOptions = null;
+            }
             if (cmdletContext.IPAddressType != null)
             {
                 request.IPAddressType = cmdletContext.IPAddressType;
@@ -1975,6 +2073,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.VolumeType EBSOptions_VolumeType { get; set; }
             public System.Boolean? EncryptionAtRestOptions_Enabled { get; set; }
             public System.String EncryptionAtRestOptions_KmsKeyId { get; set; }
+            public System.Boolean? IdentityCenterOptions_EnabledAPIAccess { get; set; }
+            public System.String IdentityCenterOptions_IdentityCenterInstanceARN { get; set; }
+            public Amazon.OpenSearchService.RolesKeyIdCOption IdentityCenterOptions_RolesKey { get; set; }
+            public Amazon.OpenSearchService.SubjectKeyIdCOption IdentityCenterOptions_SubjectKey { get; set; }
             public Amazon.OpenSearchService.IPAddressType IPAddressType { get; set; }
             public Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }

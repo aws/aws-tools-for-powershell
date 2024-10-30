@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS
+        /// <para>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your HDFS
         /// cluster.</para>
         /// </para>
         /// </summary>

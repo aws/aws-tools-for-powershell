@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public System.String Filters_DisplayNamePrefix { get; set; }
         #endregion
         
+        #region Parameter Filters_IdentityProviderUserIdPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the ID from the IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_IdentityProviderUserIdPrefix { get; set; }
+        #endregion
+        
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
@@ -191,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Filters_DisplayNamePrefix = this.Filters_DisplayNamePrefix;
+            context.Filters_IdentityProviderUserIdPrefix = this.Filters_IdentityProviderUserIdPrefix;
             context.Filters_PrimaryEmailPrefix = this.Filters_PrimaryEmailPrefix;
             context.Filters_State = this.Filters_State;
             context.Filters_UsernamePrefix = this.Filters_UsernamePrefix;
@@ -252,6 +263,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (requestFilters_filters_DisplayNamePrefix != null)
             {
                 request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_IdentityProviderUserIdPrefix = null;
+            if (cmdletContext.Filters_IdentityProviderUserIdPrefix != null)
+            {
+                requestFilters_filters_IdentityProviderUserIdPrefix = cmdletContext.Filters_IdentityProviderUserIdPrefix;
+            }
+            if (requestFilters_filters_IdentityProviderUserIdPrefix != null)
+            {
+                request.Filters.IdentityProviderUserIdPrefix = requestFilters_filters_IdentityProviderUserIdPrefix;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_PrimaryEmailPrefix = null;
@@ -364,6 +385,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (requestFilters_filters_DisplayNamePrefix != null)
             {
                 request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_IdentityProviderUserIdPrefix = null;
+            if (cmdletContext.Filters_IdentityProviderUserIdPrefix != null)
+            {
+                requestFilters_filters_IdentityProviderUserIdPrefix = cmdletContext.Filters_IdentityProviderUserIdPrefix;
+            }
+            if (requestFilters_filters_IdentityProviderUserIdPrefix != null)
+            {
+                request.Filters.IdentityProviderUserIdPrefix = requestFilters_filters_IdentityProviderUserIdPrefix;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_PrimaryEmailPrefix = null;
@@ -529,6 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Filters_DisplayNamePrefix { get; set; }
+            public System.String Filters_IdentityProviderUserIdPrefix { get; set; }
             public System.String Filters_PrimaryEmailPrefix { get; set; }
             public Amazon.WorkMail.EntityState Filters_State { get; set; }
             public System.String Filters_UsernamePrefix { get; set; }

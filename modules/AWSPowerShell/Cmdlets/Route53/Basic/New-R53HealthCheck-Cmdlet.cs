@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route
         /// 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and
         /// less than 400.</para><important><para>If you specify <c>HTTPS</c> for the value of <c>Type</c>, the endpoint must support
-        /// TLS v1.0 or later.</para></important></li><li><para><b>HTTP_STR_MATCH</b>: Route 53 tries to establish a TCP connection. If successful,
+        /// TLS v1.0, v1.1, or v1.2.</para></important></li><li><para><b>HTTP_STR_MATCH</b>: Route 53 tries to establish a TCP connection. If successful,
         /// Route 53 submits an HTTP request and searches the first 5,120 bytes of the response
         /// body for the string that you specify in <c>SearchString</c>.</para></li><li><para><b>HTTPS_STR_MATCH</b>: Route 53 tries to establish a TCP connection. If successful,
         /// Route 53 submits an <c>HTTPS</c> request and searches the first 5,120 bytes of the

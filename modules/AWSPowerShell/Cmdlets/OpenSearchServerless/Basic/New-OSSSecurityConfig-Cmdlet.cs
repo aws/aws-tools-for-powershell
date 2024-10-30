@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter IamIdentityCenterOptions_GroupAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The group attribute for this IAM Identity Center integration. Defaults to <c>GroupId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute")]
+        public Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute IamIdentityCenterOptions_GroupAttribute { get; set; }
+        #endregion
+        
         #region Parameter SamlOptions_GroupAttribute
         /// <summary>
         /// <para>
@@ -62,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SamlOptions_GroupAttribute { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptions_InstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamIdentityCenterOptions_InstanceArn { get; set; }
         #endregion
         
         #region Parameter SamlOptions_Metadata
@@ -116,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.OpenSearchServerless.SecurityConfigType")]
         public Amazon.OpenSearchServerless.SecurityConfigType Type { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptions_UserAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The user attribute for this IAM Identity Center integration. Defaults to <c>UserId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute")]
+        public Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute IamIdentityCenterOptions_UserAttribute { get; set; }
         #endregion
         
         #region Parameter SamlOptions_UserAttribute
@@ -182,6 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.IamIdentityCenterOptions_GroupAttribute = this.IamIdentityCenterOptions_GroupAttribute;
+            context.IamIdentityCenterOptions_InstanceArn = this.IamIdentityCenterOptions_InstanceArn;
+            context.IamIdentityCenterOptions_UserAttribute = this.IamIdentityCenterOptions_UserAttribute;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -223,6 +258,45 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IamIdentityCenterOptions
+            var requestIamIdentityCenterOptionsIsNull = true;
+            request.IamIdentityCenterOptions = new Amazon.OpenSearchServerless.Model.CreateIamIdentityCenterConfigOptions();
+            Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute requestIamIdentityCenterOptions_iamIdentityCenterOptions_GroupAttribute = null;
+            if (cmdletContext.IamIdentityCenterOptions_GroupAttribute != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_GroupAttribute = cmdletContext.IamIdentityCenterOptions_GroupAttribute;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_GroupAttribute != null)
+            {
+                request.IamIdentityCenterOptions.GroupAttribute = requestIamIdentityCenterOptions_iamIdentityCenterOptions_GroupAttribute;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+            System.String requestIamIdentityCenterOptions_iamIdentityCenterOptions_InstanceArn = null;
+            if (cmdletContext.IamIdentityCenterOptions_InstanceArn != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_InstanceArn = cmdletContext.IamIdentityCenterOptions_InstanceArn;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_InstanceArn != null)
+            {
+                request.IamIdentityCenterOptions.InstanceArn = requestIamIdentityCenterOptions_iamIdentityCenterOptions_InstanceArn;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+            Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute requestIamIdentityCenterOptions_iamIdentityCenterOptions_UserAttribute = null;
+            if (cmdletContext.IamIdentityCenterOptions_UserAttribute != null)
+            {
+                requestIamIdentityCenterOptions_iamIdentityCenterOptions_UserAttribute = cmdletContext.IamIdentityCenterOptions_UserAttribute;
+            }
+            if (requestIamIdentityCenterOptions_iamIdentityCenterOptions_UserAttribute != null)
+            {
+                request.IamIdentityCenterOptions.UserAttribute = requestIamIdentityCenterOptions_iamIdentityCenterOptions_UserAttribute;
+                requestIamIdentityCenterOptionsIsNull = false;
+            }
+             // determine if request.IamIdentityCenterOptions should be set to null
+            if (requestIamIdentityCenterOptionsIsNull)
+            {
+                request.IamIdentityCenterOptions = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -344,6 +418,9 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute IamIdentityCenterOptions_GroupAttribute { get; set; }
+            public System.String IamIdentityCenterOptions_InstanceArn { get; set; }
+            public Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute IamIdentityCenterOptions_UserAttribute { get; set; }
             public System.String Name { get; set; }
             public System.String SamlOptions_GroupAttribute { get; set; }
             public System.String SamlOptions_Metadata { get; set; }

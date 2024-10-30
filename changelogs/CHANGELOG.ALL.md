@@ -1,4 +1,71 @@
-﻿### 4.1.688 (2024-10-29 21:53Z)
+﻿### 4.1.689 (2024-10-30 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.917.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Added cmdlet Get-ASYNApi leveraging the GetApi service API.
+    * Added cmdlet Get-ASYNApiList leveraging the ListApis service API.
+    * Added cmdlet Get-ASYNChannelNamespace leveraging the GetChannelNamespace service API.
+    * Added cmdlet Get-ASYNChannelNamespaceList leveraging the ListChannelNamespaces service API.
+    * Added cmdlet New-ASYNApi leveraging the CreateApi service API.
+    * Added cmdlet New-ASYNChannelNamespace leveraging the CreateChannelNamespace service API.
+    * Added cmdlet Remove-ASYNApi leveraging the DeleteApi service API.
+    * Added cmdlet Remove-ASYNChannelNamespace leveraging the DeleteChannelNamespace service API.
+    * Added cmdlet Update-ASYNApi leveraging the UpdateApi service API.
+    * Added cmdlet Update-ASYNChannelNamespace leveraging the UpdateChannelNamespace service API.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNTask: added parameter TaskMode.
+  * Amazon EC2 Container Service
+    * Added cmdlet Get-ECSServiceDeploymentDetail leveraging the DescribeServiceDeployments service API.
+    * Added cmdlet Get-ECSServiceDeploymentList leveraging the ListServiceDeployments service API.
+    * Added cmdlet Get-ECSServiceRevision leveraging the DescribeServiceRevisions service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2SecurityGroupVpcAssociation leveraging the DescribeSecurityGroupVpcAssociations service API.
+    * Added cmdlet Register-EC2SecurityGroupVpc leveraging the AssociateSecurityGroupVpc service API.
+    * Added cmdlet Unregister-EC2SecurityGroupVpc leveraging the DisassociateSecurityGroupVpc service API.
+  * Amazon Keyspaces
+    * Added cmdlet Get-KSType leveraging the GetType service API.
+    * Added cmdlet Get-KSTypeList leveraging the ListTypes service API.
+    * Added cmdlet New-KSType leveraging the CreateType service API.
+    * Added cmdlet Remove-KSType leveraging the DeleteType service API.
+  * Amazon Location Service Maps V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GEOM and can be listed using the command 'Get-AWSCmdletName -Service GEOM'.
+  * Amazon Location Service Places V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GEOP and can be listed using the command 'Get-AWSCmdletName -Service GEOP'.
+  * Amazon Location Service Routes V2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GEOR and can be listed using the command 'Get-AWSCmdletName -Service GEOR'.
+  * Amazon Network Firewall
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameter FlowTimeouts_TcpIdleTimeoutSecond.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameter FlowTimeouts_TcpIdleTimeoutSecond.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSSecurityConfig: added parameters IamIdentityCenterOptions_GroupAttribute, IamIdentityCenterOptions_InstanceArn and IamIdentityCenterOptions_UserAttribute.
+    * Modified cmdlet Update-OSSSecurityConfig: added parameters IamIdentityCenterOptionsUpdates_GroupAttribute and IamIdentityCenterOptionsUpdates_UserAttribute.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSApplication leveraging the GetApplication service API.
+    * Added cmdlet Get-OSApplicationList leveraging the ListApplications service API.
+    * Added cmdlet New-OSApplication leveraging the CreateApplication service API.
+    * Added cmdlet Remove-OSApplication leveraging the DeleteApplication service API.
+    * Added cmdlet Update-OSApplication leveraging the UpdateApplication service API.
+    * Modified cmdlet Approve-OSVpcEndpointAccess: added parameter Service.
+    * Modified cmdlet New-OSDomain: added parameters IdentityCenterOptions_EnabledAPIAccess, IdentityCenterOptions_IdentityCenterInstanceARN, IdentityCenterOptions_RolesKey and IdentityCenterOptions_SubjectKey.
+    * Modified cmdlet Revoke-OSVpcEndpointAccess: added parameter Service.
+    * Modified cmdlet Update-OSDomainConfig: added parameters IdentityCenterOptions_EnabledAPIAccess, IdentityCenterOptions_IdentityCenterInstanceARN, IdentityCenterOptions_RolesKey and IdentityCenterOptions_SubjectKey.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSWorkgroup: added parameters PricePerformanceTarget_Level and PricePerformanceTarget_Status.
+    * Modified cmdlet Update-RSSWorkgroup: added parameters PricePerformanceTarget_Level and PricePerformanceTarget_Status.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMModelPackage: added parameters ModelLifeCycle_Stage, ModelLifeCycle_StageDescription and ModelLifeCycle_StageStatus.
+    * Modified cmdlet Update-SMModelPackage: added parameters ClientToken, ModelLifeCycle_Stage, ModelLifeCycle_StageDescription and ModelLifeCycle_StageStatus.
+  * Amazon WorkMail
+    * Added cmdlet Get-WMIdentityProviderConfiguration leveraging the DescribeIdentityProviderConfiguration service API.
+    * Added cmdlet Get-WMPersonalAccessTokenList leveraging the ListPersonalAccessTokens service API.
+    * Added cmdlet Get-WMPersonalAccessTokenMetadata leveraging the GetPersonalAccessTokenMetadata service API.
+    * Added cmdlet New-WMIdentityCenterApplication leveraging the CreateIdentityCenterApplication service API.
+    * Added cmdlet Remove-WMIdentityCenterApplication leveraging the DeleteIdentityCenterApplication service API.
+    * Added cmdlet Remove-WMIdentityProviderConfiguration leveraging the DeleteIdentityProviderConfiguration service API.
+    * Added cmdlet Remove-WMPersonalAccessToken leveraging the DeletePersonalAccessToken service API.
+    * Added cmdlet Write-WMIdentityProviderConfiguration leveraging the PutIdentityProviderConfiguration service API.
+    * Modified cmdlet Get-WMUserList: added parameter Filters_IdentityProviderUserIdPrefix.
+    * Modified cmdlet New-WMUser: added parameter IdentityProviderUserId.
+    * Modified cmdlet Remove-WMOrganization: added parameter DeleteIdentityCenterApplication.
+    * Modified cmdlet Update-WMUser: added parameter IdentityProviderUserId.
+
+### 4.1.688 (2024-10-29 21:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.916.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet New-BDRInferenceProfile leveraging the CreateInferenceProfile service API.

@@ -177,6 +177,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSecurityGroupVpc" OutputProperty="State" Verb="Register" Noun="SecurityGroupVpc" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateSubnetCidrBlock" OutputProperty="*" Verb="Register" Noun="SubnetCidrBlock" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1437,6 +1441,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSnapshotAttribute" OutputProperty="*" Verb="Get" Noun="SnapshotAttribute" PositionalParameters="Attribute" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1790,6 +1798,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateRouteTable" Verb="Unregister" Noun="RouteTable" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSecurityGroupVpc" OutputProperty="State" Verb="Unregister" Noun="SecurityGroupVpc" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

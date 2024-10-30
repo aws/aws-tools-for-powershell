@@ -49,14 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <para>The account ID to revoke access from.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Account { get; set; }
         #endregion
         
@@ -75,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter Service
+        /// <summary>
+        /// <para>
+        /// <para>The service SP to revoke access from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.AWSServicePrincipal")]
+        public Amazon.OpenSearchService.AWSServicePrincipal Service { get; set; }
         #endregion
         
         #region Parameter Select
@@ -139,12 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Account = this.Account;
-            #if MODULAR
-            if (this.Account == null && ParameterWasBound(nameof(this.Account)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Account which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -152,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Service = this.Service;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.Service != null)
+            {
+                request.Service = cmdletContext.Service;
             }
             
             CmdletOutput output;
@@ -239,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             public System.String Account { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.OpenSearchService.AWSServicePrincipal Service { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.RevokeVpcEndpointAccessResponse, RevokeOSVpcEndpointAccessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

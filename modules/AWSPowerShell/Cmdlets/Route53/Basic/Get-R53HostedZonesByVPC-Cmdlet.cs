@@ -42,7 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that created and owns the hosted zone. For example, if a hosted zone was created by
     /// Amazon Elastic File System (Amazon EFS), the value of <c>Owner</c> is <c>efs.amazonaws.com</c>.
     /// 
-    /// </para></li></ul><note><para>
+    /// </para></li></ul><para><c>ListHostedZonesByVPC</c> returns the hosted zones associated with the specified
+    /// VPC and does not reflect the hosted zone associations to VPCs via Route 53 Profiles.
+    /// To get the associations to a Profile, call the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileResourceAssociations.html">ListProfileResourceAssociations</a>
+    /// API.
+    /// </para><note><para>
     /// When listing private hosted zones, the hosted zone and the Amazon VPC must belong
     /// to the same partition where the hosted zones were created. A partition is a group
     /// of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one

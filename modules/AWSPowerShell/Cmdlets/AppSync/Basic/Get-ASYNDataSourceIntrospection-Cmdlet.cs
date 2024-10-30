@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter IncludeModelsSDL
         /// <summary>
         /// <para>
-        /// <para>A boolean flag that determines whether SDL should be generated for introspected types
-        /// or not. If set to <c>true</c>, each model will contain an <c>sdl</c> property that
-        /// contains the SDL for that type. The SDL only contains the type data and no additional
-        /// metadata or directives. </para>
+        /// <para>A boolean flag that determines whether SDL should be generated for introspected types.
+        /// If set to <c>true</c>, each model will contain an <c>sdl</c> property that contains
+        /// the SDL for that type. The SDL only contains the type data and no additional metadata
+        /// or directives. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -98,6 +98,13 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.IdentityProviderAuthenticationMode
+        "Write-WMIdentityProviderConfiguration/AuthenticationMode"
+        {
+            $v = "IDENTITY_PROVIDER_AND_DIRECTORY","IDENTITY_PROVIDER_ONLY"
+            break
+        }
+
         # Amazon.WorkMail.ImpersonationRoleType
         {
             ($_ -eq "New-WMImpersonationRole/Type") -Or
@@ -116,6 +123,13 @@ $WM_Completers = {
         }
         {
             $v = "ALLOW","DENY"
+            break
+        }
+
+        # Amazon.WorkMail.PersonalAccessTokenConfigurationStatus
+        "Write-WMIdentityProviderConfiguration/PersonalAccessTokenConfiguration_Status"
+        {
+            $v = "ACTIVE","INACTIVE"
             break
         }
 
@@ -148,8 +162,10 @@ $WM_Completers = {
 }
 
 $WM_map = @{
+    "AuthenticationMode"=@("Write-WMIdentityProviderConfiguration")
     "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
     "Filters_State"=@("Get-WMGroupList","Get-WMResourceList","Get-WMUserList")
+    "PersonalAccessTokenConfiguration_Status"=@("Write-WMIdentityProviderConfiguration")
     "Role"=@("New-WMUser","Update-WMUser")
     "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole","Update-WMResource")
 }
@@ -211,6 +227,7 @@ $WM_SelectMap = @{
                "New-WMAlias",
                "New-WMAvailabilityConfiguration",
                "New-WMGroup",
+               "New-WMIdentityCenterApplication",
                "New-WMImpersonationRole",
                "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
@@ -221,11 +238,14 @@ $WM_SelectMap = @{
                "Remove-WMAvailabilityConfiguration",
                "Remove-WMEmailMonitoringConfiguration",
                "Remove-WMGroup",
+               "Remove-WMIdentityCenterApplication",
+               "Remove-WMIdentityProviderConfiguration",
                "Remove-WMImpersonationRole",
                "Remove-WMMailboxPermission",
                "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
                "Remove-WMOrganization",
+               "Remove-WMPersonalAccessToken",
                "Remove-WMResource",
                "Remove-WMRetentionPolicy",
                "Remove-WMUser",
@@ -234,6 +254,7 @@ $WM_SelectMap = @{
                "Get-WMEmailMonitoringConfiguration",
                "Get-WMEntity",
                "Get-WMGroup",
+               "Get-WMIdentityProviderConfiguration",
                "Get-WMInboundDmarcSetting",
                "Get-WMMailboxExportJob",
                "Get-WMOrganization",
@@ -249,6 +270,7 @@ $WM_SelectMap = @{
                "Get-WMMailDomain",
                "Get-WMMobileDeviceAccessEffect",
                "Get-WMMobileDeviceAccessOverride",
+               "Get-WMPersonalAccessTokenMetadata",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMAvailabilityConfigurationList",
@@ -262,12 +284,14 @@ $WM_SelectMap = @{
                "Get-WMMobileDeviceAccessOverrideList",
                "Get-WMMobileDeviceAccessRuleList",
                "Get-WMOrganizationList",
+               "Get-WMPersonalAccessTokenList",
                "Get-WMDelegateList",
                "Get-WMResourceList",
                "Get-WMResourceTag",
                "Get-WMUserList",
                "Write-WMAccessControlRule",
                "Write-WMEmailMonitoringConfiguration",
+               "Write-WMIdentityProviderConfiguration",
                "Write-WMInboundDmarcSetting",
                "Write-WMMailboxPermission",
                "Write-WMMobileDeviceAccessOverride",

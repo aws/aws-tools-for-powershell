@@ -526,6 +526,15 @@
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameLift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GeoMaps">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.GeoPlaces">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoPlaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.GeoRoutes">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GeoRoutes.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Glacier">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Glacier.dll</HintPath>
     </Reference>
@@ -1667,6 +1676,15 @@
     </Reference>
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GameLift.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.GeoMaps">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GeoMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.GeoPlaces">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GeoPlaces.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.GeoRoutes">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GeoRoutes.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Glacier">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Glacier.dll</HintPath>

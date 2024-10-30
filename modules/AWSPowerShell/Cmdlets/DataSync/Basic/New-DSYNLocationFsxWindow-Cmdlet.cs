@@ -103,8 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SecurityGroupArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARNs of the security groups that provide access to your file system's
-        /// preferred subnet.</para><note><para>If you choose a security group that doesn't allow connections from within itself,
+        /// <para>Specifies the ARNs of the Amazon EC2 security groups that provide access to your file
+        /// system's preferred subnet.</para><para>The security groups that you specify must be able to communicate with your file system's
+        /// security groups. For information about configuring security groups for file system
+        /// access, see the <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/limit-access-security-groups.html"><i>Amazon FSx for Windows File Server User Guide</i></a>.</para><note><para>If you choose a security group that doesn't allow connections from within itself,
         /// do one of the following:</para><ul><li><para>Configure the security group to allow it to communicate within itself.</para></li><li><para>Choose a different security group that can communicate with the mount target's security
         /// group.</para></li></ul></note>
         /// </para>

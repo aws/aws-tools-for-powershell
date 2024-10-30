@@ -1,0 +1,3 @@
+﻿# GeoPlaces
+
+Export-ModuleMember -Alias *

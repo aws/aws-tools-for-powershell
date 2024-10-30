@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public System.Boolean? DeleteDirectory { get; set; }
         #endregion
         
+        #region Parameter DeleteIdentityCenterApplication
+        /// <summary>
+        /// <para>
+        /// <para>Deletes IAM Identity Center application for WorkMail. This action does not affect
+        /// authentication settings for any organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteIdentityCenterApplication { get; set; }
+        #endregion
+        
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
@@ -167,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 WriteWarning("You are passing $null as a value for parameter DeleteDirectory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeleteIdentityCenterApplication = this.DeleteIdentityCenterApplication;
             context.ForceDelete = this.ForceDelete;
             context.OrganizationId = this.OrganizationId;
             #if MODULAR
@@ -198,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.DeleteDirectory != null)
             {
                 request.DeleteDirectory = cmdletContext.DeleteDirectory.Value;
+            }
+            if (cmdletContext.DeleteIdentityCenterApplication != null)
+            {
+                request.DeleteIdentityCenterApplication = cmdletContext.DeleteIdentityCenterApplication.Value;
             }
             if (cmdletContext.ForceDelete != null)
             {
@@ -270,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DeleteDirectory { get; set; }
+            public System.Boolean? DeleteIdentityCenterApplication { get; set; }
             public System.Boolean? ForceDelete { get; set; }
             public System.String OrganizationId { get; set; }
             public System.Func<Amazon.WorkMail.Model.DeleteOrganizationResponse, RemoveWMOrganizationCmdlet, object> Select { get; set; } =

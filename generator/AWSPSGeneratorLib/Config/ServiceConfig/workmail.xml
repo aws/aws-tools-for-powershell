@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdentityCenterApplication" OutputProperty="ApplicationArn" Verb="New" Noun="IdentityCenterApplication" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateImpersonationRole" OutputProperty="ImpersonationRoleId" Verb="New" Noun="ImpersonationRole" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +91,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityCenterApplication" Verb="Remove" Noun="IdentityCenterApplication" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityProviderConfiguration" Verb="Remove" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteImpersonationRole" Verb="Remove" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOrganization" OutputProperty="*" Verb="Remove" Noun="Organization" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePersonalAccessToken" Verb="Remove" Noun="PersonalAccessToken" ShouldProcessTarget="PersonalAccessTokenId" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" OutputProperty="*" Verb="Get" Noun="IdentityProviderConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -199,6 +219,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPersonalAccessTokenMetadata" OutputProperty="*" Verb="Get" Noun="PersonalAccessTokenMetadata" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccessControlRules" OutputProperty="Rules" Verb="Get" Noun="AccessControlRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -251,6 +275,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPersonalAccessTokens" OutputProperty="PersonalAccessTokenSummaries" Verb="Get" Noun="PersonalAccessTokenList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResourceDelegates" OutputProperty="Delegates" Verb="Get" Noun="DelegateList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -272,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutEmailMonitoringConfiguration" Verb="Write" Noun="EmailMonitoringConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutIdentityProviderConfiguration" Verb="Write" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

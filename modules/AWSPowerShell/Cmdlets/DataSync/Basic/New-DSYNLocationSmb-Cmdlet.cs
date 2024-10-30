@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the DataSync agent (or agents) which you want to connect to your SMB file
-        /// server. You specify an agent by using its Amazon Resource Name (ARN).</para>
+        /// <para>Specifies the DataSync agent (or agents) that can connect to your SMB file server.
+        /// You specify an agent by using its Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

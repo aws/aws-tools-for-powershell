@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the agents connecting to a transfer location.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS
+        /// file server.</para><para>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using
+        /// multiple DataSync agents</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -3850,6 +3850,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.EventLogLevel
+        {
+            ($_ -eq "New-ASYNApi/LogConfig_LogLevel") -Or
+            ($_ -eq "Update-ASYNApi/LogConfig_LogLevel")
+        }
+        {
+            $v = "ALL","DEBUG","ERROR","INFO","NONE"
+            break
+        }
+
         # Amazon.AppSync.FieldLogLevel
         {
             ($_ -eq "New-ASYNGraphqlApi/LogConfig_FieldLogLevel") -Or
@@ -4008,6 +4018,7 @@ $ASYN_map = @{
     "IntrospectionConfig"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "LogConfig_LogLevel"=@("New-ASYNApi","Update-ASYNApi")
     "MetricsConfig"=@("New-ASYNDataSource","New-ASYNResolver","Update-ASYNDataSource","Update-ASYNResolver")
     "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
@@ -4072,16 +4083,20 @@ $ASYN_SelectMap = @{
     "Select"=@("Start-ASYNApiAssociation",
                "Start-ASYNMergedGraphqlApi",
                "Start-ASYNSourceGraphqlApi",
+               "New-ASYNApi",
                "New-ASYNApiCache",
                "New-ASYNApiKey",
+               "New-ASYNChannelNamespace",
                "New-ASYNDataSource",
                "New-ASYNDomainName",
                "New-ASYNFunction",
                "New-ASYNGraphqlApi",
                "New-ASYNResolver",
                "New-ASYNType",
+               "Remove-ASYNApi",
                "Remove-ASYNApiCache",
                "Remove-ASYNApiKey",
+               "Remove-ASYNChannelNamespace",
                "Remove-ASYNDataSource",
                "Remove-ASYNDomainName",
                "Remove-ASYNFunction",
@@ -4094,8 +4109,10 @@ $ASYN_SelectMap = @{
                "Test-ASYNCode",
                "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
+               "Get-ASYNApi",
                "Get-ASYNApiAssociation",
                "Get-ASYNApiCache",
+               "Get-ASYNChannelNamespace",
                "Get-ASYNDataSource",
                "Get-ASYNDataSourceIntrospection",
                "Get-ASYNDomainName",
@@ -4108,6 +4125,8 @@ $ASYN_SelectMap = @{
                "Get-ASYNSourceApiAssociation",
                "Get-ASYNType",
                "Get-ASYNApiKeyList",
+               "Get-ASYNApiList",
+               "Get-ASYNChannelNamespaceList",
                "Get-ASYNDataSourceList",
                "Get-ASYNDomainNameList",
                "Get-ASYNFunctionList",
@@ -4124,8 +4143,10 @@ $ASYN_SelectMap = @{
                "Start-ASYNSchemaMerge",
                "Add-ASYNResourceTag",
                "Remove-ASYNResourceTag",
+               "Update-ASYNApi",
                "Update-ASYNApiCache",
                "Update-ASYNApiKey",
+               "Update-ASYNChannelNamespace",
                "Update-ASYNDataSource",
                "Update-ASYNDomainName",
                "Update-ASYNFunction",
@@ -18869,6 +18890,13 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.TaskMode
+        "New-DSYNTask/TaskMode"
+        {
+            $v = "BASIC","ENHANCED"
+            break
+        }
+
 
     }
 
@@ -18896,6 +18924,7 @@ $DSYN_map = @{
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "SystemType"=@("Add-DSYNStorageSystem")
+    "TaskMode"=@("New-DSYNTask")
     "TaskReportConfig_ObjectVersionId"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
@@ -24550,6 +24579,7 @@ $EC2_SelectMap = @{
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
                "Register-EC2RouteTable",
+               "Register-EC2SecurityGroupVpc",
                "Register-EC2SubnetCidrBlock",
                "Register-EC2TransitGatewayMulticastDomain",
                "Register-EC2TransitGatewayPolicyTable",
@@ -24849,6 +24879,7 @@ $EC2_SelectMap = @{
                "Get-EC2SecurityGroupReference",
                "Get-EC2SecurityGroupRule",
                "Get-EC2SecurityGroup",
+               "Get-EC2SecurityGroupVpcAssociation",
                "Get-EC2SnapshotAttribute",
                "Get-EC2Snapshot",
                "Get-EC2SnapshotTierStatus",
@@ -24931,6 +24962,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
                "Unregister-EC2RouteTable",
+               "Unregister-EC2SecurityGroupVpc",
                "Unregister-EC2SubnetCidrBlock",
                "Unregister-EC2TransitGatewayMulticastDomain",
                "Unregister-EC2TransitGatewayPolicyTable",
@@ -25787,6 +25819,8 @@ $ECS_SelectMap = @{
                "Get-ECSCapacityProvider",
                "Get-ECSClusterDetail",
                "Get-ECSContainerInstanceDetail",
+               "Get-ECSServiceDeploymentDetail",
+               "Get-ECSServiceRevision",
                "Get-ECSService",
                "Get-ECSTaskDefinitionDetail",
                "Get-ECSTaskDetail",
@@ -25797,6 +25831,7 @@ $ECS_SelectMap = @{
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
                "Get-ECSContainerInstanceList",
+               "Get-ECSServiceDeploymentList",
                "Get-ECSClusterService",
                "Get-ECSServicesByNamespace",
                "Get-ECSTagsForResource",
@@ -31110,6 +31145,561 @@ $GML_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $GML_SelectCompleters $GML_SelectMap
+# Argument completions for service Amazon Location Service Maps V2
+
+
+$GEOM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GeoMaps.ColorScheme
+        {
+            ($_ -eq "Get-GEOMSprite/ColorScheme") -Or
+            ($_ -eq "Get-GEOMStyleDescriptor/ColorScheme")
+        }
+        {
+            $v = "Dark","Light"
+            break
+        }
+
+        # Amazon.GeoMaps.MapStyle
+        {
+            ($_ -eq "Get-GEOMSprite/Style") -Or
+            ($_ -eq "Get-GEOMStyleDescriptor/Style")
+        }
+        {
+            $v = "Hybrid","Monochrome","Satellite","Standard"
+            break
+        }
+
+        # Amazon.GeoMaps.ScaleBarUnit
+        "Get-GEOMStaticMap/ScaleBarUnit"
+        {
+            $v = "Kilometers","KilometersMiles","Miles","MilesKilometers"
+            break
+        }
+
+        # Amazon.GeoMaps.StaticMapStyle
+        "Get-GEOMStaticMap/Style"
+        {
+            $v = "Satellite"
+            break
+        }
+
+        # Amazon.GeoMaps.Variant
+        "Get-GEOMSprite/Variant"
+        {
+            $v = "Default"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOM_map = @{
+    "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStyleDescriptor")
+    "ScaleBarUnit"=@("Get-GEOMStaticMap")
+    "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
+    "Variant"=@("Get-GEOMSprite")
+}
+
+_awsArgumentCompleterRegistration $GEOM_Completers $GEOM_map
+
+$GEOM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.GEOM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOM_SelectMap = @{
+    "Select"=@("Get-GEOMGlyph",
+               "Get-GEOMSprite",
+               "Get-GEOMStaticMap",
+               "Get-GEOMStyleDescriptor",
+               "Get-GEOMTile")
+}
+
+_awsArgumentCompleterRegistration $GEOM_SelectCompleters $GEOM_SelectMap
+# Argument completions for service Amazon Location Service Places V2
+
+
+$GEOP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GeoPlaces.AutocompleteIntendedUse
+        "Invoke-GEOPAutocomplete/IntendedUse"
+        {
+            $v = "SingleUse"
+            break
+        }
+
+        # Amazon.GeoPlaces.GeocodeIntendedUse
+        "Invoke-GEOPGeocode/IntendedUse"
+        {
+            $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.GetPlaceIntendedUse
+        "Get-GEOPPlace/IntendedUse"
+        {
+            $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.PostalCodeMode
+        "Invoke-GEOPAutocomplete/PostalCodeMode"
+        {
+            $v = "EnumerateSpannedLocalities","MergeAllSpannedLocalities"
+            break
+        }
+
+        # Amazon.GeoPlaces.ReverseGeocodeIntendedUse
+        "Invoke-GEOPReverseGeocode/IntendedUse"
+        {
+            $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.SearchNearbyIntendedUse
+        "Search-GEOPNearby/IntendedUse"
+        {
+            $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.SearchTextIntendedUse
+        "Search-GEOPText/IntendedUse"
+        {
+            $v = "SingleUse","Storage"
+            break
+        }
+
+        # Amazon.GeoPlaces.SuggestIntendedUse
+        "Invoke-GEOPSuggest/IntendedUse"
+        {
+            $v = "SingleUse"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOP_map = @{
+    "IntendedUse"=@("Get-GEOPPlace","Invoke-GEOPAutocomplete","Invoke-GEOPGeocode","Invoke-GEOPReverseGeocode","Invoke-GEOPSuggest","Search-GEOPNearby","Search-GEOPText")
+    "PostalCodeMode"=@("Invoke-GEOPAutocomplete")
+}
+
+_awsArgumentCompleterRegistration $GEOP_Completers $GEOP_map
+
+$GEOP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.GEOP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOP_SelectMap = @{
+    "Select"=@("Invoke-GEOPAutocomplete",
+               "Invoke-GEOPGeocode",
+               "Get-GEOPPlace",
+               "Invoke-GEOPReverseGeocode",
+               "Search-GEOPNearby",
+               "Search-GEOPText",
+               "Invoke-GEOPSuggest")
+}
+
+_awsArgumentCompleterRegistration $GEOP_SelectCompleters $GEOP_SelectMap
+# Argument completions for service Amazon Location Service Routes V2
+
+
+$GEOR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GeoRoutes.DayOfWeek
+        {
+            ($_ -eq "Get-GEOROptimizedWaypoint/From_DayOfWeek") -Or
+            ($_ -eq "Get-GEOROptimizedWaypoint/To_DayOfWeek")
+        }
+        {
+            $v = "Friday","Monday","Saturday","Sunday","Thursday","Tuesday","Wednesday"
+            break
+        }
+
+        # Amazon.GeoRoutes.GeometryFormat
+        {
+            ($_ -eq "Get-GEORIsoline/IsolineGeometryFormat") -Or
+            ($_ -eq "Get-GEORRoute/LegGeometryFormat") -Or
+            ($_ -eq "Get-GEORSnappedRoad/SnappedGeometryFormat")
+        }
+        {
+            $v = "FlexiblePolyline","Simple"
+            break
+        }
+
+        # Amazon.GeoRoutes.IsolineEngineType
+        {
+            ($_ -eq "Get-GEORIsoline/Car_EngineType") -Or
+            ($_ -eq "Get-GEORIsoline/Scooter_EngineType") -Or
+            ($_ -eq "Get-GEORIsoline/Truck_EngineType")
+        }
+        {
+            $v = "Electric","InternalCombustion","PluginHybrid"
+            break
+        }
+
+        # Amazon.GeoRoutes.IsolineOptimizationObjective
+        "Get-GEORIsoline/OptimizeIsolineFor"
+        {
+            $v = "AccurateCalculation","BalancedCalculation","FastCalculation"
+            break
+        }
+
+        # Amazon.GeoRoutes.IsolineTravelMode
+        "Get-GEORIsoline/TravelMode"
+        {
+            $v = "Car","Pedestrian","Scooter","Truck"
+            break
+        }
+
+        # Amazon.GeoRoutes.IsolineTruckType
+        "Get-GEORIsoline/Truck_TruckType"
+        {
+            $v = "LightTruck","StraightTruck","Tractor"
+            break
+        }
+
+        # Amazon.GeoRoutes.MatchingStrategy
+        {
+            ($_ -eq "Get-GEORIsoline/DestinationOptions_Matching_Strategy") -Or
+            ($_ -eq "Get-GEORRoute/DestinationOptions_Matching_Strategy") -Or
+            ($_ -eq "Get-GEORIsoline/OriginOptions_Matching_Strategy") -Or
+            ($_ -eq "Get-GEORRoute/OriginOptions_Matching_Strategy")
+        }
+        {
+            $v = "MatchAny","MatchMostSignificantRoad"
+            break
+        }
+
+        # Amazon.GeoRoutes.MeasurementSystem
+        "Get-GEORRoute/InstructionsMeasurementSystem"
+        {
+            $v = "Imperial","Metric"
+            break
+        }
+
+        # Amazon.GeoRoutes.RoadSnapTravelMode
+        "Get-GEORSnappedRoad/TravelMode"
+        {
+            $v = "Car","Pedestrian","Scooter","Truck"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteEngineType
+        {
+            ($_ -eq "Get-GEORRoute/Car_EngineType") -Or
+            ($_ -eq "Get-GEORRoute/Scooter_EngineType") -Or
+            ($_ -eq "Get-GEORRoute/Truck_EngineType")
+        }
+        {
+            $v = "Electric","InternalCombustion","PluginHybrid"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteMatrixTravelMode
+        "Get-GEORRouteMatrix/TravelMode"
+        {
+            $v = "Car","Pedestrian","Scooter","Truck"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteMatrixTruckType
+        "Get-GEORRouteMatrix/Truck_TruckType"
+        {
+            $v = "LightTruck","StraightTruck","Tractor"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteTollVehicleCategory
+        "Get-GEORRoute/Tolls_VehicleCategory"
+        {
+            $v = "Minibus"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteTravelMode
+        "Get-GEORRoute/TravelMode"
+        {
+            $v = "Car","Pedestrian","Scooter","Truck"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteTravelStepType
+        "Get-GEORRoute/TravelStepType"
+        {
+            $v = "Default","TurnByTurn"
+            break
+        }
+
+        # Amazon.GeoRoutes.RouteTruckType
+        "Get-GEORRoute/Truck_TruckType"
+        {
+            $v = "LightTruck","StraightTruck","Tractor"
+            break
+        }
+
+        # Amazon.GeoRoutes.RoutingObjective
+        {
+            ($_ -eq "Get-GEORIsoline/OptimizeRoutingFor") -Or
+            ($_ -eq "Get-GEORRoute/OptimizeRoutingFor") -Or
+            ($_ -eq "Get-GEORRouteMatrix/OptimizeRoutingFor")
+        }
+        {
+            $v = "FastestRoute","ShortestRoute"
+            break
+        }
+
+        # Amazon.GeoRoutes.SideOfStreetMatchingStrategy
+        {
+            ($_ -eq "Get-GEORIsoline/DestinationOptions_SideOfStreet_UseWith") -Or
+            ($_ -eq "Get-GEORRoute/DestinationOptions_SideOfStreet_UseWith") -Or
+            ($_ -eq "Get-GEORIsoline/OriginOptions_SideOfStreet_UseWith") -Or
+            ($_ -eq "Get-GEORRoute/OriginOptions_SideOfStreet_UseWith") -Or
+            ($_ -eq "Get-GEOROptimizedWaypoint/SideOfStreet_UseWith")
+        }
+        {
+            $v = "AnyStreet","DividedStreetOnly"
+            break
+        }
+
+        # Amazon.GeoRoutes.TrafficUsage
+        {
+            ($_ -eq "Get-GEORIsoline/Traffic_Usage") -Or
+            ($_ -eq "Get-GEOROptimizedWaypoint/Traffic_Usage") -Or
+            ($_ -eq "Get-GEORRoute/Traffic_Usage") -Or
+            ($_ -eq "Get-GEORRouteMatrix/Traffic_Usage")
+        }
+        {
+            $v = "IgnoreTrafficData","UseTrafficData"
+            break
+        }
+
+        # Amazon.GeoRoutes.WaypointOptimizationSequencingObjective
+        "Get-GEOROptimizedWaypoint/OptimizeSequencingFor"
+        {
+            $v = "FastestRoute","ShortestRoute"
+            break
+        }
+
+        # Amazon.GeoRoutes.WaypointOptimizationServiceTimeTreatment
+        "Get-GEOROptimizedWaypoint/Driver_TreatServiceTimeAs"
+        {
+            $v = "Rest","Work"
+            break
+        }
+
+        # Amazon.GeoRoutes.WaypointOptimizationTravelMode
+        "Get-GEOROptimizedWaypoint/TravelMode"
+        {
+            $v = "Car","Pedestrian","Scooter","Truck"
+            break
+        }
+
+        # Amazon.GeoRoutes.WaypointOptimizationTruckType
+        "Get-GEOROptimizedWaypoint/Truck_TruckType"
+        {
+            $v = "StraightTruck","Tractor"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOR_map = @{
+    "Car_EngineType"=@("Get-GEORIsoline","Get-GEORRoute")
+    "DestinationOptions_Matching_Strategy"=@("Get-GEORIsoline","Get-GEORRoute")
+    "DestinationOptions_SideOfStreet_UseWith"=@("Get-GEORIsoline","Get-GEORRoute")
+    "Driver_TreatServiceTimeAs"=@("Get-GEOROptimizedWaypoint")
+    "From_DayOfWeek"=@("Get-GEOROptimizedWaypoint")
+    "InstructionsMeasurementSystem"=@("Get-GEORRoute")
+    "IsolineGeometryFormat"=@("Get-GEORIsoline")
+    "LegGeometryFormat"=@("Get-GEORRoute")
+    "OptimizeIsolineFor"=@("Get-GEORIsoline")
+    "OptimizeRoutingFor"=@("Get-GEORIsoline","Get-GEORRoute","Get-GEORRouteMatrix")
+    "OptimizeSequencingFor"=@("Get-GEOROptimizedWaypoint")
+    "OriginOptions_Matching_Strategy"=@("Get-GEORIsoline","Get-GEORRoute")
+    "OriginOptions_SideOfStreet_UseWith"=@("Get-GEORIsoline","Get-GEORRoute")
+    "Scooter_EngineType"=@("Get-GEORIsoline","Get-GEORRoute")
+    "SideOfStreet_UseWith"=@("Get-GEOROptimizedWaypoint")
+    "SnappedGeometryFormat"=@("Get-GEORSnappedRoad")
+    "To_DayOfWeek"=@("Get-GEOROptimizedWaypoint")
+    "Tolls_VehicleCategory"=@("Get-GEORRoute")
+    "Traffic_Usage"=@("Get-GEORIsoline","Get-GEOROptimizedWaypoint","Get-GEORRoute","Get-GEORRouteMatrix")
+    "TravelMode"=@("Get-GEORIsoline","Get-GEOROptimizedWaypoint","Get-GEORRoute","Get-GEORRouteMatrix","Get-GEORSnappedRoad")
+    "TravelStepType"=@("Get-GEORRoute")
+    "Truck_EngineType"=@("Get-GEORIsoline","Get-GEORRoute")
+    "Truck_TruckType"=@("Get-GEORIsoline","Get-GEOROptimizedWaypoint","Get-GEORRoute","Get-GEORRouteMatrix")
+}
+
+_awsArgumentCompleterRegistration $GEOR_Completers $GEOR_map
+
+$GEOR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.GEOR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GEOR_SelectMap = @{
+    "Select"=@("Get-GEORIsoline",
+               "Get-GEORRouteMatrix",
+               "Get-GEORRoute",
+               "Get-GEOROptimizedWaypoint",
+               "Get-GEORSnappedRoad")
+}
+
+_awsArgumentCompleterRegistration $GEOR_SelectCompleters $GEOR_SelectMap
 # Argument completions for service Amazon Glacier
 
 
@@ -38666,14 +39256,18 @@ $KS_SelectCompleters = {
 $KS_SelectMap = @{
     "Select"=@("New-KSKeyspace",
                "New-KSTable",
+               "New-KSType",
                "Remove-KSKeyspace",
                "Remove-KSTable",
+               "Remove-KSType",
                "Get-KSKeyspace",
                "Get-KSTable",
                "Get-KSTableAutoScalingSetting",
+               "Get-KSType",
                "Get-KSKeyspaceList",
                "Get-KSTableList",
                "Get-KSResourceTag",
+               "Get-KSTypeList",
                "Restore-KSTable",
                "Add-KSResourceTag",
                "Remove-KSResourceTag",
@@ -49670,6 +50264,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.AWSServicePrincipal
+        {
+            ($_ -eq "Approve-OSVpcEndpointAccess/Service") -Or
+            ($_ -eq "Revoke-OSVpcEndpointAccess/Service")
+        }
+        {
+            $v = "application.opensearchservice.amazonaws.com"
+            break
+        }
+
         # Amazon.OpenSearchService.ConnectionMode
         "New-OSOutboundConnection/ConnectionMode"
         {
@@ -49765,6 +50369,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.RolesKeyIdCOption
+        {
+            ($_ -eq "New-OSDomain/IdentityCenterOptions_RolesKey") -Or
+            ($_ -eq "Update-OSDomainConfig/IdentityCenterOptions_RolesKey")
+        }
+        {
+            $v = "GroupId","GroupName"
+            break
+        }
+
         # Amazon.OpenSearchService.RollbackOnDisable
         "Update-OSDomainConfig/AutoTuneOptions_RollbackOnDisable"
         {
@@ -49786,6 +50400,16 @@ $OS_Completers = {
         "New-OSOutboundConnection/CrossClusterSearch_SkipUnavailable"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.OpenSearchService.SubjectKeyIdCOption
+        {
+            ($_ -eq "New-OSDomain/IdentityCenterOptions_SubjectKey") -Or
+            ($_ -eq "Update-OSDomainConfig/IdentityCenterOptions_SubjectKey")
+        }
+        {
+            $v = "Email","UserId","UserName"
             break
         }
 
@@ -49831,11 +50455,14 @@ $OS_map = @{
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
+    "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
+    "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
+    "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
@@ -49896,10 +50523,12 @@ $OS_SelectMap = @{
                "Approve-OSVpcEndpointAccess",
                "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
+               "New-OSApplication",
                "New-OSDomain",
                "New-OSOutboundConnection",
                "New-OSPackage",
                "New-OSVpcEndpoint",
+               "Remove-OSApplication",
                "Remove-OSDataSource",
                "Remove-OSDomain",
                "Remove-OSInboundConnection",
@@ -49922,12 +50551,14 @@ $OS_SelectMap = @{
                "Get-OSReservedInstanceList",
                "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
+               "Get-OSApplication",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
                "Get-OSDomainMaintenanceStatus",
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
+               "Get-OSApplicationList",
                "Get-OSDataSourceList",
                "Get-OSDomainMaintenanceList",
                "Get-OSDomainNameList",
@@ -49946,6 +50577,7 @@ $OS_SelectMap = @{
                "Revoke-OSVpcEndpointAccess",
                "Start-OSDomainMaintenance",
                "Start-OSServiceSoftwareUpdate",
+               "Update-OSApplication",
                "Update-OSDataSource",
                "Update-OSDomainConfig",
                "Update-OSPackage",
@@ -49990,6 +50622,26 @@ $OSS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute
+        {
+            ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_GroupAttribute") -Or
+            ($_ -eq "Update-OSSSecurityConfig/IamIdentityCenterOptionsUpdates_GroupAttribute")
+        }
+        {
+            $v = "GroupId","GroupName"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute
+        {
+            ($_ -eq "New-OSSSecurityConfig/IamIdentityCenterOptions_UserAttribute") -Or
+            ($_ -eq "Update-OSSSecurityConfig/IamIdentityCenterOptionsUpdates_UserAttribute")
+        }
+        {
+            $v = "Email","UserId","UserName"
+            break
+        }
+
         # Amazon.OpenSearchServerless.LifecyclePolicyType
         {
             ($_ -eq "Get-OSSLifecyclePolicyList/Type") -Or
@@ -50008,7 +50660,7 @@ $OSS_Completers = {
             ($_ -eq "New-OSSSecurityConfig/Type")
         }
         {
-            $v = "saml"
+            $v = "iamidentitycenter","saml"
             break
         }
 
@@ -50049,6 +50701,10 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
+    "IamIdentityCenterOptions_GroupAttribute"=@("New-OSSSecurityConfig")
+    "IamIdentityCenterOptions_UserAttribute"=@("New-OSSSecurityConfig")
+    "IamIdentityCenterOptionsUpdates_GroupAttribute"=@("Update-OSSSecurityConfig")
+    "IamIdentityCenterOptionsUpdates_UserAttribute"=@("Update-OSSSecurityConfig")
     "StandbyReplica"=@("New-OSSCollection")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
@@ -57098,6 +57754,16 @@ $RSS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftServerless.PerformanceTargetStatus
+        {
+            ($_ -eq "New-RSSWorkgroup/PricePerformanceTarget_Status") -Or
+            ($_ -eq "Update-RSSWorkgroup/PricePerformanceTarget_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.RedshiftServerless.UsageLimitBreachAction
         {
             ($_ -eq "New-RSSUsageLimit/BreachAction") -Or
@@ -57136,6 +57802,7 @@ $RSS_Completers = {
 $RSS_map = @{
     "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
     "Period"=@("New-RSSUsageLimit")
+    "PricePerformanceTarget_Status"=@("New-RSSWorkgroup","Update-RSSWorkgroup")
     "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
 }
 
@@ -58435,7 +59102,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
         }
         {
-            $v = "A","AAAA","CAA","CNAME","DS","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
+            $v = "A","AAAA","CAA","CNAME","DS","HTTPS","MX","NAPTR","NS","PTR","SOA","SPF","SRV","SSHFP","SVCB","TLSA","TXT"
             break
         }
 
@@ -58460,7 +59127,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -62065,7 +62732,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
         }
 
@@ -72065,6 +72732,13 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.IdentityProviderAuthenticationMode
+        "Write-WMIdentityProviderConfiguration/AuthenticationMode"
+        {
+            $v = "IDENTITY_PROVIDER_AND_DIRECTORY","IDENTITY_PROVIDER_ONLY"
+            break
+        }
+
         # Amazon.WorkMail.ImpersonationRoleType
         {
             ($_ -eq "New-WMImpersonationRole/Type") -Or
@@ -72083,6 +72757,13 @@ $WM_Completers = {
         }
         {
             $v = "ALLOW","DENY"
+            break
+        }
+
+        # Amazon.WorkMail.PersonalAccessTokenConfigurationStatus
+        "Write-WMIdentityProviderConfiguration/PersonalAccessTokenConfiguration_Status"
+        {
+            $v = "ACTIVE","INACTIVE"
             break
         }
 
@@ -72115,8 +72796,10 @@ $WM_Completers = {
 }
 
 $WM_map = @{
+    "AuthenticationMode"=@("Write-WMIdentityProviderConfiguration")
     "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
     "Filters_State"=@("Get-WMGroupList","Get-WMResourceList","Get-WMUserList")
+    "PersonalAccessTokenConfiguration_Status"=@("Write-WMIdentityProviderConfiguration")
     "Role"=@("New-WMUser","Update-WMUser")
     "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole","Update-WMResource")
 }
@@ -72178,6 +72861,7 @@ $WM_SelectMap = @{
                "New-WMAlias",
                "New-WMAvailabilityConfiguration",
                "New-WMGroup",
+               "New-WMIdentityCenterApplication",
                "New-WMImpersonationRole",
                "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
@@ -72188,11 +72872,14 @@ $WM_SelectMap = @{
                "Remove-WMAvailabilityConfiguration",
                "Remove-WMEmailMonitoringConfiguration",
                "Remove-WMGroup",
+               "Remove-WMIdentityCenterApplication",
+               "Remove-WMIdentityProviderConfiguration",
                "Remove-WMImpersonationRole",
                "Remove-WMMailboxPermission",
                "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
                "Remove-WMOrganization",
+               "Remove-WMPersonalAccessToken",
                "Remove-WMResource",
                "Remove-WMRetentionPolicy",
                "Remove-WMUser",
@@ -72201,6 +72888,7 @@ $WM_SelectMap = @{
                "Get-WMEmailMonitoringConfiguration",
                "Get-WMEntity",
                "Get-WMGroup",
+               "Get-WMIdentityProviderConfiguration",
                "Get-WMInboundDmarcSetting",
                "Get-WMMailboxExportJob",
                "Get-WMOrganization",
@@ -72216,6 +72904,7 @@ $WM_SelectMap = @{
                "Get-WMMailDomain",
                "Get-WMMobileDeviceAccessEffect",
                "Get-WMMobileDeviceAccessOverride",
+               "Get-WMPersonalAccessTokenMetadata",
                "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMAvailabilityConfigurationList",
@@ -72229,12 +72918,14 @@ $WM_SelectMap = @{
                "Get-WMMobileDeviceAccessOverrideList",
                "Get-WMMobileDeviceAccessRuleList",
                "Get-WMOrganizationList",
+               "Get-WMPersonalAccessTokenList",
                "Get-WMDelegateList",
                "Get-WMResourceList",
                "Get-WMResourceTag",
                "Get-WMUserList",
                "Write-WMAccessControlRule",
                "Write-WMEmailMonitoringConfiguration",
+               "Write-WMIdentityProviderConfiguration",
                "Write-WMInboundDmarcSetting",
                "Write-WMMailboxPermission",
                "Write-WMMobileDeviceAccessOverride",

@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public System.Boolean? HiddenFromGlobalAddressList { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderUserId
+        /// <summary>
+        /// <para>
+        /// <para>User ID from the IAM Identity Center. If this parameter is empty it will be updated
+        /// automatically when the user logs in for the first time to the mailbox associated with
+        /// WorkMail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderUserId { get; set; }
+        #endregion
+        
         #region Parameter LastName
         /// <summary>
         /// <para>
@@ -220,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             #endif
             context.FirstName = this.FirstName;
             context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
+            context.IdentityProviderUserId = this.IdentityProviderUserId;
             context.LastName = this.LastName;
             context.Name = this.Name;
             #if MODULAR
@@ -264,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.HiddenFromGlobalAddressList != null)
             {
                 request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
+            if (cmdletContext.IdentityProviderUserId != null)
+            {
+                request.IdentityProviderUserId = cmdletContext.IdentityProviderUserId;
             }
             if (cmdletContext.LastName != null)
             {
@@ -349,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             public System.String DisplayName { get; set; }
             public System.String FirstName { get; set; }
             public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+            public System.String IdentityProviderUserId { get; set; }
             public System.String LastName { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }

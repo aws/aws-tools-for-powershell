@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>geomaps</C2jFilename>
+    <AssemblyName>GeoMaps</AssemblyName>
+    <ServiceNounPrefix>GEOM</ServiceNounPrefix>
+    <ServiceName>Amazon Location Service Maps V2</ServiceName>
+    <ServiceClientInterface>IAmazonGeoMaps</ServiceClientInterface>
+    <ServiceClient>AmazonGeoMapsClient</ServiceClient>
+    <ServiceModuleGuid>1C662BE7-96B7-4C65-8E25-B6D0769605A4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetGlyphs" OutputProperty="*" Verb="Get" Noun="Glyph" PipelineParameter="FontStack" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSprites" OutputProperty="*" Verb="Get" Noun="Sprite" PipelineParameter="Style" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStaticMap" OutputProperty="*" Verb="Get" Noun="StaticMap" PipelineParameter="FileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStyleDescriptor" OutputProperty="*" Verb="Get" Noun="StyleDescriptor" PipelineParameter="Style" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTile" OutputProperty="*" Verb="Get" Noun="Tile" PipelineParameter="Tileset" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

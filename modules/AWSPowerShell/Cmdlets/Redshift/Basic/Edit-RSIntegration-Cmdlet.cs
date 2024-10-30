@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies a zero-ETL integration with Amazon Redshift.
+    /// Modifies a zero-ETL integration or S3 event integration with Amazon Redshift.
     /// </summary>
     [Cmdlet("Edit", "RSIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ModifyIntegrationResponse")]
