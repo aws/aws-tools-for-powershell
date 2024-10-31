@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         /// <summary>
         /// <para>
         /// <para>The ARN of the CloudWatch log group to which the vended log data will be published.
-        /// This log group must exist prior to calling this API.</para>
+        /// This log group must exist prior to calling this operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

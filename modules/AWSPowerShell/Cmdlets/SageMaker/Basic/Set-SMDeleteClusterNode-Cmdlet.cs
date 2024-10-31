@@ -22,40 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PrometheusService;
-using Amazon.PrometheusService.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PROM
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// The <c>TagResource</c> operation associates tags with an Amazon Managed Service for
-    /// Prometheus resource. The only resources that can be tagged are rule groups namespaces,
-    /// scrapers, and workspaces.
+    /// Deletes specific nodes within a SageMaker HyperPod cluster. <c>BatchDeleteClusterNodes</c>
+    /// accepts a cluster name and a list of node IDs.
     /// 
-    ///  
-    /// <para>
-    /// If you specify a new tag key for the resource, this tag is appended to the list of
-    /// tags associated with the resource. If you specify a tag key that is already associated
-    /// with the resource, the new tag value that you specify replaces the previous value
-    /// for that tag. To remove a tag, use <c>UntagResource</c>.
-    /// </para>
+    ///  <important><ul><li><para>
+    /// To safeguard your work, back up your data to Amazon S3 or an FSx for Lustre file system
+    /// before invoking the API on a worker node group. This will help prevent any potential
+    /// data loss from the instance root volume. For more information about backup, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software-backup">Use
+    /// the backup script provided by SageMaker HyperPod</a>. 
+    /// </para></li><li><para>
+    /// If you want to invoke this API on an existing cluster, you'll first need to patch
+    /// the cluster by running the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSoftware.html">UpdateClusterSoftware
+    /// API</a>. For more information about patching a cluster, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate-cli-command.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update
+    /// the SageMaker HyperPod platform software of a cluster</a>.
+    /// </para></li></ul></important>
     /// </summary>
-    [Cmdlet("Add", "PROMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Prometheus Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.PrometheusService.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Set", "SMDeleteClusterNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service BatchDeleteClusterNodes API operation.", Operation = new[] {"BatchDeleteClusterNodes"}, SelectReturnType = typeof(Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse object containing multiple properties."
     )]
-    public partial class AddPROMResourceTagCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
+    public partial class SetSMDeleteClusterNodeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to apply tags to.</para>
+        /// <para>The name of the SageMaker HyperPod cluster from which to delete the specified nodes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys and values to associate with the resource.</para><para>Keys must not begin with <c>aws:</c>.</para>
+        /// <para>A list of node IDs to be deleted from the specified cluster.</para><note><para>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
+        /// instances that are configured as Slurm controller nodes.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,14 +86,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("NodeIds")]
+        public System.String[] NodeId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PROMResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SMDeleteClusterNode (BatchDeleteClusterNodes)"))
             {
                 return;
             }
@@ -136,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.TagResourceResponse, AddPROMResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse, SetSMDeleteClusterNodeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,28 +149,24 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ClusterName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ClusterName = this.ClusterName;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.NodeId != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                context.NodeId = new List<System.String>(this.NodeId);
             }
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PrometheusService.Model.TagResourceRequest();
+            var request = new Amazon.SageMaker.Model.BatchDeleteClusterNodesRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ClusterName != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ClusterName = cmdletContext.ClusterName;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.NodeId != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.NodeIds = cmdletContext.NodeId;
             }
             
             CmdletOutput output;
@@ -226,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region AWS Service Operation Call
         
-        private Amazon.PrometheusService.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.TagResourceRequest request)
+        private Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.BatchDeleteClusterNodesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "BatchDeleteClusterNodes");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.BatchDeleteClusterNodes(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.BatchDeleteClusterNodesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,10 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.PrometheusService.Model.TagResourceResponse, AddPROMResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClusterName { get; set; }
+            public List<System.String> NodeId { get; set; }
+            public System.Func<Amazon.SageMaker.Model.BatchDeleteClusterNodesResponse, SetSMDeleteClusterNodeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

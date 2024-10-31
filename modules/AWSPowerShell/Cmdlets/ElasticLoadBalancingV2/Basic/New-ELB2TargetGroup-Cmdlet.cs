@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>Indicates whether health checks are enabled. If the target type is <c>lambda</c>,
         /// health checks are disabled by default but can be enabled. If the target type is <c>instance</c>,
-        /// <c>ip</c>, or <c>alb</c>, health checks are always enabled and cannot be disabled.</para>
+        /// <c>ip</c>, or <c>alb</c>, health checks are always enabled and can't be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address used for this target group. The possible values are <c>ipv4</c>
-        /// and <c>ipv6</c>. This is an optional parameter. If not specified, the IP address type
-        /// defaults to <c>ipv4</c>.</para>
+        /// <para>The IP address type. The default value is <c>ipv4</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

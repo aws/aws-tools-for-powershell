@@ -1,4 +1,27 @@
-﻿### 4.1.689 (2024-10-30 20:44Z)
+﻿### 4.1.690 (2024-10-31 22:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.918.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Start-ASInstanceRefresh: added parameter Preferences_BakeTime.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet New-ELB2LoadBalancer: added parameter EnablePrefixForIpv6SourceNat.
+    * Modified cmdlet Set-ELB2Subnet: added parameter EnablePrefixForIpv6SourceNat.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEColumnStatisticsTaskSetting leveraging the GetColumnStatisticsTaskSettings service API.
+    * Added cmdlet New-GLUEColumnStatisticsTaskSetting leveraging the CreateColumnStatisticsTaskSettings service API.
+    * Added cmdlet Remove-GLUEColumnStatisticsTaskSetting leveraging the DeleteColumnStatisticsTaskSettings service API.
+    * Added cmdlet Start-GLUEColumnStatisticsTaskRunSchedule leveraging the StartColumnStatisticsTaskRunSchedule service API.
+    * Added cmdlet Stop-GLUEColumnStatisticsTaskRunSchedule leveraging the StopColumnStatisticsTaskRunSchedule service API.
+    * Added cmdlet Update-GLUEColumnStatisticsTaskSetting leveraging the UpdateColumnStatisticsTaskSettings service API.
+  * Amazon Prometheus Service
+    * Added cmdlet Update-PROMScraper leveraging the UpdateScraper service API.
+  * Amazon SageMaker Service
+    * Added cmdlet Set-SMDeleteClusterNode leveraging the BatchDeleteClusterNodes service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2DeliverabilityTestReport: added parameters TemplateContent_Html, TemplateContent_Subject and TemplateContent_Text.
+    * Modified cmdlet Send-SES2BulkEmail: added parameters TemplateContent_Html, TemplateContent_Subject and TemplateContent_Text.
+    * Modified cmdlet Send-SES2Email: added parameters TemplateContent_Html, TemplateContent_Subject and TemplateContent_Text.
+
+### 4.1.689 (2024-10-30 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.917.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Added cmdlet Get-ASYNApi leveraging the GetApi service API.

@@ -22,62 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Batch;
-using Amazon.Batch.Model;
+using Amazon.Glue;
+using Amazon.Glue.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAT
+namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Cancels a job in an Batch job queue. Jobs that are in a <c>SUBMITTED</c>, <c>PENDING</c>,
-    /// or <c>RUNNABLE</c> state are cancelled and the job status is updated to <c>FAILED</c>.
-    /// 
-    ///  <note><para>
-    /// A <c>PENDING</c> job is canceled after all dependency jobs are completed. Therefore,
-    /// it may take longer than expected to cancel a job in <c>PENDING</c> status.
-    /// </para><para>
-    /// When you try to cancel an array parent job in <c>PENDING</c>, Batch attempts to cancel
-    /// all child jobs. The array parent job is canceled when all child jobs are completed.
-    /// </para></note><para>
-    /// Jobs that progressed to the <c>STARTING</c> or <c>RUNNING</c> state aren't canceled.
-    /// However, the API operation still succeeds, even if no job is canceled. These jobs
-    /// must be terminated with the <a>TerminateJob</a> operation.
-    /// </para>
+    /// Deletes settings for a column statistics task.
     /// </summary>
-    [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "GLUEColumnStatisticsTaskSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Batch CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.Batch.Model.CancelJobResponse))]
-    [AWSCmdletOutput("None or Amazon.Batch.Model.CancelJobResponse",
+    [AWSCmdlet("Calls the AWS Glue DeleteColumnStatisticsTaskSettings API operation.", Operation = new[] {"DeleteColumnStatisticsTaskSettings"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse))]
+    [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.CancelJobResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class StopBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
+    public partial class RemoveGLUEColumnStatisticsTaskSettingCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter JobId
+        #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The Batch job ID of the job to cancel.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
-        #endregion
-        
-        #region Parameter Reason
-        /// <summary>
-        /// <para>
-        /// <para>A message to attach to the job that explains the reason for canceling it. This message
-        /// is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded
-        /// in the Batch activity logs.</para><para>This parameter has as limit of 1024 characters.</para>
+        /// <para>The name of the database where the table resides.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,27 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Reason { get; set; }
+        public System.String DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the table for which to delete column statistics.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TableName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.CancelJobResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -126,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BATJob (CancelJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TableName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GLUEColumnStatisticsTaskSetting (DeleteColumnStatisticsTaskSettings)"))
             {
                 return;
             }
@@ -137,33 +112,23 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Batch.Model.CancelJobResponse, StopBATJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse, RemoveGLUEColumnStatisticsTaskSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.JobId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.JobId = this.JobId;
+            context.DatabaseName = this.DatabaseName;
             #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Reason = this.Reason;
+            context.TableName = this.TableName;
             #if MODULAR
-            if (this.Reason == null && ParameterWasBound(nameof(this.Reason)))
+            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Reason which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,15 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Batch.Model.CancelJobRequest();
+            var request = new Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.DatabaseName != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.DatabaseName = cmdletContext.DatabaseName;
             }
-            if (cmdletContext.Reason != null)
+            if (cmdletContext.TableName != null)
             {
-                request.Reason = cmdletContext.Reason;
+                request.TableName = cmdletContext.TableName;
             }
             
             CmdletOutput output;
@@ -223,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Batch.Model.CancelJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CancelJobRequest request)
+        private Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "CancelJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DeleteColumnStatisticsTaskSettings");
             try
             {
                 #if DESKTOP
-                return client.CancelJob(request);
+                return client.DeleteColumnStatisticsTaskSettings(request);
                 #elif CORECLR
-                return client.CancelJobAsync(request).GetAwaiter().GetResult();
+                return client.DeleteColumnStatisticsTaskSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
-            public System.String Reason { get; set; }
-            public System.Func<Amazon.Batch.Model.CancelJobResponse, StopBATJobCmdlet, object> Select { get; set; } =
+            public System.String DatabaseName { get; set; }
+            public System.String TableName { get; set; }
+            public System.Func<Amazon.Glue.Model.DeleteColumnStatisticsTaskSettingsResponse, RemoveGLUEColumnStatisticsTaskSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

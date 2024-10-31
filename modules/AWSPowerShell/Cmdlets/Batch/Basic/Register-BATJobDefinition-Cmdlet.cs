@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_Container
         /// <summary>
         /// <para>
-        /// <para>The properties of the container that's used on the Amazon EKS pod.</para>
+        /// <para>The properties of the container that's used on the Amazon EKS pod.</para><note><para>This object is limited to 10 elements.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// must complete successfully before the next container starts. These containers are
         /// registered with the Amazon EKS Connector agent and persists the registration information
         /// in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
-        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><note><para>This object is limited to 10 elements</para></note>
+        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><note><para>This object is limited to 10 elements.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -709,7 +709,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter EcsProperties_TaskProperty
         /// <summary>
         /// <para>
-        /// <para>An object that contains the properties for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one element.</para></note>
+        /// <para>An object that contains the properties for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one task element. However, the task element can
+        /// run up to 10 containers.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

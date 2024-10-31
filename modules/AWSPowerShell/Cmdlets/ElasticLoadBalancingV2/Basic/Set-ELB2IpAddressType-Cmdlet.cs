@@ -45,15 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>Note: Internal load balancers must use the <c>ipv4</c> IP address type.</para><para>[Application Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses), <c>dualstack</c> (for IPv4 and IPv6 addresses), and <c>dualstack-without-public-ipv4</c>
-        /// (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</para><para>Note: Application Load Balancer authentication only supports IPv4 addresses when connecting
+        /// <para>The IP address type. Internal load balancers must use <c>ipv4</c>.</para><para>[Application Load Balancers] The possible values are <c>ipv4</c> (IPv4 addresses),
+        /// <c>dualstack</c> (IPv4 and IPv6 addresses), and <c>dualstack-without-public-ipv4</c>
+        /// (public IPv6 addresses and private IPv4 and IPv6 addresses).</para><para>Application Load Balancer authentication supports IPv4 addresses only when connecting
         /// to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address
-        /// the load balancer cannot complete the authentication process, resulting in HTTP 500
-        /// errors.</para><para>[Network Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses). You
-        /// can’t specify <c>dualstack</c> for a load balancer with a UDP or TCP_UDP listener.</para><para>[Gateway Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses).</para>
+        /// the load balancer can't complete the authentication process, resulting in HTTP 500
+        /// errors.</para><para>[Network Load Balancers and Gateway Load Balancers] The possible values are <c>ipv4</c>
+        /// (IPv4 addresses) and <c>dualstack</c> (IPv4 and IPv6 addresses).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

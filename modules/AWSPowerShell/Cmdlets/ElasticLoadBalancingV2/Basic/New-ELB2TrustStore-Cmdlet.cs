@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the trust store.</para><para>This name must be unique per region and cannot be changed after creation.</para>
+        /// <para>The name of the trust store.</para><para>This name must be unique per region and can't be changed after creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

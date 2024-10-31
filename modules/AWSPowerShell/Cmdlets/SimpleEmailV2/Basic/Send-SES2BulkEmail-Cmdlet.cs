@@ -147,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public Amazon.SimpleEmailV2.Model.MessageHeader[] Template_Header { get; set; }
         #endregion
         
+        #region Parameter TemplateContent_Html
+        /// <summary>
+        /// <para>
+        /// <para>The HTML body of the email.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateContent_Html")]
+        public System.String TemplateContent_Html { get; set; }
+        #endregion
+        
         #region Parameter ReplyToAddress
         /// <summary>
         /// <para>
@@ -157,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReplyToAddresses")]
         public System.String[] ReplyToAddress { get; set; }
+        #endregion
+        
+        #region Parameter TemplateContent_Subject
+        /// <summary>
+        /// <para>
+        /// <para>The subject line of the email.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateContent_Subject")]
+        public System.String TemplateContent_Subject { get; set; }
         #endregion
         
         #region Parameter Template_TemplateArn
@@ -193,6 +215,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultContent_Template_TemplateName")]
         public System.String Template_TemplateName { get; set; }
+        #endregion
+        
+        #region Parameter TemplateContent_Text
+        /// <summary>
+        /// <para>
+        /// <para>The email body that will be visible to recipients whose email clients do not display
+        /// HTML.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateContent_Text")]
+        public System.String TemplateContent_Text { get; set; }
         #endregion
         
         #region Parameter Select
@@ -253,6 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Template_Header = new List<Amazon.SimpleEmailV2.Model.MessageHeader>(this.Template_Header);
             }
             context.Template_TemplateArn = this.Template_TemplateArn;
+            context.TemplateContent_Html = this.TemplateContent_Html;
+            context.TemplateContent_Subject = this.TemplateContent_Subject;
+            context.TemplateContent_Text = this.TemplateContent_Text;
             context.Template_TemplateData = this.Template_TemplateData;
             context.Template_TemplateName = this.Template_TemplateName;
             if (this.DefaultEmailTag != null)
@@ -338,6 +375,51 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestDefaultContent_defaultContent_Template_template_TemplateName != null)
             {
                 requestDefaultContent_defaultContent_Template.TemplateName = requestDefaultContent_defaultContent_Template_template_TemplateName;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.EmailTemplateContent requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent = null;
+            
+             // populate TemplateContent
+            var requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContentIsNull = true;
+            requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent = new Amazon.SimpleEmailV2.Model.EmailTemplateContent();
+            System.String requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Html = null;
+            if (cmdletContext.TemplateContent_Html != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Html = cmdletContext.TemplateContent_Html;
+            }
+            if (requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Html != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent.Html = requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Html;
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContentIsNull = false;
+            }
+            System.String requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Subject = null;
+            if (cmdletContext.TemplateContent_Subject != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Subject = cmdletContext.TemplateContent_Subject;
+            }
+            if (requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Subject != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent.Subject = requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Subject;
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContentIsNull = false;
+            }
+            System.String requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Text = null;
+            if (cmdletContext.TemplateContent_Text != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Text = cmdletContext.TemplateContent_Text;
+            }
+            if (requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Text != null)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent.Text = requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent_templateContent_Text;
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContentIsNull = false;
+            }
+             // determine if requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent should be set to null
+            if (requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContentIsNull)
+            {
+                requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent = null;
+            }
+            if (requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent != null)
+            {
+                requestDefaultContent_defaultContent_Template.TemplateContent = requestDefaultContent_defaultContent_Template_defaultContent_Template_TemplateContent;
                 requestDefaultContent_defaultContent_TemplateIsNull = false;
             }
              // determine if requestDefaultContent_defaultContent_Template should be set to null
@@ -444,6 +526,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String ConfigurationSetName { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageHeader> Template_Header { get; set; }
             public System.String Template_TemplateArn { get; set; }
+            public System.String TemplateContent_Html { get; set; }
+            public System.String TemplateContent_Subject { get; set; }
+            public System.String TemplateContent_Text { get; set; }
             public System.String Template_TemplateData { get; set; }
             public System.String Template_TemplateName { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageTag> DefaultEmailTag { get; set; }

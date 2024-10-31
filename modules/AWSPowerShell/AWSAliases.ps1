@@ -1503,6 +1503,7 @@ Set-Alias -Name PROM-PutRuleGroupsNamespace -Value Write-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-TagResource -Value Add-PROMResourceTag
 Set-Alias -Name PROM-UntagResource -Value Remove-PROMResourceTag
 Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfiguration
+Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name Cancel-AZSZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name AZS-CancelZonalShift -Value Stop-AZSZonalShift
@@ -13234,6 +13235,9 @@ Set-Alias -Name Create-GLUEBlueprint -Value New-GLUEBlueprint
 Set-Alias -Name GLUE-CreateBlueprint -Value New-GLUEBlueprint
 Set-Alias -Name Create-GLUEClassifier -Value New-GLUEClassifier
 Set-Alias -Name GLUE-CreateClassifier -Value New-GLUEClassifier
+Set-Alias -Name Create-GLUEColumnStatisticsTaskSettings -Value New-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name Create-GLUEColumnStatisticsTaskSetting -Value New-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name GLUE-CreateColumnStatisticsTaskSettings -Value New-GLUEColumnStatisticsTaskSetting
 Set-Alias -Name Create-GLUEConnection -Value New-GLUEConnection
 Set-Alias -Name GLUE-CreateConnection -Value New-GLUEConnection
 Set-Alias -Name Create-GLUECrawler -Value New-GLUECrawler
@@ -13284,6 +13288,9 @@ Set-Alias -Name Delete-GLUEColumnStatisticsForPartition -Value Remove-GLUEColumn
 Set-Alias -Name GLUE-DeleteColumnStatisticsForPartition -Value Remove-GLUEColumnStatisticsForPartition
 Set-Alias -Name Delete-GLUEColumnStatisticsForTable -Value Remove-GLUEColumnStatisticsForTable
 Set-Alias -Name GLUE-DeleteColumnStatisticsForTable -Value Remove-GLUEColumnStatisticsForTable
+Set-Alias -Name Delete-GLUEColumnStatisticsTaskSettings -Value Remove-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name Delete-GLUEColumnStatisticsTaskSetting -Value Remove-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name GLUE-DeleteColumnStatisticsTaskSettings -Value Remove-GLUEColumnStatisticsTaskSetting
 Set-Alias -Name Delete-GLUEConnection -Value Remove-GLUEConnection
 Set-Alias -Name GLUE-DeleteConnection -Value Remove-GLUEConnection
 Set-Alias -Name Delete-GLUECrawler -Value Remove-GLUECrawler
@@ -13344,6 +13351,8 @@ Set-Alias -Name GLUE-GetColumnStatisticsForTable -Value Get-GLUEColumnStatistics
 Set-Alias -Name GLUE-GetColumnStatisticsTaskRun -Value Get-GLUEColumnStatisticsTaskRun
 Set-Alias -Name Get-GLUEColumnStatisticsTaskRuns -Value Get-GLUEColumnStatisticsTaskList
 Set-Alias -Name GLUE-GetColumnStatisticsTaskRuns -Value Get-GLUEColumnStatisticsTaskList
+Set-Alias -Name Get-GLUEColumnStatisticsTaskSettings -Value Get-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name GLUE-GetColumnStatisticsTaskSettings -Value Get-GLUEColumnStatisticsTaskSetting
 Set-Alias -Name GLUE-GetConnection -Value Get-GLUEConnection
 Set-Alias -Name Get-GLUEConnections -Value Get-GLUEConnectionList
 Set-Alias -Name GLUE-GetConnections -Value Get-GLUEConnectionList
@@ -13522,6 +13531,7 @@ Set-Alias -Name Search-GLUETable -Value Find-GLUETable
 Set-Alias -Name GLUE-SearchTables -Value Find-GLUETable
 Set-Alias -Name GLUE-StartBlueprintRun -Value Start-GLUEBlueprintRun
 Set-Alias -Name GLUE-StartColumnStatisticsTaskRun -Value Start-GLUEColumnStatisticsTaskRun
+Set-Alias -Name GLUE-StartColumnStatisticsTaskRunSchedule -Value Start-GLUEColumnStatisticsTaskRunSchedule
 Set-Alias -Name GLUE-StartCrawler -Value Start-GLUECrawler
 Set-Alias -Name GLUE-StartCrawlerSchedule -Value Start-GLUECrawlerSchedule
 Set-Alias -Name GLUE-StartDataQualityRuleRecommendationRun -Value Start-GLUEDataQualityRuleRecommendationRun
@@ -13534,6 +13544,7 @@ Set-Alias -Name GLUE-StartMLLabelingSetGenerationTaskRun -Value Start-GLUEMLLabe
 Set-Alias -Name GLUE-StartTrigger -Value Start-GLUETrigger
 Set-Alias -Name GLUE-StartWorkflowRun -Value Start-GLUEWorkflowRun
 Set-Alias -Name GLUE-StopColumnStatisticsTaskRun -Value Stop-GLUEColumnStatisticsTaskRun
+Set-Alias -Name GLUE-StopColumnStatisticsTaskRunSchedule -Value Stop-GLUEColumnStatisticsTaskRunSchedule
 Set-Alias -Name GLUE-StopCrawler -Value Stop-GLUECrawler
 Set-Alias -Name GLUE-StopCrawlerSchedule -Value Stop-GLUECrawlerSchedule
 Set-Alias -Name GLUE-StopSession -Value Stop-GLUESession
@@ -13546,6 +13557,8 @@ Set-Alias -Name GLUE-UpdateBlueprint -Value Update-GLUEBlueprint
 Set-Alias -Name GLUE-UpdateClassifier -Value Update-GLUEClassifier
 Set-Alias -Name GLUE-UpdateColumnStatisticsForPartition -Value Update-GLUEColumnStatisticsForPartition
 Set-Alias -Name GLUE-UpdateColumnStatisticsForTable -Value Update-GLUEColumnStatisticsForTable
+Set-Alias -Name Update-GLUEColumnStatisticsTaskSettings -Value Update-GLUEColumnStatisticsTaskSetting
+Set-Alias -Name GLUE-UpdateColumnStatisticsTaskSettings -Value Update-GLUEColumnStatisticsTaskSetting
 Set-Alias -Name GLUE-UpdateConnection -Value Update-GLUEConnection
 Set-Alias -Name GLUE-UpdateCrawler -Value Update-GLUECrawler
 Set-Alias -Name GLUE-UpdateCrawlerSchedule -Value Update-GLUECrawlerSchedule
@@ -25327,6 +25340,9 @@ Set-Alias -Name Add-SMTags -Value Add-SMResourceTag
 Set-Alias -Name SM-AddTags -Value Add-SMResourceTag
 Set-Alias -Name Associate-SMTrialComponent -Value Register-SMTrialComponent
 Set-Alias -Name SM-AssociateTrialComponent -Value Register-SMTrialComponent
+Set-Alias -Name Batch-SMDeleteClusterNodes -Value Set-SMDeleteClusterNode
+Set-Alias -Name Batch-SMDeleteClusterNode -Value Set-SMDeleteClusterNode
+Set-Alias -Name SM-BatchDeleteClusterNodes -Value Set-SMDeleteClusterNode
 Set-Alias -Name Batch-SMDescribeModelPackage -Value Get-SMDescribeModelPackage
 Set-Alias -Name SM-BatchDescribeModelPackage -Value Get-SMDescribeModelPackage
 Set-Alias -Name Create-SMAction -Value New-SMAction

@@ -28,35 +28,21 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// The <c>CreateScraper</c> operation creates a scraper to collect metrics. A scraper
-    /// pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster, and
-    /// sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are flexible,
-    /// and can be configured to control what metrics are collected, the frequency of collection,
-    /// what transformations are applied to the metrics, and more.
+    /// Updates an existing scraper.
     /// 
     ///  
     /// <para>
-    /// An IAM role will be created for you that Amazon Managed Service for Prometheus uses
-    /// to access the metrics in your cluster. You must configure this role with a policy
-    /// that allows it to scrape metrics from your cluster. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring
-    /// your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.
-    /// </para><para>
-    /// The <c>scrapeConfiguration</c> parameter contains the base-64 encoded YAML configuration
-    /// for the scraper.
-    /// </para><note><para>
-    /// For more information about collectors, including what metrics are collected, and how
-    /// to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using
-    /// an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for
-    /// Prometheus User Guide</i>.
-    /// </para></note>
+    /// You can't use this function to update the source from which the scraper is collecting
+    /// metrics. To change the source, delete the scraper and create a new one.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "PROMScraper", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.PrometheusService.Model.CreateScraperResponse")]
-    [AWSCmdlet("Calls the Amazon Prometheus Service CreateScraper API operation.", Operation = new[] {"CreateScraper"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateScraperResponse))]
-    [AWSCmdletOutput("Amazon.PrometheusService.Model.CreateScraperResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.CreateScraperResponse object containing multiple properties."
+    [Cmdlet("Update", "PROMScraper", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PrometheusService.Model.UpdateScraperResponse")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service UpdateScraper API operation.", Operation = new[] {"UpdateScraper"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.UpdateScraperResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.UpdateScraperResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.UpdateScraperResponse object containing multiple properties."
     )]
-    public partial class NewPROMScraperCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
+    public partial class UpdatePROMScraperCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -64,23 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>(optional) An alias to associate with the scraper. This is for your use, and does
-        /// not need to be unique.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Alias { get; set; }
-        #endregion
-        
-        #region Parameter EksConfiguration_ClusterArn
-        /// <summary>
-        /// <para>
-        /// <para>ARN of the Amazon EKS cluster.</para>
+        /// <para>The new alias of the scraper.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Source_EksConfiguration_ClusterArn")]
-        public System.String EksConfiguration_ClusterArn { get; set; }
+        public System.String Alias { get; set; }
         #endregion
         
         #region Parameter ScrapeConfiguration_ConfigurationBlob
@@ -95,37 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }
         #endregion
         
-        #region Parameter EksConfiguration_SecurityGroupId
+        #region Parameter ScraperId
         /// <summary>
         /// <para>
-        /// <para>A list of the security group IDs for the Amazon EKS cluster VPC configuration.</para>
+        /// <para>The ID of the scraper to update.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Source_EksConfiguration_SecurityGroupIds")]
-        public System.String[] EksConfiguration_SecurityGroupId { get; set; }
-        #endregion
-        
-        #region Parameter EksConfiguration_SubnetId
-        /// <summary>
-        /// <para>
-        /// <para>A list of subnet IDs for the Amazon EKS cluster VPC configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Source_EksConfiguration_SubnetIds")]
-        public System.String[] EksConfiguration_SubnetId { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) The list of tag keys and values to associate with the scraper.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ScraperId { get; set; }
         #endregion
         
         #region Parameter AmpConfiguration_WorkspaceArn
@@ -142,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) A unique, case-sensitive identifier that you can provide to ensure the
-        /// idempotency of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.CreateScraperResponse).
-        /// Specifying the name of a property of type Amazon.PrometheusService.Model.CreateScraperResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.UpdateScraperResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.UpdateScraperResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Alias parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ScraperId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Alias' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -186,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROMScraper (CreateScraper)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScraperId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PROMScraper (UpdateScraper)"))
             {
                 return;
             }
@@ -200,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.CreateScraperResponse, NewPROMScraperCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.UpdateScraperResponse, UpdatePROMScraperCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -209,30 +167,20 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Alias;
+                context.Select = (response, cmdlet) => this.ScraperId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Alias = this.Alias;
             context.ClientToken = this.ClientToken;
             context.AmpConfiguration_WorkspaceArn = this.AmpConfiguration_WorkspaceArn;
             context.ScrapeConfiguration_ConfigurationBlob = this.ScrapeConfiguration_ConfigurationBlob;
-            context.EksConfiguration_ClusterArn = this.EksConfiguration_ClusterArn;
-            if (this.EksConfiguration_SecurityGroupId != null)
+            context.ScraperId = this.ScraperId;
+            #if MODULAR
+            if (this.ScraperId == null && ParameterWasBound(nameof(this.ScraperId)))
             {
-                context.EksConfiguration_SecurityGroupId = new List<System.String>(this.EksConfiguration_SecurityGroupId);
+                WriteWarning("You are passing $null as a value for parameter ScraperId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            if (this.EksConfiguration_SubnetId != null)
-            {
-                context.EksConfiguration_SubnetId = new List<System.String>(this.EksConfiguration_SubnetId);
-            }
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -251,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
-                var request = new Amazon.PrometheusService.Model.CreateScraperRequest();
+                var request = new Amazon.PrometheusService.Model.UpdateScraperRequest();
                 
                 if (cmdletContext.Alias != null)
                 {
@@ -315,63 +263,9 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 {
                     request.ScrapeConfiguration = null;
                 }
-                
-                 // populate Source
-                var requestSourceIsNull = true;
-                request.Source = new Amazon.PrometheusService.Model.Source();
-                Amazon.PrometheusService.Model.EksConfiguration requestSource_source_EksConfiguration = null;
-                
-                 // populate EksConfiguration
-                var requestSource_source_EksConfigurationIsNull = true;
-                requestSource_source_EksConfiguration = new Amazon.PrometheusService.Model.EksConfiguration();
-                System.String requestSource_source_EksConfiguration_eksConfiguration_ClusterArn = null;
-                if (cmdletContext.EksConfiguration_ClusterArn != null)
+                if (cmdletContext.ScraperId != null)
                 {
-                    requestSource_source_EksConfiguration_eksConfiguration_ClusterArn = cmdletContext.EksConfiguration_ClusterArn;
-                }
-                if (requestSource_source_EksConfiguration_eksConfiguration_ClusterArn != null)
-                {
-                    requestSource_source_EksConfiguration.ClusterArn = requestSource_source_EksConfiguration_eksConfiguration_ClusterArn;
-                    requestSource_source_EksConfigurationIsNull = false;
-                }
-                List<System.String> requestSource_source_EksConfiguration_eksConfiguration_SecurityGroupId = null;
-                if (cmdletContext.EksConfiguration_SecurityGroupId != null)
-                {
-                    requestSource_source_EksConfiguration_eksConfiguration_SecurityGroupId = cmdletContext.EksConfiguration_SecurityGroupId;
-                }
-                if (requestSource_source_EksConfiguration_eksConfiguration_SecurityGroupId != null)
-                {
-                    requestSource_source_EksConfiguration.SecurityGroupIds = requestSource_source_EksConfiguration_eksConfiguration_SecurityGroupId;
-                    requestSource_source_EksConfigurationIsNull = false;
-                }
-                List<System.String> requestSource_source_EksConfiguration_eksConfiguration_SubnetId = null;
-                if (cmdletContext.EksConfiguration_SubnetId != null)
-                {
-                    requestSource_source_EksConfiguration_eksConfiguration_SubnetId = cmdletContext.EksConfiguration_SubnetId;
-                }
-                if (requestSource_source_EksConfiguration_eksConfiguration_SubnetId != null)
-                {
-                    requestSource_source_EksConfiguration.SubnetIds = requestSource_source_EksConfiguration_eksConfiguration_SubnetId;
-                    requestSource_source_EksConfigurationIsNull = false;
-                }
-                 // determine if requestSource_source_EksConfiguration should be set to null
-                if (requestSource_source_EksConfigurationIsNull)
-                {
-                    requestSource_source_EksConfiguration = null;
-                }
-                if (requestSource_source_EksConfiguration != null)
-                {
-                    request.Source.EksConfiguration = requestSource_source_EksConfiguration;
-                    requestSourceIsNull = false;
-                }
-                 // determine if request.Source should be set to null
-                if (requestSourceIsNull)
-                {
-                    request.Source = null;
-                }
-                if (cmdletContext.Tag != null)
-                {
-                    request.Tags = cmdletContext.Tag;
+                    request.ScraperId = cmdletContext.ScraperId;
                 }
                 
                 CmdletOutput output;
@@ -414,15 +308,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region AWS Service Operation Call
         
-        private Amazon.PrometheusService.Model.CreateScraperResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.CreateScraperRequest request)
+        private Amazon.PrometheusService.Model.UpdateScraperResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.UpdateScraperRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "CreateScraper");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "UpdateScraper");
             try
             {
                 #if DESKTOP
-                return client.CreateScraper(request);
+                return client.UpdateScraper(request);
                 #elif CORECLR
-                return client.CreateScraperAsync(request).GetAwaiter().GetResult();
+                return client.UpdateScraperAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -446,11 +340,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             public System.String ClientToken { get; set; }
             public System.String AmpConfiguration_WorkspaceArn { get; set; }
             public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }
-            public System.String EksConfiguration_ClusterArn { get; set; }
-            public List<System.String> EksConfiguration_SecurityGroupId { get; set; }
-            public List<System.String> EksConfiguration_SubnetId { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.PrometheusService.Model.CreateScraperResponse, NewPROMScraperCmdlet, object> Select { get; set; } =
+            public System.String ScraperId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.UpdateScraperResponse, UpdatePROMScraperCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

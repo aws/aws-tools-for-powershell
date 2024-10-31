@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
+        #region Parameter Preferences_BakeTime
+        /// <summary>
+        /// <para>
+        /// <para> The amount of time, in seconds, to wait at the end of an instance refresh before
+        /// the instance refresh is considered complete. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Preferences_BakeTime { get; set; }
+        #endregion
+        
         #region Parameter Preferences_CheckpointDelay
         /// <summary>
         /// <para>
@@ -380,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.AlarmSpecification_Alarm = new List<System.String>(this.AlarmSpecification_Alarm);
             }
             context.Preferences_AutoRollback = this.Preferences_AutoRollback;
+            context.Preferences_BakeTime = this.Preferences_BakeTime;
             context.Preferences_CheckpointDelay = this.Preferences_CheckpointDelay;
             if (this.Preferences_CheckpointPercentage != null)
             {
@@ -488,6 +500,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestPreferences_preferences_AutoRollback != null)
             {
                 request.Preferences.AutoRollback = requestPreferences_preferences_AutoRollback.Value;
+                requestPreferencesIsNull = false;
+            }
+            System.Int32? requestPreferences_preferences_BakeTime = null;
+            if (cmdletContext.Preferences_BakeTime != null)
+            {
+                requestPreferences_preferences_BakeTime = cmdletContext.Preferences_BakeTime.Value;
+            }
+            if (requestPreferences_preferences_BakeTime != null)
+            {
+                request.Preferences.BakeTime = requestPreferences_preferences_BakeTime.Value;
                 requestPreferencesIsNull = false;
             }
             System.Int32? requestPreferences_preferences_CheckpointDelay = null;
@@ -672,6 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
             public List<System.String> AlarmSpecification_Alarm { get; set; }
             public System.Boolean? Preferences_AutoRollback { get; set; }
+            public System.Int32? Preferences_BakeTime { get; set; }
             public System.Int32? Preferences_CheckpointDelay { get; set; }
             public List<System.Int32> Preferences_CheckpointPercentage { get; set; }
             public System.Int32? Preferences_InstanceWarmup { get; set; }
