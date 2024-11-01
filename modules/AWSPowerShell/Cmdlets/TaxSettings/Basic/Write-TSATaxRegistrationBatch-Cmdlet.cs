@@ -56,22 +56,29 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// certificate document in the <c>taxRegistrationDocuments</c> field of the <c>VerificationDetails</c>
     /// object.
     /// </para></li></ul><para><b>Malaysia</b></para><ul><li><para>
-    /// If you use this operation to set a tax registration number (TRN) in Malaysia, only
-    /// resellers with a valid sales and service tax (SST) number are required to provide
-    /// tax registration information.
+    /// The sector valid values are <c>Business</c> and <c>Individual</c>.
+    /// </para></li><li><para><c>RegistrationType</c> valid values are <c>NRIC</c> for individual, and TIN and
+    /// sales and service tax (SST) for Business.
     /// </para></li><li><para>
-    /// By using this API operation to set a TRN in Malaysia, Amazon Web Services will regard
-    /// you as self-declaring that you're an authorized business reseller registered with
-    /// the Royal Malaysia Customs Department (RMCD) and have a valid SST number.
+    /// For individual, you can specify the <c>taxInformationNumber</c> in <c>MalaysiaAdditionalInfo</c>
+    /// with NRIC type, and a valid <c>MyKad</c> or NRIC number.
+    /// </para></li><li><para>
+    /// For business, you must specify a <c>businessRegistrationNumber</c> in <c>MalaysiaAdditionalInfo</c>
+    /// with a TIN type and tax identification number.
+    /// </para></li><li><para>
+    /// For business resellers, you must specify a <c>businessRegistrationNumber</c> and <c>taxInformationNumber</c>
+    /// in <c>MalaysiaAdditionalInfo</c> with a sales and service tax (SST) type and a valid
+    /// SST number.
+    /// </para></li><li><para>
+    /// For business resellers with service codes, you must specify <c>businessRegistrationNumber</c>,
+    /// <c>taxInformationNumber</c>, and distinct <c>serviceTaxCodes</c> in <c>MalaysiaAdditionalInfo</c>
+    /// with a SST type and valid sales and service tax (SST) number. By using this API operation,
+    /// Amazon Web Services registers your self-declaration that you’re an authorized business
+    /// reseller registered with the Royal Malaysia Customs Department (RMCD), and have a
+    /// valid SST number.
     /// </para></li><li><para>
     /// Amazon Web Services reserves the right to seek additional information and/or take
     /// other actions to support your self-declaration as appropriate.
-    /// </para></li><li><para>
-    /// If you're not a reseller of Amazon Web Services, we don't recommend that you use this
-    /// operation to set the TRN in Malaysia.
-    /// </para></li><li><para>
-    /// Only use this API operation to upload the TRNs for accounts through which you're reselling
-    /// Amazon Web Services.
     /// </para></li><li><para>
     /// Amazon Web Services is currently registered under the following service tax codes.
     /// You must include at least one of the service tax codes in the service tax code strings
@@ -198,6 +205,27 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public System.String LegalAddress_AddressLine3 { get; set; }
         #endregion
         
+        #region Parameter MalaysiaAdditionalInfo_BusinessRegistrationNumber
+        /// <summary>
+        /// <para>
+        /// <para>The tax registration number (TRN) in Malaysia. </para><para>For individual, you can specify the <c>taxInformationNumber</c> in <c>MalaysiaAdditionalInfo</c>
+        /// with NRIC type, and a valid MyKad or NRIC number. For business, you must specify a
+        /// <c>businessRegistrationNumber</c> in <c>MalaysiaAdditionalInfo</c> with a TIN type
+        /// and tax identification number. For business resellers, you must specify a <c>businessRegistrationNumber</c>
+        /// and <c>taxInformationNumber</c> in <c>MalaysiaAdditionalInfo</c> with a sales and
+        /// service tax (SST) type and a valid SST number. </para><para>For business resellers with service codes, you must specify <c>businessRegistrationNumber</c>,
+        /// <c>taxInformationNumber</c>, and distinct <c>serviceTaxCodes</c> in <c>MalaysiaAdditionalInfo</c>
+        /// with a SST type and valid sales and service tax (SST) number. By using this API operation,
+        /// Amazon Web Services registers your self-declaration that you’re an authorized business
+        /// reseller registered with the Royal Malaysia Customs Department (RMCD), and have a
+        /// valid SST number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_BusinessRegistrationNumber")]
+        public System.String MalaysiaAdditionalInfo_BusinessRegistrationNumber { get; set; }
+        #endregion
+        
         #region Parameter SouthKoreaAdditionalInfo_BusinessRepresentativeName
         /// <summary>
         /// <para>
@@ -224,10 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter CanadaAdditionalInfo_CanadaRetailSalesTaxNumber
         /// <summary>
         /// <para>
-        /// <para> Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services for
-        /// resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba. Leave
-        /// this blank if you do not have a Retail Sales Tax ID number in Manitoba or are not
-        /// purchasing Amazon Web Services for resale. </para>
+        /// <para> Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services services
+        /// for resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba.
+        /// Leave this blank if you do not have a Retail Sales Tax ID number in Manitoba or are
+        /// not purchasing Amazon Web Services services for resale. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -602,7 +630,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter LegalAddress_StateOrRegion
         /// <summary>
         /// <para>
-        /// <para>The state, region, or province that the address is located.</para><para>If this is required for tax settings, use the same name as shown on the <b>Tax Settings</b>
+        /// <para>The state, region, or province that the address is located. This field is only required
+        /// for Canada, India, United Arab Emirates, Romania, and Brazil (CPF). It is optional
+        /// for all other countries.</para><para>If this is required for tax settings, use the same name as shown on the <b>Tax Settings</b>
         /// page.</para>
         /// </para>
         /// </summary>
@@ -621,6 +651,25 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaxRegistrationEntry_AdditionalTaxInformation_ItalyAdditionalInfo_TaxCode")]
         public System.String ItalyAdditionalInfo_TaxCode { get; set; }
+        #endregion
+        
+        #region Parameter MalaysiaAdditionalInfo_TaxInformationNumber
+        /// <summary>
+        /// <para>
+        /// <para>The tax information number in Malaysia. </para><para>For individual, you can specify the <c>taxInformationNumber</c> in <c>MalaysiaAdditionalInfo</c>
+        /// with NRIC type, and a valid MyKad or NRIC number. For business resellers, you must
+        /// specify a <c>businessRegistrationNumber</c> and <c>taxInformationNumber</c> in <c>MalaysiaAdditionalInfo</c>
+        /// with a sales and service tax (SST) type and a valid SST number. </para><para>For business resellers with service codes, you must specify <c>businessRegistrationNumber</c>,
+        /// <c>taxInformationNumber</c>, and distinct <c>serviceTaxCodes</c> in <c>MalaysiaAdditionalInfo</c>
+        /// with a SST type and valid sales and service tax (SST) number. By using this API operation,
+        /// Amazon Web Services registers your self-declaration that you’re an authorized business
+        /// reseller registered with the Royal Malaysia Customs Department (RMCD), and have a
+        /// valid SST number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_TaxInformationNumber")]
+        public System.String MalaysiaAdditionalInfo_TaxInformationNumber { get; set; }
         #endregion
         
         #region Parameter TurkeyAdditionalInfo_TaxOffice
@@ -771,10 +820,12 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.ItalyAdditionalInfo_SdiAccountId = this.ItalyAdditionalInfo_SdiAccountId;
             context.ItalyAdditionalInfo_TaxCode = this.ItalyAdditionalInfo_TaxCode;
             context.KenyaAdditionalInfo_PersonType = this.KenyaAdditionalInfo_PersonType;
+            context.MalaysiaAdditionalInfo_BusinessRegistrationNumber = this.MalaysiaAdditionalInfo_BusinessRegistrationNumber;
             if (this.MalaysiaAdditionalInfo_ServiceTaxCode != null)
             {
                 context.MalaysiaAdditionalInfo_ServiceTaxCode = new List<System.String>(this.MalaysiaAdditionalInfo_ServiceTaxCode);
             }
+            context.MalaysiaAdditionalInfo_TaxInformationNumber = this.MalaysiaAdditionalInfo_TaxInformationNumber;
             context.PolandAdditionalInfo_IndividualRegistrationNumber = this.PolandAdditionalInfo_IndividualRegistrationNumber;
             context.PolandAdditionalInfo_IsGroupVatEnabled = this.PolandAdditionalInfo_IsGroupVatEnabled;
             context.RomaniaAdditionalInfo_TaxRegistrationNumberType = this.RomaniaAdditionalInfo_TaxRegistrationNumberType;
@@ -1102,31 +1153,6 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.KenyaAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_KenyaAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
-            Amazon.TaxSettings.Model.MalaysiaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
-            
-             // populate MalaysiaAdditionalInfo
-            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = true;
-            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = new Amazon.TaxSettings.Model.MalaysiaAdditionalInfo();
-            List<System.String> requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode = null;
-            if (cmdletContext.MalaysiaAdditionalInfo_ServiceTaxCode != null)
-            {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode = cmdletContext.MalaysiaAdditionalInfo_ServiceTaxCode;
-            }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode != null)
-            {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo.ServiceTaxCodes = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = false;
-            }
-             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo should be set to null
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull)
-            {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
-            }
-            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo != null)
-            {
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.MalaysiaAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo;
-                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
-            }
             Amazon.TaxSettings.Model.RomaniaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_RomaniaAdditionalInfo = null;
             
              // populate RomaniaAdditionalInfo
@@ -1295,6 +1321,51 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo != null)
             {
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.PolandAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
+            Amazon.TaxSettings.Model.MalaysiaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
+            
+             // populate MalaysiaAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = new Amazon.TaxSettings.Model.MalaysiaAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_BusinessRegistrationNumber = null;
+            if (cmdletContext.MalaysiaAdditionalInfo_BusinessRegistrationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_BusinessRegistrationNumber = cmdletContext.MalaysiaAdditionalInfo_BusinessRegistrationNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_BusinessRegistrationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo.BusinessRegistrationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_BusinessRegistrationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = false;
+            }
+            List<System.String> requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode = null;
+            if (cmdletContext.MalaysiaAdditionalInfo_ServiceTaxCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode = cmdletContext.MalaysiaAdditionalInfo_ServiceTaxCode;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo.ServiceTaxCodes = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_ServiceTaxCode;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_TaxInformationNumber = null;
+            if (cmdletContext.MalaysiaAdditionalInfo_TaxInformationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_TaxInformationNumber = cmdletContext.MalaysiaAdditionalInfo_TaxInformationNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_TaxInformationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo.TaxInformationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo_malaysiaAdditionalInfo_TaxInformationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.MalaysiaAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
             Amazon.TaxSettings.Model.SouthKoreaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_SouthKoreaAdditionalInfo = null;
@@ -1597,7 +1668,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String ItalyAdditionalInfo_SdiAccountId { get; set; }
             public System.String ItalyAdditionalInfo_TaxCode { get; set; }
             public Amazon.TaxSettings.PersonType KenyaAdditionalInfo_PersonType { get; set; }
+            public System.String MalaysiaAdditionalInfo_BusinessRegistrationNumber { get; set; }
             public List<System.String> MalaysiaAdditionalInfo_ServiceTaxCode { get; set; }
+            public System.String MalaysiaAdditionalInfo_TaxInformationNumber { get; set; }
             public System.String PolandAdditionalInfo_IndividualRegistrationNumber { get; set; }
             public System.Boolean? PolandAdditionalInfo_IsGroupVatEnabled { get; set; }
             public Amazon.TaxSettings.TaxRegistrationNumberType RomaniaAdditionalInfo_TaxRegistrationNumberType { get; set; }

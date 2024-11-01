@@ -1,4 +1,17 @@
-﻿### 4.1.690 (2024-10-31 22:17Z)
+﻿### 4.1.691 (2024-11-01 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.919.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DocumentDB Elastic Clusters
+    * Added cmdlet Get-DOCEPendingMaintenanceAction leveraging the GetPendingMaintenanceAction service API.
+    * Added cmdlet Get-DOCEPendingMaintenanceActionList leveraging the ListPendingMaintenanceActions service API.
+    * Added cmdlet Set-DOCEPendingMaintenanceAction leveraging the ApplyPendingMaintenanceAction service API.
+  * Amazon Tax Settings
+    * Added cmdlet Get-TSASupplementalTaxRegistrationList leveraging the ListSupplementalTaxRegistrations service API.
+    * Added cmdlet Remove-TSASupplementalTaxRegistration leveraging the DeleteSupplementalTaxRegistration service API.
+    * Added cmdlet Write-TSASupplementalTaxRegistration leveraging the PutSupplementalTaxRegistration service API.
+    * Modified cmdlet Write-TSATaxRegistration: added parameters MalaysiaAdditionalInfo_BusinessRegistrationNumber and MalaysiaAdditionalInfo_TaxInformationNumber.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters MalaysiaAdditionalInfo_BusinessRegistrationNumber and MalaysiaAdditionalInfo_TaxInformationNumber.
+
+### 4.1.690 (2024-10-31 22:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.918.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet Start-ASInstanceRefresh: added parameter Preferences_BakeTime.

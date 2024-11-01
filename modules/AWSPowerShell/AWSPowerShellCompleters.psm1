@@ -22087,6 +22087,13 @@ $DOCE_Completers = {
             break
         }
 
+        # Amazon.DocDBElastic.OptInType
+        "Set-DOCEPendingMaintenanceAction/OptInType"
+        {
+            $v = "APPLY_ON","IMMEDIATE","NEXT_MAINTENANCE","UNDO_OPT_IN"
+            break
+        }
+
 
     }
 
@@ -22097,6 +22104,7 @@ $DOCE_Completers = {
 
 $DOCE_map = @{
     "AuthType"=@("New-DOCECluster","Update-DOCECluster")
+    "OptInType"=@("Set-DOCEPendingMaintenanceAction")
 }
 
 _awsArgumentCompleterRegistration $DOCE_Completers $DOCE_map
@@ -22149,15 +22157,18 @@ $DOCE_SelectCompleters = {
 }
 
 $DOCE_SelectMap = @{
-    "Select"=@("Copy-DOCEClusterSnapshot",
+    "Select"=@("Set-DOCEPendingMaintenanceAction",
+               "Copy-DOCEClusterSnapshot",
                "New-DOCECluster",
                "New-DOCEClusterSnapshot",
                "Remove-DOCECluster",
                "Remove-DOCEClusterSnapshot",
                "Get-DOCECluster",
                "Get-DOCEClusterSnapshot",
+               "Get-DOCEPendingMaintenanceAction",
                "Get-DOCEClusterList",
                "Get-DOCEClusterSnapshotList",
+               "Get-DOCEPendingMaintenanceActionList",
                "Get-DOCEResourceTag",
                "Restore-DOCEClusterFromSnapshot",
                "Start-DOCECluster",
@@ -69184,6 +69195,13 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.SupplementalTaxRegistrationType
+        "Write-TSASupplementalTaxRegistration/TaxRegistrationEntry_RegistrationType"
+        {
+            $v = "VAT"
+            break
+        }
+
         # Amazon.TaxSettings.TaxRegistrationNumberType
         {
             ($_ -eq "Write-TSATaxRegistration/RomaniaAdditionalInfo_TaxRegistrationNumberType") -Or
@@ -69200,7 +69218,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","SST","VAT"
+            $v = "CNPJ","CPF","GST","NRIC","SST","TIN","VAT"
             break
         }
 
@@ -69230,7 +69248,7 @@ $TSA_map = @{
     "RomaniaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SaudiArabiaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SpainAdditionalInfo_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
-    "TaxRegistrationEntry_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_RegistrationType"=@("Write-TSASupplementalTaxRegistration","Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "UkraineAdditionalInfo_UkraineTrnType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
@@ -69288,10 +69306,13 @@ $TSA_SelectCompleters = {
 $TSA_SelectMap = @{
     "Select"=@("Remove-TSATaxRegistrationBatch",
                "Write-TSATaxRegistrationBatch",
+               "Remove-TSASupplementalTaxRegistration",
                "Remove-TSATaxRegistration",
                "Get-TSATaxRegistration",
                "Get-TSATaxRegistrationDocument",
+               "Get-TSASupplementalTaxRegistrationList",
                "Get-TSATaxRegistrationList",
+               "Write-TSASupplementalTaxRegistration",
                "Write-TSATaxRegistration")
 }
 

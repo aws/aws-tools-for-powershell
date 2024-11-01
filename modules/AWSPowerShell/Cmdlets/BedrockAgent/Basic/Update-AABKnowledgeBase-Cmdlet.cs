@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the
-        /// knowledge base.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model or inference profile used to create vector
+        /// embeddings for the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

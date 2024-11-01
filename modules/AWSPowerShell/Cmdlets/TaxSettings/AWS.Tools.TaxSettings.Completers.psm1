@@ -152,6 +152,13 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.SupplementalTaxRegistrationType
+        "Write-TSASupplementalTaxRegistration/TaxRegistrationEntry_RegistrationType"
+        {
+            $v = "VAT"
+            break
+        }
+
         # Amazon.TaxSettings.TaxRegistrationNumberType
         {
             ($_ -eq "Write-TSATaxRegistration/RomaniaAdditionalInfo_TaxRegistrationNumberType") -Or
@@ -168,7 +175,7 @@ $TSA_Completers = {
             ($_ -eq "Write-TSATaxRegistrationBatch/TaxRegistrationEntry_RegistrationType")
         }
         {
-            $v = "CNPJ","CPF","GST","SST","VAT"
+            $v = "CNPJ","CPF","GST","NRIC","SST","TIN","VAT"
             break
         }
 
@@ -198,7 +205,7 @@ $TSA_map = @{
     "RomaniaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SaudiArabiaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "SpainAdditionalInfo_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
-    "TaxRegistrationEntry_RegistrationType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "TaxRegistrationEntry_RegistrationType"=@("Write-TSASupplementalTaxRegistration","Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "UkraineAdditionalInfo_UkraineTrnType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
@@ -256,10 +263,13 @@ $TSA_SelectCompleters = {
 $TSA_SelectMap = @{
     "Select"=@("Remove-TSATaxRegistrationBatch",
                "Write-TSATaxRegistrationBatch",
+               "Remove-TSASupplementalTaxRegistration",
                "Remove-TSATaxRegistration",
                "Get-TSATaxRegistration",
                "Get-TSATaxRegistrationDocument",
+               "Get-TSASupplementalTaxRegistrationList",
                "Get-TSATaxRegistrationList",
+               "Write-TSASupplementalTaxRegistration",
                "Write-TSATaxRegistration")
 }
 
