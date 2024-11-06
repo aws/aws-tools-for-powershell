@@ -1,4 +1,34 @@
-﻿### 4.1.691 (2024-11-01 20:39Z)
+﻿### 4.1.692 (2024-11-06 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.920.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameters ComputeConfiguration_Disk, ComputeConfiguration_MachineType, ComputeConfiguration_Memory and ComputeConfiguration_VCpu.
+    * Modified cmdlet New-CBProject: added parameters ComputeConfiguration_Disk, ComputeConfiguration_MachineType, ComputeConfiguration_Memory and ComputeConfiguration_VCpu.
+    * Modified cmdlet Update-CBFleet: added parameters ComputeConfiguration_Disk, ComputeConfiguration_MachineType, ComputeConfiguration_Memory and ComputeConfiguration_VCpu.
+    * Modified cmdlet Update-CBProject: added parameters ComputeConfiguration_Disk, ComputeConfiguration_MachineType, ComputeConfiguration_Memory and ComputeConfiguration_VCpu.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFLFTagExpression leveraging the GetLFTagExpression service API.
+    * Added cmdlet Get-LKFLFTagExpressionList leveraging the ListLFTagExpressions service API.
+    * Added cmdlet New-LKFLFTagExpression leveraging the CreateLFTagExpression service API.
+    * Added cmdlet Remove-LKFLFTagExpression leveraging the DeleteLFTagExpression service API.
+    * Added cmdlet Update-LKFLFTagExpression leveraging the UpdateLFTagExpression service API.
+    * Modified cmdlet Add-LKFLFTagsToResource: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Get-LKFLakeFormationOptInList: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Get-LKFPermissionList: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Get-LKFResourceLFTag: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Grant-LKFPermission: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet New-LKFLakeFormationOptIn: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Remove-LKFLakeFormationOptIn: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Remove-LKFLFTagsFromResource: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+    * Modified cmdlet Revoke-LKFPermission: added parameters LFTagExpression_CatalogId, LFTagExpression_Name and LFTagPolicy_ExpressionName.
+  * Amazon Q Apps
+    * Added cmdlet Get-qappsCategoryList leveraging the ListCategories service API.
+    * Added cmdlet New-qappsCreateCategory leveraging the BatchCreateCategory service API.
+    * Added cmdlet Remove-qappsDeleteCategory leveraging the BatchDeleteCategory service API.
+    * Added cmdlet Set-qappsUpdateCategory leveraging the BatchUpdateCategory service API.
+  * Amazon Verified Permissions
+    * Added cmdlet Get-AVPBatchGetPolicy leveraging the BatchGetPolicy service API.
+
+### 4.1.691 (2024-11-01 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.919.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DocumentDB Elastic Clusters
     * Added cmdlet Get-DOCEPendingMaintenanceAction leveraging the GetPendingMaintenanceAction service API.

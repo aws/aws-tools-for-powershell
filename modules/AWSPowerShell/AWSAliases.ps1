@@ -16905,6 +16905,8 @@ Set-Alias -Name Create-LKFLakeFormationOptIn -Value New-LKFLakeFormationOptIn
 Set-Alias -Name LKF-CreateLakeFormationOptIn -Value New-LKFLakeFormationOptIn
 Set-Alias -Name Create-LKFLFTag -Value New-LKFLFTag
 Set-Alias -Name LKF-CreateLFTag -Value New-LKFLFTag
+Set-Alias -Name Create-LKFLFTagExpression -Value New-LKFLFTagExpression
+Set-Alias -Name LKF-CreateLFTagExpression -Value New-LKFLFTagExpression
 Set-Alias -Name Delete-LKFDataCellsFilter -Value Remove-LKFDataCellsFilter
 Set-Alias -Name LKF-DeleteDataCellsFilter -Value Remove-LKFDataCellsFilter
 Set-Alias -Name Delete-LKFLakeFormationIdentityCenterConfiguration -Value Remove-LKFLakeFormationIdentityCenterConfiguration
@@ -16913,6 +16915,8 @@ Set-Alias -Name Delete-LKFLakeFormationOptIn -Value Remove-LKFLakeFormationOptIn
 Set-Alias -Name LKF-DeleteLakeFormationOptIn -Value Remove-LKFLakeFormationOptIn
 Set-Alias -Name Delete-LKFLFTag -Value Remove-LKFLFTag
 Set-Alias -Name LKF-DeleteLFTag -Value Remove-LKFLFTag
+Set-Alias -Name Delete-LKFLFTagExpression -Value Remove-LKFLFTagExpression
+Set-Alias -Name LKF-DeleteLFTagExpression -Value Remove-LKFLFTagExpression
 Set-Alias -Name Delete-LKFObjectsOnCancel -Value Remove-LKFObjectsOnCancel
 Set-Alias -Name LKF-DeleteObjectsOnCancel -Value Remove-LKFObjectsOnCancel
 Set-Alias -Name Deregister-LKFResource -Value Unregister-LKFResource
@@ -16931,6 +16935,7 @@ Set-Alias -Name Get-LKFDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetEffectivePermissionsForPath -Value Get-LKFEffectivePermissionsForPath
 Set-Alias -Name LKF-GetLFTag -Value Get-LKFLFTag
+Set-Alias -Name LKF-GetLFTagExpression -Value Get-LKFLFTagExpression
 Set-Alias -Name LKF-GetQueryState -Value Get-LKFQueryState
 Set-Alias -Name Get-LKFQueryStatistics -Value Get-LKFQueryStatistic
 Set-Alias -Name LKF-GetQueryStatistics -Value Get-LKFQueryStatistic
@@ -16954,6 +16959,9 @@ Set-Alias -Name LKF-ListDataCellsFilter -Value Get-LKFDataCellsFilterList
 Set-Alias -Name List-LKFLakeFormationOptIns -Value Get-LKFLakeFormationOptInList
 Set-Alias -Name List-LKFLakeFormationOptInList -Value Get-LKFLakeFormationOptInList
 Set-Alias -Name LKF-ListLakeFormationOptIns -Value Get-LKFLakeFormationOptInList
+Set-Alias -Name List-LKFLFTagExpressions -Value Get-LKFLFTagExpressionList
+Set-Alias -Name List-LKFLFTagExpressionList -Value Get-LKFLFTagExpressionList
+Set-Alias -Name LKF-ListLFTagExpressions -Value Get-LKFLFTagExpressionList
 Set-Alias -Name List-LKFLFTags -Value Get-LKFLFTagList
 Set-Alias -Name List-LKFLFTagList -Value Get-LKFLFTagList
 Set-Alias -Name LKF-ListLFTags -Value Get-LKFLFTagList
@@ -16985,6 +16993,7 @@ Set-Alias -Name LKF-StartTransaction -Value Start-LKFTransaction
 Set-Alias -Name LKF-UpdateDataCellsFilter -Value Update-LKFDataCellsFilter
 Set-Alias -Name LKF-UpdateLakeFormationIdentityCenterConfiguration -Value Update-LKFLakeFormationIdentityCenterConfiguration
 Set-Alias -Name LKF-UpdateLFTag -Value Update-LKFLFTag
+Set-Alias -Name LKF-UpdateLFTagExpression -Value Update-LKFLFTagExpression
 Set-Alias -Name LKF-UpdateResource -Value Update-LKFResource
 Set-Alias -Name Update-LKFTableObjects -Value Update-LKFTableObject
 Set-Alias -Name LKF-UpdateTableObjects -Value Update-LKFTableObject
@@ -22467,6 +22476,12 @@ Set-Alias -Name Associate-qappsLibraryItemReview -Value Register-qappsLibraryIte
 Set-Alias -Name qapps-AssociateLibraryItemReview -Value Register-qappsLibraryItemReview
 Set-Alias -Name Associate-qappsQAppWithUser -Value Register-qappsQAppWithUser
 Set-Alias -Name qapps-AssociateQAppWithUser -Value Register-qappsQAppWithUser
+Set-Alias -Name Batch-qappsCreateCategory -Value New-qappsCreateCategory
+Set-Alias -Name qapps-BatchCreateCategory -Value New-qappsCreateCategory
+Set-Alias -Name Batch-qappsDeleteCategory -Value Remove-qappsDeleteCategory
+Set-Alias -Name qapps-BatchDeleteCategory -Value Remove-qappsDeleteCategory
+Set-Alias -Name Batch-qappsUpdateCategory -Value Set-qappsUpdateCategory
+Set-Alias -Name qapps-BatchUpdateCategory -Value Set-qappsUpdateCategory
 Set-Alias -Name Create-qappsLibraryItem -Value New-qappsLibraryItem
 Set-Alias -Name qapps-CreateLibraryItem -Value New-qappsLibraryItem
 Set-Alias -Name Create-qappsQApp -Value New-qappsQApp
@@ -22483,6 +22498,9 @@ Set-Alias -Name qapps-GetLibraryItem -Value Get-qappsLibraryItem
 Set-Alias -Name qapps-GetQApp -Value Get-qappsQApp
 Set-Alias -Name qapps-GetQAppSession -Value Get-qappsQAppSession
 Set-Alias -Name qapps-ImportDocument -Value Import-qappsDocument
+Set-Alias -Name List-qappsCategories -Value Get-qappsCategoryList
+Set-Alias -Name List-qappsCategoryList -Value Get-qappsCategoryList
+Set-Alias -Name qapps-ListCategories -Value Get-qappsCategoryList
 Set-Alias -Name List-qappsLibraryItems -Value Get-qappsLibraryItemList
 Set-Alias -Name List-qappsLibraryItemList -Value Get-qappsLibraryItemList
 Set-Alias -Name qapps-ListLibraryItems -Value Get-qappsLibraryItemList
@@ -28893,6 +28911,9 @@ Set-Alias -Name List-TARecommendationList -Value Get-TARecommendationList
 Set-Alias -Name TA-ListRecommendations -Value Get-TARecommendationList
 Set-Alias -Name TA-UpdateOrganizationRecommendationLifecycle -Value Update-TAOrganizationRecommendationLifecycle
 Set-Alias -Name TA-UpdateRecommendationLifecycle -Value Update-TARecommendationLifecycle
+Set-Alias -Name Batch-AVPGetPolicy -Value Get-AVPBatchGetPolicy
+Set-Alias -Name Batch-AVPBatchGetPolicy -Value Get-AVPBatchGetPolicy
+Set-Alias -Name AVP-BatchGetPolicy -Value Get-AVPBatchGetPolicy
 Set-Alias -Name Batch-AVPIsAuthorized -Value Test-AVPBatchAuthorization
 Set-Alias -Name Batch-AVPBatchAuthorization -Value Test-AVPBatchAuthorization
 Set-Alias -Name AVP-BatchIsAuthorized -Value Test-AVPBatchAuthorization

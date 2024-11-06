@@ -22,42 +22,78 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.LakeFormation;
+using Amazon.LakeFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Updates the IPSet specified by the IPSet ID.
+    /// Creates a new LF-Tag expression with the provided name, description, catalog ID, and
+    /// expression body. This call fails if a LF-Tag expression with the same name already
+    /// exists in the caller’s account or if the underlying LF-Tags don't exist. To call this
+    /// API operation, caller needs the following Lake Formation permissions:
+    /// 
+    ///  
+    /// <para><c>CREATE_LF_TAG_EXPRESSION</c> on the root catalog resource.
+    /// </para><para><c>GRANT_WITH_LF_TAG_EXPRESSION</c> on all underlying LF-Tag key:value pairs included
+    /// in the expression. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "GDIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "LKFLFTagExpression", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GuardDuty UpdateIPSet API operation.", Operation = new[] {"UpdateIPSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.UpdateIPSetResponse))]
-    [AWSCmdletOutput("None or Amazon.GuardDuty.Model.UpdateIPSetResponse",
+    [AWSCmdlet("Calls the AWS Lake Formation CreateLFTagExpression API operation.", Operation = new[] {"CreateLFTagExpression"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.CreateLFTagExpressionResponse))]
+    [AWSCmdletOutput("None or Amazon.LakeFormation.Model.CreateLFTagExpressionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.UpdateIPSetResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.LakeFormation.Model.CreateLFTagExpressionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateGDIPSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class NewLKFLFTagExpressionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Activate
+        #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The updated Boolean value that specifies whether the IPSet is active or not.</para>
+        /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
+        /// is the persistent metadata store. It contains database definitions, table definitions,
+        /// and other control information to manage your Lake Formation environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Activate { get; set; }
+        public System.String CatalogId { get; set; }
         #endregion
         
-        #region Parameter DetectorId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
-        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
-        /// API.</para>
+        /// <para>A description with information about the LF-Tag expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Expression
+        /// <summary>
+        /// <para>
+        /// <para>A list of LF-Tag conditions (key-value pairs).</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public Amazon.LakeFormation.Model.LFTag[] Expression { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>A name for the expression.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,50 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
-        #endregion
-        
-        #region Parameter IpSetId
-        /// <summary>
-        /// <para>
-        /// <para>The unique ID that specifies the IPSet that you want to update.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpSetId { get; set; }
-        #endregion
-        
-        #region Parameter Location
-        /// <summary>
-        /// <para>
-        /// <para>The updated URI of the file that contains the IPSet. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Location { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The unique ID that specifies the IPSet that you want to update.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.UpdateIPSetResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.CreateLFTagExpressionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -143,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DetectorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GDIPSet (UpdateIPSet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-LKFLFTagExpression (CreateLFTagExpression)"))
             {
                 return;
             }
@@ -157,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.UpdateIPSetResponse, UpdateGDIPSetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.CreateLFTagExpressionResponse, NewLKFLFTagExpressionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -166,26 +165,28 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Activate = this.Activate;
-            context.DetectorId = this.DetectorId;
-            #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            context.CatalogId = this.CatalogId;
+            context.Description = this.Description;
+            if (this.Expression != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Expression = new List<Amazon.LakeFormation.Model.LFTag>(this.Expression);
+            }
+            #if MODULAR
+            if (this.Expression == null && ParameterWasBound(nameof(this.Expression)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Expression which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IpSetId = this.IpSetId;
-            #if MODULAR
-            if (this.IpSetId == null && ParameterWasBound(nameof(this.IpSetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IpSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Location = this.Location;
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -200,23 +201,19 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.UpdateIPSetRequest();
+            var request = new Amazon.LakeFormation.Model.CreateLFTagExpressionRequest();
             
-            if (cmdletContext.Activate != null)
+            if (cmdletContext.CatalogId != null)
             {
-                request.Activate = cmdletContext.Activate.Value;
+                request.CatalogId = cmdletContext.CatalogId;
             }
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.Description != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.IpSetId != null)
+            if (cmdletContext.Expression != null)
             {
-                request.IpSetId = cmdletContext.IpSetId;
-            }
-            if (cmdletContext.Location != null)
-            {
-                request.Location = cmdletContext.Location;
+                request.Expression = cmdletContext.Expression;
             }
             if (cmdletContext.Name != null)
             {
@@ -255,15 +252,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.UpdateIPSetResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.UpdateIPSetRequest request)
+        private Amazon.LakeFormation.Model.CreateLFTagExpressionResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.CreateLFTagExpressionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "UpdateIPSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "CreateLFTagExpression");
             try
             {
                 #if DESKTOP
-                return client.UpdateIPSet(request);
+                return client.CreateLFTagExpression(request);
                 #elif CORECLR
-                return client.UpdateIPSetAsync(request).GetAwaiter().GetResult();
+                return client.CreateLFTagExpressionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -283,12 +280,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? Activate { get; set; }
-            public System.String DetectorId { get; set; }
-            public System.String IpSetId { get; set; }
-            public System.String Location { get; set; }
+            public System.String CatalogId { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.LakeFormation.Model.LFTag> Expression { get; set; }
             public System.String Name { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.UpdateIPSetResponse, UpdateGDIPSetCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LakeFormation.Model.CreateLFTagExpressionResponse, NewLKFLFTagExpressionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

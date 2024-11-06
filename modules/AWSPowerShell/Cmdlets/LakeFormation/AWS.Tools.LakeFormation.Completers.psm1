@@ -90,7 +90,7 @@ $LKF_Completers = {
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
-            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
             break
         }
 
@@ -227,10 +227,12 @@ $LKF_SelectMap = @{
                "New-LKFLakeFormationIdentityCenterConfiguration",
                "New-LKFLakeFormationOptIn",
                "New-LKFLFTag",
+               "New-LKFLFTagExpression",
                "Remove-LKFDataCellsFilter",
                "Remove-LKFLakeFormationIdentityCenterConfiguration",
                "Remove-LKFLakeFormationOptIn",
                "Remove-LKFLFTag",
+               "Remove-LKFLFTagExpression",
                "Remove-LKFObjectsOnCancel",
                "Unregister-LKFResource",
                "Get-LKFLakeFormationIdentityCenterConfiguration",
@@ -242,6 +244,7 @@ $LKF_SelectMap = @{
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
                "Get-LKFLFTag",
+               "Get-LKFLFTagExpression",
                "Get-LKFQueryState",
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
@@ -253,6 +256,7 @@ $LKF_SelectMap = @{
                "Grant-LKFPermission",
                "Get-LKFDataCellsFilterList",
                "Get-LKFLakeFormationOptInList",
+               "Get-LKFLFTagExpressionList",
                "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",
@@ -269,6 +273,7 @@ $LKF_SelectMap = @{
                "Update-LKFDataCellsFilter",
                "Update-LKFLakeFormationIdentityCenterConfiguration",
                "Update-LKFLFTag",
+               "Update-LKFLFTagExpression",
                "Update-LKFResource",
                "Update-LKFTableObject",
                "Update-LKFTableStorageOptimizer")

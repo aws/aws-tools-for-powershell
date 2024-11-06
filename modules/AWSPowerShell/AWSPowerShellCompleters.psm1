@@ -12591,7 +12591,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
+            $v = "ATTRIBUTE_BASED_COMPUTE","BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
             break
         }
 
@@ -12683,6 +12683,18 @@ $CB_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.CodeBuild.MachineType
+        {
+            ($_ -eq "New-CBFleet/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "New-CBProject/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "Update-CBFleet/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "Update-CBProject/ComputeConfiguration_MachineType")
+        }
+        {
+            $v = "GENERAL","NVME"
             break
         }
 
@@ -12878,6 +12890,7 @@ $CB_map = @{
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "CloudWatchLogs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
+    "ComputeConfiguration_MachineType"=@("New-CBFleet","New-CBProject","Update-CBFleet","Update-CBProject")
     "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
@@ -40403,7 +40416,7 @@ $LKF_Completers = {
         # Amazon.LakeFormation.DataLakeResourceType
         "Get-LKFPermissionList/ResourceType"
         {
-            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
+            $v = "CATALOG","DATABASE","DATA_LOCATION","LF_NAMED_TAG_EXPRESSION","LF_TAG","LF_TAG_POLICY","LF_TAG_POLICY_DATABASE","LF_TAG_POLICY_TABLE","TABLE"
             break
         }
 
@@ -40540,10 +40553,12 @@ $LKF_SelectMap = @{
                "New-LKFLakeFormationIdentityCenterConfiguration",
                "New-LKFLakeFormationOptIn",
                "New-LKFLFTag",
+               "New-LKFLFTagExpression",
                "Remove-LKFDataCellsFilter",
                "Remove-LKFLakeFormationIdentityCenterConfiguration",
                "Remove-LKFLakeFormationOptIn",
                "Remove-LKFLFTag",
+               "Remove-LKFLFTagExpression",
                "Remove-LKFObjectsOnCancel",
                "Unregister-LKFResource",
                "Get-LKFLakeFormationIdentityCenterConfiguration",
@@ -40555,6 +40570,7 @@ $LKF_SelectMap = @{
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
                "Get-LKFLFTag",
+               "Get-LKFLFTagExpression",
                "Get-LKFQueryState",
                "Get-LKFQueryStatistic",
                "Get-LKFResourceLFTag",
@@ -40566,6 +40582,7 @@ $LKF_SelectMap = @{
                "Grant-LKFPermission",
                "Get-LKFDataCellsFilterList",
                "Get-LKFLakeFormationOptInList",
+               "Get-LKFLFTagExpressionList",
                "Get-LKFLFTagList",
                "Get-LKFPermissionList",
                "Get-LKFResourceList",
@@ -40582,6 +40599,7 @@ $LKF_SelectMap = @{
                "Update-LKFDataCellsFilter",
                "Update-LKFLakeFormationIdentityCenterConfiguration",
                "Update-LKFLFTag",
+               "Update-LKFLFTagExpression",
                "Update-LKFResource",
                "Update-LKFTableObject",
                "Update-LKFTableStorageOptimizer")
@@ -55114,6 +55132,9 @@ $qapps_SelectCompleters = {
 $qapps_SelectMap = @{
     "Select"=@("Register-qappsLibraryItemReview",
                "Register-qappsQAppWithUser",
+               "New-qappsCreateCategory",
+               "Remove-qappsDeleteCategory",
+               "Set-qappsUpdateCategory",
                "New-qappsLibraryItem",
                "New-qappsQApp",
                "Remove-qappsLibraryItem",
@@ -55124,6 +55145,7 @@ $qapps_SelectMap = @{
                "Get-qappsQApp",
                "Get-qappsQAppSession",
                "Import-qappsDocument",
+               "Get-qappsCategoryList",
                "Get-qappsLibraryItemList",
                "Get-qappsQAppList",
                "Get-qappsResourceTag",
@@ -71045,7 +71067,8 @@ $AVP_SelectCompleters = {
 }
 
 $AVP_SelectMap = @{
-    "Select"=@("Test-AVPBatchAuthorization",
+    "Select"=@("Get-AVPBatchGetPolicy",
+               "Test-AVPBatchAuthorization",
                "Get-AVPBatchIsAuthorizedWithToken",
                "New-AVPIdentitySource",
                "New-AVPPolicy",

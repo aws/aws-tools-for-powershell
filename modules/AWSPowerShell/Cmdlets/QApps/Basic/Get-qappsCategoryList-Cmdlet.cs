@@ -22,42 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.QApps;
+using Amazon.QApps.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Provides the number of days left for each data source used in the free trial period.
+    /// Lists the categories of a Amazon Q Business application environment instance. For
+    /// more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom
+    /// labels for Amazon Q Apps</a>.
     /// </summary>
-    [Cmdlet("Get", "GDRemainingFreeTrialDay")]
-    [OutputType("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse")]
-    [AWSCmdlet("Calls the Amazon GuardDuty GetRemainingFreeTrialDays API operation.", Operation = new[] {"GetRemainingFreeTrialDays"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse object containing multiple properties."
+    [Cmdlet("Get", "qappsCategoryList")]
+    [OutputType("Amazon.QApps.Model.Category")]
+    [AWSCmdlet("Calls the Amazon Q Apps ListCategories API operation.", Operation = new[] {"ListCategories"}, SelectReturnType = typeof(Amazon.QApps.Model.ListCategoriesResponse))]
+    [AWSCmdletOutput("Amazon.QApps.Model.Category or Amazon.QApps.Model.ListCategoriesResponse",
+        "This cmdlet returns a collection of Amazon.QApps.Model.Category objects.",
+        "The service call response (type Amazon.QApps.Model.ListCategoriesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGDRemainingFreeTrialDayCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetqappsCategoryListCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>A list of account identifiers of the GuardDuty member account.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AccountIds")]
-        public System.String[] AccountId { get; set; }
-        #endregion
-        
-        #region Parameter DetectorId
-        /// <summary>
-        /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty member account.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
-        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
-        /// API.</para>
+        /// <para>The unique identifier of the Amazon Q Business application environment instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,26 +58,26 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Categories'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.ListCategoriesResponse).
+        /// Specifying the name of a property of type Amazon.QApps.Model.ListCategoriesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Categories";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -105,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.ListCategoriesResponse, GetqappsCategoryListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -114,18 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AccountId != null)
-            {
-                context.AccountId = new List<System.String>(this.AccountId);
-            }
-            context.DetectorId = this.DetectorId;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,15 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest();
+            var request = new Amazon.QApps.Model.ListCategoriesRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.AccountIds = cmdletContext.AccountId;
-            }
-            if (cmdletContext.DetectorId != null)
-            {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -185,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest request)
+        private Amazon.QApps.Model.ListCategoriesResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.ListCategoriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetRemainingFreeTrialDays");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "ListCategories");
             try
             {
                 #if DESKTOP
-                return client.GetRemainingFreeTrialDays(request);
+                return client.ListCategories(request);
                 #elif CORECLR
-                return client.GetRemainingFreeTrialDaysAsync(request).GetAwaiter().GetResult();
+                return client.ListCategoriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,10 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AccountId { get; set; }
-            public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.QApps.Model.ListCategoriesResponse, GetqappsCategoryListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Categories;
         }
         
     }

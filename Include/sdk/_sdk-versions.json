@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.919.0",
+    "ProductVersion"    : "3.7.920.0",
     "CoreVersion"       : "3.7.400.45",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.405.5",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.403.12",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"
@@ -1164,7 +1164,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.401.31",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"
@@ -1452,7 +1452,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.400.45",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"
@@ -2716,7 +2716,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "3.7.400.46",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"
@@ -3060,7 +3060,7 @@
             "InPreview"               : false
         },
         "QApps"                               : {
-            "Version" : "3.7.401.29",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.45"

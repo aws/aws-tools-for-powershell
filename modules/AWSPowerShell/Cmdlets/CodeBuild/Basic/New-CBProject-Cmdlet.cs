@@ -155,23 +155,26 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_ComputeType
         /// <summary>
         /// <para>
-        /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><c>BUILD_GENERAL1_SMALL</c>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c>: Use up to 16 GB memory and 8 vCPUs for builds, depending
-        /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_XLARGE</c>: Use up to 70 GB memory and 36 vCPUs for builds, depending
-        /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_2XLARGE</c>: Use up to 145 GB memory, 72 vCPUs, and 824 GB of SSD
-        /// storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li><li><para><c>BUILD_LAMBDA_1GB</c>: Use up to 1 GB memory for builds. Only available for environment
-        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_2GB</c>: Use up to 2 GB memory for builds. Only available for environment
-        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_4GB</c>: Use up to 4 GB memory for builds. Only available for environment
-        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_8GB</c>: Use up to 8 GB memory for builds. Only available for environment
-        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_10GB</c>: Use up to 10 GB memory for builds. Only available for environment
-        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li></ul><para> If you use <c>BUILD_GENERAL1_SMALL</c>: </para><ul><li><para> For environment type <c>LINUX_CONTAINER</c>, you can use up to 3 GB memory and 2
-        /// vCPUs for builds. </para></li><li><para> For environment type <c>LINUX_GPU_CONTAINER</c>, you can use up to 16 GB memory,
-        /// 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</para></li><li><para> For environment type <c>ARM_CONTAINER</c>, you can use up to 4 GB memory and 2 vCPUs
-        /// on ARM-based processors for builds.</para></li></ul><para> If you use <c>BUILD_GENERAL1_LARGE</c>: </para><ul><li><para> For environment type <c>LINUX_CONTAINER</c>, you can use up to 15 GB memory and 8
-        /// vCPUs for builds. </para></li><li><para> For environment type <c>LINUX_GPU_CONTAINER</c>, you can use up to 255 GB memory,
-        /// 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</para></li><li><para> For environment type <c>ARM_CONTAINER</c>, you can use up to 16 GB memory and 8 vCPUs
-        /// on ARM-based processors for builds.</para></li></ul><note><para>If you're using compute fleets during project creation, <c>computeType</c> will be
-        /// ignored.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
-        /// Environment Compute Types</a> in the <i>CodeBuild User Guide.</i></para>
+        /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><c>ATTRIBUTE_BASED_COMPUTE</c>: Specify the amount of vCPUs, memory, disk space,
+        /// and the type of machine.</para><note><para> If you use <c>ATTRIBUTE_BASED_COMPUTE</c>, you must define your attributes by using
+        /// <c>computeConfiguration</c>. CodeBuild will select the cheapest instance that satisfies
+        /// your specified attributes. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types">Reserved
+        /// capacity environment types</a> in the <i>CodeBuild User Guide</i>.</para></note></li><li><para><c>BUILD_GENERAL1_SMALL</c>: Use up to 4 GiB memory and 2 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c>: Use up to 8 GiB memory and 4 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c>: Use up to 16 GiB memory and 8 vCPUs for builds, depending
+        /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_XLARGE</c>: Use up to 72 GiB memory and 36 vCPUs for builds, depending
+        /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_2XLARGE</c>: Use up to 144 GiB memory, 72 vCPUs, and 824 GB of
+        /// SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li><li><para><c>BUILD_LAMBDA_1GB</c>: Use up to 1 GiB memory for builds. Only available for environment
+        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_2GB</c>: Use up to 2 GiB memory for builds. Only available for environment
+        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_4GB</c>: Use up to 4 GiB memory for builds. Only available for environment
+        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_8GB</c>: Use up to 8 GiB memory for builds. Only available for environment
+        /// type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li><li><para><c>BUILD_LAMBDA_10GB</c>: Use up to 10 GiB memory for builds. Only available for
+        /// environment type <c>LINUX_LAMBDA_CONTAINER</c> and <c>ARM_LAMBDA_CONTAINER</c>.</para></li></ul><para> If you use <c>BUILD_GENERAL1_SMALL</c>: </para><ul><li><para> For environment type <c>LINUX_CONTAINER</c>, you can use up to 4 GiB memory and 2
+        /// vCPUs for builds. </para></li><li><para> For environment type <c>LINUX_GPU_CONTAINER</c>, you can use up to 16 GiB memory,
+        /// 4 vCPUs, and 1 NVIDIA A10G Tensor Core GPU for builds.</para></li><li><para> For environment type <c>ARM_CONTAINER</c>, you can use up to 4 GiB memory and 2 vCPUs
+        /// on ARM-based processors for builds.</para></li></ul><para> If you use <c>BUILD_GENERAL1_LARGE</c>: </para><ul><li><para> For environment type <c>LINUX_CONTAINER</c>, you can use up to 16 GiB memory and
+        /// 8 vCPUs for builds. </para></li><li><para> For environment type <c>LINUX_GPU_CONTAINER</c>, you can use up to 255 GiB memory,
+        /// 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</para></li><li><para> For environment type <c>ARM_CONTAINER</c>, you can use up to 16 GiB memory and 8
+        /// vCPUs on ARM-based processors for builds.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types">On-demand
+        /// environment types</a> in the <i>CodeBuild User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -261,6 +264,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ComputeConfiguration_Disk
+        /// <summary>
+        /// <para>
+        /// <para>The amount of disk space of the instance type included in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_ComputeConfiguration_Disk")]
+        public System.Int64? ComputeConfiguration_Disk { get; set; }
         #endregion
         
         #region Parameter Artifacts_EncryptionDisabled
@@ -498,6 +512,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Source_Location { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_MachineType
+        /// <summary>
+        /// <para>
+        /// <para>The machine type of the instance type included in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_ComputeConfiguration_MachineType")]
+        [AWSConstantClassSource("Amazon.CodeBuild.MachineType")]
+        public Amazon.CodeBuild.MachineType ComputeConfiguration_MachineType { get; set; }
+        #endregion
+        
         #region Parameter Restrictions_MaximumBuildsAllowed
         /// <summary>
         /// <para>
@@ -507,6 +533,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("BuildBatchConfig_Restrictions_MaximumBuildsAllowed")]
         public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
+        #endregion
+        
+        #region Parameter ComputeConfiguration_Memory
+        /// <summary>
+        /// <para>
+        /// <para>The amount of memory of the instance type included in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_ComputeConfiguration_Memory")]
+        public System.Int64? ComputeConfiguration_Memory { get; set; }
         #endregion
         
         #region Parameter Cache_Mode
@@ -985,6 +1022,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.SourceType Source_Type { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_VCpu
+        /// <summary>
+        /// <para>
+        /// <para>The number of vCPUs of the instance type included in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_ComputeConfiguration_VCpu")]
+        public System.Int64? ComputeConfiguration_VCpu { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_VpcId
         /// <summary>
         /// <para>
@@ -1094,6 +1142,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Description = this.Description;
             context.EncryptionKey = this.EncryptionKey;
             context.Environment_Certificate = this.Environment_Certificate;
+            context.ComputeConfiguration_Disk = this.ComputeConfiguration_Disk;
+            context.ComputeConfiguration_MachineType = this.ComputeConfiguration_MachineType;
+            context.ComputeConfiguration_Memory = this.ComputeConfiguration_Memory;
+            context.ComputeConfiguration_VCpu = this.ComputeConfiguration_VCpu;
             context.Environment_ComputeType = this.Environment_ComputeType;
             #if MODULAR
             if (this.Environment_ComputeType == null && ParameterWasBound(nameof(this.Environment_ComputeType)))
@@ -1597,6 +1649,61 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.Environment.RegistryCredential = requestEnvironment_environment_RegistryCredential;
                 requestEnvironmentIsNull = false;
             }
+            Amazon.CodeBuild.Model.ComputeConfiguration requestEnvironment_environment_ComputeConfiguration = null;
+            
+             // populate ComputeConfiguration
+            var requestEnvironment_environment_ComputeConfigurationIsNull = true;
+            requestEnvironment_environment_ComputeConfiguration = new Amazon.CodeBuild.Model.ComputeConfiguration();
+            System.Int64? requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Disk = null;
+            if (cmdletContext.ComputeConfiguration_Disk != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Disk = cmdletContext.ComputeConfiguration_Disk.Value;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Disk != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration.Disk = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Disk.Value;
+                requestEnvironment_environment_ComputeConfigurationIsNull = false;
+            }
+            Amazon.CodeBuild.MachineType requestEnvironment_environment_ComputeConfiguration_computeConfiguration_MachineType = null;
+            if (cmdletContext.ComputeConfiguration_MachineType != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration_computeConfiguration_MachineType = cmdletContext.ComputeConfiguration_MachineType;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration_computeConfiguration_MachineType != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration.MachineType = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_MachineType;
+                requestEnvironment_environment_ComputeConfigurationIsNull = false;
+            }
+            System.Int64? requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Memory = null;
+            if (cmdletContext.ComputeConfiguration_Memory != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Memory = cmdletContext.ComputeConfiguration_Memory.Value;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Memory != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration.Memory = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Memory.Value;
+                requestEnvironment_environment_ComputeConfigurationIsNull = false;
+            }
+            System.Int64? requestEnvironment_environment_ComputeConfiguration_computeConfiguration_VCpu = null;
+            if (cmdletContext.ComputeConfiguration_VCpu != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration_computeConfiguration_VCpu = cmdletContext.ComputeConfiguration_VCpu.Value;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration_computeConfiguration_VCpu != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration.VCpu = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_VCpu.Value;
+                requestEnvironment_environment_ComputeConfigurationIsNull = false;
+            }
+             // determine if requestEnvironment_environment_ComputeConfiguration should be set to null
+            if (requestEnvironment_environment_ComputeConfigurationIsNull)
+            {
+                requestEnvironment_environment_ComputeConfiguration = null;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration != null)
+            {
+                request.Environment.ComputeConfiguration = requestEnvironment_environment_ComputeConfiguration;
+                requestEnvironmentIsNull = false;
+            }
              // determine if request.Environment should be set to null
             if (requestEnvironmentIsNull)
             {
@@ -2050,6 +2157,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Description { get; set; }
             public System.String EncryptionKey { get; set; }
             public System.String Environment_Certificate { get; set; }
+            public System.Int64? ComputeConfiguration_Disk { get; set; }
+            public Amazon.CodeBuild.MachineType ComputeConfiguration_MachineType { get; set; }
+            public System.Int64? ComputeConfiguration_Memory { get; set; }
+            public System.Int64? ComputeConfiguration_VCpu { get; set; }
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariable { get; set; }
             public System.String Fleet_FleetArn { get; set; }

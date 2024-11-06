@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter StorageOptimizerConfig
         /// <summary>
         /// <para>
-        /// <para>Name of the table for which to enable the storage optimizer.</para>
+        /// <para>Name of the configuration for the storage optimizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

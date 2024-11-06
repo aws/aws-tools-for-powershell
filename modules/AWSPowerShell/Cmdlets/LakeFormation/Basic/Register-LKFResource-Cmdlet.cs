@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// </para><para>
     /// The following request registers a new location and gives Lake Formation permission
     /// to use the service-linked role to access that location.
-    /// </para><para><c>ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true</c></para><para>
+    /// </para><para><c>ResourceArn = arn:aws:s3:::my-bucket/ UseServiceLinkedRole = true</c></para><para>
     /// If <c>UseServiceLinkedRole</c> is not set to true, you must provide or set the <c>RoleArn</c>:
     /// </para><para><c>arn:aws:iam::12345:role/my-data-access-role</c></para>
     /// </summary>

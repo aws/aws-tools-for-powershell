@@ -22,59 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.LakeFormation;
+using Amazon.LakeFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Returns information about the account selected as the delegated administrator for
-    /// GuardDuty.
-    /// 
-    ///  
-    /// <para>
-    /// There might be regional differences because some data sources might not be available
-    /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
-    /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
-    /// and endpoints</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the LF-Tag expressions in caller’s account filtered based on caller's permissions.
+    /// Data Lake and read only admins implicitly can see all tag expressions in their account,
+    /// else caller needs DESCRIBE permissions on tag expression.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GDOrganizationConfiguration")]
-    [OutputType("Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse")]
-    [AWSCmdlet("Calls the Amazon GuardDuty DescribeOrganizationConfiguration API operation.", Operation = new[] {"DescribeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse object containing multiple properties."
+    [Cmdlet("Get", "LKFLFTagExpressionList")]
+    [OutputType("Amazon.LakeFormation.Model.LFTagExpression")]
+    [AWSCmdlet("Calls the AWS Lake Formation ListLFTagExpressions API operation.", Operation = new[] {"ListLFTagExpressions"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.ListLFTagExpressionsResponse))]
+    [AWSCmdletOutput("Amazon.LakeFormation.Model.LFTagExpression or Amazon.LakeFormation.Model.ListLFTagExpressionsResponse",
+        "This cmdlet returns a collection of Amazon.LakeFormation.Model.LFTagExpression objects.",
+        "The service call response (type Amazon.LakeFormation.Model.ListLFTagExpressionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGDOrganizationConfigurationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetLKFLFTagExpressionListCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DetectorId
+        #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The detector ID of the delegated administrator for which you need to retrieve the
-        /// information.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
-        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
-        /// API.</para>
+        /// <para>The identifier for the Data Catalog. By default, the account ID. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String CatalogId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter to indicate the maximum number of items that you want in
-        /// the response.</para>
+        /// <para>The maximum number of results to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,10 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the list action. For subsequent calls to the action,
-        /// fill <c>nextToken</c> in the request with the value of <c>NextToken</c> from the previous
-        /// response to continue listing data.</para>
+        /// <para>A continuation token, if this is not the first call to retrieve this list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -101,21 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'LFTagExpressions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.ListLFTagExpressionsResponse).
+        /// Specifying the name of a property of type Amazon.LakeFormation.Model.ListLFTagExpressionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "LFTagExpressions";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CatalogId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CatalogId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CatalogId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -143,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse, GetGDOrganizationConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.ListLFTagExpressionsResponse, GetLKFLFTagExpressionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,16 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.CatalogId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DetectorId = this.DetectorId;
-            #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.CatalogId = this.CatalogId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -182,11 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GuardDuty.Model.DescribeOrganizationConfigurationRequest();
+            var request = new Amazon.LakeFormation.Model.ListLFTagExpressionsRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.CatalogId != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.CatalogId = cmdletContext.CatalogId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -249,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DescribeOrganizationConfigurationRequest request)
+        private Amazon.LakeFormation.Model.ListLFTagExpressionsResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.ListLFTagExpressionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DescribeOrganizationConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "ListLFTagExpressions");
             try
             {
                 #if DESKTOP
-                return client.DescribeOrganizationConfiguration(request);
+                return client.ListLFTagExpressions(request);
                 #elif CORECLR
-                return client.DescribeOrganizationConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.ListLFTagExpressionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -277,11 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
+            public System.String CatalogId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.DescribeOrganizationConfigurationResponse, GetGDOrganizationConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.LakeFormation.Model.ListLFTagExpressionsResponse, GetLKFLFTagExpressionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.LFTagExpressions;
         }
         
     }

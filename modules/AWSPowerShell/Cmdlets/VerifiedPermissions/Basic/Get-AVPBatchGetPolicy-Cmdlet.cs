@@ -22,71 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.VerifiedPermissions;
+using Amazon.VerifiedPermissions.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Retrieves a GuardDuty detector specified by the detectorId.
+    /// Retrieves information about a group (batch) of policies.
     /// 
-    ///  
-    /// <para>
-    /// There might be regional differences because some data sources might not be available
-    /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
-    /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
-    /// and endpoints</a>.
-    /// </para>
+    ///  <note><para>
+    /// The <c>BatchGetPolicy</c> operation doesn't have its own IAM permission. To authorize
+    /// this operation for Amazon Web Services principals, include the permission <c>verifiedpermissions:GetPolicy</c>
+    /// in their IAM policies.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "GDDetector")]
-    [OutputType("Amazon.GuardDuty.Model.GetDetectorResponse")]
-    [AWSCmdlet("Calls the Amazon GuardDuty GetDetector API operation.", Operation = new[] {"GetDetector"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetDetectorResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.GetDetectorResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetDetectorResponse object containing multiple properties."
+    [Cmdlet("Get", "AVPBatchGetPolicy")]
+    [OutputType("Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions BatchGetPolicy API operation.", Operation = new[] {"BatchGetPolicy"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse",
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse object containing multiple properties."
     )]
-    public partial class GetGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetAVPBatchGetPolicyCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DetectorId
+        #region Parameter Request
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector that you want to get.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
-        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
-        /// API.</para>
+        /// <para>An array of up to 100 policies you want information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        [Alias("Requests")]
+        public Amazon.VerifiedPermissions.Model.BatchGetPolicyInputItem[] Request { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetDetectorResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetDetectorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -99,26 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetDetectorResponse, GetGDDetectorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse, GetAVPBatchGetPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Request != null)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Request = new List<Amazon.VerifiedPermissions.Model.BatchGetPolicyInputItem>(this.Request);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DetectorId = this.DetectorId;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.Request == null && ParameterWasBound(nameof(this.Request)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Request which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -135,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.GetDetectorRequest();
+            var request = new Amazon.VerifiedPermissions.Model.BatchGetPolicyRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.Request != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.Requests = cmdletContext.Request;
             }
             
             CmdletOutput output;
@@ -174,15 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.GetDetectorResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetDetectorRequest request)
+        private Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.BatchGetPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetDetector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "BatchGetPolicy");
             try
             {
                 #if DESKTOP
-                return client.GetDetector(request);
+                return client.BatchGetPolicy(request);
                 #elif CORECLR
-                return client.GetDetectorAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -202,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.GetDetectorResponse, GetGDDetectorCmdlet, object> Select { get; set; } =
+            public List<Amazon.VerifiedPermissions.Model.BatchGetPolicyInputItem> Request { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.BatchGetPolicyResponse, GetAVPBatchGetPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

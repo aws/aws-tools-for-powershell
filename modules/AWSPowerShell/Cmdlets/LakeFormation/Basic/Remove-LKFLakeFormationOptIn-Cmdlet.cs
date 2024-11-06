@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String LFTag_CatalogId { get; set; }
         #endregion
         
+        #region Parameter LFTagExpression_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog. By default, the account ID. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_LFTagExpression_CatalogId")]
+        public System.String LFTagExpression_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter LFTagPolicy_CatalogId
         /// <summary>
         /// <para>
@@ -199,12 +210,25 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter LFTagPolicy_Expression
         /// <summary>
         /// <para>
-        /// <para>A list of LF-tag conditions that apply to the resource's LF-tag policy.</para>
+        /// <para>A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag
+        /// policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_LFTagPolicy_Expression")]
         public Amazon.LakeFormation.Model.LFTag[] LFTagPolicy_Expression { get; set; }
+        #endregion
+        
+        #region Parameter LFTagPolicy_ExpressionName
+        /// <summary>
+        /// <para>
+        /// <para>If provided, permissions are granted to the Data Catalog resources whose assigned
+        /// LF-Tags match the expression body of the saved expression under the provided <c>ExpressionName</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_LFTagPolicy_ExpressionName")]
+        public System.String LFTagPolicy_ExpressionName { get; set; }
         #endregion
         
         #region Parameter Database_Name
@@ -227,6 +251,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_DataCellsFilter_Name")]
         public System.String DataCellsFilter_Name { get; set; }
+        #endregion
+        
+        #region Parameter LFTagExpression_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the LF-Tag expression to grant permissions on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_LFTagExpression_Name")]
+        public System.String LFTagExpression_Name { get; set; }
         #endregion
         
         #region Parameter Table_Name
@@ -388,11 +423,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             {
                 context.LFTag_TagValue = new List<System.String>(this.LFTag_TagValue);
             }
+            context.LFTagExpression_CatalogId = this.LFTagExpression_CatalogId;
+            context.LFTagExpression_Name = this.LFTagExpression_Name;
             context.LFTagPolicy_CatalogId = this.LFTagPolicy_CatalogId;
             if (this.LFTagPolicy_Expression != null)
             {
                 context.LFTagPolicy_Expression = new List<Amazon.LakeFormation.Model.LFTag>(this.LFTagPolicy_Expression);
             }
+            context.LFTagPolicy_ExpressionName = this.LFTagPolicy_ExpressionName;
             context.LFTagPolicy_ResourceType = this.LFTagPolicy_ResourceType;
             context.Table_CatalogId = this.Table_CatalogId;
             context.Table_DatabaseName = this.Table_DatabaseName;
@@ -528,6 +566,41 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 request.Resource.DataLocation = requestResource_resource_DataLocation;
                 requestResourceIsNull = false;
             }
+            Amazon.LakeFormation.Model.LFTagExpressionResource requestResource_resource_LFTagExpression = null;
+            
+             // populate LFTagExpression
+            var requestResource_resource_LFTagExpressionIsNull = true;
+            requestResource_resource_LFTagExpression = new Amazon.LakeFormation.Model.LFTagExpressionResource();
+            System.String requestResource_resource_LFTagExpression_lFTagExpression_CatalogId = null;
+            if (cmdletContext.LFTagExpression_CatalogId != null)
+            {
+                requestResource_resource_LFTagExpression_lFTagExpression_CatalogId = cmdletContext.LFTagExpression_CatalogId;
+            }
+            if (requestResource_resource_LFTagExpression_lFTagExpression_CatalogId != null)
+            {
+                requestResource_resource_LFTagExpression.CatalogId = requestResource_resource_LFTagExpression_lFTagExpression_CatalogId;
+                requestResource_resource_LFTagExpressionIsNull = false;
+            }
+            System.String requestResource_resource_LFTagExpression_lFTagExpression_Name = null;
+            if (cmdletContext.LFTagExpression_Name != null)
+            {
+                requestResource_resource_LFTagExpression_lFTagExpression_Name = cmdletContext.LFTagExpression_Name;
+            }
+            if (requestResource_resource_LFTagExpression_lFTagExpression_Name != null)
+            {
+                requestResource_resource_LFTagExpression.Name = requestResource_resource_LFTagExpression_lFTagExpression_Name;
+                requestResource_resource_LFTagExpressionIsNull = false;
+            }
+             // determine if requestResource_resource_LFTagExpression should be set to null
+            if (requestResource_resource_LFTagExpressionIsNull)
+            {
+                requestResource_resource_LFTagExpression = null;
+            }
+            if (requestResource_resource_LFTagExpression != null)
+            {
+                request.Resource.LFTagExpression = requestResource_resource_LFTagExpression;
+                requestResourceIsNull = false;
+            }
             Amazon.LakeFormation.Model.LFTagKeyResource requestResource_resource_LFTag = null;
             
              // populate LFTag
@@ -571,51 +644,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_LFTag != null)
             {
                 request.Resource.LFTag = requestResource_resource_LFTag;
-                requestResourceIsNull = false;
-            }
-            Amazon.LakeFormation.Model.LFTagPolicyResource requestResource_resource_LFTagPolicy = null;
-            
-             // populate LFTagPolicy
-            var requestResource_resource_LFTagPolicyIsNull = true;
-            requestResource_resource_LFTagPolicy = new Amazon.LakeFormation.Model.LFTagPolicyResource();
-            System.String requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId = null;
-            if (cmdletContext.LFTagPolicy_CatalogId != null)
-            {
-                requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId = cmdletContext.LFTagPolicy_CatalogId;
-            }
-            if (requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId != null)
-            {
-                requestResource_resource_LFTagPolicy.CatalogId = requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId;
-                requestResource_resource_LFTagPolicyIsNull = false;
-            }
-            List<Amazon.LakeFormation.Model.LFTag> requestResource_resource_LFTagPolicy_lFTagPolicy_Expression = null;
-            if (cmdletContext.LFTagPolicy_Expression != null)
-            {
-                requestResource_resource_LFTagPolicy_lFTagPolicy_Expression = cmdletContext.LFTagPolicy_Expression;
-            }
-            if (requestResource_resource_LFTagPolicy_lFTagPolicy_Expression != null)
-            {
-                requestResource_resource_LFTagPolicy.Expression = requestResource_resource_LFTagPolicy_lFTagPolicy_Expression;
-                requestResource_resource_LFTagPolicyIsNull = false;
-            }
-            Amazon.LakeFormation.ResourceType requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType = null;
-            if (cmdletContext.LFTagPolicy_ResourceType != null)
-            {
-                requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType = cmdletContext.LFTagPolicy_ResourceType;
-            }
-            if (requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType != null)
-            {
-                requestResource_resource_LFTagPolicy.ResourceType = requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType;
-                requestResource_resource_LFTagPolicyIsNull = false;
-            }
-             // determine if requestResource_resource_LFTagPolicy should be set to null
-            if (requestResource_resource_LFTagPolicyIsNull)
-            {
-                requestResource_resource_LFTagPolicy = null;
-            }
-            if (requestResource_resource_LFTagPolicy != null)
-            {
-                request.Resource.LFTagPolicy = requestResource_resource_LFTagPolicy;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.DataCellsFilterResource requestResource_resource_DataCellsFilter = null;
@@ -671,6 +699,61 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestResource_resource_DataCellsFilter != null)
             {
                 request.Resource.DataCellsFilter = requestResource_resource_DataCellsFilter;
+                requestResourceIsNull = false;
+            }
+            Amazon.LakeFormation.Model.LFTagPolicyResource requestResource_resource_LFTagPolicy = null;
+            
+             // populate LFTagPolicy
+            var requestResource_resource_LFTagPolicyIsNull = true;
+            requestResource_resource_LFTagPolicy = new Amazon.LakeFormation.Model.LFTagPolicyResource();
+            System.String requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId = null;
+            if (cmdletContext.LFTagPolicy_CatalogId != null)
+            {
+                requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId = cmdletContext.LFTagPolicy_CatalogId;
+            }
+            if (requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId != null)
+            {
+                requestResource_resource_LFTagPolicy.CatalogId = requestResource_resource_LFTagPolicy_lFTagPolicy_CatalogId;
+                requestResource_resource_LFTagPolicyIsNull = false;
+            }
+            List<Amazon.LakeFormation.Model.LFTag> requestResource_resource_LFTagPolicy_lFTagPolicy_Expression = null;
+            if (cmdletContext.LFTagPolicy_Expression != null)
+            {
+                requestResource_resource_LFTagPolicy_lFTagPolicy_Expression = cmdletContext.LFTagPolicy_Expression;
+            }
+            if (requestResource_resource_LFTagPolicy_lFTagPolicy_Expression != null)
+            {
+                requestResource_resource_LFTagPolicy.Expression = requestResource_resource_LFTagPolicy_lFTagPolicy_Expression;
+                requestResource_resource_LFTagPolicyIsNull = false;
+            }
+            System.String requestResource_resource_LFTagPolicy_lFTagPolicy_ExpressionName = null;
+            if (cmdletContext.LFTagPolicy_ExpressionName != null)
+            {
+                requestResource_resource_LFTagPolicy_lFTagPolicy_ExpressionName = cmdletContext.LFTagPolicy_ExpressionName;
+            }
+            if (requestResource_resource_LFTagPolicy_lFTagPolicy_ExpressionName != null)
+            {
+                requestResource_resource_LFTagPolicy.ExpressionName = requestResource_resource_LFTagPolicy_lFTagPolicy_ExpressionName;
+                requestResource_resource_LFTagPolicyIsNull = false;
+            }
+            Amazon.LakeFormation.ResourceType requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType = null;
+            if (cmdletContext.LFTagPolicy_ResourceType != null)
+            {
+                requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType = cmdletContext.LFTagPolicy_ResourceType;
+            }
+            if (requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType != null)
+            {
+                requestResource_resource_LFTagPolicy.ResourceType = requestResource_resource_LFTagPolicy_lFTagPolicy_ResourceType;
+                requestResource_resource_LFTagPolicyIsNull = false;
+            }
+             // determine if requestResource_resource_LFTagPolicy should be set to null
+            if (requestResource_resource_LFTagPolicyIsNull)
+            {
+                requestResource_resource_LFTagPolicy = null;
+            }
+            if (requestResource_resource_LFTagPolicy != null)
+            {
+                request.Resource.LFTagPolicy = requestResource_resource_LFTagPolicy;
                 requestResourceIsNull = false;
             }
             Amazon.LakeFormation.Model.TableResource requestResource_resource_Table = null;
@@ -887,8 +970,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String LFTag_CatalogId { get; set; }
             public System.String LFTag_TagKey { get; set; }
             public List<System.String> LFTag_TagValue { get; set; }
+            public System.String LFTagExpression_CatalogId { get; set; }
+            public System.String LFTagExpression_Name { get; set; }
             public System.String LFTagPolicy_CatalogId { get; set; }
             public List<Amazon.LakeFormation.Model.LFTag> LFTagPolicy_Expression { get; set; }
+            public System.String LFTagPolicy_ExpressionName { get; set; }
             public Amazon.LakeFormation.ResourceType LFTagPolicy_ResourceType { get; set; }
             public System.String Table_CatalogId { get; set; }
             public System.String Table_DatabaseName { get; set; }

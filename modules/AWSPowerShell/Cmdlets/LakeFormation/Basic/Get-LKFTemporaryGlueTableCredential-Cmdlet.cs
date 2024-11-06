@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated
     /// with a registered location, for example an Amazon S3 bucket, with a scope down policy
     /// which restricts the access to a single prefix.
+    /// 
+    ///  
+    /// <para>
+    /// To call this API, the role that the service assumes must have <c>lakeformation:GetDataAccess</c>
+    /// permission on the resource.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LKFTemporaryGlueTableCredential")]
     [OutputType("Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse")]

@@ -22,42 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.LakeFormation;
+using Amazon.LakeFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Provides the number of days left for each data source used in the free trial period.
+    /// Returns the details about the LF-Tag expression. The caller must be a data lake admin
+    /// or must have <c>DESCRIBE</c> permission on the LF-Tag expression resource.
     /// </summary>
-    [Cmdlet("Get", "GDRemainingFreeTrialDay")]
-    [OutputType("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse")]
-    [AWSCmdlet("Calls the Amazon GuardDuty GetRemainingFreeTrialDays API operation.", Operation = new[] {"GetRemainingFreeTrialDays"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse object containing multiple properties."
+    [Cmdlet("Get", "LKFLFTagExpression")]
+    [OutputType("Amazon.LakeFormation.Model.GetLFTagExpressionResponse")]
+    [AWSCmdlet("Calls the AWS Lake Formation GetLFTagExpression API operation.", Operation = new[] {"GetLFTagExpression"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetLFTagExpressionResponse))]
+    [AWSCmdletOutput("Amazon.LakeFormation.Model.GetLFTagExpressionResponse",
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetLFTagExpressionResponse object containing multiple properties."
     )]
-    public partial class GetGDRemainingFreeTrialDayCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetLKFLFTagExpressionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>A list of account identifiers of the GuardDuty member account.</para>
+        /// <para>The identifier for the Data Catalog. By default, the account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AccountIds")]
-        public System.String[] AccountId { get; set; }
+        public System.String CatalogId { get; set; }
         #endregion
         
-        #region Parameter DetectorId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty member account.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
-        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
-        /// API.</para>
+        /// <para>The name for the LF-Tag expression</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,14 +66,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.GetLFTagExpressionResponse).
+        /// Specifying the name of a property of type Amazon.LakeFormation.Model.GetLFTagExpressionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -105,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.GetLFTagExpressionResponse, GetLKFLFTagExpressionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -114,18 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AccountId != null)
-            {
-                context.AccountId = new List<System.String>(this.AccountId);
-            }
-            context.DetectorId = this.DetectorId;
+            context.CatalogId = this.CatalogId;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest();
+            var request = new Amazon.LakeFormation.Model.GetLFTagExpressionRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.CatalogId != null)
             {
-                request.AccountIds = cmdletContext.AccountId;
+                request.CatalogId = cmdletContext.CatalogId;
             }
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.Name != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -185,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysRequest request)
+        private Amazon.LakeFormation.Model.GetLFTagExpressionResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.GetLFTagExpressionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetRemainingFreeTrialDays");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "GetLFTagExpression");
             try
             {
                 #if DESKTOP
-                return client.GetRemainingFreeTrialDays(request);
+                return client.GetLFTagExpression(request);
                 #elif CORECLR
-                return client.GetRemainingFreeTrialDaysAsync(request).GetAwaiter().GetResult();
+                return client.GetLFTagExpressionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AccountId { get; set; }
-            public System.String DetectorId { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.GetRemainingFreeTrialDaysResponse, GetGDRemainingFreeTrialDayCmdlet, object> Select { get; set; } =
+            public System.String CatalogId { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.LakeFormation.Model.GetLFTagExpressionResponse, GetLKFLFTagExpressionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
