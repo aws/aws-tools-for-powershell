@@ -571,7 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var context = new CmdletContext
             {
                 SourceBucket = this.BucketName,
-                SourceKey = this.Key,
+                SourceKey = this.Key.TrimStart('/'),
                 SourceVersionId = this.VersionId,
                 DestinationBucket = this.DestinationBucket,
                 DestinationKey = this.DestinationKey,
@@ -606,7 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.DestinationBucket = context.SourceBucket;
             if (string.IsNullOrEmpty(context.DestinationKey))
                 context.DestinationKey = context.SourceKey;
-
+            context.DestinationKey = context.DestinationKey.TrimStart('/');
             switch (this.ParameterSetName)
             {
                 case CopySingleObjectToLocalFile:
