@@ -61,7 +61,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFolder" OutputProperty="*" Verb="New" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
@@ -669,7 +678,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">

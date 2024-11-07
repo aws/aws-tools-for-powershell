@@ -80,6 +80,16 @@ $AS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AutoScaling.CapacityDistributionStrategy
+        {
+            ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneDistribution_CapacityDistributionStrategy") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/AvailabilityZoneDistribution_CapacityDistributionStrategy")
+        }
+        {
+            $v = "balanced-best-effort","balanced-only"
+            break
+        }
+
         # Amazon.AutoScaling.InstanceMetadataEndpointState
         "New-ASLaunchConfiguration/MetadataOptions_HttpEndpoint"
         {
@@ -159,6 +169,7 @@ $AS_Completers = {
 }
 
 $AS_map = @{
+    "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")

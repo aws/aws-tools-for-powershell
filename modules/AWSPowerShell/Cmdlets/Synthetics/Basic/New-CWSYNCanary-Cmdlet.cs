@@ -260,6 +260,22 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProvisionedResourceCleanup
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to also delete the Lambda functions and layers used by this canary
+        /// when the canary is deleted. If you omit this parameter, the default of <c>AUTOMATIC</c>
+        /// is used, which means that the Lambda functions and layers will be deleted when the
+        /// canary is deleted.</para><para>If the value of this parameter is <c>OFF</c>, then the value of the <c>DeleteLambda</c>
+        /// parameter of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a>
+        /// operation determines whether the Lambda functions and layers will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Synthetics.ProvisionedResourceCleanupSetting")]
+        public Amazon.Synthetics.ProvisionedResourceCleanupSetting ProvisionedResourceCleanup { get; set; }
+        #endregion
+        
         #region Parameter ResourcesToReplicateTag
         /// <summary>
         /// <para>
@@ -498,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProvisionedResourceCleanup = this.ProvisionedResourceCleanup;
             if (this.ResourcesToReplicateTag != null)
             {
                 context.ResourcesToReplicateTag = new List<System.String>(this.ResourcesToReplicateTag);
@@ -684,6 +701,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.Name != null)
                 {
                     request.Name = cmdletContext.Name;
+                }
+                if (cmdletContext.ProvisionedResourceCleanup != null)
+                {
+                    request.ProvisionedResourceCleanup = cmdletContext.ProvisionedResourceCleanup;
                 }
                 if (cmdletContext.ResourcesToReplicateTag != null)
                 {
@@ -888,6 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Synthetics.ProvisionedResourceCleanupSetting ProvisionedResourceCleanup { get; set; }
             public List<System.String> ResourcesToReplicateTag { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }

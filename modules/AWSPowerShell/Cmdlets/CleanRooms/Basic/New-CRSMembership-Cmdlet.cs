@@ -70,6 +70,36 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String CollaborationIdentifier { get; set; }
         #endregion
         
+        #region Parameter ModelInference_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for model inference
+        /// costs (<c>TRUE</c>) or has not accepted to pay for model inference costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for model inference costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for model inference
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for model inference
+        /// costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PaymentConfiguration_MachineLearning_ModelInference_IsResponsible")]
+        public System.Boolean? ModelInference_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter ModelTraining_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration member has accepted to pay for model training
+        /// costs (<c>TRUE</c>) or has not accepted to pay for model training costs (<c>FALSE</c>).</para><para>If the collaboration creator has not specified anyone to pay for model training costs,
+        /// then the member who can query is the default payer. </para><para>An error message is returned for the following reasons: </para><ul><li><para>If you set the value to <c>FALSE</c> but you are responsible to pay for model training
+        /// costs. </para></li><li><para>If you set the value to <c>TRUE</c> but you are not responsible to pay for model training
+        /// costs. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PaymentConfiguration_MachineLearning_ModelTraining_IsResponsible")]
+        public System.Boolean? ModelTraining_IsResponsible { get; set; }
+        #endregion
+        
         #region Parameter QueryCompute_IsResponsible
         /// <summary>
         /// <para>
@@ -236,6 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             context.S3_ResultFormat = this.S3_ResultFormat;
             context.S3_SingleFileOutput = this.S3_SingleFileOutput;
             context.DefaultResultConfiguration_RoleArn = this.DefaultResultConfiguration_RoleArn;
+            context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
+            context.ModelTraining_IsResponsible = this.ModelTraining_IsResponsible;
             context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
             context.QueryLogStatus = this.QueryLogStatus;
             #if MODULAR
@@ -390,6 +422,71 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 request.PaymentConfiguration.QueryCompute = requestPaymentConfiguration_paymentConfiguration_QueryCompute;
                 requestPaymentConfigurationIsNull = false;
             }
+            Amazon.CleanRooms.Model.MembershipMLPaymentConfig requestPaymentConfiguration_paymentConfiguration_MachineLearning = null;
+            
+             // populate MachineLearning
+            var requestPaymentConfiguration_paymentConfiguration_MachineLearningIsNull = true;
+            requestPaymentConfiguration_paymentConfiguration_MachineLearning = new Amazon.CleanRooms.Model.MembershipMLPaymentConfig();
+            Amazon.CleanRooms.Model.MembershipModelInferencePaymentConfig requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference = null;
+            
+             // populate ModelInference
+            var requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInferenceIsNull = true;
+            requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference = new Amazon.CleanRooms.Model.MembershipModelInferencePaymentConfig();
+            System.Boolean? requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible = null;
+            if (cmdletContext.ModelInference_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible = cmdletContext.ModelInference_IsResponsible.Value;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference.IsResponsible = requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible.Value;
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInferenceIsNull = false;
+            }
+             // determine if requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference should be set to null
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInferenceIsNull)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference = null;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning.ModelInference = requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelInference;
+                requestPaymentConfiguration_paymentConfiguration_MachineLearningIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MembershipModelTrainingPaymentConfig requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining = null;
+            
+             // populate ModelTraining
+            var requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTrainingIsNull = true;
+            requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining = new Amazon.CleanRooms.Model.MembershipModelTrainingPaymentConfig();
+            System.Boolean? requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible = null;
+            if (cmdletContext.ModelTraining_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible = cmdletContext.ModelTraining_IsResponsible.Value;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining.IsResponsible = requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible.Value;
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTrainingIsNull = false;
+            }
+             // determine if requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining should be set to null
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTrainingIsNull)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining = null;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining != null)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning.ModelTraining = requestPaymentConfiguration_paymentConfiguration_MachineLearning_paymentConfiguration_MachineLearning_ModelTraining;
+                requestPaymentConfiguration_paymentConfiguration_MachineLearningIsNull = false;
+            }
+             // determine if requestPaymentConfiguration_paymentConfiguration_MachineLearning should be set to null
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearningIsNull)
+            {
+                requestPaymentConfiguration_paymentConfiguration_MachineLearning = null;
+            }
+            if (requestPaymentConfiguration_paymentConfiguration_MachineLearning != null)
+            {
+                request.PaymentConfiguration.MachineLearning = requestPaymentConfiguration_paymentConfiguration_MachineLearning;
+                requestPaymentConfigurationIsNull = false;
+            }
              // determine if request.PaymentConfiguration should be set to null
             if (requestPaymentConfigurationIsNull)
             {
@@ -470,6 +567,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.ResultFormat S3_ResultFormat { get; set; }
             public System.Boolean? S3_SingleFileOutput { get; set; }
             public System.String DefaultResultConfiguration_RoleArn { get; set; }
+            public System.Boolean? ModelInference_IsResponsible { get; set; }
+            public System.Boolean? ModelTraining_IsResponsible { get; set; }
             public System.Boolean? QueryCompute_IsResponsible { get; set; }
             public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

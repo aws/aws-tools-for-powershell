@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AREXIndex', 
         'Get-AREXIndexesForMemberList', 
         'Get-AREXIndexList', 
+        'Get-AREXManagedView', 
+        'Get-AREXManagedViewList', 
         'Get-AREXResourceList', 
         'Get-AREXResourceTag', 
         'Get-AREXSupportedResourceTypeList', 

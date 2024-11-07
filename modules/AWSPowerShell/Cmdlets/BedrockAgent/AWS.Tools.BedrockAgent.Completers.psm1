@@ -411,7 +411,8 @@ $AAB_SelectMap = @{
                "Update-AABFlow",
                "Update-AABFlowAlias",
                "Update-AABKnowledgeBase",
-               "Update-AABPrompt")
+               "Update-AABPrompt",
+               "Confirm-AABFlowDefinition")
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap

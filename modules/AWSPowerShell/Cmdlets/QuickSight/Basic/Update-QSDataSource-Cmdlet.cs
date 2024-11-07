@@ -61,6 +61,32 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DataSourceParameters[] CredentialPair_AlternateDataSourceParameter { get; set; }
         #endregion
         
+        #region Parameter SnowflakeParameters_AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type that you want to use for your connection. This parameter accepts
+        /// OAuth and non-OAuth authentication types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_SnowflakeParameters_AuthenticationType")]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthenticationType")]
+        public Amazon.QuickSight.AuthenticationType SnowflakeParameters_AuthenticationType { get; set; }
+        #endregion
+        
+        #region Parameter StarburstParameters_AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type that you want to use for your connection. This parameter accepts
+        /// OAuth and non-OAuth authentication types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_AuthenticationType")]
+        [AWSConstantClassSource("Amazon.QuickSight.AuthenticationType")]
+        public Amazon.QuickSight.AuthenticationType StarburstParameters_AuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter IAMParameters_AutoCreateDatabaseUser
         /// <summary>
         /// <para>
@@ -280,6 +306,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_TeradataParameters_Database")]
         public System.String TeradataParameters_Database { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeParameters_DatabaseAccessControlRole
+        /// <summary>
+        /// <para>
+        /// <para>The database access control role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_SnowflakeParameters_DatabaseAccessControlRole")]
+        public System.String SnowflakeParameters_DatabaseAccessControlRole { get; set; }
+        #endregion
+        
+        #region Parameter StarburstParameters_DatabaseAccessControlRole
+        /// <summary>
+        /// <para>
+        /// <para>The database access control role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_StarburstParameters_DatabaseAccessControlRole")]
+        public System.String StarburstParameters_DatabaseAccessControlRole { get; set; }
         #endregion
         
         #region Parameter IAMParameters_DatabaseGroup
@@ -570,6 +618,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TrinoParameters_Host { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri
+        /// <summary>
+        /// <para>
+        /// <para>The resource uri of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri
+        /// <summary>
+        /// <para>
+        /// <para>The resource uri of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
+        #endregion
+        
         #region Parameter RdsParameters_InstanceId
         /// <summary>
         /// <para>
@@ -618,6 +686,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope
+        /// <summary>
+        /// <para>
+        /// <para>The OAuth scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope { get; set; }
         #endregion
         
         #region Parameter CredentialPair_Password
@@ -919,6 +1007,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DatabricksParameters_SqlEndpointPath { get; set; }
         #endregion
         
+        #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl
+        /// <summary>
+        /// <para>
+        /// <para>The token endpoint URL of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl
+        /// <summary>
+        /// <para>
+        /// <para>The token endpoint URL of the identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl { get; set; }
+        #endregion
+        
         #region Parameter CredentialPair_Username
         /// <summary>
         /// <para>
@@ -928,6 +1036,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Credentials_CredentialPair_Username")]
         public System.String CredentialPair_Username { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the VPC connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the VPC connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
         #endregion
         
         #region Parameter VpcConnectionProperties_VpcConnectionArn
@@ -1098,16 +1226,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
             context.S3Parameters_RoleArn = this.S3Parameters_RoleArn;
             context.ServiceNowParameters_SiteBaseUrl = this.ServiceNowParameters_SiteBaseUrl;
+            context.SnowflakeParameters_AuthenticationType = this.SnowflakeParameters_AuthenticationType;
             context.SnowflakeParameters_Database = this.SnowflakeParameters_Database;
+            context.SnowflakeParameters_DatabaseAccessControlRole = this.SnowflakeParameters_DatabaseAccessControlRole;
             context.SnowflakeParameters_Host = this.SnowflakeParameters_Host;
+            context.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri;
+            context.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            context.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope;
+            context.DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl = this.DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl;
             context.SnowflakeParameters_Warehouse = this.SnowflakeParameters_Warehouse;
             context.SparkParameters_Host = this.SparkParameters_Host;
             context.SparkParameters_Port = this.SparkParameters_Port;
             context.SqlServerParameters_Database = this.SqlServerParameters_Database;
             context.SqlServerParameters_Host = this.SqlServerParameters_Host;
             context.SqlServerParameters_Port = this.SqlServerParameters_Port;
+            context.StarburstParameters_AuthenticationType = this.StarburstParameters_AuthenticationType;
             context.StarburstParameters_Catalog = this.StarburstParameters_Catalog;
+            context.StarburstParameters_DatabaseAccessControlRole = this.StarburstParameters_DatabaseAccessControlRole;
             context.StarburstParameters_Host = this.StarburstParameters_Host;
+            context.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri = this.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri;
+            context.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = this.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            context.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope = this.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope;
+            context.DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl = this.DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl;
             context.StarburstParameters_Port = this.StarburstParameters_Port;
             context.StarburstParameters_ProductType = this.StarburstParameters_ProductType;
             context.TeradataParameters_Database = this.TeradataParameters_Database;
@@ -1984,51 +2124,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.PrestoParameters = requestDataSourceParameters_dataSourceParameters_PrestoParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.SnowflakeParameters requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = null;
-            
-             // populate SnowflakeParameters
-            var requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = new Amazon.QuickSight.Model.SnowflakeParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database = null;
-            if (cmdletContext.SnowflakeParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database = cmdletContext.SnowflakeParameters_Database;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Database = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database;
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host = null;
-            if (cmdletContext.SnowflakeParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host = cmdletContext.SnowflakeParameters_Host;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Host = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host;
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse = null;
-            if (cmdletContext.SnowflakeParameters_Warehouse != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse = cmdletContext.SnowflakeParameters_Warehouse;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Warehouse = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse;
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_SnowflakeParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters != null)
-            {
-                request.DataSourceParameters.SnowflakeParameters = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.SqlServerParameters requestDataSourceParameters_dataSourceParameters_SqlServerParameters = null;
             
              // populate SqlServerParameters
@@ -2164,61 +2259,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.TrinoParameters = requestDataSourceParameters_dataSourceParameters_TrinoParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.StarburstParameters requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
-            
-             // populate StarburstParameters
-            var requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_StarburstParameters = new Amazon.QuickSight.Model.StarburstParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = null;
-            if (cmdletContext.StarburstParameters_Catalog != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = cmdletContext.StarburstParameters_Catalog;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Catalog = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog;
-                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = null;
-            if (cmdletContext.StarburstParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = cmdletContext.StarburstParameters_Host;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Host = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host;
-                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
-            }
-            System.Int32? requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = null;
-            if (cmdletContext.StarburstParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = cmdletContext.StarburstParameters_Port.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Port = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port.Value;
-                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
-            }
-            Amazon.QuickSight.StarburstProductType requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = null;
-            if (cmdletContext.StarburstParameters_ProductType != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = cmdletContext.StarburstParameters_ProductType;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters.ProductType = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType;
-                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_StarburstParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters != null)
-            {
-                request.DataSourceParameters.StarburstParameters = requestDataSourceParameters_dataSourceParameters_StarburstParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
             
              // populate RedshiftParameters
@@ -2352,6 +2392,286 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_RedshiftParameters != null)
             {
                 request.DataSourceParameters.RedshiftParameters = requestDataSourceParameters_dataSourceParameters_RedshiftParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.SnowflakeParameters requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = null;
+            
+             // populate SnowflakeParameters
+            var requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = new Amazon.QuickSight.Model.SnowflakeParameters();
+            Amazon.QuickSight.AuthenticationType requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_AuthenticationType = null;
+            if (cmdletContext.SnowflakeParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_AuthenticationType = cmdletContext.SnowflakeParameters_AuthenticationType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.AuthenticationType = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_AuthenticationType;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database = null;
+            if (cmdletContext.SnowflakeParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database = cmdletContext.SnowflakeParameters_Database;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Database = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Database;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_DatabaseAccessControlRole = null;
+            if (cmdletContext.SnowflakeParameters_DatabaseAccessControlRole != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_DatabaseAccessControlRole = cmdletContext.SnowflakeParameters_DatabaseAccessControlRole;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_DatabaseAccessControlRole != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.DatabaseAccessControlRole = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_DatabaseAccessControlRole;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host = null;
+            if (cmdletContext.SnowflakeParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host = cmdletContext.SnowflakeParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Host = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse = null;
+            if (cmdletContext.SnowflakeParameters_Warehouse != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse = cmdletContext.SnowflakeParameters_Warehouse;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.Warehouse = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_snowflakeParameters_Warehouse;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.OAuthParameters requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters = null;
+            
+             // populate OAuthParameters
+            var requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters = new Amazon.QuickSight.Model.OAuthParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri = null;
+            if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri = cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters.IdentityProviderResourceUri = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope = null;
+            if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope = cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters.OAuthScope = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl = null;
+            if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl = cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters.TokenProviderUrl = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.VpcConnectionProperties requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            
+             // populate IdentityProviderVpcConnectionProperties
+            var requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = new Amazon.QuickSight.Model.VpcConnectionProperties();
+            System.String requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = null;
+            if (cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = cmdletContext.DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties.VpcConnectionArn = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters.IdentityProviderVpcConnectionProperties = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters.OAuthParameters = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters_dataSourceParameters_SnowflakeParameters_OAuthParameters;
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_SnowflakeParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_SnowflakeParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_SnowflakeParameters != null)
+            {
+                request.DataSourceParameters.SnowflakeParameters = requestDataSourceParameters_dataSourceParameters_SnowflakeParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.StarburstParameters requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
+            
+             // populate StarburstParameters
+            var requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_StarburstParameters = new Amazon.QuickSight.Model.StarburstParameters();
+            Amazon.QuickSight.AuthenticationType requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_AuthenticationType = null;
+            if (cmdletContext.StarburstParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_AuthenticationType = cmdletContext.StarburstParameters_AuthenticationType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_AuthenticationType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.AuthenticationType = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_AuthenticationType;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = null;
+            if (cmdletContext.StarburstParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog = cmdletContext.StarburstParameters_Catalog;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Catalog = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Catalog;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_DatabaseAccessControlRole = null;
+            if (cmdletContext.StarburstParameters_DatabaseAccessControlRole != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_DatabaseAccessControlRole = cmdletContext.StarburstParameters_DatabaseAccessControlRole;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_DatabaseAccessControlRole != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.DatabaseAccessControlRole = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_DatabaseAccessControlRole;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = null;
+            if (cmdletContext.StarburstParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host = cmdletContext.StarburstParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Host = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = null;
+            if (cmdletContext.StarburstParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port = cmdletContext.StarburstParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.Port = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            Amazon.QuickSight.StarburstProductType requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = null;
+            if (cmdletContext.StarburstParameters_ProductType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType = cmdletContext.StarburstParameters_ProductType;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.ProductType = requestDataSourceParameters_dataSourceParameters_StarburstParameters_starburstParameters_ProductType;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.OAuthParameters requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters = null;
+            
+             // populate OAuthParameters
+            var requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters = new Amazon.QuickSight.Model.OAuthParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri = null;
+            if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri = cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters.IdentityProviderResourceUri = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope = null;
+            if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope = cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters.OAuthScope = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl = null;
+            if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl = cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters.TokenProviderUrl = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.VpcConnectionProperties requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            
+             // populate IdentityProviderVpcConnectionProperties
+            var requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = new Amazon.QuickSight.Model.VpcConnectionProperties();
+            System.String requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = null;
+            if (cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn = cmdletContext.DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties.VpcConnectionArn = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionPropertiesIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters.IdentityProviderVpcConnectionProperties = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters_dataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties;
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters.OAuthParameters = requestDataSourceParameters_dataSourceParameters_StarburstParameters_dataSourceParameters_StarburstParameters_OAuthParameters;
+                requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_StarburstParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_StarburstParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_StarburstParameters != null)
+            {
+                request.DataSourceParameters.StarburstParameters = requestDataSourceParameters_dataSourceParameters_StarburstParameters;
                 requestDataSourceParametersIsNull = false;
             }
              // determine if request.DataSourceParameters should be set to null
@@ -2518,16 +2838,28 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String ManifestFileLocation_Key { get; set; }
             public System.String S3Parameters_RoleArn { get; set; }
             public System.String ServiceNowParameters_SiteBaseUrl { get; set; }
+            public Amazon.QuickSight.AuthenticationType SnowflakeParameters_AuthenticationType { get; set; }
             public System.String SnowflakeParameters_Database { get; set; }
+            public System.String SnowflakeParameters_DatabaseAccessControlRole { get; set; }
             public System.String SnowflakeParameters_Host { get; set; }
+            public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
+            public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
+            public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope { get; set; }
+            public System.String DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl { get; set; }
             public System.String SnowflakeParameters_Warehouse { get; set; }
             public System.String SparkParameters_Host { get; set; }
             public System.Int32? SparkParameters_Port { get; set; }
             public System.String SqlServerParameters_Database { get; set; }
             public System.String SqlServerParameters_Host { get; set; }
             public System.Int32? SqlServerParameters_Port { get; set; }
+            public Amazon.QuickSight.AuthenticationType StarburstParameters_AuthenticationType { get; set; }
             public System.String StarburstParameters_Catalog { get; set; }
+            public System.String StarburstParameters_DatabaseAccessControlRole { get; set; }
             public System.String StarburstParameters_Host { get; set; }
+            public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri { get; set; }
+            public System.String DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn { get; set; }
+            public System.String DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope { get; set; }
+            public System.String DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl { get; set; }
             public System.Int32? StarburstParameters_Port { get; set; }
             public Amazon.QuickSight.StarburstProductType StarburstParameters_ProductType { get; set; }
             public System.String TeradataParameters_Database { get; set; }

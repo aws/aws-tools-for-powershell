@@ -1,4 +1,61 @@
-﻿### 4.1.692 (2024-11-06 21:12Z)
+﻿### 4.1.693 (2024-11-07 21:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.921.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Confirm-AABFlowDefinition leveraging the ValidateFlowDefinition service API.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter AvailabilityZoneDistribution_CapacityDistributionStrategy.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameter AvailabilityZoneDistribution_CapacityDistributionStrategy.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameter PromptVariable.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter PromptVariable.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet New-CRSCollaboration: added parameters CreatorMLMemberAbilities_CustomMLMemberAbility, ModelInference_IsResponsible and ModelTraining_IsResponsible.
+    * Modified cmdlet New-CRSMembership: added parameters ModelInference_IsResponsible and ModelTraining_IsResponsible.
+  * Amazon CleanRoomsML
+    * Added cmdlet Get-CRMLCollaborationConfiguredModelAlgorithmAssociation leveraging the GetCollaborationConfiguredModelAlgorithmAssociation service API.
+    * Added cmdlet Get-CRMLCollaborationConfiguredModelAlgorithmAssociationList leveraging the ListCollaborationConfiguredModelAlgorithmAssociations service API.
+    * Added cmdlet Get-CRMLCollaborationMLInputChannel leveraging the GetCollaborationMLInputChannel service API.
+    * Added cmdlet Get-CRMLCollaborationMLInputChannelList leveraging the ListCollaborationMLInputChannels service API.
+    * Added cmdlet Get-CRMLCollaborationTrainedModel leveraging the GetCollaborationTrainedModel service API.
+    * Added cmdlet Get-CRMLCollaborationTrainedModelExportJobList leveraging the ListCollaborationTrainedModelExportJobs service API.
+    * Added cmdlet Get-CRMLCollaborationTrainedModelInferenceJobList leveraging the ListCollaborationTrainedModelInferenceJobs service API.
+    * Added cmdlet Get-CRMLCollaborationTrainedModelList leveraging the ListCollaborationTrainedModels service API.
+    * Added cmdlet Get-CRMLConfiguredModelAlgorithm leveraging the GetConfiguredModelAlgorithm service API.
+    * Added cmdlet Get-CRMLConfiguredModelAlgorithmAssociation leveraging the GetConfiguredModelAlgorithmAssociation service API.
+    * Added cmdlet Get-CRMLConfiguredModelAlgorithmAssociationList leveraging the ListConfiguredModelAlgorithmAssociations service API.
+    * Added cmdlet Get-CRMLConfiguredModelAlgorithmList leveraging the ListConfiguredModelAlgorithms service API.
+    * Added cmdlet Get-CRMLMLConfiguration leveraging the GetMLConfiguration service API.
+    * Added cmdlet Get-CRMLMLInputChannel leveraging the GetMLInputChannel service API.
+    * Added cmdlet Get-CRMLMLInputChannelList leveraging the ListMLInputChannels service API.
+    * Added cmdlet Get-CRMLTrainedModel leveraging the GetTrainedModel service API.
+    * Added cmdlet Get-CRMLTrainedModelInferenceJob leveraging the GetTrainedModelInferenceJob service API.
+    * Added cmdlet Get-CRMLTrainedModelInferenceJobList leveraging the ListTrainedModelInferenceJobs service API.
+    * Added cmdlet Get-CRMLTrainedModelList leveraging the ListTrainedModels service API.
+    * Added cmdlet New-CRMLConfiguredModelAlgorithm leveraging the CreateConfiguredModelAlgorithm service API.
+    * Added cmdlet New-CRMLConfiguredModelAlgorithmAssociation leveraging the CreateConfiguredModelAlgorithmAssociation service API.
+    * Added cmdlet New-CRMLMLInputChannel leveraging the CreateMLInputChannel service API.
+    * Added cmdlet New-CRMLTrainedModel leveraging the CreateTrainedModel service API.
+    * Added cmdlet Remove-CRMLConfiguredModelAlgorithm leveraging the DeleteConfiguredModelAlgorithm service API.
+    * Added cmdlet Remove-CRMLConfiguredModelAlgorithmAssociation leveraging the DeleteConfiguredModelAlgorithmAssociation service API.
+    * Added cmdlet Remove-CRMLMLConfiguration leveraging the DeleteMLConfiguration service API.
+    * Added cmdlet Remove-CRMLMLInputChannelData leveraging the DeleteMLInputChannelData service API.
+    * Added cmdlet Remove-CRMLTrainedModelOutput leveraging the DeleteTrainedModelOutput service API.
+    * Added cmdlet Start-CRMLTrainedModelExportJob leveraging the StartTrainedModelExportJob service API.
+    * Added cmdlet Start-CRMLTrainedModelInferenceJob leveraging the StartTrainedModelInferenceJob service API.
+    * Added cmdlet Stop-CRMLTrainedModel leveraging the CancelTrainedModel service API.
+    * Added cmdlet Stop-CRMLTrainedModelInferenceJob leveraging the CancelTrainedModelInferenceJob service API.
+    * Added cmdlet Write-CRMLMLConfiguration leveraging the PutMLConfiguration service API.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter ProvisionedResourceCleanup.
+    * Modified cmdlet Update-CWSYNCanary: added parameter ProvisionedResourceCleanup.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameters DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope, DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl, DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope, DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl, SnowflakeParameters_AuthenticationType, SnowflakeParameters_DatabaseAccessControlRole, StarburstParameters_AuthenticationType and StarburstParameters_DatabaseAccessControlRole.
+    * Modified cmdlet Update-QSDataSource: added parameters DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope, DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl, DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri, DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn, DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope, DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl, SnowflakeParameters_AuthenticationType, SnowflakeParameters_DatabaseAccessControlRole, StarburstParameters_AuthenticationType and StarburstParameters_DatabaseAccessControlRole.
+  * Amazon Resource Explorer
+    * Added cmdlet Get-AREXManagedView leveraging the GetManagedView service API.
+    * Added cmdlet Get-AREXManagedViewList leveraging the ListManagedViews service API.
+
+### 4.1.692 (2024-11-06 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.920.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBFleet: added parameters ComputeConfiguration_Disk, ComputeConfiguration_MachineType, ComputeConfiguration_Memory and ComputeConfiguration_VCpu.

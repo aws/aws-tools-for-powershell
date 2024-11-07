@@ -112,6 +112,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AuthenticationType
+        {
+            ($_ -eq "New-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
+            ($_ -eq "New-QSDataSource/StarburstParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/StarburstParameters_AuthenticationType")
+        }
+        {
+            $v = "PASSWORD","TOKEN","X509"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
@@ -527,6 +539,8 @@ $QS_map = @{
     "SharingModel"=@("New-QSFolder")
     "SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
     "SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "SnowflakeParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
+    "StarburstParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")

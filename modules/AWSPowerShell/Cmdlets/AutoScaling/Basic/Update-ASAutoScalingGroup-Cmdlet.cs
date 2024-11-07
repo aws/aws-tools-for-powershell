@@ -109,6 +109,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneDistribution_CapacityDistributionStrategy
+        /// <summary>
+        /// <para>
+        /// <para> If launches fail in an Availability Zone, the following strategies are available.
+        /// The default is <c>balanced-best-effort</c>. </para><ul><li><para><c>balanced-only</c> - If launches fail in an Availability Zone, Auto Scaling will
+        /// continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.</para></li><li><para><c>balanced-best-effort</c> - If launches fail in an Availability Zone, Auto Scaling
+        /// will attempt to launch in another healthy Availability Zone instead.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.CapacityDistributionStrategy")]
+        public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
+        #endregion
+        
         #region Parameter CapacityRebalance
         /// <summary>
         /// <para>
@@ -490,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AvailabilityZoneDistribution_CapacityDistributionStrategy = this.AvailabilityZoneDistribution_CapacityDistributionStrategy;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
@@ -539,6 +554,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            
+             // populate AvailabilityZoneDistribution
+            var requestAvailabilityZoneDistributionIsNull = true;
+            request.AvailabilityZoneDistribution = new Amazon.AutoScaling.Model.AvailabilityZoneDistribution();
+            Amazon.AutoScaling.CapacityDistributionStrategy requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy = null;
+            if (cmdletContext.AvailabilityZoneDistribution_CapacityDistributionStrategy != null)
+            {
+                requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy = cmdletContext.AvailabilityZoneDistribution_CapacityDistributionStrategy;
+            }
+            if (requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy != null)
+            {
+                request.AvailabilityZoneDistribution.CapacityDistributionStrategy = requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy;
+                requestAvailabilityZoneDistributionIsNull = false;
+            }
+             // determine if request.AvailabilityZoneDistribution should be set to null
+            if (requestAvailabilityZoneDistributionIsNull)
+            {
+                request.AvailabilityZoneDistribution = null;
             }
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -746,6 +780,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
             public System.String Context { get; set; }

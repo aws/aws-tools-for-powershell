@@ -4993,6 +4993,16 @@ $AS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AutoScaling.CapacityDistributionStrategy
+        {
+            ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneDistribution_CapacityDistributionStrategy") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/AvailabilityZoneDistribution_CapacityDistributionStrategy")
+        }
+        {
+            $v = "balanced-best-effort","balanced-only"
+            break
+        }
+
         # Amazon.AutoScaling.InstanceMetadataEndpointState
         "New-ASLaunchConfiguration/MetadataOptions_HttpEndpoint"
         {
@@ -5072,6 +5082,7 @@ $AS_Completers = {
 }
 
 $AS_map = @{
+    "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")
@@ -6936,7 +6947,8 @@ $AAB_SelectMap = @{
                "Update-AABFlow",
                "Update-AABFlowAlias",
                "Update-AABKnowledgeBase",
-               "Update-AABPrompt")
+               "Update-AABPrompt",
+               "Confirm-AABFlowDefinition")
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap
@@ -10184,6 +10196,27 @@ $CRML_Completers = {
             break
         }
 
+        # Amazon.CleanRoomsML.InferenceInstanceType
+        "Start-CRMLTrainedModelInferenceJob/ResourceConfig_InstanceType"
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge"
+            break
+        }
+
+        # Amazon.CleanRoomsML.InstanceType
+        "New-CRMLTrainedModel/ResourceConfig_InstanceType"
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            break
+        }
+
+        # Amazon.CleanRoomsML.NoiseLevelType
+        "New-CRMLConfiguredModelAlgorithmAssociation/ContainerMetrics_NoiseLevel"
+        {
+            $v = "HIGH","LOW","MEDIUM","NONE"
+            break
+        }
+
         # Amazon.CleanRoomsML.PolicyExistenceCondition
         "Write-CRMLConfiguredAudienceModelPolicy/PolicyExistenceCondition"
         {
@@ -10195,6 +10228,27 @@ $CRML_Completers = {
         "New-CRMLConfiguredAudienceModel/ChildResourceTagOnCreatePolicy"
         {
             $v = "FROM_PARENT_RESOURCE","NONE"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainedModelExportsMaxSizeUnitType
+        "New-CRMLConfiguredModelAlgorithmAssociation/MaxSize_Unit"
+        {
+            $v = "GB"
+            break
+        }
+
+        # Amazon.CleanRoomsML.TrainedModelInferenceMaxOutputSizeUnitType
+        "New-CRMLConfiguredModelAlgorithmAssociation/MaxOutputSize_Unit"
+        {
+            $v = "GB"
+            break
+        }
+
+        # Amazon.CleanRoomsML.WorkerComputeType
+        "New-CRMLMLInputChannel/Worker_Type"
+        {
+            $v = "CR.1X","CR.4X"
             break
         }
 
@@ -10210,7 +10264,12 @@ $CRML_map = @{
     "AudienceSize_Type"=@("Start-CRMLAudienceExportJob")
     "AudienceSizeConfig_AudienceSizeType"=@("New-CRMLConfiguredAudienceModel","Update-CRMLConfiguredAudienceModel")
     "ChildResourceTagOnCreatePolicy"=@("New-CRMLConfiguredAudienceModel")
+    "ContainerMetrics_NoiseLevel"=@("New-CRMLConfiguredModelAlgorithmAssociation")
+    "MaxOutputSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
+    "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
+    "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
+    "Worker_Type"=@("New-CRMLMLInputChannel")
 }
 
 _awsArgumentCompleterRegistration $CRML_Completers $CRML_map
@@ -10263,28 +10322,61 @@ $CRML_SelectCompleters = {
 }
 
 $CRML_SelectMap = @{
-    "Select"=@("New-CRMLAudienceModel",
+    "Select"=@("Stop-CRMLTrainedModel",
+               "Stop-CRMLTrainedModelInferenceJob",
+               "New-CRMLAudienceModel",
                "New-CRMLConfiguredAudienceModel",
+               "New-CRMLConfiguredModelAlgorithm",
+               "New-CRMLConfiguredModelAlgorithmAssociation",
+               "New-CRMLMLInputChannel",
+               "New-CRMLTrainedModel",
                "New-CRMLTrainingDataset",
                "Remove-CRMLAudienceGenerationJob",
                "Remove-CRMLAudienceModel",
                "Remove-CRMLConfiguredAudienceModel",
                "Remove-CRMLConfiguredAudienceModelPolicy",
+               "Remove-CRMLConfiguredModelAlgorithm",
+               "Remove-CRMLConfiguredModelAlgorithmAssociation",
+               "Remove-CRMLMLConfiguration",
+               "Remove-CRMLMLInputChannelData",
+               "Remove-CRMLTrainedModelOutput",
                "Remove-CRMLTrainingDataset",
                "Get-CRMLAudienceGenerationJob",
                "Get-CRMLAudienceModel",
+               "Get-CRMLCollaborationConfiguredModelAlgorithmAssociation",
+               "Get-CRMLCollaborationMLInputChannel",
+               "Get-CRMLCollaborationTrainedModel",
                "Get-CRMLConfiguredAudienceModel",
                "Get-CRMLConfiguredAudienceModelPolicy",
+               "Get-CRMLConfiguredModelAlgorithm",
+               "Get-CRMLConfiguredModelAlgorithmAssociation",
+               "Get-CRMLMLConfiguration",
+               "Get-CRMLMLInputChannel",
+               "Get-CRMLTrainedModel",
+               "Get-CRMLTrainedModelInferenceJob",
                "Get-CRMLTrainingDataset",
                "Get-CRMLAudienceExportJobList",
                "Get-CRMLAudienceGenerationJobList",
                "Get-CRMLAudienceModelList",
+               "Get-CRMLCollaborationConfiguredModelAlgorithmAssociationList",
+               "Get-CRMLCollaborationMLInputChannelList",
+               "Get-CRMLCollaborationTrainedModelExportJobList",
+               "Get-CRMLCollaborationTrainedModelInferenceJobList",
+               "Get-CRMLCollaborationTrainedModelList",
                "Get-CRMLConfiguredAudienceModelList",
+               "Get-CRMLConfiguredModelAlgorithmAssociationList",
+               "Get-CRMLConfiguredModelAlgorithmList",
+               "Get-CRMLMLInputChannelList",
                "Get-CRMLResourceTag",
+               "Get-CRMLTrainedModelInferenceJobList",
+               "Get-CRMLTrainedModelList",
                "Get-CRMLTrainingDatasetList",
                "Write-CRMLConfiguredAudienceModelPolicy",
+               "Write-CRMLMLConfiguration",
                "Start-CRMLAudienceExportJob",
                "Start-CRMLAudienceGenerationJob",
+               "Start-CRMLTrainedModelExportJob",
+               "Start-CRMLTrainedModelInferenceJob",
                "Add-CRMLResourceTag",
                "Remove-CRMLResourceTag",
                "Update-CRMLConfiguredAudienceModel")
@@ -55990,6 +56082,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.AuthenticationType
+        {
+            ($_ -eq "New-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/SnowflakeParameters_AuthenticationType") -Or
+            ($_ -eq "New-QSDataSource/StarburstParameters_AuthenticationType") -Or
+            ($_ -eq "Update-QSDataSource/StarburstParameters_AuthenticationType")
+        }
+        {
+            $v = "PASSWORD","TOKEN","X509"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
@@ -56405,6 +56509,8 @@ $QS_map = @{
     "SharingModel"=@("New-QSFolder")
     "SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
     "SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "SnowflakeParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
+    "StarburstParameters_AuthenticationType"=@("New-QSDataSource","Update-QSDataSource")
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
@@ -58613,9 +58719,11 @@ $AREX_SelectMap = @{
                "Get-AREXAccountLevelServiceConfiguration",
                "Get-AREXDefaultView",
                "Get-AREXIndex",
+               "Get-AREXManagedView",
                "Get-AREXView",
                "Get-AREXIndexList",
                "Get-AREXIndexesForMemberList",
+               "Get-AREXManagedViewList",
                "Get-AREXResourceList",
                "Get-AREXSupportedResourceTypeList",
                "Get-AREXResourceTag",
@@ -69051,6 +69159,16 @@ $CWSYN_Completers = {
             break
         }
 
+        # Amazon.Synthetics.ProvisionedResourceCleanupSetting
+        {
+            ($_ -eq "New-CWSYNCanary/ProvisionedResourceCleanup") -Or
+            ($_ -eq "Update-CWSYNCanary/ProvisionedResourceCleanup")
+        }
+        {
+            $v = "AUTOMATIC","OFF"
+            break
+        }
+
 
     }
 
@@ -69060,6 +69178,7 @@ $CWSYN_Completers = {
 }
 
 $CWSYN_map = @{
+    "ProvisionedResourceCleanup"=@("New-CWSYNCanary","Update-CWSYNCanary")
     "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
 }
 
