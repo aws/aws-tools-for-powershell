@@ -1,4 +1,22 @@
-﻿### 4.1.693 (2024-11-07 21:51Z)
+﻿### 4.1.694 (2024-11-08 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.922.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter LaunchTemplate_Override.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter LaunchTemplate_Override.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARFlow: added parameter EnableTrace.
+  * Amazon Chime SDK Media Pipelines
+    * Modified cmdlet New-CHMMPMediaCapturePipeline: added parameters SinkIamRoleArn, SseAwsKeyManagementParams_AwsKmsEncryptionContext and SseAwsKeyManagementParams_AwsKmsKeyId.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters CatalogConfiguration_WarehouseLocation, Columns_Exclude, Columns_Include, Databases_Exclude, Databases_Include, DatabaseSourceConfiguration_Endpoint, DatabaseSourceConfiguration_Port, DatabaseSourceConfiguration_SnapshotWatermarkTable, DatabaseSourceConfiguration_SSLMode, DatabaseSourceConfiguration_SurrogateKey, DatabaseSourceConfiguration_Type, DatabaseSourceVPCConfiguration_VpcEndpointServiceName, SchemaEvolutionConfiguration_Enabled, SecretsManagerConfiguration_Enabled, SecretsManagerConfiguration_RoleARN, SecretsManagerConfiguration_SecretARN, TableCreationConfiguration_Enabled, Tables_Exclude and Tables_Include.
+    * Modified cmdlet Update-KINFDestination: added parameters CatalogConfiguration_WarehouseLocation, SchemaEvolutionConfiguration_Enabled and TableCreationConfiguration_Enabled.
+  * Amazon Lambda
+    * Modified cmdlet Publish-LMFunction: added parameter Code_SourceKMSKeyArn.
+    * Modified cmdlet Update-LMFunctionCode: added parameter SourceKMSKeyArn.
+  * Amazon QBusiness
+    * Modified cmdlet Write-QBUSGroup: added parameters RoleArn, S3PathForGroupMembers_Bucket and S3PathForGroupMembers_Key.
+
+### 4.1.693 (2024-11-07 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.921.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Confirm-AABFlowDefinition leveraging the ValidateFlowDefinition service API.

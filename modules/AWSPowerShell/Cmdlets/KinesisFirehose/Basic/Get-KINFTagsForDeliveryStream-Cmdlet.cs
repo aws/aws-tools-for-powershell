@@ -28,7 +28,7 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Lists the tags for the specified delivery stream. This operation has a limit of five
+    /// Lists the tags for the specified Firehose stream. This operation has a limit of five
     /// transactions per second per account.
     /// </summary>
     [Cmdlet("Get", "KINFTagsForDeliveryStream")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream whose tags you want to list.</para>
+        /// <para>The name of the Firehose stream whose tags you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The number of tags to return. If this number is less than the total number of tags
-        /// associated with the delivery stream, <c>HasMoreTags</c> is set to <c>true</c> in the
+        /// associated with the Firehose stream, <c>HasMoreTags</c> is set to <c>true</c> in the
         /// response. To list additional tags, set <c>ExclusiveStartTagKey</c> to the last key
         /// in the response. </para>
         /// </para>

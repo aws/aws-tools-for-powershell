@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EnableTrace
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to return the trace for the flow or not. Traces track inputs and
+        /// outputs for nodes in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track
+        /// each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableTrace { get; set; }
+        #endregion
+        
         #region Parameter FlowAliasIdentifier
         /// <summary>
         /// <para>
@@ -145,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse, InvokeBARFlowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EnableTrace = this.EnableTrace;
             context.FlowAliasIdentifier = this.FlowAliasIdentifier;
             #if MODULAR
             if (this.FlowAliasIdentifier == null && ParameterWasBound(nameof(this.FlowAliasIdentifier)))
@@ -185,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             // create request
             var request = new Amazon.BedrockAgentRuntime.Model.InvokeFlowRequest();
             
+            if (cmdletContext.EnableTrace != null)
+            {
+                request.EnableTrace = cmdletContext.EnableTrace.Value;
+            }
             if (cmdletContext.FlowAliasIdentifier != null)
             {
                 request.FlowAliasIdentifier = cmdletContext.FlowAliasIdentifier;
@@ -258,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableTrace { get; set; }
             public System.String FlowAliasIdentifier { get; set; }
             public System.String FlowIdentifier { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.FlowInput> Input { get; set; }

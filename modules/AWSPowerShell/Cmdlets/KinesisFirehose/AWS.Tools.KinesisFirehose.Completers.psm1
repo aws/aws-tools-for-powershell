@@ -121,6 +121,13 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.DatabaseType
+        "New-KINFDeliveryStream/DatabaseSourceConfiguration_Type"
+        {
+            $v = "MySQL","PostgreSQL"
+            break
+        }
+
         # Amazon.KinesisFirehose.DefaultDocumentIdFormat
         {
             ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat") -Or
@@ -139,7 +146,7 @@ $KINF_Completers = {
             ($_ -eq "New-KINFDeliveryStream/DeliveryStreamType")
         }
         {
-            $v = "DirectPut","KinesisStreamAsSource","MSKAsSource"
+            $v = "DatabaseAsSource","DirectPut","KinesisStreamAsSource","MSKAsSource"
             break
         }
 
@@ -210,6 +217,13 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.SSLMode
+        "New-KINFDeliveryStream/DatabaseSourceConfiguration_SSLMode"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
 
     }
 
@@ -226,6 +240,8 @@ $KINF_map = @{
     "AmazonopensearchserviceDestinationUpdate_DocumentIdOptions_DefaultDocumentIdFormat"=@("Update-KINFDestination")
     "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
     "AuthenticationConfiguration_Connectivity"=@("New-KINFDeliveryStream")
+    "DatabaseSourceConfiguration_SSLMode"=@("New-KINFDeliveryStream")
+    "DatabaseSourceConfiguration_Type"=@("New-KINFDeliveryStream")
     "DeliveryStreamEncryptionConfigurationInput_KeyType"=@("New-KINFDeliveryStream","Start-KINFDeliveryStreamEncryption")
     "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
     "DocumentIdOptions_DefaultDocumentIdFormat"=@("New-KINFDeliveryStream","Update-KINFDestination")

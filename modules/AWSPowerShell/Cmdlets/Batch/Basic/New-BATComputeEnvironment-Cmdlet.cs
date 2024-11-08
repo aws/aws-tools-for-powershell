@@ -349,6 +349,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? ComputeResources_MinvCpu { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Override
+        /// <summary>
+        /// <para>
+        /// <para>A launch template to use in place of the default launch template. You must specify
+        /// either the launch template ID or launch template name in the request, but not both.</para><para>You can specify up to ten (10) launch template overrides that are associated to unique
+        /// instance types or families for each compute environment.</para><note><para>To unset all override templates for a compute environment, you can pass an empty array
+        /// to the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html">UpdateComputeEnvironment.overrides</a>
+        /// parameter, or not include the <c>overrides</c> parameter when submitting the <c>UpdateComputeEnvironment</c>
+        /// API operation.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeResources_LaunchTemplate_Overrides")]
+        public Amazon.Batch.Model.LaunchTemplateSpecificationOverride[] LaunchTemplate_Override { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_PlacementGroup
         /// <summary>
         /// <para>
@@ -552,17 +568,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number of the launch template, <c>$Latest</c>, or <c>$Default</c>.</para><para>If the value is <c>$Latest</c>, the latest version of the launch template is used.
-        /// If the value is <c>$Default</c>, the default version of the launch template is used.</para><important><para>If the AMI ID that's used in a compute environment is from the launch template, the
+        /// <para>The version number of the launch template, <c>$Default</c>, or <c>$Latest</c>.</para><para>If the value is <c>$Default</c>, the default version of the launch template is used.
+        /// If the value is <c>$Latest</c>, the latest version of the launch template is used.
+        /// </para><important><para>If the AMI ID that's used in a compute environment is from the launch template, the
         /// AMI isn't changed when the compute environment is updated. It's only changed if the
         /// <c>updateToLatestImageVersion</c> parameter for the compute environment is set to
-        /// <c>true</c>. During an infrastructure update, if either <c>$Latest</c> or <c>$Default</c>
+        /// <c>true</c>. During an infrastructure update, if either <c>$Default</c> or <c>$Latest</c>
         /// is specified, Batch re-evaluates the launch template version, and it might use a different
         /// version of the launch template. This is the case even if the launch template isn't
         /// specified in the update. When updating a compute environment, changing the launch
         /// template requires an infrastructure update of the compute environment. For more information,
         /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-        /// compute environments</a> in the <i>Batch User Guide</i>.</para></important><para>Default: <c>$Default</c>.</para>
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para></important><para>Default: <c>$Default</c></para><para>Latest: <c>$Latest</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -658,6 +675,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
             context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
+            if (this.LaunchTemplate_Override != null)
+            {
+                context.LaunchTemplate_Override = new List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride>(this.LaunchTemplate_Override);
+            }
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.ComputeResources_MaxvCpu = this.ComputeResources_MaxvCpu;
             context.ComputeResources_MinvCpu = this.ComputeResources_MinvCpu;
@@ -912,6 +933,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestComputeResources_computeResources_LaunchTemplate.LaunchTemplateName = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateName;
                 requestComputeResources_computeResources_LaunchTemplateIsNull = false;
             }
+            List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride> requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Override = null;
+            if (cmdletContext.LaunchTemplate_Override != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Override = cmdletContext.LaunchTemplate_Override;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Override != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate.Overrides = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Override;
+                requestComputeResources_computeResources_LaunchTemplateIsNull = false;
+            }
             System.String requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version = null;
             if (cmdletContext.LaunchTemplate_Version != null)
             {
@@ -1063,6 +1094,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ComputeResources_InstanceType { get; set; }
             public System.String LaunchTemplate_LaunchTemplateId { get; set; }
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+            public List<Amazon.Batch.Model.LaunchTemplateSpecificationOverride> LaunchTemplate_Override { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
             public System.Int32? ComputeResources_MaxvCpu { get; set; }
             public System.Int32? ComputeResources_MinvCpu { get; set; }

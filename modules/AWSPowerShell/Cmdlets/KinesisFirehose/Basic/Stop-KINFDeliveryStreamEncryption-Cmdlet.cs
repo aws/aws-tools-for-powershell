@@ -28,7 +28,7 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Disables server-side encryption (SSE) for the delivery stream. 
+    /// Disables server-side encryption (SSE) for the Firehose stream. 
     /// 
     ///  
     /// <para>
@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// first sets the encryption status of the stream to <c>DISABLING</c>, and then to <c>DISABLED</c>.
     /// You can continue to read and write data to your stream while its status is <c>DISABLING</c>.
     /// It can take up to 5 seconds after the encryption status changes to <c>DISABLED</c>
-    /// before all records written to the delivery stream are no longer subject to encryption.
+    /// before all records written to the Firehose stream are no longer subject to encryption.
     /// To find out whether a record or a batch of records was encrypted, check the response
     /// elements <a>PutRecordOutput$Encrypted</a> and <a>PutRecordBatchOutput$Encrypted</a>,
     /// respectively.
     /// </para><para>
-    /// To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+    /// To check the encryption state of a Firehose stream, use <a>DescribeDeliveryStream</a>.
     /// 
     /// </para><para>
     /// If SSE is enabled using a customer managed CMK and then you invoke <c>StopDeliveryStreamEncryption</c>,
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// it ensures that it is finished delivering records to the destination.
     /// </para><para>
     /// The <c>StartDeliveryStreamEncryption</c> and <c>StopDeliveryStreamEncryption</c> operations
-    /// have a combined limit of 25 calls per delivery stream per 24 hours. For example, you
+    /// have a combined limit of 25 calls per Firehose stream per 24 hours. For example, you
     /// reach the limit if you call <c>StartDeliveryStreamEncryption</c> 13 times and <c>StopDeliveryStreamEncryption</c>
-    /// 12 times for the same delivery stream in a 24-hour period.
+    /// 12 times for the same Firehose stream in a 24-hour period.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "KINFDeliveryStreamEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream for which you want to disable server-side encryption
+        /// <para>The name of the Firehose stream for which you want to disable server-side encryption
         /// (SSE).</para>
         /// </para>
         /// </summary>

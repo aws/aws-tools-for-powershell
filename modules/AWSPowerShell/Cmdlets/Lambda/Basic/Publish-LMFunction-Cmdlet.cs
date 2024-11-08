@@ -315,14 +315,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt
-        /// your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
-        /// variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
-        /// SnapStart</a> is activated, Lambda also uses this key is to encrypt your function's
-        /// snapshot. If you deploy your function using a container image, Lambda also uses this
-        /// key to encrypt your function when it's deployed. Note that this is not the same key
-        /// that's used to protect your container image in the Amazon Elastic Container Registry
-        /// (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service
-        /// key.</para>
+        /// the following resources:</para><ul><li><para>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
+        /// variables</a>.</para></li><li><para>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
+        /// SnapStart</a> snapshots.</para></li><li><para>When used with <c>SourceKMSKeyArn</c>, the unzipped version of the .zip deployment
+        /// package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">
+        /// Specifying a customer managed key for Lambda</a>.</para></li><li><para>The optimized version of the container image that's used for function invocations.
+        /// Note that this is not the same key that's used to protect your container image in
+        /// the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function
+        /// lifecycle</a>.</para></li></ul><para>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
+        /// Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// Web Services managed key</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -496,6 +498,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32? EphemeralStorage_Size { get; set; }
         #endregion
         
+        #region Parameter Code_SourceKMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt
+        /// your function's .zip deployment package. If you don't provide a customer managed key,
+        /// Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
+        /// Web Services owned key</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code_SourceKMSKeyArn { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
@@ -661,6 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.Code_S3Bucket = this.Code_S3Bucket;
             context.Code_S3Key = this.Code_S3Key;
             context.Code_S3ObjectVersion = this.Code_S3ObjectVersion;
+            context.Code_SourceKMSKeyArn = this.Code_SourceKMSKeyArn;
             context.Code_ZipFile = this.Code_ZipFile;
             context.CodeSigningConfigArn = this.CodeSigningConfigArn;
             context.DeadLetterConfig_TargetArn = this.DeadLetterConfig_TargetArn;
@@ -826,6 +842,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestCode_code_S3ObjectVersion != null)
                 {
                     request.Code.S3ObjectVersion = requestCode_code_S3ObjectVersion;
+                    requestCodeIsNull = false;
+                }
+                System.String requestCode_code_SourceKMSKeyArn = null;
+                if (cmdletContext.Code_SourceKMSKeyArn != null)
+                {
+                    requestCode_code_SourceKMSKeyArn = cmdletContext.Code_SourceKMSKeyArn;
+                }
+                if (requestCode_code_SourceKMSKeyArn != null)
+                {
+                    request.Code.SourceKMSKeyArn = requestCode_code_SourceKMSKeyArn;
                     requestCodeIsNull = false;
                 }
                 System.IO.MemoryStream requestCode_code_ZipFile = null;
@@ -1246,6 +1272,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Code_S3Bucket { get; set; }
             public System.String Code_S3Key { get; set; }
             public System.String Code_S3ObjectVersion { get; set; }
+            public System.String Code_SourceKMSKeyArn { get; set; }
             public byte[] Code_ZipFile { get; set; }
             public System.String CodeSigningConfigArn { get; set; }
             public System.String DeadLetterConfig_TargetArn { get; set; }

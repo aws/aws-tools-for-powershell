@@ -28,7 +28,7 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Removes tags from the specified delivery stream. Removed tags are deleted, and you
+    /// Removes tags from the specified Firehose stream. Removed tags are deleted, and you
     /// can't recover them after this operation successfully completes.
     /// 
     ///  
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream.</para>
+        /// <para>The name of the Firehose stream.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

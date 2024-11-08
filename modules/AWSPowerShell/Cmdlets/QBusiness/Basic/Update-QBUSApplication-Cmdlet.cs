@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
     /// Updates an existing Amazon Q Business application.
+    /// 
+    ///  <note><para>
+    ///  A Amazon Q Apps service-linked role will be created if it's absent in the Amazon
+    /// Web Services account when the QAppsConfiguration is enabled in the request. For more
+    /// information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html">
+    /// Using service-linked roles for Q Apps </a></para></note>
     /// </summary>
     [Cmdlet("Update", "QBUSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
