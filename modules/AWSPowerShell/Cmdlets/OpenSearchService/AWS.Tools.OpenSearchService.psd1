@@ -144,6 +144,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-OSAssociatePackage', 
         'Start-OSDissociatePackage', 
         'Start-OSDomainMaintenance', 
+        'Start-OSOSAssociatePackageList', 
+        'Start-OSOSDissociatePackageList', 
         'Start-OSServiceSoftwareUpdate', 
         'Stop-OSDomainConfigChange', 
         'Stop-OSServiceSoftwareUpdate', 
@@ -151,6 +153,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-OSDataSource', 
         'Update-OSDomain', 
         'Update-OSDomainConfig', 
+        'Update-OSOSPackageScope', 
         'Update-OSPackage', 
         'Update-OSScheduledAction', 
         'Update-OSVpcEndpoint')

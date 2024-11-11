@@ -28,7 +28,7 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Lists coverage details for you environment.
+    /// Lists coverage details for your environment.
     /// </summary>
     [Cmdlet("Get", "INS2CoverageList")]
     [OutputType("Amazon.Inspector2.Model.CoveredResource")]
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
-        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_HYBRID</c>.</para>
+        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_AGENTLESS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

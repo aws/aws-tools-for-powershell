@@ -28,36 +28,65 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Gets the instance types that an Outpost can support in <c>InstanceTypeCapacity</c>.
-    /// This will generally include instance types that are not currently configured and therefore
-    /// cannot be launched with the current Outpost capacity configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// A list of Amazon EC2 instances, belonging to all accounts, running on the specified
+    /// Outpost. Does not include Amazon EBS or Amazon S3 instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OUTPOutpostSupportedInstanceType")]
-    [OutputType("Amazon.Outposts.Model.InstanceTypeItem")]
-    [AWSCmdlet("Calls the AWS Outposts GetOutpostSupportedInstanceTypes API operation.", Operation = new[] {"GetOutpostSupportedInstanceTypes"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse))]
-    [AWSCmdletOutput("Amazon.Outposts.Model.InstanceTypeItem or Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse",
-        "This cmdlet returns a collection of Amazon.Outposts.Model.InstanceTypeItem objects.",
-        "The service call response (type Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OUTPAssetInstanceList")]
+    [OutputType("Amazon.Outposts.Model.AssetInstance")]
+    [AWSCmdlet("Calls the AWS Outposts ListAssetInstances API operation.", Operation = new[] {"ListAssetInstances"}, SelectReturnType = typeof(Amazon.Outposts.Model.ListAssetInstancesResponse))]
+    [AWSCmdletOutput("Amazon.Outposts.Model.AssetInstance or Amazon.Outposts.Model.ListAssetInstancesResponse",
+        "This cmdlet returns a collection of Amazon.Outposts.Model.AssetInstance objects.",
+        "The service call response (type Amazon.Outposts.Model.ListAssetInstancesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOUTPOutpostSupportedInstanceTypeCmdlet : AmazonOutpostsClientCmdlet, IExecutor
+    public partial class GetOUTPAssetInstanceListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OrderId
+        #region Parameter AccountIdFilter
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services Outposts order.</para>
+        /// <para>Filters the results by account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OrderId { get; set; }
+        public System.String[] AccountIdFilter { get; set; }
+        #endregion
+        
+        #region Parameter AssetIdFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by asset ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AssetIdFilter { get; set; }
+        #endregion
+        
+        #region Parameter AwsServiceFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by Amazon Web Services service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AwsServiceFilter { get; set; }
+        #endregion
+        
+        #region Parameter InstanceTypeFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by instance ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] InstanceTypeFilter { get; set; }
         #endregion
         
         #region Parameter OutpostIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or ARN of the Outpost.</para>
+        /// <para>The ID of the Outpost.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,13 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'InstanceTypes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse).
-        /// Specifying the name of a property of type Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetInstances'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.ListAssetInstancesResponse).
+        /// Specifying the name of a property of type Amazon.Outposts.Model.ListAssetInstancesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "InstanceTypes";
+        public string Select { get; set; } = "AssetInstances";
         #endregion
         
         #region Parameter PassThru
@@ -140,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse, GetOUTPOutpostSupportedInstanceTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListAssetInstancesResponse, GetOUTPAssetInstanceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,9 +181,24 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 context.Select = (response, cmdlet) => this.OutpostIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AccountIdFilter != null)
+            {
+                context.AccountIdFilter = new List<System.String>(this.AccountIdFilter);
+            }
+            if (this.AssetIdFilter != null)
+            {
+                context.AssetIdFilter = new List<System.String>(this.AssetIdFilter);
+            }
+            if (this.AwsServiceFilter != null)
+            {
+                context.AwsServiceFilter = new List<System.String>(this.AwsServiceFilter);
+            }
+            if (this.InstanceTypeFilter != null)
+            {
+                context.InstanceTypeFilter = new List<System.String>(this.InstanceTypeFilter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.OrderId = this.OrderId;
             context.OutpostIdentifier = this.OutpostIdentifier;
             #if MODULAR
             if (this.OutpostIdentifier == null && ParameterWasBound(nameof(this.OutpostIdentifier)))
@@ -180,15 +224,27 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest();
+            var request = new Amazon.Outposts.Model.ListAssetInstancesRequest();
             
+            if (cmdletContext.AccountIdFilter != null)
+            {
+                request.AccountIdFilter = cmdletContext.AccountIdFilter;
+            }
+            if (cmdletContext.AssetIdFilter != null)
+            {
+                request.AssetIdFilter = cmdletContext.AssetIdFilter;
+            }
+            if (cmdletContext.AwsServiceFilter != null)
+            {
+                request.AwsServiceFilter = cmdletContext.AwsServiceFilter;
+            }
+            if (cmdletContext.InstanceTypeFilter != null)
+            {
+                request.InstanceTypeFilter = cmdletContext.InstanceTypeFilter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.OrderId != null)
-            {
-                request.OrderId = cmdletContext.OrderId;
             }
             if (cmdletContext.OutpostIdentifier != null)
             {
@@ -251,15 +307,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region AWS Service Operation Call
         
-        private Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest request)
+        private Amazon.Outposts.Model.ListAssetInstancesResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.ListAssetInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "GetOutpostSupportedInstanceTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "ListAssetInstances");
             try
             {
                 #if DESKTOP
-                return client.GetOutpostSupportedInstanceTypes(request);
+                return client.ListAssetInstances(request);
                 #elif CORECLR
-                return client.GetOutpostSupportedInstanceTypesAsync(request).GetAwaiter().GetResult();
+                return client.ListAssetInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,12 +335,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AccountIdFilter { get; set; }
+            public List<System.String> AssetIdFilter { get; set; }
+            public List<System.String> AwsServiceFilter { get; set; }
+            public List<System.String> InstanceTypeFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OrderId { get; set; }
             public System.String OutpostIdentifier { get; set; }
-            public System.Func<Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse, GetOUTPOutpostSupportedInstanceTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.InstanceTypes;
+            public System.Func<Amazon.Outposts.Model.ListAssetInstancesResponse, GetOUTPAssetInstanceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AssetInstances;
         }
         
     }

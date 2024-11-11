@@ -28,42 +28,49 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Gets the instance types that an Outpost can support in <c>InstanceTypeCapacity</c>.
-    /// This will generally include instance types that are not currently configured and therefore
-    /// cannot be launched with the current Outpost capacity configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// A list of Amazon EC2 instances running on the Outpost and belonging to the account
+    /// that initiated the capacity task. Use this list to specify the instances you cannot
+    /// stop to free up capacity to run the capacity task.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "OUTPOutpostSupportedInstanceType")]
-    [OutputType("Amazon.Outposts.Model.InstanceTypeItem")]
-    [AWSCmdlet("Calls the AWS Outposts GetOutpostSupportedInstanceTypes API operation.", Operation = new[] {"GetOutpostSupportedInstanceTypes"}, SelectReturnType = typeof(Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse))]
-    [AWSCmdletOutput("Amazon.Outposts.Model.InstanceTypeItem or Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse",
-        "This cmdlet returns a collection of Amazon.Outposts.Model.InstanceTypeItem objects.",
-        "The service call response (type Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OUTPBlockingInstancesForCapacityTaskList")]
+    [OutputType("Amazon.Outposts.Model.BlockingInstance")]
+    [AWSCmdlet("Calls the AWS Outposts ListBlockingInstancesForCapacityTask API operation.", Operation = new[] {"ListBlockingInstancesForCapacityTask"}, SelectReturnType = typeof(Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse))]
+    [AWSCmdletOutput("Amazon.Outposts.Model.BlockingInstance or Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse",
+        "This cmdlet returns a collection of Amazon.Outposts.Model.BlockingInstance objects.",
+        "The service call response (type Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOUTPOutpostSupportedInstanceTypeCmdlet : AmazonOutpostsClientCmdlet, IExecutor
+    public partial class GetOUTPBlockingInstancesForCapacityTaskListCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OrderId
+        #region Parameter CapacityTaskId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon Web Services Outposts order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OrderId { get; set; }
-        #endregion
-        
-        #region Parameter OutpostIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID or ARN of the Outpost.</para>
+        /// <para>The ID of the capacity task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CapacityTaskId { get; set; }
+        #endregion
+        
+        #region Parameter OutpostIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID or ARN of the Outpost associated with the specified capacity task.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -98,21 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'InstanceTypes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse).
-        /// Specifying the name of a property of type Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BlockingInstances'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse).
+        /// Specifying the name of a property of type Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "InstanceTypes";
+        public string Select { get; set; } = "BlockingInstances";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OutpostIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CapacityTaskId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CapacityTaskId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CapacityTaskId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -140,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse, GetOUTPOutpostSupportedInstanceTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse, GetOUTPBlockingInstancesForCapacityTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,12 +156,18 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OutpostIdentifier;
+                context.Select = (response, cmdlet) => this.CapacityTaskId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CapacityTaskId = this.CapacityTaskId;
+            #if MODULAR
+            if (this.CapacityTaskId == null && ParameterWasBound(nameof(this.CapacityTaskId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CapacityTaskId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.OrderId = this.OrderId;
             context.OutpostIdentifier = this.OutpostIdentifier;
             #if MODULAR
             if (this.OutpostIdentifier == null && ParameterWasBound(nameof(this.OutpostIdentifier)))
@@ -180,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest();
+            var request = new Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskRequest();
             
+            if (cmdletContext.CapacityTaskId != null)
+            {
+                request.CapacityTaskId = cmdletContext.CapacityTaskId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.OrderId != null)
-            {
-                request.OrderId = cmdletContext.OrderId;
             }
             if (cmdletContext.OutpostIdentifier != null)
             {
@@ -251,15 +264,15 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         #region AWS Service Operation Call
         
-        private Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest request)
+        private Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse CallAWSServiceOperation(IAmazonOutposts client, Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "GetOutpostSupportedInstanceTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "ListBlockingInstancesForCapacityTask");
             try
             {
                 #if DESKTOP
-                return client.GetOutpostSupportedInstanceTypes(request);
+                return client.ListBlockingInstancesForCapacityTask(request);
                 #elif CORECLR
-                return client.GetOutpostSupportedInstanceTypesAsync(request).GetAwaiter().GetResult();
+                return client.ListBlockingInstancesForCapacityTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,12 +292,12 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CapacityTaskId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OrderId { get; set; }
             public System.String OutpostIdentifier { get; set; }
-            public System.Func<Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse, GetOUTPOutpostSupportedInstanceTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.InstanceTypes;
+            public System.Func<Amazon.Outposts.Model.ListBlockingInstancesForCapacityTaskResponse, GetOUTPBlockingInstancesForCapacityTaskListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BlockingInstances;
         }
         
     }

@@ -28,7 +28,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets the list of CloudFront origin access controls in this Amazon Web Services account.
+    /// Gets the list of CloudFront origin access controls (OACs) in this Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>
@@ -37,7 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the default maximum, the response is paginated. To get the next page of items, send
     /// another request that specifies the <c>NextMarker</c> value from the current response
     /// as the <c>Marker</c> value in the next request.
-    /// </para>
+    /// </para><note><para>
+    /// If you're not using origin access controls for your Amazon Web Services account, the
+    /// <c>ListOriginAccessControls</c> operation doesn't return the <c>Items</c> element
+    /// in the response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFOriginAccessControlList")]
     [OutputType("Amazon.CloudFront.Model.OriginAccessControlList")]

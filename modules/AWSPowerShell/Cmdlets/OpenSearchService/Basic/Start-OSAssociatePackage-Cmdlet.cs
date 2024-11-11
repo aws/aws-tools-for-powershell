@@ -61,6 +61,28 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter KeyStoreAccessOption_KeyAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Role ARN to access the KeyStore Key</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssociationConfiguration_KeyStoreAccessOption_KeyAccessRoleArn")]
+        public System.String KeyStoreAccessOption_KeyAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter KeyStoreAccessOption_KeyStoreAccessEnabled
+        /// <summary>
+        /// <para>
+        /// <para>This indicates whether Key Store access is enabled </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssociationConfiguration_KeyStoreAccessOption_KeyStoreAccessEnabled")]
+        public System.Boolean? KeyStoreAccessOption_KeyStoreAccessEnabled { get; set; }
+        #endregion
+        
         #region Parameter PackageID
         /// <summary>
         /// <para>
@@ -77,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PackageID { get; set; }
+        #endregion
+        
+        #region Parameter PrerequisitePackageIDList
+        /// <summary>
+        /// <para>
+        /// <para>A list of package IDs that must be associated with the domain before the package specified
+        /// in the request can be associated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PrerequisitePackageIDList { get; set; }
         #endregion
         
         #region Parameter Select
@@ -141,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.Select = (response, cmdlet) => this.PackageID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.KeyStoreAccessOption_KeyAccessRoleArn = this.KeyStoreAccessOption_KeyAccessRoleArn;
+            context.KeyStoreAccessOption_KeyStoreAccessEnabled = this.KeyStoreAccessOption_KeyStoreAccessEnabled;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -155,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter PackageID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PrerequisitePackageIDList != null)
+            {
+                context.PrerequisitePackageIDList = new List<System.String>(this.PrerequisitePackageIDList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +210,50 @@ namespace Amazon.PowerShell.Cmdlets.OS
             // create request
             var request = new Amazon.OpenSearchService.Model.AssociatePackageRequest();
             
+            
+             // populate AssociationConfiguration
+            var requestAssociationConfigurationIsNull = true;
+            request.AssociationConfiguration = new Amazon.OpenSearchService.Model.PackageAssociationConfiguration();
+            Amazon.OpenSearchService.Model.KeyStoreAccessOption requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption = null;
+            
+             // populate KeyStoreAccessOption
+            var requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOptionIsNull = true;
+            requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption = new Amazon.OpenSearchService.Model.KeyStoreAccessOption();
+            System.String requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyAccessRoleArn = null;
+            if (cmdletContext.KeyStoreAccessOption_KeyAccessRoleArn != null)
+            {
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyAccessRoleArn = cmdletContext.KeyStoreAccessOption_KeyAccessRoleArn;
+            }
+            if (requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyAccessRoleArn != null)
+            {
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption.KeyAccessRoleArn = requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyAccessRoleArn;
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOptionIsNull = false;
+            }
+            System.Boolean? requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyStoreAccessEnabled = null;
+            if (cmdletContext.KeyStoreAccessOption_KeyStoreAccessEnabled != null)
+            {
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyStoreAccessEnabled = cmdletContext.KeyStoreAccessOption_KeyStoreAccessEnabled.Value;
+            }
+            if (requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyStoreAccessEnabled != null)
+            {
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption.KeyStoreAccessEnabled = requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption_keyStoreAccessOption_KeyStoreAccessEnabled.Value;
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOptionIsNull = false;
+            }
+             // determine if requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption should be set to null
+            if (requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOptionIsNull)
+            {
+                requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption = null;
+            }
+            if (requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption != null)
+            {
+                request.AssociationConfiguration.KeyStoreAccessOption = requestAssociationConfiguration_associationConfiguration_KeyStoreAccessOption;
+                requestAssociationConfigurationIsNull = false;
+            }
+             // determine if request.AssociationConfiguration should be set to null
+            if (requestAssociationConfigurationIsNull)
+            {
+                request.AssociationConfiguration = null;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -178,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.PackageID != null)
             {
                 request.PackageID = cmdletContext.PackageID;
+            }
+            if (cmdletContext.PrerequisitePackageIDList != null)
+            {
+                request.PrerequisitePackageIDList = cmdletContext.PrerequisitePackageIDList;
             }
             
             CmdletOutput output;
@@ -240,8 +327,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KeyStoreAccessOption_KeyAccessRoleArn { get; set; }
+            public System.Boolean? KeyStoreAccessOption_KeyStoreAccessEnabled { get; set; }
             public System.String DomainName { get; set; }
             public System.String PackageID { get; set; }
+            public List<System.String> PrerequisitePackageIDList { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.AssociatePackageResponse, StartOSAssociatePackageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainPackageDetails;
         }

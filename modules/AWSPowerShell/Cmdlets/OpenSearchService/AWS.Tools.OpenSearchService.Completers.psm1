@@ -195,10 +195,29 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.PackageScopeOperationEnum
+        "Update-OSOSPackageScope/Operation"
+        {
+            $v = "ADD","OVERRIDE","REMOVE"
+            break
+        }
+
         # Amazon.OpenSearchService.PackageType
         "New-OSPackage/PackageType"
         {
-            $v = "TXT-DICTIONARY","ZIP-PLUGIN"
+            $v = "PACKAGE-CONFIG","PACKAGE-LICENSE","TXT-DICTIONARY","ZIP-PLUGIN"
+            break
+        }
+
+        # Amazon.OpenSearchService.RequirementLevel
+        {
+            ($_ -eq "New-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "New-OSPackage/PackageConfiguration_LicenseRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_LicenseRequirement")
+        }
+        {
+            $v = "NONE","OPTIONAL","REQUIRED"
             break
         }
 
@@ -293,6 +312,9 @@ $OS_map = @{
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
+    "Operation"=@("Update-OSOSPackageScope")
+    "PackageConfiguration_ConfigurationRequirement"=@("New-OSPackage","Update-OSPackage")
+    "PackageConfiguration_LicenseRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
@@ -353,6 +375,7 @@ $OS_SelectMap = @{
                "Add-OSDataSource",
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
+               "Start-OSOSAssociatePackageList",
                "Approve-OSVpcEndpointAccess",
                "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
@@ -384,6 +407,7 @@ $OS_SelectMap = @{
                "Get-OSReservedInstanceList",
                "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
+               "Start-OSOSDissociatePackageList",
                "Get-OSApplication",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
@@ -414,6 +438,7 @@ $OS_SelectMap = @{
                "Update-OSDataSource",
                "Update-OSDomainConfig",
                "Update-OSPackage",
+               "Update-OSOSPackageScope",
                "Update-OSScheduledAction",
                "Update-OSVpcEndpoint",
                "Update-OSDomain")

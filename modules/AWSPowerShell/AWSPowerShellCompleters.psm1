@@ -40853,7 +40853,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3"
+            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3"
             break
         }
 
@@ -50517,10 +50517,29 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.PackageScopeOperationEnum
+        "Update-OSOSPackageScope/Operation"
+        {
+            $v = "ADD","OVERRIDE","REMOVE"
+            break
+        }
+
         # Amazon.OpenSearchService.PackageType
         "New-OSPackage/PackageType"
         {
-            $v = "TXT-DICTIONARY","ZIP-PLUGIN"
+            $v = "PACKAGE-CONFIG","PACKAGE-LICENSE","TXT-DICTIONARY","ZIP-PLUGIN"
+            break
+        }
+
+        # Amazon.OpenSearchService.RequirementLevel
+        {
+            ($_ -eq "New-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "New-OSPackage/PackageConfiguration_LicenseRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_LicenseRequirement")
+        }
+        {
+            $v = "NONE","OPTIONAL","REQUIRED"
             break
         }
 
@@ -50615,6 +50634,9 @@ $OS_map = @{
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
+    "Operation"=@("Update-OSOSPackageScope")
+    "PackageConfiguration_ConfigurationRequirement"=@("New-OSPackage","Update-OSPackage")
+    "PackageConfiguration_LicenseRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
@@ -50675,6 +50697,7 @@ $OS_SelectMap = @{
                "Add-OSDataSource",
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
+               "Start-OSOSAssociatePackageList",
                "Approve-OSVpcEndpointAccess",
                "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
@@ -50706,6 +50729,7 @@ $OS_SelectMap = @{
                "Get-OSReservedInstanceList",
                "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
+               "Start-OSOSDissociatePackageList",
                "Get-OSApplication",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
@@ -50736,6 +50760,7 @@ $OS_SelectMap = @{
                "Update-OSDataSource",
                "Update-OSDomainConfig",
                "Update-OSPackage",
+               "Update-OSOSPackageScope",
                "Update-OSScheduledAction",
                "Update-OSVpcEndpoint",
                "Update-OSDomain")
@@ -51661,6 +51686,13 @@ $OUTP_Completers = {
             break
         }
 
+        # Amazon.Outposts.TaskActionOnBlockingInstances
+        "Start-OUTPCapacityTask/TaskActionOnBlockingInstance"
+        {
+            $v = "FAIL_TASK","WAIT_FOR_EVACUATION"
+            break
+        }
+
         # Amazon.Outposts.UplinkCount
         {
             ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkCount") -Or
@@ -51710,6 +51742,7 @@ $OUTP_map = @{
     "RackPhysicalProperties_UplinkCount"=@("New-OUTPSite")
     "RackPhysicalProperties_UplinkGbp"=@("New-OUTPSite")
     "SupportedHardwareType"=@("New-OUTPOutpost","Update-OUTPOutpost")
+    "TaskActionOnBlockingInstance"=@("Start-OUTPCapacityTask")
     "UplinkCount"=@("Update-OUTPSiteRackPhysicalProperty")
     "UplinkGbp"=@("Update-OUTPSiteRackPhysicalProperty")
 }
@@ -51780,7 +51813,9 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostSupportedInstanceType",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
+               "Get-OUTPAssetInstanceList",
                "Get-OUTPAssetList",
+               "Get-OUTPBlockingInstancesForCapacityTaskList",
                "Get-OUTPCapacityTaskList",
                "Get-OUTPCatalogItemList",
                "Get-OUTPOrderList",

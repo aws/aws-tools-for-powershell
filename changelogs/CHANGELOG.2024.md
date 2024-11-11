@@ -1,4 +1,18 @@
-﻿### 4.1.694 (2024-11-08 21:36Z)
+﻿### 4.1.695 (2024-11-11 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.923.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon OpenSearch Service
+    * Added cmdlet Start-OSOSAssociatePackageList leveraging the AssociatePackages service API.
+    * Added cmdlet Start-OSOSDissociatePackageList leveraging the DissociatePackages service API.
+    * Added cmdlet Update-OSOSPackageScope leveraging the UpdatePackageScope service API.
+    * Modified cmdlet New-OSPackage: added parameters EngineVersion, PackageConfiguration_ConfigurationRequirement, PackageConfiguration_LicenseFilepath, PackageConfiguration_LicenseRequirement, PackageConfiguration_RequiresRestartForConfigurationUpdate, PackageEncryptionOptions_EncryptionEnabled, PackageEncryptionOptions_KmsKeyIdentifier and PackageVendingOptions_VendingEnabled.
+    * Modified cmdlet Start-OSAssociatePackage: added parameters KeyStoreAccessOption_KeyAccessRoleArn, KeyStoreAccessOption_KeyStoreAccessEnabled and PrerequisitePackageIDList.
+    * Modified cmdlet Update-OSPackage: added parameters PackageConfiguration_ConfigurationRequirement, PackageConfiguration_LicenseFilepath, PackageConfiguration_LicenseRequirement, PackageConfiguration_RequiresRestartForConfigurationUpdate, PackageEncryptionOptions_EncryptionEnabled and PackageEncryptionOptions_KmsKeyIdentifier.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPAssetInstanceList leveraging the ListAssetInstances service API.
+    * Added cmdlet Get-OUTPBlockingInstancesForCapacityTaskList leveraging the ListBlockingInstancesForCapacityTask service API.
+    * Modified cmdlet Start-OUTPCapacityTask: added parameters InstancesToExclude_AccountId, InstancesToExclude_Instance, InstancesToExclude_Service and TaskActionOnBlockingInstance.
+
+### 4.1.694 (2024-11-08 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.922.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet New-BATComputeEnvironment: added parameter LaunchTemplate_Override.

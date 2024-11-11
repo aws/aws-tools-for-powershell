@@ -20797,6 +20797,9 @@ Set-Alias -Name OS-AddTags -Value Add-OSResourceTag
 Set-Alias -Name Associate-OSPackage -Value Start-OSAssociatePackage
 Set-Alias -Name Associate-OSAssociatePackage -Value Start-OSAssociatePackage
 Set-Alias -Name OS-AssociatePackage -Value Start-OSAssociatePackage
+Set-Alias -Name Associate-OSPackages -Value Start-OSOSAssociatePackageList
+Set-Alias -Name Associate-OSOSAssociatePackageList -Value Start-OSOSAssociatePackageList
+Set-Alias -Name OS-AssociatePackages -Value Start-OSOSAssociatePackageList
 Set-Alias -Name Authorize-OSVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
 Set-Alias -Name OS-AuthorizeVpcEndpointAccess -Value Approve-OSVpcEndpointAccess
 Set-Alias -Name Cancel-OSDomainConfigChange -Value Stop-OSDomainConfigChange
@@ -20870,6 +20873,9 @@ Set-Alias -Name OS-DescribeVpcEndpoints -Value Get-OSVpcEndpoint
 Set-Alias -Name Dissociate-OSPackage -Value Start-OSDissociatePackage
 Set-Alias -Name Dissociate-OSDissociatePackage -Value Start-OSDissociatePackage
 Set-Alias -Name OS-DissociatePackage -Value Start-OSDissociatePackage
+Set-Alias -Name Dissociate-OSPackages -Value Start-OSOSDissociatePackageList
+Set-Alias -Name Dissociate-OSOSDissociatePackageList -Value Start-OSOSDissociatePackageList
+Set-Alias -Name OS-DissociatePackages -Value Start-OSOSDissociatePackageList
 Set-Alias -Name OS-GetApplication -Value Get-OSApplication
 Set-Alias -Name Get-OSCompatibleVersions -Value Get-OSCompatibleVersion
 Set-Alias -Name OS-GetCompatibleVersions -Value Get-OSCompatibleVersion
@@ -20929,6 +20935,8 @@ Set-Alias -Name OS-UpdateApplication -Value Update-OSApplication
 Set-Alias -Name OS-UpdateDataSource -Value Update-OSDataSource
 Set-Alias -Name OS-UpdateDomainConfig -Value Update-OSDomainConfig
 Set-Alias -Name OS-UpdatePackage -Value Update-OSPackage
+Set-Alias -Name Update-OSPackageScope -Value Update-OSOSPackageScope
+Set-Alias -Name OS-UpdatePackageScope -Value Update-OSOSPackageScope
 Set-Alias -Name OS-UpdateScheduledAction -Value Update-OSScheduledAction
 Set-Alias -Name OS-UpdateVpcEndpoint -Value Update-OSVpcEndpoint
 Set-Alias -Name Upgrade-OSDomain -Value Update-OSDomain
@@ -21339,9 +21347,15 @@ Set-Alias -Name Get-OUTPOutpostSupportedInstanceTypes -Value Get-OUTPOutpostSupp
 Set-Alias -Name OUTP-GetOutpostSupportedInstanceTypes -Value Get-OUTPOutpostSupportedInstanceType
 Set-Alias -Name OUTP-GetSiteAddress -Value Get-OUTPSiteAddress
 Set-Alias -Name OUTP-GetSite -Value Get-OUTPSite
+Set-Alias -Name List-OUTPAssetInstances -Value Get-OUTPAssetInstanceList
+Set-Alias -Name List-OUTPAssetInstanceList -Value Get-OUTPAssetInstanceList
+Set-Alias -Name OUTP-ListAssetInstances -Value Get-OUTPAssetInstanceList
 Set-Alias -Name List-OUTPAssets -Value Get-OUTPAssetList
 Set-Alias -Name List-OUTPAssetList -Value Get-OUTPAssetList
 Set-Alias -Name OUTP-ListAssets -Value Get-OUTPAssetList
+Set-Alias -Name List-OUTPBlockingInstancesForCapacityTask -Value Get-OUTPBlockingInstancesForCapacityTaskList
+Set-Alias -Name List-OUTPBlockingInstancesForCapacityTaskList -Value Get-OUTPBlockingInstancesForCapacityTaskList
+Set-Alias -Name OUTP-ListBlockingInstancesForCapacityTask -Value Get-OUTPBlockingInstancesForCapacityTaskList
 Set-Alias -Name List-OUTPCapacityTasks -Value Get-OUTPCapacityTaskList
 Set-Alias -Name List-OUTPCapacityTaskList -Value Get-OUTPCapacityTaskList
 Set-Alias -Name OUTP-ListCapacityTasks -Value Get-OUTPCapacityTaskList
