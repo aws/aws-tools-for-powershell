@@ -175,7 +175,8 @@ namespace AWSPowerShellGenerator.Generators
                     existingColumn.Merge(new ColumnConfig
                     {
                         HeaderLabel = name,
-                        PropertyName = name
+                        PropertyName = name,
+                        IsSensitive = property.IsSensitive()
                     });
 
                     newConfig.Columns.Add(existingColumn);
@@ -322,7 +323,16 @@ namespace AWSPowerShellGenerator.Generators
                                 {
                                     writer.WriteStartElement(isTableView ? "TableColumnItem" : "ListItem");
                                     {
-                                        if (!string.IsNullOrEmpty(column.PropertyName))
+                                        if (column.IsSensitive)
+                                        {
+                                            if (!isTableView)
+                                                writer.WriteElementString("Label", column.PropertyName);
+
+                                            string scriptBlockValue =
+                                                $"if((Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $true.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)){{$_.{column.PropertyName}}} elseif($_.{column.PropertyName}){{'{{sensitive data redacted from display}}'}}";
+                                            writer.WriteElementString("ScriptBlock", scriptBlockValue);
+                                        }
+                                        else if (!string.IsNullOrEmpty(column.PropertyName))
                                             writer.WriteElementString("PropertyName", column.PropertyName);
                                         else if (!string.IsNullOrEmpty(column.ScriptBlock))
                                             writer.WriteElementString("ScriptBlock", column.ScriptBlock);

@@ -110,7 +110,7 @@
         <PropertyGroup>
             <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
         </PropertyGroup>
-        <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
+        <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag -ErrorAction SilentlyContinue" IgnoreExitCode="true" />
         <Message Text="Generating cmdlets for all services"/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(BuildPatchNumber) -pl $(PreviewLabel)" />
         <Exec Command="pwsh -NoProfile -Command New-Item -Path $(RootPath)/GenerationSucceeded.tag" />
