@@ -28,82 +28,49 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a <c>ContainerGroupDefinition</c> that describes a set of containers for hosting
-    /// your game server with Amazon GameLift managed containers hosting. An Amazon GameLift
-    /// container group is similar to a container task or pod. Use container group definitions
-    /// when you create a container fleet with <a>CreateContainerFleet</a>. 
+    /// Updates properties in an existing container group definition. This operation doesn't
+    /// replace the definition. Instead, it creates a new version of the definition and saves
+    /// it separately. You can access all versions that you choose to retain.
     /// 
     ///  
     /// <para>
-    /// A container group definition determines how Amazon GameLift deploys your containers
-    /// to each instance in a container fleet. You can maintain multiple versions of a container
-    /// group definition.
+    /// The only property you can't update is the container group type.
+    /// </para><para><b>Request options:</b></para><ul><li><para>
+    /// Update based on the latest version of the container group definition. Specify the
+    /// container group definition name only, or use an ARN value without a version number.
+    /// Provide updated values for the properties that you want to change only. All other
+    /// values remain the same as the latest version.
+    /// </para></li><li><para>
+    /// Update based on a specific version of the container group definition. Specify the
+    /// container group definition name and a source version number, or use an ARN value with
+    /// a version number. Provide updated values for the properties that you want to change
+    /// only. All other values remain the same as the source version.
+    /// </para></li><li><para>
+    /// Change a game server container definition. Provide the updated container definition.
+    /// </para></li><li><para>
+    /// Add or change a support container definition. Provide a complete set of container
+    /// definitions, including the updated definition.
+    /// </para></li><li><para>
+    /// Remove a support container definition. Provide a complete set of container definitions,
+    /// excluding the definition to remove. If the container group has only one support container
+    /// definition, provide an empty set.
+    /// </para></li></ul><para><b>Results:</b></para><para>
+    /// If successful, this operation returns the complete properties of the new container
+    /// group definition version.
     /// </para><para>
-    /// There are two types of container groups:
-    /// </para><ul><li><para>
-    /// A <b>game server container group</b> has the containers that run your game server
-    /// application and supporting software. A game server container group can have these
-    /// container types:
-    /// </para><ul><li><para>
-    /// Game server container. This container runs your game server. You can define one game
-    /// server container in a game server container group.
-    /// </para></li><li><para>
-    /// Support container. This container runs software in parallel with your game server.
-    /// You can define up to 8 support containers in a game server group.
-    /// </para></li></ul><para>
-    /// When building a game server container group definition, you can choose to bundle your
-    /// game server executable and all dependent software into a single game server container.
-    /// Alternatively, you can separate the software into one game server container and one
-    /// or more support containers.
-    /// </para><para>
-    /// On a container fleet instance, a game server container group can be deployed multiple
-    /// times (depending on the compute resources of the instance). This means that all containers
-    /// in the container group are replicated together.
-    /// </para></li><li><para>
-    /// A <b>per-instance container group</b> has containers for processes that aren't replicated
-    /// on a container fleet instance. This might include background services, logging, test
-    /// processes, or processes that need to persist independently of the game server container
-    /// group. When building a per-instance container group, you can define up to 10 support
-    /// containers.
-    /// </para></li></ul><note><para>
-    /// This operation requires Identity and Access Management (IAM) permissions to access
-    /// container images in Amazon ECR repositories. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html">
-    /// IAM permissions for Amazon GameLift</a> for help setting the appropriate permissions.
-    /// </para></note><para><b>Request options</b></para><para>
-    /// Use this operation to make the following types of requests. You can specify values
-    /// for the minimum required parameters and customize optional values later.
-    /// </para><ul><li><para>
-    /// Create a game server container group definition. Provide the following required parameter
-    /// values:
-    /// </para><ul><li><para><c>Name</c></para></li><li><para><c>ContainerGroupType</c> (<c>GAME_SERVER</c>)
-    /// </para></li><li><para><c>OperatingSystem</c> (omit to use default value)
-    /// </para></li><li><para><c>TotalMemoryLimitMebibytes</c> (omit to use default value)
-    /// </para></li><li><para><c>TotalVcpuLimit </c>(omit to use default value)
-    /// </para></li><li><para>
-    /// At least one <c>GameServerContainerDefinition</c></para><ul><li><para><c>ContainerName</c></para></li><li><para><c>ImageUrl</c></para></li><li><para><c>PortConfiguration</c></para></li><li><para><c>ServerSdkVersion</c> (omit to use default value)
-    /// </para></li></ul></li></ul></li><li><para>
-    /// Create a per-instance container group definition. Provide the following required parameter
-    /// values:
-    /// </para><ul><li><para><c>Name</c></para></li><li><para><c>ContainerGroupType</c> (<c>PER_INSTANCE</c>)
-    /// </para></li><li><para><c>OperatingSystem</c> (omit to use default value)
-    /// </para></li><li><para><c>TotalMemoryLimitMebibytes</c> (omit to use default value)
-    /// </para></li><li><para><c>TotalVcpuLimit </c>(omit to use default value)
-    /// </para></li><li><para>
-    /// At least one <c>SupportContainerDefinition</c></para><ul><li><para><c>ContainerName</c></para></li><li><para><c>ImageUrl</c></para></li></ul></li></ul></li></ul><para><b>Results</b></para><para>
-    /// If successful, this request creates a <c>ContainerGroupDefinition</c> resource and
-    /// assigns a unique ARN value. You can update most properties of a container group definition
-    /// by calling <a>UpdateContainerGroupDefinition</a>, and optionally save the update as
-    /// a new version.
+    /// If the container group definition version is used in an active fleets, the update
+    /// automatically initiates a new fleet deployment of the new version. You can track a
+    /// fleet's deployments using <a>ListFleetDeployments</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.ContainerGroupDefinition")]
-    [AWSCmdlet("Calls the Amazon GameLift Service CreateContainerGroupDefinition API operation.", Operation = new[] {"CreateContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerGroupDefinition or Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse",
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateContainerGroupDefinition API operation.", Operation = new[] {"UpdateContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse))]
+    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerGroupDefinition or Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse",
         "This cmdlet returns an Amazon.GameLift.Model.ContainerGroupDefinition object.",
-        "The service call response (type Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
@@ -111,18 +78,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter ContainerGroupType
-        /// <summary>
-        /// <para>
-        /// <para>The type of container group being defined. Container group type determines how Amazon
-        /// GameLift deploys the container group on each fleet instance.</para><para>Default value: <c>GAME_SERVER</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GameLift.ContainerGroupType")]
-        public Amazon.GameLift.ContainerGroupType ContainerGroupType { get; set; }
-        #endregion
         
         #region Parameter GameServerContainerDefinition_ContainerName
         /// <summary>
@@ -224,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The platform that all containers in the group use. Containers in a group must run
-        /// on the same operating system.</para><para>Default value: <c>AMAZON_LINUX_2023</c></para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
+        /// on the same operating system.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
         /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
         /// game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first
         /// update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
@@ -232,13 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// Migrate to Amazon GameLift server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.GameLift.ContainerOperatingSystem")]
         public Amazon.GameLift.ContainerOperatingSystem OperatingSystem { get; set; }
         #endregion
@@ -254,10 +203,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String GameServerContainerDefinition_ServerSdkVersion { get; set; }
         #endregion
         
+        #region Parameter SourceVersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The container group definition version to update. The new version starts with values
+        /// from the source version, and then updates values included in this request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SourceVersionNumber { get; set; }
+        #endregion
+        
         #region Parameter SupportContainerDefinition
         /// <summary>
         /// <para>
-        /// <para>One or more definition for support containers in this group. You can define a support
+        /// <para>One or more definitions for support containers in this group. You can define a support
         /// container in any type of container group. You can pass in your container definitions
         /// as a JSON file.</para>
         /// </para>
@@ -267,36 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.Model.SupportContainerDefinitionInput[] SupportContainerDefinition { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of labels to assign to the container group definition resource. Tags are developer-defined
-        /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
-        /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
-        #endregion
-        
         #region Parameter TotalMemoryLimitMebibyte
         /// <summary>
         /// <para>
         /// <para>The maximum amount of memory (in MiB) to allocate to the container group. All containers
         /// in the group share this memory. If you specify memory limits for an individual container,
-        /// the total value must be greater than any individual container's memory limit.</para><para>Default value: 1024</para>
+        /// the total value must be greater than any individual container's memory limit.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TotalMemoryLimitMebibytes")]
         public System.Int32? TotalMemoryLimitMebibyte { get; set; }
         #endregion
@@ -307,23 +246,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal
         /// to 1024 CPU units). All containers in the group share this memory. If you specify
         /// vCPU limits for individual containers, the total value must be equal to or greater
-        /// than the sum of the CPU limits for all containers in the group.</para><para>Default value: 1</para>
+        /// than the sum of the CPU limits for all containers in the group.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Double? TotalVcpuLimit { get; set; }
         #endregion
         
         #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>A description for the initial version of this container group definition. </para>
+        /// <para>A description for this update to the container group definition. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,8 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ContainerGroupDefinition'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GMLContainerGroupDefinition (CreateContainerGroupDefinition)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GMLContainerGroupDefinition (UpdateContainerGroupDefinition)"))
             {
                 return;
             }
@@ -380,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse, NewGMLContainerGroupDefinitionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse, UpdateGMLContainerGroupDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -392,7 +325,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContainerGroupType = this.ContainerGroupType;
             context.GameServerContainerDefinition_ContainerName = this.GameServerContainerDefinition_ContainerName;
             if (this.GameServerContainerDefinition_DependsOn != null)
             {
@@ -420,34 +352,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #endif
             context.OperatingSystem = this.OperatingSystem;
-            #if MODULAR
-            if (this.OperatingSystem == null && ParameterWasBound(nameof(this.OperatingSystem)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OperatingSystem which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SourceVersionNumber = this.SourceVersionNumber;
             if (this.SupportContainerDefinition != null)
             {
                 context.SupportContainerDefinition = new List<Amazon.GameLift.Model.SupportContainerDefinitionInput>(this.SupportContainerDefinition);
             }
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
-            }
             context.TotalMemoryLimitMebibyte = this.TotalMemoryLimitMebibyte;
-            #if MODULAR
-            if (this.TotalMemoryLimitMebibyte == null && ParameterWasBound(nameof(this.TotalMemoryLimitMebibyte)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TotalMemoryLimitMebibyte which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TotalVcpuLimit = this.TotalVcpuLimit;
-            #if MODULAR
-            if (this.TotalVcpuLimit == null && ParameterWasBound(nameof(this.TotalVcpuLimit)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TotalVcpuLimit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -463,12 +374,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.CreateContainerGroupDefinitionRequest();
+            var request = new Amazon.GameLift.Model.UpdateContainerGroupDefinitionRequest();
             
-            if (cmdletContext.ContainerGroupType != null)
-            {
-                request.ContainerGroupType = cmdletContext.ContainerGroupType;
-            }
             
              // populate GameServerContainerDefinition
             var requestGameServerContainerDefinitionIsNull = true;
@@ -571,13 +478,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.OperatingSystem = cmdletContext.OperatingSystem;
             }
+            if (cmdletContext.SourceVersionNumber != null)
+            {
+                request.SourceVersionNumber = cmdletContext.SourceVersionNumber.Value;
+            }
             if (cmdletContext.SupportContainerDefinition != null)
             {
                 request.SupportContainerDefinitions = cmdletContext.SupportContainerDefinition;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TotalMemoryLimitMebibyte != null)
             {
@@ -624,15 +531,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreateContainerGroupDefinitionRequest request)
+        private Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateContainerGroupDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "CreateContainerGroupDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "UpdateContainerGroupDefinition");
             try
             {
                 #if DESKTOP
-                return client.CreateContainerGroupDefinition(request);
+                return client.UpdateContainerGroupDefinition(request);
                 #elif CORECLR
-                return client.CreateContainerGroupDefinitionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateContainerGroupDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -652,7 +559,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.GameLift.ContainerGroupType ContainerGroupType { get; set; }
             public System.String GameServerContainerDefinition_ContainerName { get; set; }
             public List<Amazon.GameLift.Model.ContainerDependency> GameServerContainerDefinition_DependsOn { get; set; }
             public List<Amazon.GameLift.Model.ContainerEnvironment> GameServerContainerDefinition_EnvironmentOverride { get; set; }
@@ -662,12 +568,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String GameServerContainerDefinition_ServerSdkVersion { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ContainerOperatingSystem OperatingSystem { get; set; }
+            public System.Int32? SourceVersionNumber { get; set; }
             public List<Amazon.GameLift.Model.SupportContainerDefinitionInput> SupportContainerDefinition { get; set; }
-            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Int32? TotalMemoryLimitMebibyte { get; set; }
             public System.Double? TotalVcpuLimit { get; set; }
             public System.String VersionDescription { get; set; }
-            public System.Func<Amazon.GameLift.Model.CreateContainerGroupDefinitionResponse, NewGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.GameLift.Model.UpdateContainerGroupDefinitionResponse, UpdateGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContainerGroupDefinition;
         }
         

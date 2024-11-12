@@ -28,93 +28,55 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information on the compute resources in an Amazon GameLift fleet. Use the
-    /// pagination parameters to retrieve results in a set of sequential pages.
+    /// Retrieves a collection of container fleet resources in an Amazon Web Services Region.
+    /// For fleets that have multiple locations, this operation retrieves fleets based on
+    /// their home Region only.
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
-    /// Retrieve a list of all computes in a fleet. Specify a fleet ID. 
+    /// <para><b>Request options</b></para><ul><li><para>
+    /// Get a list of all fleets. Call this operation without specifying a container group
+    /// definition. 
     /// </para></li><li><para>
-    /// Retrieve a list of all computes in a specific fleet location. Specify a fleet ID and
-    /// location.
-    /// </para></li></ul><para><b>Results:</b></para><para>
-    /// If successful, this operation returns information on a set of computes. Depending
-    /// on the type of fleet, the result includes the following information: 
-    /// </para><ul><li><para>
-    /// For managed EC2 fleets (compute type <c>EC2</c>), this operation returns information
-    /// about the EC2 instance. Compute names are EC2 instance IDs.
+    /// Get a list of fleets filtered by container group definition. Provide the container
+    /// group definition name or ARN value.
     /// </para></li><li><para>
-    /// For Anywhere fleets (compute type <c>ANYWHERE</c>), this operation returns compute
-    /// names and details as provided when the compute was registered with <c>RegisterCompute</c>.
-    /// This includes <c>GameLiftServiceSdkEndpoint</c> or <c>GameLiftAgentEndpoint</c>.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// To get a list of all Realtime Servers fleets with a specific configuration script,
+    /// provide the script ID. 
+    /// </para></li></ul><para>
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, this operation returns a collection of container fleets that match
+    /// the request parameters. A NextToken value is also returned if there are more result
+    /// pages to retrieve.
+    /// </para><note><para>
+    /// Fleet IDs are returned in no particular order.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GMLComputeList")]
-    [OutputType("Amazon.GameLift.Model.Compute")]
-    [AWSCmdlet("Calls the Amazon GameLift Service ListCompute API operation.", Operation = new[] {"ListCompute"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListComputeResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Compute or Amazon.GameLift.Model.ListComputeResponse",
-        "This cmdlet returns a collection of Amazon.GameLift.Model.Compute objects.",
-        "The service call response (type Amazon.GameLift.Model.ListComputeResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GMLContainerFleetList")]
+    [OutputType("Amazon.GameLift.Model.ContainerFleet")]
+    [AWSCmdlet("Calls the Amazon GameLift Service ListContainerFleets API operation.", Operation = new[] {"ListContainerFleets"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListContainerFleetsResponse))]
+    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerFleet or Amazon.GameLift.Model.ListContainerFleetsResponse",
+        "This cmdlet returns a collection of Amazon.GameLift.Model.ContainerFleet objects.",
+        "The service call response (type Amazon.GameLift.Model.ListContainerFleetsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGMLComputeListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLContainerFleetListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ComputeStatus
-        /// <summary>
-        /// <para>
-        /// <para>The status of computes in a managed container fleet, based on the success of the latest
-        /// update deployment.</para><ul><li><para><c>ACTIVE</c> -- The compute is deployed with the correct container definitions.
-        /// It is ready to process game servers and host game sessions.</para></li><li><para><c>IMPAIRED</c> -- An update deployment to the compute failed, and the compute is
-        /// deployed with incorrect container definitions.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GameLift.ListComputeInputStatus")]
-        public Amazon.GameLift.ListComputeInputStatus ComputeStatus { get; set; }
-        #endregion
-        
         #region Parameter ContainerGroupDefinitionName
         /// <summary>
         /// <para>
-        /// <para>For computes in a managed container fleet, the name of the deployed container group
-        /// definition. </para>
+        /// <para>The container group definition to filter the list on. Use this parameter to retrieve
+        /// only those fleets that use the specified container group definition. You can specify
+        /// the container group definition's name to get fleets with the latest versions. Alternatively,
+        /// provide an ARN value to get fleets with a specific version number.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ContainerGroupDefinitionName { get; set; }
-        #endregion
-        
-        #region Parameter FleetId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the fleet to retrieve compute resources for.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
-        #endregion
-        
-        #region Parameter Location
-        /// <summary>
-        /// <para>
-        /// <para>The name of a location to retrieve compute resources for. For an Amazon GameLift Anywhere
-        /// fleet, use a custom location. For a managed fleet, provide a Amazon Web Services Region
-        /// or Local Zone code (for example: <c>us-west-2</c> or <c>us-west-2-lax-1</c>).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Location { get; set; }
+        public System.String ContainerGroupDefinitionName { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -146,21 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ComputeList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ListComputeResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.ListComputeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContainerFleets'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ListContainerFleetsResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.ListContainerFleetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ComputeList";
+        public string Select { get; set; } = "ContainerFleets";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContainerGroupDefinitionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContainerGroupDefinitionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContainerGroupDefinitionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -188,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ListComputeResponse, GetGMLComputeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ListContainerFleetsResponse, GetGMLContainerFleetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -197,20 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FleetId;
+                context.Select = (response, cmdlet) => this.ContainerGroupDefinitionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ComputeStatus = this.ComputeStatus;
             context.ContainerGroupDefinitionName = this.ContainerGroupDefinitionName;
-            context.FleetId = this.FleetId;
-            #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Limit = this.Limit;
-            context.Location = this.Location;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -230,27 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListComputeRequest();
+            var request = new Amazon.GameLift.Model.ListContainerFleetsRequest();
             
-            if (cmdletContext.ComputeStatus != null)
-            {
-                request.ComputeStatus = cmdletContext.ComputeStatus;
-            }
             if (cmdletContext.ContainerGroupDefinitionName != null)
             {
                 request.ContainerGroupDefinitionName = cmdletContext.ContainerGroupDefinitionName;
             }
-            if (cmdletContext.FleetId != null)
-            {
-                request.FleetId = cmdletContext.FleetId;
-            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.Location != null)
-            {
-                request.Location = cmdletContext.Location;
             }
             
             // Initialize loop variant and commence piping
@@ -309,15 +250,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListComputeResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListComputeRequest request)
+        private Amazon.GameLift.Model.ListContainerFleetsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListContainerFleetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListCompute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListContainerFleets");
             try
             {
                 #if DESKTOP
-                return client.ListCompute(request);
+                return client.ListContainerFleets(request);
                 #elif CORECLR
-                return client.ListComputeAsync(request).GetAwaiter().GetResult();
+                return client.ListContainerFleetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -337,14 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.GameLift.ListComputeInputStatus ComputeStatus { get; set; }
             public System.String ContainerGroupDefinitionName { get; set; }
-            public System.String FleetId { get; set; }
             public System.Int32? Limit { get; set; }
-            public System.String Location { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.GameLift.Model.ListComputeResponse, GetGMLComputeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ComputeList;
+            public System.Func<Amazon.GameLift.Model.ListContainerFleetsResponse, GetGMLContainerFleetListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ContainerFleets;
         }
         
     }

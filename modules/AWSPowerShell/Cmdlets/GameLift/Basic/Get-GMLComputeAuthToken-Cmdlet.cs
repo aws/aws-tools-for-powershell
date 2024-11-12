@@ -29,25 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Requests an authentication token from Amazon GameLift for a compute resource in an
-    /// Amazon GameLift Anywhere fleet or container fleet. Game servers that are running on
-    /// the compute use this token to communicate with the Amazon GameLift service, such as
-    /// when calling the Amazon GameLift server SDK action <c>InitSDK()</c>. Authentication
-    /// tokens are valid for a limited time span, so you need to request a fresh token before
-    /// the current token expires.
+    /// Amazon GameLift fleet. Game servers that are running on the compute use this token
+    /// to communicate with the Amazon GameLift service, such as when calling the Amazon GameLift
+    /// server SDK action <c>InitSDK()</c>. Authentication tokens are valid for a limited
+    /// time span, so you need to request a fresh token before the current token expires.
     /// 
     ///  
-    /// <para>
-    /// Use this operation based on the fleet compute type:
-    /// </para><ul><li><para>
-    /// For <c>EC2</c> fleets, auth token retrieval and refresh is handled automatically.
-    /// All game servers that are running on all fleet instances have access to a valid auth
-    /// token.
+    /// <para><b>Request options</b></para><ul><li><para>
+    /// For managed EC2 fleets (compute type <c>EC2</c>), auth token retrieval and refresh
+    /// is handled automatically. All game servers that are running on all fleet instances
+    /// have access to a valid auth token.
     /// </para></li><li><para>
-    /// For <c>ANYWHERE</c> and <c>CONTAINER</c> fleets, if you're using the Amazon GameLift
-    /// Agent, auth token retrieval and refresh is handled automatically for any container
-    /// or Anywhere compute where the Agent is running. If you're not using the Agent, create
-    /// a mechanism to retrieve and refresh auth tokens for computes that are running game
-    /// server processes. 
+    /// For Anywhere fleets (compute type <c>ANYWHERE</c>), if you're using the Amazon GameLift
+    /// Agent, auth token retrieval and refresh is handled automatically for any compute where
+    /// the Agent is running. If you're not using the Agent, create a mechanism to retrieve
+    /// and refresh auth tokens for computes that are running game server processes.
     /// </para></li></ul><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create
     /// an Anywhere fleet</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html">Test
     /// your integration</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html">Server
@@ -70,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The name of the compute resource you are requesting the authentication token for.
         /// For an Anywhere fleet compute, use the registered compute name. For an EC2 fleet instance,
-        /// use the instance ID. For a container fleet, use the compute name (for example, <c>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</c>)
-        /// or the compute ARN.</para>
+        /// use the instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -102,6 +102,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetEnabledControl" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledControl" ShouldProcessTarget="EnabledControlIdentifier" PipelineParameter="EnabledControlIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResetLandingZone" OutputProperty="OperationIdentifier" Verb="Reset" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

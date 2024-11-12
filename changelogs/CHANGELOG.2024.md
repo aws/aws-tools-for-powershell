@@ -1,4 +1,31 @@
-﻿### 4.1.695 (2024-11-11 21:14Z)
+﻿### 4.1.696 (2024-11-12 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.924.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Added cmdlet Reset-ACTEnabledControl leveraging the ResetEnabledControl service API.
+  * Amazon Fault Injection Simulator
+    * Modified cmdlet New-FISExperimentTemplate: added parameters DataSources_CloudWatchDashboard, ExperimentReportConfiguration_Outputs_S3Configuration_BucketName, ExperimentReportConfiguration_Outputs_S3Configuration_Prefix, ExperimentReportConfiguration_PostExperimentDuration and ExperimentReportConfiguration_PreExperimentDuration.
+    * Modified cmdlet Update-FISExperimentTemplate: added parameters DataSources_CloudWatchDashboard, ExperimentReportConfiguration_Outputs_S3Configuration_BucketName, ExperimentReportConfiguration_Outputs_S3Configuration_Prefix, ExperimentReportConfiguration_PostExperimentDuration and ExperimentReportConfiguration_PreExperimentDuration.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLContainerFleet leveraging the DescribeContainerFleet service API.
+    * Added cmdlet Get-GMLContainerFleetList leveraging the ListContainerFleets service API.
+    * Added cmdlet Get-GMLContainerGroupDefinitionVersionList leveraging the ListContainerGroupDefinitionVersions service API.
+    * Added cmdlet Get-GMLFleetDeployment leveraging the DescribeFleetDeployment service API.
+    * Added cmdlet Get-GMLFleetDeploymentList leveraging the ListFleetDeployments service API.
+    * Added cmdlet New-GMLContainerFleet leveraging the CreateContainerFleet service API.
+    * Added cmdlet Remove-GMLContainerFleet leveraging the DeleteContainerFleet service API.
+    * Added cmdlet Update-GMLContainerFleet leveraging the UpdateContainerFleet service API.
+    * Added cmdlet Update-GMLContainerGroupDefinition leveraging the UpdateContainerGroupDefinition service API.
+    * Modified cmdlet Get-GMLComputeList: added parameters ComputeStatus and ContainerGroupDefinitionName.
+    * Modified cmdlet Get-GMLContainerGroupDefinition: added parameter VersionNumber.
+    * [Breaking Change] Modified cmdlet Get-GMLContainerGroupDefinitionList: removed parameter SchedulingStrategy; added parameter ContainerGroupType.
+    * [Breaking Change] Modified cmdlet Get-GMLFleet: removed parameter ContainerGroupDefinitionName.
+    * [Breaking Change] Modified cmdlet New-GMLContainerGroupDefinition: removed parameters ContainerDefinition, SchedulingStrategy, TotalCpuLimit and TotalMemoryLimit; added parameters ContainerGroupType, GameServerContainerDefinition_ContainerName, GameServerContainerDefinition_DependsOn, GameServerContainerDefinition_EnvironmentOverride, GameServerContainerDefinition_ImageUri, GameServerContainerDefinition_MountPoint, GameServerContainerDefinition_ServerSdkVersion, PortConfiguration_ContainerPortRange, SupportContainerDefinition, TotalMemoryLimitMebibyte, TotalVcpuLimit and VersionDescription.
+    * [Breaking Change] Modified cmdlet New-GMLFleet: removed parameters ConnectionPortRange_FromPort, ConnectionPortRange_ToPort, ContainerGroupsConfiguration_ContainerGroupDefinitionName and ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance.
+    * Modified cmdlet Remove-GMLContainerGroupDefinition: added parameters VersionCountToRetain and VersionNumber.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Get-PAYCCAliasList: added parameter KeyArn.
+
+### 4.1.695 (2024-11-11 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.923.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Service
     * Added cmdlet Start-OSOSAssociatePackageList leveraging the AssociatePackages service API.

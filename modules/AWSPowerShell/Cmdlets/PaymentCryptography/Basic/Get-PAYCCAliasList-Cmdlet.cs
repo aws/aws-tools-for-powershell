@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
 {
     /// <summary>
     /// Lists the aliases for all keys in the caller's Amazon Web Services account and Amazon
-    /// Web Services Region. You can filter the list of aliases. For more information, see
-    /// <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-managealias.html">Using
+    /// Web Services Region. You can filter the aliases by <c>keyARN</c>. For more information,
+    /// see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-managealias.html">Using
     /// aliases</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// 
     ///  
@@ -55,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter KeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyARN</c> for which you want to list all aliases.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KeyArn { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -108,6 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.ListAliasesResponse, GetPAYCCAliasListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.KeyArn = this.KeyArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -126,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             // create request
             var request = new Amazon.PaymentCryptography.Model.ListAliasesRequest();
             
+            if (cmdletContext.KeyArn != null)
+            {
+                request.KeyArn = cmdletContext.KeyArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -195,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KeyArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.PaymentCryptography.Model.ListAliasesResponse, GetPAYCCAliasListCmdlet, object> Select { get; set; } =

@@ -28,13 +28,21 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift containers feature, which is currently
-    /// in public preview. </b><para>
-    /// Deletes a container group definition resource. You can delete a container group definition
+    /// Deletes a container group definition. You can delete a container group definition
     /// if there are no fleets using the definition. 
-    /// </para><para>
-    /// To delete a container group definition, identify the resource to delete.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
+    /// 
+    ///  
+    /// <para><b>Request options:</b></para><ul><li><para>
+    /// Delete an entire container group definition, including all versions. Specify the container
+    /// group definition name, or use an ARN value without the version number.
+    /// </para></li><li><para>
+    /// Delete a particular version. Specify the container group definition name and a version
+    /// number, or use an ARN value that includes the version number.
+    /// </para></li><li><para>
+    /// Keep the newest versions and delete all older versions. Specify the container group
+    /// definition name and the number of versions to retain. For example, set <c>VersionCountToRetain</c>
+    /// to 5 to delete all but the five most recent versions.
+    /// </para></li></ul><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
     /// a container group definition</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -65,6 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter VersionCountToRetain
+        /// <summary>
+        /// <para>
+        /// <para>The number of most recent versions to keep while deleting all older versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VersionCountToRetain { get; set; }
+        #endregion
+        
+        #region Parameter VersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The specific version to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VersionNumber { get; set; }
         #endregion
         
         #region Parameter Select
@@ -135,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionCountToRetain = this.VersionCountToRetain;
+            context.VersionNumber = this.VersionNumber;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.VersionCountToRetain != null)
+            {
+                request.VersionCountToRetain = cmdletContext.VersionCountToRetain.Value;
+            }
+            if (cmdletContext.VersionNumber != null)
+            {
+                request.VersionNumber = cmdletContext.VersionNumber.Value;
             }
             
             CmdletOutput output;
@@ -217,6 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.Int32? VersionCountToRetain { get; set; }
+            public System.Int32? VersionNumber { get; set; }
             public System.Func<Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse, RemoveGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

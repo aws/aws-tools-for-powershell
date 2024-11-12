@@ -77,10 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The number of player slots in a match to keep open for future players. For example,
-        /// if the configuration's rule set specifies a match for a single 10-person team, and
-        /// the additional player count is set to 2, 10 players will be selected for the match
-        /// and 2 more player slots will be open for future players. This parameter is not used
-        /// if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
+        /// if the configuration's rule set specifies a match for a single 12-person team, and
+        /// the additional player count is set to 2, only 10 players are selected for the match.
+        /// This parameter is not used if <c>FlexMatchMode</c> is set to <c>STANDALONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game session properties, formatted as a single string value. This
-        /// data is passed to a game server process with a request to start a new game session
-        /// (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>). This information is added to the game session that is created
+        /// data is passed to a game server process with a request to start a new game session.
+        /// For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a game session</a>. This information is added to the game session that is created
         /// for a successful match. This parameter is not used if <c>FlexMatchMode</c> is set
         /// to <c>STANDALONE</c>.</para>
         /// </para>

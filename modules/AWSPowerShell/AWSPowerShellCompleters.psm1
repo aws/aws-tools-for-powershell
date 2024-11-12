@@ -12709,7 +12709,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "ARM_CONTAINER","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
+            $v = "ARM_CONTAINER","ARM_EC2","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_EC2","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_EC2","WINDOWS_SERVER_2019_CONTAINER"
             break
         }
 
@@ -17773,6 +17773,7 @@ $ACT_SelectMap = @{
                "Get-ACTLandingZoneList",
                "Get-ACTResourceTag",
                "Reset-ACTEnabledBaseline",
+               "Reset-ACTEnabledControl",
                "Reset-ACTLandingZone",
                "Add-ACTResourceTag",
                "Remove-ACTResourceTag",
@@ -30934,24 +30935,48 @@ $GML_Completers = {
         # Amazon.GameLift.ComputeType
         "New-GMLFleet/ComputeType"
         {
-            $v = "ANYWHERE","CONTAINER","EC2"
+            $v = "ANYWHERE","EC2"
+            break
+        }
+
+        # Amazon.GameLift.ContainerFleetBillingType
+        "New-GMLContainerFleet/BillingType"
+        {
+            $v = "ON_DEMAND","SPOT"
+            break
+        }
+
+        # Amazon.GameLift.ContainerGroupType
+        {
+            ($_ -eq "Get-GMLContainerGroupDefinitionList/ContainerGroupType") -Or
+            ($_ -eq "New-GMLContainerGroupDefinition/ContainerGroupType")
+        }
+        {
+            $v = "GAME_SERVER","PER_INSTANCE"
             break
         }
 
         # Amazon.GameLift.ContainerOperatingSystem
-        "New-GMLContainerGroupDefinition/OperatingSystem"
+        {
+            ($_ -eq "New-GMLContainerGroupDefinition/OperatingSystem") -Or
+            ($_ -eq "Update-GMLContainerGroupDefinition/OperatingSystem")
+        }
         {
             $v = "AMAZON_LINUX_2023"
             break
         }
 
-        # Amazon.GameLift.ContainerSchedulingStrategy
+        # Amazon.GameLift.DeploymentImpairmentStrategy
+        "Update-GMLContainerFleet/DeploymentConfiguration_ImpairmentStrategy"
         {
-            ($_ -eq "Get-GMLContainerGroupDefinitionList/SchedulingStrategy") -Or
-            ($_ -eq "New-GMLContainerGroupDefinition/SchedulingStrategy")
+            $v = "MAINTAIN","ROLLBACK"
+            break
         }
+
+        # Amazon.GameLift.DeploymentProtectionStrategy
+        "Update-GMLContainerFleet/DeploymentConfiguration_ProtectionStrategy"
         {
-            $v = "DAEMON","REPLICA"
+            $v = "IGNORE_PROTECTION","WITH_PROTECTION"
             break
         }
 
@@ -31020,6 +31045,23 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.ListComputeInputStatus
+        "Get-GMLComputeList/ComputeStatus"
+        {
+            $v = "ACTIVE","IMPAIRED"
+            break
+        }
+
+        # Amazon.GameLift.LogDestination
+        {
+            ($_ -eq "New-GMLContainerFleet/LogConfiguration_LogDestination") -Or
+            ($_ -eq "Update-GMLContainerFleet/LogConfiguration_LogDestination")
+        }
+        {
+            $v = "CLOUDWATCH","NONE","S3"
+            break
+        }
+
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
@@ -31050,7 +31092,9 @@ $GML_Completers = {
 
         # Amazon.GameLift.ProtectionPolicy
         {
+            ($_ -eq "New-GMLContainerFleet/NewGameSessionProtectionPolicy") -Or
             ($_ -eq "New-GMLFleet/NewGameSessionProtectionPolicy") -Or
+            ($_ -eq "Update-GMLContainerFleet/NewGameSessionProtectionPolicy") -Or
             ($_ -eq "Update-GMLFleetAttribute/NewGameSessionProtectionPolicy") -Or
             ($_ -eq "Update-GMLGameSession/ProtectionPolicy")
         }
@@ -31103,26 +31147,31 @@ $GML_map = @{
     "AcceptanceType"=@("Confirm-GMLMatch")
     "BackfillMode"=@("New-GMLMatchmakingConfiguration","Update-GMLMatchmakingConfiguration")
     "BalancingStrategy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
+    "BillingType"=@("New-GMLContainerFleet")
     "CertificateConfiguration_CertificateType"=@("New-GMLFleet")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
+    "ComputeStatus"=@("Get-GMLComputeList")
     "ComputeType"=@("New-GMLFleet")
+    "ContainerGroupType"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
     "DeleteOption"=@("Remove-GMLGameServerGroup")
+    "DeploymentConfiguration_ImpairmentStrategy"=@("Update-GMLContainerFleet")
+    "DeploymentConfiguration_ProtectionStrategy"=@("Update-GMLContainerFleet")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "FleetType"=@("New-GMLFleet")
     "FlexMatchMode"=@("New-GMLMatchmakingConfiguration","Update-GMLMatchmakingConfiguration")
     "GameServerProtectionPolicy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "HealthCheck"=@("Update-GMLGameServer")
     "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
+    "LogConfiguration_LogDestination"=@("New-GMLContainerFleet","Update-GMLContainerFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
-    "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
-    "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition")
+    "NewGameSessionProtectionPolicy"=@("New-GMLContainerFleet","New-GMLFleet","Update-GMLContainerFleet","Update-GMLFleetAttribute")
+    "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
     "ScalingAdjustmentType"=@("Write-GMLScalingPolicy")
-    "SchedulingStrategy"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
@@ -31183,6 +31232,7 @@ $GML_SelectMap = @{
                "Request-GMLGameServer",
                "New-GMLAlias",
                "New-GMLBuild",
+               "New-GMLContainerFleet",
                "New-GMLContainerGroupDefinition",
                "New-GMLFleet",
                "New-GMLFleetLocation",
@@ -31198,6 +31248,7 @@ $GML_SelectMap = @{
                "New-GMLVpcPeeringConnection",
                "Remove-GMLAlias",
                "Remove-GMLBuild",
+               "Remove-GMLContainerFleet",
                "Remove-GMLContainerGroupDefinition",
                "Remove-GMLFleet",
                "Remove-GMLFleetLocation",
@@ -31215,10 +31266,12 @@ $GML_SelectMap = @{
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
                "Get-GMLCompute",
+               "Get-GMLContainerFleet",
                "Get-GMLContainerGroupDefinition",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
+               "Get-GMLFleetDeployment",
                "Get-GMLFleetEvent",
                "Get-GMLFleetLocationAttribute",
                "Get-GMLFleetLocationCapacity",
@@ -31249,7 +31302,10 @@ $GML_SelectMap = @{
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLComputeList",
+               "Get-GMLContainerFleetList",
                "Get-GMLContainerGroupDefinitionList",
+               "Get-GMLContainerGroupDefinitionVersionList",
+               "Get-GMLFleetDeploymentList",
                "Get-GMLFleet",
                "Get-GMLGameServerGroupList",
                "Get-GMLGameServerList",
@@ -31275,6 +31331,8 @@ $GML_SelectMap = @{
                "Remove-GMLResourceTag",
                "Update-GMLAlias",
                "Update-GMLBuild",
+               "Update-GMLContainerFleet",
+               "Update-GMLContainerGroupDefinition",
                "Update-GMLFleetAttribute",
                "Update-GMLFleetCapacity",
                "Update-GMLFleetPortSetting",

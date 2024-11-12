@@ -28,25 +28,20 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Retrieves properties for a compute resource in an Amazon GameLift fleet. To get a
     /// list of all computes in a fleet, call <a>ListCompute</a>. 
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// To request information on a specific compute, provide the fleet ID and compute name.
     /// </para><para>
     /// If successful, this operation returns details for the requested compute resource.
     /// Depending on the fleet's compute type, the result includes the following information:
     /// 
     /// </para><ul><li><para>
-    /// For <c>EC2</c> fleets, this operation returns information about the EC2 instance.
+    /// For managed EC2 fleets, this operation returns information about the EC2 instance.
     /// </para></li><li><para>
-    /// For <c>ANYWHERE</c> fleets, this operation returns information about the registered
-    /// compute.
-    /// </para></li><li><para>
-    /// For <c>CONTAINER</c> fleets, this operation returns information about the container
-    /// that's registered as a compute, and the instance it's running on. The compute name
-    /// is the container name.
+    /// For Anywhere fleets, this operation returns information about the registered compute.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLCompute")]
@@ -68,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The unique identifier of the compute resource to retrieve properties for. For an Anywhere
         /// fleet compute, use the registered compute name. For an EC2 fleet instance, use the
-        /// instance ID. For a container fleet, use the compute name (for example, <c>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</c>)
-        /// or the compute ARN.</para>
+        /// instance ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -127,15 +127,24 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>The environment type of the compute fleet.</para><ul><li><para>The environment type <c>ARM_CONTAINER</c> is available only in regions US East (N.
         /// Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai),
         /// Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt),
-        /// and South America (São Paulo).</para></li><li><para>The environment type <c>LINUX_CONTAINER</c> is available only in regions US East (N.
+        /// and South America (São Paulo).</para></li><li><para>The environment type <c>ARM_EC2</c> is available only in regions US East (N. Virginia),
+        /// US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo),
+        /// Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia
+        /// Pacific (Mumbai).</para></li><li><para>The environment type <c>LINUX_CONTAINER</c> is available only in regions US East (N.
         /// Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific
         /// (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo),
-        /// and Asia Pacific (Mumbai).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
+        /// and Asia Pacific (Mumbai).</para></li><li><para>The environment type <c>LINUX_EC2</c> is available only in regions US East (N. Virginia),
+        /// US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo),
+        /// Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia
+        /// Pacific (Mumbai).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
         /// (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia
         /// Pacific (Tokyo), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>MAC_ARM</c> is available for Medium fleets only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and
         /// EU (Frankfurt)</para></li><li><para>The environment type <c>MAC_ARM</c> is available for Large fleets only in regions
-        /// US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2019_CONTAINER</c> is available only in regions
+        /// US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>WINDOWS_EC2</c> is available only in regions US East (N. Virginia),
+        /// US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo),
+        /// Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia
+        /// Pacific (Mumbai).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2019_CONTAINER</c> is available only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), Asia
         /// Pacific (Tokyo), Asia Pacific (Mumbai) and EU (Ireland).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2022_CONTAINER</c> is available only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt),

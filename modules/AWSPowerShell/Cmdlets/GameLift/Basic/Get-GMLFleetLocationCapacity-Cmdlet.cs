@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves the resource capacity settings for a fleet location. The data returned includes
     /// the current capacity (number of EC2 instances) and some scaling settings for the requested
-    /// fleet location. For a container fleet, this operation also returns counts for replica
-    /// container groups.
+    /// fleet location. For a managed container fleet, this operation also returns counts
+    /// for game server container groups.
     /// 
     ///  
     /// <para>

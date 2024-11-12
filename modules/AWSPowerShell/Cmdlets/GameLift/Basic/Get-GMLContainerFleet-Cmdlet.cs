@@ -28,41 +28,42 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the properties of a container group definition, including all container
-    /// definitions in the group. 
+    /// Retrieves the properties for a container fleet. When requesting attributes for multiple
+    /// fleets, use the pagination parameters to retrieve results as a set of sequential pages.
+    /// 
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
-    /// Retrieve the latest version of a container group definition. Specify the container
-    /// group definition name only, or use an ARN value without a version number.
-    /// </para></li><li><para>
-    /// Retrieve a particular version. Specify the container group definition name and a version
-    /// number, or use an ARN value that includes the version number.
-    /// </para></li></ul><para><b>Results:</b></para><para>
-    /// If successful, this operation returns the complete properties of a container group
-    /// definition version.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
-    /// a container group definition</a></para></li></ul>
+    /// <para><b>Request options</b></para><ul><li><para>
+    /// Get container fleet properties for a single fleet. Provide either the fleet ID or
+    /// ARN value. 
+    /// </para></li></ul><para><b>Results</b></para><para>
+    /// If successful, a <c>ContainerFleet</c> object is returned. This object includes the
+    /// fleet properties, including information about the most recent deployment.
+    /// </para><note><para>
+    /// Some API operations limit the number of fleet IDs that allowed in one request. If
+    /// a request exceeds this limit, the request fails and the error message contains the
+    /// maximum allowed number.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "GMLContainerGroupDefinition")]
-    [OutputType("Amazon.GameLift.Model.ContainerGroupDefinition")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DescribeContainerGroupDefinition API operation.", Operation = new[] {"DescribeContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerGroupDefinition or Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.ContainerGroupDefinition object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "GMLContainerFleet")]
+    [OutputType("Amazon.GameLift.Model.ContainerFleet")]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeContainerFleet API operation.", Operation = new[] {"DescribeContainerFleet"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeContainerFleetResponse))]
+    [AWSCmdletOutput("Amazon.GameLift.Model.ContainerFleet or Amazon.GameLift.Model.DescribeContainerFleetResponse",
+        "This cmdlet returns an Amazon.GameLift.Model.ContainerFleet object.",
+        "The service call response (type Amazon.GameLift.Model.DescribeContainerFleetResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLContainerFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the container group definition to retrieve properties for.
-        /// You can use either the <c>Name</c> or <c>ARN</c> value.</para>
+        /// <para>A unique identifier for the container fleet to retrieve. You can use either the fleet
+        /// ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,36 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter VersionNumber
-        /// <summary>
-        /// <para>
-        /// <para>The specific version to retrieve.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? VersionNumber { get; set; }
+        public System.String FleetId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContainerGroupDefinition'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContainerFleet'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DescribeContainerFleetResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.DescribeContainerFleetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContainerGroupDefinition";
+        public string Select { get; set; } = "ContainerFleet";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse, GetGMLContainerGroupDefinitionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DescribeContainerFleetResponse, GetGMLContainerFleetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,17 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.FleetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.FleetId = this.FleetId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VersionNumber = this.VersionNumber;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DescribeContainerGroupDefinitionRequest();
+            var request = new Amazon.GameLift.Model.DescribeContainerFleetRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.FleetId != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.VersionNumber != null)
-            {
-                request.VersionNumber = cmdletContext.VersionNumber.Value;
+                request.FleetId = cmdletContext.FleetId;
             }
             
             CmdletOutput output;
@@ -197,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeContainerGroupDefinitionRequest request)
+        private Amazon.GameLift.Model.DescribeContainerFleetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeContainerFleetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeContainerGroupDefinition");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeContainerFleet");
             try
             {
                 #if DESKTOP
-                return client.DescribeContainerGroupDefinition(request);
+                return client.DescribeContainerFleet(request);
                 #elif CORECLR
-                return client.DescribeContainerGroupDefinitionAsync(request).GetAwaiter().GetResult();
+                return client.DescribeContainerFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Int32? VersionNumber { get; set; }
-            public System.Func<Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse, GetGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContainerGroupDefinition;
+            public System.String FleetId { get; set; }
+            public System.Func<Amazon.GameLift.Model.DescribeContainerFleetResponse, GetGMLContainerFleetCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ContainerFleet;
         }
         
     }

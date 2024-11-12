@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Retrieves the resource capacity settings for one or more fleets. For a container fleet,
-    /// this operation also returns counts for replica container groups.
-    /// </para><para>
+    /// this operation also returns counts for game server container groups.
+    /// 
+    ///  
+    /// <para>
     /// With multi-location fleets, this operation retrieves data for the fleet's home Region
     /// only. To retrieve capacity for remote locations, see <a>DescribeFleetLocationCapacity</a>.
     /// </para><para>

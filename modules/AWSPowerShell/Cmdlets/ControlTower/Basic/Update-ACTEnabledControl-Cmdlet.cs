@@ -39,10 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     /// If the enabled control shows an <c>EnablementStatus</c> of FAILED, Amazon Web Services
     /// Control Tower updates the control to match any valid parameters that you supply.
     /// </para><para>
-    /// If the <c>DriftSummary</c> status for the control shows as DRIFTED, you cannot call
-    /// this API. Instead, you can update the control by calling <c>DisableControl</c> and
-    /// again calling <c>EnableControl</c>, or you can run an extending governance operation.
-    /// For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"><i>Controls Reference Guide</i></a>. 
+    /// If the <c>DriftSummary</c> status for the control shows as <c>DRIFTED</c>, you cannot
+    /// call this API. Instead, you can update the control by calling the <c>ResetEnabledControl</c>
+    /// API. Alternatively, you can call <c>DisableControl</c> and then call <c>EnableControl</c>
+    /// again. Also, you can run an extending governance operation to repair drift. For usage
+    /// examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"><i>Controls Reference Guide</i></a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "ACTEnabledControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

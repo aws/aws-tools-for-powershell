@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ACTLandingZone', 
         'Remove-ACTResourceTag', 
         'Reset-ACTEnabledBaseline', 
+        'Reset-ACTEnabledControl', 
         'Reset-ACTLandingZone', 
         'Update-ACTEnabledBaseline', 
         'Update-ACTEnabledControl', 

@@ -28,12 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region.
     /// Properties include the computing hardware and deployment configuration for instances
     /// in the fleet.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You can use this operation in the following ways: 
     /// </para><ul><li><para>
     /// To get attributes for specific fleets, provide a list of fleet IDs or fleet ARNs.
@@ -61,8 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     )]
     public partial class GetGMLFleetAttributeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         

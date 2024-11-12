@@ -28,12 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
-    /// Adds remote locations to an EC2 or container fleet and begins populating the new locations
-    /// with instances. The new instances conform to the fleet's instance type, auto-scaling,
-    /// and other configuration settings.
-    /// </para><note><para>
+    /// Adds remote locations to a managed EC2 fleet or managed container fleet and begins
+    /// populating the new locations with instances. The new instances conform to the fleet's
+    /// instance type, auto-scaling, and other configuration settings.
+    /// 
+    ///  <note><para>
     /// You can't add remote locations to a fleet that resides in an Amazon Web Services Region
     /// that doesn't support multiple locations. Fleets created prior to March 2021 can't
     /// support multiple locations.

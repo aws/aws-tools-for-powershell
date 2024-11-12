@@ -28,12 +28,22 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift containers feature, which is currently
-    /// in public preview. </b><para>
-    /// Retrieves all container group definitions for the Amazon Web Services account and
-    /// Amazon Web Services Region that are currently in use. You can filter the result set
-    /// by the container groups' scheduling strategy. Use the pagination parameters to retrieve
-    /// results in a set of sequential pages.
+    /// Retrieves container group definitions for the Amazon Web Services account and Amazon
+    /// Web Services Region. Use the pagination parameters to retrieve results in a set of
+    /// sequential pages.
+    /// 
+    ///  
+    /// <para>
+    /// This operation returns only the latest version of each definition. To retrieve all
+    /// versions of a container group definition, use <a>ListContainerGroupDefinitionVersions</a>.
+    /// </para><para><b>Request options:</b></para><ul><li><para>
+    /// Retrieve the most recent versions of all container group definitions. 
+    /// </para></li><li><para>
+    /// Retrieve the most recent versions of all container group definitions, filtered by
+    /// type. Specify the container group type to filter on. 
+    /// </para></li></ul><para><b>Results:</b></para><para>
+    /// If successful, this operation returns the complete properties of a set of container
+    /// group definition versions that match the request.
     /// </para><note><para>
     /// This operation returns the list of container group definitions in no particular order.
     /// 
@@ -54,17 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SchedulingStrategy
+        #region Parameter ContainerGroupType
         /// <summary>
         /// <para>
-        /// <para>The type of container group definitions to retrieve.</para><ul><li><para><c>DAEMON</c> -- Daemon container groups run background processes and are deployed
-        /// once per fleet instance.</para></li><li><para><c>REPLICA</c> -- Replica container groups run your game server application and supporting
-        /// software. Replica groups might be deployed multiple times per fleet instance.</para></li></ul>
+        /// <para>The type of container group to retrieve. Container group type determines how Amazon
+        /// GameLift deploys the container group on each fleet instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.GameLift.ContainerSchedulingStrategy")]
-        public Amazon.GameLift.ContainerSchedulingStrategy SchedulingStrategy { get; set; }
+        [AWSConstantClassSource("Amazon.GameLift.ContainerGroupType")]
+        public Amazon.GameLift.ContainerGroupType ContainerGroupType { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -107,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SchedulingStrategy parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SchedulingStrategy' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContainerGroupType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContainerGroupType' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SchedulingStrategy' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContainerGroupType' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -147,12 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SchedulingStrategy;
+                context.Select = (response, cmdlet) => this.ContainerGroupType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContainerGroupType = this.ContainerGroupType;
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            context.SchedulingStrategy = this.SchedulingStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,13 +182,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request and set iteration invariants
             var request = new Amazon.GameLift.Model.ListContainerGroupDefinitionsRequest();
             
+            if (cmdletContext.ContainerGroupType != null)
+            {
+                request.ContainerGroupType = cmdletContext.ContainerGroupType;
+            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.SchedulingStrategy != null)
-            {
-                request.SchedulingStrategy = cmdletContext.SchedulingStrategy;
             }
             
             // Initialize loop variant and commence piping
@@ -266,9 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.GameLift.ContainerGroupType ContainerGroupType { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GameLift.ContainerSchedulingStrategy SchedulingStrategy { get; set; }
             public System.Func<Amazon.GameLift.Model.ListContainerGroupDefinitionsResponse, GetGMLContainerGroupDefinitionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContainerGroupDefinitions;
         }

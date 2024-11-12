@@ -6878,6 +6878,7 @@ Set-Alias -Name List-ACTLandingZoneList -Value Get-ACTLandingZoneList
 Set-Alias -Name ACT-ListLandingZones -Value Get-ACTLandingZoneList
 Set-Alias -Name ACT-ListTagsForResource -Value Get-ACTResourceTag
 Set-Alias -Name ACT-ResetEnabledBaseline -Value Reset-ACTEnabledBaseline
+Set-Alias -Name ACT-ResetEnabledControl -Value Reset-ACTEnabledControl
 Set-Alias -Name ACT-ResetLandingZone -Value Reset-ACTLandingZone
 Set-Alias -Name ACT-TagResource -Value Add-ACTResourceTag
 Set-Alias -Name ACT-UntagResource -Value Remove-ACTResourceTag
@@ -12819,6 +12820,8 @@ Set-Alias -Name Create-GMLAlias -Value New-GMLAlias
 Set-Alias -Name GML-CreateAlias -Value New-GMLAlias
 Set-Alias -Name Create-GMLBuild -Value New-GMLBuild
 Set-Alias -Name GML-CreateBuild -Value New-GMLBuild
+Set-Alias -Name Create-GMLContainerFleet -Value New-GMLContainerFleet
+Set-Alias -Name GML-CreateContainerFleet -Value New-GMLContainerFleet
 Set-Alias -Name Create-GMLContainerGroupDefinition -Value New-GMLContainerGroupDefinition
 Set-Alias -Name GML-CreateContainerGroupDefinition -Value New-GMLContainerGroupDefinition
 Set-Alias -Name Create-GMLFleet -Value New-GMLFleet
@@ -12851,6 +12854,8 @@ Set-Alias -Name Delete-GMLAlias -Value Remove-GMLAlias
 Set-Alias -Name GML-DeleteAlias -Value Remove-GMLAlias
 Set-Alias -Name Delete-GMLBuild -Value Remove-GMLBuild
 Set-Alias -Name GML-DeleteBuild -Value Remove-GMLBuild
+Set-Alias -Name Delete-GMLContainerFleet -Value Remove-GMLContainerFleet
+Set-Alias -Name GML-DeleteContainerFleet -Value Remove-GMLContainerFleet
 Set-Alias -Name Delete-GMLContainerGroupDefinition -Value Remove-GMLContainerGroupDefinition
 Set-Alias -Name GML-DeleteContainerGroupDefinition -Value Remove-GMLContainerGroupDefinition
 Set-Alias -Name Delete-GMLFleet -Value Remove-GMLFleet
@@ -12888,6 +12893,8 @@ Set-Alias -Name Describe-GMLBuildDetail -Value Get-GMLBuildDetail
 Set-Alias -Name GML-DescribeBuild -Value Get-GMLBuildDetail
 Set-Alias -Name Describe-GMLCompute -Value Get-GMLCompute
 Set-Alias -Name GML-DescribeCompute -Value Get-GMLCompute
+Set-Alias -Name Describe-GMLContainerFleet -Value Get-GMLContainerFleet
+Set-Alias -Name GML-DescribeContainerFleet -Value Get-GMLContainerFleet
 Set-Alias -Name Describe-GMLContainerGroupDefinition -Value Get-GMLContainerGroupDefinition
 Set-Alias -Name GML-DescribeContainerGroupDefinition -Value Get-GMLContainerGroupDefinition
 Set-Alias -Name Describe-GMLEC2InstanceLimits -Value Get-GMLEC2InstanceLimit
@@ -12898,6 +12905,8 @@ Set-Alias -Name Describe-GMLFleetAttribute -Value Get-GMLFleetAttribute
 Set-Alias -Name GML-DescribeFleetAttributes -Value Get-GMLFleetAttribute
 Set-Alias -Name Describe-GMLFleetCapacity -Value Get-GMLFleetCapacity
 Set-Alias -Name GML-DescribeFleetCapacity -Value Get-GMLFleetCapacity
+Set-Alias -Name Describe-GMLFleetDeployment -Value Get-GMLFleetDeployment
+Set-Alias -Name GML-DescribeFleetDeployment -Value Get-GMLFleetDeployment
 Set-Alias -Name Describe-GMLFleetEvents -Value Get-GMLFleetEvent
 Set-Alias -Name Describe-GMLFleetEvent -Value Get-GMLFleetEvent
 Set-Alias -Name GML-DescribeFleetEvents -Value Get-GMLFleetEvent
@@ -12971,9 +12980,18 @@ Set-Alias -Name GML-ListBuilds -Value Get-GMLBuild
 Set-Alias -Name List-GMLCompute -Value Get-GMLComputeList
 Set-Alias -Name List-GMLComputeList -Value Get-GMLComputeList
 Set-Alias -Name GML-ListCompute -Value Get-GMLComputeList
+Set-Alias -Name List-GMLContainerFleets -Value Get-GMLContainerFleetList
+Set-Alias -Name List-GMLContainerFleetList -Value Get-GMLContainerFleetList
+Set-Alias -Name GML-ListContainerFleets -Value Get-GMLContainerFleetList
 Set-Alias -Name List-GMLContainerGroupDefinitions -Value Get-GMLContainerGroupDefinitionList
 Set-Alias -Name List-GMLContainerGroupDefinitionList -Value Get-GMLContainerGroupDefinitionList
 Set-Alias -Name GML-ListContainerGroupDefinitions -Value Get-GMLContainerGroupDefinitionList
+Set-Alias -Name List-GMLContainerGroupDefinitionVersions -Value Get-GMLContainerGroupDefinitionVersionList
+Set-Alias -Name List-GMLContainerGroupDefinitionVersionList -Value Get-GMLContainerGroupDefinitionVersionList
+Set-Alias -Name GML-ListContainerGroupDefinitionVersions -Value Get-GMLContainerGroupDefinitionVersionList
+Set-Alias -Name List-GMLFleetDeployments -Value Get-GMLFleetDeploymentList
+Set-Alias -Name List-GMLFleetDeploymentList -Value Get-GMLFleetDeploymentList
+Set-Alias -Name GML-ListFleetDeployments -Value Get-GMLFleetDeploymentList
 Set-Alias -Name List-GMLFleets -Value Get-GMLFleet
 Set-Alias -Name List-GMLFleet -Value Get-GMLFleet
 Set-Alias -Name GML-ListFleets -Value Get-GMLFleet
@@ -13015,6 +13033,8 @@ Set-Alias -Name GML-TagResource -Value Add-GMLResourceTag
 Set-Alias -Name GML-UntagResource -Value Remove-GMLResourceTag
 Set-Alias -Name GML-UpdateAlias -Value Update-GMLAlias
 Set-Alias -Name GML-UpdateBuild -Value Update-GMLBuild
+Set-Alias -Name GML-UpdateContainerFleet -Value Update-GMLContainerFleet
+Set-Alias -Name GML-UpdateContainerGroupDefinition -Value Update-GMLContainerGroupDefinition
 Set-Alias -Name Update-GMLFleetAttributes -Value Update-GMLFleetAttribute
 Set-Alias -Name GML-UpdateFleetAttributes -Value Update-GMLFleetAttribute
 Set-Alias -Name GML-UpdateFleetCapacity -Value Update-GMLFleetCapacity

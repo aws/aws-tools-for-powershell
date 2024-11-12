@@ -28,14 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
-    /// Removes a compute resource from an Amazon GameLift Anywhere fleet or container fleet.
-    /// Deregistered computes can no longer host game sessions through Amazon GameLift.
-    /// </para><para>
-    /// For an Anywhere fleet or a container fleet that's running the Amazon GameLift Agent,
-    /// the Agent handles all compute registry tasks for you. For an Anywhere fleet that doesn't
-    /// use the Agent, call this operation to deregister fleet computes. 
+    /// Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes
+    /// can no longer host game sessions through Amazon GameLift.
+    /// 
+    ///  
+    /// <para>
+    /// For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent handles
+    /// all compute registry tasks for you. For an Anywhere fleet that doesn't use the Agent,
+    /// call this operation to deregister fleet computes. 
     /// </para><para>
     /// To deregister a compute, call this operation from the compute that's being deregistered
     /// and specify the compute name and the fleet ID. 
@@ -57,9 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the compute resource to deregister. For an Anywhere fleet
-        /// compute, use the registered compute name. For a container fleet, use the compute name
-        /// (for example, <c>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</c>)
-        /// or the compute ARN.</para>
+        /// compute, use the registered compute name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
