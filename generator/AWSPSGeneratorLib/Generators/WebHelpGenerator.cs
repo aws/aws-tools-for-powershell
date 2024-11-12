@@ -32,8 +32,9 @@ namespace AWSPowerShellGenerator.Generators
                     = "AWS services or capabilities described in AWS Documentation may vary by region/location. "
                     + "Click <a href=\"https://{0}/en_us/aws/latest/userguide/services.html\">Getting Started with Amazon AWS</a> to see specific differences applicable to the China (Beijing) Region.";
 
-        public static HashSet<string> NonModularizedServices = new HashSet<string> {
-            "CloudHSM", "ElasticLoadBalancing", "CloudWatchEvents", "KinesisAnalytics"
+        public static HashSet<string> NonModularizedServices = new HashSet<string> 
+        {
+            "CloudHSM", "CloudWatchEvents", "KinesisAnalytics"
         };
 
         public string BJSRegionDisclaimer
