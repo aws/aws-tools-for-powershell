@@ -72,80 +72,13 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon CloudWatch Internet Monitor
+# Argument completions for service AWS Billing
 
 
-$CWIM_Completers = {
+$AWSB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.InternetMonitor.HealthEventStatus
-        "Get-CWIMHealthEventList/EventStatus"
-        {
-            $v = "ACTIVE","RESOLVED"
-            break
-        }
-
-        # Amazon.InternetMonitor.LocalHealthEventsConfigStatus
-        {
-            ($_ -eq "New-CWIMMonitor/AvailabilityLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "Update-CWIMMonitor/AvailabilityLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "New-CWIMMonitor/PerformanceLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "Update-CWIMMonitor/PerformanceLocalHealthEventsConfig_Status")
-        }
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-
-        # Amazon.InternetMonitor.LogDeliveryStatus
-        {
-            ($_ -eq "New-CWIMMonitor/S3Config_LogDeliveryStatus") -Or
-            ($_ -eq "Update-CWIMMonitor/S3Config_LogDeliveryStatus")
-        }
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-
-        # Amazon.InternetMonitor.MonitorConfigState
-        "Update-CWIMMonitor/Status"
-        {
-            $v = "ACTIVE","ERROR","INACTIVE","PENDING"
-            break
-        }
-
-        # Amazon.InternetMonitor.QueryType
-        "Start-CWIMQuery/QueryType"
-        {
-            $v = "MEASUREMENTS","OVERALL_TRAFFIC_SUGGESTIONS","OVERALL_TRAFFIC_SUGGESTIONS_DETAILS","ROUTING_SUGGESTIONS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$CWIM_map = @{
-    "AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
-    "EventStatus"=@("Get-CWIMHealthEventList")
-    "PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
-    "QueryType"=@("Start-CWIMQuery")
-    "S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
-    "Status"=@("Update-CWIMMonitor")
-}
-
-_awsArgumentCompleterRegistration $CWIM_Completers $CWIM_map
-
-$CWIM_SelectCompleters = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWIM.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AWSB.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -189,24 +122,9 @@ $CWIM_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$CWIM_SelectMap = @{
-    "Select"=@("New-CWIMMonitor",
-               "Remove-CWIMMonitor",
-               "Get-CWIMHealthEvent",
-               "Get-CWIMInternetEvent",
-               "Get-CWIMMonitor",
-               "Get-CWIMQueryResult",
-               "Get-CWIMQueryStatus",
-               "Get-CWIMHealthEventList",
-               "Get-CWIMInternetEventList",
-               "Get-CWIMMonitorList",
-               "Get-CWIMResourceTag",
-               "Start-CWIMQuery",
-               "Stop-CWIMQuery",
-               "Add-CWIMResourceTag",
-               "Remove-CWIMResourceTag",
-               "Update-CWIMMonitor")
+$AWSB_SelectMap = @{
+    "Select"=@("Get-AWSBBillingViewList")
 }
 
-_awsArgumentCompleterRegistration $CWIM_SelectCompleters $CWIM_SelectMap
+_awsArgumentCompleterRegistration $AWSB_SelectCompleters $AWSB_SelectMap
 

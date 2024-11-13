@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies the transformer's status. You can update the state of the transformer, from
-        /// <c>active</c> to <c>inactive</c>, or <c>inactive</c> to <c>active</c>.</para>
+        /// <para>Specifies the transformer's status. You can update the state of the transformer from
+        /// <c>inactive</c> to <c>active</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

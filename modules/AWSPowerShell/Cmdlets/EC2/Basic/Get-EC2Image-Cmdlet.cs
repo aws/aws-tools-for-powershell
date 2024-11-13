@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2021-09-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2021-09-29T*</c>, which matches
         /// an entire day.</para></li><li><para><c>description</c> - The description of the image (provided during image creation).</para></li><li><para><c>ena-support</c> - A Boolean that indicates whether enhanced networking with ENA
-        /// is enabled.</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-id</c> - The ID of the image.</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-marketplace</c>). The
-        /// valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web
-        /// Services account alias that can be set using the IAM console. We recommend that you
-        /// use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner. We recommend that
+        /// is enabled.</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-id</c> - The ID of the image.</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-backup-vault</c> | <c>aws-marketplace</c>).
+        /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon
+        /// Web Services account alias that can be set using the IAM console. We recommend that
+        /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner. We recommend that
         /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>platform</c> - The platform. The only supported value is <c>windows</c>.</para></li><li><para><c>product-code</c> - The product code.</para></li><li><para><c>product-code.type</c> - The type of the product code (<c>marketplace</c>).</para></li><li><para><c>ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>root-device-name</c> - The device name of the root device volume (for example,
         /// <c>/dev/sda1</c>).</para></li><li><para><c>root-device-type</c> - The type of the root device volume (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>source-instance-id</c> - The ID of the instance that the AMI was created from
         /// if the AMI was created using CreateImage. This filter is applicable only if the AMI
@@ -148,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Scopes the results to images with the specified owners. You can specify a combination
-        /// of Amazon Web Services account IDs, <c>self</c>, <c>amazon</c>, and <c>aws-marketplace</c>.
-        /// If you omit this parameter, the results include all images for which you have launch
-        /// permissions, regardless of ownership.</para>
+        /// of Amazon Web Services account IDs, <c>self</c>, <c>amazon</c>, <c>aws-backup-vault</c>,
+        /// and <c>aws-marketplace</c>. If you omit this parameter, the results include all images
+        /// for which you have launch permissions, regardless of ownership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

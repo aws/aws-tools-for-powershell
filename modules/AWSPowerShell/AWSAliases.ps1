@@ -2005,6 +2005,9 @@ Set-Alias -Name Delete-B2BIProfile -Value Remove-B2BIProfile
 Set-Alias -Name B2BI-DeleteProfile -Value Remove-B2BIProfile
 Set-Alias -Name Delete-B2BITransformer -Value Remove-B2BITransformer
 Set-Alias -Name B2BI-DeleteTransformer -Value Remove-B2BITransformer
+Set-Alias -Name Generate-B2BIMapping -Value Get-B2BIGeneratedMapping
+Set-Alias -Name Generate-B2BIGeneratedMapping -Value Get-B2BIGeneratedMapping
+Set-Alias -Name B2BI-GenerateMapping -Value Get-B2BIGeneratedMapping
 Set-Alias -Name B2BI-GetCapability -Value Get-B2BICapability
 Set-Alias -Name B2BI-GetPartnership -Value Get-B2BIPartnership
 Set-Alias -Name B2BI-GetProfile -Value Get-B2BIProfile
@@ -2548,6 +2551,9 @@ Set-Alias -Name Converse-BDRRConverseStream -Value Invoke-BDRRConverseStream
 Set-Alias -Name BDRR-ConverseStream -Value Invoke-BDRRConverseStream
 Set-Alias -Name BDRR-InvokeModel -Value Invoke-BDRRModel
 Set-Alias -Name BDRR-InvokeModelWithResponseStream -Value Invoke-BDRRModelWithResponseStream
+Set-Alias -Name List-AWSBBillingViews -Value Get-AWSBBillingViewList
+Set-Alias -Name List-AWSBBillingViewList -Value Get-AWSBBillingViewList
+Set-Alias -Name AWSB-ListBillingViews -Value Get-AWSBBillingViewList
 Set-Alias -Name Associate-ABCAccounts -Value Register-ABCAccount
 Set-Alias -Name Associate-ABCAccount -Value Register-ABCAccount
 Set-Alias -Name ABC-AssociateAccounts -Value Register-ABCAccount
@@ -4589,6 +4595,9 @@ Set-Alias -Name Describe-CTTrail -Value Get-CTTrail
 Set-Alias -Name CT-DescribeTrails -Value Get-CTTrail
 Set-Alias -Name CT-DisableFederation -Value Disable-CTFederation
 Set-Alias -Name CT-EnableFederation -Value Enable-CTFederation
+Set-Alias -Name Generate-CTQuery -Value Invoke-CTGenerateQuery
+Set-Alias -Name Generate-CTGenerateQuery -Value Invoke-CTGenerateQuery
+Set-Alias -Name CT-GenerateQuery -Value Invoke-CTGenerateQuery
 Set-Alias -Name CT-GetChannel -Value Get-CTChannel
 Set-Alias -Name CT-GetEventDataStore -Value Get-CTEventDataStore
 Set-Alias -Name Get-CTEventSelectors -Value Get-CTEventSelector

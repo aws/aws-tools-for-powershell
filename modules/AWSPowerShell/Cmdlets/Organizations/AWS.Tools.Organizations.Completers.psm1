@@ -137,7 +137,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","RESOURCE_CONTROL_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
             break
         }
 

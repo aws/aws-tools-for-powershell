@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.PolicyType
         "Use-IAMAAPolicyValidation/PolicyType"
         {
-            $v = "IDENTITY_POLICY","RESOURCE_POLICY","SERVICE_CONTROL_POLICY"
+            $v = "IDENTITY_POLICY","RESOURCE_CONTROL_POLICY","RESOURCE_POLICY","SERVICE_CONTROL_POLICY"
             break
         }
 

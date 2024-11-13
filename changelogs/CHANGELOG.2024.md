@@ -1,4 +1,17 @@
-﻿### 4.1.696 (2024-11-12 21:56Z)
+﻿### 4.1.697 (2024-11-13 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.925.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon B2B Data Interchange
+    * Added cmdlet Get-B2BIGeneratedMapping leveraging the GenerateMapping service API.
+  * Amazon Billing. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AWSB and can be listed using the command 'Get-AWSCmdletName -Service AWSB'.
+  * Amazon CloudTrail
+    * Added cmdlet Invoke-CTGenerateQuery leveraging the GenerateQuery service API.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameter BurnRateConfiguration.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameter BurnRateConfiguration.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameters WarmThroughput_ReadUnitsPerSecond and WarmThroughput_WriteUnitsPerSecond.
+
+### 4.1.696 (2024-11-12 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.924.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Added cmdlet Reset-ACTEnabledControl leveraging the ResetEnabledControl service API.

@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-B2BIResourceTag', 
         'Get-B2BICapability', 
         'Get-B2BICapabilityList', 
+        'Get-B2BIGeneratedMapping', 
         'Get-B2BIPartnership', 
         'Get-B2BIPartnershipList', 
         'Get-B2BIProfile', 

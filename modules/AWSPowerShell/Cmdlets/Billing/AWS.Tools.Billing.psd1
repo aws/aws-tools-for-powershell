@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.CloudTrail'
+# Module manifest for module 'AWS.Tools.Billing'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.CloudTrail.dll'
+    RootModule = 'AWS.Tools.Billing.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'dec9d75f-5a99-409f-bd26-21e27062c908'
+    GUID = '9511edde-ba3f-47a8-96ff-797071d8a89e'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The CloudTrail module of AWS Tools for PowerShell lets developers and administrators manage AWS CloudTrail from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The Billing module of AWS Tools for PowerShell lets developers and administrators manage AWS Billing from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.CloudTrail.dll'
+        'AWSSDK.Billing.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.CloudTrail.Format.ps1xml'
+        'AWS.Tools.Billing.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.CloudTrail.Completers.psm1',
-        'AWS.Tools.CloudTrail.Aliases.psm1'
+        'AWS.Tools.Billing.Completers.psm1',
+        'AWS.Tools.Billing.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,75 +86,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-CTResourceTag', 
-        'Disable-CTFederation', 
-        'Enable-CTFederation', 
-        'Find-CTEvent', 
-        'Get-CTChannel', 
-        'Get-CTChannelSummary', 
-        'Get-CTEventDataStore', 
-        'Get-CTEventDataStoreSummary', 
-        'Get-CTEventSelector', 
-        'Get-CTImport', 
-        'Get-CTImportFailure', 
-        'Get-CTImportList', 
-        'Get-CTInsightSelector', 
-        'Get-CTInsightsMetricData', 
-        'Get-CTPublicKey', 
-        'Get-CTQuery', 
-        'Get-CTQueryResult', 
-        'Get-CTQuerySummary', 
-        'Get-CTResourcePolicy', 
-        'Get-CTResourceTag', 
-        'Get-CTTrail', 
-        'Get-CTTrailByName', 
-        'Get-CTTrailStatus', 
-        'Get-CTTrailSummary', 
-        'Invoke-CTGenerateQuery', 
-        'New-CTChannel', 
-        'New-CTEventDataStore', 
-        'New-CTTrail', 
-        'Register-CTOrganizationDelegatedAdmin', 
-        'Remove-CTChannel', 
-        'Remove-CTEventDataStore', 
-        'Remove-CTResourcePolicy', 
-        'Remove-CTResourceTag', 
-        'Remove-CTTrail', 
-        'Restore-CTEventDataStore', 
-        'Start-CTEventDataStoreIngestion', 
-        'Start-CTImport', 
-        'Start-CTLogging', 
-        'Start-CTQuery', 
-        'Stop-CTEventDataStoreIngestion', 
-        'Stop-CTImport', 
-        'Stop-CTLogging', 
-        'Stop-CTQuery', 
-        'Unregister-CTOrganizationDelegatedAdmin', 
-        'Update-CTChannel', 
-        'Update-CTEventDataStore', 
-        'Update-CTTrail', 
-        'Write-CTEventSelector', 
-        'Write-CTInsightSelector', 
-        'Write-CTResourcePolicy')
+        'Get-AWSBBillingViewList')
 
     # Variables to export from this module
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @(
-        'Add-CTTag', 
-        'Get-CTEventSelectors', 
-        'Get-CTTag', 
-        'Find-CTEvents', 
-        'Write-CTEventSelectors', 
-        'Remove-CTTag')
+    AliasesToExport = @()
 
     # List of all modules packaged with this module
     ModuleList = @()
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.CloudTrail.dll-Help.xml'
+        'AWS.Tools.Billing.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

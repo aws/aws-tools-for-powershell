@@ -72,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RevokeAllGroup
         /// <summary>
         /// <para>
-        /// <para>Indicates whether access should be revoked for all clients.</para>
+        /// <para>Indicates whether access should be revoked for all groups for a single <c>TargetNetworkCidr</c>
+        /// that earlier authorized ingress for all groups using <c>AuthorizeAllGroups</c>. This
+        /// does not impact other authorization rules that allowed ingress to the same <c>TargetNetworkCidr</c>
+        /// with a specific <c>AccessGroupId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

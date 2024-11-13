@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateMapping" OutputProperty="*" Verb="Get" Noun="GeneratedMapping" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCapability" OutputProperty="*" Verb="Get" Noun="Capability" PipelineParameter="CapabilityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

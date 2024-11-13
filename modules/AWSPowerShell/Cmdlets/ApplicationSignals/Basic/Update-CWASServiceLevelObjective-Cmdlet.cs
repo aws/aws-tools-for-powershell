@@ -75,6 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public Amazon.ApplicationSignals.Model.MetricDataQuery[] MonitoredRequestCountMetric_BadCountMetric { get; set; }
         #endregion
         
+        #region Parameter BurnRateConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric
+        /// that indicates how fast the service is consuming the error budget, relative to the
+        /// attainment goal of the SLO.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BurnRateConfigurations")]
+        public Amazon.ApplicationSignals.Model.BurnRateConfiguration[] BurnRateConfiguration { get; set; }
+        #endregion
+        
         #region Parameter RequestBasedSliConfig_ComparisonOperator
         /// <summary>
         /// <para>
@@ -435,6 +448,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BurnRateConfiguration != null)
+            {
+                context.BurnRateConfiguration = new List<Amazon.ApplicationSignals.Model.BurnRateConfiguration>(this.BurnRateConfiguration);
+            }
             context.Description = this.Description;
             context.Goal_AttainmentGoal = this.Goal_AttainmentGoal;
             context.CalendarInterval_Duration = this.CalendarInterval_Duration;
@@ -508,6 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request
             var request = new Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveRequest();
             
+            if (cmdletContext.BurnRateConfiguration != null)
+            {
+                request.BurnRateConfigurations = cmdletContext.BurnRateConfiguration;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -924,6 +945,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ApplicationSignals.Model.BurnRateConfiguration> BurnRateConfiguration { get; set; }
             public System.String Description { get; set; }
             public System.Double? Goal_AttainmentGoal { get; set; }
             public System.Int32? CalendarInterval_Duration { get; set; }

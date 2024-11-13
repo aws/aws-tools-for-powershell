@@ -151,7 +151,10 @@ $B2BI_Completers = {
         }
 
         # Amazon.B2bi.MappingType
-        "New-B2BIStarterMappingTemplate/MappingType"
+        {
+            ($_ -eq "Get-B2BIGeneratedMapping/MappingType") -Or
+            ($_ -eq "New-B2BIStarterMappingTemplate/MappingType")
+        }
         {
             $v = "JSONATA","XSLT"
             break
@@ -228,7 +231,7 @@ $B2BI_map = @{
     "InputConversion_FromFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
     "Mapping_TemplateLanguage"=@("New-B2BITransformer","Update-B2BITransformer")
-    "MappingType"=@("New-B2BIStarterMappingTemplate")
+    "MappingType"=@("Get-B2BIGeneratedMapping","New-B2BIStarterMappingTemplate")
     "OutputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
@@ -301,6 +304,7 @@ $B2BI_SelectMap = @{
                "Remove-B2BIPartnership",
                "Remove-B2BIProfile",
                "Remove-B2BITransformer",
+               "Get-B2BIGeneratedMapping",
                "Get-B2BICapability",
                "Get-B2BIPartnership",
                "Get-B2BIProfile",

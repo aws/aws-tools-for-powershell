@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.PolicyType
         "Use-IAMAAPolicyValidation/PolicyType"
         {
-            $v = "IDENTITY_POLICY","RESOURCE_POLICY","SERVICE_CONTROL_POLICY"
+            $v = "IDENTITY_POLICY","RESOURCE_CONTROL_POLICY","RESOURCE_POLICY","SERVICE_CONTROL_POLICY"
             break
         }
 
@@ -5491,7 +5491,10 @@ $B2BI_Completers = {
         }
 
         # Amazon.B2bi.MappingType
-        "New-B2BIStarterMappingTemplate/MappingType"
+        {
+            ($_ -eq "Get-B2BIGeneratedMapping/MappingType") -Or
+            ($_ -eq "New-B2BIStarterMappingTemplate/MappingType")
+        }
         {
             $v = "JSONATA","XSLT"
             break
@@ -5568,7 +5571,7 @@ $B2BI_map = @{
     "InputConversion_FromFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
     "Mapping_TemplateLanguage"=@("New-B2BITransformer","Update-B2BITransformer")
-    "MappingType"=@("New-B2BIStarterMappingTemplate")
+    "MappingType"=@("Get-B2BIGeneratedMapping","New-B2BIStarterMappingTemplate")
     "OutputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
     "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
@@ -5641,6 +5644,7 @@ $B2BI_SelectMap = @{
                "Remove-B2BIPartnership",
                "Remove-B2BIProfile",
                "Remove-B2BITransformer",
+               "Get-B2BIGeneratedMapping",
                "Get-B2BICapability",
                "Get-B2BIPartnership",
                "Get-B2BIProfile",
@@ -7180,6 +7184,61 @@ $BDRR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BDRR_SelectCompleters $BDRR_SelectMap
+# Argument completions for service AWS Billing
+
+
+$AWSB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AWSB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AWSB_SelectMap = @{
+    "Select"=@("Get-AWSBBillingViewList")
+}
+
+_awsArgumentCompleterRegistration $AWSB_SelectCompleters $AWSB_SelectMap
 # Argument completions for service AWSBillingConductor
 
 
@@ -12272,6 +12331,7 @@ $CT_SelectMap = @{
                "Get-CTTrail",
                "Disable-CTFederation",
                "Enable-CTFederation",
+               "Invoke-CTGenerateQuery",
                "Get-CTChannel",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
@@ -35525,7 +35585,7 @@ $CWIM_Completers = {
         # Amazon.InternetMonitor.QueryType
         "Start-CWIMQuery/QueryType"
         {
-            $v = "MEASUREMENTS","OVERALL_TRAFFIC_SUGGESTIONS","OVERALL_TRAFFIC_SUGGESTIONS_DETAILS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
+            $v = "MEASUREMENTS","OVERALL_TRAFFIC_SUGGESTIONS","OVERALL_TRAFFIC_SUGGESTIONS_DETAILS","ROUTING_SUGGESTIONS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
             break
         }
 
@@ -51407,7 +51467,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","RESOURCE_CONTROL_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
             break
         }
 

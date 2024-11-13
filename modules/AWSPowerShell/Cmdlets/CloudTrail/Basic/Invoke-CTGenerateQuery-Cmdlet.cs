@@ -22,37 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CloudTrail;
+using Amazon.CloudTrail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Imports the public key from an RSA or ED25519 key pair that you created using a third-party
-    /// tool. You give Amazon Web Services only the public key. The private key is never transferred
-    /// between you and Amazon Web Services.
+    /// Generates a query from a natural language prompt. This operation uses generative
+    /// artificial intelligence (generative AI) to produce a ready-to-use SQL query from the
+    /// prompt. 
     /// 
     ///  
     /// <para>
-    /// For more information about the requirements for importing a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws">Create
-    /// a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para>
+    /// The prompt can be a question or a statement about the event data in your event data
+    /// store. For example, you can enter prompts like "What are my top errors in the past
+    /// month?" and “Give me a list of users that used SNS.”
+    /// </para><para>
+    /// The prompt must be in English. For information about limitations, permissions, and
+    /// supported Regions, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html">Create
+    /// CloudTrail Lake queries from natural language prompts</a> in the <i>CloudTrail </i>
+    /// user guide.
+    /// </para><note><para>
+    /// Do not include any personally identifying, confidential, or sensitive information
+    /// in your prompts.
+    /// </para><para>
+    /// This feature uses generative AI large language models (LLMs); we recommend double-checking
+    /// the LLM response.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Import", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="PreEncodedToBase64")]
-    [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportKeyPair API operation.", Operation = new[] {"ImportKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportKeyPairResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties."
+    [Cmdlet("Invoke", "CTGenerateQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudTrail.Model.GenerateQueryResponse")]
+    [AWSCmdlet("Calls the AWS CloudTrail GenerateQuery API operation.", Operation = new[] {"GenerateQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GenerateQueryResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.GenerateQueryResponse",
+        "This cmdlet returns an Amazon.CloudTrail.Model.GenerateQueryResponse object containing multiple properties."
     )]
-    public partial class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class InvokeCTGenerateQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyName
+        #region Parameter EventDataStore
         /// <summary>
         /// <para>
-        /// <para>A unique name for the key pair.</para>
+        /// <para> The ARN (or ID suffix of the ARN) of the event data store that you want to query.
+        /// You can only specify one event data store. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("EventDataStores")]
+        public System.String[] EventDataStore { get; set; }
+        #endregion
+        
+        #region Parameter Prompt
+        /// <summary>
+        /// <para>
+        /// <para> The prompt that you want to use to generate the query. The prompt must be in English.
+        /// For example prompts, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html#lake-query-generator-examples">Example
+        /// prompts</a> in the <i>CloudTrail </i> user guide. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,44 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyName { get; set; }
-        #endregion
-        
-        #region Parameter PublicKey
-        /// <summary>
-        /// <para>
-        /// <para>The public key.</para>
-        /// </para>
-        /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "AutoEncodedToBase64")]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "AutoEncodedToBase64")]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Amazon.PowerShell.Common.Base64StringParameterConverter]
-        public System.String PublicKey { get; set; }
-        #endregion
-        
-        #region Parameter TagSpecification
-        /// <summary>
-        /// <para>
-        /// <para>The tags to apply to the imported key pair.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TagSpecifications")]
-        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        public System.String Prompt { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ImportKeyPairResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.ImportKeyPairResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.GenerateQueryResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.GenerateQueryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Prompt parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Prompt' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Prompt' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -132,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-EC2KeyPair (ImportKeyPair)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Prompt), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-CTGenerateQuery (GenerateQuery)"))
             {
                 return;
             }
@@ -146,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ImportKeyPairResponse, ImportEC2KeyPairCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.GenerateQueryResponse, InvokeCTGenerateQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -155,27 +158,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyName;
+                context.Select = (response, cmdlet) => this.Prompt;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyName = this.KeyName;
-            #if MODULAR
-            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
+            if (this.EventDataStore != null)
             {
-                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.EventDataStore = new List<System.String>(this.EventDataStore);
+            }
+            #if MODULAR
+            if (this.EventDataStore == null && ParameterWasBound(nameof(this.EventDataStore)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventDataStore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PublicKey = this.PublicKey;
+            context.Prompt = this.Prompt;
             #if MODULAR
-            if (this.PublicKey == null && ParameterWasBound(nameof(this.PublicKey)))
+            if (this.Prompt == null && ParameterWasBound(nameof(this.Prompt)))
             {
-                WriteWarning("You are passing $null as a value for parameter PublicKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Prompt which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagSpecification != null)
-            {
-                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,19 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ImportKeyPairRequest();
+            var request = new Amazon.CloudTrail.Model.GenerateQueryRequest();
             
-            if (cmdletContext.KeyName != null)
+            if (cmdletContext.EventDataStore != null)
             {
-                request.KeyName = cmdletContext.KeyName;
+                request.EventDataStores = cmdletContext.EventDataStore;
             }
-            if (cmdletContext.PublicKey != null)
+            if (cmdletContext.Prompt != null)
             {
-                request.PublicKeyMaterial = cmdletContext.PublicKey;
-            }
-            if (cmdletContext.TagSpecification != null)
-            {
-                request.TagSpecifications = cmdletContext.TagSpecification;
+                request.Prompt = cmdletContext.Prompt;
             }
             
             CmdletOutput output;
@@ -237,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.ImportKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportKeyPairRequest request)
+        private Amazon.CloudTrail.Model.GenerateQueryResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.GenerateQueryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ImportKeyPair");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "GenerateQuery");
             try
             {
                 #if DESKTOP
-                return client.ImportKeyPair(request);
+                return client.GenerateQuery(request);
                 #elif CORECLR
-                return client.ImportKeyPairAsync(request).GetAwaiter().GetResult();
+                return client.GenerateQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,10 +263,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyName { get; set; }
-            public System.String PublicKey { get; set; }
-            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
-            public System.Func<Amazon.EC2.Model.ImportKeyPairResponse, ImportEC2KeyPairCmdlet, object> Select { get; set; } =
+            public List<System.String> EventDataStore { get; set; }
+            public System.String Prompt { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.GenerateQueryResponse, InvokeCTGenerateQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

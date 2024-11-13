@@ -184,6 +184,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.Int64? ReadCapacity { get; set; }
         #endregion
         
+        #region Parameter WarmThroughput_ReadUnitsPerSecond
+        /// <summary>
+        /// <para>
+        /// <para>Represents the number of read operations your base table can instantaneously support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WarmThroughput_ReadUnitsPerSecond { get; set; }
+        #endregion
+        
         #region Parameter ReplicaUpdate
         /// <summary>
         /// <para>
@@ -274,6 +284,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ProvisionedThroughput_WriteCapacityUnits")]
         public System.Int64? WriteCapacity { get; set; }
+        #endregion
+        
+        #region Parameter WarmThroughput_WriteUnitsPerSecond
+        /// <summary>
+        /// <para>
+        /// <para>Represents the number of write operations your base table can instantaneously support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? WarmThroughput_WriteUnitsPerSecond { get; set; }
         #endregion
         
         #region Parameter Select
@@ -369,6 +389,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WarmThroughput_ReadUnitsPerSecond = this.WarmThroughput_ReadUnitsPerSecond;
+            context.WarmThroughput_WriteUnitsPerSecond = this.WarmThroughput_WriteUnitsPerSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -540,6 +562,35 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 request.TableName = cmdletContext.TableName;
             }
             
+             // populate WarmThroughput
+            var requestWarmThroughputIsNull = true;
+            request.WarmThroughput = new Amazon.DynamoDBv2.Model.WarmThroughput();
+            System.Int64? requestWarmThroughput_warmThroughput_ReadUnitsPerSecond = null;
+            if (cmdletContext.WarmThroughput_ReadUnitsPerSecond != null)
+            {
+                requestWarmThroughput_warmThroughput_ReadUnitsPerSecond = cmdletContext.WarmThroughput_ReadUnitsPerSecond.Value;
+            }
+            if (requestWarmThroughput_warmThroughput_ReadUnitsPerSecond != null)
+            {
+                request.WarmThroughput.ReadUnitsPerSecond = requestWarmThroughput_warmThroughput_ReadUnitsPerSecond.Value;
+                requestWarmThroughputIsNull = false;
+            }
+            System.Int64? requestWarmThroughput_warmThroughput_WriteUnitsPerSecond = null;
+            if (cmdletContext.WarmThroughput_WriteUnitsPerSecond != null)
+            {
+                requestWarmThroughput_warmThroughput_WriteUnitsPerSecond = cmdletContext.WarmThroughput_WriteUnitsPerSecond.Value;
+            }
+            if (requestWarmThroughput_warmThroughput_WriteUnitsPerSecond != null)
+            {
+                request.WarmThroughput.WriteUnitsPerSecond = requestWarmThroughput_warmThroughput_WriteUnitsPerSecond.Value;
+                requestWarmThroughputIsNull = false;
+            }
+             // determine if request.WarmThroughput should be set to null
+            if (requestWarmThroughputIsNull)
+            {
+                request.WarmThroughput = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -616,6 +667,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
             public Amazon.DynamoDBv2.TableClass TableClass { get; set; }
             public System.String TableName { get; set; }
+            public System.Int64? WarmThroughput_ReadUnitsPerSecond { get; set; }
+            public System.Int64? WarmThroughput_WriteUnitsPerSecond { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.UpdateTableResponse, UpdateDDBTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableDescription;
         }
