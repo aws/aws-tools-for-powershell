@@ -1,4 +1,66 @@
-﻿### 4.1.697 (2024-11-13 21:55Z)
+﻿### 4.1.698 (2024-11-14 21:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.926.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameters AcceleratorCapabilities_Selection, Count_Max and Count_Min.
+    * Modified cmdlet Update-ADCFleet: added parameters AcceleratorCapabilities_Selection, Count_Max and Count_Min.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Update-IAMAAAnalyzer leveraging the UpdateAnalyzer service API.
+    * Modified cmdlet New-IAMAAAnalyzer: added parameter AnalysisRule_Exclusion.
+  * Amazon Identity and Access Management
+    * Added cmdlet Disable-IAMOrganizationsRootCredentialsManagement leveraging the DisableOrganizationsRootCredentialsManagement service API.
+    * Added cmdlet Disable-IAMOrganizationsRootSession leveraging the DisableOrganizationsRootSessions service API.
+    * Added cmdlet Enable-IAMOrganizationsRootCredentialsManagement leveraging the EnableOrganizationsRootCredentialsManagement service API.
+    * Added cmdlet Enable-IAMOrganizationsRootSession leveraging the EnableOrganizationsRootSessions service API.
+    * Added cmdlet Get-IAMOrganizationsFeature leveraging the ListOrganizationsFeatures service API.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSChannel: added parameters ContainerFormat, MultitrackInputConfiguration_Enabled, MultitrackInputConfiguration_MaximumResolution and MultitrackInputConfiguration_Policy.
+    * Modified cmdlet Update-IVSChannel: added parameters ContainerFormat, MultitrackInputConfiguration_Enabled, MultitrackInputConfiguration_MaximumResolution and MultitrackInputConfiguration_Policy.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWFuotaTask: added parameter Descriptor.
+    * Modified cmdlet New-IOTWMulticastGroup: added parameters ParticipatingGateways_GatewayList and ParticipatingGateways_TransmissionInterval.
+    * Modified cmdlet Update-IOTWFuotaTask: added parameter Descriptor.
+    * Modified cmdlet Update-IOTWLogLevelsByResourceType: added parameter FuotaTaskLogOption.
+    * Modified cmdlet Update-IOTWMulticastGroup: added parameters ParticipatingGateways_GatewayList and ParticipatingGateways_TransmissionInterval.
+  * Amazon License Manager User Subscription
+    * Added cmdlet Add-LMUSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-LMUSLicenseServerEndpointList leveraging the ListLicenseServerEndpoints service API.
+    * Added cmdlet Get-LMUSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-LMUSLicenseServerEndpoint leveraging the CreateLicenseServerEndpoint service API.
+    * Added cmdlet Remove-LMUSLicenseServerEndpoint leveraging the DeleteLicenseServerEndpoint service API.
+    * Added cmdlet Remove-LMUSResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Add-LMUSUser: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, SecretsManagerCredentialsProvider_SecretId and Tag.
+    * Modified cmdlet Get-LMUSIdentityProviderList: added parameter Filter.
+    * Modified cmdlet Get-LMUSProductSubscriptionList: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet and SecretsManagerCredentialsProvider_SecretId.
+    * Modified cmdlet Get-LMUSUserAssociationList: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet and SecretsManagerCredentialsProvider_SecretId.
+    * Modified cmdlet Register-LMUSIdentityProvider: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, SecretsManagerCredentialsProvider_SecretId and Tag.
+    * Modified cmdlet Remove-LMUSUser: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, InstanceUserArn and SecretsManagerCredentialsProvider_SecretId.
+    * Modified cmdlet Start-LMUSProductSubscription: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, SecretsManagerCredentialsProvider_SecretId and Tag.
+    * Modified cmdlet Stop-LMUSProductSubscription: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, ProductUserArn and SecretsManagerCredentialsProvider_SecretId.
+    * Modified cmdlet Unregister-LMUSIdentityProvider: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, IdentityProviderArn and SecretsManagerCredentialsProvider_SecretId.
+    * Modified cmdlet Update-LMUSIdentityProviderSetting: added parameters ActiveDirectoryIdentityProvider_ActiveDirectoryType, ActiveDirectorySettings_DomainIpv4List, ActiveDirectorySettings_DomainName, DomainNetworkSettings_Subnet, IdentityProviderArn and SecretsManagerCredentialsProvider_SecretId.
+  * Amazon Partner Central Selling API. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PC and can be listed using the command 'Get-AWSCmdletName -Service PC'.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSBrand leveraging the DescribeBrand service API.
+    * Added cmdlet Get-QSBrandAssignment leveraging the DescribeBrandAssignment service API.
+    * Added cmdlet Get-QSBrandList leveraging the ListBrands service API.
+    * Added cmdlet Get-QSBrandPublishedVersion leveraging the DescribeBrandPublishedVersion service API.
+    * Added cmdlet Get-QSCustomPermission leveraging the DescribeCustomPermissions service API.
+    * Added cmdlet Get-QSCustomPermissionList leveraging the ListCustomPermissions service API.
+    * Added cmdlet New-QSBrand leveraging the CreateBrand service API.
+    * Added cmdlet New-QSCustomPermission leveraging the CreateCustomPermissions service API.
+    * Added cmdlet Remove-QSBrand leveraging the DeleteBrand service API.
+    * Added cmdlet Remove-QSBrandAssignment leveraging the DeleteBrandAssignment service API.
+    * Added cmdlet Remove-QSCustomPermission leveraging the DeleteCustomPermissions service API.
+    * Added cmdlet Remove-QSUserCustomPermission leveraging the DeleteUserCustomPermission service API.
+    * Added cmdlet Update-QSBrand leveraging the UpdateBrand service API.
+    * Added cmdlet Update-QSBrandAssignment leveraging the UpdateBrandAssignment service API.
+    * Added cmdlet Update-QSBrandPublishedVersion leveraging the UpdateBrandPublishedVersion service API.
+    * Added cmdlet Update-QSCustomPermission leveraging the UpdateCustomPermissions service API.
+    * Added cmdlet Update-QSUserCustomPermission leveraging the UpdateUserCustomPermission service API.
+  * Amazon Security Token Service
+    * Added cmdlet Use-STSRoot leveraging the AssumeRoot service API.
+
+### 4.1.697 (2024-11-13 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.925.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon B2B Data Interchange
     * Added cmdlet Get-B2BIGeneratedMapping leveraging the GenerateMapping service API.

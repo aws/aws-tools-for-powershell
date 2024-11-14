@@ -71,10 +71,25 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         public Amazon.AccessAnalyzer.Model.InlineArchiveRule[] ArchiveRule { get; set; }
         #endregion
         
+        #region Parameter AnalysisRule_Exclusion
+        /// <summary>
+        /// <para>
+        /// <para>A list of rules for the analyzer containing criteria to exclude from analysis. Entities
+        /// that meet the rule criteria will not generate findings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_UnusedAccess_AnalysisRule_Exclusions")]
+        public Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria[] AnalysisRule_Exclusion { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs to apply to the analyzer.</para>
+        /// <para>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode
+        /// letters, digits, whitespace, <c>_</c>, <c>.</c>, <c>/</c>, <c>=</c>, <c>+</c>, and
+        /// <c>-</c>.</para><para>For the tag key, you can specify a value that is 1 to 128 characters in length and
+        /// cannot be prefixed with <c>aws:</c>.</para><para>For the tag value, you can specify a value that is 0 to 256 characters in length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// For example, if you specify 90 days, the analyzer will generate findings for IAM entities
         /// within the accounts of the selected organization for any access that hasn't been used
         /// in 90 or more days since the analyzer's last scan. You can choose a value between
-        /// 1 and 180 days.</para>
+        /// 1 and 365 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 context.ArchiveRule = new List<Amazon.AccessAnalyzer.Model.InlineArchiveRule>(this.ArchiveRule);
             }
             context.ClientToken = this.ClientToken;
+            if (this.AnalysisRule_Exclusion != null)
+            {
+                context.AnalysisRule_Exclusion = new List<Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria>(this.AnalysisRule_Exclusion);
+            }
             context.UnusedAccess_UnusedAccessAge = this.UnusedAccess_UnusedAccessAge;
             if (this.Tag != null)
             {
@@ -262,6 +281,31 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             if (requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge != null)
             {
                 requestConfiguration_configuration_UnusedAccess.UnusedAccessAge = requestConfiguration_configuration_UnusedAccess_unusedAccess_UnusedAccessAge.Value;
+                requestConfiguration_configuration_UnusedAccessIsNull = false;
+            }
+            Amazon.AccessAnalyzer.Model.AnalysisRule requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule = null;
+            
+             // populate AnalysisRule
+            var requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRuleIsNull = true;
+            requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule = new Amazon.AccessAnalyzer.Model.AnalysisRule();
+            List<Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria> requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule_analysisRule_Exclusion = null;
+            if (cmdletContext.AnalysisRule_Exclusion != null)
+            {
+                requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule_analysisRule_Exclusion = cmdletContext.AnalysisRule_Exclusion;
+            }
+            if (requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule_analysisRule_Exclusion != null)
+            {
+                requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule.Exclusions = requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule_analysisRule_Exclusion;
+                requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRuleIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule should be set to null
+            if (requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRuleIsNull)
+            {
+                requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule = null;
+            }
+            if (requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule != null)
+            {
+                requestConfiguration_configuration_UnusedAccess.AnalysisRule = requestConfiguration_configuration_UnusedAccess_configuration_UnusedAccess_AnalysisRule;
                 requestConfiguration_configuration_UnusedAccessIsNull = false;
             }
              // determine if requestConfiguration_configuration_UnusedAccess should be set to null
@@ -351,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             public System.String AnalyzerName { get; set; }
             public List<Amazon.AccessAnalyzer.Model.InlineArchiveRule> ArchiveRule { get; set; }
             public System.String ClientToken { get; set; }
+            public List<Amazon.AccessAnalyzer.Model.AnalysisRuleCriteria> AnalysisRule_Exclusion { get; set; }
             public System.Int32? UnusedAccess_UnusedAccessAge { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.AccessAnalyzer.Type Type { get; set; }

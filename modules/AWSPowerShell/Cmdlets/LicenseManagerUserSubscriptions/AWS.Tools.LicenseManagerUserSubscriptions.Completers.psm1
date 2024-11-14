@@ -75,6 +75,54 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS License Manager User Subscription
 
 
+$LMUS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LicenseManagerUserSubscriptions.ActiveDirectoryType
+        {
+            ($_ -eq "Add-LMUSUser/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Get-LMUSProductSubscriptionList/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Get-LMUSUserAssociationList/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Register-LMUSIdentityProvider/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Remove-LMUSUser/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Start-LMUSProductSubscription/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Stop-LMUSProductSubscription/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Unregister-LMUSIdentityProvider/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Update-LMUSIdentityProviderSetting/ActiveDirectoryIdentityProvider_ActiveDirectoryType")
+        }
+        {
+            $v = "AWS_MANAGED","SELF_MANAGED"
+            break
+        }
+
+        # Amazon.LicenseManagerUserSubscriptions.ServerType
+        {
+            ($_ -eq "New-LMUSLicenseServerEndpoint/LicenseServerSettings_ServerType") -Or
+            ($_ -eq "Remove-LMUSLicenseServerEndpoint/ServerType")
+        }
+        {
+            $v = "RDS_SAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMUS_map = @{
+    "ActiveDirectoryIdentityProvider_ActiveDirectoryType"=@("Add-LMUSUser","Get-LMUSProductSubscriptionList","Get-LMUSUserAssociationList","Register-LMUSIdentityProvider","Remove-LMUSUser","Start-LMUSProductSubscription","Stop-LMUSProductSubscription","Unregister-LMUSIdentityProvider","Update-LMUSIdentityProviderSetting")
+    "LicenseServerSettings_ServerType"=@("New-LMUSLicenseServerEndpoint")
+    "ServerType"=@("Remove-LMUSLicenseServerEndpoint")
+}
+
+_awsArgumentCompleterRegistration $LMUS_Completers $LMUS_map
+
 $LMUS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,15 +172,21 @@ $LMUS_SelectCompleters = {
 
 $LMUS_SelectMap = @{
     "Select"=@("Add-LMUSUser",
+               "New-LMUSLicenseServerEndpoint",
+               "Remove-LMUSLicenseServerEndpoint",
                "Unregister-LMUSIdentityProvider",
                "Remove-LMUSUser",
                "Get-LMUSIdentityProviderList",
                "Get-LMUSInstanceList",
+               "Get-LMUSLicenseServerEndpointList",
                "Get-LMUSProductSubscriptionList",
+               "Get-LMUSResourceTag",
                "Get-LMUSUserAssociationList",
                "Register-LMUSIdentityProvider",
                "Start-LMUSProductSubscription",
                "Stop-LMUSProductSubscription",
+               "Add-LMUSResourceTag",
+               "Remove-LMUSResourceTag",
                "Update-LMUSIdentityProviderSetting")
 }
 

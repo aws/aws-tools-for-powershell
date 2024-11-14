@@ -117,7 +117,7 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.EventNotificationResourceType
         "Get-IOTWEventConfigurationList/ResourceType"
         {
-            $v = "SidewalkAccount","WirelessDevice","WirelessGateway"
+            $v = "FuotaTask","SidewalkAccount","WirelessDevice","WirelessGateway"
             break
         }
 
@@ -160,7 +160,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWResourceEventConfiguration/IdentifierType")
         }
         {
-            $v = "DevEui","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
+            $v = "DevEui","FuotaTaskId","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
             break
         }
 

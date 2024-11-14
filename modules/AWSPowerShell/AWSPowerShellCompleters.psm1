@@ -131,7 +131,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::IAM::User","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -252,6 +252,7 @@ $IAMAA_SelectMap = @{
                "Start-IAMAAResourceScan",
                "Add-IAMAAResourceTag",
                "Remove-IAMAAResourceTag",
+               "Update-IAMAAAnalyzer",
                "Update-IAMAAArchiveRule",
                "Update-IAMAAFinding",
                "Use-IAMAAPolicyValidation")
@@ -34253,7 +34254,11 @@ $IAM_SelectMap = @{
                "Unregister-IAMGroupPolicy",
                "Unregister-IAMRolePolicy",
                "Unregister-IAMUserPolicy",
+               "Disable-IAMOrganizationsRootCredentialsManagement",
+               "Disable-IAMOrganizationsRootSession",
                "Enable-IAMMFADevice",
+               "Enable-IAMOrganizationsRootCredentialsManagement",
+               "Enable-IAMOrganizationsRootSession",
                "Request-IAMCredentialReport",
                "New-IAMOrganizationsAccessReport",
                "Request-IAMServiceLastAccessedDetail",
@@ -34299,6 +34304,7 @@ $IAM_SelectMap = @{
                "Get-IAMMFADeviceTagList",
                "Get-IAMOpenIDConnectProviderList",
                "Get-IAMOpenIDConnectProviderTagList",
+               "Get-IAMOrganizationsFeature",
                "Get-IAMPolicyList",
                "Get-IAMPolicyGrantingServiceAccessList",
                "Get-IAMPolicyTagList",
@@ -37908,7 +37914,7 @@ $IOTW_Completers = {
         # Amazon.IoTWireless.EventNotificationResourceType
         "Get-IOTWEventConfigurationList/ResourceType"
         {
-            $v = "SidewalkAccount","WirelessDevice","WirelessGateway"
+            $v = "FuotaTask","SidewalkAccount","WirelessDevice","WirelessGateway"
             break
         }
 
@@ -37951,7 +37957,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWResourceEventConfiguration/IdentifierType")
         }
         {
-            $v = "DevEui","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
+            $v = "DevEui","FuotaTaskId","GatewayEui","PartnerAccountId","WirelessDeviceId","WirelessGatewayId"
             break
         }
 
@@ -38353,6 +38359,36 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.ContainerFormat
+        {
+            ($_ -eq "New-IVSChannel/ContainerFormat") -Or
+            ($_ -eq "Update-IVSChannel/ContainerFormat")
+        }
+        {
+            $v = "FRAGMENTED_MP4","TS"
+            break
+        }
+
+        # Amazon.IVS.MultitrackMaximumResolution
+        {
+            ($_ -eq "New-IVSChannel/MultitrackInputConfiguration_MaximumResolution") -Or
+            ($_ -eq "Update-IVSChannel/MultitrackInputConfiguration_MaximumResolution")
+        }
+        {
+            $v = "FULL_HD","HD","SD"
+            break
+        }
+
+        # Amazon.IVS.MultitrackPolicy
+        {
+            ($_ -eq "New-IVSChannel/MultitrackInputConfiguration_Policy") -Or
+            ($_ -eq "Update-IVSChannel/MultitrackInputConfiguration_Policy")
+        }
+        {
+            $v = "ALLOW","REQUIRE"
+            break
+        }
+
         # Amazon.IVS.RecordingMode
         "New-IVSRecordingConfiguration/ThumbnailConfiguration_RecordingMode"
         {
@@ -38400,8 +38436,11 @@ $IVS_Completers = {
 }
 
 $IVS_map = @{
+    "ContainerFormat"=@("New-IVSChannel","Update-IVSChannel")
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
+    "MultitrackInputConfiguration_MaximumResolution"=@("New-IVSChannel","Update-IVSChannel")
+    "MultitrackInputConfiguration_Policy"=@("New-IVSChannel","Update-IVSChannel")
     "Preset"=@("New-IVSChannel","Update-IVSChannel")
     "RenditionConfiguration_RenditionSelection"=@("New-IVSRecordingConfiguration")
     "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")
@@ -41756,6 +41795,54 @@ _awsArgumentCompleterRegistration $LLMS_SelectCompleters $LLMS_SelectMap
 # Argument completions for service AWS License Manager User Subscription
 
 
+$LMUS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LicenseManagerUserSubscriptions.ActiveDirectoryType
+        {
+            ($_ -eq "Add-LMUSUser/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Get-LMUSProductSubscriptionList/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Get-LMUSUserAssociationList/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Register-LMUSIdentityProvider/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Remove-LMUSUser/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Start-LMUSProductSubscription/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Stop-LMUSProductSubscription/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Unregister-LMUSIdentityProvider/ActiveDirectoryIdentityProvider_ActiveDirectoryType") -Or
+            ($_ -eq "Update-LMUSIdentityProviderSetting/ActiveDirectoryIdentityProvider_ActiveDirectoryType")
+        }
+        {
+            $v = "AWS_MANAGED","SELF_MANAGED"
+            break
+        }
+
+        # Amazon.LicenseManagerUserSubscriptions.ServerType
+        {
+            ($_ -eq "New-LMUSLicenseServerEndpoint/LicenseServerSettings_ServerType") -Or
+            ($_ -eq "Remove-LMUSLicenseServerEndpoint/ServerType")
+        }
+        {
+            $v = "RDS_SAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMUS_map = @{
+    "ActiveDirectoryIdentityProvider_ActiveDirectoryType"=@("Add-LMUSUser","Get-LMUSProductSubscriptionList","Get-LMUSUserAssociationList","Register-LMUSIdentityProvider","Remove-LMUSUser","Start-LMUSProductSubscription","Stop-LMUSProductSubscription","Unregister-LMUSIdentityProvider","Update-LMUSIdentityProviderSetting")
+    "LicenseServerSettings_ServerType"=@("New-LMUSLicenseServerEndpoint")
+    "ServerType"=@("Remove-LMUSLicenseServerEndpoint")
+}
+
+_awsArgumentCompleterRegistration $LMUS_Completers $LMUS_map
+
 $LMUS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -41805,15 +41892,21 @@ $LMUS_SelectCompleters = {
 
 $LMUS_SelectMap = @{
     "Select"=@("Add-LMUSUser",
+               "New-LMUSLicenseServerEndpoint",
+               "Remove-LMUSLicenseServerEndpoint",
                "Unregister-LMUSIdentityProvider",
                "Remove-LMUSUser",
                "Get-LMUSIdentityProviderList",
                "Get-LMUSInstanceList",
+               "Get-LMUSLicenseServerEndpointList",
                "Get-LMUSProductSubscriptionList",
+               "Get-LMUSResourceTag",
                "Get-LMUSUserAssociationList",
                "Register-LMUSIdentityProvider",
                "Start-LMUSProductSubscription",
                "Stop-LMUSProductSubscription",
+               "Add-LMUSResourceTag",
+               "Remove-LMUSResourceTag",
                "Update-LMUSIdentityProviderSetting")
 }
 
@@ -52132,6 +52225,301 @@ $PAN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PAN_SelectCompleters $PAN_SelectMap
+# Argument completions for service Partner Central Selling API
+
+
+$PC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PartnerCentralSelling.AwsFundingUsed
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Marketing_AwsFundingUsed") -Or
+            ($_ -eq "Update-PCOpportunity/Marketing_AwsFundingUsed")
+        }
+        {
+            $v = "No","Yes"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.ClosedLostReason
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/LifeCycle_ClosedLostReason") -Or
+            ($_ -eq "Update-PCOpportunity/LifeCycle_ClosedLostReason")
+        }
+        {
+            $v = "Customer Deficiency","Customer Experience","Delay / Cancellation of Project","Financial/Commercial","Legal / Tax / Regulatory","Lost to Competitor - Google","Lost to Competitor - Microsoft","Lost to Competitor - Other","Lost to Competitor - SoftLayer","Lost to Competitor - VMWare","No Opportunity","On Premises Deployment","Other","Partner Gap","People/Relationship/Governance","Price","Product/Technology","Security / Compliance","Technical Limitations"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.CompetitorName
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Project_CompetitorName") -Or
+            ($_ -eq "Update-PCOpportunity/Project_CompetitorName")
+        }
+        {
+            $v = "*Other","Akamai","AliCloud","Co-location","Google Cloud Platform","IBM Softlayer","Microsoft Azure","No Competition","On-Prem","Oracle Cloud","Other- Cost Optimization"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.CountryCode
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Address_CountryCode") -Or
+            ($_ -eq "Update-PCOpportunity/Address_CountryCode")
+        }
+        {
+            $v = "AD","AE","AF","AG","AI","AL","AM","AN","AO","AQ","AR","AS","AT","AU","AW","AX","AZ","BA","BB","BD","BE","BF","BG","BH","BI","BJ","BL","BM","BN","BO","BQ","BR","BS","BT","BV","BW","BY","BZ","CA","CC","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CU","CV","CW","CX","CY","CZ","DE","DJ","DK","DM","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FI","FJ","FK","FM","FO","FR","GA","GB","GD","GE","GF","GG","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY","HK","HM","HN","HR","HT","HU","ID","IE","IL","IM","IN","IO","IQ","IR","IS","IT","JE","JM","JO","JP","KE","KG","KH","KI","KM","KN","KR","KW","KY","KZ","LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY","MA","MC","MD","ME","MF","MG","MH","MK","ML","MM","MN","MO","MP","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ","NA","NC","NE","NF","NG","NI","NL","NO","NP","NR","NU","NZ","OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PW","PY","QA","RE","RO","RS","RU","RW","SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","SS","ST","SV","SX","SY","SZ","TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ","UA","UG","UM","US","UY","UZ","VA","VC","VE","VG","VI","VN","VU","WF","WS","YE","YT","ZA","ZM","ZW"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.CurrencyCode
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Value_CurrencyCode") -Or
+            ($_ -eq "Update-PCOpportunity/Value_CurrencyCode")
+        }
+        {
+            $v = "AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYN","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRU","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STN","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XCD","XDR","XOF","XPF","XSU","XUA","YER","ZAR","ZMW","ZWL"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.Industry
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Account_Industry") -Or
+            ($_ -eq "Update-PCOpportunity/Account_Industry")
+        }
+        {
+            $v = "Aerospace","Agriculture","Automotive","Computers and Electronics","Consumer Goods","Education","Energy - Oil and Gas","Energy - Power and Utilities","Financial Services","Gaming","Government","Healthcare","Hospitality","Life Sciences","Manufacturing","Marketing and Advertising","Media and Entertainment","Mining","Non-Profit Organization","Other","Professional Services","Real Estate and Construction","Retail","Software and Internet","Telecommunications","Transportation and Logistics","Travel","Wholesale and Distribution"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.MarketingSource
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/Marketing_Source") -Or
+            ($_ -eq "Update-PCOpportunity/Marketing_Source")
+        }
+        {
+            $v = "Marketing Activity","None"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.NationalSecurity
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/NationalSecurity") -Or
+            ($_ -eq "Update-PCOpportunity/NationalSecurity")
+        }
+        {
+            $v = "No","Yes"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.OpportunityEngagementInvitationSortName
+        "Get-PCEngagementInvitationList/Sort_SortBy"
+        {
+            $v = "InvitationDate"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.OpportunityOrigin
+        "Invoke-PCCreateOpportunity/Origin"
+        {
+            $v = "AWS Referral","Partner Referral"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.OpportunitySortName
+        "Get-PCOpportunityList/Sort_SortBy"
+        {
+            $v = "CustomerCompanyName","Identifier","LastModifiedDate"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.OpportunityType
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/OpportunityType") -Or
+            ($_ -eq "Update-PCOpportunity/OpportunityType")
+        }
+        {
+            $v = "Expansion","Flat Renewal","Net New Business"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.ParticipantType
+        "Get-PCEngagementInvitationList/ParticipantType"
+        {
+            $v = "RECEIVER"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.RelatedEntityType
+        {
+            ($_ -eq "Invoke-PCAssociateOpportunity/RelatedEntityType") -Or
+            ($_ -eq "Invoke-PCDisassociateOpportunity/RelatedEntityType")
+        }
+        {
+            $v = "AwsMarketplaceOffers","AwsProducts","Solutions"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.RevenueModel
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/SoftwareRevenue_DeliveryModel") -Or
+            ($_ -eq "Update-PCOpportunity/SoftwareRevenue_DeliveryModel")
+        }
+        {
+            $v = "Contract","Pay-as-you-go","Subscription"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.ReviewStatus
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/LifeCycle_ReviewStatus") -Or
+            ($_ -eq "Update-PCOpportunity/LifeCycle_ReviewStatus")
+        }
+        {
+            $v = "Action Required","Approved","In review","Pending Submission","Rejected","Submitted"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.SalesInvolvementType
+        "Invoke-PCStartEngagementFromOpportunityTask/AwsSubmission_InvolvementType"
+        {
+            $v = "Co-Sell","For Visibility Only"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.SolutionSortName
+        "Get-PCSolutionList/Sort_SortBy"
+        {
+            $v = "Category","CreatedDate","Identifier","Name","Status"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.SortOrder
+        {
+            ($_ -eq "Get-PCEngagementInvitationList/Sort_SortOrder") -Or
+            ($_ -eq "Get-PCOpportunityList/Sort_SortOrder") -Or
+            ($_ -eq "Get-PCSolutionList/Sort_SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.Stage
+        {
+            ($_ -eq "Invoke-PCCreateOpportunity/LifeCycle_Stage") -Or
+            ($_ -eq "Update-PCOpportunity/LifeCycle_Stage")
+        }
+        {
+            $v = "Business Validation","Closed Lost","Committed","Launched","Prospect","Qualified","Technical Validation"
+            break
+        }
+
+        # Amazon.PartnerCentralSelling.Visibility
+        "Invoke-PCStartEngagementFromOpportunityTask/AwsSubmission_Visibility"
+        {
+            $v = "Full","Limited"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PC_map = @{
+    "Account_Industry"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Address_CountryCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "AwsSubmission_InvolvementType"=@("Invoke-PCStartEngagementFromOpportunityTask")
+    "AwsSubmission_Visibility"=@("Invoke-PCStartEngagementFromOpportunityTask")
+    "LifeCycle_ClosedLostReason"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "LifeCycle_ReviewStatus"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "LifeCycle_Stage"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Marketing_AwsFundingUsed"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Marketing_Source"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "NationalSecurity"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "OpportunityType"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Origin"=@("Invoke-PCCreateOpportunity")
+    "ParticipantType"=@("Get-PCEngagementInvitationList")
+    "Project_CompetitorName"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "RelatedEntityType"=@("Invoke-PCAssociateOpportunity","Invoke-PCDisassociateOpportunity")
+    "SoftwareRevenue_DeliveryModel"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+    "Sort_SortBy"=@("Get-PCEngagementInvitationList","Get-PCOpportunityList","Get-PCSolutionList")
+    "Sort_SortOrder"=@("Get-PCEngagementInvitationList","Get-PCOpportunityList","Get-PCSolutionList")
+    "Value_CurrencyCode"=@("Invoke-PCCreateOpportunity","Update-PCOpportunity")
+}
+
+_awsArgumentCompleterRegistration $PC_Completers $PC_map
+
+$PC_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PC.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PC_SelectMap = @{
+    "Select"=@("Invoke-PCAssignOpportunity",
+               "Invoke-PCAssociateOpportunity",
+               "Invoke-PCCreateOpportunity",
+               "Invoke-PCDisassociateOpportunity",
+               "Get-PCAwsOpportunitySummary",
+               "Get-PCEngagementInvitation",
+               "Get-PCOpportunity",
+               "Get-PCEngagementInvitationList",
+               "Get-PCOpportunityList",
+               "Get-PCSolutionList",
+               "Invoke-PCRejectEngagementInvitation",
+               "Invoke-PCStartEngagementByAcceptingInvitationTask",
+               "Invoke-PCStartEngagementFromOpportunityTask",
+               "Update-PCOpportunity")
+}
+
+_awsArgumentCompleterRegistration $PC_SelectCompleters $PC_SelectMap
 # Argument completions for service Payment Cryptography Control Plane
 
 
@@ -56263,6 +56651,48 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.CapabilityState
+        {
+            ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToCsv") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ExportToExcel") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToExcel") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDashboard") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDashboard") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDataSource") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ViewAccountSPICECapacity")
+        }
+        {
+            $v = "DENY"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
@@ -56640,6 +57070,23 @@ $QS_map = @{
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
+    "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateTheme"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ExportToExcel"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -56745,6 +57192,8 @@ $QS_SelectMap = @{
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSAnalysis",
+               "New-QSBrand",
+               "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
@@ -56767,6 +57216,9 @@ $QS_SelectMap = @{
                "Remove-QSAccountCustomization",
                "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
+               "Remove-QSBrand",
+               "Remove-QSBrandAssignment",
+               "Remove-QSCustomPermission",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
                "Remove-QSDataSetRefreshProperty",
@@ -56789,6 +57241,7 @@ $QS_SelectMap = @{
                "Remove-QSTopicRefreshSchedule",
                "Remove-QSUser",
                "Remove-QSUserByPrincipalId",
+               "Remove-QSUserCustomPermission",
                "Remove-QSVPCConnection",
                "Get-QSAccountCustomization",
                "Get-QSAccountSetting",
@@ -56798,6 +57251,10 @@ $QS_SelectMap = @{
                "Get-QSAnalysisPermission",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
+               "Get-QSBrand",
+               "Get-QSBrandAssignment",
+               "Get-QSBrandPublishedVersion",
+               "Get-QSCustomPermission",
                "Get-QSDashboard",
                "Get-QSDashboardDefinition",
                "Get-QSDashboardPermission",
@@ -56841,6 +57298,8 @@ $QS_SelectMap = @{
                "Get-QSAnalysisList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
+               "Get-QSBrandList",
+               "Get-QSCustomPermissionList",
                "Get-QSDashboardList",
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
@@ -56889,6 +57348,10 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
+               "Update-QSBrand",
+               "Update-QSBrandAssignment",
+               "Update-QSBrandPublishedVersion",
+               "Update-QSCustomPermission",
                "Update-QSDashboard",
                "Update-QSDashboardLink",
                "Update-QSDashboardPermission",
@@ -56919,6 +57382,7 @@ $QS_SelectMap = @{
                "Update-QSTopicPermission",
                "Update-QSTopicRefreshSchedule",
                "Update-QSUser",
+               "Update-QSUserCustomPermission",
                "Update-QSVPCConnection")
 }
 
@@ -62252,7 +62716,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMNotebookInstance/InstanceType")
         }
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.inf1.24xlarge","ml.inf1.2xlarge","ml.inf1.6xlarge","ml.inf1.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5d.18xlarge","ml.c5d.2xlarge","ml.c5d.4xlarge","ml.c5d.9xlarge","ml.c5d.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.inf1.24xlarge","ml.inf1.2xlarge","ml.inf1.6xlarge","ml.inf1.xlarge","ml.inf2.24xlarge","ml.inf2.48xlarge","ml.inf2.8xlarge","ml.inf2.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t2.2xlarge","ml.t2.large","ml.t2.medium","ml.t2.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
         }
 
@@ -63091,7 +63555,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TransformInstanceType
         "New-SMTransformJob/TransformResources_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.inf2.24xlarge","ml.inf2.48xlarge","ml.inf2.8xlarge","ml.inf2.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge"
             break
         }
 
@@ -68853,6 +69317,7 @@ $STS_SelectCompleters = {
 
 $STS_SelectMap = @{
     "Select"=@("Use-STSRole",
+               "Use-STSRoot",
                "Convert-STSAuthorizationMessage",
                "Get-STSAccessKeyInfo",
                "Get-STSCallerIdentity",

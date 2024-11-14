@@ -868,6 +868,9 @@
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Panorama.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.PartnerCentralSelling">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PartnerCentralSelling.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.PaymentCryptography">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PaymentCryptography.dll</HintPath>
     </Reference>
@@ -2021,6 +2024,9 @@
     </Reference>
     <Reference Include="AWSSDK.Panorama">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Panorama.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.PartnerCentralSelling">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PartnerCentralSelling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PaymentCryptography">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PaymentCryptography.dll</HintPath>

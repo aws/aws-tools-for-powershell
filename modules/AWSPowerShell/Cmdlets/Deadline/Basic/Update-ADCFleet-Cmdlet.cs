@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum GPU for the accelerator.</para>
+        /// <para>The maximum number of GPUs for the accelerator.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,6 +256,17 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max { get; set; }
         #endregion
         
+        #region Parameter Count_Max
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of GPUs for the accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Max")]
+        public System.Int32? Count_Max { get; set; }
+        #endregion
+        
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_MemoryMiB_Max
         /// <summary>
         /// <para>
@@ -291,7 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum GPU for the accelerator.</para>
+        /// <para>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker
+        /// will still have 1 GPU.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,6 +342,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WorkerCapabilities_VCpuCount_Min")]
         public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min { get; set; }
+        #endregion
+        
+        #region Parameter Count_Min
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker
+        /// will still have 1 GPU.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_Min")]
+        public System.Int32? Count_Min { get; set; }
         #endregion
         
         #region Parameter Configuration_ServiceManagedEc2_InstanceCapabilities_MemoryMiB_Min
@@ -408,6 +432,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter AcceleratorCapabilities_Selection
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects that contain the GPU name of the accelerator and driver for the
+        /// instance types that support the accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Selections")]
+        public Amazon.Deadline.Model.AcceleratorSelection[] AcceleratorCapabilities_Selection { get; set; }
         #endregion
         
         #region Parameter RootEbsVolume_SizeGiB
@@ -531,6 +567,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.WorkerCapabilities_OsFamily = this.WorkerCapabilities_OsFamily;
             context.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max = this.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max;
             context.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min = this.Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min;
+            context.Count_Max = this.Count_Max;
+            context.Count_Min = this.Count_Min;
+            if (this.AcceleratorCapabilities_Selection != null)
+            {
+                context.AcceleratorCapabilities_Selection = new List<Amazon.Deadline.Model.AcceleratorSelection>(this.AcceleratorCapabilities_Selection);
+            }
             if (this.InstanceCapabilities_AllowedInstanceType != null)
             {
                 context.InstanceCapabilities_AllowedInstanceType = new List<System.String>(this.InstanceCapabilities_AllowedInstanceType);
@@ -693,6 +735,66 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_instanceCapabilities_OsFamily != null)
             {
                 requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities.OsFamily = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_instanceCapabilities_OsFamily;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.AcceleratorCapabilities requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities = null;
+            
+             // populate AcceleratorCapabilities
+            var requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilitiesIsNull = true;
+            requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities = new Amazon.Deadline.Model.AcceleratorCapabilities();
+            List<Amazon.Deadline.Model.AcceleratorSelection> requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_acceleratorCapabilities_Selection = null;
+            if (cmdletContext.AcceleratorCapabilities_Selection != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_acceleratorCapabilities_Selection = cmdletContext.AcceleratorCapabilities_Selection;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_acceleratorCapabilities_Selection != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities.Selections = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_acceleratorCapabilities_Selection;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilitiesIsNull = false;
+            }
+            Amazon.Deadline.Model.AcceleratorCountRange requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count = null;
+            
+             // populate Count
+            var requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_CountIsNull = true;
+            requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count = new Amazon.Deadline.Model.AcceleratorCountRange();
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Max = null;
+            if (cmdletContext.Count_Max != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Max = cmdletContext.Count_Max.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Max != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count.Max = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Max.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_CountIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Min = null;
+            if (cmdletContext.Count_Min != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Min = cmdletContext.Count_Min.Value;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Min != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count.Min = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count_count_Min.Value;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_CountIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count should be set to null
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_CountIsNull)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count = null;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities.Count = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities_Count;
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilitiesIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities should be set to null
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilitiesIsNull)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities = null;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities.AcceleratorCapabilities = requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_AcceleratorCapabilities;
                 requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilitiesIsNull = false;
             }
             Amazon.Deadline.Model.MemoryMiBRange requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceCapabilities_configuration_ServiceManagedEc2_InstanceCapabilities_MemoryMiB = null;
@@ -1180,6 +1282,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public Amazon.Deadline.CustomerManagedFleetOperatingSystemFamily WorkerCapabilities_OsFamily { get; set; }
             public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_CustomerManaged_WorkerCapabilities_VCpuCount_Min { get; set; }
+            public System.Int32? Count_Max { get; set; }
+            public System.Int32? Count_Min { get; set; }
+            public List<Amazon.Deadline.Model.AcceleratorSelection> AcceleratorCapabilities_Selection { get; set; }
             public List<System.String> InstanceCapabilities_AllowedInstanceType { get; set; }
             public Amazon.Deadline.CpuArchitectureType InstanceCapabilities_CpuArchitectureType { get; set; }
             public List<Amazon.Deadline.Model.FleetAmountCapability> InstanceCapabilities_CustomAmount { get; set; }

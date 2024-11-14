@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.LogLevel DefaultLogLevel { get; set; }
         #endregion
         
+        #region Parameter FuotaTaskLogOption
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FuotaTaskLogOptions")]
+        public Amazon.IoTWireless.Model.FuotaTaskLogOption[] FuotaTaskLogOption { get; set; }
+        #endregion
+        
         #region Parameter WirelessDeviceLogOption
         /// <summary>
         /// <para>
@@ -139,6 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultLogLevel = this.DefaultLogLevel;
+            if (this.FuotaTaskLogOption != null)
+            {
+                context.FuotaTaskLogOption = new List<Amazon.IoTWireless.Model.FuotaTaskLogOption>(this.FuotaTaskLogOption);
+            }
             if (this.WirelessDeviceLogOption != null)
             {
                 context.WirelessDeviceLogOption = new List<Amazon.IoTWireless.Model.WirelessDeviceLogOption>(this.WirelessDeviceLogOption);
@@ -166,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.DefaultLogLevel != null)
             {
                 request.DefaultLogLevel = cmdletContext.DefaultLogLevel;
+            }
+            if (cmdletContext.FuotaTaskLogOption != null)
+            {
+                request.FuotaTaskLogOptions = cmdletContext.FuotaTaskLogOption;
             }
             if (cmdletContext.WirelessDeviceLogOption != null)
             {
@@ -237,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.IoTWireless.LogLevel DefaultLogLevel { get; set; }
+            public List<Amazon.IoTWireless.Model.FuotaTaskLogOption> FuotaTaskLogOption { get; set; }
             public List<Amazon.IoTWireless.Model.WirelessDeviceLogOption> WirelessDeviceLogOption { get; set; }
             public List<Amazon.IoTWireless.Model.WirelessGatewayLogOption> WirelessGatewayLogOption { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateLogLevelsByResourceTypesResponse, UpdateIOTWLogLevelsByResourceTypeCmdlet, object> Select { get; set; } =

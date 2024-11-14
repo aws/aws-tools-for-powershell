@@ -124,6 +124,48 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.CapabilityState
+        {
+            ($_ -eq "New-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_AddOrRunAnomalyDetectionForAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDashboardEmailReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateTheme") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateAndUpdateThresholdAlert") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_CreateSPICEDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ExportToCsv") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToCsv") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ExportToExcel") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ExportToExcel") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_RenameSharedFolder") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareAnalyses") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDashboard") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDashboard") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDataset") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataset") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ShareDataSource") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ShareDataSource") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_SubscribeDashboardEmailReport") -Or
+            ($_ -eq "New-QSCustomPermission/Capabilities_ViewAccountSPICECapacity") -Or
+            ($_ -eq "Update-QSCustomPermission/Capabilities_ViewAccountSPICECapacity")
+        }
+        {
+            $v = "DENY"
+            break
+        }
+
         # Amazon.QuickSight.DashboardBehavior
         {
             ($_ -eq "New-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
@@ -501,6 +543,23 @@ $QS_map = @{
     "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
+    "Capabilities_AddOrRunAnomalyDetectionForAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateTheme"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateAndUpdateThresholdAlert"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_CreateSPICEDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ExportToCsv"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ExportToExcel"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_RenameSharedFolder"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareAnalyses"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDashboard"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDataset"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ShareDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -606,6 +665,8 @@ $QS_SelectMap = @{
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSAnalysis",
+               "New-QSBrand",
+               "New-QSCustomPermission",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
@@ -628,6 +689,9 @@ $QS_SelectMap = @{
                "Remove-QSAccountCustomization",
                "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
+               "Remove-QSBrand",
+               "Remove-QSBrandAssignment",
+               "Remove-QSCustomPermission",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
                "Remove-QSDataSetRefreshProperty",
@@ -650,6 +714,7 @@ $QS_SelectMap = @{
                "Remove-QSTopicRefreshSchedule",
                "Remove-QSUser",
                "Remove-QSUserByPrincipalId",
+               "Remove-QSUserCustomPermission",
                "Remove-QSVPCConnection",
                "Get-QSAccountCustomization",
                "Get-QSAccountSetting",
@@ -659,6 +724,10 @@ $QS_SelectMap = @{
                "Get-QSAnalysisPermission",
                "Get-QSAssetBundleExportJob",
                "Get-QSAssetBundleImportJob",
+               "Get-QSBrand",
+               "Get-QSBrandAssignment",
+               "Get-QSBrandPublishedVersion",
+               "Get-QSCustomPermission",
                "Get-QSDashboard",
                "Get-QSDashboardDefinition",
                "Get-QSDashboardPermission",
@@ -702,6 +771,8 @@ $QS_SelectMap = @{
                "Get-QSAnalysisList",
                "Get-QSAssetBundleExportJobList",
                "Get-QSAssetBundleImportJobList",
+               "Get-QSBrandList",
+               "Get-QSCustomPermissionList",
                "Get-QSDashboardList",
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
@@ -750,6 +821,10 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
+               "Update-QSBrand",
+               "Update-QSBrandAssignment",
+               "Update-QSBrandPublishedVersion",
+               "Update-QSCustomPermission",
                "Update-QSDashboard",
                "Update-QSDashboardLink",
                "Update-QSDashboardPermission",
@@ -780,6 +855,7 @@ $QS_SelectMap = @{
                "Update-QSTopicPermission",
                "Update-QSTopicRefreshSchedule",
                "Update-QSUser",
+               "Update-QSUserCustomPermission",
                "Update-QSVPCConnection")
 }
 

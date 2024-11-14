@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Descriptor
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptor { get; set; }
+        #endregion
+        
         #region Parameter FirmwareUpdateImage
         /// <summary>
         /// <para>
@@ -202,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            context.Descriptor = this.Descriptor;
             context.FirmwareUpdateImage = this.FirmwareUpdateImage;
             #if MODULAR
             if (this.FirmwareUpdateImage == null && ParameterWasBound(nameof(this.FirmwareUpdateImage)))
@@ -248,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Descriptor != null)
+            {
+                request.Descriptor = cmdletContext.Descriptor;
             }
             if (cmdletContext.FirmwareUpdateImage != null)
             {
@@ -359,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public System.String Descriptor { get; set; }
             public System.String FirmwareUpdateImage { get; set; }
             public System.String FirmwareUpdateRole { get; set; }
             public System.Int32? FragmentIntervalMS { get; set; }

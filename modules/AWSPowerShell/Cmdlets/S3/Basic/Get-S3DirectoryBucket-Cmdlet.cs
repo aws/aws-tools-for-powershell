@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the
     /// <i>Amazon S3 User Guide</i>.
     /// </para></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
-    /// </para></dd></dl>
+    /// </para></dd></dl><note><para>
+    ///  The <c>BucketRegion</c> response element is not part of the <c>ListDirectoryBuckets</c>
+    /// Response Syntax.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "S3DirectoryBucket")]
     [OutputType("Amazon.S3.Model.ListDirectoryBucketsResponse")]

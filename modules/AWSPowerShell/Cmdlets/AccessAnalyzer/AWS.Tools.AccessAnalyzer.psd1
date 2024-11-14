@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-IAMAAAccessNotGranted', 
         'Test-IAMAANoNewAccess', 
         'Test-IAMAANoPublicAccess', 
+        'Update-IAMAAAnalyzer', 
         'Update-IAMAAArchiveRule', 
         'Update-IAMAAFinding', 
         'Use-IAMAAPolicyValidation')

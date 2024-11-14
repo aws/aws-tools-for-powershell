@@ -36,7 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
     /// configuring, and working with Amazon S3 buckets</a>.
-    /// </para>
+    /// </para><important><para>
+    /// We strongly recommend using only paginated requests. Unpaginated requests are only
+    /// supported for Amazon Web Services accounts set to the default general purpose bucket
+    /// quota of 10,000. If you have an approved general purpose bucket quota above 10,000,
+    /// you must send paginated requests to list your account’s buckets. All unpaginated ListBuckets
+    /// requests will be rejected for Amazon Web Services accounts with a general purpose
+    /// bucket quota greater than 10,000. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]
     [OutputType("Amazon.S3.Model.S3Bucket")]
@@ -63,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
-        /// <para><c>ContinuationToken</c> is included in the response when there are more buckets that can be listed with pagination. 
-        /// The next <c>ListBuckets</c> request to Amazon S3 can be continued with this <c>ContinuationToken</c>. 
-        /// <c>ContinuationToken</c> is obfuscated and is not a real bucket.</para>
+        /// <para><c>ContinuationToken</c> indicates to Amazon S3 that the list is being continued on this bucket with a token. 
+        /// <c>ContinuationToken</c> is obfuscated and is not a real key. You can use this <c>ContinuationToken</c> for pagination of the list results. </para><para>Length Constraints: Minimum length of 0. Maximum length of 1024.</para><para>Required: No.</para><note><para>If you specify the <c>bucket-region</c>, <c>prefix</c>, or <c>continuation-token</c> query parameters without using <c>max-buckets</c> 
+        /// to set the maximum number of buckets returned in the response, Amazon S3 applies a default page size of 10,000 and provides a continuation token if there are more buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -86,12 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-LMUSResourceTag', 
         'Add-LMUSUser', 
         'Get-LMUSIdentityProviderList', 
         'Get-LMUSInstanceList', 
+        'Get-LMUSLicenseServerEndpointList', 
         'Get-LMUSProductSubscriptionList', 
+        'Get-LMUSResourceTag', 
         'Get-LMUSUserAssociationList', 
+        'New-LMUSLicenseServerEndpoint', 
         'Register-LMUSIdentityProvider', 
+        'Remove-LMUSLicenseServerEndpoint', 
+        'Remove-LMUSResourceTag', 
         'Remove-LMUSUser', 
         'Start-LMUSProductSubscription', 
         'Stop-LMUSProductSubscription', 

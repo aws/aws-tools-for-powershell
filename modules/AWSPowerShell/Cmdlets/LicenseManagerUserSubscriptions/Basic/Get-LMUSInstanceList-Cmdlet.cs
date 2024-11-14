@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of structures that you can use to filter the results to those that match
-        /// one or more sets of key-value pairs that you specify.</para>
+        /// <para>You can use the following filters to streamline results:</para><ul><li><para>Status</para></li><li><para>InstanceId</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call.</para>
+        /// <para>The maximum number of results to return from a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for the next set of results.</para>
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

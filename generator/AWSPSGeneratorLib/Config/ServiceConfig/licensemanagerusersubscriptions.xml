@@ -23,6 +23,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLicenseServerEndpoint" OutputProperty="*" Verb="New" Noun="LicenseServerEndpoint" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLicenseServerEndpoint" OutputProperty="LicenseServerEndpoint" Verb="Remove" Noun="LicenseServerEndpoint" ShouldProcessTarget="LicenseServerEndpointArn" PipelineParameter="LicenseServerEndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Unregister" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,7 +47,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLicenseServerEndpoints" OutputProperty="LicenseServerEndpoints" Verb="Get" Noun="LicenseServerEndpointList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProductSubscriptions" OutputProperty="ProductUserSummaries" Verb="Get" Noun="ProductSubscriptionList" PipelineParameter="Product" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -56,6 +72,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopProductSubscription" OutputProperty="ProductUserSummary" Verb="Stop" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
