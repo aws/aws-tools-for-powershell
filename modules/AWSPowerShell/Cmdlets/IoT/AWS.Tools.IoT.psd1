@@ -175,6 +175,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTPolicyVersionList', 
         'Get-IOTPrincipalPolicyList', 
         'Get-IOTPrincipalThingList', 
+        'Get-IOTPrincipalThingsV2List', 
         'Get-IOTProvisioningTemplate', 
         'Get-IOTProvisioningTemplateList', 
         'Get-IOTProvisioningTemplateVersion', 
@@ -202,6 +203,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTThingGroupsForThingList', 
         'Get-IOTThingList', 
         'Get-IOTThingPrincipalList', 
+        'Get-IOTThingPrincipalsV2List', 
         'Get-IOTThingRegistrationTask', 
         'Get-IOTThingRegistrationTaskList', 
         'Get-IOTThingRegistrationTaskReportList', 
@@ -342,6 +344,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTThing', 
         'Update-IOTThingGroup', 
         'Update-IOTThingGroupsForThing', 
+        'Update-IOTThingType', 
         'Update-IOTTopicRuleDestination', 
         'Write-IOTVerificationStateOnViolation')
 

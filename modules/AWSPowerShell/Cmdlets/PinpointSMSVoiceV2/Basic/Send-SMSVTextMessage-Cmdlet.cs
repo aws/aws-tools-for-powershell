@@ -155,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String MessageBody { get; set; }
         #endregion
         
+        #region Parameter MessageFeedbackEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to enable message feedback for the message. When a user receives the message
+        /// you need to update the message status using <a>PutMessageFeedback</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MessageFeedbackEnabled { get; set; }
+        #endregion
+        
         #region Parameter MessageType
         /// <summary>
         /// <para>
@@ -271,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             context.Keyword = this.Keyword;
             context.MaxPrice = this.MaxPrice;
             context.MessageBody = this.MessageBody;
+            context.MessageFeedbackEnabled = this.MessageFeedbackEnabled;
             context.MessageType = this.MessageType;
             context.OriginationIdentity = this.OriginationIdentity;
             context.ProtectConfigurationId = this.ProtectConfigurationId;
@@ -322,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MessageBody != null)
             {
                 request.MessageBody = cmdletContext.MessageBody;
+            }
+            if (cmdletContext.MessageFeedbackEnabled != null)
+            {
+                request.MessageFeedbackEnabled = cmdletContext.MessageFeedbackEnabled.Value;
             }
             if (cmdletContext.MessageType != null)
             {
@@ -408,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String Keyword { get; set; }
             public System.String MaxPrice { get; set; }
             public System.String MessageBody { get; set; }
+            public System.Boolean? MessageFeedbackEnabled { get; set; }
             public Amazon.PinpointSMSVoiceV2.MessageType MessageType { get; set; }
             public System.String OriginationIdentity { get; set; }
             public System.String ProtectConfigurationId { get; set; }

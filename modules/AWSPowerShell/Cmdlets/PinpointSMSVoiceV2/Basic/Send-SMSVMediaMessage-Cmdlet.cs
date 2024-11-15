@@ -128,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String MessageBody { get; set; }
         #endregion
         
+        #region Parameter MessageFeedbackEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to enable message feedback for the message. When a user receives the message
+        /// you need to update the message status using <a>PutMessageFeedback</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MessageFeedbackEnabled { get; set; }
+        #endregion
+        
         #region Parameter OriginationIdentity
         /// <summary>
         /// <para>
@@ -160,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter TimeToLive
         /// <summary>
         /// <para>
-        /// <para>How long the text message is valid for. By default this is 72 hours.</para>
+        /// <para>How long the media message is valid for. By default this is 72 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.MediaUrl = new List<System.String>(this.MediaUrl);
             }
             context.MessageBody = this.MessageBody;
+            context.MessageFeedbackEnabled = this.MessageFeedbackEnabled;
             context.OriginationIdentity = this.OriginationIdentity;
             #if MODULAR
             if (this.OriginationIdentity == null && ParameterWasBound(nameof(this.OriginationIdentity)))
@@ -304,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MessageBody != null)
             {
                 request.MessageBody = cmdletContext.MessageBody;
+            }
+            if (cmdletContext.MessageFeedbackEnabled != null)
+            {
+                request.MessageFeedbackEnabled = cmdletContext.MessageFeedbackEnabled.Value;
             }
             if (cmdletContext.OriginationIdentity != null)
             {
@@ -385,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String MaxPrice { get; set; }
             public List<System.String> MediaUrl { get; set; }
             public System.String MessageBody { get; set; }
+            public System.Boolean? MessageFeedbackEnabled { get; set; }
             public System.String OriginationIdentity { get; set; }
             public System.String ProtectConfigurationId { get; set; }
             public System.Int32? TimeToLive { get; set; }

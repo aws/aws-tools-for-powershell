@@ -145,13 +145,46 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
-        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-cert-config.html">Configuring
-        /// OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services
-        /// IoT Core Developer Guide.</para>
+        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-cert-config.html">
+        /// Server certificate configuration for OCSP stapling</a> from Amazon Web Services IoT
+        /// Core Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
+        #endregion
+        
+        #region Parameter ServerCertificateConfig_OcspAuthorizedResponderArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for an X.509 certificate stored in Amazon Web Services
+        /// Certificate Manager (ACM). If provided, Amazon Web Services IoT Core will use this
+        /// certificate to validate the signature of the received OCSP response. The OCSP responder
+        /// must sign responses using either this authorized responder certificate or the issuing
+        /// certificate, depending on whether the ARN is provided or not. The certificate must
+        /// be in the same Amazon Web Services region and account as the domain configuration.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerCertificateConfig_OcspAuthorizedResponderArn { get; set; }
+        #endregion
+        
+        #region Parameter ServerCertificateConfig_OcspLambdaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments
+        /// (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting
+        /// basic OCSP responses. The Lambda function accepts a JSON string that's Base64-encoded.
+        /// Therefore, you must convert your OCSP response, which is typically in the Distinguished
+        /// Encoding Rules (DER) format, into a JSON string that's Base64-encoded. The Lambda
+        /// function's response is also a Base64-encoded JSON string and the response payload
+        /// must not exceed 8 kilobytes (KiB) in size. The Lambda function must be in the same
+        /// Amazon Web Services region and account as the domain configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerCertificateConfig_OcspLambdaArn { get; set; }
         #endregion
         
         #region Parameter RemoveAuthorizerConfig
@@ -252,6 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.DomainConfigurationStatus = this.DomainConfigurationStatus;
             context.RemoveAuthorizerConfig = this.RemoveAuthorizerConfig;
             context.ServerCertificateConfig_EnableOCSPCheck = this.ServerCertificateConfig_EnableOCSPCheck;
+            context.ServerCertificateConfig_OcspAuthorizedResponderArn = this.ServerCertificateConfig_OcspAuthorizedResponderArn;
+            context.ServerCertificateConfig_OcspLambdaArn = this.ServerCertificateConfig_OcspLambdaArn;
             context.TlsConfig_SecurityPolicy = this.TlsConfig_SecurityPolicy;
             
             // allow further manipulation of loaded context prior to processing
@@ -351,6 +386,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.ServerCertificateConfig.EnableOCSPCheck = requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck.Value;
                 requestServerCertificateConfigIsNull = false;
             }
+            System.String requestServerCertificateConfig_serverCertificateConfig_OcspAuthorizedResponderArn = null;
+            if (cmdletContext.ServerCertificateConfig_OcspAuthorizedResponderArn != null)
+            {
+                requestServerCertificateConfig_serverCertificateConfig_OcspAuthorizedResponderArn = cmdletContext.ServerCertificateConfig_OcspAuthorizedResponderArn;
+            }
+            if (requestServerCertificateConfig_serverCertificateConfig_OcspAuthorizedResponderArn != null)
+            {
+                request.ServerCertificateConfig.OcspAuthorizedResponderArn = requestServerCertificateConfig_serverCertificateConfig_OcspAuthorizedResponderArn;
+                requestServerCertificateConfigIsNull = false;
+            }
+            System.String requestServerCertificateConfig_serverCertificateConfig_OcspLambdaArn = null;
+            if (cmdletContext.ServerCertificateConfig_OcspLambdaArn != null)
+            {
+                requestServerCertificateConfig_serverCertificateConfig_OcspLambdaArn = cmdletContext.ServerCertificateConfig_OcspLambdaArn;
+            }
+            if (requestServerCertificateConfig_serverCertificateConfig_OcspLambdaArn != null)
+            {
+                request.ServerCertificateConfig.OcspLambdaArn = requestServerCertificateConfig_serverCertificateConfig_OcspLambdaArn;
+                requestServerCertificateConfigIsNull = false;
+            }
              // determine if request.ServerCertificateConfig should be set to null
             if (requestServerCertificateConfigIsNull)
             {
@@ -445,6 +500,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.DomainConfigurationStatus DomainConfigurationStatus { get; set; }
             public System.Boolean? RemoveAuthorizerConfig { get; set; }
             public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
+            public System.String ServerCertificateConfig_OcspAuthorizedResponderArn { get; set; }
+            public System.String ServerCertificateConfig_OcspLambdaArn { get; set; }
             public System.String TlsConfig_SecurityPolicy { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateDomainConfigurationResponse, UpdateIOTDomainConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

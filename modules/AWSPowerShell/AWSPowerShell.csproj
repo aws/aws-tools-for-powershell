@@ -349,6 +349,9 @@
     <Reference Include="AWSSDK.ConnectCampaignService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCampaignService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectCampaignsV2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCampaignsV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConnectCases">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ConnectCases.dll</HintPath>
     </Reference>
@@ -1505,6 +1508,9 @@
     </Reference>
     <Reference Include="AWSSDK.ConnectCampaignService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectCampaignService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ConnectCampaignsV2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectCampaignsV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConnectCases">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ConnectCases.dll</HintPath>

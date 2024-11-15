@@ -28,7 +28,7 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Retreive all of the origination identies that are associated with a registration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieve all of the origination identities that are associated with a registration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVRegistrationAssociationList")]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.ListRegistrationAssociationsResponse")]

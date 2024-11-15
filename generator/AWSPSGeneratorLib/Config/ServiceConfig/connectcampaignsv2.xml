@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>connectcampaignsv2</C2jFilename>
+    <AssemblyName>ConnectCampaignsV2</AssemblyName>
+    <ServiceNounPrefix>CCS2</ServiceNounPrefix>
+    <ServiceName>AmazonConnectCampaignServiceV2</ServiceName>
+    <ServiceClientInterface>IAmazonConnectCampaignsV2</ServiceClientInterface>
+    <ServiceClient>AmazonConnectCampaignsV2Client</ServiceClient>
+    <ServiceModuleGuid>99a6427a-954c-41b7-9b1a-6cc4d7ad9e6f</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn" NewName="ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_Email_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Email_OutboundMode_Agentless" />
+                <Param Name="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" />
+                <Param Name="CommunicationTimeConfig_Email_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Email_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Sms_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Sms_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Telephony_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Telephony_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaign" Verb="Remove" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaignChannelSubtypeConfig" Verb="Remove" Noun="CampaignChannelSubtypeConfig" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaignCommunicationLimits" Verb="Remove" Noun="CampaignCommunicationLimit" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaignCommunicationTime" Verb="Remove" Noun="CampaignCommunicationTime" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectInstanceConfig" Verb="Remove" Noun="ConnectInstanceConfig" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectInstanceIntegration" Verb="Remove" Noun="ConnectInstanceIntegration" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceOnboardingJob" Verb="Remove" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCampaign" OutputProperty="Campaign" Verb="Get" Noun="Campaign" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignState" OutputProperty="State" Verb="Get" Noun="CampaignState" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaignStateBatch" OutputProperty="*" Verb="Get" Noun="CampaignStateBatch" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectInstanceConfig" OutputProperty="ConnectInstanceConfig" Verb="Get" Noun="ConnectInstanceConfig" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceOnboardingJobStatus" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Get" Noun="InstanceOnboardingJobStatus" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaryList" Verb="Get" Noun="CampaignList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectInstanceIntegrations" OutputProperty="IntegrationSummaryList" Verb="Get" Noun="ConnectInstanceIntegrationList" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PauseCampaign" Verb="Suspend" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConnectInstanceIntegration" Verb="Write" Noun="ConnectInstanceIntegration" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOutboundRequestBatch" OutputProperty="*" Verb="Write" Noun="OutboundRequestBatch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeCampaign" Verb="Resume" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCampaign" Verb="Start" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInstanceOnboardingJob" OutputProperty="ConnectInstanceOnboardingJobStatus" Verb="Start" Noun="InstanceOnboardingJob" ShouldProcessTarget="ConnectInstanceId" PipelineParameter="ConnectInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCampaign" Verb="Stop" Noun="Campaign" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignChannelSubtypeConfig" Verb="Update" Noun="CampaignChannelSubtypeConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn" NewName="ChannelSubtypeConfig_Email_DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn" NewName="ChannelSubtypeConfig_Sms_DefaultOutboundConfig_WisdomTemplateArn" />
+                <Param Name="ChannelSubtypeConfig_Email_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Email_OutboundMode_Agentless" />
+                <Param Name="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Sms_OutboundMode_Agentless" />
+                <Param Name="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" NewName="ChannelSubtypeConfig_Telephony_OutboundMode_Agentless" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignCommunicationLimits" Verb="Update" Noun="CampaignCommunicationLimit" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignCommunicationTime" Verb="Update" Noun="CampaignCommunicationTime" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params>
+                <Param Name="CommunicationTimeConfig_Email_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Email_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Sms_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Sms_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Telephony_OpenHours_DailyHours" NewName="CommunicationTimeConfig_Telephony_OpenHours_DailyHours" />
+                <Param Name="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Email_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Sms_RestrictedPeriods_RestrictedPeriodList" />
+                <Param Name="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" NewName="CommunicationTimeConfig_Telephony_RestrictedPeriods_RestrictedPeriodList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignFlowAssociation" Verb="Update" Noun="CampaignFlowAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignName" Verb="Update" Noun="CampaignName" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignSchedule" Verb="Update" Noun="CampaignSchedule" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaignSource" Verb="Update" Noun="CampaignSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

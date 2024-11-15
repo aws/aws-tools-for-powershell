@@ -28,7 +28,7 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Retrieves the specified verified destiona numbers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the specified verified destination numbers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVVerifiedDestinationNumber")]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter VerifiedDestinationNumberId
         /// <summary>
         /// <para>
-        /// <para>An array of VerifiedDestinationNumberid to retreive.</para>
+        /// <para>An array of VerifiedDestinationNumberid to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

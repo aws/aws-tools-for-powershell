@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ThingName { get; set; }
         #endregion
         
+        #region Parameter ThingPrincipalType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the relation you want to specify when you attach a principal to a thing.</para><ul><li><para><c>EXCLUSIVE_THING</c> - Attaches the specified principal to the specified thing,
+        /// exclusively. The thing will be the only thing that’s attached to the principal.</para></li></ul><ul><li><para><c>NON_EXCLUSIVE_THING</c> - Attaches the specified principal to the specified thing.
+        /// Multiple things can be attached to the principal.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.ThingPrincipalType")]
+        public Amazon.IoT.ThingPrincipalType ThingPrincipalType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -159,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter ThingName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ThingPrincipalType = this.ThingPrincipalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.ThingPrincipalType != null)
+            {
+                request.ThingPrincipalType = cmdletContext.ThingPrincipalType;
             }
             
             CmdletOutput output;
@@ -246,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String Principal { get; set; }
             public System.String ThingName { get; set; }
+            public Amazon.IoT.ThingPrincipalType ThingPrincipalType { get; set; }
             public System.Func<Amazon.IoT.Model.AttachThingPrincipalResponse, AddIOTThingPrincipalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

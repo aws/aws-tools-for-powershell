@@ -1,4 +1,31 @@
-﻿### 4.1.699 (2024-11-15 04:30Z)
+﻿### 4.1.700 (2024-11-15 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.928.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonConnectCampaignServiceV2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCS2 and can be listed using the command 'Get-AWSCmdletName -Service CCS2'.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWMetricData: added parameters EntityMetricData and StrictEntityValidation.
+  * Amazon IoT
+    * Added cmdlet Get-IOTPrincipalThingsV2List leveraging the ListPrincipalThingsV2 service API.
+    * Added cmdlet Get-IOTThingPrincipalsV2List leveraging the ListThingPrincipalsV2 service API.
+    * Added cmdlet Update-IOTThingType leveraging the UpdateThingType service API.
+    * Modified cmdlet Add-IOTThingPrincipal: added parameter ThingPrincipalType.
+    * Modified cmdlet New-IOTDomainConfiguration: added parameters ServerCertificateConfig_OcspAuthorizedResponderArn and ServerCertificateConfig_OcspLambdaArn.
+    * Modified cmdlet New-IOTThingType: added parameter Mqtt5Configuration_PropagatingAttribute.
+    * Modified cmdlet Update-IOTDomainConfiguration: added parameters ServerCertificateConfig_OcspAuthorizedResponderArn and ServerCertificateConfig_OcspLambdaArn.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Get-SMSVProtectConfigurationRuleSetNumberOverrideList leveraging the ListProtectConfigurationRuleSetNumberOverrides service API.
+    * Added cmdlet Remove-SMSVProtectConfigurationRuleSetNumberOverride leveraging the DeleteProtectConfigurationRuleSetNumberOverride service API.
+    * Added cmdlet Set-SMSVDefaultMessageFeedbackEnabled leveraging the SetDefaultMessageFeedbackEnabled service API.
+    * Added cmdlet Write-SMSVMessageFeedback leveraging the PutMessageFeedback service API.
+    * Added cmdlet Write-SMSVProtectConfigurationRuleSetNumberOverride leveraging the PutProtectConfigurationRuleSetNumberOverride service API.
+    * Modified cmdlet Send-SMSVMediaMessage: added parameter MessageFeedbackEnabled.
+    * Modified cmdlet Send-SMSVTextMessage: added parameter MessageFeedbackEnabled.
+    * Modified cmdlet Send-SMSVVoiceMessage: added parameter MessageFeedbackEnabled.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet Edit-R53RFirewallRule: added parameters ConfidenceThreshold, DnsThreatProtection and FirewallThreatProtectionId.
+    * Modified cmdlet New-R53RFirewallRule: added parameters ConfidenceThreshold and DnsThreatProtection.
+    * Modified cmdlet Remove-R53RFirewallRule: added parameter FirewallThreatProtectionId.
+
+### 4.1.699 (2024-11-15 04:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.927.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.698 (2024-11-14 21:29Z)

@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>Optional additional filter for the rules to retrieve.</para><para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through.</para></li><li><para><c>ALERT</c> - Permit the request to go through but send an alert to the logs.</para></li><li><para><c>BLOCK</c> - Disallow the request. If this is specified, additional handling details
+        /// domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through. Not availabe for DNS Firewall Advanced
+        /// rules.</para></li><li><para><c>ALERT</c> - Permit the request to go through but send an alert to the logs.</para></li><li><para><c>BLOCK</c> - Disallow the request. If this is specified, additional handling details
         /// are provided in the rule's <c>BlockResponse</c> setting. </para></li></ul>
         /// </para>
         /// </summary>

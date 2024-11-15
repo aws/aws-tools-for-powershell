@@ -412,7 +412,7 @@ $EC2_Completers = {
         # Amazon.EC2.FleetCapacityReservationUsageStrategy
         "New-EC2Fleet/CapacityReservationOptions_UsageStrategy"
         {
-            $v = "none","use-capacity-reservations-first","use-capacity-reservations-only"
+            $v = "use-capacity-reservations-first"
             break
         }
 

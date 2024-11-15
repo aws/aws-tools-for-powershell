@@ -219,7 +219,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateThingType" OutputProperty="*" Verb="New" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" NewName="Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" />
+                <Param Name="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" NewName="Mqtt5Configuration_PropagatingAttributes_ThingAttributes" />
+                <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" NewName="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ConnectionAttributes" />
+                <Param Name="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ThingAttributes" NewName="ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes_ThingAttributes" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRule" Verb="New" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
@@ -791,6 +796,10 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipalThingsV2" OutputProperty="PrincipalThingObjects" Verb="Get" Noun="PrincipalThingsV2List" PipelineParameter="Principal" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProvisioningTemplates" OutputProperty="Templates" Verb="Get" Noun="ProvisioningTemplateList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
@@ -860,6 +869,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListThingPrincipals" OutputProperty="Principals" Verb="Get" Noun="ThingPrincipalList" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThingPrincipalsV2" OutputProperty="ThingPrincipalObjects" Verb="Get" Noun="ThingPrincipalsV2List" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1126,6 +1139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateThingGroupsForThing" Verb="Update" Noun="ThingGroupsForThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThingType" Verb="Update" Noun="ThingType" ShouldProcessTarget="ThingTypeName" PipelineParameter="ThingTypeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

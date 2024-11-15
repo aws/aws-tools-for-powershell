@@ -17411,6 +17411,157 @@ $CCS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CCS_SelectCompleters $CCS_SelectMap
+# Argument completions for service AmazonConnectCampaignServiceV2
+
+
+$CCS2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectCampaignsV2.CampaignDeletionPolicy
+        "Remove-CCS2ConnectInstanceConfig/CampaignDeletionPolicy"
+        {
+            $v = "DELETE_ALL","RETAIN_ALL"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.ChannelSubtype
+        "Remove-CCS2CampaignChannelSubtypeConfig/ChannelSubtype"
+        {
+            $v = "EMAIL","SMS","TELEPHONY"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.CommunicationLimitsConfigType
+        "Remove-CCS2CampaignCommunicationLimit/Config"
+        {
+            $v = "ALL_CHANNEL_SUBTYPES"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.CommunicationTimeConfigType
+        "Remove-CCS2CampaignCommunicationTime/Config"
+        {
+            $v = "EMAIL","SMS","TELEPHONY"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.EncryptionType
+        "Start-CCS2InstanceOnboardingJob/EncryptionConfig_EncryptionType"
+        {
+            $v = "KMS"
+            break
+        }
+
+        # Amazon.ConnectCampaignsV2.InstanceIdFilterOperator
+        "Get-CCS2CampaignList/InstanceIdFilter_Operator"
+        {
+            $v = "Eq"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCS2_map = @{
+    "CampaignDeletionPolicy"=@("Remove-CCS2ConnectInstanceConfig")
+    "ChannelSubtype"=@("Remove-CCS2CampaignChannelSubtypeConfig")
+    "Config"=@("Remove-CCS2CampaignCommunicationLimit","Remove-CCS2CampaignCommunicationTime")
+    "EncryptionConfig_EncryptionType"=@("Start-CCS2InstanceOnboardingJob")
+    "InstanceIdFilter_Operator"=@("Get-CCS2CampaignList")
+}
+
+_awsArgumentCompleterRegistration $CCS2_Completers $CCS2_map
+
+$CCS2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCS2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCS2_SelectMap = @{
+    "Select"=@("New-CCS2Campaign",
+               "Remove-CCS2Campaign",
+               "Remove-CCS2CampaignChannelSubtypeConfig",
+               "Remove-CCS2CampaignCommunicationLimit",
+               "Remove-CCS2CampaignCommunicationTime",
+               "Remove-CCS2ConnectInstanceConfig",
+               "Remove-CCS2ConnectInstanceIntegration",
+               "Remove-CCS2InstanceOnboardingJob",
+               "Get-CCS2Campaign",
+               "Get-CCS2CampaignState",
+               "Get-CCS2CampaignStateBatch",
+               "Get-CCS2ConnectInstanceConfig",
+               "Get-CCS2InstanceOnboardingJobStatus",
+               "Get-CCS2CampaignList",
+               "Get-CCS2ConnectInstanceIntegrationList",
+               "Get-CCS2ResourceTag",
+               "Suspend-CCS2Campaign",
+               "Write-CCS2ConnectInstanceIntegration",
+               "Write-CCS2OutboundRequestBatch",
+               "Resume-CCS2Campaign",
+               "Start-CCS2Campaign",
+               "Start-CCS2InstanceOnboardingJob",
+               "Stop-CCS2Campaign",
+               "Add-CCS2ResourceTag",
+               "Remove-CCS2ResourceTag",
+               "Update-CCS2CampaignChannelSubtypeConfig",
+               "Update-CCS2CampaignCommunicationLimit",
+               "Update-CCS2CampaignCommunicationTime",
+               "Update-CCS2CampaignFlowAssociation",
+               "Update-CCS2CampaignName",
+               "Update-CCS2CampaignSchedule",
+               "Update-CCS2CampaignSource")
+}
+
+_awsArgumentCompleterRegistration $CCS2_SelectCompleters $CCS2_SelectMap
 # Argument completions for service Amazon Connect Cases
 
 
@@ -23750,7 +23901,7 @@ $EC2_Completers = {
         # Amazon.EC2.FleetCapacityReservationUsageStrategy
         "New-EC2Fleet/CapacityReservationOptions_UsageStrategy"
         {
-            $v = "none","use-capacity-reservations-first","use-capacity-reservations-only"
+            $v = "use-capacity-reservations-first"
             break
         }
 
@@ -36080,6 +36231,17 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ThingPrincipalType
+        {
+            ($_ -eq "Add-IOTThingPrincipal/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTPrincipalThingsV2List/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTThingPrincipalsV2List/ThingPrincipalType")
+        }
+        {
+            $v = "EXCLUSIVE_THING","NON_EXCLUSIVE_THING"
+            break
+        }
+
         # Amazon.IoT.TopicRuleDestinationStatus
         "Update-IOTTopicRuleDestination/Status"
         {
@@ -36146,6 +36308,7 @@ $IOT_map = @{
     "ThingIndexingConfiguration_NamedShadowIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "ThingPrincipalType"=@("Add-IOTThingPrincipal","Get-IOTPrincipalThingsV2List","Get-IOTThingPrincipalsV2List")
     "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -36383,6 +36546,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersionList",
                "Get-IOTPrincipalPolicyList",
                "Get-IOTPrincipalThingList",
+               "Get-IOTPrincipalThingsV2List",
                "Get-IOTProvisioningTemplateList",
                "Get-IOTProvisioningTemplateVersionList",
                "Get-IOTRelatedResourcesForAuditFindingList",
@@ -36398,6 +36562,7 @@ $IOT_SelectMap = @{
                "Get-IOTThingGroupList",
                "Get-IOTThingGroupsForThingList",
                "Get-IOTThingPrincipalList",
+               "Get-IOTThingPrincipalsV2List",
                "Get-IOTThingRegistrationTaskReportList",
                "Get-IOTThingRegistrationTaskList",
                "Get-IOTThingList",
@@ -36460,6 +36625,7 @@ $IOT_SelectMap = @{
                "Update-IOTThing",
                "Update-IOTThingGroup",
                "Update-IOTThingGroupsForThing",
+               "Update-IOTThingType",
                "Update-IOTTopicRuleDestination",
                "Test-IOTValidSecurityProfileBehavior")
 }
@@ -51843,7 +52009,7 @@ $OUTP_Completers = {
         # Amazon.Outposts.PaymentTerm
         "New-OUTPOrder/PaymentTerm"
         {
-            $v = "ONE_YEAR","THREE_YEARS"
+            $v = "FIVE_YEARS","ONE_YEAR","THREE_YEARS"
             break
         }
 
@@ -54530,6 +54696,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.MessageFeedbackStatus
+        "Write-SMSVMessageFeedback/MessageFeedbackStatus"
+        {
+            $v = "FAILED","RECEIVED"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.MessageType
         {
             ($_ -eq "New-SMSVPhoneNumber/MessageType") -Or
@@ -54561,6 +54734,13 @@ $SMSV_Completers = {
         }
         {
             $v = "SELF","SHARED"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.ProtectConfigurationRuleOverrideAction
+        "Write-SMSVProtectConfigurationRuleSetNumberOverride/Action"
+        {
+            $v = "ALLOW","BLOCK"
             break
         }
 
@@ -54601,9 +54781,11 @@ $SMSV_Completers = {
 }
 
 $SMSV_map = @{
+    "Action"=@("Write-SMSVProtectConfigurationRuleSetNumberOverride")
     "KeywordAction"=@("Set-SMSVKeyword")
     "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
+    "MessageFeedbackStatus"=@("Write-SMSVMessageFeedback")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
@@ -54685,6 +54867,7 @@ $SMSV_SelectMap = @{
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
                "Remove-SMSVProtectConfiguration",
+               "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -54717,10 +54900,13 @@ $SMSV_SelectMap = @{
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
                "Get-SMSVPoolOriginationIdentityList",
+               "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",
                "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
                "Set-SMSVKeyword",
+               "Write-SMSVMessageFeedback",
                "Set-SMSVOptedOutNumber",
+               "Write-SMSVProtectConfigurationRuleSetNumberOverride",
                "Set-SMSVRegistrationFieldValue",
                "Write-SMSVResourcePolicy",
                "Remove-SMSVPhoneNumber",
@@ -54732,6 +54918,7 @@ $SMSV_SelectMap = @{
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
+               "Set-SMSVDefaultMessageFeedbackEnabled",
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",
@@ -60559,6 +60746,26 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.ConfidenceThreshold
+        {
+            ($_ -eq "Edit-R53RFirewallRule/ConfidenceThreshold") -Or
+            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold")
+        }
+        {
+            $v = "HIGH","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.Route53Resolver.DnsThreatProtection
+        {
+            ($_ -eq "Edit-R53RFirewallRule/DnsThreatProtection") -Or
+            ($_ -eq "New-R53RFirewallRule/DnsThreatProtection")
+        }
+        {
+            $v = "DGA","DNS_TUNNELING"
+            break
+        }
+
         # Amazon.Route53Resolver.FirewallDomainImportOperation
         "Import-R53RFirewallDomainList/Operation"
         {
@@ -60661,7 +60868,9 @@ $R53R_map = @{
     "AutodefinedReverseFlag"=@("Update-R53RResolverConfig")
     "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
+    "ConfidenceThreshold"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
+    "DnsThreatProtection"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")

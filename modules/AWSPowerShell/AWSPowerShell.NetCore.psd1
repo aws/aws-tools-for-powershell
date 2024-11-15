@@ -151,6 +151,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ConfigService.dll',
         'AWSSDK.Connect.dll',
         'AWSSDK.ConnectCampaignService.dll',
+        'AWSSDK.ConnectCampaignsV2.dll',
         'AWSSDK.ConnectCases.dll',
         'AWSSDK.ConnectContactLens.dll',
         'AWSSDK.ConnectParticipant.dll',

@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Mqtt5Configuration_PropagatingAttribute
+        /// <summary>
+        /// <para>
+        /// <para>An object that represents the propagating thing attributes and the connection attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingTypeProperties_Mqtt5Configuration_PropagatingAttributes")]
+        public Amazon.IoT.Model.PropagatingAttribute[] Mqtt5Configuration_PropagatingAttribute { get; set; }
+        #endregion
+        
         #region Parameter ThingTypeProperties_SearchableAttribute
         /// <summary>
         /// <para>
@@ -172,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter ThingTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Mqtt5Configuration_PropagatingAttribute != null)
+            {
+                context.Mqtt5Configuration_PropagatingAttribute = new List<Amazon.IoT.Model.PropagatingAttribute>(this.Mqtt5Configuration_PropagatingAttribute);
+            }
             if (this.ThingTypeProperties_SearchableAttribute != null)
             {
                 context.ThingTypeProperties_SearchableAttribute = new List<System.String>(this.ThingTypeProperties_SearchableAttribute);
@@ -223,6 +238,31 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestThingTypeProperties_thingTypeProperties_ThingTypeDescription != null)
             {
                 request.ThingTypeProperties.ThingTypeDescription = requestThingTypeProperties_thingTypeProperties_ThingTypeDescription;
+                requestThingTypePropertiesIsNull = false;
+            }
+            Amazon.IoT.Model.Mqtt5Configuration requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration = null;
+            
+             // populate Mqtt5Configuration
+            var requestThingTypeProperties_thingTypeProperties_Mqtt5ConfigurationIsNull = true;
+            requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration = new Amazon.IoT.Model.Mqtt5Configuration();
+            List<Amazon.IoT.Model.PropagatingAttribute> requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration_mqtt5Configuration_PropagatingAttribute = null;
+            if (cmdletContext.Mqtt5Configuration_PropagatingAttribute != null)
+            {
+                requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration_mqtt5Configuration_PropagatingAttribute = cmdletContext.Mqtt5Configuration_PropagatingAttribute;
+            }
+            if (requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration_mqtt5Configuration_PropagatingAttribute != null)
+            {
+                requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration.PropagatingAttributes = requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration_mqtt5Configuration_PropagatingAttribute;
+                requestThingTypeProperties_thingTypeProperties_Mqtt5ConfigurationIsNull = false;
+            }
+             // determine if requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration should be set to null
+            if (requestThingTypeProperties_thingTypeProperties_Mqtt5ConfigurationIsNull)
+            {
+                requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration = null;
+            }
+            if (requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration != null)
+            {
+                request.ThingTypeProperties.Mqtt5Configuration = requestThingTypeProperties_thingTypeProperties_Mqtt5Configuration;
                 requestThingTypePropertiesIsNull = false;
             }
              // determine if request.ThingTypeProperties should be set to null
@@ -293,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String ThingTypeName { get; set; }
+            public List<Amazon.IoT.Model.PropagatingAttribute> Mqtt5Configuration_PropagatingAttribute { get; set; }
             public List<System.String> ThingTypeProperties_SearchableAttribute { get; set; }
             public System.String ThingTypeProperties_ThingTypeDescription { get; set; }
             public System.Func<Amazon.IoT.Model.CreateThingTypeResponse, NewIOTThingTypeCmdlet, object> Select { get; set; } =

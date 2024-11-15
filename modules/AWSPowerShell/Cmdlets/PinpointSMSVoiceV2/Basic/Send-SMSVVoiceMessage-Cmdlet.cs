@@ -124,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public Amazon.PinpointSMSVoiceV2.VoiceMessageBodyTextType MessageBodyTextType { get; set; }
         #endregion
         
+        #region Parameter MessageFeedbackEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to true to enable message feedback for the message. When a user receives the message
+        /// you need to update the message status using <a>PutMessageFeedback</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MessageFeedbackEnabled { get; set; }
+        #endregion
+        
         #region Parameter OriginationIdentity
         /// <summary>
         /// <para>
@@ -237,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             context.MaxPricePerMinute = this.MaxPricePerMinute;
             context.MessageBody = this.MessageBody;
             context.MessageBodyTextType = this.MessageBodyTextType;
+            context.MessageFeedbackEnabled = this.MessageFeedbackEnabled;
             context.OriginationIdentity = this.OriginationIdentity;
             #if MODULAR
             if (this.OriginationIdentity == null && ParameterWasBound(nameof(this.OriginationIdentity)))
@@ -290,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MessageBodyTextType != null)
             {
                 request.MessageBodyTextType = cmdletContext.MessageBodyTextType;
+            }
+            if (cmdletContext.MessageFeedbackEnabled != null)
+            {
+                request.MessageFeedbackEnabled = cmdletContext.MessageFeedbackEnabled.Value;
             }
             if (cmdletContext.OriginationIdentity != null)
             {
@@ -375,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String MaxPricePerMinute { get; set; }
             public System.String MessageBody { get; set; }
             public Amazon.PinpointSMSVoiceV2.VoiceMessageBodyTextType MessageBodyTextType { get; set; }
+            public System.Boolean? MessageFeedbackEnabled { get; set; }
             public System.String OriginationIdentity { get; set; }
             public System.String ProtectConfigurationId { get; set; }
             public System.Int32? TimeToLive { get; set; }

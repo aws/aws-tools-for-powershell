@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// the past three hours, specify this parameter with a value of <c>PT3H</c>. This is
         /// the only valid value for this parameter.</para><para>The results that are returned are an approximation of the value you specify. There
         /// is a low probability that the returned results include metrics with last published
-        /// data as much as 40 minutes more than the specified time interval.</para>
+        /// data as much as 50 minutes more than the specified time interval.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

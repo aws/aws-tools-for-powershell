@@ -471,6 +471,17 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ThingPrincipalType
+        {
+            ($_ -eq "Add-IOTThingPrincipal/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTPrincipalThingsV2List/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTThingPrincipalsV2List/ThingPrincipalType")
+        }
+        {
+            $v = "EXCLUSIVE_THING","NON_EXCLUSIVE_THING"
+            break
+        }
+
         # Amazon.IoT.TopicRuleDestinationStatus
         "Update-IOTTopicRuleDestination/Status"
         {
@@ -537,6 +548,7 @@ $IOT_map = @{
     "ThingIndexingConfiguration_NamedShadowIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "ThingPrincipalType"=@("Add-IOTThingPrincipal","Get-IOTPrincipalThingsV2List","Get-IOTThingPrincipalsV2List")
     "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -774,6 +786,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersionList",
                "Get-IOTPrincipalPolicyList",
                "Get-IOTPrincipalThingList",
+               "Get-IOTPrincipalThingsV2List",
                "Get-IOTProvisioningTemplateList",
                "Get-IOTProvisioningTemplateVersionList",
                "Get-IOTRelatedResourcesForAuditFindingList",
@@ -789,6 +802,7 @@ $IOT_SelectMap = @{
                "Get-IOTThingGroupList",
                "Get-IOTThingGroupsForThingList",
                "Get-IOTThingPrincipalList",
+               "Get-IOTThingPrincipalsV2List",
                "Get-IOTThingRegistrationTaskReportList",
                "Get-IOTThingRegistrationTaskList",
                "Get-IOTThingList",
@@ -851,6 +865,7 @@ $IOT_SelectMap = @{
                "Update-IOTThing",
                "Update-IOTThingGroup",
                "Update-IOTThingGroupsForThing",
+               "Update-IOTThingType",
                "Update-IOTTopicRuleDestination",
                "Test-IOTValidSecurityProfileBehavior")
 }
