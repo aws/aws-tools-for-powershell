@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
     /// Retrieves the details of an engagement invitation shared by AWS with a partner. The
-    /// information includes key aspects such as the customer, project details, and lifecycle
-    /// information related to the engagement.
+    /// information includes aspects such as customer, project details, and lifecycle information.
+    /// To connect an engagement invitation with an opportunity, match the invitation’s <c>Payload.Project.Title</c>
+    /// with opportunity <c>Project.Title</c>.
     /// </summary>
     [Cmdlet("Get", "PCEngagementInvitation")]
     [OutputType("Amazon.PartnerCentralSelling.Model.GetEngagementInvitationResponse")]
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Specifies the unique identifier for the engagement invitation being retrieved.</para>
+        /// <para>Specifies the unique identifier for the retrieved engagement invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

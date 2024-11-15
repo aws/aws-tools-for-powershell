@@ -1,4 +1,7 @@
-﻿### 4.1.698 (2024-11-14 21:29Z)
+﻿### 4.1.699 (2024-11-15 04:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.927.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.698 (2024-11-14 21:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.926.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFleet: added parameters AcceleratorCapabilities_Selection, Count_Max and Count_Min.

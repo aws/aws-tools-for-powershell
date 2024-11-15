@@ -30,38 +30,37 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// <summary>
     /// Enables you to create a formal association between an <c>Opportunity</c> and various
     /// related entities, enriching the context and details of the opportunity for better
-    /// collaboration and decision-making. You can associate an opportunity with the following
-    /// types of entities: 
+    /// collaboration and decision making. You can associate an opportunity with the following
+    /// entity types: 
     /// 
     ///  <ul><li><para>
     ///  Partner Solution: A software product or consulting practice created and delivered
-    /// by Partners. Partner Solutions help customers address specific business challenges
-    /// or achieve particular goals using Amazon Web Services services. 
+    /// by Partners. Partner Solutions help customers address business challenges using Amazon
+    /// Web Services services. 
     /// </para></li><li><para>
-    ///  Amazon Web Services Product: Amazon Web Services offers a wide range of products
-    /// and services designed to provide scalable, reliable, and cost-effective infrastructure
-    /// solutions. For the latest list of Amazon Web Services products, refer to <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon
+    ///  Amazon Web Services Products: Amazon Web Services offers many products and services
+    /// that provide scalable, reliable, and cost-effective infrastructure solutions. For
+    /// the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon
     /// Web Services products</a>. 
     /// </para></li><li><para>
     ///  Amazon Web Services Marketplace private offer: Allows Amazon Web Services Marketplace
     /// sellers to extend custom pricing and terms to individual Amazon Web Services customers.
     /// Sellers can negotiate custom prices, payment schedules, and end user license terms
     /// through private offers, enabling Amazon Web Services customers to acquire software
-    /// solutions tailored to their specific needs. For more information, refer to <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private
+    /// solutions tailored to their specific needs. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private
     /// offers in Amazon Web Services Marketplace</a>. 
     /// </para></li></ul><para>
     /// To obtain identifiers for these entities, use the following methods:
     /// </para><ul><li><para>
     /// Solution: Use the <c>ListSolutions</c> operation.
     /// </para></li><li><para>
-    ///  AWS products: For the latest list of Amazon Web Services products, refer to the Amazon
-    /// Web Services products list.
+    ///  AWS Products: For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon
+    /// Web Services products</a>. 
     /// </para></li><li><para>
-    ///  Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">AWS
-    /// Marketplace Catalog API</a> to list entities. Specifically, use the <c>ListEntities</c>
-    /// operation to retrieve a list of private offers. The request to the <c>ListEntities</c>
-    /// API returns the details of the private offers available to you. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.
+    ///  Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html">Using
+    /// the Amazon Web Services Marketplace Catalog API</a> to list entities. Specifically,
+    /// use the <c>ListEntities</c> operation to retrieve a list of private offers. The request
+    /// returns the details of available private offers. For more information, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.
     /// 
     /// </para></li></ul>
     /// </summary>
@@ -81,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para> Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines whichenvironment
-        /// the opportunity association is made in. Use <c>AWS</c> to associate opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to test in a secure and isolated
-        /// environment. </para>
+        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
+        /// environment the opportunity association is made in. Use <c>AWS</c> to associate opportunities
+        /// in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in secure, isolated
+        /// environments. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter RelatedEntityType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of the related entity you're associating with the <c> Opportunity</c>.
-        /// This helps to categorize and properly process the association. </para>
+        /// <para>Specifies the entity type that you're associating with the <c> Opportunity</c>. This
+        /// helps to categorize and properly process the association. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

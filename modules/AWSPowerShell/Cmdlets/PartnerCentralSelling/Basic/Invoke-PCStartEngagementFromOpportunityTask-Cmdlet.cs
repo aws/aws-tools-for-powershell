@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the opportunity from which the engagement task is to be initiated.
-        /// This ensures the task is applied to the correct opportunity.</para>
+        /// This helps ensure that the task is applied to the correct opportunity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter AwsSubmission_InvolvementType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of AWS involvement in the opportunity, such as co-selling, deal
-        /// support, or technical consultation. This helps categorize the nature of AWS's participation.</para>
+        /// <para>Specifies the type of AWS involvement in the opportunity, such as coselling, deal
+        /// support, or technical consultation. This helps categorize the nature of AWS participation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter AwsSubmission_Visibility
         /// <summary>
         /// <para>
-        /// <para>Determines who can view AWS's involvement in the opportunity. Typically, this field
+        /// <para>Determines who can view AWS involvement in the opportunity. Typically, this field
         /// is set to <c>Full</c> for most cases, but it may be restricted based on special program
         /// requirements or confidentiality needs.</para>
         /// </para>
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique token provided by the client to ensure the idempotency of the request. It
-        /// helps prevent the same task from being performed multiple times.</para>
+        /// <para>A unique token provided by the client to help ensure the idempotency of the request.
+        /// It helps prevent the same task from being performed multiple times.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
     /// Allows you to remove an existing association between an <c>Opportunity</c> and related
-    /// entities such as a Partner Solution, Amazon Web Services product, or an Amazon Web
+    /// entities, such as a Partner Solution, Amazon Web Services product, or an Amazon Web
     /// Services Marketplace offer. This operation is the counterpart to <c>AssociateOpportunity</c>,
     /// and it provides flexibility to manage associations as business needs change. 
     /// 
@@ -39,8 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// in the related entities, or if an association was made in error. Ensuring accurate
     /// associations helps maintain clarity and accuracy to track and manage business opportunities.
     /// When you replace an entity, first attach the new entity and then disassociate the
-    /// one to be removed, especially if it's the last remaining related entity that's required.
-    /// 
+    /// one to be removed, especially if it's the last remaining entity that's required. 
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "PCDisassociateOpportunity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para> Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunity disassociation is made in. Use <c>AWS</c> to disassociate
-        /// opportunities in the Amazon Web Services catalog, and <c>Sandbox</c> to test in a
-        /// secure and isolated environment. </para>
+        /// opportunities in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in
+        /// secure, isolated environments. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>The opportunity's unique identifier for when you want to disassociate it from related
-        /// entities. This identifier is crucial to ensure the correct opportunity is updated,
-        /// especially in environments with numerous opportunities. </para><para>Validation: Ensure that the identifier provided corresponds to an existing opportunity
+        /// entities. This identifier helps to ensure that the correct opportunity is updated.
+        /// </para><para>Validation: Ensure that the provided identifier corresponds to an existing opportunity
         /// in the Amazon Web Services system because incorrect identifiers result in an error
         /// and no changes are made. </para>
         /// </para>
@@ -103,10 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>The related entity's identifier that you want to disassociate from the opportunity.
         /// Depending on the type of entity, this could be a simple identifier or an Amazon Resource
         /// Name (ARN) for entities managed through Amazon Web Services Marketplace. </para><para>For Amazon Web Services Marketplace entities, use the Amazon Web Services Marketplace
-        /// API to obtain the necessary ARNs. For guidance on retrieving these ARNs, refer to
-        /// <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">
-        /// Amazon Web Services Marketplace Catalog API</a> . </para><para>Validation: Ensure the identifier or ARN is valid and corresponds to an existing related
-        /// entity. An incorrect or invalid identifier results in an error. </para>
+        /// API to obtain the necessary ARNs. For guidance on retrieving these ARNs, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">
+        /// Amazon Web Services MarketplaceUsing the Amazon Web Services Marketplace Catalog API</a>.
+        /// </para><para>Validation: Ensure the identifier or ARN is valid and corresponds to an existing entity.
+        /// An incorrect or invalid identifier results in an error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>The type of the entity that you're disassociating from the opportunity. When you specify
         /// the entity type, it helps the system correctly process the disassociation request
-        /// and ensures that the right connections are removed. </para><para>Examples of entity types include Partner Solution, Amazon Web Services product, and
-        /// Amazon Web Services Marketplace offer. Ensure that the value matches one of the expected
-        /// entity types. </para><para>Validation: Provide a valid entity type to ensure successful disassociation. Invalid
-        /// or incorrect entity types result in an error. </para>
+        /// to ensure that the right connections are removed. </para><para>Examples of entity types include Partner Solution, Amazon Web Services product, and
+        /// Amazon Web Services Marketplaceoffer. Ensure that the value matches one of the expected
+        /// entity types. </para><para>Validation: Provide a valid entity type to help ensure successful disassociation.
+        /// An invalid or incorrect entity type results in an error. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

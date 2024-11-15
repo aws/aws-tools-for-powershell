@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para> The unique identifier for the related partner opportunity. Use this field to correlate
-        /// an AWS opportunity with its corresponding partner opportunity in your CRM system.
-        /// </para>
+        /// an AWS opportunity with its corresponding partner opportunity. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

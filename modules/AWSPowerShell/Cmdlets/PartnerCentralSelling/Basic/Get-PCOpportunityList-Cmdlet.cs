@@ -28,8 +28,8 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// This request accepts a list of filters to use to retrieve a specific subset of opportunities,
-    /// as well as sort options. This feature is available to partners from <a href="https://partnercentral.awspartner.com/">Partner
+    /// This request accepts a list of filters that retrieve opportunity subsets as well as
+    /// sort options. This feature is available to partners from <a href="https://partnercentral.awspartner.com/">Partner
     /// Central</a> using the <c>ListOpportunities</c> API action. 
     /// 
     ///  
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para> Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunities are listed in. Use <c>AWS</c> for listing real opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> for to test in a secure and
-        /// isolated environment. </para>
+        /// in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in secure, isolated
+        /// environments. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum number of results to return in a single call. This limits the
-        /// number of opportunities returned in the response to avoid overloading with too many
-        /// results at once. </para><para> Default: 20 </para>
+        /// number of opportunities returned in the response to avoid providing too many results
+        /// at once. </para><para> Default: 20 </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

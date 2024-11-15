@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
     /// This action starts the engagement by accepting an <c>EngagementInvitation</c>. The
-    /// task is asynchronous and involves several steps: accepting the invitation, creating
-    /// an opportunity in the partner’s account from the AWS Opportunity, and copying over
-    /// key details for tracking. Once completed, an <c>Opportunity Created</c> event is generated,
-    /// indicating that the opportunity has been successfully created in the partner's account.
+    /// task is asynchronous and involves the following steps: accepting the invitation, creating
+    /// an opportunity in the partner’s account from the AWS opportunity, and copying details
+    /// for tracking. When completed, an <c>Opportunity Created</c> event is generated, indicating
+    /// that the opportunity has been successfully created in the partner's account.
     /// </summary>
     [Cmdlet("Invoke", "PCStartEngagementByAcceptingInvitationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PartnerCentralSelling.Model.StartEngagementByAcceptingInvitationTaskResponse")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the unique identifier of the <c>EngagementInvitation</c> to be accepted.
-        /// Providing the correct identifier ensures the right engagement invitation is processed.</para>
+        /// Providing the correct identifier helps ensure that the correct engagement is processed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier provided by the client to ensure the idempotency
-        /// of the request. Can be a random or meaningful string, but must be unique for each
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier provided by the client that helps to ensure the
+        /// idempotency of the request. This can be a random or meaningful string but must be
+        /// unique for each request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

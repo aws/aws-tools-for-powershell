@@ -115,9 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Filters the solutions based on their status. This filter helps retrieve solutions
-        /// with statuses such as <c>Active</c>, <c>Inactive</c>, or <c>Pending Approval</c>,
-        /// allowing partners to manage their solution portfolios effectively.</para>
+        /// <para>Filters solutions based on their status. This filter helps partners manage their solution
+        /// portfolios effectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

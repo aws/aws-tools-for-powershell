@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the business title of the assignee managing the opportunity. This helps
-        /// clarify the individual's role and responsibilities within the organization.</para>
+        /// clarify the individual's role and responsibilities within the organization. Use the
+        /// value <c>PartnerAccountManager</c> to update details of the opportunity owner.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para> Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunity is assigned in. Use <c>AWS</c> to assign real opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to test in a secure and isolated
-        /// environment. </para>
+        /// in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in secure, isolated
+        /// environments. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Assignee_FirstName
         /// <summary>
         /// <para>
-        /// <para>Specifies the first name of the assignee managing the opportunity.</para>
+        /// <para>Specifies the first name of the assignee managing the opportunity. The system automatically
+        /// retrieves this value from the user profile by referencing the associated email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Assignee_LastName
         /// <summary>
         /// <para>
-        /// <para>Specifies the last name of the assignee managing the opportunity.</para>
+        /// <para>Specifies the last name of the assignee managing the opportunity. The system automatically
+        /// retrieves this value from the user profile by referencing the associated email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
