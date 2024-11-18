@@ -225,6 +225,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String HealthCheckType { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the health check behavior for the impaired Availability Zone in an active
+        /// zonal shift. If you select <c>Replace unhealthy</c>, instances that appear unhealthy
+        /// will be replaced in all Availability Zones. If you select <c>Ignore unhealthy</c>,
+        /// instances will not be replaced in the Availability Zone with the active zonal shift.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto
+        /// Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior")]
+        public Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -430,6 +446,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String ServiceLinkedRoleARN { get; set; }
         #endregion
         
+        #region Parameter SkipZonalShiftValidation
+        /// <summary>
+        /// <para>
+        /// <para> If you enable zonal shift with cross-zone disabled load balancers, capacity could
+        /// become imbalanced across Availability Zones. To skip the validation, specify <c>true</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto
+        /// Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipZonalShiftValidation { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -522,6 +551,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String VPCZoneIdentifier { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled
+        /// <summary>
+        /// <para>
+        /// <para> If <c>true</c>, enable zonal shift for your Auto Scaling group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -591,6 +630,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #endif
             context.AvailabilityZoneDistribution_CapacityDistributionStrategy = this.AvailabilityZoneDistribution_CapacityDistributionStrategy;
+            context.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = this.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+            context.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled = this.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
@@ -637,6 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
             context.ServiceLinkedRoleARN = this.ServiceLinkedRoleARN;
+            context.SkipZonalShiftValidation = this.SkipZonalShiftValidation;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
@@ -692,6 +734,35 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestAvailabilityZoneDistributionIsNull)
             {
                 request.AvailabilityZoneDistribution = null;
+            }
+            
+             // populate AvailabilityZoneImpairmentPolicy
+            var requestAvailabilityZoneImpairmentPolicyIsNull = true;
+            request.AvailabilityZoneImpairmentPolicy = new Amazon.AutoScaling.Model.AvailabilityZoneImpairmentPolicy();
+            Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = null;
+            if (cmdletContext.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior != null)
+            {
+                requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = cmdletContext.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+            }
+            if (requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior != null)
+            {
+                request.AvailabilityZoneImpairmentPolicy.ImpairedZoneHealthCheckBehavior = requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+                requestAvailabilityZoneImpairmentPolicyIsNull = false;
+            }
+            System.Boolean? requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled = null;
+            if (cmdletContext.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled != null)
+            {
+                requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled = cmdletContext.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled.Value;
+            }
+            if (requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled != null)
+            {
+                request.AvailabilityZoneImpairmentPolicy.ZonalShiftEnabled = requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled.Value;
+                requestAvailabilityZoneImpairmentPolicyIsNull = false;
+            }
+             // determine if request.AvailabilityZoneImpairmentPolicy should be set to null
+            if (requestAvailabilityZoneImpairmentPolicyIsNull)
+            {
+                request.AvailabilityZoneImpairmentPolicy = null;
             }
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -841,6 +912,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.ServiceLinkedRoleARN = cmdletContext.ServiceLinkedRoleARN;
             }
+            if (cmdletContext.SkipZonalShiftValidation != null)
+            {
+                request.SkipZonalShiftValidation = cmdletContext.SkipZonalShiftValidation.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -924,6 +999,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public System.String AutoScalingGroupName { get; set; }
             public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
+            public Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior { get; set; }
+            public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
             public System.String Context { get; set; }
@@ -949,6 +1026,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public System.String ServiceLinkedRoleARN { get; set; }
+            public System.Boolean? SkipZonalShiftValidation { get; set; }
             public List<Amazon.AutoScaling.Model.Tag> Tag { get; set; }
             public List<System.String> TargetGroupARNs { get; set; }
             public List<System.String> TerminationPolicy { get; set; }

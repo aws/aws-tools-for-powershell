@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.928.0",
+    "ProductVersion"    : "3.7.929.0",
     "CoreVersion"       : "3.7.400.53",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -16,7 +16,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.404.7",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -32,7 +32,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.400.53",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.416.0",
+            "Version" : "3.7.417.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.404.10",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.406.12",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.408.10",
+            "Version" : "3.7.409.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -1188,7 +1188,7 @@
             "InPreview"               : false
         },
         "RDSDataService"                  : {
-            "Version" : "3.7.400.53",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -1580,7 +1580,7 @@
             "InPreview"               : false
         },
         "AppConfig"                       : {
-            "Version" : "3.7.402.14",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -1732,7 +1732,7 @@
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "3.7.401.42",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -1916,7 +1916,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "3.7.401.27",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"
@@ -2900,7 +2900,7 @@
             "InPreview"               : false
         },
         "QConnect"                            : {
-            "Version" : "3.7.401.22",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.53"

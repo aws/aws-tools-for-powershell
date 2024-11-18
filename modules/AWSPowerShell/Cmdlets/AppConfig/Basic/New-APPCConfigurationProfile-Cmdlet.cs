@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// the ARN.</para></li><li><para>For an Amazon Web Services CodePipeline pipeline, specify the URI in the following
         /// format: <c>codepipeline</c>://&lt;pipeline name&gt;.</para></li><li><para>For an Secrets Manager secret, specify the URI in the following format: <c>secretsmanager</c>://&lt;secret
         /// name&gt;.</para></li><li><para>For an Amazon S3 object, specify the URI in the following format: <c>s3://&lt;bucket&gt;/&lt;objectKey&gt;
-        /// </c>. Here is an example: <c>s3://my-bucket/my-app/us-east-1/my-config.json</c></para></li><li><para>For an SSM document, specify either the document name in the format <c>ssm-document://&lt;document
+        /// </c>. Here is an example: <c>s3://amzn-s3-demo-bucket/my-app/us-east-1/my-config.json</c></para></li><li><para>For an SSM document, specify either the document name in the format <c>ssm-document://&lt;document
         /// name&gt;</c> or the Amazon Resource Name (ARN).</para></li></ul>
         /// </para>
         /// </summary>

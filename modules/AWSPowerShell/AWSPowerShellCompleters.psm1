@@ -5004,6 +5004,16 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior
+        {
+            ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior")
+        }
+        {
+            $v = "IgnoreUnhealthy","ReplaceUnhealthy"
+            break
+        }
+
         # Amazon.AutoScaling.InstanceMetadataEndpointState
         "New-ASLaunchConfiguration/MetadataOptions_HttpEndpoint"
         {
@@ -5084,6 +5094,7 @@ $AS_Completers = {
 
 $AS_map = @{
     "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
+    "AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")
@@ -10910,6 +10921,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.ListHookResultsTargetType
+        "Get-CFNHookResult/TargetType"
+        {
+            $v = "CHANGE_SET","CLOUD_CONTROL","RESOURCE","STACK"
+            break
+        }
+
         # Amazon.CloudFormation.OnFailure
         "New-CFNStack/OnFailure"
         {
@@ -11063,6 +11081,7 @@ $CFN_map = @{
     "ProvisioningType"=@("Get-CFNTypeList")
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
+    "TargetType"=@("Get-CFNHookResult")
     "TemplateConfiguration_DeletionPolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")
     "TemplateConfiguration_UpdateReplacePolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")
     "TemplateStage"=@("Get-CFNTemplate")
@@ -11170,6 +11189,7 @@ $CFN_SelectMap = @{
                "Get-CFNChangeSetList",
                "Get-CFNExport",
                "Get-CFNGeneratedTemplateList",
+               "Get-CFNHookResult",
                "Get-CFNImportList",
                "Get-CFNResourceScanRelatedResource",
                "Get-CFNResourceScanResource",
@@ -16658,7 +16678,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -17066,6 +17086,7 @@ $CONN_SelectMap = @{
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
+               "New-CONNContactFlowVersion",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
@@ -17170,6 +17191,7 @@ $CONN_SelectMap = @{
                "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
+               "Get-CONNContactFlowVersionList",
                "Get-CONNContactReferenceList",
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEvaluationFormList",
@@ -18282,6 +18304,13 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.DataFormat
+        "New-CPFSegmentSnapshot/DataFormat"
+        {
+            $v = "CSV","JSONL","ORC"
+            break
+        }
+
         # Amazon.CustomerProfiles.DataPullMode
         {
             ($_ -eq "New-CPFIntegrationWorkflow/Scheduled_DataPullMode") -Or
@@ -18299,6 +18328,23 @@ $CPF_Completers = {
         }
         {
             $v = "FEMALE","MALE","UNSPECIFIED"
+            break
+        }
+
+        # Amazon.CustomerProfiles.Include
+        "New-CPFCalculatedAttributeDefinition/Filter_Include"
+        {
+            $v = "ALL","ANY","NONE"
+            break
+        }
+
+        # Amazon.CustomerProfiles.IncludeOptions
+        {
+            ($_ -eq "New-CPFSegmentDefinition/SegmentGroups_Include") -Or
+            ($_ -eq "New-CPFSegmentEstimate/SegmentQuery_Include")
+        }
+        {
+            $v = "ALL","ANY","NONE"
             break
         }
 
@@ -18343,6 +18389,13 @@ $CPF_Completers = {
         }
         {
             $v = "BUSINESS","INDIVIDUAL","OTHER"
+            break
+        }
+
+        # Amazon.CustomerProfiles.RangeUnit
+        "Get-CPFGetCalculatedAttributeForProfile/Range_Unit"
+        {
+            $v = "DAYS"
             break
         }
 
@@ -18411,14 +18464,18 @@ $CPF_Completers = {
 $CPF_map = @{
     "AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
     "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview","New-CPFDomain","Update-CPFDomain")
+    "DataFormat"=@("New-CPFSegmentSnapshot")
+    "Filter_Include"=@("New-CPFCalculatedAttributeDefinition")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
     "JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "LogicalOperator"=@("Search-CPFProfile")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
-    "Range_Unit"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
+    "SegmentGroups_Include"=@("New-CPFSegmentDefinition")
+    "SegmentQuery_Include"=@("New-CPFSegmentEstimate")
     "SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
     "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
@@ -18478,11 +18535,16 @@ $CPF_SelectCompleters = {
 
 $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
+               "Get-CPFGetCalculatedAttributeForProfile",
+               "Get-CPFGetProfile",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFEventStream",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
+               "New-CPFSegmentDefinition",
+               "New-CPFSegmentEstimate",
+               "New-CPFSegmentSnapshot",
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFEventStream",
@@ -18491,6 +18553,7 @@ $CPF_SelectMap = @{
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
                "Get-CPFAutoMergingPreview",
@@ -18503,6 +18566,10 @@ $CPF_SelectMap = @{
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFSegmentDefinition",
+               "Get-CPFSegmentEstimate",
+               "Get-CPFSegmentMembership",
+               "Get-CPFSegmentSnapshot",
                "Get-CPFSimilarProfile",
                "Get-CPFWorkflow",
                "Get-CPFWorkflowStep",
@@ -18513,10 +18580,13 @@ $CPF_SelectMap = @{
                "Get-CPFEventStreamList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
+               "Get-CPFObjectTypeAttributeList",
+               "Get-CPFProfileAttributeValueList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
                "Get-CPFRuleBasedMatchList",
+               "Get-CPFSegmentDefinitionList",
                "Get-CPFResourceTag",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",
@@ -37414,6 +37484,27 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.DatasetSourceFormat
+        {
+            ($_ -eq "New-IOTSWDataset/DatasetSource_SourceFormat") -Or
+            ($_ -eq "Update-IOTSWDataset/DatasetSource_SourceFormat")
+        }
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.IoTSiteWise.DatasetSourceType
+        {
+            ($_ -eq "New-IOTSWDataset/DatasetSource_SourceType") -Or
+            ($_ -eq "Update-IOTSWDataset/DatasetSource_SourceType") -Or
+            ($_ -eq "Get-IOTSWDatasetList/SourceType")
+        }
+        {
+            $v = "KENDRA"
+            break
+        }
+
         # Amazon.IoTSiteWise.DisassociatedDataStorageState
         "Write-IOTSWStorageConfiguration/DisassociatedDataStorage"
         {
@@ -37497,6 +37588,16 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.PortalType
+        {
+            ($_ -eq "New-IOTSWPortal/PortalType") -Or
+            ($_ -eq "Update-IOTSWPortal/PortalType")
+        }
+        {
+            $v = "SITEWISE_PORTAL_V1","SITEWISE_PORTAL_V2"
+            break
+        }
+
         # Amazon.IoTSiteWise.PropertyNotificationState
         "Update-IOTSWAssetProperty/PropertyNotificationState"
         {
@@ -37574,6 +37675,8 @@ $IOTSW_Completers = {
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
     "AssetModelType"=@("New-IOTSWAssetModel")
+    "DatasetSource_SourceFormat"=@("New-IOTSWDataset","Update-IOTSWDataset")
+    "DatasetSource_SourceType"=@("New-IOTSWDataset","Update-IOTSWDataset")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "File_Type"=@("Update-IOTSWPortal")
@@ -37583,9 +37686,11 @@ $IOTSW_map = @{
     "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")
     "PortalAuthMode"=@("New-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
+    "PortalType"=@("New-IOTSWPortal","Update-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
+    "SourceType"=@("Get-IOTSWDatasetList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TargetResourceType"=@("Get-IOTSWActionList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
@@ -37659,6 +37764,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWAssetModelCompositeModel",
                "New-IOTSWBulkImportJob",
                "New-IOTSWDashboard",
+               "New-IOTSWDataset",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
                "New-IOTSWProject",
@@ -37667,6 +37773,7 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAssetModel",
                "Remove-IOTSWAssetModelCompositeModel",
                "Remove-IOTSWDashboard",
+               "Remove-IOTSWDataset",
                "Remove-IOTSWGateway",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
@@ -37680,6 +37787,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWDashboard",
+               "Get-IOTSWDataset",
                "Get-IOTSWDefaultEncryptionConfiguration",
                "Get-IOTSWGateway",
                "Get-IOTSWGatewayCapabilityConfiguration",
@@ -37696,6 +37804,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWInterpolatedAssetPropertyValue",
+               "Invoke-IOTSWAssistant",
                "Get-IOTSWAccessPolicyList",
                "Get-IOTSWActionList",
                "Get-IOTSWAssetModelCompositeModelList",
@@ -37708,6 +37817,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWBulkImportJobList",
                "Get-IOTSWCompositionRelationshipList",
                "Get-IOTSWDashboardList",
+               "Get-IOTSWDatasetList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWPortalList",
                "Get-IOTSWProjectAssetList",
@@ -37725,6 +37835,7 @@ $IOTSW_SelectMap = @{
                "Update-IOTSWAssetModelCompositeModel",
                "Update-IOTSWAssetProperty",
                "Update-IOTSWDashboard",
+               "Update-IOTSWDataset",
                "Update-IOTSWGateway",
                "Update-IOTSWGatewayCapabilityConfiguration",
                "Update-IOTSWPortal",
@@ -56356,6 +56467,13 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.ChannelSubtype
+        "New-QCMessageTemplate/ChannelSubtype"
+        {
+            $v = "EMAIL","SMS"
+            break
+        }
+
         # Amazon.QConnect.ChunkingStrategy
         "New-QCKnowledgeBase/ChunkingConfiguration_ChunkingStrategy"
         {
@@ -56367,6 +56485,13 @@ $QC_Completers = {
         "New-QCContentAssociation/AssociationType"
         {
             $v = "AMAZON_CONNECT_GUIDE"
+            break
+        }
+
+        # Amazon.QConnect.ContentDisposition
+        "New-QCMessageTemplateAttachment/ContentDisposition"
+        {
+            $v = "ATTACHMENT"
             break
         }
 
@@ -56399,7 +56524,10 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.Order
-        "Search-QCQuickResponse/OrderOnField_Order"
+        {
+            ($_ -eq "Search-QCMessageTemplate/OrderOnField_Order") -Or
+            ($_ -eq "Search-QCQuickResponse/OrderOnField_Order")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -56476,13 +56604,15 @@ $QC_map = @{
     "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
     "ApiFormat"=@("New-QCAIPrompt")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
+    "ChannelSubtype"=@("New-QCMessageTemplate")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-QCKnowledgeBase")
+    "ContentDisposition"=@("New-QCMessageTemplateAttachment")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
     "Namespace"=@("Update-QCSessionData")
-    "OrderOnField_Order"=@("Search-QCQuickResponse")
+    "OrderOnField_Order"=@("Search-QCMessageTemplate","Search-QCQuickResponse")
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
     "OverrideKnowledgeBaseSearchType"=@("Search-QCAssistant")
     "ParsingConfiguration_ParsingStrategy"=@("New-QCKnowledgeBase")
@@ -56543,7 +56673,8 @@ $QC_SelectCompleters = {
 }
 
 $QC_SelectMap = @{
-    "Select"=@("New-QCAIAgent",
+    "Select"=@("Enable-QCMessageTemplate",
+               "New-QCAIAgent",
                "New-QCAIAgentVersion",
                "New-QCAIPrompt",
                "New-QCAIPromptVersion",
@@ -56552,8 +56683,12 @@ $QC_SelectMap = @{
                "New-QCContent",
                "New-QCContentAssociation",
                "New-QCKnowledgeBase",
+               "New-QCMessageTemplate",
+               "New-QCMessageTemplateAttachment",
+               "New-QCMessageTemplateVersion",
                "New-QCQuickResponse",
                "New-QCSession",
+               "Disable-QCMessageTemplate",
                "Remove-QCAIAgent",
                "Remove-QCAIAgentVersion",
                "Remove-QCAIPrompt",
@@ -56564,6 +56699,8 @@ $QC_SelectMap = @{
                "Remove-QCContentAssociation",
                "Remove-QCImportJob",
                "Remove-QCKnowledgeBase",
+               "Remove-QCMessageTemplate",
+               "Remove-QCMessageTemplateAttachment",
                "Remove-QCQuickResponse",
                "Get-QCAIAgent",
                "Get-QCAIPrompt",
@@ -56574,6 +56711,7 @@ $QC_SelectMap = @{
                "Get-QCContentSummary",
                "Get-QCImportJob",
                "Get-QCKnowledgeBase",
+               "Get-QCMessageTemplate",
                "Get-QCQuickResponse",
                "Get-QCRecommendation",
                "Get-QCSession",
@@ -56587,6 +56725,8 @@ $QC_SelectMap = @{
                "Get-QCContentList",
                "Get-QCImportJobList",
                "Get-QCKnowledgeBasisList",
+               "Get-QCMessageTemplateList",
+               "Get-QCMessageTemplateVersionList",
                "Get-QCQuickResponseList",
                "Get-QCResourceTag",
                "Remove-QCRecommendationsReceived",
@@ -56594,7 +56734,9 @@ $QC_SelectMap = @{
                "Search-QCAssistant",
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
+               "Invoke-QCMessageTemplate",
                "Search-QCContent",
+               "Search-QCMessageTemplate",
                "Search-QCQuickResponse",
                "Search-QCSession",
                "Start-QCContentUpload",
@@ -56606,6 +56748,8 @@ $QC_SelectMap = @{
                "Update-QCAssistantAIAgent",
                "Update-QCContent",
                "Update-QCKnowledgeBaseTemplateUri",
+               "Update-QCMessageTemplate",
+               "Update-QCMessageTemplateMetadata",
                "Update-QCQuickResponse",
                "Update-QCSession",
                "Update-QCSessionData")

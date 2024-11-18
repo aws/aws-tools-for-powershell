@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Runs and maintains your desired number of tasks from a specified task definition.
     /// If the number of tasks running in a service drops below the <c>desiredCount</c>, Amazon
     /// ECS runs another copy of the task in the specified cluster. To update an existing
-    /// service, see the <a>UpdateService</a> action.
+    /// service, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.
     /// 
     ///  <note><para>
     /// On March 21, 2024, a change was made to resolve the task definition revision before
@@ -255,16 +255,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
-        /// Elastic Load Balancing target health checks after a task has first started. This is
-        /// only used when your service is configured to use a load balancer. If your service
-        /// has a load balancer defined and you don't specify a health check grace period value,
-        /// the default value of <c>0</c> is used.</para><para>If you do not use an Elastic Load Balancing, we recommend that you use the <c>startPeriod</c>
-        /// in the task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
-        /// check</a>.</para><para>If your service's tasks take a while to start and respond to Elastic Load Balancing
-        /// health checks, you can specify a health check grace period of up to 2,147,483,647
-        /// seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores
-        /// health check status. This grace period can prevent the service scheduler from marking
-        /// tasks as unhealthy and stopping them before they have time to come up.</para>
+        /// Elastic Load Balancing, VPC Lattice, and container health checks after a task has
+        /// first started. If you don't specify a health check grace period value, the default
+        /// value of <c>0</c> is used. If you don't use any of the health checks, then <c>healthCheckGracePeriodSeconds</c>
+        /// is unused.</para><para>If your service's tasks take a while to start and respond to health checks, you can
+        /// specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
+        /// During that time, the Amazon ECS service scheduler ignores health check status. This
+        /// grace period can prevent the service scheduler from marking tasks as unhealthy and
+        /// stopping them before they have time to come up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -790,6 +788,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceVolumeConfiguration[] VolumeConfiguration { get; set; }
         #endregion
         
+        #region Parameter VpcLatticeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The VPC Lattice configuration for the service being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcLatticeConfigurations")]
+        public Amazon.ECS.Model.VpcLatticeConfiguration[] VpcLatticeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -949,6 +958,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (this.VolumeConfiguration != null)
             {
                 context.VolumeConfiguration = new List<Amazon.ECS.Model.ServiceVolumeConfiguration>(this.VolumeConfiguration);
+            }
+            if (this.VpcLatticeConfiguration != null)
+            {
+                context.VpcLatticeConfiguration = new List<Amazon.ECS.Model.VpcLatticeConfiguration>(this.VpcLatticeConfiguration);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -1312,6 +1325,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.VolumeConfigurations = cmdletContext.VolumeConfiguration;
             }
+            if (cmdletContext.VpcLatticeConfiguration != null)
+            {
+                request.VpcLatticeConfigurations = cmdletContext.VpcLatticeConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -1410,6 +1427,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskDefinition { get; set; }
             public List<Amazon.ECS.Model.ServiceVolumeConfiguration> VolumeConfiguration { get; set; }
+            public List<Amazon.ECS.Model.VpcLatticeConfiguration> VpcLatticeConfiguration { get; set; }
             public System.Func<Amazon.ECS.Model.CreateServiceResponse, NewECSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

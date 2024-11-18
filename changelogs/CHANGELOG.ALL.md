@@ -1,4 +1,70 @@
-﻿### 4.1.700 (2024-11-15 21:36Z)
+﻿### 4.1.701 (2024-11-18 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.929.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Add-ASTrafficSource: added parameter SkipZonalShiftValidation.
+    * Modified cmdlet New-ASAutoScalingGroup: added parameters AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior, AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled and SkipZonalShiftValidation.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameters AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior, AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled and SkipZonalShiftValidation.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNHookResult leveraging the ListHookResults service API.
+  * Amazon Connect Customer Profiles
+    * Added cmdlet Get-CPFGetCalculatedAttributeForProfile leveraging the BatchGetCalculatedAttributeForProfile service API.
+    * Added cmdlet Get-CPFGetProfile leveraging the BatchGetProfile service API.
+    * Added cmdlet Get-CPFObjectTypeAttributeList leveraging the ListObjectTypeAttributes service API.
+    * Added cmdlet Get-CPFProfileAttributeValueList leveraging the ListProfileAttributeValues service API.
+    * Added cmdlet Get-CPFSegmentDefinition leveraging the GetSegmentDefinition service API.
+    * Added cmdlet Get-CPFSegmentDefinitionList leveraging the ListSegmentDefinitions service API.
+    * Added cmdlet Get-CPFSegmentEstimate leveraging the GetSegmentEstimate service API.
+    * Added cmdlet Get-CPFSegmentMembership leveraging the GetSegmentMembership service API.
+    * Added cmdlet Get-CPFSegmentSnapshot leveraging the GetSegmentSnapshot service API.
+    * Added cmdlet New-CPFSegmentDefinition leveraging the CreateSegmentDefinition service API.
+    * Added cmdlet New-CPFSegmentEstimate leveraging the CreateSegmentEstimate service API.
+    * Added cmdlet New-CPFSegmentSnapshot leveraging the CreateSegmentSnapshot service API.
+    * Added cmdlet Remove-CPFSegmentDefinition leveraging the DeleteSegmentDefinition service API.
+    * Modified cmdlet New-CPFCalculatedAttributeDefinition: added parameters Filter_Group and Filter_Include.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNContactFlowVersionList leveraging the ListContactFlowVersions service API.
+    * Added cmdlet New-CONNContactFlowVersion leveraging the CreateContactFlowVersion service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameter VpcLatticeConfiguration.
+    * Modified cmdlet Update-ECSService: added parameter VpcLatticeConfiguration.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Instance: added parameter Operator_Principal.
+    * Modified cmdlet New-EC2LaunchTemplate: added parameter Operator_Principal.
+    * Modified cmdlet New-EC2NetworkInterface: added parameter Operator_Principal.
+    * Modified cmdlet New-EC2Volume: added parameter Operator_Principal.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWDataset leveraging the DescribeDataset service API.
+    * Added cmdlet Get-IOTSWDatasetList leveraging the ListDatasets service API.
+    * Added cmdlet Invoke-IOTSWAssistant leveraging the InvokeAssistant service API.
+    * Added cmdlet New-IOTSWDataset leveraging the CreateDataset service API.
+    * Added cmdlet Remove-IOTSWDataset leveraging the DeleteDataset service API.
+    * Added cmdlet Update-IOTSWDataset leveraging the UpdateDataset service API.
+    * Modified cmdlet New-IOTSWPortal: added parameters PortalType and PortalTypeConfiguration.
+    * Modified cmdlet Start-IOTSWQuery: added parameter ClientToken.
+    * Modified cmdlet Update-IOTSWPortal: added parameters PortalType and PortalTypeConfiguration.
+  * Amazon Q Connect
+    * Added cmdlet Disable-QCMessageTemplate leveraging the DeactivateMessageTemplate service API.
+    * Added cmdlet Enable-QCMessageTemplate leveraging the ActivateMessageTemplate service API.
+    * Added cmdlet Get-QCMessageTemplate leveraging the GetMessageTemplate service API.
+    * Added cmdlet Get-QCMessageTemplateList leveraging the ListMessageTemplates service API.
+    * Added cmdlet Get-QCMessageTemplateVersionList leveraging the ListMessageTemplateVersions service API.
+    * Added cmdlet Invoke-QCMessageTemplate leveraging the RenderMessageTemplate service API.
+    * Added cmdlet New-QCMessageTemplate leveraging the CreateMessageTemplate service API.
+    * Added cmdlet New-QCMessageTemplateAttachment leveraging the CreateMessageTemplateAttachment service API.
+    * Added cmdlet New-QCMessageTemplateVersion leveraging the CreateMessageTemplateVersion service API.
+    * Added cmdlet Remove-QCMessageTemplate leveraging the DeleteMessageTemplate service API.
+    * Added cmdlet Remove-QCMessageTemplateAttachment leveraging the DeleteMessageTemplateAttachment service API.
+    * Added cmdlet Search-QCMessageTemplate leveraging the SearchMessageTemplates service API.
+    * Added cmdlet Update-QCMessageTemplate leveraging the UpdateMessageTemplate service API.
+    * Added cmdlet Update-QCMessageTemplateMetadata leveraging the UpdateMessageTemplateMetadata service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.
+    * Modified cmdlet New-RDSDBCluster: added parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.
+
+### 4.1.700 (2024-11-15 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.928.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonConnectCampaignServiceV2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCS2 and can be listed using the command 'Get-AWSCmdletName -Service CCS2'.
   * Amazon CloudWatch

@@ -264,7 +264,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -672,6 +672,7 @@ $CONN_SelectMap = @{
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
+               "New-CONNContactFlowVersion",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
@@ -776,6 +777,7 @@ $CONN_SelectMap = @{
                "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
+               "Get-CONNContactFlowVersionList",
                "Get-CONNContactReferenceList",
                "Get-CONNDefaultVocabularyList",
                "Get-CONNEvaluationFormList",

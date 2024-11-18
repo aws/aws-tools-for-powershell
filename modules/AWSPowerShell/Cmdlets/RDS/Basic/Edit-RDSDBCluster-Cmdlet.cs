@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the modifications in this request and any pending modifications
-        /// are asynchronously applied as soon as possible, regardless of the <c>PreferredMaintenanceWindow</c>
-        /// setting for the DB cluster. If this parameter is disabled, changes to the DB cluster
-        /// are applied during the next maintenance window.</para><para>Most modifications can be applied immediately or during the next scheduled maintenance
+        /// <para>Specifies whether the modifications in this request are asynchronously applied as
+        /// soon as possible, regardless of the <c>PreferredMaintenanceWindow</c> setting for
+        /// the DB cluster. If this parameter is disabled, changes to the DB cluster are applied
+        /// during the next maintenance window.</para><para>Most modifications can be applied immediately or during the next scheduled maintenance
         /// window. Some modifications, such as turning on deletion protection and changing the
         /// master password, are applied immediately—regardless of when you choose to apply them.</para><para>By default, this parameter is disabled.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
@@ -481,7 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
         /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
-        /// 40, 40.5, 41, and so on. The largest value that you can use is 128.</para>
+        /// 32, 32.5, 33, and so on. The largest value that you can use is 256 for recent Aurora
+        /// versions, or 128 for older versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -505,7 +506,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora
         /// Serverless v2 cluster. You can specify ACU values in half-step increments, such as
-        /// 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.</para>
+        /// 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause
+        /// feature, the smallest value that you can use is 0. For versions that don't support
+        /// Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -677,6 +680,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
         #endregion
         
+        #region Parameter ServerlessV2ScalingConfiguration_SecondsUntilAutoPause
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before
+        /// Aurora attempts to automatically pause it. </para><para>Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The
+        /// default is 300 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ServerlessV2ScalingConfiguration_SecondsUntilAutoPause { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -841,6 +856,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
+            context.ServerlessV2ScalingConfiguration_SecondsUntilAutoPause = this.ServerlessV2ScalingConfiguration_SecondsUntilAutoPause;
             context.StorageType = this.StorageType;
             if (this.VpcSecurityGroupId != null)
             {
@@ -1144,6 +1160,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 request.ServerlessV2ScalingConfiguration.MinCapacity = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_MinCapacity.Value;
                 requestServerlessV2ScalingConfigurationIsNull = false;
             }
+            System.Int32? requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_SecondsUntilAutoPause = null;
+            if (cmdletContext.ServerlessV2ScalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_SecondsUntilAutoPause = cmdletContext.ServerlessV2ScalingConfiguration_SecondsUntilAutoPause.Value;
+            }
+            if (requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_SecondsUntilAutoPause != null)
+            {
+                request.ServerlessV2ScalingConfiguration.SecondsUntilAutoPause = requestServerlessV2ScalingConfiguration_serverlessV2ScalingConfiguration_SecondsUntilAutoPause.Value;
+                requestServerlessV2ScalingConfigurationIsNull = false;
+            }
              // determine if request.ServerlessV2ScalingConfiguration should be set to null
             if (requestServerlessV2ScalingConfigurationIsNull)
             {
@@ -1268,6 +1294,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
+            public System.Int32? ServerlessV2ScalingConfiguration_SecondsUntilAutoPause { get; set; }
             public System.String StorageType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.ModifyDBClusterResponse, EditRDSDBClusterCmdlet, object> Select { get; set; } =

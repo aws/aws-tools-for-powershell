@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String QueryStatement { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
+        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -156,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.QueryStatement;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.QueryStatement = this.QueryStatement;
@@ -185,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request and set iteration invariants
             var request = new Amazon.IoTSiteWise.Model.ExecuteQueryRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -278,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryStatement { get; set; }

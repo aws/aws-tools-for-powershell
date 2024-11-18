@@ -92,8 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// <para>The maximum number of items to return for this call. If <c>MaxResults</c> is not provided
+        /// in the call, AppConfig returns the maximum of 50. The call also returns a token that
+        /// you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

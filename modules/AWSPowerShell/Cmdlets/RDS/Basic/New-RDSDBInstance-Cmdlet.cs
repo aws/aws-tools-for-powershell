@@ -229,7 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><dl><dt>Amazon Aurora MySQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora MySQL
         /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
-        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon Aurora PostgreSQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
+        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0-9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon Aurora PostgreSQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
         /// DB cluster is created. A database named <c>postgres</c> is always created. If this
         /// parameter is specified, an additional database with this name is created.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0 to 9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon RDS Custom for Oracle</dt><dd><para>The Oracle System ID (SID) of the created RDS Custom DB instance. If you don't specify

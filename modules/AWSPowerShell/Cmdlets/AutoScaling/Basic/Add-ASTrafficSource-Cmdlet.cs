@@ -83,6 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
+        #region Parameter SkipZonalShiftValidation
+        /// <summary>
+        /// <para>
+        /// <para> If you enable zonal shift with cross-zone disabled load balancers, capacity could
+        /// become imbalanced across Availability Zones. To skip the validation, specify <c>true</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto
+        /// Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipZonalShiftValidation { get; set; }
+        #endregion
+        
         #region Parameter TrafficSource
         /// <summary>
         /// <para>
@@ -170,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SkipZonalShiftValidation = this.SkipZonalShiftValidation;
             if (this.TrafficSource != null)
             {
                 context.TrafficSource = new List<Amazon.AutoScaling.Model.TrafficSourceIdentifier>(this.TrafficSource);
@@ -199,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.SkipZonalShiftValidation != null)
+            {
+                request.SkipZonalShiftValidation = cmdletContext.SkipZonalShiftValidation.Value;
             }
             if (cmdletContext.TrafficSource != null)
             {
@@ -266,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.Boolean? SkipZonalShiftValidation { get; set; }
             public List<Amazon.AutoScaling.Model.TrafficSourceIdentifier> TrafficSource { get; set; }
             public System.Func<Amazon.AutoScaling.Model.AttachTrafficSourcesResponse, AddASTrafficSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

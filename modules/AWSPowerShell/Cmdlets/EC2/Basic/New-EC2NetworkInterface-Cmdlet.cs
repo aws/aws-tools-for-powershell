@@ -180,6 +180,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Ipv6PrefixSpecificationRequest[] Ipv6Prefix { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The entity that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
@@ -384,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Ipv6Prefix = new List<Amazon.EC2.Model.Ipv6PrefixSpecificationRequest>(this.Ipv6Prefix);
             }
+            context.Operator_Principal = this.Operator_Principal;
             context.PrivateIpAddress = this.PrivateIpAddress;
             if (this.PrivateIpAddressSet != null)
             {
@@ -500,6 +511,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Ipv6Prefixes = cmdletContext.Ipv6Prefix;
             }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
+            }
             if (cmdletContext.PrivateIpAddress != null)
             {
                 request.PrivateIpAddress = cmdletContext.PrivateIpAddress;
@@ -595,6 +625,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Address { get; set; }
             public System.Int32? Ipv6PrefixCount { get; set; }
             public List<Amazon.EC2.Model.Ipv6PrefixSpecificationRequest> Ipv6Prefix { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.String PrivateIpAddress { get; set; }
             public List<Amazon.EC2.Model.PrivateIpAddressSpecification> PrivateIpAddressSet { get; set; }
             public System.Int32? SecondaryPrivateIpAddressCount { get; set; }

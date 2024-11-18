@@ -124,6 +124,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluationForm" OutputProperty="*" Verb="New" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -537,6 +541,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContactFlowVersions" OutputProperty="ContactFlowVersionSummaryList" Verb="Get" Noun="ContactFlowVersionList" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

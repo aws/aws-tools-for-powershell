@@ -237,6 +237,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListHookResults" OutputProperty="*" Verb="Get" Noun="HookResult" PipelineParameter="TargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListImports" OutputProperty="Imports" Verb="Get" Noun="ImportList" PipelineParameter="ExportName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

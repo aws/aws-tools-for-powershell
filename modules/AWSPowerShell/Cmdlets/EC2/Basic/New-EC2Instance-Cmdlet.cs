@@ -668,6 +668,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? Placement_PartitionNumber { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The entity that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
@@ -929,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.NetworkInterface = new List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification>(this.NetworkInterface);
             }
+            context.Operator_Principal = this.Operator_Principal;
             context.Placement_Affinity = this.Placement_Affinity;
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.Placement_GroupId = this.Placement_GroupId;
@@ -1288,6 +1299,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.NetworkInterfaces = cmdletContext.NetworkInterface;
             }
             
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
+            }
+            
              // populate Placement
             var requestPlacementIsNull = true;
             request.Placement = new Amazon.EC2.Model.Placement();
@@ -1552,6 +1582,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MinCount { get; set; }
             public System.Boolean? Monitoring { get; set; }
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> NetworkInterface { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.String Placement_Affinity { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
             public System.String Placement_GroupId { get; set; }

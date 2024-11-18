@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
-        /// If this parameter is omitted, the default value of <c>1</c> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
+        /// The scale in process is not affected by this parameter If this parameter is omitted,
+        /// the default value of <c>1</c> is used.</para><para>When additional capacity is required, Amazon ECS will scale up the minimum scaling
         /// step size even if the actual demand is less than the minimum scaling step size.</para><para>If you use a capacity provider with an Auto Scaling group configured with more than
         /// one Amazon EC2 instance type or Availability Zone, Amazon ECS will scale up by the
         /// exact minimum scaling step size value and will ignore both the maximum scaling step

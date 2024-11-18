@@ -90,6 +90,16 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior
+        {
+            ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior")
+        }
+        {
+            $v = "IgnoreUnhealthy","ReplaceUnhealthy"
+            break
+        }
+
         # Amazon.AutoScaling.InstanceMetadataEndpointState
         "New-ASLaunchConfiguration/MetadataOptions_HttpEndpoint"
         {
@@ -170,6 +180,7 @@ $AS_Completers = {
 
 $AS_map = @{
     "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
+    "AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")

@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LaunchTemplateName { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The entity that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -203,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter LaunchTemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Operator_Principal = this.Operator_Principal;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -235,6 +246,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LaunchTemplateName != null)
             {
                 request.LaunchTemplateName = cmdletContext.LaunchTemplateName;
+            }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -308,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public Amazon.EC2.Model.RequestLaunchTemplateData LaunchTemplateData { get; set; }
             public System.String LaunchTemplateName { get; set; }
+            public System.String Operator_Principal { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VersionDescription { get; set; }
             public System.Func<Amazon.EC2.Model.CreateLaunchTemplateResponse, NewEC2LaunchTemplateCmdlet, object> Select { get; set; } =
