@@ -636,6 +636,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="New" Noun="VpcBlockPublicAccessExclusion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="*" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -943,6 +947,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpc" Verb="Remove" Noun="Vpc" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="Remove" Noun="VpcBlockPublicAccessExclusion" ShouldProcessTarget="ExclusionId" PipelineParameter="ExclusionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1616,6 +1624,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcAttribute" OutputProperty="*" Verb="Get" Noun="VpcAttribute" PositionalParameters="Attribute" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2391,6 +2407,14 @@
                 <Param Name="EnableDnsSupport" ParameterSetName="DnsSupport" Mandatory="true" />
                 <Param Name="EnableDnsHostnames" NewName="EnableDnsHostname" ParameterSetName="DnsHostnames" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="Edit" Noun="VpcBlockPublicAccessExclusion" ShouldProcessTarget="ExclusionId" PipelineParameter="ExclusionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Edit" Noun="VpcBlockPublicAccessOption" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpcEndpoint" Verb="Edit" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">

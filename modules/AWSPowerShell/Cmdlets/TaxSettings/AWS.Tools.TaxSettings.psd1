@@ -86,7 +86,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-TSABatchTaxExemption', 
         'Get-TSASupplementalTaxRegistrationList', 
+        'Get-TSATaxExemptionList', 
+        'Get-TSATaxExemptionType', 
+        'Get-TSATaxInheritance', 
         'Get-TSATaxRegistration', 
         'Get-TSATaxRegistrationDocument', 
         'Get-TSATaxRegistrationList', 
@@ -94,6 +98,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-TSATaxRegistration', 
         'Remove-TSATaxRegistrationBatch', 
         'Write-TSASupplementalTaxRegistration', 
+        'Write-TSATaxExemption', 
+        'Write-TSATaxInheritance', 
         'Write-TSATaxRegistration', 
         'Write-TSATaxRegistrationBatch')
 

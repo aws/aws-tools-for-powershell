@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>is-classic-link-enabled</c> - Whether the VPC is enabled for ClassicLink (<c>true</c>
-        /// | <c>false</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// | <c>false</c>).</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>

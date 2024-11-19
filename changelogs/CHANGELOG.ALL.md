@@ -1,4 +1,28 @@
-﻿### 4.1.701 (2024-11-18 21:42Z)
+﻿### 4.1.702 (2024-11-19 22:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.930.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2VpcBlockPublicAccessExclusion leveraging the ModifyVpcBlockPublicAccessExclusion service API.
+    * Added cmdlet Edit-EC2VpcBlockPublicAccessOption leveraging the ModifyVpcBlockPublicAccessOptions service API.
+    * Added cmdlet Get-EC2VpcBlockPublicAccessExclusion leveraging the DescribeVpcBlockPublicAccessExclusions service API.
+    * Added cmdlet Get-EC2VpcBlockPublicAccessOption leveraging the DescribeVpcBlockPublicAccessOptions service API.
+    * Added cmdlet New-EC2VpcBlockPublicAccessExclusion leveraging the CreateVpcBlockPublicAccessExclusion service API.
+    * Added cmdlet Remove-EC2VpcBlockPublicAccessExclusion leveraging the DeleteVpcBlockPublicAccessExclusion service API.
+  * Amazon Elastic File System
+    * Modified cmdlet Remove-EFSReplicationConfiguration: added parameter DeletionMode.
+  * Amazon Glue
+    * Modified cmdlet New-GLUETableOptimizer: added parameter VpcConfiguration_GlueConnectionName.
+    * Modified cmdlet Update-GLUETableOptimizer: added parameter VpcConfiguration_GlueConnectionName.
+  * Amazon Keyspaces
+    * Added cmdlet Update-KSKeyspace leveraging the UpdateKeyspace service API.
+  * Amazon Tax Settings
+    * Added cmdlet Get-TSABatchTaxExemption leveraging the BatchGetTaxExemptions service API.
+    * Added cmdlet Get-TSATaxExemptionList leveraging the ListTaxExemptions service API.
+    * Added cmdlet Get-TSATaxExemptionType leveraging the GetTaxExemptionTypes service API.
+    * Added cmdlet Get-TSATaxInheritance leveraging the GetTaxInheritance service API.
+    * Added cmdlet Write-TSATaxExemption leveraging the PutTaxExemption service API.
+    * Added cmdlet Write-TSATaxInheritance leveraging the PutTaxInheritance service API.
+
+### 4.1.701 (2024-11-18 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.929.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet Add-ASTrafficSource: added parameter SkipZonalShiftValidation.

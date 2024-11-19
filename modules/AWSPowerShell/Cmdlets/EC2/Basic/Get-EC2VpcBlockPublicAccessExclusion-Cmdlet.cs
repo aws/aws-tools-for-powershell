@@ -22,97 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Lists the history of previous optimizer runs for a specific table.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describe VPC Block Public Access (BPA) exclusions. A VPC BPA exclusion is a mode that
+    /// can be applied to a single VPC or subnet that exempts it from the account’s BPA mode
+    /// and will allow bidirectional or egress-only access. You can create BPA exclusions
+    /// for VPCs and subnets even when BPA is not enabled on the account to ensure that there
+    /// is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more
+    /// about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block
+    /// public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GLUETableOptimizerRunList")]
-    [OutputType("Amazon.Glue.Model.ListTableOptimizerRunsResponse")]
-    [AWSCmdlet("Calls the AWS Glue ListTableOptimizerRuns API operation.", Operation = new[] {"ListTableOptimizerRuns"}, SelectReturnType = typeof(Amazon.Glue.Model.ListTableOptimizerRunsResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.ListTableOptimizerRunsResponse",
-        "This cmdlet returns an Amazon.Glue.Model.ListTableOptimizerRunsResponse object containing multiple properties."
+    [Cmdlet("Get", "EC2VpcBlockPublicAccessExclusion")]
+    [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessExclusion")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeVpcBlockPublicAccessExclusions API operation.", Operation = new[] {"DescribeVpcBlockPublicAccessExclusions"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessExclusion or Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.VpcBlockPublicAccessExclusion objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGLUETableOptimizerRunListCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetEC2VpcBlockPublicAccessExclusionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CatalogId
+        #region Parameter ExclusionId
         /// <summary>
         /// <para>
-        /// <para>The Catalog ID of the table.</para>
+        /// <para>IDs of exclusions.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CatalogId { get; set; }
+        [Alias("ExclusionIds")]
+        public System.String[] ExclusionId { get; set; }
         #endregion
         
-        #region Parameter DatabaseName
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The name of the database in the catalog in which the table resides.</para>
+        /// <para>Filters for the request:</para><ul><li><para><c>resource-arn</c> - The Amazon Resource Name (ARN) of a exclusion.</para></li><li><para><c>internet-gateway-exclusion-mode</c> - The mode of a VPC BPA exclusion. Possible
+        /// values: <c>bidirectional-access-allowed | egress-access-allowed</c>.</para></li><li><para><c>state</c> - The state of VPC BPA. Possible values: <c>create-in-progress | create-complete
+        /// | update-in-progress | update-complete | delete-in-progress | deleted-complete | disable-in-progress
+        /// | disable-complete</c></para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
+        /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>tag-value</c>: The value of a tag assigned to the resource. Use this filter to
+        /// find all resources assigned a tag with a specific value, regardless of the tag key.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatabaseName { get; set; }
-        #endregion
-        
-        #region Parameter TableName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the table.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TableName { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of table optimizer.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Glue.TableOptimizerType")]
-        public Amazon.Glue.TableOptimizerType Type { get; set; }
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of optimizer runs to return on each call.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A continuation token, if this is a continuation call.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -136,13 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.ListTableOptimizerRunsResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.ListTableOptimizerRunsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcBlockPublicAccessExclusions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VpcBlockPublicAccessExclusions";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -167,39 +139,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.ListTableOptimizerRunsResponse, GetGLUETableOptimizerRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse, GetEC2VpcBlockPublicAccessExclusionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.CatalogId = this.CatalogId;
-            #if MODULAR
-            if (this.CatalogId == null && ParameterWasBound(nameof(this.CatalogId)))
+            if (this.ExclusionId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CatalogId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.ExclusionId = new List<System.String>(this.ExclusionId);
             }
-            #endif
-            context.DatabaseName = this.DatabaseName;
-            #if MODULAR
-            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
+            if (this.Filter != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.TableName = this.TableName;
-            #if MODULAR
-            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -216,27 +168,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Glue.Model.ListTableOptimizerRunsRequest();
+            var request = new Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsRequest();
             
-            if (cmdletContext.CatalogId != null)
+            if (cmdletContext.ExclusionId != null)
             {
-                request.CatalogId = cmdletContext.CatalogId;
+                request.ExclusionIds = cmdletContext.ExclusionId;
             }
-            if (cmdletContext.DatabaseName != null)
+            if (cmdletContext.Filter != null)
             {
-                request.DatabaseName = cmdletContext.DatabaseName;
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.TableName != null)
-            {
-                request.TableName = cmdletContext.TableName;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -295,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.ListTableOptimizerRunsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.ListTableOptimizerRunsRequest request)
+        private Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "ListTableOptimizerRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeVpcBlockPublicAccessExclusions");
             try
             {
                 #if DESKTOP
-                return client.ListTableOptimizerRuns(request);
+                return client.DescribeVpcBlockPublicAccessExclusions(request);
                 #elif CORECLR
-                return client.ListTableOptimizerRunsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeVpcBlockPublicAccessExclusionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -323,14 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CatalogId { get; set; }
-            public System.String DatabaseName { get; set; }
+            public List<System.String> ExclusionId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String TableName { get; set; }
-            public Amazon.Glue.TableOptimizerType Type { get; set; }
-            public System.Func<Amazon.Glue.Model.ListTableOptimizerRunsResponse, GetGLUETableOptimizerRunListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.EC2.Model.DescribeVpcBlockPublicAccessExclusionsResponse, GetEC2VpcBlockPublicAccessExclusionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcBlockPublicAccessExclusions;
         }
         
     }

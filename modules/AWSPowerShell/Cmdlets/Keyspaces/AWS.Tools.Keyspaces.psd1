@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-KSTable', 
         'Remove-KSType', 
         'Restore-KSTable', 
+        'Update-KSKeyspace', 
         'Update-KSTable')
 
     # Variables to export from this module

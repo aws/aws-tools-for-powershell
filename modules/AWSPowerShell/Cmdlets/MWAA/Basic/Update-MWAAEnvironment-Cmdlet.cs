@@ -142,9 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter EnvironmentClass
         /// <summary>
         /// <para>
-        /// <para>The environment class type. Valid values: <c>mw1.small</c>, <c>mw1.medium</c>, <c>mw1.large</c>,
-        /// <c>mw1.xlarge</c>, and <c>mw1.2xlarge</c>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
-        /// MWAA environment class</a>.</para>
+        /// <para>The environment class type. Valid values: <c>mw1.micro</c>, <c>mw1.small</c>, <c>mw1.medium</c>,
+        /// <c>mw1.large</c>, <c>mw1.xlarge</c>, and <c>mw1.2xlarge</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
+        /// MWAA environment class</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second
         /// (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set
         /// in <c>MaxWebserers</c>. As TPS rates decrease Amazon MWAA disposes of the additional
-        /// web servers, and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: Accepts between <c>2</c> and <c>5</c>. Defaults to <c>2</c>.</para>
+        /// web servers, and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: For environments larger than mw1.micro, accepts values from <c>2</c>
+        /// to <c>5</c>. Defaults to <c>2</c> for all environment sizes except mw1.micro, which
+        /// defaults to <c>1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,7 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// for <c>MaxWebservers</c> when you interact with your Apache Airflow environment using
         /// Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second
         /// rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers,
-        /// and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: Accepts between <c>2</c> and <c>5</c>. Defaults to <c>2</c>.</para>
+        /// and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: For environments larger than mw1.micro, accepts values from <c>2</c>
+        /// to <c>5</c>. Defaults to <c>2</c> for all environment sizes except mw1.micro, which
+        /// defaults to <c>1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

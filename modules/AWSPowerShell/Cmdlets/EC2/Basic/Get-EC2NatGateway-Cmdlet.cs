@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>nat-gateway-id</c> - The ID of the NAT gateway.</para></li><li><para><c>state</c> - The state of the NAT gateway (<c>pending</c> | <c>failed</c> | <c>available</c>
-        /// | <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>subnet-id</c> - The ID of the subnet in which the NAT gateway resides.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// | <c>deleting</c> | <c>deleted</c>).</para></li><li><para><c>subnet-id</c> - The ID of the subnet in which the NAT gateway resides.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC in which the NAT gateway resides.</para></li></ul>
         /// </para>

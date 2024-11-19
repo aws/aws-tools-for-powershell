@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <c>deny</c>).</para></li><li><para><c>entry.egress</c> - A Boolean that indicates the type of rule. Specify <c>true</c>
         /// for egress rules, or <c>false</c> for ingress rules.</para></li><li><para><c>entry.rule-number</c> - The number of an entry (in other words, rule) in the set
         /// of ACL entries.</para></li><li><para><c>network-acl-id</c> - The ID of the network ACL.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the network
-        /// ACL.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// ACL.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the network ACL.</para></li></ul>
         /// </para>

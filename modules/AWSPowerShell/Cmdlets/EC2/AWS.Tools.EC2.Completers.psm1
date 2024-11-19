@@ -656,6 +656,23 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InternetGatewayBlockMode
+        "Edit-EC2VpcBlockPublicAccessOption/InternetGatewayBlockMode"
+        {
+            $v = "block-bidirectional","block-ingress","off"
+            break
+        }
+
+        # Amazon.EC2.InternetGatewayExclusionMode
+        {
+            ($_ -eq "Edit-EC2VpcBlockPublicAccessExclusion/InternetGatewayExclusionMode") -Or
+            ($_ -eq "New-EC2VpcBlockPublicAccessExclusion/InternetGatewayExclusionMode")
+        }
+        {
+            $v = "allow-bidirectional","allow-egress"
+            break
+        }
+
         # Amazon.EC2.IpAddressType
         {
             ($_ -eq "Edit-EC2VpcEndpoint/IpAddressType") -Or
@@ -1259,6 +1276,8 @@ $EC2_map = @{
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
+    "InternetGatewayBlockMode"=@("Edit-EC2VpcBlockPublicAccessOption")
+    "InternetGatewayExclusionMode"=@("Edit-EC2VpcBlockPublicAccessExclusion","New-EC2VpcBlockPublicAccessExclusion")
     "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
@@ -1527,6 +1546,7 @@ $EC2_SelectMap = @{
                "New-EC2VerifiedAccessTrustProvider",
                "New-EC2Volume",
                "New-EC2Vpc",
+               "New-EC2VpcBlockPublicAccessExclusion",
                "New-EC2VpcEndpoint",
                "New-EC2VpcEndpointConnectionNotification",
                "New-EC2VpcEndpointServiceConfiguration",
@@ -1602,6 +1622,7 @@ $EC2_SelectMap = @{
                "Remove-EC2VerifiedAccessTrustProvider",
                "Remove-EC2Volume",
                "Remove-EC2Vpc",
+               "Remove-EC2VpcBlockPublicAccessExclusion",
                "Remove-EC2EndpointConnectionNotification",
                "Remove-EC2VpcEndpoint",
                "Remove-EC2EndpointServiceConfiguration",
@@ -1759,6 +1780,8 @@ $EC2_SelectMap = @{
                "Get-EC2VolumeModification",
                "Get-EC2VolumeStatus",
                "Get-EC2VpcAttribute",
+               "Get-EC2VpcBlockPublicAccessExclusion",
+               "Get-EC2VpcBlockPublicAccessOption",
                "Get-EC2VpcClassicLink",
                "Get-EC2VpcClassicLinkDnsSupport",
                "Get-EC2EndpointConnectionNotification",
@@ -1942,6 +1965,8 @@ $EC2_SelectMap = @{
                "Edit-EC2Volume",
                "Edit-EC2VolumeAttribute",
                "Edit-EC2VpcAttribute",
+               "Edit-EC2VpcBlockPublicAccessExclusion",
+               "Edit-EC2VpcBlockPublicAccessOption",
                "Edit-EC2VpcEndpoint",
                "Edit-EC2VpcEndpointConnectionNotification",
                "Edit-EC2VpcEndpointServiceConfiguration",

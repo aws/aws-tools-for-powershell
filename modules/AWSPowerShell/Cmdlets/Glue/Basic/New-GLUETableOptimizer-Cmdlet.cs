@@ -28,8 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Creates a new table optimizer for a specific function. <c>compaction</c> is the only
-    /// currently supported optimizer type.
+    /// Creates a new table optimizer for a specific function.
     /// </summary>
     [Cmdlet("New", "GLUETableOptimizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -97,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TableOptimizerConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_GlueConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Glue connection used for the VPC for the table optimizer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_VpcConfiguration_GlueConnectionName")]
+        public System.String VpcConfiguration_GlueConnectionName { get; set; }
         #endregion
         
         #region Parameter IcebergConfiguration_Location
@@ -180,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of table optimizer. Currently, the only valid value is <c>compaction</c>.</para>
+        /// <para>The type of table optimizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -263,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.IcebergConfiguration_NumberOfSnapshotsToRetain = this.IcebergConfiguration_NumberOfSnapshotsToRetain;
             context.IcebergConfiguration_SnapshotRetentionPeriodInDay = this.IcebergConfiguration_SnapshotRetentionPeriodInDay;
             context.TableOptimizerConfiguration_RoleArn = this.TableOptimizerConfiguration_RoleArn;
+            context.VpcConfiguration_GlueConnectionName = this.VpcConfiguration_GlueConnectionName;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -432,6 +443,31 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 request.TableOptimizerConfiguration.RetentionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration;
                 requestTableOptimizerConfigurationIsNull = false;
             }
+            Amazon.Glue.Model.TableOptimizerVpcConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration = new Amazon.Glue.Model.TableOptimizerVpcConfiguration();
+            System.String requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration_vpcConfiguration_GlueConnectionName = null;
+            if (cmdletContext.VpcConfiguration_GlueConnectionName != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration_vpcConfiguration_GlueConnectionName = cmdletContext.VpcConfiguration_GlueConnectionName;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration_vpcConfiguration_GlueConnectionName != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration.GlueConnectionName = requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration_vpcConfiguration_GlueConnectionName;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration != null)
+            {
+                request.TableOptimizerConfiguration.VpcConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_VpcConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
+            }
              // determine if request.TableOptimizerConfiguration should be set to null
             if (requestTableOptimizerConfigurationIsNull)
             {
@@ -512,6 +548,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? IcebergConfiguration_NumberOfSnapshotsToRetain { get; set; }
             public System.Int32? IcebergConfiguration_SnapshotRetentionPeriodInDay { get; set; }
             public System.String TableOptimizerConfiguration_RoleArn { get; set; }
+            public System.String VpcConfiguration_GlueConnectionName { get; set; }
             public Amazon.Glue.TableOptimizerType Type { get; set; }
             public System.Func<Amazon.Glue.Model.CreateTableOptimizerResponse, NewGLUETableOptimizerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -52,6 +52,27 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeletionMode
+        /// <summary>
+        /// <para>
+        /// <para>When replicating across Amazon Web Services accounts or across Amazon Web Services
+        /// Regions, Amazon EFS deletes the replication configuration from both the source and
+        /// destination account or Region (<c>ALL_CONFIGURATIONS</c>) by default. If there's a
+        /// configuration or permissions issue that prevents Amazon EFS from deleting the replication
+        /// configuration from both sides, you can use the <c>LOCAL_CONFIGURATION_ONLY</c> mode
+        /// to delete the replication configuration from only the local side (the account or Region
+        /// from which the delete is performed). </para><note><para>Only use the <c>LOCAL_CONFIGURATION_ONLY</c> mode in the case that Amazon EFS is unable
+        /// to delete the replication configuration in both the source and destination account
+        /// or Region. Deleting the local configuration leaves the configuration in the other
+        /// account or Region unrecoverable.</para><para>Additionally, do not use this mode for same-account, same-region replication as doing
+        /// so results in a BadRequest exception error.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticFileSystem.DeletionMode")]
+        public Amazon.ElasticFileSystem.DeletionMode DeletionMode { get; set; }
+        #endregion
+        
         #region Parameter SourceFileSystemId
         /// <summary>
         /// <para>
@@ -130,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 context.Select = (response, cmdlet) => this.SourceFileSystemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeletionMode = this.DeletionMode;
             context.SourceFileSystemId = this.SourceFileSystemId;
             #if MODULAR
             if (this.SourceFileSystemId == null && ParameterWasBound(nameof(this.SourceFileSystemId)))
@@ -153,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             // create request
             var request = new Amazon.ElasticFileSystem.Model.DeleteReplicationConfigurationRequest();
             
+            if (cmdletContext.DeletionMode != null)
+            {
+                request.DeletionMode = cmdletContext.DeletionMode;
+            }
             if (cmdletContext.SourceFileSystemId != null)
             {
                 request.SourceFileSystemId = cmdletContext.SourceFileSystemId;
@@ -218,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ElasticFileSystem.DeletionMode DeletionMode { get; set; }
             public System.String SourceFileSystemId { get; set; }
             public System.Func<Amazon.ElasticFileSystem.Model.DeleteReplicationConfigurationResponse, RemoveEFSReplicationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

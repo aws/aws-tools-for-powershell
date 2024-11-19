@@ -22,63 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Keyspaces;
-using Amazon.Keyspaces.Model;
+using Amazon.TaxSettings;
+using Amazon.TaxSettings.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KS
+namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
-    /// Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication
-    /// strategy, the Amazon Web Services Regions of a multi-Region keyspace, and the status
-    /// of newly added Regions after an <c>UpdateKeyspace</c> operation.
+    /// Get the active tax exemptions for a given list of accounts.
     /// </summary>
-    [Cmdlet("Get", "KSKeyspace")]
-    [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]
-    [AWSCmdlet("Calls the Amazon Keyspaces GetKeyspace API operation.", Operation = new[] {"GetKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetKeyspaceResponse))]
-    [AWSCmdletOutput("Amazon.Keyspaces.Model.GetKeyspaceResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties."
+    [Cmdlet("Get", "TSABatchTaxExemption")]
+    [OutputType("Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse")]
+    [AWSCmdlet("Calls the AWS Tax Settings BatchGetTaxExemptions API operation.", Operation = new[] {"BatchGetTaxExemptions"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse))]
+    [AWSCmdletOutput("Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse",
+        "This cmdlet returns an Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse object containing multiple properties."
     )]
-    public partial class GetKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
+    public partial class GetTSABatchTaxExemptionCmdlet : AmazonTaxSettingsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyspaceName
+        #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The name of the keyspace.</para>
+        /// <para> List of unique account identifiers. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyspaceName { get; set; }
+        [Alias("AccountIds")]
+        public System.String[] AccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.GetKeyspaceResponse).
-        /// Specifying the name of a property of type Amazon.Keyspaces.Model.GetKeyspaceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse).
+        /// Specifying the name of a property of type Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyspaceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -91,26 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.KS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse, GetTSABatchTaxExemptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.AccountId != null)
             {
-                context.Select = (response, cmdlet) => this.KeyspaceName;
+                context.AccountId = new List<System.String>(this.AccountId);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyspaceName = this.KeyspaceName;
             #if MODULAR
-            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Keyspaces.Model.GetKeyspaceRequest();
+            var request = new Amazon.TaxSettings.Model.BatchGetTaxExemptionsRequest();
             
-            if (cmdletContext.KeyspaceName != null)
+            if (cmdletContext.AccountId != null)
             {
-                request.KeyspaceName = cmdletContext.KeyspaceName;
+                request.AccountIds = cmdletContext.AccountId;
             }
             
             CmdletOutput output;
@@ -166,15 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         #region AWS Service Operation Call
         
-        private Amazon.Keyspaces.Model.GetKeyspaceResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.GetKeyspaceRequest request)
+        private Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.BatchGetTaxExemptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "GetKeyspace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "BatchGetTaxExemptions");
             try
             {
                 #if DESKTOP
-                return client.GetKeyspace(request);
+                return client.BatchGetTaxExemptions(request);
                 #elif CORECLR
-                return client.GetKeyspaceAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetTaxExemptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyspaceName { get; set; }
-            public System.Func<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet, object> Select { get; set; } =
+            public List<System.String> AccountId { get; set; }
+            public System.Func<Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse, GetTSABatchTaxExemptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

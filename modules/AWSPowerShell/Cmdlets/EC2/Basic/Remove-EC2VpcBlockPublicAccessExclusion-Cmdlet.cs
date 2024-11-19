@@ -22,31 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Keyspaces;
-using Amazon.Keyspaces.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication
-    /// strategy, the Amazon Web Services Regions of a multi-Region keyspace, and the status
-    /// of newly added Regions after an <c>UpdateKeyspace</c> operation.
+    /// Delete a VPC Block Public Access (BPA) exclusion. A VPC BPA exclusion is a mode that
+    /// can be applied to a single VPC or subnet that exempts it from the account’s BPA mode
+    /// and will allow bidirectional or egress-only access. You can create BPA exclusions
+    /// for VPCs and subnets even when BPA is not enabled on the account to ensure that there
+    /// is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more
+    /// about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block
+    /// public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
-    [Cmdlet("Get", "KSKeyspace")]
-    [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]
-    [AWSCmdlet("Calls the Amazon Keyspaces GetKeyspace API operation.", Operation = new[] {"GetKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetKeyspaceResponse))]
-    [AWSCmdletOutput("Amazon.Keyspaces.Model.GetKeyspaceResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties."
+    [Cmdlet("Remove", "EC2VpcBlockPublicAccessExclusion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessExclusion")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcBlockPublicAccessExclusion API operation.", Operation = new[] {"DeleteVpcBlockPublicAccessExclusion"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessExclusion or Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse",
+        "This cmdlet returns an Amazon.EC2.Model.VpcBlockPublicAccessExclusion object.",
+        "The service call response (type Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
+    public partial class RemoveEC2VpcBlockPublicAccessExclusionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyspaceName
+        #region Parameter ExclusionId
         /// <summary>
         /// <para>
-        /// <para>The name of the keyspace.</para>
+        /// <para>The ID of the exclusion.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,34 +62,50 @@ namespace Amazon.PowerShell.Cmdlets.KS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyspaceName { get; set; }
+        public System.String ExclusionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.GetKeyspaceResponse).
-        /// Specifying the name of a property of type Amazon.Keyspaces.Model.GetKeyspaceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcBlockPublicAccessExclusion'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VpcBlockPublicAccessExclusion";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyspaceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ExclusionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ExclusionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExclusionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExclusionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2VpcBlockPublicAccessExclusion (DeleteVpcBlockPublicAccessExclusion)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse, RemoveEC2VpcBlockPublicAccessExclusionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +124,14 @@ namespace Amazon.PowerShell.Cmdlets.KS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyspaceName;
+                context.Select = (response, cmdlet) => this.ExclusionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyspaceName = this.KeyspaceName;
+            context.ExclusionId = this.ExclusionId;
             #if MODULAR
-            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
+            if (this.ExclusionId == null && ParameterWasBound(nameof(this.ExclusionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExclusionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Keyspaces.Model.GetKeyspaceRequest();
+            var request = new Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionRequest();
             
-            if (cmdletContext.KeyspaceName != null)
+            if (cmdletContext.ExclusionId != null)
             {
-                request.KeyspaceName = cmdletContext.KeyspaceName;
+                request.ExclusionId = cmdletContext.ExclusionId;
             }
             
             CmdletOutput output;
@@ -166,15 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         #region AWS Service Operation Call
         
-        private Amazon.Keyspaces.Model.GetKeyspaceResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.GetKeyspaceRequest request)
+        private Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "GetKeyspace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcBlockPublicAccessExclusion");
             try
             {
                 #if DESKTOP
-                return client.GetKeyspace(request);
+                return client.DeleteVpcBlockPublicAccessExclusion(request);
                 #elif CORECLR
-                return client.GetKeyspaceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteVpcBlockPublicAccessExclusionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyspaceName { get; set; }
-            public System.Func<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ExclusionId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteVpcBlockPublicAccessExclusionResponse, RemoveEC2VpcBlockPublicAccessExclusionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcBlockPublicAccessExclusion;
         }
         
     }

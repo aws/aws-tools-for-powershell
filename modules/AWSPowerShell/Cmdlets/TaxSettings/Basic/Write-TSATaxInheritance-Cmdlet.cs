@@ -22,49 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Keyspaces;
-using Amazon.Keyspaces.Model;
+using Amazon.TaxSettings;
+using Amazon.TaxSettings.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KS
+namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
-    /// Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication
-    /// strategy, the Amazon Web Services Regions of a multi-Region keyspace, and the status
-    /// of newly added Regions after an <c>UpdateKeyspace</c> operation.
+    /// The updated tax inheritance status.
     /// </summary>
-    [Cmdlet("Get", "KSKeyspace")]
-    [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]
-    [AWSCmdlet("Calls the Amazon Keyspaces GetKeyspace API operation.", Operation = new[] {"GetKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetKeyspaceResponse))]
-    [AWSCmdletOutput("Amazon.Keyspaces.Model.GetKeyspaceResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetKeyspaceResponse object containing multiple properties."
+    [Cmdlet("Write", "TSATaxInheritance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Tax Settings PutTaxInheritance API operation.", Operation = new[] {"PutTaxInheritance"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.PutTaxInheritanceResponse))]
+    [AWSCmdletOutput("None or Amazon.TaxSettings.Model.PutTaxInheritanceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.TaxSettings.Model.PutTaxInheritanceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
+    public partial class WriteTSATaxInheritanceCmdlet : AmazonTaxSettingsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyspaceName
+        #region Parameter HeritageStatus
         /// <summary>
         /// <para>
-        /// <para>The name of the keyspace.</para>
+        /// <para>The tax inheritance status. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyspaceName { get; set; }
+        [AWSConstantClassSource("Amazon.TaxSettings.HeritageStatus")]
+        public Amazon.TaxSettings.HeritageStatus HeritageStatus { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.GetKeyspaceResponse).
-        /// Specifying the name of a property of type Amazon.Keyspaces.Model.GetKeyspaceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TaxSettings.Model.PutTaxInheritanceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,18 +65,34 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyspaceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the HeritageStatus parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HeritageStatus' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyspaceName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HeritageStatus' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HeritageStatus), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-TSATaxInheritance (PutTaxInheritance)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TaxSettings.Model.PutTaxInheritanceResponse, WriteTSATaxInheritanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,16 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.KS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyspaceName;
+                context.Select = (response, cmdlet) => this.HeritageStatus;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyspaceName = this.KeyspaceName;
-            #if MODULAR
-            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.HeritageStatus = this.HeritageStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Keyspaces.Model.GetKeyspaceRequest();
+            var request = new Amazon.TaxSettings.Model.PutTaxInheritanceRequest();
             
-            if (cmdletContext.KeyspaceName != null)
+            if (cmdletContext.HeritageStatus != null)
             {
-                request.KeyspaceName = cmdletContext.KeyspaceName;
+                request.HeritageStatus = cmdletContext.HeritageStatus;
             }
             
             CmdletOutput output;
@@ -166,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         #region AWS Service Operation Call
         
-        private Amazon.Keyspaces.Model.GetKeyspaceResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.GetKeyspaceRequest request)
+        private Amazon.TaxSettings.Model.PutTaxInheritanceResponse CallAWSServiceOperation(IAmazonTaxSettings client, Amazon.TaxSettings.Model.PutTaxInheritanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "GetKeyspace");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Tax Settings", "PutTaxInheritance");
             try
             {
                 #if DESKTOP
-                return client.GetKeyspace(request);
+                return client.PutTaxInheritance(request);
                 #elif CORECLR
-                return client.GetKeyspaceAsync(request).GetAwaiter().GetResult();
+                return client.PutTaxInheritanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyspaceName { get; set; }
-            public System.Func<Amazon.Keyspaces.Model.GetKeyspaceResponse, GetKSKeyspaceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.TaxSettings.HeritageStatus HeritageStatus { get; set; }
+            public System.Func<Amazon.TaxSettings.Model.PutTaxInheritanceResponse, WriteTSATaxInheritanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

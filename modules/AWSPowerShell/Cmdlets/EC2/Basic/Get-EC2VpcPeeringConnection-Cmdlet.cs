@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// owns the requester VPC.</para></li><li><para><c>requester-vpc-info.vpc-id</c> - The ID of the requester VPC.</para></li><li><para><c>status-code</c> - The status of the VPC peering connection (<c>pending-acceptance</c>
         /// | <c>failed</c> | <c>expired</c> | <c>provisioning</c> | <c>active</c> | <c>deleting</c>
         /// | <c>deleted</c> | <c>rejected</c>).</para></li><li><para><c>status-message</c> - A message that provides more information about the status
-        /// of the VPC peering connection, if applicable.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// of the VPC peering connection, if applicable.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-peering-connection-id</c> - The ID of the VPC peering connection.</para></li></ul>
         /// </para>

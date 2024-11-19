@@ -22,75 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Keyspaces;
-using Amazon.Keyspaces.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// The <c>DeleteType</c> operation deletes a user-defined type (UDT). You can only delete
-    /// a type that is not used in a table or another UDT. 
-    /// 
-    ///  
-    /// <para>
-    /// To configure the required permissions, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-drop">Permissions
-    /// to delete a UDT</a> in the <i>Amazon Keyspaces Developer Guide</i>.
-    /// </para>
+    /// Modify VPC Block Public Access (BPA) options. VPC Block public Access (BPA) enables
+    /// you to block resources in VPCs and subnets that you own in a Region from reaching
+    /// or being reached from the internet through internet gateways and egress-only internet
+    /// gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block
+    /// public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "KSType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Keyspaces.Model.DeleteTypeResponse")]
-    [AWSCmdlet("Calls the Amazon Keyspaces DeleteType API operation.", Operation = new[] {"DeleteType"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.DeleteTypeResponse))]
-    [AWSCmdletOutput("Amazon.Keyspaces.Model.DeleteTypeResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.DeleteTypeResponse object containing multiple properties."
+    [Cmdlet("Edit", "EC2VpcBlockPublicAccessOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.VpcBlockPublicAccessOptions")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyVpcBlockPublicAccessOptions API operation.", Operation = new[] {"ModifyVpcBlockPublicAccessOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.VpcBlockPublicAccessOptions or Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse",
+        "This cmdlet returns an Amazon.EC2.Model.VpcBlockPublicAccessOptions object.",
+        "The service call response (type Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveKSTypeCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
+    public partial class EditEC2VpcBlockPublicAccessOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyspaceName
+        #region Parameter InternetGatewayBlockMode
         /// <summary>
         /// <para>
-        /// <para> The name of the keyspace of the to be deleted type. </para>
+        /// <para>The mode of VPC BPA.</para><ul><li><para><c>bidirectional-access-allowed</c>: VPC BPA is not enabled and traffic is allowed
+        /// to and from internet gateways and egress-only internet gateways in this Region.</para></li><li><para><c>bidirectional-access-blocked</c>: Block all traffic to and from internet gateways
+        /// and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</para></li><li><para><c>ingress-access-blocked</c>: Block all internet traffic to the VPCs in this Region
+        /// (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways
+        /// and egress-only internet gateways is allowed because these gateways only allow outbound
+        /// connections to be established.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyspaceName { get; set; }
-        #endregion
-        
-        #region Parameter TypeName
-        /// <summary>
-        /// <para>
-        /// <para> The name of the type to be deleted. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TypeName { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.InternetGatewayBlockMode")]
+        public Amazon.EC2.InternetGatewayBlockMode InternetGatewayBlockMode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Keyspaces.Model.DeleteTypeResponse).
-        /// Specifying the name of a property of type Amazon.Keyspaces.Model.DeleteTypeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcBlockPublicAccessOptions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VpcBlockPublicAccessOptions";
         #endregion
         
         #region Parameter Force
@@ -109,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KSType (DeleteType)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2VpcBlockPublicAccessOption (ModifyVpcBlockPublicAccessOptions)"))
             {
                 return;
             }
@@ -121,21 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.KS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Keyspaces.Model.DeleteTypeResponse, RemoveKSTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse, EditEC2VpcBlockPublicAccessOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.KeyspaceName = this.KeyspaceName;
+            context.InternetGatewayBlockMode = this.InternetGatewayBlockMode;
             #if MODULAR
-            if (this.KeyspaceName == null && ParameterWasBound(nameof(this.KeyspaceName)))
+            if (this.InternetGatewayBlockMode == null && ParameterWasBound(nameof(this.InternetGatewayBlockMode)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyspaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TypeName = this.TypeName;
-            #if MODULAR
-            if (this.TypeName == null && ParameterWasBound(nameof(this.TypeName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InternetGatewayBlockMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,15 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Keyspaces.Model.DeleteTypeRequest();
+            var request = new Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsRequest();
             
-            if (cmdletContext.KeyspaceName != null)
+            if (cmdletContext.InternetGatewayBlockMode != null)
             {
-                request.KeyspaceName = cmdletContext.KeyspaceName;
-            }
-            if (cmdletContext.TypeName != null)
-            {
-                request.TypeName = cmdletContext.TypeName;
+                request.InternetGatewayBlockMode = cmdletContext.InternetGatewayBlockMode;
             }
             
             CmdletOutput output;
@@ -195,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         #region AWS Service Operation Call
         
-        private Amazon.Keyspaces.Model.DeleteTypeResponse CallAWSServiceOperation(IAmazonKeyspaces client, Amazon.Keyspaces.Model.DeleteTypeRequest request)
+        private Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "DeleteType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyVpcBlockPublicAccessOptions");
             try
             {
                 #if DESKTOP
-                return client.DeleteType(request);
+                return client.ModifyVpcBlockPublicAccessOptions(request);
                 #elif CORECLR
-                return client.DeleteTypeAsync(request).GetAwaiter().GetResult();
+                return client.ModifyVpcBlockPublicAccessOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,10 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyspaceName { get; set; }
-            public System.String TypeName { get; set; }
-            public System.Func<Amazon.Keyspaces.Model.DeleteTypeResponse, RemoveKSTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.EC2.InternetGatewayBlockMode InternetGatewayBlockMode { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyVpcBlockPublicAccessOptionsResponse, EditEC2VpcBlockPublicAccessOptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcBlockPublicAccessOptions;
         }
         
     }
