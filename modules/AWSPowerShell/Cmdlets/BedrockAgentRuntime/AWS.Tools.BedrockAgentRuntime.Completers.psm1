@@ -180,6 +180,7 @@ $BAR_SelectMap = @{
                "Get-BARAgentMemory",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
+               "Get-BAROptimizePrompt",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate")
 }

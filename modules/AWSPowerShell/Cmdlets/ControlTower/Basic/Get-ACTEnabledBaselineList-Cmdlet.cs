@@ -55,6 +55,30 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public System.String[] Filter_BaselineIdentifier { get; set; }
         #endregion
         
+        #region Parameter IncludeChild
+        /// <summary>
+        /// <para>
+        /// <para>A value that can be set to include the child enabled baselines in responses. The default
+        /// value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeChildren")]
+        public System.Boolean? IncludeChild { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ParentIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>An optional filter that sets up a list of <c>parentIdentifiers</c> to filter the results
+        /// of the <c>ListEnabledBaseline</c> output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ParentIdentifiers")]
+        public System.String[] Filter_ParentIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Filter_TargetIdentifier
         /// <summary>
         /// <para>
@@ -117,10 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             {
                 context.Filter_BaselineIdentifier = new List<System.String>(this.Filter_BaselineIdentifier);
             }
+            if (this.Filter_ParentIdentifier != null)
+            {
+                context.Filter_ParentIdentifier = new List<System.String>(this.Filter_ParentIdentifier);
+            }
             if (this.Filter_TargetIdentifier != null)
             {
                 context.Filter_TargetIdentifier = new List<System.String>(this.Filter_TargetIdentifier);
             }
+            context.IncludeChild = this.IncludeChild;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -153,6 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 request.Filter.BaselineIdentifiers = requestFilter_filter_BaselineIdentifier;
                 requestFilterIsNull = false;
             }
+            List<System.String> requestFilter_filter_ParentIdentifier = null;
+            if (cmdletContext.Filter_ParentIdentifier != null)
+            {
+                requestFilter_filter_ParentIdentifier = cmdletContext.Filter_ParentIdentifier;
+            }
+            if (requestFilter_filter_ParentIdentifier != null)
+            {
+                request.Filter.ParentIdentifiers = requestFilter_filter_ParentIdentifier;
+                requestFilterIsNull = false;
+            }
             List<System.String> requestFilter_filter_TargetIdentifier = null;
             if (cmdletContext.Filter_TargetIdentifier != null)
             {
@@ -167,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             if (requestFilterIsNull)
             {
                 request.Filter = null;
+            }
+            if (cmdletContext.IncludeChild != null)
+            {
+                request.IncludeChildren = cmdletContext.IncludeChild.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -238,7 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Filter_BaselineIdentifier { get; set; }
+            public List<System.String> Filter_ParentIdentifier { get; set; }
             public List<System.String> Filter_TargetIdentifier { get; set; }
+            public System.Boolean? IncludeChild { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ControlTower.Model.ListEnabledBaselinesResponse, GetACTEnabledBaselineListCmdlet, object> Select { get; set; } =

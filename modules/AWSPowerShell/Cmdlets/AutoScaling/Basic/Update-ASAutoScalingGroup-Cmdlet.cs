@@ -135,6 +135,45 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Boolean? CapacityRebalance { get; set; }
         #endregion
         
+        #region Parameter CapacityReservationTarget_CapacityReservationId
+        /// <summary>
+        /// <para>
+        /// <para> The Capacity Reservation IDs to launch instances into. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationIds")]
+        public System.String[] CapacityReservationTarget_CapacityReservationId { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationSpecification_CapacityReservationPreference
+        /// <summary>
+        /// <para>
+        /// <para> The capacity reservation preference. The following options are available: </para><ul><li><para><c>capacity-reservations-only</c> - Auto Scaling will only launch instances into
+        /// a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available,
+        /// instances will fail to launch.</para></li><li><para><c>capacity-reservations-first</c> - Auto Scaling will try to launch instances into
+        /// a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't
+        /// available, instances will run in On-Demand capacity.</para></li><li><para><c>none</c> - Auto Scaling will not launch instances into a Capacity Reservation.
+        /// Instances will run in On-Demand capacity. </para></li><li><para><c>default</c> - Auto Scaling uses the Capacity Reservation preference from your
+        /// launch template or an open Capacity Reservation.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.CapacityReservationPreference")]
+        public Amazon.AutoScaling.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationTarget_CapacityReservationResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para> The resource group ARNs of the Capacity Reservation to launch instances into. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArns")]
+        public System.String[] CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
+        #endregion
+        
         #region Parameter Context
         /// <summary>
         /// <para>
@@ -551,6 +590,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
             context.CapacityRebalance = this.CapacityRebalance;
+            context.CapacityReservationSpecification_CapacityReservationPreference = this.CapacityReservationSpecification_CapacityReservationPreference;
+            if (this.CapacityReservationTarget_CapacityReservationId != null)
+            {
+                context.CapacityReservationTarget_CapacityReservationId = new List<System.String>(this.CapacityReservationTarget_CapacityReservationId);
+            }
+            if (this.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                context.CapacityReservationTarget_CapacityReservationResourceGroupArn = new List<System.String>(this.CapacityReservationTarget_CapacityReservationResourceGroupArn);
+            }
             context.Context = this.Context;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DefaultInstanceWarmup = this.DefaultInstanceWarmup;
@@ -652,6 +700,60 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.CapacityRebalance != null)
             {
                 request.CapacityRebalance = cmdletContext.CapacityRebalance.Value;
+            }
+            
+             // populate CapacityReservationSpecification
+            var requestCapacityReservationSpecificationIsNull = true;
+            request.CapacityReservationSpecification = new Amazon.AutoScaling.Model.CapacityReservationSpecification();
+            Amazon.AutoScaling.CapacityReservationPreference requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference = null;
+            if (cmdletContext.CapacityReservationSpecification_CapacityReservationPreference != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference = cmdletContext.CapacityReservationSpecification_CapacityReservationPreference;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference != null)
+            {
+                request.CapacityReservationSpecification.CapacityReservationPreference = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference;
+                requestCapacityReservationSpecificationIsNull = false;
+            }
+            Amazon.AutoScaling.Model.CapacityReservationTarget requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = null;
+            
+             // populate CapacityReservationTarget
+            var requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = true;
+            requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = new Amazon.AutoScaling.Model.CapacityReservationTarget();
+            List<System.String> requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationId != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId = cmdletContext.CapacityReservationTarget_CapacityReservationId;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationIds = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+            List<System.String> requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationResourceGroupArns = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+             // determine if requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget should be set to null
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = null;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget != null)
+            {
+                request.CapacityReservationSpecification.CapacityReservationTarget = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget;
+                requestCapacityReservationSpecificationIsNull = false;
+            }
+             // determine if request.CapacityReservationSpecification should be set to null
+            if (requestCapacityReservationSpecificationIsNull)
+            {
+                request.CapacityReservationSpecification = null;
             }
             if (cmdletContext.Context != null)
             {
@@ -860,6 +962,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
+            public Amazon.AutoScaling.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
+            public List<System.String> CapacityReservationTarget_CapacityReservationId { get; set; }
+            public List<System.String> CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public System.String Context { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DefaultInstanceWarmup { get; set; }

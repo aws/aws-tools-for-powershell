@@ -5004,6 +5004,16 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.CapacityReservationPreference
+        {
+            ($_ -eq "New-ASAutoScalingGroup/CapacityReservationSpecification_CapacityReservationPreference") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/CapacityReservationSpecification_CapacityReservationPreference")
+        }
+        {
+            $v = "capacity-reservations-first","capacity-reservations-only","default","none"
+            break
+        }
+
         # Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior
         {
             ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior") -Or
@@ -5095,6 +5105,7 @@ $AS_Completers = {
 $AS_map = @{
     "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
+    "CapacityReservationSpecification_CapacityReservationPreference"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")
@@ -7076,6 +7087,7 @@ $BAR_SelectMap = @{
                "Get-BARAgentMemory",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
+               "Get-BAROptimizePrompt",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate")
 }
@@ -11407,6 +11419,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.OriginProtocolPolicy
+        {
+            ($_ -eq "New-CFVpcOrigin/VpcOriginEndpointConfig_OriginProtocolPolicy") -Or
+            ($_ -eq "Update-CFVpcOrigin/VpcOriginEndpointConfig_OriginProtocolPolicy")
+        }
+        {
+            $v = "http-only","https-only","match-viewer"
+            break
+        }
+
         # Amazon.CloudFront.OriginRequestPolicyCookieBehavior
         {
             ($_ -eq "New-CFOriginRequestPolicy/CookiesConfig_CookieBehavior") -Or
@@ -11536,6 +11558,7 @@ $CF_map = @{
     "ViewerCertificate_CertificateSource"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "VpcOriginEndpointConfig_OriginProtocolPolicy"=@("New-CFVpcOrigin","Update-CFVpcOrigin")
 }
 
 _awsArgumentCompleterRegistration $CF_Completers $CF_map
@@ -11590,6 +11613,7 @@ $CF_SelectCompleters = {
 $CF_SelectMap = @{
     "Select"=@("Move-CFAlias",
                "Copy-CFDistribution",
+               "New-CFAnycastIpList",
                "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
                "New-CFContinuousDeploymentPolicy",
@@ -11609,6 +11633,8 @@ $CF_SelectMap = @{
                "New-CFResponseHeadersPolicy",
                "New-CFStreamingDistribution",
                "New-CFStreamingDistributionWithTag",
+               "New-CFVpcOrigin",
+               "Remove-CFAnycastIpList",
                "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
                "Remove-CFContinuousDeploymentPolicy",
@@ -11625,8 +11651,10 @@ $CF_SelectMap = @{
                "Remove-CFRealtimeLogConfig",
                "Remove-CFResponseHeadersPolicy",
                "Remove-CFStreamingDistribution",
+               "Remove-CFVpcOrigin",
                "Get-CFFunctionSummary",
                "Get-CFKeyValueStore",
+               "Get-CFAnycastIpList",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
@@ -11655,16 +11683,20 @@ $CF_SelectMap = @{
                "Get-CFResponseHeadersPolicyConfig",
                "Get-CFStreamingDistribution",
                "Get-CFStreamingDistributionConfig",
+               "Get-CFVpcOrigin",
+               "Get-CFAnycastIpListList",
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFConflictingAlias",
                "Get-CFContinuousDeploymentPolicyList",
                "Get-CFDistributionList",
+               "Get-CFDistributionsByAnycastIpListId",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",
                "Get-CFDistributionsByOriginRequestPolicyId",
                "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionsByResponseHeadersPolicyId",
+               "Get-CFDistributionsByVpcOriginId",
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
@@ -11679,6 +11711,7 @@ $CF_SelectMap = @{
                "Get-CFResponseHeadersPolicyList",
                "Get-CFStreamingDistributionList",
                "Get-CFResourceTag",
+               "Get-CFVpcOriginList",
                "Publish-CFFunction",
                "Add-CFResourceTag",
                "Test-CFFunction",
@@ -11699,6 +11732,7 @@ $CF_SelectMap = @{
                "Update-CFRealtimeLogConfig",
                "Update-CFResponseHeadersPolicy",
                "Update-CFStreamingDistribution",
+               "Update-CFVpcOrigin",
                "New-CFSignedCookie",
                "New-CFSignedUrl")
 }
@@ -15958,6 +15992,13 @@ $CO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ComputeOptimizer.Dimension
+        "Get-COIdleRecommendation/OrderBy_Dimension"
+        {
+            $v = "SavingsValue","SavingsValueAfterDiscount"
+            break
+        }
+
         # Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics
         "Write-CORecommendationPreference/EnhancedInfrastructureMetric"
         {
@@ -15978,6 +16019,7 @@ $CO_Completers = {
             ($_ -eq "Export-COEBSVolumeRecommendation/FileFormat") -Or
             ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COECSServiceRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COIdleRecommendation/FileFormat") -Or
             ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat") -Or
             ($_ -eq "Export-COLicenseRecommendation/FileFormat") -Or
             ($_ -eq "Export-CORDSDatabaseRecommendation/FileFormat")
@@ -16012,6 +16054,13 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.Order
+        "Get-COIdleRecommendation/OrderBy_Order"
+        {
+            $v = "Asc","Desc"
+            break
+        }
+
         # Amazon.ComputeOptimizer.ResourceType
         {
             ($_ -eq "Get-CORecommendationPreference/ResourceType") -Or
@@ -16019,7 +16068,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable","RdsDBInstance"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","Idle","LambdaFunction","License","NotApplicable","RdsDBInstance"
             break
         }
 
@@ -16059,9 +16108,11 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetric"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation","Export-CORDSDatabaseRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COIdleRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation","Export-CORDSDatabaseRecommendation")
     "InferredWorkloadType"=@("Write-CORecommendationPreference")
     "LookBackPeriod"=@("Write-CORecommendationPreference")
+    "OrderBy_Dimension"=@("Get-COIdleRecommendation")
+    "OrderBy_Order"=@("Get-COIdleRecommendation")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "SavingsEstimationMode"=@("Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
@@ -16125,6 +16176,7 @@ $CO_SelectMap = @{
                "Export-COEBSVolumeRecommendation",
                "Export-COEC2InstanceRecommendation",
                "Export-COECSServiceRecommendation",
+               "Export-COIdleRecommendation",
                "Export-COLambdaFunctionRecommendation",
                "Export-COLicenseRecommendation",
                "Export-CORDSDatabaseRecommendation",
@@ -16137,6 +16189,7 @@ $CO_SelectMap = @{
                "Get-COEffectiveRecommendationPreference",
                "Get-COEnrollmentStatus",
                "Get-COEnrollmentStatusesForOrganization",
+               "Get-COIdleRecommendation",
                "Get-COLambdaFunctionRecommendation",
                "Get-COLicenseRecommendation",
                "Get-CORDSDatabaseRecommendationProjectedMetric",
@@ -19660,6 +19713,30 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.RuleAction
+        {
+            ($_ -eq "Get-DZRuleList/Action") -Or
+            ($_ -eq "New-DZRule/Action")
+        }
+        {
+            $v = "CREATE_SUBSCRIPTION_REQUEST"
+            break
+        }
+
+        # Amazon.DataZone.RuleTargetType
+        "Get-DZRuleList/TargetType"
+        {
+            $v = "DOMAIN_UNIT"
+            break
+        }
+
+        # Amazon.DataZone.RuleType
+        "Get-DZRuleList/RuleType"
+        {
+            $v = "METADATA_FORM_ENFORCEMENT"
+            break
+        }
+
         # Amazon.DataZone.SortFieldProject
         "Get-DZProjectMembershipList/SortBy"
         {
@@ -19822,7 +19899,7 @@ $DZ_Completers = {
 
 $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
-    "Action"=@("New-DZListingChangeSet")
+    "Action"=@("Get-DZRuleList","New-DZListingChangeSet","New-DZRule")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
@@ -19832,6 +19909,7 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "RejectRule_Rule"=@("Deny-DZPrediction")
+    "RuleType"=@("Get-DZRuleList")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
     "SearchScope"=@("Search-DZResource","Search-DZType")
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
@@ -19841,6 +19919,7 @@ $DZ_map = @{
     "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
+    "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "Type"=@("Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
@@ -19922,6 +20001,7 @@ $DZ_SelectMap = @{
                "New-DZListingChangeSet",
                "New-DZProject",
                "New-DZProjectMembership",
+               "New-DZRule",
                "New-DZSubscriptionGrant",
                "New-DZSubscriptionRequest",
                "New-DZSubscriptionTarget",
@@ -19943,6 +20023,7 @@ $DZ_SelectMap = @{
                "Remove-DZListing",
                "Remove-DZProject",
                "Remove-DZProjectMembership",
+               "Remove-DZRule",
                "Remove-DZSubscriptionGrant",
                "Remove-DZSubscriptionRequest",
                "Remove-DZSubscriptionTarget",
@@ -19971,6 +20052,7 @@ $DZ_SelectMap = @{
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
                "Get-DZProject",
+               "Get-DZRule",
                "Get-DZSubscription",
                "Get-DZSubscriptionGrant",
                "Get-DZSubscriptionRequestDetail",
@@ -19997,6 +20079,7 @@ $DZ_SelectMap = @{
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
                "Get-DZProjectList",
+               "Get-DZRuleList",
                "Get-DZSubscriptionGrantList",
                "Get-DZSubscriptionRequestList",
                "Get-DZSubscriptionList",
@@ -20031,6 +20114,7 @@ $DZ_SelectMap = @{
                "Update-DZGlossaryTerm",
                "Update-DZGroupProfile",
                "Update-DZProject",
+               "Update-DZRule",
                "Update-DZSubscriptionGrantStatus",
                "Update-DZSubscriptionRequest",
                "Update-DZSubscriptionTarget",
@@ -23767,7 +23851,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2Instance/CapacityReservationSpecification_CapacityReservationPreference")
         }
         {
-            $v = "none","open"
+            $v = "capacity-reservations-only","none","open"
             break
         }
 
@@ -25944,6 +26028,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.AvailabilityZoneRebalancing
+        {
+            ($_ -eq "New-ECSService/AvailabilityZoneRebalancing") -Or
+            ($_ -eq "Update-ECSService/AvailabilityZoneRebalancing")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -26156,6 +26250,7 @@ $ECS_Completers = {
 $ECS_map = @{
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
@@ -27481,6 +27576,7 @@ $ELB2_SelectMap = @{
                "Remove-ELB2TrustStore",
                "Unregister-ELB2Target",
                "Get-ELB2AccountLimit",
+               "Get-ELB2CapacityReservation",
                "Get-ELB2ListenerAttribute",
                "Get-ELB2ListenerCertificate",
                "Get-ELB2Listener",
@@ -27498,6 +27594,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2ResourcePolicy",
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
+               "Edit-ELB2CapacityReservation",
                "Edit-ELB2Listener",
                "Edit-ELB2ListenerAttribute",
                "Edit-ELB2LoadBalancerAttribute",
@@ -41325,7 +41422,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3"
+            $v = "dotnet6","dotnet8","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java21","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs20.x","nodejs22.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","provided.al2023","python2.7","python3.10","python3.11","python3.12","python3.13","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7","ruby3.2","ruby3.3"
             break
         }
 
@@ -50569,6 +50666,17 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.CacheBehavior
+        {
+            ($_ -eq "New-OMICSRunCache/CacheBehavior") -Or
+            ($_ -eq "Start-OMICSRun/CacheBehavior") -Or
+            ($_ -eq "Update-OMICSRunCache/CacheBehavior")
+        }
+        {
+            $v = "CACHE_ALWAYS","CACHE_ON_FAILURE"
+            break
+        }
+
         # Amazon.Omics.CreationType
         "Get-OMICSReadSetList/Filter_CreationType"
         {
@@ -50765,6 +50873,7 @@ $OMICS_Completers = {
 
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow")
+    "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
     "Engine"=@("New-OMICSWorkflow")
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
@@ -50846,6 +50955,7 @@ $OMICS_SelectMap = @{
                "New-OMICSAnnotationStoreVersion",
                "New-OMICSMultipartReadSetUpload",
                "New-OMICSReferenceStore",
+               "New-OMICSRunCache",
                "New-OMICSRunGroup",
                "New-OMICSSequenceStore",
                "New-OMICSShare",
@@ -50856,6 +50966,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
+               "Remove-OMICSRunCache",
                "Remove-OMICSRunGroup",
                "Remove-OMICSSequenceStore",
                "Remove-OMICSShare",
@@ -50874,6 +50985,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceMetadata",
                "Get-OMICSReferenceStore",
                "Get-OMICSRun",
+               "Get-OMICSRunCache",
                "Get-OMICSRunGroup",
                "Get-OMICSRunTask",
                "Get-OMICSSequenceStore",
@@ -50893,6 +51005,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceImportJobList",
                "Get-OMICSReferenceList",
                "Get-OMICSReferenceStoreList",
+               "Get-OMICSRunCachList",
                "Get-OMICSRunGroupList",
                "Get-OMICSRunList",
                "Get-OMICSRunTaskList",
@@ -50913,6 +51026,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSResourceTag",
                "Update-OMICSAnnotationStore",
                "Update-OMICSAnnotationStoreVersion",
+               "Update-OMICSRunCache",
                "Update-OMICSRunGroup",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",
@@ -70766,6 +70880,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.ComputeMode
+        "Update-TSQAccountSetting/QueryCompute_ComputeMode"
+        {
+            $v = "ON_DEMAND","PROVISIONED"
+            break
+        }
+
         # Amazon.TimestreamQuery.QueryInsightsMode
         "Invoke-TSQQuery/QueryInsights_Mode"
         {
@@ -70810,6 +70931,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryCompute_ComputeMode"=@("Update-TSQAccountSetting")
     "QueryInsights_Mode"=@("Invoke-TSQQuery","Start-TSQScheduledQuery")
     "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
@@ -74308,7 +74430,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","RHEL_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 
@@ -74867,12 +74989,14 @@ $WSW_SelectCompleters = {
 
 $WSW_SelectMap = @{
     "Select"=@("Register-WSWBrowserSetting",
+               "Register-WSWDataProtectionSetting",
                "Register-WSWIpAccessSetting",
                "Register-WSWNetworkSetting",
                "Register-WSWTrustStore",
                "Register-WSWUserAccessLoggingSetting",
                "Register-WSWUserSetting",
                "New-WSWBrowserSetting",
+               "New-WSWDataProtectionSetting",
                "New-WSWIdentityProvider",
                "New-WSWIpAccessSetting",
                "New-WSWNetworkSetting",
@@ -74881,6 +75005,7 @@ $WSW_SelectMap = @{
                "New-WSWUserAccessLoggingSetting",
                "New-WSWUserSetting",
                "Remove-WSWBrowserSetting",
+               "Remove-WSWDataProtectionSetting",
                "Remove-WSWIdentityProvider",
                "Remove-WSWIpAccessSetting",
                "Remove-WSWNetworkSetting",
@@ -74889,6 +75014,7 @@ $WSW_SelectMap = @{
                "Remove-WSWUserAccessLoggingSetting",
                "Remove-WSWUserSetting",
                "Unregister-WSWBrowserSetting",
+               "Unregister-WSWDataProtectionSetting",
                "Unregister-WSWIpAccessSetting",
                "Unregister-WSWNetworkSetting",
                "Unregister-WSWTrustStore",
@@ -74896,6 +75022,7 @@ $WSW_SelectMap = @{
                "Unregister-WSWUserSetting",
                "Revoke-WSWSession",
                "Get-WSWBrowserSetting",
+               "Get-WSWDataProtectionSetting",
                "Get-WSWIdentityProvider",
                "Get-WSWIpAccessSetting",
                "Get-WSWNetworkSetting",
@@ -74907,6 +75034,7 @@ $WSW_SelectMap = @{
                "Get-WSWUserAccessLoggingSetting",
                "Get-WSWUserSetting",
                "Get-WSWBrowserSettingList",
+               "Get-WSWDataProtectionSettingList",
                "Get-WSWIdentityProviderList",
                "Get-WSWIpAccessSettingList",
                "Get-WSWNetworkSettingList",
@@ -74920,6 +75048,7 @@ $WSW_SelectMap = @{
                "Add-WSWResourceTag",
                "Remove-WSWResourceTag",
                "Update-WSWBrowserSetting",
+               "Update-WSWDataProtectionSetting",
                "Update-WSWIdentityProvider",
                "Update-WSWIpAccessSetting",
                "Update-WSWNetworkSetting",

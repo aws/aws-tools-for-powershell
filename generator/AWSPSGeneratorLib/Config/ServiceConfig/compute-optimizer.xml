@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportIdleRecommendations" OutputProperty="*" Verb="Export" Noun="IdleRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportLambdaFunctionRecommendations" OutputProperty="*" Verb="Export" Noun="LambdaFunctionRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEnrollmentStatusesForOrganization" OutputProperty="AccountEnrollmentStatuses" Verb="Get" Noun="EnrollmentStatusesForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdleRecommendations" OutputProperty="*" Verb="Get" Noun="IdleRecommendation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

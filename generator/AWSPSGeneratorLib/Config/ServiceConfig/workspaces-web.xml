@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDataProtectionSettings" OutputProperty="*" Verb="Register" Noun="DataProtectionSetting" AnonymousShouldProcessTarget="true" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateIpAccessSettings" OutputProperty="*" Verb="Register" Noun="IpAccessSetting" AnonymousShouldProcessTarget="true" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateBrowserSettings" OutputProperty="BrowserSettingsArn" Verb="New" Noun="BrowserSetting" ShouldProcessTarget="BrowserPolicy" PipelineParameter="BrowserPolicy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataProtectionSettings" OutputProperty="DataProtectionSettingsArn" Verb="New" Noun="DataProtectionSetting" ShouldProcessTarget="DisplayName" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -78,6 +86,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataProtectionSettings" Verb="Remove" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteIdentityProvider" Verb="Remove" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +122,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDataProtectionSettings" Verb="Unregister" Noun="DataProtectionSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateIpAccessSettings" Verb="Unregister" Noun="IpAccessSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +151,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSetting" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSetting" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,6 +199,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSettingList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSettingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,6 +255,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBrowserSettings" OutputProperty="BrowserSettings" Verb="Update" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Update" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

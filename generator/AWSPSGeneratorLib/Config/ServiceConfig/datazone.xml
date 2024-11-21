@@ -123,6 +123,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DataZone.RuleAction</Type>
+                <Type>Amazon.DataZone.Model.RuleScope</Type>
+                <Type>Amazon.DataZone.RuleScopeSelectionMode</Type>
+                <Type>Amazon.DataZone.Model.RuleTarget</Type>
+                <Type>Amazon.DataZone.RuleTargetType</Type>
+                <Type>Amazon.DataZone.Model.RuleDetail</Type>
+                <Type>Amazon.DataZone.Model.MetadataFormReference</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSubscriptionGrant" OutputProperty="*" Verb="New" Noun="SubscriptionGrant" ShouldProcessTarget="SubscriptionTargetIdentifier" PipelineParameter="SubscriptionTargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -204,6 +216,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProjectMembership" Verb="Remove" Noun="ProjectMembership" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -319,6 +335,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRule" OutputProperty="*" Verb="Get" Noun="Rule" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DataZone.RuleType</Type>
+                <Type>Amazon.DataZone.Model.RuleScope</Type>
+                <Type>Amazon.DataZone.Model.RuleTarget</Type>
+                <Type>Amazon.DataZone.RuleTargetType</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSubscription" OutputProperty="*" Verb="Get" Noun="Subscription" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -426,6 +451,14 @@
         <ServiceOperation MethodName="ListProjects" OutputProperty="*" Verb="Get" Noun="ProjectList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" OutputProperty="Items" Verb="Get" Noun="RuleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DataZone.RuleAction</Type>
+                <Type>Amazon.DataZone.RuleType</Type>
+                <Type>Amazon.DataZone.Model.RuleSummary</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="ListSubscriptionGrants" OutputProperty="*" Verb="Get" Noun="SubscriptionGrantList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
@@ -562,6 +595,18 @@
         <ServiceOperation MethodName="UpdateProject" OutputProperty="Id" Verb="Update" Noun="Project" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRule" OutputProperty="*" Verb="Update" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.DataZone.Model.MetadataFormReference</Type>
+                <Type>Amazon.DataZone.RuleScopeSelectionMode</Type>
+                <Type>Amazon.DataZone.RuleAction</Type>
+                <Type>Amazon.DataZone.Model.RuleDetail</Type>
+                <Type>Amazon.DataZone.RuleType</Type>
+                <Type>Amazon.DataZone.Model.RuleScope</Type>
+                <Type>Amazon.DataZone.Model.RuleTarget</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSubscriptionGrantStatus" OutputProperty="*" Verb="Update" Noun="SubscriptionGrantStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />

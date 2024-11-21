@@ -79,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Wave
+        /// <summary>
+        /// <para>
+        /// <para>The new migration wave of the application that you want to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Wave { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             #endif
             context.Description = this.Description;
             context.Name = this.Name;
+            context.Wave = this.Wave;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Wave != null)
+            {
+                request.Wave = cmdletContext.Wave;
             }
             
             CmdletOutput output;
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             public System.String ConfigurationId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String Wave { get; set; }
             public System.Func<Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse, UpdateADSApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

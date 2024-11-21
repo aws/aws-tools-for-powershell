@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ExcludeResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>[Region-level retention rules only] Information about the exclusion tags used to identify
+        /// resources that are to be excluded, or ignored, by the retention rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeResourceTags")]
+        public Amazon.RecycleBin.Model.ResourceTag[] ExcludeResourceTag { get; set; }
+        #endregion
+        
         #region Parameter LockState
         /// <summary>
         /// <para>
@@ -57,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>Information about the resource tags used to identify resources that are retained by
-        /// the retention rule.</para>
+        /// <para>[Tag-level retention rules only] Information about the resource tags used to identify
+        /// resources that are retained by the retention rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
                 context.Select = (response, cmdlet) => this.ResourceType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ExcludeResourceTag != null)
+            {
+                context.ExcludeResourceTag = new List<Amazon.RecycleBin.Model.ResourceTag>(this.ExcludeResourceTag);
+            }
             context.LockState = this.LockState;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -184,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             // create request
             var request = new Amazon.RecycleBin.Model.ListRulesRequest();
             
+            if (cmdletContext.ExcludeResourceTag != null)
+            {
+                request.ExcludeResourceTags = cmdletContext.ExcludeResourceTag;
+            }
             if (cmdletContext.LockState != null)
             {
                 request.LockState = cmdletContext.LockState;
@@ -265,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.RecycleBin.Model.ResourceTag> ExcludeResourceTag { get; set; }
             public Amazon.RecycleBin.LockState LockState { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

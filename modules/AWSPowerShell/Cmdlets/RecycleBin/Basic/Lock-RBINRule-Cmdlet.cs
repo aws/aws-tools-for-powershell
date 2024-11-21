@@ -28,7 +28,13 @@ using Amazon.RecycleBin.Model;
 namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
-    /// Locks a retention rule. A locked retention rule can't be modified or deleted.
+    /// Locks a Region-level retention rule. A locked retention rule can't be modified or
+    /// deleted.
+    /// 
+    ///  <note><para>
+    /// You can't lock tag-level retention rules, or Region-level retention rules that have
+    /// exclusion tags.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Lock", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RecycleBin.Model.LockRuleResponse")]

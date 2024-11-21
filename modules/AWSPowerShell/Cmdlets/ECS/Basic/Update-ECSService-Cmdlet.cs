@@ -184,6 +184,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneRebalancing
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use Availability Zone rebalancing for the service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing
+        /// an Amazon ECS service across Availability Zones</a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.AvailabilityZoneRebalancing")]
+        public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
+        #endregion
+        
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
@@ -798,6 +811,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Cluster;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZoneRebalancing = this.AvailabilityZoneRebalancing;
             if (this.CapacityProviderStrategy != null)
             {
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
@@ -896,6 +910,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.UpdateServiceRequest();
             
+            if (cmdletContext.AvailabilityZoneRebalancing != null)
+            {
+                request.AvailabilityZoneRebalancing = cmdletContext.AvailabilityZoneRebalancing;
+            }
             if (cmdletContext.CapacityProviderStrategy != null)
             {
                 request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
@@ -1272,6 +1290,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
             public List<System.String> Alarms_AlarmName { get; set; }

@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter MetadataForm
+        /// <summary>
+        /// <para>
+        /// <para>The metadata form included in the subscription request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataForms")]
+        public Amazon.DataZone.Model.FormInput[] MetadataForm { get; set; }
+        #endregion
+        
         #region Parameter RequestReason
         /// <summary>
         /// <para>
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MetadataForm != null)
+            {
+                context.MetadataForm = new List<Amazon.DataZone.Model.FormInput>(this.MetadataForm);
+            }
             context.RequestReason = this.RequestReason;
             #if MODULAR
             if (this.RequestReason == null && ParameterWasBound(nameof(this.RequestReason)))
@@ -246,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.MetadataForm != null)
+            {
+                request.MetadataForms = cmdletContext.MetadataForm;
             }
             if (cmdletContext.RequestReason != null)
             {
@@ -322,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String ClientToken { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public List<Amazon.DataZone.Model.FormInput> MetadataForm { get; set; }
             public System.String RequestReason { get; set; }
             public List<Amazon.DataZone.Model.SubscribedListingInput> SubscribedListing { get; set; }
             public List<Amazon.DataZone.Model.SubscribedPrincipalInput> SubscribedPrincipal { get; set; }

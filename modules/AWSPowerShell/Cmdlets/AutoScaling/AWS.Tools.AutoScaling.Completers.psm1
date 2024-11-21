@@ -90,6 +90,16 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.CapacityReservationPreference
+        {
+            ($_ -eq "New-ASAutoScalingGroup/CapacityReservationSpecification_CapacityReservationPreference") -Or
+            ($_ -eq "Update-ASAutoScalingGroup/CapacityReservationSpecification_CapacityReservationPreference")
+        }
+        {
+            $v = "capacity-reservations-first","capacity-reservations-only","default","none"
+            break
+        }
+
         # Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior
         {
             ($_ -eq "New-ASAutoScalingGroup/AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior") -Or
@@ -181,6 +191,7 @@ $AS_Completers = {
 $AS_map = @{
     "AvailabilityZoneDistribution_CapacityDistributionStrategy"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
+    "CapacityReservationSpecification_CapacityReservationPreference"=@("New-ASAutoScalingGroup","Update-ASAutoScalingGroup")
     "CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
     "MetadataOptions_HttpToken"=@("New-ASLaunchConfiguration")

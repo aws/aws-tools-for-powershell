@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// A blue/green deployment creates a staging environment that copies the production environment.
     /// In a blue/green deployment, the blue environment is the current production environment.
-    /// The green environment is the staging environment. The staging environment stays in
-    /// sync with the current production environment using logical replication.
+    /// The green environment is the staging environment, and it stays in sync with the current
+    /// production environment.
     /// </para><para>
     /// You can make changes to the databases in the green environment without affecting production
     /// workloads. For example, you can upgrade the major or minor DB engine version, change
@@ -112,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TargetAllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage in gibibytes (GiB) to allocate for the green DB instance. You
+        /// can choose to increase or decrease the allocated storage on the green DB instance.</para><para>This setting doesn't apply to Amazon Aurora blue/green deployments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetAllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter TargetDBClusterParameterGroupName
         /// <summary>
         /// <para>
@@ -157,6 +168,38 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TargetEngineVersion { get; set; }
+        #endregion
+        
+        #region Parameter TargetIops
+        /// <summary>
+        /// <para>
+        /// <para>The amount of Provisioned IOPS (input/output operations per second) to allocate for
+        /// the green DB instance. For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon
+        /// RDS DB instance storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to Amazon Aurora blue/green deployments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetIops { get; set; }
+        #endregion
+        
+        #region Parameter TargetStorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>The storage throughput value for the green DB instance.</para><para>This setting applies only to the <c>gp3</c> storage type.</para><para>This setting doesn't apply to Amazon Aurora blue/green deployments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetStorageThroughput { get; set; }
+        #endregion
+        
+        #region Parameter TargetStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The storage type to associate with the green DB instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2</c></para><para>This setting doesn't apply to Amazon Aurora blue/green deployments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetStorageType { get; set; }
         #endregion
         
         #region Parameter UpgradeTargetStorageConfig
@@ -232,10 +275,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            context.TargetAllocatedStorage = this.TargetAllocatedStorage;
             context.TargetDBClusterParameterGroupName = this.TargetDBClusterParameterGroupName;
             context.TargetDBInstanceClass = this.TargetDBInstanceClass;
             context.TargetDBParameterGroupName = this.TargetDBParameterGroupName;
             context.TargetEngineVersion = this.TargetEngineVersion;
+            context.TargetIops = this.TargetIops;
+            context.TargetStorageThroughput = this.TargetStorageThroughput;
+            context.TargetStorageType = this.TargetStorageType;
             context.UpgradeTargetStorageConfig = this.UpgradeTargetStorageConfig;
             
             // allow further manipulation of loaded context prior to processing
@@ -265,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TargetAllocatedStorage != null)
+            {
+                request.TargetAllocatedStorage = cmdletContext.TargetAllocatedStorage.Value;
+            }
             if (cmdletContext.TargetDBClusterParameterGroupName != null)
             {
                 request.TargetDBClusterParameterGroupName = cmdletContext.TargetDBClusterParameterGroupName;
@@ -280,6 +331,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.TargetEngineVersion != null)
             {
                 request.TargetEngineVersion = cmdletContext.TargetEngineVersion;
+            }
+            if (cmdletContext.TargetIops != null)
+            {
+                request.TargetIops = cmdletContext.TargetIops.Value;
+            }
+            if (cmdletContext.TargetStorageThroughput != null)
+            {
+                request.TargetStorageThroughput = cmdletContext.TargetStorageThroughput.Value;
+            }
+            if (cmdletContext.TargetStorageType != null)
+            {
+                request.TargetStorageType = cmdletContext.TargetStorageType;
             }
             if (cmdletContext.UpgradeTargetStorageConfig != null)
             {
@@ -349,10 +412,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String BlueGreenDeploymentName { get; set; }
             public System.String Source { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
+            public System.Int32? TargetAllocatedStorage { get; set; }
             public System.String TargetDBClusterParameterGroupName { get; set; }
             public System.String TargetDBInstanceClass { get; set; }
             public System.String TargetDBParameterGroupName { get; set; }
             public System.String TargetEngineVersion { get; set; }
+            public System.Int32? TargetIops { get; set; }
+            public System.Int32? TargetStorageThroughput { get; set; }
+            public System.String TargetStorageType { get; set; }
             public System.Boolean? UpgradeTargetStorageConfig { get; set; }
             public System.Func<Amazon.RDS.Model.CreateBlueGreenDeploymentResponse, NewRDSBlueGreenDeploymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BlueGreenDeployment;

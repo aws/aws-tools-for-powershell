@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

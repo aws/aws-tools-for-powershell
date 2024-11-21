@@ -35,9 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// <para>
     /// StartRun will not support re-run for a workflow that is shared with you.
     /// </para><para>
-    /// The total number of runs in your account is subject to a quota per Region. To avoid
-    /// needing to delete runs manually, you can set the retention mode to <c>REMOVE</c>.
-    /// Runs with this setting are deleted automatically when the run quoata is exceeded.
+    /// HealthOmics stores a fixed number of runs that are available to the console and API.
+    /// By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the maximum
+    /// number of runs, you must manually remove runs. To have older runs removed automatically,
+    /// set the retention mode to <c>REMOVE</c>.
     /// </para><para>
     /// By default, the run uses STATIC storage. For STATIC storage, set the <c>storageCapacity</c>
     /// field. You can set the storage type to DYNAMIC. You do not set <c>storageCapacity</c>,
@@ -56,6 +57,31 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter CacheBehavior
+        /// <summary>
+        /// <para>
+        /// <para>The cache behavior for the run. You specify this value if you want to override the
+        /// default behavior for the cache. You had set the default value when you created the
+        /// cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run
+        /// cache behavior</a> in the AWS HealthOmics User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.CacheBehavior")]
+        public Amazon.Omics.CacheBehavior CacheBehavior { get; set; }
+        #endregion
+        
+        #region Parameter CacheId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier of the cache associated with this run. If you don't specify a cache ID,
+        /// no task outputs are cached for this run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CacheId { get; set; }
+        #endregion
         
         #region Parameter LogLevel
         /// <summary>
@@ -122,7 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RetentionMode
         /// <summary>
         /// <para>
-        /// <para>The retention mode for the run.</para>
+        /// <para>The retention mode for the run. The default value is RETAIN. </para><para>HealthOmics stores a fixed number of runs that are available to the console and API.
+        /// In the default mode (RETAIN), you need to remove runs manually when the number of
+        /// run exceeds the maximum. If you set the retention mode to <c>REMOVE</c>, HealthOmics
+        /// automatically removes runs (that have mode set to REMOVE) when the number of run exceeds
+        /// the maximum. All run logs are available in CloudWatch logs, if you need information
+        /// about a run that is no longer available to the API.</para><para>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying
+        /// run retention mode</a> in the <i>AWS HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,6 +327,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.Select = (response, cmdlet) => this.RoleArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CacheBehavior = this.CacheBehavior;
+            context.CacheId = this.CacheId;
             context.LogLevel = this.LogLevel;
             context.Name = this.Name;
             context.OutputUri = this.OutputUri;
@@ -340,6 +374,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             // create request
             var request = new Amazon.Omics.Model.StartRunRequest();
             
+            if (cmdletContext.CacheBehavior != null)
+            {
+                request.CacheBehavior = cmdletContext.CacheBehavior;
+            }
+            if (cmdletContext.CacheId != null)
+            {
+                request.CacheId = cmdletContext.CacheId;
+            }
             if (cmdletContext.LogLevel != null)
             {
                 request.LogLevel = cmdletContext.LogLevel;
@@ -465,6 +507,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Omics.CacheBehavior CacheBehavior { get; set; }
+            public System.String CacheId { get; set; }
             public Amazon.Omics.RunLogLevel LogLevel { get; set; }
             public System.String Name { get; set; }
             public System.String OutputUri { get; set; }

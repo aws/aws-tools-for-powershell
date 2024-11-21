@@ -208,7 +208,7 @@ $EC2_Completers = {
             ($_ -eq "New-EC2Instance/CapacityReservationSpecification_CapacityReservationPreference")
         }
         {
-            $v = "none","open"
+            $v = "capacity-reservations-only","none","open"
             break
         }
 

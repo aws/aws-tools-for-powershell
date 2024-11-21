@@ -298,6 +298,30 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.RuleAction
+        {
+            ($_ -eq "Get-DZRuleList/Action") -Or
+            ($_ -eq "New-DZRule/Action")
+        }
+        {
+            $v = "CREATE_SUBSCRIPTION_REQUEST"
+            break
+        }
+
+        # Amazon.DataZone.RuleTargetType
+        "Get-DZRuleList/TargetType"
+        {
+            $v = "DOMAIN_UNIT"
+            break
+        }
+
+        # Amazon.DataZone.RuleType
+        "Get-DZRuleList/RuleType"
+        {
+            $v = "METADATA_FORM_ENFORCEMENT"
+            break
+        }
+
         # Amazon.DataZone.SortFieldProject
         "Get-DZProjectMembershipList/SortBy"
         {
@@ -460,7 +484,7 @@ $DZ_Completers = {
 
 $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
-    "Action"=@("New-DZListingChangeSet")
+    "Action"=@("Get-DZRuleList","New-DZListingChangeSet","New-DZRule")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
@@ -470,6 +494,7 @@ $DZ_map = @{
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "RejectRule_Rule"=@("Deny-DZPrediction")
+    "RuleType"=@("Get-DZRuleList")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
     "SearchScope"=@("Search-DZResource","Search-DZType")
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
@@ -479,6 +504,7 @@ $DZ_map = @{
     "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
+    "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
     "Type"=@("Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
@@ -560,6 +586,7 @@ $DZ_SelectMap = @{
                "New-DZListingChangeSet",
                "New-DZProject",
                "New-DZProjectMembership",
+               "New-DZRule",
                "New-DZSubscriptionGrant",
                "New-DZSubscriptionRequest",
                "New-DZSubscriptionTarget",
@@ -581,6 +608,7 @@ $DZ_SelectMap = @{
                "Remove-DZListing",
                "Remove-DZProject",
                "Remove-DZProjectMembership",
+               "Remove-DZRule",
                "Remove-DZSubscriptionGrant",
                "Remove-DZSubscriptionRequest",
                "Remove-DZSubscriptionTarget",
@@ -609,6 +637,7 @@ $DZ_SelectMap = @{
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
                "Get-DZProject",
+               "Get-DZRule",
                "Get-DZSubscription",
                "Get-DZSubscriptionGrant",
                "Get-DZSubscriptionRequestDetail",
@@ -635,6 +664,7 @@ $DZ_SelectMap = @{
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
                "Get-DZProjectList",
+               "Get-DZRuleList",
                "Get-DZSubscriptionGrantList",
                "Get-DZSubscriptionRequestList",
                "Get-DZSubscriptionList",
@@ -669,6 +699,7 @@ $DZ_SelectMap = @{
                "Update-DZGlossaryTerm",
                "Update-DZGroupProfile",
                "Update-DZProject",
+               "Update-DZRule",
                "Update-DZSubscriptionGrantStatus",
                "Update-DZSubscriptionRequest",
                "Update-DZSubscriptionTarget",

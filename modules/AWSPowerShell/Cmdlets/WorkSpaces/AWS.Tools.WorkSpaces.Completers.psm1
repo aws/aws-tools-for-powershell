@@ -154,7 +154,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","RHEL_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 

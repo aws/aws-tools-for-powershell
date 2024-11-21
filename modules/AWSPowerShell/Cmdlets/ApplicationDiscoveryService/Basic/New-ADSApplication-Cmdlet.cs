@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the application to be created.</para>
+        /// <para>The description of the application to be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the application to be created.</para>
+        /// <para>The name of the application to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Wave
+        /// <summary>
+        /// <para>
+        /// <para>The name of the migration wave of the application to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Wave { get; set; }
         #endregion
         
         #region Parameter Select
@@ -139,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Wave = this.Wave;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Wave != null)
+            {
+                request.Wave = cmdletContext.Wave;
             }
             
             CmdletOutput output;
@@ -226,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String Wave { get; set; }
             public System.Func<Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse, NewADSApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfigurationId;
         }

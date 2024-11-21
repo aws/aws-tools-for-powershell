@@ -1,4 +1,80 @@
-﻿### 4.1.702 (2024-11-19 22:58Z)
+﻿### 4.1.703 (2024-11-21 01:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.931.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Application Discovery Service
+    * Modified cmdlet New-ADSApplication: added parameter Wave.
+    * Modified cmdlet Update-ADSApplication: added parameter Wave.
+  * Amazon Auto Scaling
+    * Modified cmdlet New-ASAutoScalingGroup: added parameters CapacityReservationSpecification_CapacityReservationPreference, CapacityReservationTarget_CapacityReservationId and CapacityReservationTarget_CapacityReservationResourceGroupArn.
+    * Modified cmdlet Update-ASAutoScalingGroup: added parameters CapacityReservationSpecification_CapacityReservationPreference, CapacityReservationTarget_CapacityReservationId and CapacityReservationTarget_CapacityReservationResourceGroupArn.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Get-BAROptimizePrompt leveraging the OptimizePrompt service API.
+  * Amazon CloudFront
+    * Added cmdlet Get-CFAnycastIpList leveraging the GetAnycastIpList service API.
+    * Added cmdlet Get-CFAnycastIpListList leveraging the ListAnycastIpLists service API.
+    * Added cmdlet Get-CFDistributionsByAnycastIpListId leveraging the ListDistributionsByAnycastIpListId service API.
+    * Added cmdlet Get-CFDistributionsByVpcOriginId leveraging the ListDistributionsByVpcOriginId service API.
+    * Added cmdlet Get-CFVpcOrigin leveraging the GetVpcOrigin service API.
+    * Added cmdlet Get-CFVpcOriginList leveraging the ListVpcOrigins service API.
+    * Added cmdlet New-CFAnycastIpList leveraging the CreateAnycastIpList service API.
+    * Added cmdlet New-CFVpcOrigin leveraging the CreateVpcOrigin service API.
+    * Added cmdlet Remove-CFAnycastIpList leveraging the DeleteAnycastIpList service API.
+    * Added cmdlet Remove-CFVpcOrigin leveraging the DeleteVpcOrigin service API.
+    * Added cmdlet Update-CFVpcOrigin leveraging the UpdateVpcOrigin service API.
+    * Modified cmdlet New-CFDistribution: added parameters DistributionConfig_AnycastIpListId and GrpcConfig_Enabled.
+    * Modified cmdlet New-CFDistributionWithTag: added parameters DistributionConfig_AnycastIpListId and GrpcConfig_Enabled.
+    * Modified cmdlet Update-CFDistribution: added parameters DistributionConfig_AnycastIpListId and GrpcConfig_Enabled.
+  * Amazon Compute Optimizer
+    * Added cmdlet Export-COIdleRecommendation leveraging the ExportIdleRecommendations service API.
+    * Added cmdlet Get-COIdleRecommendation leveraging the GetIdleRecommendations service API.
+  * Amazon Control Tower
+    * Modified cmdlet Get-ACTEnabledBaselineList: added parameters Filter_ParentIdentifier and IncludeChild.
+  * Amazon DataZone
+    * Added cmdlet Get-DZRule leveraging the GetRule service API.
+    * Added cmdlet Get-DZRuleList leveraging the ListRules service API.
+    * Added cmdlet New-DZRule leveraging the CreateRule service API.
+    * Added cmdlet Remove-DZRule leveraging the DeleteRule service API.
+    * Added cmdlet Update-DZRule leveraging the UpdateRule service API.
+    * Modified cmdlet New-DZSubscriptionRequest: added parameter MetadataForm.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameter AvailabilityZoneRebalancing.
+    * Modified cmdlet Update-ECSService: added parameter AvailabilityZoneRebalancing.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Get-EC2InstanceTypesFromInstanceRequirement: added parameter Cpu_Reference.
+    * Modified cmdlet Get-EC2SpotPlacementScore: added parameter Cpu_Reference.
+  * Amazon Elastic Load Balancing V2
+    * Added cmdlet Edit-ELB2CapacityReservation leveraging the ModifyCapacityReservation service API.
+    * Added cmdlet Get-ELB2CapacityReservation leveraging the DescribeCapacityReservation service API.
+  * Amazon Elemental MediaConvert
+    * Modified cmdlet New-EMCQueue: added parameter ConcurrentJob.
+    * Modified cmdlet Update-EMCQueue: added parameter ConcurrentJob.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2Channel: added parameters InputSwitchConfiguration_MQCSInputSwitching and OutputHeaderConfiguration_PublishMQCS.
+    * Modified cmdlet Update-MPV2Channel: added parameters InputSwitchConfiguration_MQCSInputSwitching and OutputHeaderConfiguration_PublishMQCS.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSRunCache leveraging the GetRunCache service API.
+    * Added cmdlet Get-OMICSRunCachList leveraging the ListRunCaches service API.
+    * Added cmdlet New-OMICSRunCache leveraging the CreateRunCache service API.
+    * Added cmdlet Remove-OMICSRunCache leveraging the DeleteRunCache service API.
+    * Added cmdlet Update-OMICSRunCache leveraging the UpdateRunCache service API.
+    * Modified cmdlet Start-OMICSRun: added parameters CacheBehavior and CacheId.
+  * Amazon Recycle Bin
+    * Modified cmdlet Get-RBINRuleList: added parameter ExcludeResourceTag.
+    * Modified cmdlet New-RBINRule: added parameter ExcludeResourceTag.
+    * Modified cmdlet Update-RBINRule: added parameter ExcludeResourceTag.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSBlueGreenDeployment: added parameters TargetAllocatedStorage, TargetIops, TargetStorageThroughput and TargetStorageType.
+  * Amazon Timestream Query
+    * Modified cmdlet Update-TSQAccountSetting: added parameters NotificationConfiguration_RoleArn, ProvisionedCapacity_TargetQueryTCU, QueryCompute_ComputeMode and SnsConfiguration_TopicArn.
+  * Amazon WorkSpaces Web
+    * Added cmdlet Get-WSWDataProtectionSetting leveraging the GetDataProtectionSettings service API.
+    * Added cmdlet Get-WSWDataProtectionSettingList leveraging the ListDataProtectionSettings service API.
+    * Added cmdlet New-WSWDataProtectionSetting leveraging the CreateDataProtectionSettings service API.
+    * Added cmdlet Register-WSWDataProtectionSetting leveraging the AssociateDataProtectionSettings service API.
+    * Added cmdlet Remove-WSWDataProtectionSetting leveraging the DeleteDataProtectionSettings service API.
+    * Added cmdlet Unregister-WSWDataProtectionSetting leveraging the DisassociateDataProtectionSettings service API.
+    * Added cmdlet Update-WSWDataProtectionSetting leveraging the UpdateDataProtectionSettings service API.
+
+### 4.1.702 (2024-11-19 22:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.930.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Edit-EC2VpcBlockPublicAccessExclusion leveraging the ModifyVpcBlockPublicAccessExclusion service API.

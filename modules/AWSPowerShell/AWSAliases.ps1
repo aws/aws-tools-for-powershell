@@ -2536,6 +2536,9 @@ Set-Alias -Name BAR-DeleteAgentMemory -Value Remove-BARAgentMemory
 Set-Alias -Name BAR-GetAgentMemory -Value Get-BARAgentMemory
 Set-Alias -Name BAR-InvokeAgent -Value Invoke-BARAgent
 Set-Alias -Name BAR-InvokeFlow -Value Invoke-BARFlow
+Set-Alias -Name Optimize-BARPrompt -Value Get-BAROptimizePrompt
+Set-Alias -Name Optimize-BAROptimizePrompt -Value Get-BAROptimizePrompt
+Set-Alias -Name BAR-OptimizePrompt -Value Get-BAROptimizePrompt
 Set-Alias -Name Retrieve-BARAndGenerate -Value Invoke-BARRetrieveAndGenerate
 Set-Alias -Name Retrieve-BARRetrieveAndGenerate -Value Invoke-BARRetrieveAndGenerate
 Set-Alias -Name BAR-RetrieveAndGenerate -Value Invoke-BARRetrieveAndGenerate
@@ -4222,6 +4225,8 @@ Set-Alias -Name CFN-ValidateTemplate -Value Test-CFNTemplate
 Set-Alias -Name Associate-CFAlias -Value Move-CFAlias
 Set-Alias -Name CF-AssociateAlias -Value Move-CFAlias
 Set-Alias -Name CF-CopyDistribution -Value Copy-CFDistribution
+Set-Alias -Name Create-CFAnycastIpList -Value New-CFAnycastIpList
+Set-Alias -Name CF-CreateAnycastIpList -Value New-CFAnycastIpList
 Set-Alias -Name Create-CFCachePolicy -Value New-CFCachePolicy
 Set-Alias -Name CF-CreateCachePolicy -Value New-CFCachePolicy
 Set-Alias -Name Create-CFCloudFrontOriginAccessIdentity -Value New-CFCloudFrontOriginAccessIdentity
@@ -4262,6 +4267,10 @@ Set-Alias -Name CF-CreateStreamingDistribution -Value New-CFStreamingDistributio
 Set-Alias -Name Create-CFStreamingDistributionWithTags -Value New-CFStreamingDistributionWithTag
 Set-Alias -Name Create-CFStreamingDistributionWithTag -Value New-CFStreamingDistributionWithTag
 Set-Alias -Name CF-CreateStreamingDistributionWithTags -Value New-CFStreamingDistributionWithTag
+Set-Alias -Name Create-CFVpcOrigin -Value New-CFVpcOrigin
+Set-Alias -Name CF-CreateVpcOrigin -Value New-CFVpcOrigin
+Set-Alias -Name Delete-CFAnycastIpList -Value Remove-CFAnycastIpList
+Set-Alias -Name CF-DeleteAnycastIpList -Value Remove-CFAnycastIpList
 Set-Alias -Name Delete-CFCachePolicy -Value Remove-CFCachePolicy
 Set-Alias -Name CF-DeleteCachePolicy -Value Remove-CFCachePolicy
 Set-Alias -Name Delete-CFCloudFrontOriginAccessIdentity -Value Remove-CFCloudFrontOriginAccessIdentity
@@ -4294,11 +4303,14 @@ Set-Alias -Name Delete-CFResponseHeadersPolicy -Value Remove-CFResponseHeadersPo
 Set-Alias -Name CF-DeleteResponseHeadersPolicy -Value Remove-CFResponseHeadersPolicy
 Set-Alias -Name Delete-CFStreamingDistribution -Value Remove-CFStreamingDistribution
 Set-Alias -Name CF-DeleteStreamingDistribution -Value Remove-CFStreamingDistribution
+Set-Alias -Name Delete-CFVpcOrigin -Value Remove-CFVpcOrigin
+Set-Alias -Name CF-DeleteVpcOrigin -Value Remove-CFVpcOrigin
 Set-Alias -Name Describe-CFFunction -Value Get-CFFunctionSummary
 Set-Alias -Name Describe-CFFunctionSummary -Value Get-CFFunctionSummary
 Set-Alias -Name CF-DescribeFunction -Value Get-CFFunctionSummary
 Set-Alias -Name Describe-CFKeyValueStore -Value Get-CFKeyValueStore
 Set-Alias -Name CF-DescribeKeyValueStore -Value Get-CFKeyValueStore
+Set-Alias -Name CF-GetAnycastIpList -Value Get-CFAnycastIpList
 Set-Alias -Name CF-GetCachePolicy -Value Get-CFCachePolicy
 Set-Alias -Name CF-GetCachePolicyConfig -Value Get-CFCachePolicyConfig
 Set-Alias -Name CF-GetCloudFrontOriginAccessIdentity -Value Get-CFCloudFrontOriginAccessIdentity
@@ -4327,6 +4339,10 @@ Set-Alias -Name CF-GetResponseHeadersPolicy -Value Get-CFResponseHeadersPolicy
 Set-Alias -Name CF-GetResponseHeadersPolicyConfig -Value Get-CFResponseHeadersPolicyConfig
 Set-Alias -Name CF-GetStreamingDistribution -Value Get-CFStreamingDistribution
 Set-Alias -Name CF-GetStreamingDistributionConfig -Value Get-CFStreamingDistributionConfig
+Set-Alias -Name CF-GetVpcOrigin -Value Get-CFVpcOrigin
+Set-Alias -Name List-CFAnycastIpLists -Value Get-CFAnycastIpListList
+Set-Alias -Name List-CFAnycastIpListList -Value Get-CFAnycastIpListList
+Set-Alias -Name CF-ListAnycastIpLists -Value Get-CFAnycastIpListList
 Set-Alias -Name List-CFCachePolicies -Value Get-CFCachePolicyList
 Set-Alias -Name List-CFCachePolicyList -Value Get-CFCachePolicyList
 Set-Alias -Name CF-ListCachePolicies -Value Get-CFCachePolicyList
@@ -4342,6 +4358,8 @@ Set-Alias -Name CF-ListContinuousDeploymentPolicies -Value Get-CFContinuousDeplo
 Set-Alias -Name List-CFDistributions -Value Get-CFDistributionList
 Set-Alias -Name List-CFDistributionList -Value Get-CFDistributionList
 Set-Alias -Name CF-ListDistributions -Value Get-CFDistributionList
+Set-Alias -Name List-CFDistributionsByAnycastIpListId -Value Get-CFDistributionsByAnycastIpListId
+Set-Alias -Name CF-ListDistributionsByAnycastIpListId -Value Get-CFDistributionsByAnycastIpListId
 Set-Alias -Name List-CFDistributionsByCachePolicyId -Value Get-CFDistributionsByCachePolicyId
 Set-Alias -Name CF-ListDistributionsByCachePolicyId -Value Get-CFDistributionsByCachePolicyId
 Set-Alias -Name List-CFDistributionsByKeyGroup -Value Get-CFDistributionsByKeyGroup
@@ -4352,6 +4370,8 @@ Set-Alias -Name List-CFDistributionsByRealtimeLogConfig -Value Get-CFDistributio
 Set-Alias -Name CF-ListDistributionsByRealtimeLogConfig -Value Get-CFDistributionsByRealtimeLogConfig
 Set-Alias -Name List-CFDistributionsByResponseHeadersPolicyId -Value Get-CFDistributionsByResponseHeadersPolicyId
 Set-Alias -Name CF-ListDistributionsByResponseHeadersPolicyId -Value Get-CFDistributionsByResponseHeadersPolicyId
+Set-Alias -Name List-CFDistributionsByVpcOriginId -Value Get-CFDistributionsByVpcOriginId
+Set-Alias -Name CF-ListDistributionsByVpcOriginId -Value Get-CFDistributionsByVpcOriginId
 Set-Alias -Name List-CFDistributionsByWebACLId -Value Get-CFDistributionListByWebACLId
 Set-Alias -Name List-CFDistributionListByWebACLId -Value Get-CFDistributionListByWebACLId
 Set-Alias -Name CF-ListDistributionsByWebACLId -Value Get-CFDistributionListByWebACLId
@@ -4392,6 +4412,9 @@ Set-Alias -Name List-CFStreamingDistributions -Value Get-CFStreamingDistribution
 Set-Alias -Name List-CFStreamingDistributionList -Value Get-CFStreamingDistributionList
 Set-Alias -Name CF-ListStreamingDistributions -Value Get-CFStreamingDistributionList
 Set-Alias -Name CF-ListTagsForResource -Value Get-CFResourceTag
+Set-Alias -Name List-CFVpcOrigins -Value Get-CFVpcOriginList
+Set-Alias -Name List-CFVpcOriginList -Value Get-CFVpcOriginList
+Set-Alias -Name CF-ListVpcOrigins -Value Get-CFVpcOriginList
 Set-Alias -Name CF-PublishFunction -Value Publish-CFFunction
 Set-Alias -Name CF-TagResource -Value Add-CFResourceTag
 Set-Alias -Name CF-TestFunction -Value Test-CFFunction
@@ -4412,6 +4435,7 @@ Set-Alias -Name CF-UpdatePublicKey -Value Update-CFPublicKey
 Set-Alias -Name CF-UpdateRealtimeLogConfig -Value Update-CFRealtimeLogConfig
 Set-Alias -Name CF-UpdateResponseHeadersPolicy -Value Update-CFResponseHeadersPolicy
 Set-Alias -Name CF-UpdateStreamingDistribution -Value Update-CFStreamingDistribution
+Set-Alias -Name CF-UpdateVpcOrigin -Value Update-CFVpcOrigin
 Set-Alias -Name Delete-CFKVKey -Value Remove-CFKVKey
 Set-Alias -Name CFKV-DeleteKey -Value Remove-CFKVKey
 Set-Alias -Name Describe-CFKVKeyValueStore -Value Get-CFKVKeyValueStore
@@ -6010,6 +6034,8 @@ Set-Alias -Name Export-COEC2InstanceRecommendations -Value Export-COEC2InstanceR
 Set-Alias -Name CO-ExportEC2InstanceRecommendations -Value Export-COEC2InstanceRecommendation
 Set-Alias -Name Export-COECSServiceRecommendations -Value Export-COECSServiceRecommendation
 Set-Alias -Name CO-ExportECSServiceRecommendations -Value Export-COECSServiceRecommendation
+Set-Alias -Name Export-COIdleRecommendations -Value Export-COIdleRecommendation
+Set-Alias -Name CO-ExportIdleRecommendations -Value Export-COIdleRecommendation
 Set-Alias -Name Export-COLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name CO-ExportLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name Export-COLicenseRecommendations -Value Export-COLicenseRecommendation
@@ -6032,6 +6058,8 @@ Set-Alias -Name Get-COEffectiveRecommendationPreferences -Value Get-COEffectiveR
 Set-Alias -Name CO-GetEffectiveRecommendationPreferences -Value Get-COEffectiveRecommendationPreference
 Set-Alias -Name CO-GetEnrollmentStatus -Value Get-COEnrollmentStatus
 Set-Alias -Name CO-GetEnrollmentStatusesForOrganization -Value Get-COEnrollmentStatusesForOrganization
+Set-Alias -Name Get-COIdleRecommendations -Value Get-COIdleRecommendation
+Set-Alias -Name CO-GetIdleRecommendations -Value Get-COIdleRecommendation
 Set-Alias -Name Get-COLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
 Set-Alias -Name CO-GetLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
 Set-Alias -Name Get-COLicenseRecommendations -Value Get-COLicenseRecommendation
@@ -7459,6 +7487,8 @@ Set-Alias -Name Create-DZProject -Value New-DZProject
 Set-Alias -Name DZ-CreateProject -Value New-DZProject
 Set-Alias -Name Create-DZProjectMembership -Value New-DZProjectMembership
 Set-Alias -Name DZ-CreateProjectMembership -Value New-DZProjectMembership
+Set-Alias -Name Create-DZRule -Value New-DZRule
+Set-Alias -Name DZ-CreateRule -Value New-DZRule
 Set-Alias -Name Create-DZSubscriptionGrant -Value New-DZSubscriptionGrant
 Set-Alias -Name DZ-CreateSubscriptionGrant -Value New-DZSubscriptionGrant
 Set-Alias -Name Create-DZSubscriptionRequest -Value New-DZSubscriptionRequest
@@ -7501,6 +7531,8 @@ Set-Alias -Name Delete-DZProject -Value Remove-DZProject
 Set-Alias -Name DZ-DeleteProject -Value Remove-DZProject
 Set-Alias -Name Delete-DZProjectMembership -Value Remove-DZProjectMembership
 Set-Alias -Name DZ-DeleteProjectMembership -Value Remove-DZProjectMembership
+Set-Alias -Name Delete-DZRule -Value Remove-DZRule
+Set-Alias -Name DZ-DeleteRule -Value Remove-DZRule
 Set-Alias -Name Delete-DZSubscriptionGrant -Value Remove-DZSubscriptionGrant
 Set-Alias -Name DZ-DeleteSubscriptionGrant -Value Remove-DZSubscriptionGrant
 Set-Alias -Name Delete-DZSubscriptionRequest -Value Remove-DZSubscriptionRequest
@@ -7536,6 +7568,7 @@ Set-Alias -Name DZ-GetLineageNode -Value Get-DZLineageNode
 Set-Alias -Name DZ-GetListing -Value Get-DZListing
 Set-Alias -Name DZ-GetMetadataGenerationRun -Value Get-DZMetadataGenerationRun
 Set-Alias -Name DZ-GetProject -Value Get-DZProject
+Set-Alias -Name DZ-GetRule -Value Get-DZRule
 Set-Alias -Name DZ-GetSubscription -Value Get-DZSubscription
 Set-Alias -Name DZ-GetSubscriptionGrant -Value Get-DZSubscriptionGrant
 Set-Alias -Name Get-DZSubscriptionRequestDetails -Value Get-DZSubscriptionRequestDetail
@@ -7603,6 +7636,9 @@ Set-Alias -Name DZ-ListProjectMemberships -Value Get-DZProjectMembershipList
 Set-Alias -Name List-DZProjects -Value Get-DZProjectList
 Set-Alias -Name List-DZProjectList -Value Get-DZProjectList
 Set-Alias -Name DZ-ListProjects -Value Get-DZProjectList
+Set-Alias -Name List-DZRules -Value Get-DZRuleList
+Set-Alias -Name List-DZRuleList -Value Get-DZRuleList
+Set-Alias -Name DZ-ListRules -Value Get-DZRuleList
 Set-Alias -Name List-DZSubscriptionGrants -Value Get-DZSubscriptionGrantList
 Set-Alias -Name List-DZSubscriptionGrantList -Value Get-DZSubscriptionGrantList
 Set-Alias -Name DZ-ListSubscriptionGrants -Value Get-DZSubscriptionGrantList
@@ -7659,6 +7695,7 @@ Set-Alias -Name DZ-UpdateGlossary -Value Update-DZGlossary
 Set-Alias -Name DZ-UpdateGlossaryTerm -Value Update-DZGlossaryTerm
 Set-Alias -Name DZ-UpdateGroupProfile -Value Update-DZGroupProfile
 Set-Alias -Name DZ-UpdateProject -Value Update-DZProject
+Set-Alias -Name DZ-UpdateRule -Value Update-DZRule
 Set-Alias -Name DZ-UpdateSubscriptionGrantStatus -Value Update-DZSubscriptionGrantStatus
 Set-Alias -Name DZ-UpdateSubscriptionRequest -Value Update-DZSubscriptionRequest
 Set-Alias -Name DZ-UpdateSubscriptionTarget -Value Update-DZSubscriptionTarget
@@ -11369,6 +11406,8 @@ Set-Alias -Name ELB2-DeregisterTargets -Value Unregister-ELB2Target
 Set-Alias -Name Describe-ELB2AccountLimits -Value Get-ELB2AccountLimit
 Set-Alias -Name Describe-ELB2AccountLimit -Value Get-ELB2AccountLimit
 Set-Alias -Name ELB2-DescribeAccountLimits -Value Get-ELB2AccountLimit
+Set-Alias -Name Describe-ELB2CapacityReservation -Value Get-ELB2CapacityReservation
+Set-Alias -Name ELB2-DescribeCapacityReservation -Value Get-ELB2CapacityReservation
 Set-Alias -Name Describe-ELB2ListenerAttributes -Value Get-ELB2ListenerAttribute
 Set-Alias -Name Describe-ELB2ListenerAttribute -Value Get-ELB2ListenerAttribute
 Set-Alias -Name ELB2-DescribeListenerAttributes -Value Get-ELB2ListenerAttribute
@@ -11413,6 +11452,8 @@ Set-Alias -Name ELB2-DescribeTrustStores -Value Get-ELB2TrustStore
 Set-Alias -Name ELB2-GetResourcePolicy -Value Get-ELB2ResourcePolicy
 Set-Alias -Name ELB2-GetTrustStoreCaCertificatesBundle -Value Get-ELB2TrustStoreCaCertificatesBundle
 Set-Alias -Name ELB2-GetTrustStoreRevocationContent -Value Get-ELB2TrustStoreRevocationContent
+Set-Alias -Name Modify-ELB2CapacityReservation -Value Edit-ELB2CapacityReservation
+Set-Alias -Name ELB2-ModifyCapacityReservation -Value Edit-ELB2CapacityReservation
 Set-Alias -Name Modify-ELB2Listener -Value Edit-ELB2Listener
 Set-Alias -Name ELB2-ModifyListener -Value Edit-ELB2Listener
 Set-Alias -Name Modify-ELB2ListenerAttributes -Value Edit-ELB2ListenerAttribute
@@ -20827,6 +20868,8 @@ Set-Alias -Name Create-OMICSMultipartReadSetUpload -Value New-OMICSMultipartRead
 Set-Alias -Name OMICS-CreateMultipartReadSetUpload -Value New-OMICSMultipartReadSetUpload
 Set-Alias -Name Create-OMICSReferenceStore -Value New-OMICSReferenceStore
 Set-Alias -Name OMICS-CreateReferenceStore -Value New-OMICSReferenceStore
+Set-Alias -Name Create-OMICSRunCache -Value New-OMICSRunCache
+Set-Alias -Name OMICS-CreateRunCache -Value New-OMICSRunCache
 Set-Alias -Name Create-OMICSRunGroup -Value New-OMICSRunGroup
 Set-Alias -Name OMICS-CreateRunGroup -Value New-OMICSRunGroup
 Set-Alias -Name Create-OMICSSequenceStore -Value New-OMICSSequenceStore
@@ -20848,6 +20891,8 @@ Set-Alias -Name Delete-OMICSReferenceStore -Value Remove-OMICSReferenceStore
 Set-Alias -Name OMICS-DeleteReferenceStore -Value Remove-OMICSReferenceStore
 Set-Alias -Name Delete-OMICSRun -Value Remove-OMICSRun
 Set-Alias -Name OMICS-DeleteRun -Value Remove-OMICSRun
+Set-Alias -Name Delete-OMICSRunCache -Value Remove-OMICSRunCache
+Set-Alias -Name OMICS-DeleteRunCache -Value Remove-OMICSRunCache
 Set-Alias -Name Delete-OMICSRunGroup -Value Remove-OMICSRunGroup
 Set-Alias -Name OMICS-DeleteRunGroup -Value Remove-OMICSRunGroup
 Set-Alias -Name Delete-OMICSSequenceStore -Value Remove-OMICSSequenceStore
@@ -20871,6 +20916,7 @@ Set-Alias -Name OMICS-GetReferenceImportJob -Value Get-OMICSReferenceImportJob
 Set-Alias -Name OMICS-GetReferenceMetadata -Value Get-OMICSReferenceMetadata
 Set-Alias -Name OMICS-GetReferenceStore -Value Get-OMICSReferenceStore
 Set-Alias -Name OMICS-GetRun -Value Get-OMICSRun
+Set-Alias -Name OMICS-GetRunCache -Value Get-OMICSRunCache
 Set-Alias -Name OMICS-GetRunGroup -Value Get-OMICSRunGroup
 Set-Alias -Name OMICS-GetRunTask -Value Get-OMICSRunTask
 Set-Alias -Name OMICS-GetSequenceStore -Value Get-OMICSSequenceStore
@@ -20914,6 +20960,9 @@ Set-Alias -Name OMICS-ListReferences -Value Get-OMICSReferenceList
 Set-Alias -Name List-OMICSReferenceStores -Value Get-OMICSReferenceStoreList
 Set-Alias -Name List-OMICSReferenceStoreList -Value Get-OMICSReferenceStoreList
 Set-Alias -Name OMICS-ListReferenceStores -Value Get-OMICSReferenceStoreList
+Set-Alias -Name List-OMICSRunCaches -Value Get-OMICSRunCachList
+Set-Alias -Name List-OMICSRunCachList -Value Get-OMICSRunCachList
+Set-Alias -Name OMICS-ListRunCaches -Value Get-OMICSRunCachList
 Set-Alias -Name List-OMICSRunGroups -Value Get-OMICSRunGroupList
 Set-Alias -Name List-OMICSRunGroupList -Value Get-OMICSRunGroupList
 Set-Alias -Name OMICS-ListRunGroups -Value Get-OMICSRunGroupList
@@ -20950,6 +20999,7 @@ Set-Alias -Name OMICS-TagResource -Value Add-OMICSResourceTag
 Set-Alias -Name OMICS-UntagResource -Value Remove-OMICSResourceTag
 Set-Alias -Name OMICS-UpdateAnnotationStore -Value Update-OMICSAnnotationStore
 Set-Alias -Name OMICS-UpdateAnnotationStoreVersion -Value Update-OMICSAnnotationStoreVersion
+Set-Alias -Name OMICS-UpdateRunCache -Value Update-OMICSRunCache
 Set-Alias -Name OMICS-UpdateRunGroup -Value Update-OMICSRunGroup
 Set-Alias -Name OMICS-UpdateVariantStore -Value Update-OMICSVariantStore
 Set-Alias -Name OMICS-UpdateWorkflow -Value Update-OMICSWorkflow
@@ -30596,6 +30646,9 @@ Set-Alias -Name WSTC-UpdateSoftwareSet -Value Update-WSTCSoftwareSet
 Set-Alias -Name Associate-WSWBrowserSettings -Value Register-WSWBrowserSetting
 Set-Alias -Name Associate-WSWBrowserSetting -Value Register-WSWBrowserSetting
 Set-Alias -Name WSW-AssociateBrowserSettings -Value Register-WSWBrowserSetting
+Set-Alias -Name Associate-WSWDataProtectionSettings -Value Register-WSWDataProtectionSetting
+Set-Alias -Name Associate-WSWDataProtectionSetting -Value Register-WSWDataProtectionSetting
+Set-Alias -Name WSW-AssociateDataProtectionSettings -Value Register-WSWDataProtectionSetting
 Set-Alias -Name Associate-WSWIpAccessSettings -Value Register-WSWIpAccessSetting
 Set-Alias -Name Associate-WSWIpAccessSetting -Value Register-WSWIpAccessSetting
 Set-Alias -Name WSW-AssociateIpAccessSettings -Value Register-WSWIpAccessSetting
@@ -30613,6 +30666,9 @@ Set-Alias -Name WSW-AssociateUserSettings -Value Register-WSWUserSetting
 Set-Alias -Name Create-WSWBrowserSettings -Value New-WSWBrowserSetting
 Set-Alias -Name Create-WSWBrowserSetting -Value New-WSWBrowserSetting
 Set-Alias -Name WSW-CreateBrowserSettings -Value New-WSWBrowserSetting
+Set-Alias -Name Create-WSWDataProtectionSettings -Value New-WSWDataProtectionSetting
+Set-Alias -Name Create-WSWDataProtectionSetting -Value New-WSWDataProtectionSetting
+Set-Alias -Name WSW-CreateDataProtectionSettings -Value New-WSWDataProtectionSetting
 Set-Alias -Name Create-WSWIdentityProvider -Value New-WSWIdentityProvider
 Set-Alias -Name WSW-CreateIdentityProvider -Value New-WSWIdentityProvider
 Set-Alias -Name Create-WSWIpAccessSettings -Value New-WSWIpAccessSetting
@@ -30634,6 +30690,9 @@ Set-Alias -Name WSW-CreateUserSettings -Value New-WSWUserSetting
 Set-Alias -Name Delete-WSWBrowserSettings -Value Remove-WSWBrowserSetting
 Set-Alias -Name Delete-WSWBrowserSetting -Value Remove-WSWBrowserSetting
 Set-Alias -Name WSW-DeleteBrowserSettings -Value Remove-WSWBrowserSetting
+Set-Alias -Name Delete-WSWDataProtectionSettings -Value Remove-WSWDataProtectionSetting
+Set-Alias -Name Delete-WSWDataProtectionSetting -Value Remove-WSWDataProtectionSetting
+Set-Alias -Name WSW-DeleteDataProtectionSettings -Value Remove-WSWDataProtectionSetting
 Set-Alias -Name Delete-WSWIdentityProvider -Value Remove-WSWIdentityProvider
 Set-Alias -Name WSW-DeleteIdentityProvider -Value Remove-WSWIdentityProvider
 Set-Alias -Name Delete-WSWIpAccessSettings -Value Remove-WSWIpAccessSetting
@@ -30655,6 +30714,9 @@ Set-Alias -Name WSW-DeleteUserSettings -Value Remove-WSWUserSetting
 Set-Alias -Name Disassociate-WSWBrowserSettings -Value Unregister-WSWBrowserSetting
 Set-Alias -Name Disassociate-WSWBrowserSetting -Value Unregister-WSWBrowserSetting
 Set-Alias -Name WSW-DisassociateBrowserSettings -Value Unregister-WSWBrowserSetting
+Set-Alias -Name Disassociate-WSWDataProtectionSettings -Value Unregister-WSWDataProtectionSetting
+Set-Alias -Name Disassociate-WSWDataProtectionSetting -Value Unregister-WSWDataProtectionSetting
+Set-Alias -Name WSW-DisassociateDataProtectionSettings -Value Unregister-WSWDataProtectionSetting
 Set-Alias -Name Disassociate-WSWIpAccessSettings -Value Unregister-WSWIpAccessSetting
 Set-Alias -Name Disassociate-WSWIpAccessSetting -Value Unregister-WSWIpAccessSetting
 Set-Alias -Name WSW-DisassociateIpAccessSettings -Value Unregister-WSWIpAccessSetting
@@ -30673,6 +30735,8 @@ Set-Alias -Name Expire-WSWSession -Value Revoke-WSWSession
 Set-Alias -Name WSW-ExpireSession -Value Revoke-WSWSession
 Set-Alias -Name Get-WSWBrowserSettings -Value Get-WSWBrowserSetting
 Set-Alias -Name WSW-GetBrowserSettings -Value Get-WSWBrowserSetting
+Set-Alias -Name Get-WSWDataProtectionSettings -Value Get-WSWDataProtectionSetting
+Set-Alias -Name WSW-GetDataProtectionSettings -Value Get-WSWDataProtectionSetting
 Set-Alias -Name WSW-GetIdentityProvider -Value Get-WSWIdentityProvider
 Set-Alias -Name Get-WSWIpAccessSettings -Value Get-WSWIpAccessSetting
 Set-Alias -Name WSW-GetIpAccessSettings -Value Get-WSWIpAccessSetting
@@ -30690,6 +30754,9 @@ Set-Alias -Name WSW-GetUserSettings -Value Get-WSWUserSetting
 Set-Alias -Name List-WSWBrowserSettings -Value Get-WSWBrowserSettingList
 Set-Alias -Name List-WSWBrowserSettingList -Value Get-WSWBrowserSettingList
 Set-Alias -Name WSW-ListBrowserSettings -Value Get-WSWBrowserSettingList
+Set-Alias -Name List-WSWDataProtectionSettings -Value Get-WSWDataProtectionSettingList
+Set-Alias -Name List-WSWDataProtectionSettingList -Value Get-WSWDataProtectionSettingList
+Set-Alias -Name WSW-ListDataProtectionSettings -Value Get-WSWDataProtectionSettingList
 Set-Alias -Name List-WSWIdentityProviders -Value Get-WSWIdentityProviderList
 Set-Alias -Name List-WSWIdentityProviderList -Value Get-WSWIdentityProviderList
 Set-Alias -Name WSW-ListIdentityProviders -Value Get-WSWIdentityProviderList
@@ -30722,6 +30789,8 @@ Set-Alias -Name WSW-TagResource -Value Add-WSWResourceTag
 Set-Alias -Name WSW-UntagResource -Value Remove-WSWResourceTag
 Set-Alias -Name Update-WSWBrowserSettings -Value Update-WSWBrowserSetting
 Set-Alias -Name WSW-UpdateBrowserSettings -Value Update-WSWBrowserSetting
+Set-Alias -Name Update-WSWDataProtectionSettings -Value Update-WSWDataProtectionSetting
+Set-Alias -Name WSW-UpdateDataProtectionSettings -Value Update-WSWDataProtectionSetting
 Set-Alias -Name WSW-UpdateIdentityProvider -Value Update-WSWIdentityProvider
 Set-Alias -Name Update-WSWIpAccessSettings -Value Update-WSWIpAccessSetting
 Set-Alias -Name WSW-UpdateIpAccessSettings -Value Update-WSWIpAccessSetting

@@ -97,6 +97,17 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.CacheBehavior
+        {
+            ($_ -eq "New-OMICSRunCache/CacheBehavior") -Or
+            ($_ -eq "Start-OMICSRun/CacheBehavior") -Or
+            ($_ -eq "Update-OMICSRunCache/CacheBehavior")
+        }
+        {
+            $v = "CACHE_ALWAYS","CACHE_ON_FAILURE"
+            break
+        }
+
         # Amazon.Omics.CreationType
         "Get-OMICSReadSetList/Filter_CreationType"
         {
@@ -293,6 +304,7 @@ $OMICS_Completers = {
 
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow")
+    "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
     "Engine"=@("New-OMICSWorkflow")
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
@@ -374,6 +386,7 @@ $OMICS_SelectMap = @{
                "New-OMICSAnnotationStoreVersion",
                "New-OMICSMultipartReadSetUpload",
                "New-OMICSReferenceStore",
+               "New-OMICSRunCache",
                "New-OMICSRunGroup",
                "New-OMICSSequenceStore",
                "New-OMICSShare",
@@ -384,6 +397,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
+               "Remove-OMICSRunCache",
                "Remove-OMICSRunGroup",
                "Remove-OMICSSequenceStore",
                "Remove-OMICSShare",
@@ -402,6 +416,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceMetadata",
                "Get-OMICSReferenceStore",
                "Get-OMICSRun",
+               "Get-OMICSRunCache",
                "Get-OMICSRunGroup",
                "Get-OMICSRunTask",
                "Get-OMICSSequenceStore",
@@ -421,6 +436,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceImportJobList",
                "Get-OMICSReferenceList",
                "Get-OMICSReferenceStoreList",
+               "Get-OMICSRunCachList",
                "Get-OMICSRunGroupList",
                "Get-OMICSRunList",
                "Get-OMICSRunTaskList",
@@ -441,6 +457,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSResourceTag",
                "Update-OMICSAnnotationStore",
                "Update-OMICSAnnotationStoreVersion",
+               "Update-OMICSRunCache",
                "Update-OMICSRunGroup",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",

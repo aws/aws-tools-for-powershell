@@ -54,6 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }
         #endregion
         
+        #region Parameter ConcurrentJob
+        /// <summary>
+        /// <para>
+        /// Specify the maximum number of jobs your
+        /// queue can process concurrently. For on-demand queues, the value you enter is constrained
+        /// by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum
+        /// concurrent jobs, per account. For reserved queues, update your reservation plan instead
+        /// in order to increase your yearly commitment.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConcurrentJobs")]
+        public System.Int32? ConcurrentJob { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -189,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConcurrentJob = this.ConcurrentJob;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -217,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // create request
             var request = new Amazon.MediaConvert.Model.UpdateQueueRequest();
             
+            if (cmdletContext.ConcurrentJob != null)
+            {
+                request.ConcurrentJobs = cmdletContext.ConcurrentJob.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -329,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ConcurrentJob { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }

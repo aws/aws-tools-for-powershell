@@ -157,6 +157,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneRebalancing
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use Availability Zone rebalancing for the service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing
+        /// an Amazon ECS service across Availability Zones</a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.AvailabilityZoneRebalancing")]
+        public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
+        #endregion
+        
         #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
@@ -763,11 +776,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// version of the container with the latest version. The number of containers Amazon
         /// ECS adds or removes from the service during a rolling update is controlled by adjusting
         /// the minimum and maximum number of healthy tasks allowed during a service deployment,
-        /// as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<c>CODE_DEPLOY</c>) deployment type uses the blue/green deployment
+        /// as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</para><para>For more information about rolling deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy
+        /// Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service
+        /// Developer Guide</i>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<c>CODE_DEPLOY</c>) deployment type uses the blue/green deployment
         /// model powered by CodeDeploy, which allows you to verify a new deployment of a service
-        /// before sending production traffic to it.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<c>EXTERNAL</c>) deployment type enables you to use any third-party
+        /// before sending production traffic to it.</para><para>For more information about blue/green deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html">Validate
+        /// the state of an Amazon ECS service before deployment </a> in the <i>Amazon Elastic
+        /// Container Service Developer Guide</i>.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<c>EXTERNAL</c>) deployment type enables you to use any third-party
         /// deployment controller for full control over the deployment process for an Amazon ECS
-        /// service.</para></dd></dl>
+        /// service.</para><para>For more information about external deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html">Deploy
+        /// Amazon ECS services using a third-party controller </a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -873,6 +892,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Cluster;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZoneRebalancing = this.AvailabilityZoneRebalancing;
             if (this.CapacityProviderStrategy != null)
             {
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
@@ -979,6 +999,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.CreateServiceRequest();
             
+            if (cmdletContext.AvailabilityZoneRebalancing != null)
+            {
+                request.AvailabilityZoneRebalancing = cmdletContext.AvailabilityZoneRebalancing;
+            }
             if (cmdletContext.CapacityProviderStrategy != null)
             {
                 request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
@@ -1390,6 +1414,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Cluster { get; set; }
