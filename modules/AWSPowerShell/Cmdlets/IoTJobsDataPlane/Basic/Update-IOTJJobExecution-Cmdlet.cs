@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
 {
     /// <summary>
     /// Updates the status of a job execution.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotjobsdataplane.html">UpdateJobExecution</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "IOTJJobExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse")]
@@ -127,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
         /// <summary>
         /// <para>
         /// <para> Optional. A collection of name/value pairs that describe the status of the job execution.
-        /// If not specified, the statusDetails are unchanged.</para>
+        /// If not specified, the statusDetails are unchanged.</para><para>The maximum length of the value in the name/value pair is 1,024 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,10 +147,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
         /// <para>Specifies the amount of time this device has to finish execution of this job. If the
         /// job execution status is not set to a terminal state before this timer expires, or
         /// before the timer is reset (by again calling <c>UpdateJobExecution</c>, setting the
-        /// status to <c>IN_PROGRESS</c> and specifying a new timeout value in this field) the
+        /// status to <c>IN_PROGRESS</c>, and specifying a new timeout value in this field) the
         /// job execution status will be automatically set to <c>TIMED_OUT</c>. Note that setting
-        /// or resetting this timeout has no effect on that job execution timeout which may have
-        /// been specified when the job was created (<c>CreateJob</c> using field <c>timeoutConfig</c>).</para>
+        /// or resetting the step timeout has no effect on the in progress timeout that may have
+        /// been specified when the job was created (<c>CreateJob</c> using field <c>timeoutConfig</c>).</para><para>Valid values for this parameter range from 1 to 10080 (1 minute to 7 days). A value
+        /// of -1 is also valid and will cancel the current step timer (created by an earlier
+        /// use of <c>UpdateJobExecutionRequest</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -51,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// operation. If the context is set to <c>COST_AND_USAGE</c>, the resulting dimension
         /// values can be used in the <c>GetCostAndUsage</c> operation.</para><para>If you set the context to <c>COST_AND_USAGE</c>, you can use the following dimensions
         /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <c>us-east-1a</c>.</para></li><li><para>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
-        /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Servicesservices.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
-        /// reseller for Amazon Web Servicesservices in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
+        /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services
+        /// services.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
+        /// reseller for Amazon Web Services services in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
         /// that are built on Amazon Web Services by third-party software providers.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
         /// values are <c>SingleAZ</c> and <c>MultiAZ</c>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
         /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <c>m4.xlarge</c>.</para></li><li><para>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.

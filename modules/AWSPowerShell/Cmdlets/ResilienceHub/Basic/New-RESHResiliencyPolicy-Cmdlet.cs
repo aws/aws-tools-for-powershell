@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PolicyDescription
         /// <summary>
         /// <para>
-        /// <para>The description for the policy.</para>
+        /// <para>Description of the resiliency policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the policy</para>
+        /// <para>Name of the resiliency policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

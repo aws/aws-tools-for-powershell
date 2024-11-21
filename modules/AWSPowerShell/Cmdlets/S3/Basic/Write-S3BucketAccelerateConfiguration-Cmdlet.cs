@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration
     /// is a bucket-level feature that enables you to perform faster data transfers to Amazon

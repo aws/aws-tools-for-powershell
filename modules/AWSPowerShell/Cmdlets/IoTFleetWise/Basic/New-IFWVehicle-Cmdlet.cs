@@ -67,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <summary>
         /// <para>
         /// <para>Static information about a vehicle in a key-value pair. For example: <c>"engineType"</c>
-        /// : <c>"1.3 L R2"</c></para><para>A campaign must include the keys (attribute names) in <c>dataExtraDimensions</c> for
-        /// them to display in Amazon Timestream.</para>
+        /// : <c>"1.3 L R2"</c></para><para>To use attributes with Campaigns or State Templates, you must include them using the
+        /// request parameters <c>dataExtraDimensions</c> and/or <c>metadataExtraDimensions</c>
+        /// (for state templates only) when creating your campaign/state template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelManifestArn { get; set; }
+        #endregion
+        
+        #region Parameter StateTemplate
+        /// <summary>
+        /// <para>
+        /// <para>Associate state templates with the vehicle. You can monitor the last known state of
+        /// the vehicle in near real time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StateTemplates")]
+        public Amazon.IoTFleetWise.Model.StateTemplateAssociation[] StateTemplate { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -223,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                 WriteWarning("You are passing $null as a value for parameter ModelManifestArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StateTemplate != null)
+            {
+                context.StateTemplate = new List<Amazon.IoTFleetWise.Model.StateTemplateAssociation>(this.StateTemplate);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IoTFleetWise.Model.Tag>(this.Tag);
@@ -265,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (cmdletContext.ModelManifestArn != null)
             {
                 request.ModelManifestArn = cmdletContext.ModelManifestArn;
+            }
+            if (cmdletContext.StateTemplate != null)
+            {
+                request.StateTemplates = cmdletContext.StateTemplate;
             }
             if (cmdletContext.Tag != null)
             {
@@ -339,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             public Dictionary<System.String, System.String> Attribute { get; set; }
             public System.String DecoderManifestArn { get; set; }
             public System.String ModelManifestArn { get; set; }
+            public List<Amazon.IoTFleetWise.Model.StateTemplateAssociation> StateTemplate { get; set; }
             public List<Amazon.IoTFleetWise.Model.Tag> Tag { get; set; }
             public System.String VehicleName { get; set; }
             public System.Func<Amazon.IoTFleetWise.Model.CreateVehicleResponse, NewIFWVehicleCmdlet, object> Select { get; set; } =

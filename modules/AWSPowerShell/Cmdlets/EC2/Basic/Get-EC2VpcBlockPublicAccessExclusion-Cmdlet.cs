@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Filters for the request:</para><ul><li><para><c>resource-arn</c> - The Amazon Resource Name (ARN) of a exclusion.</para></li><li><para><c>internet-gateway-exclusion-mode</c> - The mode of a VPC BPA exclusion. Possible
-        /// values: <c>bidirectional-access-allowed | egress-access-allowed</c>.</para></li><li><para><c>state</c> - The state of VPC BPA. Possible values: <c>create-in-progress | create-complete
+        /// values: <c>allow-bidirectional | allow-egress</c>.</para></li><li><para><c>state</c> - The state of VPC BPA. Possible values: <c>create-in-progress | create-complete
         /// | update-in-progress | update-complete | delete-in-progress | deleted-complete | disable-in-progress
         /// | disable-complete</c></para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
         /// tag key in the filter name and the tag value as the filter value. For example, to

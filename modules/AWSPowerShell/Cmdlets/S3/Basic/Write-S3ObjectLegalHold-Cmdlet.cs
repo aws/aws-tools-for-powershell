@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Applies a legal hold configuration to the specified object. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking

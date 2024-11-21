@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelTraceRetrieval" Verb="Stop" Noun="TraceRetrieval" ShouldProcessTarget="RetrievalToken" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIndexingRules" OutputProperty="IndexingRules" Verb="Get" Noun="IndexingRule" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInsight" OutputProperty="Insight" Verb="Get" Noun="Insight" PipelineParameter="InsightId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetInsightSummaries" OutputProperty="InsightSummaries" Verb="Get" Noun="InsightSummary" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRetrievedTracesGraph" OutputProperty="*" Verb="Get" Noun="RetrievedTracesGraph" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,11 +107,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTraceSegmentDestination" OutputProperty="*" Verb="Get" Noun="TraceSegmentDestination" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRetrievedTraces" OutputProperty="*" Verb="Get" Noun="RetrievedTraceList" PipelineParameter="RetrievalToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,6 +143,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartTraceRetrieval" OutputProperty="RetrievalToken" Verb="Start" Noun="TraceRetrieval" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,7 +159,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndexingRule" OutputProperty="IndexingRule" Verb="Update" Noun="IndexingRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Update" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTraceSegmentDestination" OutputProperty="*" Verb="Update" Noun="TraceSegmentDestination" ShouldProcessTarget="Destination" PipelineParameter="Destination" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

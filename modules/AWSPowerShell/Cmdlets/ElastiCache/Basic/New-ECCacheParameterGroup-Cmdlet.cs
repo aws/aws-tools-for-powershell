@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// you can change the values of specific parameters. For more information, see:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html">ModifyCacheParameterGroup</a>
     /// in the ElastiCache API Reference.
-    /// </para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters
+    /// </para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html">Parameters
     /// and Parameter Groups</a> in the ElastiCache User Guide.
     /// </para></li></ul>
     /// </summary>

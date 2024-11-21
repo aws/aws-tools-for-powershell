@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This implementation of the <c>GET</c> action uses the <c>acl</c> subresource to return
     /// the access control list (ACL) of a bucket. To use <c>GET</c> to return the ACL of

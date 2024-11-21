@@ -192,6 +192,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.CapacityReservationDeliveryPreference
+        "Add-EC2CapacityReservation/DeliveryPreference"
+        {
+            $v = "fixed","incremental"
+            break
+        }
+
         # Amazon.EC2.CapacityReservationInstancePlatform
         {
             ($_ -eq "Add-EC2CapacityReservation/InstancePlatform") -Or
@@ -1246,6 +1253,7 @@ $EC2_map = @{
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
     "CurrencyCode"=@("New-EC2HostReservation")
+    "DeliveryPreference"=@("Add-EC2CapacityReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
     "DeviceTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "DiskImageFormat"=@("Export-EC2Image")
@@ -1647,6 +1655,8 @@ $EC2_SelectMap = @{
                "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
+               "Get-EC2CapacityBlockExtensionHistory",
+               "Get-EC2CapacityBlockExtensionOffering",
                "Get-EC2CapacityBlockOffering",
                "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
@@ -1987,6 +1997,7 @@ $EC2_SelectMap = @{
                "Register-EC2IpamPoolCidr",
                "Register-EC2PublicIpv4PoolCidr",
                "New-EC2EC2CapacityBlock",
+               "Invoke-EC2CapacityBlockExtension",
                "New-EC2HostReservation",
                "New-EC2ReservedInstance",
                "New-EC2ScheduledInstancePurchase",

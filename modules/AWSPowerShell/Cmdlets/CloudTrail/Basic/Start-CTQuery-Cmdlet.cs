@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         public System.String DeliveryS3Uri { get; set; }
         #endregion
         
+        #region Parameter EventDataStoreOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para> The account ID of the event data store owner. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStoreOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter QueryAlias
         /// <summary>
         /// <para>
@@ -155,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeliveryS3Uri = this.DeliveryS3Uri;
+            context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.QueryAlias = this.QueryAlias;
             if (this.QueryParameter != null)
             {
@@ -180,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.DeliveryS3Uri != null)
             {
                 request.DeliveryS3Uri = cmdletContext.DeliveryS3Uri;
+            }
+            if (cmdletContext.EventDataStoreOwnerAccountId != null)
+            {
+                request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;
             }
             if (cmdletContext.QueryAlias != null)
             {
@@ -255,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryS3Uri { get; set; }
+            public System.String EventDataStoreOwnerAccountId { get; set; }
             public System.String QueryAlias { get; set; }
             public List<System.String> QueryParameter { get; set; }
             public System.String QueryStatement { get; set; }

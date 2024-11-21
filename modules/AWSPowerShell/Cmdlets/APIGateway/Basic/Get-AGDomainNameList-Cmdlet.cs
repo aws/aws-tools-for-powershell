@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the domain name access association. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.ResourceOwner")]
+        public Amazon.APIGateway.ResourceOwner ResourceOwner { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -121,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             #endif
             context.Position = this.Position;
+            context.ResourceOwner = this.ResourceOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
             }
             
             // Initialize loop variant and commence piping
@@ -199,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             // create request and set iteration invariants
             var request = new Amazon.APIGateway.Model.GetDomainNamesRequest();
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -313,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public int? Limit { get; set; }
             public System.String Position { get; set; }
+            public Amazon.APIGateway.ResourceOwner ResourceOwner { get; set; }
             public System.Func<Amazon.APIGateway.Model.GetDomainNamesResponse, GetAGDomainNameListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

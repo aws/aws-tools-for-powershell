@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>The engine for a user group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
         #region Parameter UserGroupId
         /// <summary>
         /// <para>
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.Select = (response, cmdlet) => this.UserGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Engine = this.Engine;
             context.UserGroupId = this.UserGroupId;
             #if MODULAR
             if (this.UserGroupId == null && ParameterWasBound(nameof(this.UserGroupId)))
@@ -171,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // create request
             var request = new Amazon.ElastiCache.Model.ModifyUserGroupRequest();
             
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
+            }
             if (cmdletContext.UserGroupId != null)
             {
                 request.UserGroupId = cmdletContext.UserGroupId;
@@ -244,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Engine { get; set; }
             public System.String UserGroupId { get; set; }
             public List<System.String> UserIdsToAdd { get; set; }
             public List<System.String> UserIdsToRemove { get; set; }

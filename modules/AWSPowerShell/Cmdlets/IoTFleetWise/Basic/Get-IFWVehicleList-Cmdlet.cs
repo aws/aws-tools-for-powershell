@@ -50,8 +50,15 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The fully qualified names of the attributes. For example, the fully qualified name
-        /// of an attribute might be <c>Vehicle.Body.Engine.Type</c>.</para>
+        /// <para>The fully qualified names of the attributes. You can use this optional parameter to
+        /// list the vehicles containing all the attributes in the request. For example, <c>attributeNames</c>
+        /// could be "<c>Vehicle.Body.Engine.Type, Vehicle.Color</c>" and the corresponding <c>attributeValues</c>
+        /// could be "<c>1.3 L R2, Blue</c>" . In this case, the API will filter vehicles with
+        /// an attribute name <c>Vehicle.Body.Engine.Type</c> that contains a value of <c>1.3
+        /// L R2</c> AND an attribute name <c>Vehicle.Color</c> that contains a value of "<c>Blue</c>".
+        /// A request must contain unique values for the <c>attributeNames</c> filter and the
+        /// matching number of <c>attributeValues</c> filters to return the subset of vehicles
+        /// that match the attributes filter condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter AttributeValue
         /// <summary>
         /// <para>
-        /// <para>Static information about a vehicle attribute value in string format. For example:</para><para><c>"1.3 L R2"</c></para>
+        /// <para>Static information about a vehicle attribute value in string format. You can use this
+        /// optional parameter in conjunction with <c>attributeNames</c> to list the vehicles
+        /// containing all the <c>attributeValues</c> corresponding to the <c>attributeNames</c>
+        /// filter. For example, <c>attributeValues</c> could be "<c>1.3 L R2, Blue</c>" and the
+        /// corresponding <c>attributeNames</c> filter could be "<c>Vehicle.Body.Engine.Type,
+        /// Vehicle.Color</c>". In this case, the API will filter vehicles with attribute name
+        /// <c>Vehicle.Body.Engine.Type</c> that contains a value of <c>1.3 L R2</c> AND an attribute
+        /// name <c>Vehicle.Color</c> that contains a value of "<c>Blue</c>". A request must contain
+        /// unique values for the <c>attributeNames</c> filter and the matching number of <c>attributeValues</c>
+        /// filter to return the subset of vehicles that match the attributes filter condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items to return, between 1 and 100, inclusive. </para>
+        /// <para>The maximum number of items to return, between 1 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

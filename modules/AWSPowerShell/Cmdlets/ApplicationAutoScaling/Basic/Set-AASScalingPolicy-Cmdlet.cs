@@ -126,6 +126,34 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         public System.Boolean? TargetTrackingScalingPolicyConfiguration_DisableScaleIn { get; set; }
         #endregion
         
+        #region Parameter PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior
+        /// <summary>
+        /// <para>
+        /// <para> Defines the behavior that should be applied if the forecast capacity approaches or
+        /// exceeds the maximum capacity. Defaults to <c>HonorMaxCapacity</c> if not specified.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationAutoScaling.PredictiveScalingMaxCapacityBreachBehavior")]
+        public Amazon.ApplicationAutoScaling.PredictiveScalingMaxCapacityBreachBehavior PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior { get; set; }
+        #endregion
+        
+        #region Parameter PredictiveScalingPolicyConfiguration_MaxCapacityBuffer
+        /// <summary>
+        /// <para>
+        /// <para> The size of the capacity buffer to use when the forecast capacity is close to or
+        /// exceeds the maximum capacity. The value is specified as a percentage relative to the
+        /// forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer,
+        /// such that if the forecast capacity is 50, and the maximum capacity is 40, then the
+        /// effective maximum capacity is 55. </para><para>Required if the <c>MaxCapacityBreachBehavior</c> property is set to <c>IncreaseMaxCapacity</c>,
+        /// and cannot be used otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PredictiveScalingPolicyConfiguration_MaxCapacityBuffer { get; set; }
+        #endregion
+        
         #region Parameter StepScalingPolicyConfiguration_MetricAggregationType
         /// <summary>
         /// <para>
@@ -164,6 +192,20 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         public Amazon.ApplicationAutoScaling.Model.TargetTrackingMetricDataQuery[] CustomizedMetricSpecification_Metric { get; set; }
         #endregion
         
+        #region Parameter PredictiveScalingPolicyConfiguration_MetricSpecification
+        /// <summary>
+        /// <para>
+        /// <para> This structure includes the metrics and target utilization to use for predictive
+        /// scaling. </para><para>This is an array, but we currently only support a single metric specification. That
+        /// is, you can specify a target value and a single metric pair, or a target value and
+        /// one scaling metric and one load metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PredictiveScalingPolicyConfiguration_MetricSpecifications")]
+        public Amazon.ApplicationAutoScaling.Model.PredictiveScalingMetricSpecification[] PredictiveScalingPolicyConfiguration_MetricSpecification { get; set; }
+        #endregion
+        
         #region Parameter StepScalingPolicyConfiguration_MinAdjustmentMagnitude
         /// <summary>
         /// <para>
@@ -177,6 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StepScalingPolicyConfiguration_MinAdjustmentMagnitude { get; set; }
+        #endregion
+        
+        #region Parameter PredictiveScalingPolicyConfiguration_Mode
+        /// <summary>
+        /// <para>
+        /// <para> The predictive scaling mode. Defaults to <c>ForecastOnly</c> if not specified. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationAutoScaling.PredictiveScalingMode")]
+        public Amazon.ApplicationAutoScaling.PredictiveScalingMode PredictiveScalingPolicyConfiguration_Mode { get; set; }
         #endregion
         
         #region Parameter CustomizedMetricSpecification_Namespace
@@ -358,6 +411,17 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         public System.Int32? TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown { get; set; }
         #endregion
         
+        #region Parameter PredictiveScalingPolicyConfiguration_SchedulingBufferTime
+        /// <summary>
+        /// <para>
+        /// <para> The amount of time, in seconds, that the start time can be advanced. </para><para>The value must be less than the forecast interval duration of 3600 seconds (60 minutes).
+        /// Defaults to 300 seconds if not specified. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PredictiveScalingPolicyConfiguration_SchedulingBufferTime { get; set; }
+        #endregion
+        
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
@@ -500,6 +564,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             }
             #endif
             context.PolicyType = this.PolicyType;
+            context.PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior = this.PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior;
+            context.PredictiveScalingPolicyConfiguration_MaxCapacityBuffer = this.PredictiveScalingPolicyConfiguration_MaxCapacityBuffer;
+            if (this.PredictiveScalingPolicyConfiguration_MetricSpecification != null)
+            {
+                context.PredictiveScalingPolicyConfiguration_MetricSpecification = new List<Amazon.ApplicationAutoScaling.Model.PredictiveScalingMetricSpecification>(this.PredictiveScalingPolicyConfiguration_MetricSpecification);
+            }
+            context.PredictiveScalingPolicyConfiguration_Mode = this.PredictiveScalingPolicyConfiguration_Mode;
+            context.PredictiveScalingPolicyConfiguration_SchedulingBufferTime = this.PredictiveScalingPolicyConfiguration_SchedulingBufferTime;
             context.ResourceId = this.ResourceId;
             #if MODULAR
             if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
@@ -570,6 +642,65 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             if (cmdletContext.PolicyType != null)
             {
                 request.PolicyType = cmdletContext.PolicyType;
+            }
+            
+             // populate PredictiveScalingPolicyConfiguration
+            var requestPredictiveScalingPolicyConfigurationIsNull = true;
+            request.PredictiveScalingPolicyConfiguration = new Amazon.ApplicationAutoScaling.Model.PredictiveScalingPolicyConfiguration();
+            Amazon.ApplicationAutoScaling.PredictiveScalingMaxCapacityBreachBehavior requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior = null;
+            if (cmdletContext.PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior != null)
+            {
+                requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior = cmdletContext.PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior;
+            }
+            if (requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior != null)
+            {
+                request.PredictiveScalingPolicyConfiguration.MaxCapacityBreachBehavior = requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior;
+                requestPredictiveScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBuffer = null;
+            if (cmdletContext.PredictiveScalingPolicyConfiguration_MaxCapacityBuffer != null)
+            {
+                requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBuffer = cmdletContext.PredictiveScalingPolicyConfiguration_MaxCapacityBuffer.Value;
+            }
+            if (requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBuffer != null)
+            {
+                request.PredictiveScalingPolicyConfiguration.MaxCapacityBuffer = requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MaxCapacityBuffer.Value;
+                requestPredictiveScalingPolicyConfigurationIsNull = false;
+            }
+            List<Amazon.ApplicationAutoScaling.Model.PredictiveScalingMetricSpecification> requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MetricSpecification = null;
+            if (cmdletContext.PredictiveScalingPolicyConfiguration_MetricSpecification != null)
+            {
+                requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MetricSpecification = cmdletContext.PredictiveScalingPolicyConfiguration_MetricSpecification;
+            }
+            if (requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MetricSpecification != null)
+            {
+                request.PredictiveScalingPolicyConfiguration.MetricSpecifications = requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_MetricSpecification;
+                requestPredictiveScalingPolicyConfigurationIsNull = false;
+            }
+            Amazon.ApplicationAutoScaling.PredictiveScalingMode requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_Mode = null;
+            if (cmdletContext.PredictiveScalingPolicyConfiguration_Mode != null)
+            {
+                requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_Mode = cmdletContext.PredictiveScalingPolicyConfiguration_Mode;
+            }
+            if (requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_Mode != null)
+            {
+                request.PredictiveScalingPolicyConfiguration.Mode = requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_Mode;
+                requestPredictiveScalingPolicyConfigurationIsNull = false;
+            }
+            System.Int32? requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_SchedulingBufferTime = null;
+            if (cmdletContext.PredictiveScalingPolicyConfiguration_SchedulingBufferTime != null)
+            {
+                requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_SchedulingBufferTime = cmdletContext.PredictiveScalingPolicyConfiguration_SchedulingBufferTime.Value;
+            }
+            if (requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_SchedulingBufferTime != null)
+            {
+                request.PredictiveScalingPolicyConfiguration.SchedulingBufferTime = requestPredictiveScalingPolicyConfiguration_predictiveScalingPolicyConfiguration_SchedulingBufferTime.Value;
+                requestPredictiveScalingPolicyConfigurationIsNull = false;
+            }
+             // determine if request.PredictiveScalingPolicyConfiguration should be set to null
+            if (requestPredictiveScalingPolicyConfigurationIsNull)
+            {
+                request.PredictiveScalingPolicyConfiguration = null;
             }
             if (cmdletContext.ResourceId != null)
             {
@@ -864,6 +995,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         {
             public System.String PolicyName { get; set; }
             public Amazon.ApplicationAutoScaling.PolicyType PolicyType { get; set; }
+            public Amazon.ApplicationAutoScaling.PredictiveScalingMaxCapacityBreachBehavior PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior { get; set; }
+            public System.Int32? PredictiveScalingPolicyConfiguration_MaxCapacityBuffer { get; set; }
+            public List<Amazon.ApplicationAutoScaling.Model.PredictiveScalingMetricSpecification> PredictiveScalingPolicyConfiguration_MetricSpecification { get; set; }
+            public Amazon.ApplicationAutoScaling.PredictiveScalingMode PredictiveScalingPolicyConfiguration_Mode { get; set; }
+            public System.Int32? PredictiveScalingPolicyConfiguration_SchedulingBufferTime { get; set; }
             public System.String ResourceId { get; set; }
             public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }
             public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }

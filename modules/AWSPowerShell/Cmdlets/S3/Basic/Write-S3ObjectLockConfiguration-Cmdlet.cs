@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Places an Object Lock configuration on the specified bucket. The rule specified in
     /// the Object Lock configuration will be applied by default to every new object placed

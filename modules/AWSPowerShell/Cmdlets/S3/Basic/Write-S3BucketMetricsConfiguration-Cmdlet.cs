@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
     /// You can have up to 1,000 metrics configurations per bucket. If you're updating an

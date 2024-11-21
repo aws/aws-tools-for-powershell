@@ -77,6 +77,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndexPolicy" Verb="Remove" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLogAnomalyDetector" Verb="Remove" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -109,6 +113,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountPolicies" OutputProperty="AccountPolicies" Verb="Get" Noun="AccountPolicy" PipelineParameter="PolicyType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -134,6 +142,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CWLExportTasks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFieldIndexes" OutputProperty="FieldIndexes" Verb="Get" Noun="FieldIndex" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIndexPolicies" OutputProperty="IndexPolicies" Verb="Get" Noun="IndexPolicy" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -213,11 +229,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLogAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="LogAnomalyDetectorList" PipelineParameter="FilterLogGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLogGroupsForQuery" OutputProperty="LogGroupIdentifiers" Verb="Get" Noun="LogGroupsForQueryList" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -257,6 +281,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutIndexPolicy" OutputProperty="IndexPolicy" Verb="Write" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyAlias="Write-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
@@ -283,6 +311,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutTransformer" Verb="Write" Noun="Transformer" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartLiveTail" OutputProperty="ResponseStream" Verb="Start" Noun="LiveTail" ShouldProcessTarget="LogEventFilterPattern" PipelineParameter="LogEventFilterPattern" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -306,6 +338,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TestMetricFilter" OutputProperty="Matches" Verb="Test" Noun="MetricFilter" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestTransformer" OutputProperty="TransformedLogs" Verb="Test" Noun="Transformer" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

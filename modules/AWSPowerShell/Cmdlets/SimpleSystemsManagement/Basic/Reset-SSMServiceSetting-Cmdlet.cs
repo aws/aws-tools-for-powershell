@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can
-        /// be one of the following.</para><ul><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul>
+        /// be one of the following.</para><ul><li><para><c>/ssm/appmanager/appmanager-enabled</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para>/ssm/automation/enable-adaptive-concurrency</para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

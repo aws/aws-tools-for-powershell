@@ -312,6 +312,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExecutionPreview" OutputProperty="*" Verb="Get" Noun="ExecutionPreview" PipelineParameter="ExecutionPreviewId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInventory" OutputProperty="Entities" Verb="Get" Noun="Inventory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -430,6 +434,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="Node" PipelineParameter="SyncName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNodesSummary" OutputProperty="Summary" Verb="Get" Noun="NodesSummary" PipelineParameter="SyncName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListOpsItemEvents" OutputProperty="Summaries" Verb="Get" Noun="OpsItemEvent" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -519,6 +531,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartChangeRequestExecution" OutputProperty="AutomationExecutionId" Verb="Start" Noun="ChangeRequestExecution" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExecutionPreview" OutputProperty="ExecutionPreviewId" Verb="Start" Noun="ExecutionPreview" ShouldProcessTarget="DocumentName" PipelineParameter="DocumentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

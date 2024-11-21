@@ -66,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InternetGatewayExclusionMode
         /// <summary>
         /// <para>
-        /// <para>The exclusion mode for internet gateway traffic.</para><ul><li><para><c>bidirectional-access-allowed</c>: Allow all internet traffic to and from the excluded
-        /// VPCs and subnets.</para></li><li><para><c>egress-access-allowed</c>: Allow outbound internet traffic from the excluded VPCs
-        /// and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only
-        /// applies when VPC Block Public Access is set to Bidirectional.</para></li></ul>
+        /// <para>The exclusion mode for internet gateway traffic.</para><ul><li><para><c>allow-bidirectional</c>: Allow all internet traffic to and from the excluded VPCs
+        /// and subnets.</para></li><li><para><c>allow-egress</c>: Allow outbound internet traffic from the excluded VPCs and subnets.
+        /// Block inbound internet traffic to the excluded VPCs and subnets. Only applies when
+        /// VPC Block Public Access is set to Bidirectional.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

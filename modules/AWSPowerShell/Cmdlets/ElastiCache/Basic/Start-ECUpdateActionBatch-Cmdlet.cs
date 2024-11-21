@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Apply the service update. For more information on service updates and applying them,
-    /// see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying
+    /// see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html">Applying
     /// Service Updates</a>.
     /// </summary>
     [Cmdlet("Start", "ECUpdateActionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

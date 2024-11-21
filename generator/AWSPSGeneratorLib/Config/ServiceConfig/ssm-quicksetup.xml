@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfigurationManager" OutputProperty="*" Verb="Get" Noun="ConfigurationManager" PipelineParameter="ManagerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -37,6 +41,10 @@
         <ServiceOperation MethodName="ListConfigurationManagers" OutputProperty="ConfigurationManagersList" Verb="Get" Noun="ConfigurationManagerList" PipelineParameter="Filters" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="StartingToken" Next="NextToken" EmitLimit="MaxItems" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="ConfigurationsList" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListQuickSetupTypes" OutputProperty="QuickSetupTypeList" Verb="Get" Noun="QuickSetupTypeList" PipelineParameter="" NoPipelineParameter="false">

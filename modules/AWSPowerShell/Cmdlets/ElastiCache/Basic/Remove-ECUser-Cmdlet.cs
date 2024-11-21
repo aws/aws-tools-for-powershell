@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The
     /// user will be removed from all user groups and in turn removed from all replication
-    /// groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.
     /// </summary>
     [Cmdlet("Remove", "ECUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

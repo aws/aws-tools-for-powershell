@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items to return, between 1 and 100, inclusive. </para>
+        /// <para>The maximum number of items to return, between 1 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

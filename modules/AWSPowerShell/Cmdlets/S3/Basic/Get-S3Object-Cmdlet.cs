@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
     /// parameters as selection criteria to return a subset of the objects in a bucket. A

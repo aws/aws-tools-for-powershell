@@ -28,9 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Attaches a resource-based permission policy to a CloudTrail channel that is used
-    /// for an integration with an event source outside of Amazon Web Services. For more information
-    /// about resource-based policies, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail
+    /// Attaches a resource-based permission policy to a CloudTrail event data store, dashboard,
+    /// or channel. For more information about resource-based policies, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail
     /// resource-based policy examples</a> in the <i>CloudTrail User Guide</i>.
     /// </summary>
     [Cmdlet("Write", "CTResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based
-        /// policy. The following is the format of a resource ARN: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</c>.
-        /// </para>
+        /// <para> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or
+        /// channel attached to the resource-based policy.</para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example dashboard ARN format: <c>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
-        /// <para> A JSON-formatted string for an Amazon Web Services resource-based policy. </para><para>The following are requirements for the resource policy:</para><ul><li><para> Contains only one action: cloudtrail-data:PutAuditEvents </para></li><li><para> Contains at least one statement. The policy can have a maximum of 20 statements.
-        /// </para></li><li><para> Each statement contains at least one principal. A statement can have a maximum of
-        /// 50 principals. </para></li></ul>
+        /// <para> A JSON-formatted string for an Amazon Web Services resource-based policy. </para><para> For example resource-based policies, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail
+        /// resource-based policy examples</a> in the <i>CloudTrail User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-AASResourceTag', 
         'Add-AASScalableTarget', 
+        'Get-AASPredictiveScalingForecast', 
         'Get-AASResourceTag', 
         'Get-AASScalableTarget', 
         'Get-AASScalingActivity', 

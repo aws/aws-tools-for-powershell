@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventDataStore" OutputProperty="*" Verb="New" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -93,6 +101,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventDataStore" OutputProperty="*" Verb="Get" Noun="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -126,6 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="Dashboards" Verb="Get" Noun="DashboardSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -189,6 +205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDashboardRefresh" OutputProperty="RefreshId" Verb="Start" Noun="DashboardRefresh" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartEventDataStoreIngestion" Verb="Start" Noun="EventDataStoreIngestion" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -218,6 +238,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

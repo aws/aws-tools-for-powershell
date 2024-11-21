@@ -47,6 +47,22 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DefaultForUnmappedSignal
+        /// <summary>
+        /// <para>
+        /// <para>Use default decoders for all unmapped signals in the model. You don't need to provide
+        /// any detailed decoding information.</para><important><para>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For
+        /// more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon
+        /// Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT
+        /// FleetWise Developer Guide</i>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultForUnmappedSignals")]
+        [AWSConstantClassSource("Amazon.IoTFleetWise.DefaultForUnmappedSignalsType")]
+        public Amazon.IoTFleetWise.DefaultForUnmappedSignalsType DefaultForUnmappedSignal { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -213,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DefaultForUnmappedSignal = this.DefaultForUnmappedSignal;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -262,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             // create request
             var request = new Amazon.IoTFleetWise.Model.UpdateDecoderManifestRequest();
             
+            if (cmdletContext.DefaultForUnmappedSignal != null)
+            {
+                request.DefaultForUnmappedSignals = cmdletContext.DefaultForUnmappedSignal;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -359,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTFleetWise.DefaultForUnmappedSignalsType DefaultForUnmappedSignal { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTFleetWise.Model.NetworkInterface> NetworkInterfacesToAdd { get; set; }

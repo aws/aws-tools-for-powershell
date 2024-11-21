@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The compute and memory capacity of the nodes in the node group (shard).</para><para>The following node types are supported by ElastiCache. Generally speaking, the current
         /// generation types provide more memory and computational power at lower cost when compared
         /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <c>cache.m7g.large</c>, <c>cache.m7g.xlarge</c>, <c>cache.m7g.2xlarge</c>,
-        /// <c>cache.m7g.4xlarge</c>, <c>cache.m7g.8xlarge</c>, <c>cache.m7g.12xlarge</c>, <c>cache.m7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// <c>cache.m7g.4xlarge</c>, <c>cache.m7g.8xlarge</c>, <c>cache.m7g.12xlarge</c>, <c>cache.m7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and
         /// for Memcached engine version 1.5.16 onward): <c>cache.m6g.large</c>, <c>cache.m6g.xlarge</c>,
         /// <c>cache.m6g.2xlarge</c>, <c>cache.m6g.4xlarge</c>, <c>cache.m6g.8xlarge</c>, <c>cache.m6g.12xlarge</c>,
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <c>cache.m1.xlarge</c></para><para><b>M3 node types:</b><c>cache.m3.medium</c>, <c>cache.m3.large</c>, <c>cache.m3.xlarge</c>,
         /// <c>cache.m3.2xlarge</c></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><c>cache.c1.xlarge</c></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <c>cache.r7g.large</c>, <c>cache.r7g.xlarge</c>, <c>cache.r7g.2xlarge</c>,
-        /// <c>cache.r7g.4xlarge</c>, <c>cache.r7g.8xlarge</c>, <c>cache.r7g.12xlarge</c>, <c>cache.r7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
+        /// <c>cache.r7g.4xlarge</c>, <c>cache.r7g.8xlarge</c>, <c>cache.r7g.12xlarge</c>, <c>cache.r7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
         /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and
         /// for Memcached engine version 1.5.16 onward): <c>cache.r6g.large</c>, <c>cache.r6g.xlarge</c>,
         /// <c>cache.r6g.2xlarge</c>, <c>cache.r6g.4xlarge</c>, <c>cache.r6g.8xlarge</c>, <c>cache.r6g.12xlarge</c>,
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the subnet group to be used for the cluster.</para><para>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
         /// Cloud (Amazon VPC).</para><important><para>If you're going to launch your cluster in an Amazon VPC, you need to create a subnet
-        /// group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets
+        /// group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.html">Subnets
         /// and Subnet Groups</a>.</para></important>
         /// </para>
         /// </summary>
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The version number of the cache engine to be used for this cluster. To view the supported
-        /// cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+        /// cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing cluster
         /// or replication group and create it anew with the earlier engine version. </para>

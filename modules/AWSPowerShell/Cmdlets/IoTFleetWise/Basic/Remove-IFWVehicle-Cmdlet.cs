@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
     /// Deletes a vehicle and removes it from any campaigns.
-    /// 
-    ///  <note><para>
-    /// If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back
-    /// an HTTP 200 response with an empty body.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IFWVehicle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTFleetWise.Model.DeleteVehicleResponse")]

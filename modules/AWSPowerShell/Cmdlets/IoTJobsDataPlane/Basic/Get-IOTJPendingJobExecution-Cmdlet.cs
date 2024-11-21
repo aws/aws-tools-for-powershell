@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
 {
     /// <summary>
     /// Gets the list of all jobs for a thing that are not in a terminal status.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPendingJobExecutions</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTJPendingJobExecution")]
     [OutputType("Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Retrieves <c>OwnershipControls</c> for an Amazon S3 bucket. To use this operation,
     /// you must have the <c>s3:GetBucketOwnershipControls</c> permission. For more information

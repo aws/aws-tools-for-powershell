@@ -1052,6 +1052,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -2494,6 +2502,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PurchaseCapacityBlock" OutputProperty="CapacityReservation" Verb="New" Noun="EC2CapacityBlock" ShouldProcessTarget="CapacityBlockOfferingId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseCapacityBlockExtension" OutputProperty="CapacityBlockExtensions" Verb="Invoke" Noun="CapacityBlockExtension" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

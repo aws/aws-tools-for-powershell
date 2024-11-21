@@ -28,9 +28,9 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes a CloudWatch Logs account policy. This stops the policy from applying to all
-    /// log groups or a subset of log groups in the account. Log-group level policies will
-    /// still be in effect.
+    /// Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
+    /// applying to log groups in the account. If you delete a data protection policy or subscription
+    /// filter policy, any log-group level policies of those types remain in effect.
     /// 
     ///  
     /// <para>
@@ -42,7 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// To delete a subscription filter policy, you must have the <c>logs:DeleteSubscriptionFilter</c>
     /// and <c>logs:DeleteAccountPolicy</c> permissions.
-    /// </para></li></ul>
+    /// </para></li><li><para>
+    /// To delete a transformer policy, you must have the <c>logs:DeleteTransformer</c> and
+    /// <c>logs:DeleteAccountPolicy</c> permissions.
+    /// </para></li><li><para>
+    /// To delete a field index policy, you must have the <c>logs:DeleteIndexPolicy</c> and
+    /// <c>logs:DeleteAccountPolicy</c> permissions.
+    /// </para></li></ul><para>
+    /// If you delete a field index policy, the indexing of the log events that happened before
+    /// you deleted the policy will still be used for up to 30 days to improve CloudWatch
+    /// Logs Insights queries.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -135,7 +135,7 @@ $CWL_Completers = {
             ($_ -eq "Write-CWLAccountPolicy/PolicyType")
         }
         {
-            $v = "DATA_PROTECTION_POLICY","SUBSCRIPTION_FILTER_POLICY"
+            $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
             break
         }
 
@@ -261,6 +261,7 @@ $CWL_SelectMap = @{
                "Remove-CWLDeliveryDestinationPolicy",
                "Remove-CWLDeliverySource",
                "Remove-CWLDestination",
+               "Remove-CWLIndexPolicy",
                "Remove-CWLLogAnomalyDetector",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
@@ -269,6 +270,7 @@ $CWL_SelectMap = @{
                "Remove-CWLResourcePolicy",
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
+               "Remove-CWLTransformer",
                "Get-CWLAccountPolicy",
                "Find-CWLConfigurationTemplate",
                "Find-CWLDelivery",
@@ -276,6 +278,8 @@ $CWL_SelectMap = @{
                "Find-CWLDeliverySource",
                "Get-CWLDestination",
                "Get-CWLExportTask",
+               "Get-CWLFieldIndex",
+               "Get-CWLIndexPolicy",
                "Get-CWLLogGroup",
                "Get-CWLLogStream",
                "Get-CWLMetricFilter",
@@ -295,8 +299,10 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLTransformer",
                "Get-CWLAnomalyList",
                "Get-CWLLogAnomalyDetectorList",
+               "Get-CWLLogGroupsForQueryList",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLAccountPolicy",
@@ -306,18 +312,21 @@ $CWL_SelectMap = @{
                "Write-CWLDeliverySource",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
+               "Write-CWLIndexPolicy",
                "Write-CWLLogEvent",
                "Write-CWLMetricFilter",
                "Write-CWLQueryDefinition",
                "Write-CWLResourcePolicy",
                "Write-CWLRetentionPolicy",
                "Write-CWLSubscriptionFilter",
+               "Write-CWLTransformer",
                "Start-CWLLiveTail",
                "Start-CWLQuery",
                "Stop-CWLQuery",
                "Add-CWLLogGroupTag",
                "Add-CWLResourceTag",
                "Test-CWLMetricFilter",
+               "Test-CWLTransformer",
                "Remove-CWLLogGroupTag",
                "Remove-CWLResourceTag",
                "Update-CWLAnomaly",

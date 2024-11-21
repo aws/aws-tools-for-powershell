@@ -87,6 +87,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-SSMQSResourceTag', 
+        'Get-SSMQSConfiguration', 
+        'Get-SSMQSConfigurationList', 
         'Get-SSMQSConfigurationManager', 
         'Get-SSMQSConfigurationManagerList', 
         'Get-SSMQSQuickSetupTypeList', 

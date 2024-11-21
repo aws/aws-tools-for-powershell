@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Sets the request payment configuration for a bucket. By default, the bucket owner
     /// pays for downloads from the bucket. This configuration parameter enables the bucket

@@ -61,11 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Cache cluster message: <c>Recovering cache nodes &lt;node-id&gt;</c></para></li><li><para>
     /// Cache cluster message: <c>Finished recovery for cache nodes &lt;node-id&gt;</c></para></li></ol><para>
     /// For more information see:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html">Viewing
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html">Viewing
     /// ElastiCache Events</a> in the <i>ElastiCache User Guide</i></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>
     /// in the ElastiCache API Reference
     /// </para></li></ul></li></ul><para>
-    /// Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing
+    /// Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test">Testing
     /// Multi-AZ </a> in the <i>ElastiCache User Guide</i>.
     /// </para>
     /// </summary>

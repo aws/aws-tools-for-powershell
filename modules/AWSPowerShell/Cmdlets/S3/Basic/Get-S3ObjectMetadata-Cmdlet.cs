@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// If the specified version is a delete marker, the response returns a <c>405 Method
     /// Not Allowed</c> error and the <c>Last-Modified: timestamp</c> response header.
-    /// </para></li></ul><note><ul><li><para><b>Directory buckets</b> - Delete marker is not supported by directory buckets.
+    /// </para></li></ul><note><ul><li><para><b>Directory buckets</b> - Delete marker is not supported for directory buckets.
     /// </para></li><li><para><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory
     /// buckets. For this API operation, only the <c>null</c> value of the version ID is supported
     /// by directory buckets. You can only specify <c>null</c> to the <c>versionId</c> query

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This action filters the contents of an Amazon S3 object based on a simple structured
     /// query language (SQL) statement. In the request, along with the SQL expression, you

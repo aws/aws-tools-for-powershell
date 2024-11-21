@@ -28,12 +28,7 @@ using Amazon.IoTFleetWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
-    /// Updates the description of an existing fleet. 
-    /// 
-    ///  <note><para>
-    /// If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back
-    /// an HTTP 200 response with an empty HTTP body.
-    /// </para></note>
+    /// Updates the description of an existing fleet.
     /// </summary>
     [Cmdlet("Update", "IFWFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTFleetWise.Model.UpdateFleetResponse")]

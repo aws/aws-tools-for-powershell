@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Indicates the list of resource drifts that were detected while running an assessment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List of resource drifts that were detected while running an assessment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppAssessmentResourceDriftList")]
     [OutputType("Amazon.ResilienceHub.Model.ResourceDrift")]
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Indicates the maximum number of drift results to include in the response. If more
-        /// results exist than the specified <c>MaxResults</c> value, a token is included in the
-        /// response so that the remaining results can be retrieved.</para>
+        /// <para>Maximum number of drift results to include in the response. If more results exist
+        /// than the specified <c>MaxResults</c> value, a token is included in the response so
+        /// that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

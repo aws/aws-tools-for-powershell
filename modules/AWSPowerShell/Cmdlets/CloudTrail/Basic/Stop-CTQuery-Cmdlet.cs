@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EventDataStoreOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para> The account ID of the event data store owner. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStoreOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter QueryId
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.QueryId = this.QueryId;
             #if MODULAR
             if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
@@ -170,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EventDataStoreOwnerAccountId != null)
+            {
+                request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;
+            }
             if (cmdletContext.QueryId != null)
             {
                 request.QueryId = cmdletContext.QueryId;
@@ -237,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             [System.ObsoleteAttribute]
             public System.String EventDataStore { get; set; }
+            public System.String EventDataStoreOwnerAccountId { get; set; }
             public System.String QueryId { get; set; }
             public System.Func<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

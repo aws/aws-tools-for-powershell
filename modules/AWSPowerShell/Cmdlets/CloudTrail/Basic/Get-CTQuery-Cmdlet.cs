@@ -34,8 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// 
     ///  
     /// <para>
-    /// You must specify either a <c>QueryID</c> or a <c>QueryAlias</c>. Specifying the <c>QueryAlias</c>
-    /// parameter returns information about the last query run for the alias.
+    /// You must specify either <c>QueryId</c> or <c>QueryAlias</c>. Specifying the <c>QueryAlias</c>
+    /// parameter returns information about the last query run for the alias. You can provide
+    /// <c>RefreshId</c> along with <c>QueryAlias</c> to view the query results of a dashboard
+    /// query for the specified <c>RefreshId</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTQuery")]
@@ -48,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter EventDataStoreOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para> The account ID of the event data store owner. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStoreOwnerAccountId { get; set; }
+        #endregion
         
         #region Parameter QueryAlias
         /// <summary>
@@ -67,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueryId { get; set; }
+        #endregion
+        
+        #region Parameter RefreshId
+        /// <summary>
+        /// <para>
+        /// <para> The ID of the dashboard refresh. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RefreshId { get; set; }
         #endregion
         
         #region Parameter EventDataStore
@@ -131,8 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.QueryAlias = this.QueryAlias;
             context.QueryId = this.QueryId;
+            context.RefreshId = this.RefreshId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EventDataStoreOwnerAccountId != null)
+            {
+                request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;
+            }
             if (cmdletContext.QueryAlias != null)
             {
                 request.QueryAlias = cmdletContext.QueryAlias;
@@ -162,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.QueryId != null)
             {
                 request.QueryId = cmdletContext.QueryId;
+            }
+            if (cmdletContext.RefreshId != null)
+            {
+                request.RefreshId = cmdletContext.RefreshId;
             }
             
             CmdletOutput output;
@@ -226,8 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             [System.ObsoleteAttribute]
             public System.String EventDataStore { get; set; }
+            public System.String EventDataStoreOwnerAccountId { get; set; }
             public System.String QueryAlias { get; set; }
             public System.String QueryId { get; set; }
+            public System.String RefreshId { get; set; }
             public System.Func<Amazon.CloudTrail.Model.DescribeQueryResponse, GetCTQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

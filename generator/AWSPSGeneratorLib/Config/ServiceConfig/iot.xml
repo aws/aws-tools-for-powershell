@@ -126,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCommand" OutputProperty="*" Verb="New" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomMetric" OutputProperty="*" Verb="New" Noun="CustomMetric" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -267,6 +271,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCertificateProvider" Verb="Remove" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCommand" OutputProperty="StatusCode" Verb="Remove" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCommandExecution" Verb="Remove" Noun="CommandExecution" ShouldProcessTarget="ExecutionId" PipelineParameter="ExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -562,6 +574,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCommand" OutputProperty="*" Verb="Get" Noun="Command" PipelineParameter="CommandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCommandExecution" OutputProperty="*" Verb="Get" Noun="CommandExecution" PipelineParameter="ExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEffectivePolicies" OutputProperty="EffectivePolicies" Verb="Get" Noun="EffectivePolicy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -690,6 +710,14 @@
         <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCommandExecutions" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCommands" OutputProperty="Commands" Verb="Get" Noun="CommandList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCustomMetrics" OutputProperty="MetricNames" Verb="Get" Noun="CustomMetricList" PipelineParameter="" NoPipelineParameter="false">
@@ -1059,6 +1087,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCertificateProvider" OutputProperty="*" Verb="Update" Noun="CertificateProvider" ShouldProcessTarget="CertificateProviderName" PipelineParameter="CertificateProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCommand" OutputProperty="*" Verb="Update" Noun="Command" ShouldProcessTarget="CommandId" PipelineParameter="CommandId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

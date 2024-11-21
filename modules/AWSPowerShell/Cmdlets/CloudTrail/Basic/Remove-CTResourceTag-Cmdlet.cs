@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Removes the specified tags from a trail, event data store, or channel.
+    /// Removes the specified tags from a trail, event data store, dashboard, or channel.
     /// </summary>
     [Cmdlet("Remove", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the trail, event data store, or channel from which tags should
-        /// be removed.</para><para> Example trail ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
+        /// <para>Specifies the ARN of the trail, event data store, dashboard, or channel from which
+        /// tags should be removed.</para><para> Example trail ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example dashboard ARN format: <c>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

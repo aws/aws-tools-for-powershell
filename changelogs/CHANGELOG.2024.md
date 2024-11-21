@@ -1,4 +1,110 @@
-﻿### 4.1.703 (2024-11-21 01:45Z)
+﻿### 4.1.704 (2024-11-21 22:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.932.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon API Gateway
+    * Added cmdlet Disable-AGDomainNameAccessAssociation leveraging the RejectDomainNameAccessAssociation service API.
+    * Added cmdlet Get-AGDomainNameAccessAssociation leveraging the GetDomainNameAccessAssociations service API.
+    * Added cmdlet New-AGDomainNameAccessAssociation leveraging the CreateDomainNameAccessAssociation service API.
+    * Added cmdlet Remove-AGDomainNameAccessAssociation leveraging the DeleteDomainNameAccessAssociation service API.
+    * Modified cmdlet Get-AGBasePathMapping: added parameter DomainNameId.
+    * Modified cmdlet Get-AGBasePathMappingList: added parameter DomainNameId.
+    * Modified cmdlet Get-AGDomainName: added parameter DomainNameId.
+    * Modified cmdlet Get-AGDomainNameList: added parameter ResourceOwner.
+    * Modified cmdlet New-AGBasePathMapping: added parameter DomainNameId.
+    * Modified cmdlet New-AGDomainName: added parameter Policy.
+    * Modified cmdlet Remove-AGBasePathMapping: added parameter DomainNameId.
+    * Modified cmdlet Remove-AGDomainName: added parameter DomainNameId.
+    * Modified cmdlet Update-AGBasePathMapping: added parameter DomainNameId.
+    * Modified cmdlet Update-AGDomainName: added parameter DomainNameId.
+  * Amazon Application Auto Scaling
+    * Added cmdlet Get-AASPredictiveScalingForecast leveraging the GetPredictiveScalingForecast service API.
+    * Modified cmdlet Set-AASScalingPolicy: added parameters PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior, PredictiveScalingPolicyConfiguration_MaxCapacityBuffer, PredictiveScalingPolicyConfiguration_MetricSpecification, PredictiveScalingPolicyConfiguration_Mode and PredictiveScalingPolicyConfiguration_SchedulingBufferTime.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTDashboard leveraging the GetDashboard service API.
+    * Added cmdlet Get-CTDashboardSummary leveraging the ListDashboards service API.
+    * Added cmdlet New-CTDashboard leveraging the CreateDashboard service API.
+    * Added cmdlet Remove-CTDashboard leveraging the DeleteDashboard service API.
+    * Added cmdlet Start-CTDashboardRefresh leveraging the StartDashboardRefresh service API.
+    * Added cmdlet Update-CTDashboard leveraging the UpdateDashboard service API.
+    * Modified cmdlet Get-CTQuery: added parameters EventDataStoreOwnerAccountId and RefreshId.
+    * Modified cmdlet Get-CTQueryResult: added parameter EventDataStoreOwnerAccountId.
+    * Modified cmdlet Start-CTQuery: added parameter EventDataStoreOwnerAccountId.
+    * Modified cmdlet Stop-CTQuery: added parameter EventDataStoreOwnerAccountId.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLFieldIndex leveraging the DescribeFieldIndexes service API.
+    * Added cmdlet Get-CWLIndexPolicy leveraging the DescribeIndexPolicies service API.
+    * Added cmdlet Get-CWLLogGroupsForQueryList leveraging the ListLogGroupsForQuery service API.
+    * Added cmdlet Get-CWLTransformer leveraging the GetTransformer service API.
+    * Added cmdlet Remove-CWLIndexPolicy leveraging the DeleteIndexPolicy service API.
+    * Added cmdlet Remove-CWLTransformer leveraging the DeleteTransformer service API.
+    * Added cmdlet Test-CWLTransformer leveraging the TestTransformer service API.
+    * Added cmdlet Write-CWLIndexPolicy leveraging the PutIndexPolicy service API.
+    * Added cmdlet Write-CWLTransformer leveraging the PutTransformer service API.
+    * Modified cmdlet Get-CWLAccountPolicy: added parameters NextToken and NoAutoIteration.
+    * Modified cmdlet Write-CWLMetricFilter: added parameter ApplyOnTransformedLog.
+    * Modified cmdlet Write-CWLSubscriptionFilter: added parameter ApplyOnTransformedLog.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CECommitmentPurchaseAnalysis leveraging the GetCommitmentPurchaseAnalysis service API.
+    * Added cmdlet Get-CECommitmentPurchaseAnalysisList leveraging the ListCommitmentPurchaseAnalyses service API.
+    * Added cmdlet Start-CECommitmentPurchaseAnalysis leveraging the StartCommitmentPurchaseAnalysis service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2CapacityBlockExtensionHistory leveraging the DescribeCapacityBlockExtensionHistory service API.
+    * Added cmdlet Get-EC2CapacityBlockExtensionOffering leveraging the DescribeCapacityBlockExtensionOfferings service API.
+    * Added cmdlet Invoke-EC2CapacityBlockExtension leveraging the PurchaseCapacityBlockExtension service API.
+    * Modified cmdlet Add-EC2CapacityReservation: added parameters CommitmentDuration, DeliveryPreference and StartDate.
+    * Modified cmdlet Edit-EC2IpamResourceDiscovery: added parameters AddOrganizationalUnitExclusion and RemoveOrganizationalUnitExclusion.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECUser: added parameter Engine.
+    * Modified cmdlet Edit-ECUserGroup: added parameter Engine.
+  * Amazon IoT
+    * Added cmdlet Get-IOTCommand leveraging the GetCommand service API.
+    * Added cmdlet Get-IOTCommandExecution leveraging the GetCommandExecution service API.
+    * Added cmdlet Get-IOTCommandExecutionList leveraging the ListCommandExecutions service API.
+    * Added cmdlet Get-IOTCommandList leveraging the ListCommands service API.
+    * Added cmdlet New-IOTCommand leveraging the CreateCommand service API.
+    * Added cmdlet Remove-IOTCommand leveraging the DeleteCommand service API.
+    * Added cmdlet Remove-IOTCommandExecution leveraging the DeleteCommandExecution service API.
+    * Added cmdlet Update-IOTCommand leveraging the UpdateCommand service API.
+  * Amazon IoT FleetWise
+    * Added cmdlet Get-IFWStateTemplate leveraging the GetStateTemplate service API.
+    * Added cmdlet Get-IFWStateTemplateList leveraging the ListStateTemplates service API.
+    * Added cmdlet New-IFWStateTemplate leveraging the CreateStateTemplate service API.
+    * Added cmdlet Remove-IFWStateTemplate leveraging the DeleteStateTemplate service API.
+    * Added cmdlet Update-IFWStateTemplate leveraging the UpdateStateTemplate service API.
+    * Modified cmdlet New-IFWCampaign: added parameters DataPartition and SignalsToFetch.
+    * Modified cmdlet New-IFWDecoderManifest: added parameter DefaultForUnmappedSignal.
+    * Modified cmdlet New-IFWVehicle: added parameter StateTemplate.
+    * Modified cmdlet Update-IFWDecoderManifest: added parameter DefaultForUnmappedSignal.
+    * Modified cmdlet Update-IFWVehicle: added parameters StateTemplatesToAdd and StateTemplatesToRemove.
+  * Amazon IoT Jobs Data Plane
+    * Added cmdlet Start-IOTJCommandExecution leveraging the StartCommandExecution service API.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameter MetricsConfig_Metric.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameter MetricsConfig_Metric.
+  * Amazon Resilience Hub
+    * Added cmdlet Get-RESHMetricList leveraging the ListMetrics service API.
+    * Added cmdlet Get-RESHMetricsExport leveraging the DescribeMetricsExport service API.
+    * Added cmdlet Start-RESHMetricsExport leveraging the StartMetricsExport service API.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMExecutionPreview leveraging the GetExecutionPreview service API.
+    * Added cmdlet Get-SSMNode leveraging the ListNodes service API.
+    * Added cmdlet Get-SSMNodesSummary leveraging the ListNodesSummary service API.
+    * Added cmdlet Start-SSMExecutionPreview leveraging the StartExecutionPreview service API.
+  * Amazon Systems Manager QuickSetup
+    * Added cmdlet Get-SSMQSConfiguration leveraging the GetConfiguration service API.
+    * Added cmdlet Get-SSMQSConfigurationList leveraging the ListConfigurations service API.
+  * Amazon User Notifications. Added cmdlets to support the service. Cmdlets for the service have the noun prefix UNO and can be listed using the command 'Get-AWSCmdletName -Service UNO'.
+  * Amazon User Notifications Contacts. Added cmdlets to support the service. Cmdlets for the service have the noun prefix UNC and can be listed using the command 'Get-AWSCmdletName -Service UNC'.
+  * Amazon X-Ray
+    * Added cmdlet Get-XRIndexingRule leveraging the GetIndexingRules service API.
+    * Added cmdlet Get-XRRetrievedTraceList leveraging the ListRetrievedTraces service API.
+    * Added cmdlet Get-XRRetrievedTracesGraph leveraging the GetRetrievedTracesGraph service API.
+    * Added cmdlet Get-XRTraceSegmentDestination leveraging the GetTraceSegmentDestination service API.
+    * Added cmdlet Start-XRTraceRetrieval leveraging the StartTraceRetrieval service API.
+    * Added cmdlet Stop-XRTraceRetrieval leveraging the CancelTraceRetrieval service API.
+    * Added cmdlet Update-XRIndexingRule leveraging the UpdateIndexingRule service API.
+    * Added cmdlet Update-XRTraceSegmentDestination leveraging the UpdateTraceSegmentDestination service API.
+
+### 4.1.703 (2024-11-21 01:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.931.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Application Discovery Service
     * Modified cmdlet New-ADSApplication: added parameter Wave.

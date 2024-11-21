@@ -28,21 +28,34 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// <note><para>
-    /// This operation is not supported by directory buckets.
-    /// </para></note><para>
     /// Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all
     /// the lifecycle configuration rules in the lifecycle subresource associated with the
     /// bucket. Your objects never expire, and Amazon S3 no longer automatically deletes any
     /// objects on the basis of rules contained in the deleted lifecycle configuration.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - By default, all Amazon S3 resources are
+    /// private, including buckets, objects, and related subresources (for example, lifecycle
+    /// configuration and website configuration). Only the resource owner (that is, the Amazon
+    /// Web Services account that created it) can access the resource. The resource owner
+    /// can optionally grant access permissions to others by writing an access policy. For
+    /// this operation, a user must have the <c>s3:PutLifecycleConfiguration</c> permission.
     /// </para><para>
-    /// To use this operation, you must have permission to perform the <c>s3:PutLifecycleConfiguration</c>
-    /// action. By default, the bucket owner has this permission and the bucket owner can
-    /// grant this permission to others.
+    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para></li></ul><ul><li><para><b>Directory bucket permissions</b> - You must have the <c>s3express:PutLifecycleConfiguration</c>
+    /// permission in an IAM identity-based policy to use this operation. Cross-account access
+    /// to this API operation isn't supported. The resource owner can optionally grant access
+    /// permissions to others by creating a role or user for them as long as they are within
+    /// the same account as the owner and resource.
     /// </para><para>
-    /// There is usually some time lag before lifecycle configuration deletion is fully propagated
-    /// to all the Amazon S3 systems.
-    /// </para><para>
+    /// For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Authorizing
+    /// Regional endpoint APIs with IAM</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
+    /// API operation to the Regional endpoint. These endpoints support path-style requests
+    /// in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></note></li></ul></dd></dl><dl><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c>s3express-control.<i>region</i>.amazonaws.com</c>.
+    /// </para></dd></dl><para>
     /// For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements
     /// to Describe Lifecycle Actions</a>.
     /// </para><para>

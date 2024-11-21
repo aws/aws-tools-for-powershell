@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><note><para>
     /// When you enable versioning on a bucket for the first time, it might take a short amount
     /// of time for the change to be fully propagated. We recommend that you wait for 15 minutes

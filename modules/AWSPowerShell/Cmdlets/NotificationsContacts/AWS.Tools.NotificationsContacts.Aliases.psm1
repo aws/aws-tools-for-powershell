@@ -1,0 +1,3 @@
+﻿# NotificationsContacts
+
+Export-ModuleMember -Alias *

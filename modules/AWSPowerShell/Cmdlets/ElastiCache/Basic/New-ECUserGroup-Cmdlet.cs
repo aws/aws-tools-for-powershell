@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user group.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>
     /// </summary>
     [Cmdlet("New", "ECUserGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

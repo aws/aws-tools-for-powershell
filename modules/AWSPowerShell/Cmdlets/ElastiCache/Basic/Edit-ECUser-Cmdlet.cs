@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String AppendAccessString { get; set; }
         #endregion
         
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>The engine for a specific user. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
         #region Parameter NoPasswordRequired
         /// <summary>
         /// <para>
@@ -191,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.AuthenticationMode_Password = new List<System.String>(this.AuthenticationMode_Password);
             }
             context.AuthenticationMode_Type = this.AuthenticationMode_Type;
+            context.Engine = this.Engine;
             context.NoPasswordRequired = this.NoPasswordRequired;
             if (this.Password != null)
             {
@@ -255,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (requestAuthenticationModeIsNull)
             {
                 request.AuthenticationMode = null;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.NoPasswordRequired != null)
             {
@@ -333,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String AppendAccessString { get; set; }
             public List<System.String> AuthenticationMode_Password { get; set; }
             public Amazon.ElastiCache.InputAuthenticationType AuthenticationMode_Type { get; set; }
+            public System.String Engine { get; set; }
             public System.Boolean? NoPasswordRequired { get; set; }
             public List<System.String> Password { get; set; }
             public System.String UserId { get; set; }

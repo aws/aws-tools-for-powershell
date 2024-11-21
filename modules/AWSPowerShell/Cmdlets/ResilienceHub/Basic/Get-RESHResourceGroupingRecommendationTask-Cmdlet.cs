@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter GroupingId
         /// <summary>
         /// <para>
-        /// <para>Indicates the identifier of the grouping recommendation task.</para>
+        /// <para>Identifier of the grouping recommendation task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

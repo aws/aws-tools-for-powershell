@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Optional parameter to filter the results by the status of each created campaign in
-        /// your account. The status can be one of: <c>CREATING</c>, <c>WAITING_FOR_APPROVAL</c>,
+        /// <para>An optional parameter to filter the results by the status of each created campaign
+        /// in your account. The status can be one of: <c>CREATING</c>, <c>WAITING_FOR_APPROVAL</c>,
         /// <c>RUNNING</c>, or <c>SUSPENDED</c>.</para>
         /// </para>
         /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items to return, between 1 and 100, inclusive. </para>
+        /// <para>The maximum number of items to return, between 1 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
