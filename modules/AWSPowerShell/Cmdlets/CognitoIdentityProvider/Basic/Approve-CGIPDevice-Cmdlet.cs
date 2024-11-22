@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceSecretVerifierConfig_PasswordVerifier
         /// <summary>
         /// <para>
-        /// <para>The password verifier.</para>
+        /// <para>A password verifier for a user's device. Used in SRP authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceSecretVerifierConfig_Salt
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a></para>
+        /// <para>The salt that you want to use in SRP authentication with the user's device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

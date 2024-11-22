@@ -119,6 +119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteS3AccessPolicy" Verb="Remove" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSequenceStore" Verb="Remove" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -198,6 +202,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRunTask" OutputProperty="*" Verb="Get" Noun="RunTask" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetS3AccessPolicy" OutputProperty="*" Verb="Get" Noun="S3AccessPolicy" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -309,6 +317,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutS3AccessPolicy" OutputProperty="*" Verb="Write" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartAnnotationImportJob" OutputProperty="JobId" Verb="Start" Noun="AnnotationImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -358,6 +370,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRunGroup" Verb="Update" Noun="RunGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSequenceStore" OutputProperty="*" Verb="Update" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

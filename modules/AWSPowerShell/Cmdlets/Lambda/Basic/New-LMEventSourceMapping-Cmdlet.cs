@@ -316,6 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
         #endregion
         
+        #region Parameter ProvisionedPollerConfig_MaximumPoller
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of event pollers this event source can scale up to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedPollerConfig_MaximumPollers")]
+        public System.Int32? ProvisionedPollerConfig_MaximumPoller { get; set; }
+        #endregion
+        
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
@@ -353,6 +364,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MetricsConfig_Metrics")]
         public System.String[] MetricsConfig_Metric { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedPollerConfig_MinimumPoller
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of event pollers this event source can scale down to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedPollerConfig_MinimumPollers")]
+        public System.Int32? ProvisionedPollerConfig_MinimumPoller { get; set; }
         #endregion
         
         #region Parameter ParallelizationFactor
@@ -544,6 +566,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.MetricsConfig_Metric = new List<System.String>(this.MetricsConfig_Metric);
             }
             context.ParallelizationFactor = this.ParallelizationFactor;
+            context.ProvisionedPollerConfig_MaximumPoller = this.ProvisionedPollerConfig_MaximumPoller;
+            context.ProvisionedPollerConfig_MinimumPoller = this.ProvisionedPollerConfig_MinimumPoller;
             if (this.Queue != null)
             {
                 context.Queue = new List<System.String>(this.Queue);
@@ -804,6 +828,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.ParallelizationFactor = cmdletContext.ParallelizationFactor.Value;
             }
+            
+             // populate ProvisionedPollerConfig
+            var requestProvisionedPollerConfigIsNull = true;
+            request.ProvisionedPollerConfig = new Amazon.Lambda.Model.ProvisionedPollerConfig();
+            System.Int32? requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller = null;
+            if (cmdletContext.ProvisionedPollerConfig_MaximumPoller != null)
+            {
+                requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller = cmdletContext.ProvisionedPollerConfig_MaximumPoller.Value;
+            }
+            if (requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller != null)
+            {
+                request.ProvisionedPollerConfig.MaximumPollers = requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller.Value;
+                requestProvisionedPollerConfigIsNull = false;
+            }
+            System.Int32? requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller = null;
+            if (cmdletContext.ProvisionedPollerConfig_MinimumPoller != null)
+            {
+                requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller = cmdletContext.ProvisionedPollerConfig_MinimumPoller.Value;
+            }
+            if (requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller != null)
+            {
+                request.ProvisionedPollerConfig.MinimumPollers = requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller.Value;
+                requestProvisionedPollerConfigIsNull = false;
+            }
+             // determine if request.ProvisionedPollerConfig should be set to null
+            if (requestProvisionedPollerConfigIsNull)
+            {
+                request.ProvisionedPollerConfig = null;
+            }
             if (cmdletContext.Queue != null)
             {
                 request.Queues = cmdletContext.Queue;
@@ -969,6 +1022,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MaximumRetryAttempt { get; set; }
             public List<System.String> MetricsConfig_Metric { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
+            public System.Int32? ProvisionedPollerConfig_MaximumPoller { get; set; }
+            public System.Int32? ProvisionedPollerConfig_MinimumPoller { get; set; }
             public List<System.String> Queue { get; set; }
             public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
             public Dictionary<System.String, List<System.String>> SelfManagedEventSource_Endpoint { get; set; }

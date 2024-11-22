@@ -341,6 +341,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Get" Noun="DashboardsQAConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -660,6 +664,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchTopics" OutputProperty="TopicSummaryList" Verb="Search" Noun="Topic" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartAssetBundleExportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -740,6 +748,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDashboardPublishedVersion" OutputProperty="*" Verb="Update" Noun="DashboardPublishedVersion" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Update" Noun="DashboardsQAConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

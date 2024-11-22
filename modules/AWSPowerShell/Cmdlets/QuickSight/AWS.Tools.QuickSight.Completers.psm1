@@ -194,6 +194,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DashboardsQAStatus
+        "Update-QSDashboardsQAConfiguration/DashboardsQAStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.DashboardUIState
         {
             ($_ -eq "New-QSDashboard/SheetControlsOption_VisibilityState") -Or
@@ -560,6 +567,7 @@ $QS_map = @{
     "Capabilities_ShareDataSource"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_SubscribeDashboardEmailReport"=@("New-QSCustomPermission","Update-QSCustomPermission")
     "Capabilities_ViewAccountSPICECapacity"=@("New-QSCustomPermission","Update-QSCustomPermission")
+    "DashboardsQAStatus"=@("Update-QSDashboardsQAConfiguration")
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -733,6 +741,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardPermission",
                "Get-QSDashboardSnapshotJob",
                "Get-QSDashboardSnapshotJobResult",
+               "Get-QSDashboardsQAConfiguration",
                "Get-QSDataSet",
                "Get-QSDataSetPermission",
                "Get-QSDataSetRefreshProperty",
@@ -811,6 +820,7 @@ $QS_SelectMap = @{
                "Search-QSDataSource",
                "Search-QSFolder",
                "Find-QSGroup",
+               "Search-QSTopic",
                "Start-QSAssetBundleExportJob",
                "Start-QSAssetBundleImportJob",
                "Start-QSDashboardSnapshotJob",
@@ -829,6 +839,7 @@ $QS_SelectMap = @{
                "Update-QSDashboardLink",
                "Update-QSDashboardPermission",
                "Update-QSDashboardPublishedVersion",
+               "Update-QSDashboardsQAConfiguration",
                "Update-QSDataSet",
                "Update-QSDataSetPermission",
                "Update-QSDataSource",

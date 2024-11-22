@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="TaskIdentifier" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetExportTask" OutputProperty="*" Verb="Get" Noun="ExportTask" PipelineParameter="TaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGraph" OutputProperty="*" Verb="Get" Noun="Graph" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +87,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQuery" OutputProperty="*" Verb="Get" Noun="Query" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExportTasks" OutputProperty="Tasks" Verb="Get" Noun="ExportTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +123,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreGraphFromSnapshot" OutputProperty="*" Verb="Restore" Noun="GraphFromSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="GraphIdentifier" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

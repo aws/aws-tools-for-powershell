@@ -95,6 +95,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.BackupGateway.dll',
         'AWSSDK.Batch.dll',
         'AWSSDK.BCMDataExports.dll',
+        'AWSSDK.BCMPricingCalculator.dll',
         'AWSSDK.Bedrock.dll',
         'AWSSDK.BedrockAgent.dll',
         'AWSSDK.BedrockAgentRuntime.dll',

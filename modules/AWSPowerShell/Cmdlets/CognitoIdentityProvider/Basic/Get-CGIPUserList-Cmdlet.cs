@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"".
-        /// Quotation marks within the filter string must be escaped using the backslash (<c>\</c>)
-        /// character. For example, <c>"family_name = \"Reddy\""</c>.</para><ul><li><para><i>AttributeName</i>: The name of the attribute to search for. You can only search
+        /// <para>A filter string of the form <c>"AttributeName Filter-Type "AttributeValue"</c>. Quotation
+        /// marks within the filter string must be escaped using the backslash (<c>\</c>) character.
+        /// For example, <c>"family_name = \"Reddy\""</c>.</para><ul><li><para><i>AttributeName</i>: The name of the attribute to search for. You can only search
         /// for one attribute at a time.</para></li><li><para><i>Filter-Type</i>: For an exact match, use <c>=</c>, for example, "<c>given_name
         /// = \"Jon\"</c>". For a prefix ("starts with") match, use <c>^=</c>, for example, "<c>given_name
         /// ^= \"Jon\"</c>". </para></li><li><para><i>AttributeValue</i>: The attribute value that must be matched for each user.</para></li></ul><para>If the filter string is empty, <c>ListUsers</c> returns all users in the user pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><c>username</c> (case-sensitive)</para></li><li><para><c>email</c></para></li><li><para><c>phone_number</c></para></li><li><para><c>name</c></para></li><li><para><c>given_name</c></para></li><li><para><c>family_name</c></para></li><li><para><c>preferred_username</c></para></li><li><para><c>cognito:user_status</c> (called <b>Status</b> in the Console) (case-insensitive)</para></li><li><para><c>status (called <b>Enabled</b> in the Console) (case-sensitive)</c></para></li><li><para><c>sub</c></para></li></ul><para>Custom attributes aren't searchable.</para><note><para>You can also list users with a client-side filter. The server-side filter matches

@@ -123,10 +123,13 @@ $CHAT_SelectCompleters = {
 }
 
 $CHAT_SelectMap = @{
-    "Select"=@("New-CHATChimeWebhookConfiguration",
+    "Select"=@("Register-CHATAssociation",
+               "New-CHATChimeWebhookConfiguration",
+               "New-CHATCustomAction",
                "New-CHATMicrosoftTeamsChannelConfiguration",
                "New-CHATSlackChannelConfiguration",
                "Remove-CHATChimeWebhookConfiguration",
+               "Remove-CHATCustomAction",
                "Remove-CHATMicrosoftTeamsChannelConfiguration",
                "Remove-CHATMicrosoftTeamsConfiguredTeam",
                "Remove-CHATMicrosoftTeamsUserIdentity",
@@ -137,8 +140,12 @@ $CHAT_SelectMap = @{
                "Get-CHATSlackChannelConfiguration",
                "Get-CHATSlackUserIdentity",
                "Get-CHATSlackWorkspace",
+               "Unregister-CHATAssociation",
                "Get-CHATAccountPreference",
+               "Get-CHATCustomAction",
                "Get-CHATMicrosoftTeamsChannelConfiguration",
+               "Get-CHATAssociationList",
+               "Get-CHATCustomActionList",
                "Get-CHATMicrosoftTeamsChannelConfigurationList",
                "Get-CHATMicrosoftTeamsConfiguredTeamList",
                "Get-CHATMicrosoftTeamsUserIdentityList",
@@ -147,6 +154,7 @@ $CHAT_SelectMap = @{
                "Remove-CHATResourceTag",
                "Update-CHATAccountPreference",
                "Update-CHATChimeWebhookConfiguration",
+               "Update-CHATCustomAction",
                "Update-CHATMicrosoftTeamsChannelConfiguration",
                "Update-CHATSlackChannelConfiguration")
 }

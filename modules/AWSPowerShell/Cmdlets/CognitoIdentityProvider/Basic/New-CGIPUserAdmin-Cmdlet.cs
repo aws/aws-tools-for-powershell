@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Servicesservice, Amazon Simple Notification Service might place your account in the
+    /// Services service, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -59,8 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Alternatively, you can call <c>AdminCreateUser</c> with <c>SUPPRESS</c> for the <c>MessageAction</c>
     /// parameter, and Amazon Cognito won't send any email. 
     /// </para><para>
-    /// In either case, the user will be in the <c>FORCE_CHANGE_PASSWORD</c> state until they
-    /// sign in and change their password.
+    /// In either case, if the user has a password, they will be in the <c>FORCE_CHANGE_PASSWORD</c>
+    /// state until they sign in and set their password. Your invitation message template
+    /// must have the <c>{####}</c> password placeholder if your users have passwords. If
+    /// your template doesn't have this placeholder, Amazon Cognito doesn't deliver the invitation
+    /// message. In this case, you must update your message template and resend the password
+    /// with a new <c>AdminCreateUser</c> request with a <c>MessageAction</c> value of <c>RESEND</c>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -153,10 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The user's temporary password. This password must conform to the password policy that
-        /// you specified when you created the user pool.</para><para>The temporary password is valid only once. To complete the Admin Create User flow,
+        /// you specified when you created the user pool.</para><para>The exception to the requirement for a password is when your user pool supports passwordless
+        /// sign-in with email or SMS OTPs. To create a user with no password, omit this parameter
+        /// or submit a blank value. You can only create a passwordless user when passwordless
+        /// sign-in is available. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignInPolicyType.html">the
+        /// SignInPolicyType</a> property of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html">CreateUserPool</a>
+        /// and <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html">UpdateUserPool</a>.</para><para>The temporary password is valid only once. To complete the Admin Create User flow,
         /// the user must enter the temporary password in the sign-in page, along with a new password
-        /// to be used in all future sign-ins.</para><para>This parameter isn't required. If you don't specify a value, Amazon Cognito generates
-        /// one for you.</para><para>The temporary password can only be used until the user account expiration limit that
+        /// to be used in all future sign-ins.</para><para>If you don't specify a value, Amazon Cognito generates one for you unless you have
+        /// passwordless options active for your user pool.</para><para>The temporary password can only be used until the user account expiration limit that
         /// you set for your user pool. To reset the account after that time limit, you must call
         /// <c>AdminCreateUser</c> again and specify <c>RESEND</c> for the <c>MessageAction</c>
         /// parameter.</para>
@@ -177,7 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// sign up in response to your welcome message).</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
         /// name.</para><para>To send a message inviting the user to sign up, you must specify the user's email
         /// address or phone number. You can do this in your call to AdminCreateUser or in the
-        /// <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</para><para>In your call to <c>AdminCreateUser</c>, you can set the <c>email_verified</c> attribute
+        /// <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</para><para>You must also provide an email address or phone number when you expect the user to
+        /// do passwordless sign-in with an email or SMS OTP. These attributes must be provided
+        /// when passwordless options are the only available, or when you don't submit a <c>TemporaryPassword</c>.</para><para>In your call to <c>AdminCreateUser</c>, you can set the <c>email_verified</c> attribute
         /// to <c>True</c>, and you can set the <c>phone_number_verified</c> attribute to <c>True</c>.
         /// You can also do this by calling <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>.</para><ul><li><para><b>email</b>: The email address of the user to whom the message that contains the
         /// code and username will be sent. Required if the <c>email_verified</c> attribute is

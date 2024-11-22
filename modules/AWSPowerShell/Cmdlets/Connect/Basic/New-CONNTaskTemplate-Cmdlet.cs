@@ -159,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.RequiredFieldInfo[] Constraints_RequiredField { get; set; }
         #endregion
         
+        #region Parameter SelfAssignFlowId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SelfAssignFlowId { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -290,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SelfAssignFlowId = this.SelfAssignFlowId;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -389,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.SelfAssignFlowId != null)
+            {
+                request.SelfAssignFlowId = cmdletContext.SelfAssignFlowId;
+            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -464,6 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.TaskTemplateField> Field { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String SelfAssignFlowId { get; set; }
             public Amazon.Connect.TaskTemplateStatus Status { get; set; }
             public System.Func<Amazon.Connect.Model.CreateTaskTemplateResponse, NewCONNTaskTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -141,6 +141,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CompleteWebAuthnRegistration" Verb="Complete" Noun="WebAuthnRegistration" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Credential" NewName="WebAuthnCredential" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ConfirmDevice" OutputProperty="UserConfirmationNecessary" Verb="Approve" Noun="Device" ShouldProcessTarget="DeviceName" PipelineParameter="DeviceKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -149,7 +155,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmSignUp" Verb="Confirm" Noun="UserRegistration" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmSignUp" OutputProperty="Session" Verb="Confirm" Noun="UserRegistration" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -158,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdentityProvider" OutputProperty="IdentityProvider" Verb="New" Noun="IdentityProvider" ShouldProcessTarget="ProviderName" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateManagedLoginBranding" OutputProperty="ManagedLoginBranding" Verb="New" Noun="ManagedLoginBranding" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -189,6 +199,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteManagedLoginBranding" Verb="Remove" Noun="ManagedLoginBranding" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourceServer" Verb="Remove" Noun="ResourceServer" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -213,7 +227,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebAuthnCredential" Verb="Remove" Noun="WebAuthnCredential" ShouldProcessTarget="CredentialId" PipelineParameter="CredentialId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeIdentityProvider" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProvider" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedLoginBranding" OutputProperty="ManagedLoginBranding" Verb="Get" Noun="ManagedLoginBranding" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedLoginBrandingByClient" OutputProperty="ManagedLoginBranding" Verb="Get" Noun="ManagedLoginBrandingByClient" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,6 +311,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUserAuthFactors" OutputProperty="*" Verb="Get" Noun="UserAuthFactor" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserPoolMfaConfig" OutputProperty="*" Verb="Get" Noun="UserPoolMfaConfig" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -342,6 +372,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWebAuthnCredentials" OutputProperty="Credentials" Verb="Get" Noun="WebAuthnCredentialList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResendConfirmationCode" OutputProperty="CodeDeliveryDetails" Verb="Send" Noun="ConfirmationCode" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -386,6 +420,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartWebAuthnRegistration" OutputProperty="CredentialCreationOptions" Verb="Start" Noun="WebAuthnRegistration" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopUserImportJob" OutputProperty="UserImportJob" Verb="Stop" Noun="UserImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -411,6 +449,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdentityProvider" OutputProperty="IdentityProvider" Verb="Update" Noun="IdentityProvider" ShouldProcessTarget="ProviderName" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateManagedLoginBranding" OutputProperty="ManagedLoginBranding" Verb="Update" Noun="ManagedLoginBranding" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

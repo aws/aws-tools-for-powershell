@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the SlackChannelConfiguration to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

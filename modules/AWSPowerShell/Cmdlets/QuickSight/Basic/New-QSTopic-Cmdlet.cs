@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Topic_Description { get; set; }
         #endregion
         
+        #region Parameter FolderArn
+        /// <summary>
+        /// <para>
+        /// <para>The Folder ARN of the folder that you want the topic to reside in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FolderArns")]
+        public System.String[] FolderArn { get; set; }
+        #endregion
+        
         #region Parameter Topic_Name
         /// <summary>
         /// <para>
@@ -212,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.FolderArn != null)
+            {
+                context.FolderArn = new List<System.String>(this.FolderArn);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
@@ -250,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.FolderArn != null)
+            {
+                request.FolderArns = cmdletContext.FolderArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -395,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public List<System.String> FolderArn { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.Boolean? ConfigOptions_QBusinessInsightsEnabled { get; set; }
             public List<Amazon.QuickSight.Model.DatasetMetadata> Topic_DataSet { get; set; }

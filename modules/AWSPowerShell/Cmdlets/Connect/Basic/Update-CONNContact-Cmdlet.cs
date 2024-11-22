@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Reference { get; set; }
         #endregion
         
+        #region Parameter SegmentAttribute
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentAttributes")]
+        public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -205,6 +216,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Reference.Add((String)hashKey, (Amazon.Connect.Model.Reference)(this.Reference[hashKey]));
                 }
             }
+            if (this.SegmentAttribute != null)
+            {
+                context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SegmentAttribute.Keys)
+                {
+                    context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Reference != null)
             {
                 request.References = cmdletContext.Reference;
+            }
+            if (cmdletContext.SegmentAttribute != null)
+            {
+                request.SegmentAttributes = cmdletContext.SegmentAttribute;
             }
             
             CmdletOutput output;
@@ -307,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateContactResponse, UpdateCONNContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

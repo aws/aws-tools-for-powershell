@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter MutualAuthentication_AdvertiseTrustStoreCaName
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether trust store CA certificate names are advertised.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MutualAuthentication_AdvertiseTrustStoreCaNames")]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum")]
+        public Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum MutualAuthentication_AdvertiseTrustStoreCaName { get; set; }
+        #endregion
+        
         #region Parameter AlpnPolicy
         /// <summary>
         /// <para>
@@ -269,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 WriteWarning("You are passing $null as a value for parameter ListenerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MutualAuthentication_AdvertiseTrustStoreCaName = this.MutualAuthentication_AdvertiseTrustStoreCaName;
             context.MutualAuthentication_IgnoreClientCertificateExpiry = this.MutualAuthentication_IgnoreClientCertificateExpiry;
             context.MutualAuthentication_Mode = this.MutualAuthentication_Mode;
             context.MutualAuthentication_TrustStoreArn = this.MutualAuthentication_TrustStoreArn;
@@ -312,6 +325,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
              // populate MutualAuthentication
             var requestMutualAuthenticationIsNull = true;
             request.MutualAuthentication = new Amazon.ElasticLoadBalancingV2.Model.MutualAuthenticationAttributes();
+            Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName = null;
+            if (cmdletContext.MutualAuthentication_AdvertiseTrustStoreCaName != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName = cmdletContext.MutualAuthentication_AdvertiseTrustStoreCaName;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName != null)
+            {
+                request.MutualAuthentication.AdvertiseTrustStoreCaNames = requestMutualAuthentication_mutualAuthentication_AdvertiseTrustStoreCaName;
+                requestMutualAuthenticationIsNull = false;
+            }
             System.Boolean? requestMutualAuthentication_mutualAuthentication_IgnoreClientCertificateExpiry = null;
             if (cmdletContext.MutualAuthentication_IgnoreClientCertificateExpiry != null)
             {
@@ -434,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public List<Amazon.ElasticLoadBalancingV2.Model.Certificate> Certificate { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Action> DefaultAction { get; set; }
             public System.String ListenerArn { get; set; }
+            public Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum MutualAuthentication_AdvertiseTrustStoreCaName { get; set; }
             public System.Boolean? MutualAuthentication_IgnoreClientCertificateExpiry { get; set; }
             public System.String MutualAuthentication_Mode { get; set; }
             public System.String MutualAuthentication_TrustStoreArn { get; set; }

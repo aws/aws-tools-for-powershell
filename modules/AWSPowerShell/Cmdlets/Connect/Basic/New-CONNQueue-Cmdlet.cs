@@ -157,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String OutboundCallerConfig_OutboundCallerIdNumberId { get; set; }
         #endregion
         
+        #region Parameter OutboundEmailConfig_OutboundEmailAddressId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutboundEmailConfig_OutboundEmailAddressId { get; set; }
+        #endregion
+        
         #region Parameter OutboundCallerConfig_OutboundFlowId
         /// <summary>
         /// <para>
@@ -278,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.OutboundCallerConfig_OutboundCallerIdName = this.OutboundCallerConfig_OutboundCallerIdName;
             context.OutboundCallerConfig_OutboundCallerIdNumberId = this.OutboundCallerConfig_OutboundCallerIdNumberId;
             context.OutboundCallerConfig_OutboundFlowId = this.OutboundCallerConfig_OutboundFlowId;
+            context.OutboundEmailConfig_OutboundEmailAddressId = this.OutboundEmailConfig_OutboundEmailAddressId;
             if (this.QuickConnectId != null)
             {
                 context.QuickConnectId = new List<System.String>(this.QuickConnectId);
@@ -365,6 +376,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.OutboundCallerConfig = null;
             }
+            
+             // populate OutboundEmailConfig
+            var requestOutboundEmailConfigIsNull = true;
+            request.OutboundEmailConfig = new Amazon.Connect.Model.OutboundEmailConfig();
+            System.String requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId = null;
+            if (cmdletContext.OutboundEmailConfig_OutboundEmailAddressId != null)
+            {
+                requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId = cmdletContext.OutboundEmailConfig_OutboundEmailAddressId;
+            }
+            if (requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId != null)
+            {
+                request.OutboundEmailConfig.OutboundEmailAddressId = requestOutboundEmailConfig_outboundEmailConfig_OutboundEmailAddressId;
+                requestOutboundEmailConfigIsNull = false;
+            }
+             // determine if request.OutboundEmailConfig should be set to null
+            if (requestOutboundEmailConfigIsNull)
+            {
+                request.OutboundEmailConfig = null;
+            }
             if (cmdletContext.QuickConnectId != null)
             {
                 request.QuickConnectIds = cmdletContext.QuickConnectId;
@@ -442,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String OutboundCallerConfig_OutboundCallerIdName { get; set; }
             public System.String OutboundCallerConfig_OutboundCallerIdNumberId { get; set; }
             public System.String OutboundCallerConfig_OutboundFlowId { get; set; }
+            public System.String OutboundEmailConfig_OutboundEmailAddressId { get; set; }
             public List<System.String> QuickConnectId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Connect.Model.CreateQueueResponse, NewCONNQueueCmdlet, object> Select { get; set; } =

@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OMICSRunList', 
         'Get-OMICSRunTask', 
         'Get-OMICSRunTaskList', 
+        'Get-OMICSS3AccessPolicy', 
         'Get-OMICSSequenceStore', 
         'Get-OMICSSequenceStoreList', 
         'Get-OMICSShare', 
@@ -152,6 +153,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-OMICSRun', 
         'Remove-OMICSRunCache', 
         'Remove-OMICSRunGroup', 
+        'Remove-OMICSS3AccessPolicy', 
         'Remove-OMICSSequenceStore', 
         'Remove-OMICSShare', 
         'Remove-OMICSVariantStore', 
@@ -171,8 +173,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-OMICSAnnotationStoreVersion', 
         'Update-OMICSRunCache', 
         'Update-OMICSRunGroup', 
+        'Update-OMICSSequenceStore', 
         'Update-OMICSVariantStore', 
-        'Update-OMICSWorkflow')
+        'Update-OMICSWorkflow', 
+        'Write-OMICSS3AccessPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

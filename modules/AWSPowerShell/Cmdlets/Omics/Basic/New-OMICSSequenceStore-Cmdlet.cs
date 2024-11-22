@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter S3AccessConfig_AccessLogLocation
+        /// <summary>
+        /// <para>
+        /// <para>Location of the access logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3AccessConfig_AccessLogLocation { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -97,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PropagatedSetLevelTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags keys to propagate to the S3 objects associated with read sets in the sequence
+        /// store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropagatedSetLevelTags")]
+        public System.String[] PropagatedSetLevelTag { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -205,6 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PropagatedSetLevelTag != null)
+            {
+                context.PropagatedSetLevelTag = new List<System.String>(this.PropagatedSetLevelTag);
+            }
+            context.S3AccessConfig_AccessLogLocation = this.S3AccessConfig_AccessLogLocation;
             context.SseConfig_KeyArn = this.SseConfig_KeyArn;
             context.SseConfig_Type = this.SseConfig_Type;
             if (this.Tag != null)
@@ -250,6 +277,29 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PropagatedSetLevelTag != null)
+            {
+                request.PropagatedSetLevelTags = cmdletContext.PropagatedSetLevelTag;
+            }
+            
+             // populate S3AccessConfig
+            var requestS3AccessConfigIsNull = true;
+            request.S3AccessConfig = new Amazon.Omics.Model.S3AccessConfig();
+            System.String requestS3AccessConfig_s3AccessConfig_AccessLogLocation = null;
+            if (cmdletContext.S3AccessConfig_AccessLogLocation != null)
+            {
+                requestS3AccessConfig_s3AccessConfig_AccessLogLocation = cmdletContext.S3AccessConfig_AccessLogLocation;
+            }
+            if (requestS3AccessConfig_s3AccessConfig_AccessLogLocation != null)
+            {
+                request.S3AccessConfig.AccessLogLocation = requestS3AccessConfig_s3AccessConfig_AccessLogLocation;
+                requestS3AccessConfigIsNull = false;
+            }
+             // determine if request.S3AccessConfig should be set to null
+            if (requestS3AccessConfigIsNull)
+            {
+                request.S3AccessConfig = null;
             }
             
              // populate SseConfig
@@ -350,6 +400,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public Amazon.Omics.ETagAlgorithmFamily ETagAlgorithmFamily { get; set; }
             public System.String FallbackLocation { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> PropagatedSetLevelTag { get; set; }
+            public System.String S3AccessConfig_AccessLogLocation { get; set; }
             public System.String SseConfig_KeyArn { get; set; }
             public Amazon.Omics.EncryptionType SseConfig_Type { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

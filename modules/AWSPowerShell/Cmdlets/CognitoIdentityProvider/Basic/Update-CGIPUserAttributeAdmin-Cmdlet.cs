@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Servicesservice, Amazon Simple Notification Service might place your account in the
+    /// Services service, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -109,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// the value of that attribute. After your user receives and responds to a verification
         /// message to verify the new value, Amazon Cognito updates the attribute value. Your
         /// user can sign in and receive messages with the original attribute value until they
-        /// verify the new value.</para><para>To update the value of an attribute that requires verification in the same API request,
-        /// include the <c>email_verified</c> or <c>phone_number_verified</c> attribute, with
-        /// a value of <c>true</c>. If you set the <c>email_verified</c> or <c>phone_number_verified</c>
+        /// verify the new value.</para><para>To skip the verification message and update the value of an attribute that requires
+        /// verification in the same API request, include the <c>email_verified</c> or <c>phone_number_verified</c>
+        /// attribute, with a value of <c>true</c>. If you set the <c>email_verified</c> or <c>phone_number_verified</c>
         /// value for an <c>email</c> or <c>phone_number</c> attribute that requires verification
         /// to <c>true</c>, Amazon Cognito doesn’t send a verification message to your user.</para>
         /// </para>

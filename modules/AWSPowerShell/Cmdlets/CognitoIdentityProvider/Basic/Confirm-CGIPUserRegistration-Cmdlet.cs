@@ -53,23 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </para></note>
     /// </summary>
     [Cmdlet("Confirm", "CGIPUserRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ConfirmSignUp API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ConfirmSignUp"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("System.String or Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmCGIPUserRegistrationCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AnalyticsMetadata_AnalyticsEndpointId
         /// <summary>
         /// <para>
-        /// <para>The endpoint ID.</para>
+        /// <para>The endpoint ID. Information that you want to pass to Amazon Pinpoint about where
+        /// to send notifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,6 +184,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String SecretHash { get; set; }
         #endregion
         
+        #region Parameter Session
+        /// <summary>
+        /// <para>
+        /// <para>The optional session ID from a <c>SignUp</c> API request. You can sign in a user directly
+        /// from the sign-up process with the <c>USER_AUTH</c> authentication flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Session { get; set; }
+        #endregion
+        
         #region Parameter Username
         /// <summary>
         /// <para>
@@ -203,12 +217,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Session'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Session";
         #endregion
         
         #region Parameter PassThru
@@ -287,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #endif
             context.ForceAliasCreation = this.ForceAliasCreation;
             context.SecretHash = this.SecretHash;
+            context.Session = this.Session;
             context.UserContextData_EncodedData = this.UserContextData_EncodedData;
             context.UserContextData_IpAddress = this.UserContextData_IpAddress;
             context.Username = this.Username;
@@ -350,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SecretHash != null)
             {
                 request.SecretHash = cmdletContext.SecretHash;
+            }
+            if (cmdletContext.Session != null)
+            {
+                request.Session = cmdletContext.Session;
             }
             
              // populate UserContextData
@@ -451,11 +471,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String ConfirmationCode { get; set; }
             public System.Boolean? ForceAliasCreation { get; set; }
             public System.String SecretHash { get; set; }
+            public System.String Session { get; set; }
             public System.String UserContextData_EncodedData { get; set; }
             public System.String UserContextData_IpAddress { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse, ConfirmCGIPUserRegistrationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.Session;
         }
         
     }

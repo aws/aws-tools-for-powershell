@@ -147,6 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.RequiredFieldInfo[] Constraints_RequiredField { get; set; }
         #endregion
         
+        #region Parameter SelfAssignFlowId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SelfAssignFlowId { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -269,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            context.SelfAssignFlowId = this.SelfAssignFlowId;
             context.Status = this.Status;
             context.TaskTemplateId = this.TaskTemplateId;
             #if MODULAR
@@ -371,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.SelfAssignFlowId != null)
+            {
+                request.SelfAssignFlowId = cmdletContext.SelfAssignFlowId;
+            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -449,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.TaskTemplateField> Field { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String SelfAssignFlowId { get; set; }
             public Amazon.Connect.TaskTemplateStatus Status { get; set; }
             public System.String TaskTemplateId { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateTaskTemplateResponse, UpdateCONNTaskTemplateCmdlet, object> Select { get; set; } =

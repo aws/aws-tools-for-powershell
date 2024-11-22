@@ -218,6 +218,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.DateTime? ScheduledTime { get; set; }
         #endregion
         
+        #region Parameter SegmentAttribute
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentAttributes")]
+        public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
         #region Parameter TaskTemplateId
         /// <summary>
         /// <para>
@@ -342,6 +353,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.RelatedContactId = this.RelatedContactId;
             context.ScheduledTime = this.ScheduledTime;
+            if (this.SegmentAttribute != null)
+            {
+                context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SegmentAttribute.Keys)
+                {
+                    context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                }
+            }
             context.TaskTemplateId = this.TaskTemplateId;
             
             // allow further manipulation of loaded context prior to processing
@@ -402,6 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ScheduledTime != null)
             {
                 request.ScheduledTime = cmdletContext.ScheduledTime.Value;
+            }
+            if (cmdletContext.SegmentAttribute != null)
+            {
+                request.SegmentAttributes = cmdletContext.SegmentAttribute;
             }
             if (cmdletContext.TaskTemplateId != null)
             {
@@ -479,6 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }
             public System.DateTime? ScheduledTime { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
             public System.String TaskTemplateId { get; set; }
             public System.Func<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;

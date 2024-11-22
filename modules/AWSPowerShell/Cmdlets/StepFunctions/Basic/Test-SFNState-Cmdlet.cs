@@ -145,15 +145,20 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// for the state.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Variable
+        /// <summary>
+        /// <para>
+        /// <para>JSON object literal that sets variables used in the state under test. Object keys
+        /// are the variable names and values are the variable values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Variables")]
+        public System.String Variable { get; set; }
         #endregion
         
         #region Parameter Select
@@ -193,12 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             context.InspectionLevel = this.InspectionLevel;
             context.RevealSecret = this.RevealSecret;
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Variable = this.Variable;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.Variable != null)
+            {
+                request.Variables = cmdletContext.Variable;
             }
             
             CmdletOutput output;
@@ -301,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public Amazon.StepFunctions.InspectionLevel InspectionLevel { get; set; }
             public System.Boolean? RevealSecret { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String Variable { get; set; }
             public System.Func<Amazon.StepFunctions.Model.TestStateResponse, TestSFNStateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

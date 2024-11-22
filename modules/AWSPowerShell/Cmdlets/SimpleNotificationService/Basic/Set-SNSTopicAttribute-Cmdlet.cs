@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// used while creating the signature of the notifications, subscription confirmations,
         /// or unsubscribe confirmation messages sent by Amazon SNS. By default, <c>SignatureVersion</c>
         /// is set to <c>1</c>.</para></li></ul><para>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
-        /// topics</a>:</para><ul><li><para><c>ContentBasedDeduplication</c> – Enables content-based deduplication for FIFO topics.</para><ul><li><para>By default, <c>ContentBasedDeduplication</c> is set to <c>false</c>. If you create
+        /// topics</a>:</para><ul><li><para><c>ArchivePolicy</c> – The policy that sets the retention period for messages stored
+        /// in the message archive of an Amazon SNS FIFO topic.</para></li><li><para><c>ContentBasedDeduplication</c> – Enables content-based deduplication for FIFO topics.</para><ul><li><para>By default, <c>ContentBasedDeduplication</c> is set to <c>false</c>. If you create
         /// a FIFO topic and this attribute is <c>false</c>, you must specify a value for the
         /// <c>MessageDeduplicationId</c> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
         /// action. </para></li><li><para>When you set <c>ContentBasedDeduplication</c> to <c>true</c>, Amazon SNS uses a SHA-256

@@ -181,6 +181,9 @@
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDataExports.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BCMPricingCalculator">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMPricingCalculator.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
     </Reference>
@@ -1346,6 +1349,9 @@
     </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMDataExports.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BCMPricingCalculator">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMPricingCalculator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Bedrock.dll</HintPath>

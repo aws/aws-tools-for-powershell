@@ -87,6 +87,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-NEPTGResourceTag', 
+        'Get-NEPTGExportTask', 
+        'Get-NEPTGExportTaskList', 
         'Get-NEPTGGraph', 
         'Get-NEPTGGraphList', 
         'Get-NEPTGGraphSnapshot', 
@@ -110,7 +112,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NEPTGResourceTag', 
         'Reset-NEPTGGraph', 
         'Restore-NEPTGGraphFromSnapshot', 
+        'Start-NEPTGExportTask', 
         'Start-NEPTGImportTask', 
+        'Stop-NEPTGExportTask', 
         'Stop-NEPTGImportTask', 
         'Stop-NEPTGQuery', 
         'Update-NEPTGGraph')

@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Specifies the parameters of a planned commitment purchase and starts the generation
     /// of the analysis. This enables you to estimate the cost, coverage, and utilization
-    /// impact of your planned commitment purchases. You can request up to 20 analysis runs
-    /// per day.
+    /// impact of your planned commitment purchases.
     /// </summary>
     [Cmdlet("Start", "CECommitmentPurchaseAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.StartCommitmentPurchaseAnalysisResponse")]

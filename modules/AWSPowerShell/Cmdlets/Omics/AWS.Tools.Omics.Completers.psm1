@@ -238,6 +238,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.SequenceStoreStatus
+        "Get-OMICSSequenceStoreList/Filter_Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
         # Amazon.Omics.StorageType
         "Start-OMICSRun/StorageType"
         {
@@ -309,7 +316,7 @@ $OMICS_map = @{
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
-    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
+    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSSequenceStoreList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
@@ -399,6 +406,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSRun",
                "Remove-OMICSRunCache",
                "Remove-OMICSRunGroup",
+               "Remove-OMICSS3AccessPolicy",
                "Remove-OMICSSequenceStore",
                "Remove-OMICSShare",
                "Remove-OMICSVariantStore",
@@ -419,6 +427,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSRunCache",
                "Get-OMICSRunGroup",
                "Get-OMICSRunTask",
+               "Get-OMICSS3AccessPolicy",
                "Get-OMICSSequenceStore",
                "Get-OMICSShare",
                "Get-OMICSVariantImportJob",
@@ -446,6 +455,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSVariantImportJobList",
                "Get-OMICSVariantStoreList",
                "Get-OMICSWorkflowList",
+               "Write-OMICSS3AccessPolicy",
                "Start-OMICSAnnotationImportJob",
                "Start-OMICSReadSetActivationJob",
                "Start-OMICSReadSetExportJob",
@@ -459,6 +469,7 @@ $OMICS_SelectMap = @{
                "Update-OMICSAnnotationStoreVersion",
                "Update-OMICSRunCache",
                "Update-OMICSRunGroup",
+               "Update-OMICSSequenceStore",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",
                "Set-OMICSReadSetPart")

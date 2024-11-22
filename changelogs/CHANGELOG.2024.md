@@ -1,4 +1,97 @@
-﻿### 4.1.704 (2024-11-21 22:02Z)
+﻿### 4.1.705 (2024-11-22 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.933.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Auto Scaling
+    * Modified cmdlet Write-ASScalingPolicy: added parameter CustomizedMetricSpecification_Period.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Invoke-BARInlineAgent leveraging the InvokeInlineAgent service API.
+  * Amazon Chatbot
+    * Added cmdlet Get-CHATAssociationList leveraging the ListAssociations service API.
+    * Added cmdlet Get-CHATCustomAction leveraging the GetCustomAction service API.
+    * Added cmdlet Get-CHATCustomActionList leveraging the ListCustomActions service API.
+    * Added cmdlet New-CHATCustomAction leveraging the CreateCustomAction service API.
+    * Added cmdlet Register-CHATAssociation leveraging the AssociateToConfiguration service API.
+    * Added cmdlet Remove-CHATCustomAction leveraging the DeleteCustomAction service API.
+    * Added cmdlet Unregister-CHATAssociation leveraging the DisassociateFromConfiguration service API.
+    * Added cmdlet Update-CHATCustomAction leveraging the UpdateCustomAction service API.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Complete-CGIPWebAuthnRegistration leveraging the CompleteWebAuthnRegistration service API.
+    * Added cmdlet Get-CGIPManagedLoginBranding leveraging the DescribeManagedLoginBranding service API.
+    * Added cmdlet Get-CGIPManagedLoginBrandingByClient leveraging the DescribeManagedLoginBrandingByClient service API.
+    * Added cmdlet Get-CGIPUserAuthFactor leveraging the GetUserAuthFactors service API.
+    * Added cmdlet Get-CGIPWebAuthnCredentialList leveraging the ListWebAuthnCredentials service API.
+    * Added cmdlet New-CGIPManagedLoginBranding leveraging the CreateManagedLoginBranding service API.
+    * Added cmdlet Remove-CGIPManagedLoginBranding leveraging the DeleteManagedLoginBranding service API.
+    * Added cmdlet Remove-CGIPWebAuthnCredential leveraging the DeleteWebAuthnCredential service API.
+    * Added cmdlet Start-CGIPWebAuthnRegistration leveraging the StartWebAuthnRegistration service API.
+    * Added cmdlet Update-CGIPManagedLoginBranding leveraging the UpdateManagedLoginBranding service API.
+    * Modified cmdlet Confirm-CGIPUserRegistration: added parameter Session.
+    * Modified cmdlet New-CGIPUserPool: added parameters SignInPolicy_AllowedFirstAuthFactor and UserPoolTier.
+    * Modified cmdlet New-CGIPUserPoolDomain: added parameter ManagedLoginVersion.
+    * Modified cmdlet Set-CGIPUserPoolMfaConfig: added parameters WebAuthnConfiguration_RelyingPartyId and WebAuthnConfiguration_UserVerification.
+    * Modified cmdlet Start-CGIPAuth: added parameter Session.
+    * Modified cmdlet Start-CGIPAuthAdmin: added parameter Session.
+    * Modified cmdlet Update-CGIPUserPool: added parameters PoolName, SignInPolicy_AllowedFirstAuthFactor and UserPoolTier.
+    * Modified cmdlet Update-CGIPUserPoolDomain: added parameter ManagedLoginVersion.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNAssociatedContactList leveraging the ListAssociatedContacts service API.
+    * Added cmdlet Get-CONNEmailAddress leveraging the DescribeEmailAddress service API.
+    * Added cmdlet New-CONNContact leveraging the CreateContact service API.
+    * Added cmdlet New-CONNEmailAddress leveraging the CreateEmailAddress service API.
+    * Added cmdlet Remove-CONNEmailAddress leveraging the DeleteEmailAddress service API.
+    * Added cmdlet Search-CONNEmailAddress leveraging the SearchEmailAddresses service API.
+    * Added cmdlet Send-CONNOutboundEmail leveraging the SendOutboundEmail service API.
+    * Added cmdlet Start-CONNEmailContact leveraging the StartEmailContact service API.
+    * Added cmdlet Start-CONNOutboundEmailContact leveraging the StartOutboundEmailContact service API.
+    * Added cmdlet Update-CONNEmailAddressMetadata leveraging the UpdateEmailAddressMetadata service API.
+    * Added cmdlet Update-CONNQueueOutboundEmailConfig leveraging the UpdateQueueOutboundEmailConfig service API.
+    * Modified cmdlet New-CONNQueue: added parameter OutboundEmailConfig_OutboundEmailAddressId.
+    * Modified cmdlet New-CONNTaskTemplate: added parameter SelfAssignFlowId.
+    * Modified cmdlet Search-CONNContact: added parameters SearchableSegmentAttributes_Criterion and SearchableSegmentAttributes_MatchType.
+    * Modified cmdlet Start-CONNTaskContact: added parameter SegmentAttribute.
+    * Modified cmdlet Update-CONNContact: added parameter SegmentAttribute.
+    * Modified cmdlet Update-CONNTaskTemplate: added parameter SelfAssignFlowId.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet Edit-ELB2Listener: added parameter MutualAuthentication_AdvertiseTrustStoreCaName.
+    * Modified cmdlet New-ELB2Listener: added parameter MutualAuthentication_AdvertiseTrustStoreCaName.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Start-EMRJobFlow: added parameters ManagedScalingPolicy_ScalingStrategy and ManagedScalingPolicy_UtilizationPerformanceIndex.
+    * Modified cmdlet Write-EMRManagedScalingPolicy: added parameters ManagedScalingPolicy_ScalingStrategy and ManagedScalingPolicy_UtilizationPerformanceIndex.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameters ProvisionedPollerConfig_MaximumPoller and ProvisionedPollerConfig_MinimumPoller.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameters ProvisionedPollerConfig_MaximumPoller and ProvisionedPollerConfig_MinimumPoller.
+  * Amazon Neptune Graph
+    * Added cmdlet Get-NEPTGExportTask leveraging the GetExportTask service API.
+    * Added cmdlet Get-NEPTGExportTaskList leveraging the ListExportTasks service API.
+    * Added cmdlet Start-NEPTGExportTask leveraging the StartExportTask service API.
+    * Added cmdlet Stop-NEPTGExportTask leveraging the CancelExportTask service API.
+    * Modified cmdlet New-NEPTGGraphUsingImportTask: added parameter ParquetType.
+    * Modified cmdlet Start-NEPTGImportTask: added parameter ParquetType.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSS3AccessPolicy leveraging the GetS3AccessPolicy service API.
+    * Added cmdlet Remove-OMICSS3AccessPolicy leveraging the DeleteS3AccessPolicy service API.
+    * Added cmdlet Update-OMICSSequenceStore leveraging the UpdateSequenceStore service API.
+    * Added cmdlet Write-OMICSS3AccessPolicy leveraging the PutS3AccessPolicy service API.
+    * Modified cmdlet Get-OMICSSequenceStoreList: added parameters Filter_Status, Filter_UpdatedAfter and Filter_UpdatedBefore.
+    * Modified cmdlet New-OMICSSequenceStore: added parameters PropagatedSetLevelTag and S3AccessConfig_AccessLogLocation.
+  * Amazon Pricing Calculator. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BCMPC and can be listed using the command 'Get-AWSCmdletName -Service BCMPC'.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSDashboardsQAConfiguration leveraging the DescribeDashboardsQAConfiguration service API.
+    * Added cmdlet Search-QSTopic leveraging the SearchTopics service API.
+    * Added cmdlet Update-QSDashboardsQAConfiguration leveraging the UpdateDashboardsQAConfiguration service API.
+    * Modified cmdlet New-QSAnalysis: added parameter Definition_StaticFile.
+    * Modified cmdlet New-QSDashboard: added parameter Definition_StaticFile.
+    * Modified cmdlet New-QSTemplate: added parameter Definition_StaticFile.
+    * Modified cmdlet New-QSTopic: added parameter FolderArn.
+    * Modified cmdlet Update-QSAnalysis: added parameter Definition_StaticFile.
+    * Modified cmdlet Update-QSDashboard: added parameter Definition_StaticFile.
+    * Modified cmdlet Update-QSTemplate: added parameter Definition_StaticFile.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceComponent: added parameter Specification_BaseInferenceComponentName.
+    * Modified cmdlet Update-SMInferenceComponent: added parameter Specification_BaseInferenceComponentName.
+  * Amazon Step Functions
+    * Modified cmdlet Test-SFNState: added parameter Variable.
+
+### 4.1.704 (2024-11-21 22:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.932.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Added cmdlet Disable-AGDomainNameAccessAssociation leveraging the RejectDomainNameAccessAssociation service API.

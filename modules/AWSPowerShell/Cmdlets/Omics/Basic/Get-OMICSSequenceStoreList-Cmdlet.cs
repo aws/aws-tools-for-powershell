@@ -72,6 +72,37 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String Filter_Name { get; set; }
         #endregion
         
+        #region Parameter Filter_Status
+        /// <summary>
+        /// <para>
+        /// <para>Filter results based on status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.SequenceStoreStatus")]
+        public Amazon.Omics.SequenceStoreStatus Filter_Status { get; set; }
+        #endregion
+        
+        #region Parameter Filter_UpdatedAfter
+        /// <summary>
+        /// <para>
+        /// <para>Filter results based on stores updated after the specified time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? Filter_UpdatedAfter { get; set; }
+        #endregion
+        
+        #region Parameter Filter_UpdatedBefore
+        /// <summary>
+        /// <para>
+        /// <para>Filter results based on stores updated before the specified time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? Filter_UpdatedBefore { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -123,6 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.Filter_CreatedAfter = this.Filter_CreatedAfter;
             context.Filter_CreatedBefore = this.Filter_CreatedBefore;
             context.Filter_Name = this.Filter_Name;
+            context.Filter_Status = this.Filter_Status;
+            context.Filter_UpdatedAfter = this.Filter_UpdatedAfter;
+            context.Filter_UpdatedBefore = this.Filter_UpdatedBefore;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -173,6 +207,36 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestFilter_filter_Name != null)
             {
                 request.Filter.Name = requestFilter_filter_Name;
+                requestFilterIsNull = false;
+            }
+            Amazon.Omics.SequenceStoreStatus requestFilter_filter_Status = null;
+            if (cmdletContext.Filter_Status != null)
+            {
+                requestFilter_filter_Status = cmdletContext.Filter_Status;
+            }
+            if (requestFilter_filter_Status != null)
+            {
+                request.Filter.Status = requestFilter_filter_Status;
+                requestFilterIsNull = false;
+            }
+            System.DateTime? requestFilter_filter_UpdatedAfter = null;
+            if (cmdletContext.Filter_UpdatedAfter != null)
+            {
+                requestFilter_filter_UpdatedAfter = cmdletContext.Filter_UpdatedAfter.Value;
+            }
+            if (requestFilter_filter_UpdatedAfter != null)
+            {
+                request.Filter.UpdatedAfter = requestFilter_filter_UpdatedAfter.Value;
+                requestFilterIsNull = false;
+            }
+            System.DateTime? requestFilter_filter_UpdatedBefore = null;
+            if (cmdletContext.Filter_UpdatedBefore != null)
+            {
+                requestFilter_filter_UpdatedBefore = cmdletContext.Filter_UpdatedBefore.Value;
+            }
+            if (requestFilter_filter_UpdatedBefore != null)
+            {
+                request.Filter.UpdatedBefore = requestFilter_filter_UpdatedBefore.Value;
                 requestFilterIsNull = false;
             }
              // determine if request.Filter should be set to null
@@ -252,6 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.DateTime? Filter_CreatedAfter { get; set; }
             public System.DateTime? Filter_CreatedBefore { get; set; }
             public System.String Filter_Name { get; set; }
+            public Amazon.Omics.SequenceStoreStatus Filter_Status { get; set; }
+            public System.DateTime? Filter_UpdatedAfter { get; set; }
+            public System.DateTime? Filter_UpdatedBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Omics.Model.ListSequenceStoresResponse, GetOMICSSequenceStoreListCmdlet, object> Select { get; set; } =

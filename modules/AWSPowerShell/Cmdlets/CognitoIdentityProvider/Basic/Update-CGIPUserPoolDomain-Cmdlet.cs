@@ -114,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String Domain { get; set; }
         #endregion
         
+        #region Parameter ManagedLoginVersion
+        /// <summary>
+        /// <para>
+        /// <para>A version number that indicates the state of managed login for your domain. Version
+        /// <c>1</c> is hosted UI (classic). Version <c>2</c> is the newer managed login with
+        /// the branding designer. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">Managed
+        /// login</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedLoginVersion { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -208,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManagedLoginVersion = this.ManagedLoginVersion;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -253,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.ManagedLoginVersion != null)
+            {
+                request.ManagedLoginVersion = cmdletContext.ManagedLoginVersion.Value;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -321,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String CustomDomainConfig_CertificateArn { get; set; }
             public System.String Domain { get; set; }
+            public System.Int32? ManagedLoginVersion { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.UpdateUserPoolDomainResponse, UpdateCGIPUserPoolDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CloudFrontDomain;
