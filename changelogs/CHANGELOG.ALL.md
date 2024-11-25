@@ -1,4 +1,11 @@
-﻿### 4.1.705 (2024-11-22 21:43Z)
+﻿### 4.1.706 (2024-11-25 21:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.934.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Manager
+    * Added cmdlet Get-NMGRDirectConnectGatewayAttachment leveraging the GetDirectConnectGatewayAttachment service API.
+    * Added cmdlet New-NMGRDirectConnectGatewayAttachment leveraging the CreateDirectConnectGatewayAttachment service API.
+    * Added cmdlet Update-NMGRDirectConnectGatewayAttachment leveraging the UpdateDirectConnectGatewayAttachment service API.
+
+### 4.1.705 (2024-11-22 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.933.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Auto Scaling
     * Modified cmdlet Write-ASScalingPolicy: added parameter CustomizedMetricSpecification_Period.

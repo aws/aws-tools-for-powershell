@@ -20881,6 +20881,8 @@ Set-Alias -Name Create-NMGRCoreNetwork -Value New-NMGRCoreNetwork
 Set-Alias -Name NMGR-CreateCoreNetwork -Value New-NMGRCoreNetwork
 Set-Alias -Name Create-NMGRDevice -Value New-NMGRDevice
 Set-Alias -Name NMGR-CreateDevice -Value New-NMGRDevice
+Set-Alias -Name Create-NMGRDirectConnectGatewayAttachment -Value New-NMGRDirectConnectGatewayAttachment
+Set-Alias -Name NMGR-CreateDirectConnectGatewayAttachment -Value New-NMGRDirectConnectGatewayAttachment
 Set-Alias -Name Create-NMGRGlobalNetwork -Value New-NMGRGlobalNetwork
 Set-Alias -Name NMGR-CreateGlobalNetwork -Value New-NMGRGlobalNetwork
 Set-Alias -Name Create-NMGRLink -Value New-NMGRLink
@@ -20948,6 +20950,7 @@ Set-Alias -Name Get-NMGRCustomerGatewayAssociations -Value Get-NMGRCustomerGatew
 Set-Alias -Name NMGR-GetCustomerGatewayAssociations -Value Get-NMGRCustomerGatewayAssociation
 Set-Alias -Name Get-NMGRDevices -Value Get-NMGRDevice
 Set-Alias -Name NMGR-GetDevices -Value Get-NMGRDevice
+Set-Alias -Name NMGR-GetDirectConnectGatewayAttachment -Value Get-NMGRDirectConnectGatewayAttachment
 Set-Alias -Name Get-NMGRLinkAssociations -Value Get-NMGRLinkAssociation
 Set-Alias -Name NMGR-GetLinkAssociations -Value Get-NMGRLinkAssociation
 Set-Alias -Name Get-NMGRLinks -Value Get-NMGRLink
@@ -21007,6 +21010,7 @@ Set-Alias -Name NMGR-UntagResource -Value Remove-NMGRResourceTag
 Set-Alias -Name NMGR-UpdateConnection -Value Update-NMGRConnection
 Set-Alias -Name NMGR-UpdateCoreNetwork -Value Update-NMGRCoreNetwork
 Set-Alias -Name NMGR-UpdateDevice -Value Update-NMGRDevice
+Set-Alias -Name NMGR-UpdateDirectConnectGatewayAttachment -Value Update-NMGRDirectConnectGatewayAttachment
 Set-Alias -Name NMGR-UpdateGlobalNetwork -Value Update-NMGRGlobalNetwork
 Set-Alias -Name NMGR-UpdateLink -Value Update-NMGRLink
 Set-Alias -Name NMGR-UpdateNetworkResourceMetadata -Value Update-NMGRNetworkResourceMetadata

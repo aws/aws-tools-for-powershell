@@ -90,7 +90,7 @@ $NMGR_Completers = {
         # Amazon.NetworkManager.AttachmentType
         "Get-NMGRAttachmentList/AttachmentType"
         {
-            $v = "CONNECT","SITE_TO_SITE_VPN","TRANSIT_GATEWAY_ROUTE_TABLE","VPC"
+            $v = "CONNECT","DIRECT_CONNECT_GATEWAY","SITE_TO_SITE_VPN","TRANSIT_GATEWAY_ROUTE_TABLE","VPC"
             break
         }
 
@@ -198,6 +198,7 @@ $NMGR_SelectMap = @{
                "New-NMGRConnectPeer",
                "New-NMGRCoreNetwork",
                "New-NMGRDevice",
+               "New-NMGRDirectConnectGatewayAttachment",
                "New-NMGRGlobalNetwork",
                "New-NMGRLink",
                "New-NMGRSite",
@@ -233,6 +234,7 @@ $NMGR_SelectMap = @{
                "Get-NMGRCoreNetworkPolicy",
                "Get-NMGRCustomerGatewayAssociation",
                "Get-NMGRDevice",
+               "Get-NMGRDirectConnectGatewayAttachment",
                "Get-NMGRLinkAssociation",
                "Get-NMGRLink",
                "Get-NMGRNetworkResourceCount",
@@ -268,6 +270,7 @@ $NMGR_SelectMap = @{
                "Update-NMGRConnection",
                "Update-NMGRCoreNetwork",
                "Update-NMGRDevice",
+               "Update-NMGRDirectConnectGatewayAttachment",
                "Update-NMGRGlobalNetwork",
                "Update-NMGRLink",
                "Update-NMGRNetworkResourceMetadata",
