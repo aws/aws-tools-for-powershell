@@ -211,6 +211,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.OrchestrationType
+        {
+            ($_ -eq "New-AABAgent/OrchestrationType") -Or
+            ($_ -eq "Update-AABAgent/OrchestrationType")
+        }
+        {
+            $v = "CUSTOM_ORCHESTRATION","DEFAULT"
+            break
+        }
+
         # Amazon.BedrockAgent.ParsingStrategy
         {
             ($_ -eq "New-AABDataSource/ParsingConfiguration_ParsingStrategy") -Or
@@ -293,6 +303,7 @@ $AAB_map = @{
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
+    "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")

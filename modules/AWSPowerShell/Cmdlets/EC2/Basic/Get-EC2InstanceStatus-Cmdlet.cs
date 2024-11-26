@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><c>instance-state-name</c> - The state of the instance (<c>pending</c> | <c>running</c>
         /// | <c>shutting-down</c> | <c>terminated</c> | <c>stopping</c> | <c>stopped</c>).</para></li><li><para><c>instance-status.reachability</c> - Filters on instance status where the name is
         /// <c>reachability</c> (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>instance-status.status</c> - The status of the instance (<c>ok</c> | <c>impaired</c>
-        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>system-status.reachability</c> - Filters on system status where the name is <c>reachability</c>
+        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>operator.managed</c> - A Boolean that indicates whether this is a managed instance.</para></li><li><para><c>operator.principal</c> - The principal that manages the instance. Only valid for
+        /// managed instances, where <c>managed</c> is <c>true</c>.</para></li><li><para><c>system-status.reachability</c> - Filters on system status where the name is <c>reachability</c>
         /// (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>system-status.status</c> - The system status of the instance (<c>ok</c> | <c>impaired</c>
         /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>attached-ebs-status.status</c> - The status of the attached EBS volume for the
         /// instance (<c>ok</c> | <c>impaired</c> | <c>initializing</c> | <c>insufficient-data</c>

@@ -1,4 +1,28 @@
-﻿### 4.1.706 (2024-11-25 21:34Z)
+﻿### 4.1.707 (2024-11-26 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.935.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgent: added parameters Executor_Lambda and OrchestrationType.
+    * Modified cmdlet Update-AABAgent: added parameters Executor_Lambda and OrchestrationType.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgent: added parameters StreamingConfigurations_ApplyGuardrailInterval and StreamingConfigurations_StreamFinalResponse.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Copy-EC2Snapshot: added parameter CompletionDurationMinute.
+    * Modified cmdlet Edit-EC2VpcEndpointServiceConfiguration: added parameters AddSupportedRegion and RemoveSupportedRegion.
+    * Modified cmdlet Get-EC2VpcEndpointService: added parameter ServiceRegion.
+    * Modified cmdlet New-EC2VpcEndpoint: added parameter ServiceRegion.
+    * Modified cmdlet New-EC2VpcEndpointServiceConfiguration: added parameter SupportedRegion.
+  * Amazon Q Apps
+    * Added cmdlet Export-qappsQAppSessionData leveraging the ExportQAppSessionData service API.
+    * Added cmdlet Get-qappsQAppPermission leveraging the DescribeQAppPermissions service API.
+    * Added cmdlet Get-qappsQAppSessionDataList leveraging the ListQAppSessionData service API.
+    * Added cmdlet Get-qappsQAppSessionMetadata leveraging the GetQAppSessionMetadata service API.
+    * Added cmdlet New-qappsPresignedUrl leveraging the CreatePresignedUrl service API.
+    * Added cmdlet Update-qappsQAppPermission leveraging the UpdateQAppPermissions service API.
+    * Added cmdlet Update-qappsQAppSessionMetadata leveraging the UpdateQAppSessionMetadata service API.
+    * Modified cmdlet Get-qappsQApp: added parameter AppVersion.
+    * Modified cmdlet Start-qappsQAppSession: added parameter SessionId.
+
+### 4.1.706 (2024-11-25 21:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.934.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Network Manager
     * Added cmdlet Get-NMGRDirectConnectGatewayAttachment leveraging the GetDirectConnectGatewayAttachment service API.

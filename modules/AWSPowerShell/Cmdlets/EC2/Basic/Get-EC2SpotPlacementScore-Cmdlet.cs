@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_CpuManufacturer
         /// <summary>
         /// <para>
-        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <c>intel</c>.</para></li><li><para>For instance types with AMD CPUs, specify <c>amd</c>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <c>amazon-web-services</c>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
+        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <c>intel</c>.</para></li><li><para>For instance types with AMD CPUs, specify <c>amd</c>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <c>amazon-web-services</c>.</para></li><li><para>For instance types with Apple CPUs, specify <c>apple</c>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
         /// with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
         /// specify in your launch template.</para></note><para>Default: Any manufacturer</para>
         /// </para>

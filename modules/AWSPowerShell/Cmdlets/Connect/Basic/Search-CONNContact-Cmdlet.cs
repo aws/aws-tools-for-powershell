@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchableSegmentAttributes_Criterion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of criteria based on searchable segment attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchableSegmentAttributes_MatchType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The match type combining search criteria using multiple searchable segment attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -150,7 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SelfAssignFlowId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ContactFlowId for the flow that will be run if this template is used to create
+        /// a self-assigned task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

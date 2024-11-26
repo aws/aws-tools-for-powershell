@@ -6932,6 +6932,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.OrchestrationType
+        {
+            ($_ -eq "New-AABAgent/OrchestrationType") -Or
+            ($_ -eq "Update-AABAgent/OrchestrationType")
+        }
+        {
+            $v = "CUSTOM_ORCHESTRATION","DEFAULT"
+            break
+        }
+
         # Amazon.BedrockAgent.ParsingStrategy
         {
             ($_ -eq "New-AABDataSource/ParsingConfiguration_ParsingStrategy") -Or
@@ -7014,6 +7024,7 @@ $AAB_map = @{
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
+    "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
@@ -56785,7 +56796,10 @@ $qapps_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.QApps.DocumentScope
-        "Import-qappsDocument/Scope"
+        {
+            ($_ -eq "Import-qappsDocument/Scope") -Or
+            ($_ -eq "New-qappsPresignedUrl/Scope")
+        }
         {
             $v = "APPLICATION","SESSION"
             break
@@ -56807,7 +56821,7 @@ $qapps_Completers = {
 }
 
 $qapps_map = @{
-    "Scope"=@("Import-qappsDocument")
+    "Scope"=@("Import-qappsDocument","New-qappsPresignedUrl")
     "Status"=@("Update-qappsLibraryItem")
 }
 
@@ -56867,18 +56881,23 @@ $qapps_SelectMap = @{
                "Remove-qappsDeleteCategory",
                "Set-qappsUpdateCategory",
                "New-qappsLibraryItem",
+               "New-qappsPresignedUrl",
                "New-qappsQApp",
                "Remove-qappsLibraryItem",
                "Remove-qappsQApp",
+               "Get-qappsQAppPermission",
                "Unregister-qappsLibraryItemReview",
                "Unregister-qappsQAppFromUser",
+               "Export-qappsQAppSessionData",
                "Get-qappsLibraryItem",
                "Get-qappsQApp",
                "Get-qappsQAppSession",
+               "Get-qappsQAppSessionMetadata",
                "Import-qappsDocument",
                "Get-qappsCategoryList",
                "Get-qappsLibraryItemList",
                "Get-qappsQAppList",
+               "Get-qappsQAppSessionDataList",
                "Get-qappsResourceTag",
                "ConvertFrom-qappsQApp",
                "Start-qappsQAppSession",
@@ -56888,7 +56907,9 @@ $qapps_SelectMap = @{
                "Update-qappsLibraryItem",
                "Update-qappsLibraryItemMetadata",
                "Update-qappsQApp",
-               "Update-qappsQAppSession")
+               "Update-qappsQAppPermission",
+               "Update-qappsQAppSession",
+               "Update-qappsQAppSessionMetadata")
 }
 
 _awsArgumentCompleterRegistration $qapps_SelectCompleters $qapps_SelectMap

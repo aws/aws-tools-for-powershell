@@ -151,6 +151,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ServiceName { get; set; }
         #endregion
         
+        #region Parameter ServiceRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Region where the service is hosted. The default is the current Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceRegion { get; set; }
+        #endregion
+        
         #region Parameter SubnetConfiguration
         /// <summary>
         /// <para>
@@ -309,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServiceRegion = this.ServiceRegion;
             if (this.SubnetConfiguration != null)
             {
                 context.SubnetConfiguration = new List<Amazon.EC2.Model.SubnetConfiguration>(this.SubnetConfiguration);
@@ -402,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ServiceName = cmdletContext.ServiceName;
             }
+            if (cmdletContext.ServiceRegion != null)
+            {
+                request.ServiceRegion = cmdletContext.ServiceRegion;
+            }
             if (cmdletContext.SubnetConfiguration != null)
             {
                 request.SubnetConfigurations = cmdletContext.SubnetConfiguration;
@@ -492,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> RouteTableId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServiceName { get; set; }
+            public System.String ServiceRegion { get; set; }
             public List<Amazon.EC2.Model.SubnetConfiguration> SubnetConfiguration { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

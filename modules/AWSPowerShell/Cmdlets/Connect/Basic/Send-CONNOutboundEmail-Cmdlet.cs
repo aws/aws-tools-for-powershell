@@ -28,7 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    
+    /// Send outbound email for outbound campaigns. For more information about outbound campaigns,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html">Set
+    /// up Amazon Connect outbound campaigns</a>.
+    /// 
+    ///  <note><para>
+    /// Only the Amazon Connect outbound campaigns service principal is allowed to assume
+    /// a role in your account and call this API.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Send", "CONNOutboundEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RawMessage_Body
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The email message body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SourceCampaign_CampaignId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique identifier for a campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AdditionalRecipients_CcEmailAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The additional CC email address recipients information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RawMessage_ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Type of content, that is, <c>text/plain</c> or <c>text/html</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TemplateAttributes_CustomAttribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An object that specifies the custom attributes values to use for variables in the
+        /// message template. This object contains different categories of key-value pairs. Each
+        /// key defines a variable or placeholder in the message template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TemplateAttributes_CustomerProfileAttribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An object that specifies the customer profile attributes values to use for variables
+        /// in the message template. This object contains different categories of key-value pairs.
+        /// Each key defines a variable or placeholder in the message template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DestinationEmailAddress_DisplayName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The display name of email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FromEmailAddress_DisplayName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The display name of email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DestinationEmailAddress_EmailAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -149,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FromEmailAddress_EmailAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -166,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,7 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TemplatedMessageConfig_KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
+        /// contain the ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EmailMessage_MessageSourceType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The message source type, that is, <c>RAW</c> or <c>TEMPLATE</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -211,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TemplatedMessageConfig_MessageTemplateId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the message template Id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SourceCampaign_OutboundRequestId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique identifier for a each request part of same campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RawMessage_Subject
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The email subject.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TrafficType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Denotes the class of traffic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -260,7 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

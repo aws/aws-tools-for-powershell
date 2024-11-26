@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>ip-address-type</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>service-name</c> - The name of the service.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// <para>The filters.</para><ul><li><para><c>ip-address-type</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>service-name</c> - The name of the service.</para></li><li><para><c>service-region</c> - The Region of the service.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
         /// Use the tag key in the filter name and the tag value as the filter value. For example,
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find

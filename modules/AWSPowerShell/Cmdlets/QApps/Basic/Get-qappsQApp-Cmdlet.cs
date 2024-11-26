@@ -59,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String AppId { get; set; }
         #endregion
         
+        #region Parameter AppVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the Q App.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AppVersion { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -129,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AppVersion = this.AppVersion;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -155,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
+            }
+            if (cmdletContext.AppVersion != null)
+            {
+                request.AppVersion = cmdletContext.AppVersion.Value;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -222,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
+            public System.Int32? AppVersion { get; set; }
             public System.String InstanceId { get; set; }
             public System.Func<Amazon.QApps.Model.GetQAppResponse, GetqappsQAppCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

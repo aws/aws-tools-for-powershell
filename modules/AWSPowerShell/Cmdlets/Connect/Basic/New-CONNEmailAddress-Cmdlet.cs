@@ -28,7 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    
+    /// Create new email address in the specified Amazon Connect instance. For more information
+    /// about email addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create
+    /// email addresses</a> in the Amazon Connect Administrator Guide.
     /// </summary>
     [Cmdlet("New", "CONNEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateEmailAddressResponse")]
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The description of the email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The display name of email address</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

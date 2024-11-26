@@ -22,30 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.QApps;
+using Amazon.QApps.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Deletes email address from the specified Amazon Connect instance.
+    /// Retrieves the current configuration of a Q App session.
     /// </summary>
-    [Cmdlet("Remove", "CONNEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service DeleteEmailAddress API operation.", Operation = new[] {"DeleteEmailAddress"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteEmailAddressResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteEmailAddressResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteEmailAddressResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "qappsQAppSessionMetadata")]
+    [OutputType("Amazon.QApps.Model.GetQAppSessionMetadataResponse")]
+    [AWSCmdlet("Calls the Amazon Q Apps GetQAppSessionMetadata API operation.", Operation = new[] {"GetQAppSessionMetadata"}, SelectReturnType = typeof(Amazon.QApps.Model.GetQAppSessionMetadataResponse))]
+    [AWSCmdletOutput("Amazon.QApps.Model.GetQAppSessionMetadataResponse",
+        "This cmdlet returns an Amazon.QApps.Model.GetQAppSessionMetadataResponse object containing multiple properties."
     )]
-    public partial class RemoveCONNEmailAddressCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetqappsQAppSessionMetadataCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EmailAddressId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the email address.</para>
+        /// <para>The unique identifier of the Amazon Q Business application environment instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,14 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddressId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The unique identifier of the Q App session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,13 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteEmailAddressResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.GetQAppSessionMetadataResponse).
+        /// Specifying the name of a property of type Amazon.QApps.Model.GetQAppSessionMetadataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,34 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SessionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNEmailAddress (DeleteEmailAddress)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteEmailAddressResponse, RemoveCONNEmailAddressCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.GetQAppSessionMetadataResponse, GetqappsQAppSessionMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +118,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.SessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EmailAddressId = this.EmailAddressId;
-            #if MODULAR
-            if (this.EmailAddressId == null && ParameterWasBound(nameof(this.EmailAddressId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EmailAddressId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SessionId = this.SessionId;
+            #if MODULAR
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DeleteEmailAddressRequest();
+            var request = new Amazon.QApps.Model.GetQAppSessionMetadataRequest();
             
-            if (cmdletContext.EmailAddressId != null)
-            {
-                request.EmailAddressId = cmdletContext.EmailAddressId;
-            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.SessionId != null)
+            {
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -209,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DeleteEmailAddressResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteEmailAddressRequest request)
+        private Amazon.QApps.Model.GetQAppSessionMetadataResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.GetQAppSessionMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteEmailAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "GetQAppSessionMetadata");
             try
             {
                 #if DESKTOP
-                return client.DeleteEmailAddress(request);
+                return client.GetQAppSessionMetadata(request);
                 #elif CORECLR
-                return client.DeleteEmailAddressAsync(request).GetAwaiter().GetResult();
+                return client.GetQAppSessionMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EmailAddressId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DeleteEmailAddressResponse, RemoveCONNEmailAddressCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.QApps.Model.GetQAppSessionMetadataResponse, GetqappsQAppSessionMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

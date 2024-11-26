@@ -202,6 +202,30 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String Instruction { get; set; }
         #endregion
         
+        #region Parameter Executor_Lambda
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lambda function containing the business logic
+        /// that is carried out upon invoking the action. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomOrchestration_Executor_Lambda")]
+        public System.String Executor_Lambda { get; set; }
+        #endregion
+        
+        #region Parameter OrchestrationType
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the type of orchestration strategy for the agent. This is set to <c>DEFAULT</c>
+        /// orchestration type, by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.OrchestrationType")]
+        public Amazon.BedrockAgent.OrchestrationType OrchestrationType { get; set; }
+        #endregion
+        
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
@@ -336,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.AgentResourceRoleArn = this.AgentResourceRoleArn;
             context.ClientToken = this.ClientToken;
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
+            context.Executor_Lambda = this.Executor_Lambda;
             context.Description = this.Description;
             context.FoundationModel = this.FoundationModel;
             context.GuardrailConfiguration_GuardrailIdentifier = this.GuardrailConfiguration_GuardrailIdentifier;
@@ -347,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.MemoryConfiguration_EnabledMemoryType = new List<System.String>(this.MemoryConfiguration_EnabledMemoryType);
             }
             context.MemoryConfiguration_StorageDay = this.MemoryConfiguration_StorageDay;
+            context.OrchestrationType = this.OrchestrationType;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
             if (this.PromptOverrideConfiguration_PromptConfiguration != null)
             {
@@ -391,6 +417,40 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.CustomerEncryptionKeyArn != null)
             {
                 request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
+            }
+            
+             // populate CustomOrchestration
+            var requestCustomOrchestrationIsNull = true;
+            request.CustomOrchestration = new Amazon.BedrockAgent.Model.CustomOrchestration();
+            Amazon.BedrockAgent.Model.OrchestrationExecutor requestCustomOrchestration_customOrchestration_Executor = null;
+            
+             // populate Executor
+            var requestCustomOrchestration_customOrchestration_ExecutorIsNull = true;
+            requestCustomOrchestration_customOrchestration_Executor = new Amazon.BedrockAgent.Model.OrchestrationExecutor();
+            System.String requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = null;
+            if (cmdletContext.Executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = cmdletContext.Executor_Lambda;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor_executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor.Lambda = requestCustomOrchestration_customOrchestration_Executor_executor_Lambda;
+                requestCustomOrchestration_customOrchestration_ExecutorIsNull = false;
+            }
+             // determine if requestCustomOrchestration_customOrchestration_Executor should be set to null
+            if (requestCustomOrchestration_customOrchestration_ExecutorIsNull)
+            {
+                requestCustomOrchestration_customOrchestration_Executor = null;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor != null)
+            {
+                request.CustomOrchestration.Executor = requestCustomOrchestration_customOrchestration_Executor;
+                requestCustomOrchestrationIsNull = false;
+            }
+             // determine if request.CustomOrchestration should be set to null
+            if (requestCustomOrchestrationIsNull)
+            {
+                request.CustomOrchestration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -465,6 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestMemoryConfigurationIsNull)
             {
                 request.MemoryConfiguration = null;
+            }
+            if (cmdletContext.OrchestrationType != null)
+            {
+                request.OrchestrationType = cmdletContext.OrchestrationType;
             }
             
              // populate PromptOverrideConfiguration
@@ -564,6 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String AgentResourceRoleArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CustomerEncryptionKeyArn { get; set; }
+            public System.String Executor_Lambda { get; set; }
             public System.String Description { get; set; }
             public System.String FoundationModel { get; set; }
             public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }
@@ -572,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String Instruction { get; set; }
             public List<System.String> MemoryConfiguration_EnabledMemoryType { get; set; }
             public System.Int32? MemoryConfiguration_StorageDay { get; set; }
+            public Amazon.BedrockAgent.OrchestrationType OrchestrationType { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgent.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

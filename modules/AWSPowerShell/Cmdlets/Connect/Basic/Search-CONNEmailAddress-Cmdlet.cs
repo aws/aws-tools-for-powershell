@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// <br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches email address in an instance, with optional filtering.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.SearchEmailAddressesResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of conditions which would be applied together with an AND condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_OrCondition
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of conditions which would be applied together with an OR condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,7 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

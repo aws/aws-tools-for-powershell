@@ -108,6 +108,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String AgentId { get; set; }
         #endregion
         
+        #region Parameter StreamingConfigurations_ApplyGuardrailInterval
+        /// <summary>
+        /// <para>
+        /// <para> The guardrail interval to apply as response is generated. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
+        #endregion
+        
         #region Parameter EnableTrace
         /// <summary>
         /// <para>
@@ -245,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter StreamingConfigurations_StreamFinalResponse
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to enable streaming for the final response. This is set to <c>false</c>
+        /// by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -361,6 +382,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                     context.SessionState_SessionAttribute.Add((String)hashKey, (System.String)(this.SessionState_SessionAttribute[hashKey]));
                 }
             }
+            context.StreamingConfigurations_ApplyGuardrailInterval = this.StreamingConfigurations_ApplyGuardrailInterval;
+            context.StreamingConfigurations_StreamFinalResponse = this.StreamingConfigurations_StreamFinalResponse;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -475,6 +498,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 request.SessionState = null;
             }
             
+             // populate StreamingConfigurations
+            var requestStreamingConfigurationsIsNull = true;
+            request.StreamingConfigurations = new Amazon.BedrockAgentRuntime.Model.StreamingConfigurations();
+            System.Int32? requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = null;
+            if (cmdletContext.StreamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = cmdletContext.StreamingConfigurations_ApplyGuardrailInterval.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                request.StreamingConfigurations.ApplyGuardrailInterval = requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+            System.Boolean? requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = null;
+            if (cmdletContext.StreamingConfigurations_StreamFinalResponse != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = cmdletContext.StreamingConfigurations_StreamFinalResponse.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse != null)
+            {
+                request.StreamingConfigurations.StreamFinalResponse = requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+             // determine if request.StreamingConfigurations should be set to null
+            if (requestStreamingConfigurationsIsNull)
+            {
+                request.StreamingConfigurations = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -548,6 +600,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public Dictionary<System.String, System.String> SessionState_PromptSessionAttribute { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember> SessionState_ReturnControlInvocationResult { get; set; }
             public Dictionary<System.String, System.String> SessionState_SessionAttribute { get; set; }
+            public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
+            public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse, InvokeBARAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

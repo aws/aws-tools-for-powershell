@@ -68,6 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CompletionDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
+        /// copy. Time-based snapshot copy operations complete within the specified duration.
+        /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
+        /// Time-based copies</a>.</para><para>If you do not specify a value, the snapshot copy operation is completed on a best-effort
+        /// basis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompletionDurationMinutes")]
+        public System.Int32? CompletionDurationMinute { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -245,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.SourceSnapshotId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CompletionDurationMinute = this.CompletionDurationMinute;
             context.Description = this.Description;
             context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.DestinationRegion = this.DestinationRegion;
@@ -284,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CopySnapshotRequest();
             
+            if (cmdletContext.CompletionDurationMinute != null)
+            {
+                request.CompletionDurationMinutes = cmdletContext.CompletionDurationMinute.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -377,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? CompletionDurationMinute { get; set; }
             public System.String Description { get; set; }
             public System.String DestinationOutpostArn { get; set; }
             public System.String DestinationRegion { get; set; }

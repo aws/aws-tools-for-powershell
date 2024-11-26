@@ -123,7 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SegmentAttribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A set of system defined key-value pairs stored on individual contact segments (unique
+        /// contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+        /// They can be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to show channel subtype, such as <c>connect:Guide</c>.</para><para>Currently Contact Expiry is the only segment attribute which can be updated by using
+        /// the UpdateContact API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

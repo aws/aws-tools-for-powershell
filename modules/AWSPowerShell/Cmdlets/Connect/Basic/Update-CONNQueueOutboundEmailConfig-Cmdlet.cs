@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    
+    /// Updates the outbound email address Id for a specified queue.
     /// </summary>
     [Cmdlet("Update", "CONNQueueOutboundEmailConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter OutboundEmailConfig_OutboundEmailAddressId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier for the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

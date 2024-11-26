@@ -28,20 +28,18 @@ using Amazon.QApps.Model;
 namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Starts a new session for an Amazon Q App, allowing inputs to be provided and the app
-    /// to be run.
-    /// 
-    ///  <note><para>
-    /// Each Q App session will be condensed into a single conversation in the web experience.
-    /// </para></note>
+    /// Creates a presigned URL for an S3 POST operation to upload a file. You can use this
+    /// URL to set a default file for a <c>FileUploadCard</c> in a Q App definition or to
+    /// provide a file for a single Q App run. The <c>scope</c> parameter determines how the
+    /// file will be used, either at the app definition level or the app session level.
     /// </summary>
-    [Cmdlet("Start", "qappsQAppSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QApps.Model.StartQAppSessionResponse")]
-    [AWSCmdlet("Calls the Amazon Q Apps StartQAppSession API operation.", Operation = new[] {"StartQAppSession"}, SelectReturnType = typeof(Amazon.QApps.Model.StartQAppSessionResponse))]
-    [AWSCmdletOutput("Amazon.QApps.Model.StartQAppSessionResponse",
-        "This cmdlet returns an Amazon.QApps.Model.StartQAppSessionResponse object containing multiple properties."
+    [Cmdlet("New", "qappsPresignedUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QApps.Model.CreatePresignedUrlResponse")]
+    [AWSCmdlet("Calls the Amazon Q Apps CreatePresignedUrl API operation.", Operation = new[] {"CreatePresignedUrl"}, SelectReturnType = typeof(Amazon.QApps.Model.CreatePresignedUrlResponse))]
+    [AWSCmdletOutput("Amazon.QApps.Model.CreatePresignedUrlResponse",
+        "This cmdlet returns an Amazon.QApps.Model.CreatePresignedUrlResponse object containing multiple properties."
     )]
-    public partial class StartqappsQAppSessionCmdlet : AmazonQAppsClientCmdlet, IExecutor
+    public partial class NewqappsPresignedUrlCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -49,13 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q App to start a session for.</para>
+        /// <para>The unique identifier of the Q App the file is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -63,31 +61,55 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String AppId { get; set; }
         #endregion
         
-        #region Parameter AppVersion
+        #region Parameter CardId
         /// <summary>
         /// <para>
-        /// <para>The version of the Q App to use for the session.</para>
+        /// <para>The unique identifier of the card the file is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? AppVersion { get; set; }
+        public System.String CardId { get; set; }
         #endregion
         
-        #region Parameter InitialValue
+        #region Parameter FileContentsSha256
         /// <summary>
         /// <para>
-        /// <para>Optional initial input values to provide for the Q App session.</para>
+        /// <para>The Base64-encoded SHA-256 digest of the contents of the file to be uploaded.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InitialValues")]
-        public Amazon.QApps.Model.CardValue[] InitialValue { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FileContentsSha256 { get; set; }
+        #endregion
+        
+        #region Parameter FileName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the file to be uploaded.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FileName { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -107,46 +129,42 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>Whether the file is associated with a Q App definition or a specific Q App session.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.QApps.DocumentScope")]
+        public Amazon.QApps.DocumentScope Scope { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the a Q App session.</para>
+        /// <para>The unique identifier of the Q App session the file is associated with, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SessionId { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Optional tags to associate with the new Q App session.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.StartQAppSessionResponse).
-        /// Specifying the name of a property of type Amazon.QApps.Model.StartQAppSessionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.CreatePresignedUrlResponse).
+        /// Specifying the name of a property of type Amazon.QApps.Model.CreatePresignedUrlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -164,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-qappsQAppSession (StartQAppSession)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-qappsPresignedUrl (CreatePresignedUrl)"))
             {
                 return;
             }
@@ -175,21 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QApps.Model.StartQAppSessionResponse, StartqappsQAppSessionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.CreatePresignedUrlResponse, NewqappsPresignedUrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AppId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppId = this.AppId;
             #if MODULAR
             if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
@@ -197,17 +205,27 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.AppVersion = this.AppVersion;
+            context.CardId = this.CardId;
             #if MODULAR
-            if (this.AppVersion == null && ParameterWasBound(nameof(this.AppVersion)))
+            if (this.CardId == null && ParameterWasBound(nameof(this.CardId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CardId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.InitialValue != null)
+            context.FileContentsSha256 = this.FileContentsSha256;
+            #if MODULAR
+            if (this.FileContentsSha256 == null && ParameterWasBound(nameof(this.FileContentsSha256)))
             {
-                context.InitialValue = new List<Amazon.QApps.Model.CardValue>(this.InitialValue);
+                WriteWarning("You are passing $null as a value for parameter FileContentsSha256 which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.FileName = this.FileName;
+            #if MODULAR
+            if (this.FileName == null && ParameterWasBound(nameof(this.FileName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -215,15 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SessionId = this.SessionId;
-            if (this.Tag != null)
+            context.Scope = this.Scope;
+            #if MODULAR
+            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.SessionId = this.SessionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -238,31 +255,35 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QApps.Model.StartQAppSessionRequest();
+            var request = new Amazon.QApps.Model.CreatePresignedUrlRequest();
             
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
             }
-            if (cmdletContext.AppVersion != null)
+            if (cmdletContext.CardId != null)
             {
-                request.AppVersion = cmdletContext.AppVersion.Value;
+                request.CardId = cmdletContext.CardId;
             }
-            if (cmdletContext.InitialValue != null)
+            if (cmdletContext.FileContentsSha256 != null)
             {
-                request.InitialValues = cmdletContext.InitialValue;
+                request.FileContentsSha256 = cmdletContext.FileContentsSha256;
+            }
+            if (cmdletContext.FileName != null)
+            {
+                request.FileName = cmdletContext.FileName;
             }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
+            if (cmdletContext.Scope != null)
+            {
+                request.Scope = cmdletContext.Scope;
+            }
             if (cmdletContext.SessionId != null)
             {
                 request.SessionId = cmdletContext.SessionId;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -297,15 +318,15 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         
         #region AWS Service Operation Call
         
-        private Amazon.QApps.Model.StartQAppSessionResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.StartQAppSessionRequest request)
+        private Amazon.QApps.Model.CreatePresignedUrlResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.CreatePresignedUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "StartQAppSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "CreatePresignedUrl");
             try
             {
                 #if DESKTOP
-                return client.StartQAppSession(request);
+                return client.CreatePresignedUrl(request);
                 #elif CORECLR
-                return client.StartQAppSessionAsync(request).GetAwaiter().GetResult();
+                return client.CreatePresignedUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -326,12 +347,13 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
-            public System.Int32? AppVersion { get; set; }
-            public List<Amazon.QApps.Model.CardValue> InitialValue { get; set; }
+            public System.String CardId { get; set; }
+            public System.String FileContentsSha256 { get; set; }
+            public System.String FileName { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.QApps.DocumentScope Scope { get; set; }
             public System.String SessionId { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.QApps.Model.StartQAppSessionResponse, StartqappsQAppSessionCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.QApps.Model.CreatePresignedUrlResponse, NewqappsPresignedUrlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

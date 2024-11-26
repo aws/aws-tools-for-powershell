@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    
+    /// Creates a new contact.
     /// </summary>
     [Cmdlet("New", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateContactResponse")]
@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A custom key-value pair using an attribute map. The attributes are standard Amazon
+        /// Connect attributes, and can be accessed in flows just like any other contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// keys can include only alphanumeric, dash, and underscore characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The channel for the contact</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ExpiryDurationInMinute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Number of minutes the contact will be active for before expiring</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiateAs
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Initial state of the contact when it's created</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiationMethod
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Indicates how the contact was initiated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of a the contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Reference
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks
+        /// can have the following reference types at the time of creation: URL | NUMBER | STRING
+        /// | DATE | EMAIL | ATTACHMENT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +176,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SegmentAttribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A set of system defined key-value pairs stored on individual contact segments (unique
+        /// contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+        /// They can be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to set Segment Contact Expiry as a duration in minutes.</para><note><para>To set contact expiry, a ValueMap must be specified containing the integer number
+        /// of minutes the contact will be active for before expiring, with <c>SegmentAttributes</c>
+        /// like { <c> "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger":
+        /// 135}}}}</c>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter UserInfo_UserId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The user identifier for the contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

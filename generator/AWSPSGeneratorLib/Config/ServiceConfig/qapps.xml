@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedUrl" OutputProperty="*" Verb="New" Noun="PresignedUrl" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateQApp" OutputProperty="*" Verb="New" Noun="QApp" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -54,11 +58,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQAppPermissions" OutputProperty="*" Verb="Get" Noun="QAppPermission" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateLibraryItemReview" Verb="Unregister" Noun="LibraryItemReview" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateQAppFromUser" Verb="Unregister" Noun="QAppFromUser" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportQAppSessionData" OutputProperty="*" Verb="Export" Noun="QAppSessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQAppSession" OutputProperty="*" Verb="Get" Noun="QAppSession" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQAppSessionMetadata" OutputProperty="*" Verb="Get" Noun="QAppSessionMetadata" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListQApps" OutputProperty="Apps" Verb="Get" Noun="QAppList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQAppSessionData" OutputProperty="*" Verb="Get" Noun="QAppSessionDataList" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +146,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQAppPermissions" OutputProperty="*" Verb="Update" Noun="QAppPermission" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateQAppSession" OutputProperty="*" Verb="Update" Noun="QAppSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQAppSessionMetadata" OutputProperty="*" Verb="Update" Noun="QAppSessionMetadata" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

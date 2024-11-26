@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    
+    /// Describe email address form the specified Amazon Connect instance.
     /// </summary>
     [Cmdlet("Get", "CONNEmailAddress")]
     [OutputType("Amazon.Connect.Model.DescribeEmailAddressResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter EmailAddressId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

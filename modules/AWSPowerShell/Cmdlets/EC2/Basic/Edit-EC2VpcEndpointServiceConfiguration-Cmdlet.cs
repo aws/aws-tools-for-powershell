@@ -28,10 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the attributes of your VPC endpoint service configuration. You can change
-    /// the Network Load Balancers or Gateway Load Balancers for your service, and you can
-    /// specify whether acceptance is required for requests to connect to your endpoint service
-    /// through an interface VPC endpoint.
+    /// Modifies the attributes of the specified VPC endpoint service configuration.
     /// 
     ///  
     /// <para>
@@ -54,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AcceptanceRequired
         /// <summary>
         /// <para>
-        /// <para>Indicates whether requests to create an endpoint to your service must be accepted.</para>
+        /// <para>Indicates whether requests to create an endpoint to the service must be accepted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddGatewayLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
-        /// configuration.</para>
+        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddNetworkLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
-        /// configuration.</para>
+        /// <para>The Amazon Resource Names (ARNs) of Network Load Balancers to add to the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,12 +83,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddSupportedIpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address types to add to your service configuration.</para>
+        /// <para>The IP address types to add to the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AddSupportedIpAddressTypes")]
         public System.String[] AddSupportedIpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter AddSupportedRegion
+        /// <summary>
+        /// <para>
+        /// <para>The supported Regions to add to the service configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddSupportedRegions")]
+        public System.String[] AddSupportedRegion { get; set; }
         #endregion
         
         #region Parameter PrivateDnsName
@@ -110,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveGatewayLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
+        /// <para>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from the service
         /// configuration.</para>
         /// </para>
         /// </summary>
@@ -122,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveNetworkLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
+        /// <para>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from the service
         /// configuration.</para>
         /// </para>
         /// </summary>
@@ -144,12 +150,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveSupportedIpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address types to remove from your service configuration.</para>
+        /// <para>The IP address types to remove from the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RemoveSupportedIpAddressTypes")]
         public System.String[] RemoveSupportedIpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter RemoveSupportedRegion
+        /// <summary>
+        /// <para>
+        /// <para>The supported Regions to remove from the service configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveSupportedRegions")]
+        public System.String[] RemoveSupportedRegion { get; set; }
         #endregion
         
         #region Parameter ServiceId
@@ -244,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddSupportedIpAddressType = new List<System.String>(this.AddSupportedIpAddressType);
             }
+            if (this.AddSupportedRegion != null)
+            {
+                context.AddSupportedRegion = new List<System.String>(this.AddSupportedRegion);
+            }
             context.PrivateDnsName = this.PrivateDnsName;
             if (this.RemoveGatewayLoadBalancerArn != null)
             {
@@ -257,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (this.RemoveSupportedIpAddressType != null)
             {
                 context.RemoveSupportedIpAddressType = new List<System.String>(this.RemoveSupportedIpAddressType);
+            }
+            if (this.RemoveSupportedRegion != null)
+            {
+                context.RemoveSupportedRegion = new List<System.String>(this.RemoveSupportedRegion);
             }
             context.ServiceId = this.ServiceId;
             #if MODULAR
@@ -297,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AddSupportedIpAddressTypes = cmdletContext.AddSupportedIpAddressType;
             }
+            if (cmdletContext.AddSupportedRegion != null)
+            {
+                request.AddSupportedRegions = cmdletContext.AddSupportedRegion;
+            }
             if (cmdletContext.PrivateDnsName != null)
             {
                 request.PrivateDnsName = cmdletContext.PrivateDnsName;
@@ -316,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.RemoveSupportedIpAddressType != null)
             {
                 request.RemoveSupportedIpAddressTypes = cmdletContext.RemoveSupportedIpAddressType;
+            }
+            if (cmdletContext.RemoveSupportedRegion != null)
+            {
+                request.RemoveSupportedRegions = cmdletContext.RemoveSupportedRegion;
             }
             if (cmdletContext.ServiceId != null)
             {
@@ -386,11 +419,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> AddGatewayLoadBalancerArn { get; set; }
             public List<System.String> AddNetworkLoadBalancerArn { get; set; }
             public List<System.String> AddSupportedIpAddressType { get; set; }
+            public List<System.String> AddSupportedRegion { get; set; }
             public System.String PrivateDnsName { get; set; }
             public List<System.String> RemoveGatewayLoadBalancerArn { get; set; }
             public List<System.String> RemoveNetworkLoadBalancerArn { get; set; }
             public System.Boolean? RemovePrivateDnsName { get; set; }
             public List<System.String> RemoveSupportedIpAddressType { get; set; }
+            public List<System.String> RemoveSupportedRegion { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse, EditEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

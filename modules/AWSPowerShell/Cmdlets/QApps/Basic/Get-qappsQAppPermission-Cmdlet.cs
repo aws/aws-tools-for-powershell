@@ -22,42 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.QApps;
+using Amazon.QApps.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Adds the specified tags to the specified resource.
-    /// 
-    ///  
-    /// <para>
-    /// Some of the supported resource types are agents, routing profiles, queues, quick connects,
-    /// flows, agent statuses, hours of operation, phone numbers, security profiles, and task
-    /// templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging
-    /// resources in Amazon Connect</a>.
-    /// </para><para>
-    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon
-    /// Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
-    /// Guide</i>.
-    /// </para>
+    /// Describes read permissions for a Amazon Q App in Amazon Q Business application environment
+    /// instance.
     /// </summary>
-    [Cmdlet("Add", "CONNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Connect.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "qappsQAppPermission")]
+    [OutputType("Amazon.QApps.Model.DescribeQAppPermissionsResponse")]
+    [AWSCmdlet("Calls the Amazon Q Apps DescribeQAppPermissions API operation.", Operation = new[] {"DescribeQAppPermissions"}, SelectReturnType = typeof(Amazon.QApps.Model.DescribeQAppPermissionsResponse))]
+    [AWSCmdletOutput("Amazon.QApps.Model.DescribeQAppPermissionsResponse",
+        "This cmdlet returns an Amazon.QApps.Model.DescribeQAppPermissionsResponse object containing multiple properties."
     )]
-    public partial class AddCONNResourceTagCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetqappsQAppPermissionCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The unique identifier of the Amazon Q App for which to retrieve permissions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,32 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String AppId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The tags used to organize, track, or control access for this resource. For example,
-        /// { "Tags": {"key1":"value1", "key2":"value2"} }.</para>
+        /// <para>The unique identifier of the Amazon Q Business application environment instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.DescribeQAppPermissionsResponse).
+        /// Specifying the name of a property of type Amazon.QApps.Model.DescribeQAppPermissionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,34 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AppId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CONNResourceTag (TagResource)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -139,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.TagResourceResponse, AddCONNResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.DescribeQAppPermissionsResponse, GetqappsQAppPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,28 +119,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.AppId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.AppId = this.AppId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -186,15 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.TagResourceRequest();
+            var request = new Amazon.QApps.Model.DescribeQAppPermissionsRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AppId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AppId = cmdletContext.AppId;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -229,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.TagResourceResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.TagResourceRequest request)
+        private Amazon.QApps.Model.DescribeQAppPermissionsResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.DescribeQAppPermissionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "DescribeQAppPermissions");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.DescribeQAppPermissions(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DescribeQAppPermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -257,10 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Connect.Model.TagResourceResponse, AddCONNResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AppId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.QApps.Model.DescribeQAppPermissionsResponse, GetqappsQAppPermissionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

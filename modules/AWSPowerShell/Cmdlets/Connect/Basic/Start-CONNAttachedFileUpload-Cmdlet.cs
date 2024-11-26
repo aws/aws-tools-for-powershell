@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  <important><para>
     /// You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon
-    /// Connect Case</a>.
+    /// Connect Case</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon
+    /// Connect Email</a>. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Start", "CONNAttachedFileUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter AssociatedResourceArn
         /// <summary>
         /// <para>
-        /// <para>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a>
-        /// are the only current supported resource.</para><note><para>This value must be a valid ARN.</para></note>
+        /// <para>The resource to which the attached file is (being) uploaded to. The supported resources
+        /// are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>
+        /// and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</para><note><para>This value must be a valid ARN.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter FileUseCaseType
         /// <summary>
         /// <para>
-        /// <para>The use case for the file.</para>
+        /// <para>The use case for the file.</para><important><para> Only <c>ATTACHMENTS</c> are supported.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

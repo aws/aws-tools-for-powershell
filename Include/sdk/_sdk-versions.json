@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.934.0",
+    "ProductVersion"    : "3.7.935.0",
     "CoreVersion"       : "3.7.400.57",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.420.1",
+            "Version" : "3.7.421.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.57"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.410.0",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.57"
@@ -2884,7 +2884,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.409.0",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.57"
@@ -2908,7 +2908,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "3.7.409.11",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.57"
@@ -3060,7 +3060,7 @@
             "InPreview"               : false
         },
         "QApps"                               : {
-            "Version" : "3.7.402.12",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.57"
