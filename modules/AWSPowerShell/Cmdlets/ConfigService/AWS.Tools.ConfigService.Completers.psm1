@@ -87,6 +87,16 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.AggregatorFilterType
+        {
+            ($_ -eq "Write-CFGConfigurationAggregator/ResourceType_Type") -Or
+            ($_ -eq "Write-CFGConfigurationAggregator/ServicePrincipal_Type")
+        }
+        {
+            $v = "INCLUDE"
+            break
+        }
+
         # Amazon.ConfigService.ChronologicalOrder
         "Get-CFGResourceConfigHistory/ChronologicalOrder"
         {
@@ -182,6 +192,13 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RecordingScope
+        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingScope"
+        {
+            $v = "INTERNAL","PAID"
+            break
+        }
+
         # Amazon.ConfigService.RecordingStrategyType
         "Write-CFGConfigurationRecorder/RecordingStrategy_UseOnly"
         {
@@ -244,6 +261,7 @@ $CFG_map = @{
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "ConfigurationRecorder_RecordingScope"=@("Write-CFGConfigurationRecorder")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
     "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGAggregateComplianceByConformancePack","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
@@ -260,6 +278,8 @@ $CFG_map = @{
     "ResourceDetails_ResourceConfigurationSchemaType"=@("Start-CFGResourceEvaluation")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
+    "ResourceType_Type"=@("Write-CFGConfigurationAggregator")
+    "ServicePrincipal_Type"=@("Write-CFGConfigurationAggregator")
     "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
     "SortOrder"=@("Get-CFGConformancePackComplianceScoreList")
     "Source_Owner"=@("Write-CFGConfigRule")
@@ -315,7 +335,8 @@ $CFG_SelectCompleters = {
 }
 
 $CFG_SelectMap = @{
-    "Select"=@("Get-CFGAggregateResourceConfigBatch",
+    "Select"=@("Add-CFGResourceType",
+               "Get-CFGAggregateResourceConfigBatch",
                "Get-CFGGetResourceConfigBatch",
                "Remove-CFGAggregationAuthorization",
                "Remove-CFGConfigRule",
@@ -331,6 +352,7 @@ $CFG_SelectMap = @{
                "Remove-CFGRemediationException",
                "Remove-CFGResourceConfig",
                "Remove-CFGRetentionConfiguration",
+               "Remove-CFGServiceLinkedConfigurationRecorder",
                "Remove-CFGStoredQuery",
                "Submit-CFGConfigSnapshotDelivery",
                "Get-CFGAggregateComplianceByConfigRuleList",
@@ -358,6 +380,7 @@ $CFG_SelectMap = @{
                "Get-CFGRemediationException",
                "Get-CFGRemediationExecutionStatus",
                "Get-CFGRetentionConfiguration",
+               "Remove-CFGResourceType",
                "Get-CFGAggregateComplianceDetailsByConfigRule",
                "Get-CFGAggregateConfigRuleComplianceSummary",
                "Get-CFGAggregateConformancePackComplianceSummary",
@@ -378,6 +401,7 @@ $CFG_SelectMap = @{
                "Get-CFGResourceEvaluationSummary",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
+               "Get-CFGConfigurationRecorderList",
                "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
                "Get-CFGResourceEvaluationList",
@@ -397,6 +421,7 @@ $CFG_SelectMap = @{
                "Write-CFGRemediationException",
                "Write-CFGResourceConfig",
                "Write-CFGRetentionConfiguration",
+               "Write-CFGServiceLinkedConfigurationRecorder",
                "Write-CFGStoredQuery",
                "Select-CFGAggregateResourceConfig",
                "Select-CFGResourceConfig",

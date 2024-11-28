@@ -6895,6 +6895,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.EmbeddingDataType
+        {
+            ($_ -eq "New-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType")
+        }
+        {
+            $v = "BINARY","FLOAT32"
+            break
+        }
+
         # Amazon.BedrockAgent.IngestionJobSortByAttribute
         "Get-AABIngestionJobList/SortBy_Attribute"
         {
@@ -7010,6 +7020,7 @@ $AAB_Completers = {
 $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
@@ -16480,6 +16491,16 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.AggregatorFilterType
+        {
+            ($_ -eq "Write-CFGConfigurationAggregator/ResourceType_Type") -Or
+            ($_ -eq "Write-CFGConfigurationAggregator/ServicePrincipal_Type")
+        }
+        {
+            $v = "INCLUDE"
+            break
+        }
+
         # Amazon.ConfigService.ChronologicalOrder
         "Get-CFGResourceConfigHistory/ChronologicalOrder"
         {
@@ -16575,6 +16596,13 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.RecordingScope
+        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingScope"
+        {
+            $v = "INTERNAL","PAID"
+            break
+        }
+
         # Amazon.ConfigService.RecordingStrategyType
         "Write-CFGConfigurationRecorder/RecordingStrategy_UseOnly"
         {
@@ -16637,6 +16665,7 @@ $CFG_map = @{
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "ConfigurationRecorder_RecordingScope"=@("Write-CFGConfigurationRecorder")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
     "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGAggregateComplianceByConformancePack","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
@@ -16653,6 +16682,8 @@ $CFG_map = @{
     "ResourceDetails_ResourceConfigurationSchemaType"=@("Start-CFGResourceEvaluation")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
+    "ResourceType_Type"=@("Write-CFGConfigurationAggregator")
+    "ServicePrincipal_Type"=@("Write-CFGConfigurationAggregator")
     "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
     "SortOrder"=@("Get-CFGConformancePackComplianceScoreList")
     "Source_Owner"=@("Write-CFGConfigRule")
@@ -16708,7 +16739,8 @@ $CFG_SelectCompleters = {
 }
 
 $CFG_SelectMap = @{
-    "Select"=@("Get-CFGAggregateResourceConfigBatch",
+    "Select"=@("Add-CFGResourceType",
+               "Get-CFGAggregateResourceConfigBatch",
                "Get-CFGGetResourceConfigBatch",
                "Remove-CFGAggregationAuthorization",
                "Remove-CFGConfigRule",
@@ -16724,6 +16756,7 @@ $CFG_SelectMap = @{
                "Remove-CFGRemediationException",
                "Remove-CFGResourceConfig",
                "Remove-CFGRetentionConfiguration",
+               "Remove-CFGServiceLinkedConfigurationRecorder",
                "Remove-CFGStoredQuery",
                "Submit-CFGConfigSnapshotDelivery",
                "Get-CFGAggregateComplianceByConfigRuleList",
@@ -16751,6 +16784,7 @@ $CFG_SelectMap = @{
                "Get-CFGRemediationException",
                "Get-CFGRemediationExecutionStatus",
                "Get-CFGRetentionConfiguration",
+               "Remove-CFGResourceType",
                "Get-CFGAggregateComplianceDetailsByConfigRule",
                "Get-CFGAggregateConfigRuleComplianceSummary",
                "Get-CFGAggregateConformancePackComplianceSummary",
@@ -16771,6 +16805,7 @@ $CFG_SelectMap = @{
                "Get-CFGResourceEvaluationSummary",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
+               "Get-CFGConfigurationRecorderList",
                "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
                "Get-CFGResourceEvaluationList",
@@ -16790,6 +16825,7 @@ $CFG_SelectMap = @{
                "Write-CFGRemediationException",
                "Write-CFGResourceConfig",
                "Write-CFGRetentionConfiguration",
+               "Write-CFGServiceLinkedConfigurationRecorder",
                "Write-CFGStoredQuery",
                "Select-CFGAggregateResourceConfig",
                "Select-CFGResourceConfig",
@@ -51273,6 +51309,68 @@ $CWOAM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CWOAM_SelectCompleters $CWOAM_SelectMap
+# Argument completions for service CloudWatch Observability Admin Service
+
+
+$CWOADMN_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWOADMN.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWOADMN_SelectMap = @{
+    "Select"=@("Get-CWOADMNTelemetryEvaluationStatus",
+               "Get-CWOADMNTelemetryEvaluationStatusForOrganization",
+               "Get-CWOADMNResourceTelemetryList",
+               "Get-CWOADMNResourceTelemetryForOrganizationList",
+               "Start-CWOADMNTelemetryEvaluation",
+               "Start-CWOADMNTelemetryEvaluationForOrganization",
+               "Stop-CWOADMNTelemetryEvaluation",
+               "Stop-CWOADMNTelemetryEvaluationForOrganization")
+}
+
+_awsArgumentCompleterRegistration $CWOADMN_SelectCompleters $CWOADMN_SelectMap
 # Argument completions for service Amazon Omics
 
 

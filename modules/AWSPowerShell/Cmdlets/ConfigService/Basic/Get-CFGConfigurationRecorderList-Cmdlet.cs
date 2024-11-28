@@ -28,44 +28,48 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the details of one or more retention configurations. If the retention configuration
-    /// name is not specified, this operation returns the details for all the retention configurations
-    /// for that account.
-    /// 
-    ///  <note><para>
-    /// Currently, Config supports only one retention configuration per region in your account.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of configuration recorders depending on the filters you specify.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CFGRetentionConfiguration")]
-    [OutputType("Amazon.ConfigService.Model.RetentionConfiguration")]
-    [AWSCmdlet("Calls the AWS Config DescribeRetentionConfigurations API operation.", Operation = new[] {"DescribeRetentionConfigurations"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.ConfigService.Model.RetentionConfiguration or Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.ConfigService.Model.RetentionConfiguration objects.",
-        "The service call response (type Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CFGConfigurationRecorderList")]
+    [OutputType("Amazon.ConfigService.Model.ConfigurationRecorderSummary")]
+    [AWSCmdlet("Calls the AWS Config ListConfigurationRecorders API operation.", Operation = new[] {"ListConfigurationRecorders"}, SelectReturnType = typeof(Amazon.ConfigService.Model.ListConfigurationRecordersResponse))]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorderSummary or Amazon.ConfigService.Model.ListConfigurationRecordersResponse",
+        "This cmdlet returns a collection of Amazon.ConfigService.Model.ConfigurationRecorderSummary objects.",
+        "The service call response (type Amazon.ConfigService.Model.ListConfigurationRecordersResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCFGRetentionConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class GetCFGConfigurationRecorderListCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter RetentionConfigurationName
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of names of retention configurations for which you want details. If you do
-        /// not specify a name, Config returns details for all the retention configurations for
-        /// that account.</para><note><para>Currently, Config supports only one retention configuration per region in your account.</para></note>
+        /// <para>Filters the results based on a list of <c>ConfigurationRecorderFilter</c> objects
+        /// that you specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RetentionConfigurationNames")]
-        public System.String[] RetentionConfigurationName { get; set; }
+        [Alias("Filters")]
+        public Amazon.ConfigService.Model.ConfigurationRecorderFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to include in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <c>nextToken</c> string returned on a previous page that you use to get the next
-        /// page of results in a paginated response. </para>
+        /// <para>The <c>NextToken</c> string returned on a previous page that you use to get the next
+        /// page of results in a paginated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,13 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RetentionConfigurations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationRecorderSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.ListConfigurationRecordersResponse).
+        /// Specifying the name of a property of type Amazon.ConfigService.Model.ListConfigurationRecordersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RetentionConfigurations";
+        public string Select { get; set; } = "ConfigurationRecorderSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -109,14 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse, GetCFGRetentionConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.ListConfigurationRecordersResponse, GetCFGConfigurationRecorderListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.NextToken = this.NextToken;
-            if (this.RetentionConfigurationName != null)
+            if (this.Filter != null)
             {
-                context.RetentionConfigurationName = new List<System.String>(this.RetentionConfigurationName);
+                context.Filter = new List<Amazon.ConfigService.Model.ConfigurationRecorderFilter>(this.Filter);
             }
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,11 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ConfigService.Model.DescribeRetentionConfigurationsRequest();
+            var request = new Amazon.ConfigService.Model.ListConfigurationRecordersRequest();
             
-            if (cmdletContext.RetentionConfigurationName != null)
+            if (cmdletContext.Filter != null)
             {
-                request.RetentionConfigurationNames = cmdletContext.RetentionConfigurationName;
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -196,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeRetentionConfigurationsRequest request)
+        private Amazon.ConfigService.Model.ListConfigurationRecordersResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.ListConfigurationRecordersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DescribeRetentionConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "ListConfigurationRecorders");
             try
             {
                 #if DESKTOP
-                return client.DescribeRetentionConfigurations(request);
+                return client.ListConfigurationRecorders(request);
                 #elif CORECLR
-                return client.DescribeRetentionConfigurationsAsync(request).GetAwaiter().GetResult();
+                return client.ListConfigurationRecordersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,10 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ConfigService.Model.ConfigurationRecorderFilter> Filter { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> RetentionConfigurationName { get; set; }
-            public System.Func<Amazon.ConfigService.Model.DescribeRetentionConfigurationsResponse, GetCFGRetentionConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RetentionConfigurations;
+            public System.Func<Amazon.ConfigService.Model.ListConfigurationRecordersResponse, GetCFGConfigurationRecorderListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConfigurationRecorderSummaries;
         }
         
     }

@@ -28,13 +28,14 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Starts recording configurations of the Amazon Web Services resources you have selected
-    /// to record in your Amazon Web Services account.
+    /// Starts the customer managed configuration recorder. The customer managed configuration
+    /// recorder will begin recording configuration changes for the resource types you specify.
     /// 
     ///  
     /// <para>
-    /// You must have created at least one delivery channel to successfully start the configuration
-    /// recorder.
+    /// You must have created a delivery channel to successfully start the customer managed
+    /// configuration recorder. You can use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html">PutDeliveryChannel</a>
+    /// operation to create a delivery channel.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the recorder object that records each configuration change made to the
-        /// resources.</para>
+        /// <para>The name of the customer managed configuration recorder that you want to start.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

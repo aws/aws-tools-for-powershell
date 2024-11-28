@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns details about the specified delivery channel. If a delivery channel is not
-    /// specified, this action returns the details of all delivery channels associated with
-    /// the account.
+    /// specified, this operation returns the details of all delivery channels associated
+    /// with the account.
     /// 
     ///  <note><para>
     /// Currently, you can specify only one delivery channel per region in your account.

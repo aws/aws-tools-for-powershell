@@ -28,25 +28,36 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes specified tags from a resource.
+    /// Deletes an existing service-linked configuration recorder.
+    /// 
+    ///  
+    /// <para>
+    /// This operation does not delete the configuration information that was previously recorded.
+    /// You will be able to access the previously recorded information by using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html">GetResourceConfigHistory</a>
+    /// operation, but you will not be able to access this information in the Config console
+    /// until you have created a new service-linked configuration recorder for the same service.
+    /// </para><note><para><b>The recording scope determines if you receive configuration items</b></para><para>
+    /// The recording scope is set by the service that is linked to the configuration recorder
+    /// and determines whether you receive configuration items (CIs) in the delivery channel.
+    /// If the recording scope is internal, you will not receive CIs in the delivery channel.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Remove", "CFGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Config UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ConfigService.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.ConfigService.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CFGServiceLinkedConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse")]
+    [AWSCmdlet("Calls the AWS Config DeleteServiceLinkedConfigurationRecorder API operation.", Operation = new[] {"DeleteServiceLinkedConfigurationRecorder"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse))]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse",
+        "This cmdlet returns an Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse object containing multiple properties."
     )]
-    public partial class RemoveCFGResourceTagCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class RemoveCFGServiceLinkedConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ServicePrincipal
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. The following resources are supported:</para><ul><li><para><c>ConfigurationRecorder</c></para></li><li><para><c>ConfigRule</c></para></li><li><para><c>OrganizationConfigRule</c></para></li><li><para><c>ConformancePack</c></para></li><li><para><c>OrganizationConformancePack</c></para></li><li><para><c>ConfigurationAggregator</c></para></li><li><para><c>AggregationAuthorization</c></para></li><li><para><c>StoredQuery</c></para></li></ul>
+        /// <para>The service principal of the Amazon Web Services service for the service-linked configuration
+        /// recorder that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,31 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The keys of the tags to be removed.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String ServicePrincipal { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse).
+        /// Specifying the name of a property of type Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServicePrincipal parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServicePrincipal' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServicePrincipal' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServicePrincipal), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGServiceLinkedConfigurationRecorder (DeleteServiceLinkedConfigurationRecorder)"))
             {
                 return;
             }
@@ -127,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.UntagResourceResponse, RemoveCFGResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse, RemoveCFGServiceLinkedConfigurationRecorderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,24 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ServicePrincipal;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ServicePrincipal = this.ServicePrincipal;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ServicePrincipal == null && ParameterWasBound(nameof(this.ServicePrincipal)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServicePrincipal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.UntagResourceRequest();
+            var request = new Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ServicePrincipal != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
+                request.ServicePrincipal = cmdletContext.ServicePrincipal;
             }
             
             CmdletOutput output;
@@ -213,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.UntagResourceRequest request)
+        private Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteServiceLinkedConfigurationRecorder");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.DeleteServiceLinkedConfigurationRecorder(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteServiceLinkedConfigurationRecorderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.ConfigService.Model.UntagResourceResponse, RemoveCFGResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ServicePrincipal { get; set; }
+            public System.Func<Amazon.ConfigService.Model.DeleteServiceLinkedConfigurationRecorderResponse, RemoveCFGServiceLinkedConfigurationRecorderCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

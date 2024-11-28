@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Indicates whether the specified Config rules are compliant. If a rule is noncompliant,
-    /// this action returns the number of Amazon Web Services resources that do not comply
+    /// this operation returns the number of Amazon Web Services resources that do not comply
     /// with the rule.
     /// 
     ///  

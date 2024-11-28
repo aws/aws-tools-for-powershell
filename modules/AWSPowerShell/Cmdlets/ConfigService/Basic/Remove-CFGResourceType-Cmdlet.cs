@@ -28,82 +28,80 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Used by an Lambda function to deliver evaluation results to Config. This operation
-    /// is required in every Lambda function that is invoked by an Config rule.
+    /// Removes all resource types specified in the <c>ResourceTypes</c> list from the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>
+    /// of configuration recorder and excludes these resource types when recording.
+    /// 
+    ///  
+    /// <para>
+    /// For this operation, the configuration recorder must use a <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a>
+    /// that is either <c>INCLUSION_BY_RESOURCE_TYPES</c> or <c>EXCLUSION_BY_RESOURCE_TYPES</c>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Write", "CFGEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConfigService.Model.Evaluation")]
-    [AWSCmdlet("Calls the AWS Config PutEvaluations API operation.", Operation = new[] {"PutEvaluations"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutEvaluationsResponse), LegacyAlias="Write-CFGEvaluations")]
-    [AWSCmdletOutput("Amazon.ConfigService.Model.Evaluation or Amazon.ConfigService.Model.PutEvaluationsResponse",
-        "This cmdlet returns a collection of Amazon.ConfigService.Model.Evaluation objects.",
-        "The service call response (type Amazon.ConfigService.Model.PutEvaluationsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CFGResourceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ConfigService.Model.ConfigurationRecorder")]
+    [AWSCmdlet("Calls the AWS Config DisassociateResourceTypes API operation.", Operation = new[] {"DisassociateResourceTypes"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DisassociateResourceTypesResponse))]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorder or Amazon.ConfigService.Model.DisassociateResourceTypesResponse",
+        "This cmdlet returns an Amazon.ConfigService.Model.ConfigurationRecorder object.",
+        "The service call response (type Amazon.ConfigService.Model.DisassociateResourceTypesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class WriteCFGEvaluationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class RemoveCFGResourceTypeCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Evaluation
+        #region Parameter ConfigurationRecorderArn
         /// <summary>
         /// <para>
-        /// <para>The assessments that the Lambda function performs. Each evaluation identifies an Amazon
-        /// Web Services resource and indicates whether it complies with the Config rule that
-        /// invokes the Lambda function.</para>
+        /// <para>The Amazon Resource Name (ARN) of the specified configuration recorder.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("Evaluations")]
-        public Amazon.ConfigService.Model.Evaluation[] Evaluation { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ConfigurationRecorderArn { get; set; }
         #endregion
         
-        #region Parameter ResultToken
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>An encrypted token that associates an evaluation with an Config rule. Identifies the
-        /// rule and the event that triggered the evaluation.</para>
+        /// <para>The list of resource types you want to remove from the recording group of the specified
+        /// configuration recorder.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResultToken { get; set; }
-        #endregion
-        
-        #region Parameter TestMode
-        /// <summary>
-        /// <para>
-        /// <para>Use this parameter to specify a test run for <c>PutEvaluations</c>. You can verify
-        /// whether your Lambda function will deliver evaluation results to Config. No updates
-        /// occur to your existing evaluations, and evaluation results are not sent to Config.</para><note><para>When <c>TestMode</c> is <c>true</c>, <c>PutEvaluations</c> doesn't require a valid
-        /// value for the <c>ResultToken</c> parameter, but the value cannot be null.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? TestMode { get; set; }
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'FailedEvaluations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.PutEvaluationsResponse).
-        /// Specifying the name of a property of type Amazon.ConfigService.Model.PutEvaluationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationRecorder'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.DisassociateResourceTypesResponse).
+        /// Specifying the name of a property of type Amazon.ConfigService.Model.DisassociateResourceTypesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "FailedEvaluations";
+        public string Select { get; set; } = "ConfigurationRecorder";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Evaluation parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Evaluation' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConfigurationRecorderArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConfigurationRecorderArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Evaluation' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConfigurationRecorderArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Evaluation), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CFGEvaluation (PutEvaluations)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigurationRecorderArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGResourceType (DisassociateResourceTypes)"))
             {
                 return;
             }
@@ -137,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.PutEvaluationsResponse, WriteCFGEvaluationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.DisassociateResourceTypesResponse, RemoveCFGResourceTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,21 +144,26 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Evaluation;
+                context.Select = (response, cmdlet) => this.ConfigurationRecorderArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Evaluation != null)
-            {
-                context.Evaluation = new List<Amazon.ConfigService.Model.Evaluation>(this.Evaluation);
-            }
-            context.ResultToken = this.ResultToken;
+            context.ConfigurationRecorderArn = this.ConfigurationRecorderArn;
             #if MODULAR
-            if (this.ResultToken == null && ParameterWasBound(nameof(this.ResultToken)))
+            if (this.ConfigurationRecorderArn == null && ParameterWasBound(nameof(this.ConfigurationRecorderArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResultToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConfigurationRecorderArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TestMode = this.TestMode;
+            if (this.ResourceType != null)
+            {
+                context.ResourceType = new List<System.String>(this.ResourceType);
+            }
+            #if MODULAR
+            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,19 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.PutEvaluationsRequest();
+            var request = new Amazon.ConfigService.Model.DisassociateResourceTypesRequest();
             
-            if (cmdletContext.Evaluation != null)
+            if (cmdletContext.ConfigurationRecorderArn != null)
             {
-                request.Evaluations = cmdletContext.Evaluation;
+                request.ConfigurationRecorderArn = cmdletContext.ConfigurationRecorderArn;
             }
-            if (cmdletContext.ResultToken != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.ResultToken = cmdletContext.ResultToken;
-            }
-            if (cmdletContext.TestMode != null)
-            {
-                request.TestMode = cmdletContext.TestMode.Value;
+                request.ResourceTypes = cmdletContext.ResourceType;
             }
             
             CmdletOutput output;
@@ -222,15 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private Amazon.ConfigService.Model.PutEvaluationsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutEvaluationsRequest request)
+        private Amazon.ConfigService.Model.DisassociateResourceTypesResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DisassociateResourceTypesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "PutEvaluations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DisassociateResourceTypes");
             try
             {
                 #if DESKTOP
-                return client.PutEvaluations(request);
+                return client.DisassociateResourceTypes(request);
                 #elif CORECLR
-                return client.PutEvaluationsAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateResourceTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,11 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.ConfigService.Model.Evaluation> Evaluation { get; set; }
-            public System.String ResultToken { get; set; }
-            public System.Boolean? TestMode { get; set; }
-            public System.Func<Amazon.ConfigService.Model.PutEvaluationsResponse, WriteCFGEvaluationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.FailedEvaluations;
+            public System.String ConfigurationRecorderArn { get; set; }
+            public List<System.String> ResourceType { get; set; }
+            public System.Func<Amazon.ConfigService.Model.DisassociateResourceTypesResponse, RemoveCFGResourceTypeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConfigurationRecorder;
         }
         
     }

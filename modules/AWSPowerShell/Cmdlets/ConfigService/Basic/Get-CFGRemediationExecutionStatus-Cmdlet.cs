@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
-        /// <para>A list of Config rule names.</para>
+        /// <para>The name of the Config rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

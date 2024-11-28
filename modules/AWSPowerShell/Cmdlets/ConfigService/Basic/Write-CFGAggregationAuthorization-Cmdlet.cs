@@ -31,11 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Authorizes the aggregator account and region to collect data from the source account
     /// and region. 
     /// 
-    ///  <note><para><c>PutAggregationAuthorization</c> is an idempotent API. Subsequent requests won’t
+    ///  <note><para><b>Tags are added at creation and cannot be updated with this operation</b></para><para><c>PutAggregationAuthorization</c> is an idempotent API. Subsequent requests won’t
     /// create a duplicate resource if one was already created. If a following request has
     /// different <c>tags</c> values, Config will ignore these differences and treat it as
     /// an idempotent request of the previous. In this case, <c>tags</c> will not be updated,
     /// even if they are different.
+    /// </para><para>
+    /// Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a>
+    /// and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a>
+    /// to update tags after creation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGAggregationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -1,4 +1,21 @@
-﻿### 4.1.707 (2024-11-26 21:14Z)
+﻿### 4.1.708 (2024-11-27 23:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.936.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameter BedrockEmbeddingModelConfiguration_EmbeddingDataType.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameter BedrockEmbeddingModelConfiguration_EmbeddingDataType.
+  * Amazon CloudWatch Observability Admin Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWOADMN and can be listed using the command 'Get-AWSCmdletName -Service CWOADMN'.
+  * Amazon Config
+    * Added cmdlet Add-CFGResourceType leveraging the AssociateResourceTypes service API.
+    * Added cmdlet Get-CFGConfigurationRecorderList leveraging the ListConfigurationRecorders service API.
+    * Added cmdlet Remove-CFGResourceType leveraging the DisassociateResourceTypes service API.
+    * Added cmdlet Remove-CFGServiceLinkedConfigurationRecorder leveraging the DeleteServiceLinkedConfigurationRecorder service API.
+    * Added cmdlet Write-CFGServiceLinkedConfigurationRecorder leveraging the PutServiceLinkedConfigurationRecorder service API.
+    * Modified cmdlet Get-CFGConfigurationRecorder: added parameters Arn and ServicePrincipal.
+    * Modified cmdlet Get-CFGConfigurationRecorderStatus: added parameters Arn and ServicePrincipal.
+    * Modified cmdlet Write-CFGConfigurationAggregator: added parameters ResourceType_Type, ResourceType_Value, ServicePrincipal_Type and ServicePrincipal_Value.
+    * Modified cmdlet Write-CFGConfigurationRecorder: added parameters ConfigurationRecorder_Arn, ConfigurationRecorder_RecordingScope, ConfigurationRecorder_ServicePrincipal and Tag.
+
+### 4.1.707 (2024-11-26 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.935.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABAgent: added parameters Executor_Lambda and OrchestrationType.

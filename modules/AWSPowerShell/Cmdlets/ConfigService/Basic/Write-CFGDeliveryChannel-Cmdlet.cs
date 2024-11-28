@@ -28,22 +28,17 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Creates a delivery channel object to deliver configuration information and other compliance
-    /// information to an Amazon S3 bucket and Amazon SNS topic. For more information, see
-    /// <a href="https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html">Notifications
-    /// that Config Sends to an Amazon SNS topic</a>.
+    /// Creates or updates a delivery channel to deliver configuration information and other
+    /// compliance information.
     /// 
     ///  
     /// <para>
-    /// Before you can create a delivery channel, you must create a configuration recorder.
+    /// You can use this operation to create a new delivery channel or to update the Amazon
+    /// S3 bucket and the Amazon SNS topic of an existing delivery channel.
     /// </para><para>
-    /// You can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the
-    /// existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic,
-    /// call this action and specify the changed values for the S3 bucket and the SNS topic.
-    /// If you specify a different value for either the S3 bucket or the SNS topic, this action
-    /// will keep the existing value for the parameter that is not changed.
-    /// </para><note><para>
-    /// You can have only one delivery channel per region in your account.
+    /// For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html"><b>Working with the Delivery Channel</b></a> in the <i>Config Developer Guide.</i></para><note><para><b>One delivery channel per account per Region</b></para><para>
+    /// You can have only one delivery channel for each account for each Amazon Web Services
+    /// Region.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

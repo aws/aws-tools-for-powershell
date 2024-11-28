@@ -28,13 +28,14 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the details for the specified configuration recorders. If the configuration
-    /// recorder is not specified, this action returns the details for all configuration recorders
-    /// associated with the account.
+    /// Returns details for the configuration recorder you specify.
     /// 
-    ///  <note><para>
-    /// You can specify only one configuration recorder for each Amazon Web Services Region
-    /// for each account.
+    ///  
+    /// <para>
+    /// If a configuration recorder is not specified, this operation returns details for the
+    /// customer managed configuration recorder configured for the account, if applicable.
+    /// </para><note><para>
+    /// When making a request to this operation, you can only specify one configuration recorder.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorder")]
@@ -49,15 +50,36 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the configuration recorder that you want to specify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Arn { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>A list of configuration recorder names.</para>
+        /// <para>A list of names of the configuration recorders that you want to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ConfigurationRecorderNames")]
         public System.String[] ConfigurationRecorderName { get; set; }
+        #endregion
+        
+        #region Parameter ServicePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>For service-linked configuration recorders, you can use the service principal of the
+        /// linked Amazon Web Services service to specify the configuration recorder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServicePrincipal { get; set; }
         #endregion
         
         #region Parameter Select
@@ -106,10 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.Select = (response, cmdlet) => this.ConfigurationRecorderName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Arn = this.Arn;
             if (this.ConfigurationRecorderName != null)
             {
                 context.ConfigurationRecorderName = new List<System.String>(this.ConfigurationRecorderName);
             }
+            context.ServicePrincipal = this.ServicePrincipal;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,9 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             // create request
             var request = new Amazon.ConfigService.Model.DescribeConfigurationRecordersRequest();
             
+            if (cmdletContext.Arn != null)
+            {
+                request.Arn = cmdletContext.Arn;
+            }
             if (cmdletContext.ConfigurationRecorderName != null)
             {
                 request.ConfigurationRecorderNames = cmdletContext.ConfigurationRecorderName;
+            }
+            if (cmdletContext.ServicePrincipal != null)
+            {
+                request.ServicePrincipal = cmdletContext.ServicePrincipal;
             }
             
             CmdletOutput output;
@@ -191,7 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Arn { get; set; }
             public List<System.String> ConfigurationRecorderName { get; set; }
+            public System.String ServicePrincipal { get; set; }
             public System.Func<Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse, GetCFGConfigurationRecorderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfigurationRecorders;
         }

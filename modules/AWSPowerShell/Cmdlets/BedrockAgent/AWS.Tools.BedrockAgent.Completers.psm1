@@ -174,6 +174,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.EmbeddingDataType
+        {
+            ($_ -eq "New-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType") -Or
+            ($_ -eq "Update-AABKnowledgeBase/BedrockEmbeddingModelConfiguration_EmbeddingDataType")
+        }
+        {
+            $v = "BINARY","FLOAT32"
+            break
+        }
+
         # Amazon.BedrockAgent.IngestionJobSortByAttribute
         "Get-AABIngestionJobList/SortBy_Attribute"
         {
@@ -289,6 +299,7 @@ $AAB_Completers = {
 $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")

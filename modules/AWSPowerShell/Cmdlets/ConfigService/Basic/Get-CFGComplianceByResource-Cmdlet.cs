@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Indicates whether the specified Amazon Web Services resources are compliant. If a
-    /// resource is noncompliant, this action returns the number of Config rules that the
+    /// resource is noncompliant, this operation returns the number of Config rules that the
     /// resource does not comply with.
     /// 
     ///  
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The types of Amazon Web Services resources for which you want compliance information
-        /// (for example, <c>AWS::EC2::Instance</c>). For this action, you can specify that the
-        /// resource type is an Amazon Web Services account by specifying <c>AWS::::Account</c>.</para>
+        /// (for example, <c>AWS::EC2::Instance</c>). For this operation, you can specify that
+        /// the resource type is an Amazon Web Services account by specifying <c>AWS::::Account</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

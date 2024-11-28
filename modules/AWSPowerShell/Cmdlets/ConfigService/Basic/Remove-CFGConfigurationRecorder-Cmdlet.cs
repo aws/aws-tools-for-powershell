@@ -28,17 +28,14 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the configuration recorder.
+    /// Deletes the customer managed configuration recorder.
     /// 
     ///  
     /// <para>
-    /// After the configuration recorder is deleted, Config will not record resource configuration
-    /// changes until you create a new configuration recorder.
-    /// </para><para>
-    /// This action does not delete the configuration information that was previously recorded.
-    /// You will be able to access the previously recorded information by using the <c>GetResourceConfigHistory</c>
-    /// action, but you will not be able to access this information in the Config console
-    /// until you create a new configuration recorder.
+    /// This operation does not delete the configuration information that was previously recorded.
+    /// You will be able to access the previously recorded information by using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html">GetResourceConfigHistory</a>
+    /// operation, but you will not be able to access this information in the Config console
+    /// until you have created a new customer managed configuration recorder.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -56,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration recorder to be deleted. You can retrieve the name of
-        /// your configuration recorder by using the <c>DescribeConfigurationRecorders</c> action.</para>
+        /// <para>The name of the customer managed configuration recorder that you want to delete. You
+        /// can retrieve the name of your configuration recorders by using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

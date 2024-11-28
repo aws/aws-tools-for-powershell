@@ -6210,6 +6210,9 @@ Set-Alias -Name Put-CORecommendationPreferences -Value Write-CORecommendationPre
 Set-Alias -Name Put-CORecommendationPreference -Value Write-CORecommendationPreference
 Set-Alias -Name CO-PutRecommendationPreferences -Value Write-CORecommendationPreference
 Set-Alias -Name CO-UpdateEnrollmentStatus -Value Update-COEnrollmentStatus
+Set-Alias -Name Associate-CFGResourceTypes -Value Add-CFGResourceType
+Set-Alias -Name Associate-CFGResourceType -Value Add-CFGResourceType
+Set-Alias -Name CFG-AssociateResourceTypes -Value Add-CFGResourceType
 Set-Alias -Name Batch-CFGGetAggregateResourceConfig -Value Get-CFGAggregateResourceConfigBatch
 Set-Alias -Name Batch-CFGAggregateResourceConfigBatch -Value Get-CFGAggregateResourceConfigBatch
 Set-Alias -Name CFG-BatchGetAggregateResourceConfig -Value Get-CFGAggregateResourceConfigBatch
@@ -6246,6 +6249,8 @@ Set-Alias -Name Delete-CFGResourceConfig -Value Remove-CFGResourceConfig
 Set-Alias -Name CFG-DeleteResourceConfig -Value Remove-CFGResourceConfig
 Set-Alias -Name Delete-CFGRetentionConfiguration -Value Remove-CFGRetentionConfiguration
 Set-Alias -Name CFG-DeleteRetentionConfiguration -Value Remove-CFGRetentionConfiguration
+Set-Alias -Name Delete-CFGServiceLinkedConfigurationRecorder -Value Remove-CFGServiceLinkedConfigurationRecorder
+Set-Alias -Name CFG-DeleteServiceLinkedConfigurationRecorder -Value Remove-CFGServiceLinkedConfigurationRecorder
 Set-Alias -Name Delete-CFGStoredQuery -Value Remove-CFGStoredQuery
 Set-Alias -Name CFG-DeleteStoredQuery -Value Remove-CFGStoredQuery
 Set-Alias -Name Deliver-CFGConfigSnapshot -Value Submit-CFGConfigSnapshotDelivery
@@ -6317,6 +6322,9 @@ Set-Alias -Name CFG-DescribeRemediationExecutionStatus -Value Get-CFGRemediation
 Set-Alias -Name Describe-CFGRetentionConfigurations -Value Get-CFGRetentionConfiguration
 Set-Alias -Name Describe-CFGRetentionConfiguration -Value Get-CFGRetentionConfiguration
 Set-Alias -Name CFG-DescribeRetentionConfigurations -Value Get-CFGRetentionConfiguration
+Set-Alias -Name Disassociate-CFGResourceTypes -Value Remove-CFGResourceType
+Set-Alias -Name Disassociate-CFGResourceType -Value Remove-CFGResourceType
+Set-Alias -Name CFG-DisassociateResourceTypes -Value Remove-CFGResourceType
 Set-Alias -Name CFG-GetAggregateComplianceDetailsByConfigRule -Value Get-CFGAggregateComplianceDetailsByConfigRule
 Set-Alias -Name CFG-GetAggregateConfigRuleComplianceSummary -Value Get-CFGAggregateConfigRuleComplianceSummary
 Set-Alias -Name CFG-GetAggregateConformancePackComplianceSummary -Value Get-CFGAggregateConformancePackComplianceSummary
@@ -6342,6 +6350,9 @@ Set-Alias -Name CFG-GetStoredQuery -Value Get-CFGStoredQuery
 Set-Alias -Name List-CFGAggregateDiscoveredResources -Value Get-CFGAggregateDiscoveredResourceList
 Set-Alias -Name List-CFGAggregateDiscoveredResourceList -Value Get-CFGAggregateDiscoveredResourceList
 Set-Alias -Name CFG-ListAggregateDiscoveredResources -Value Get-CFGAggregateDiscoveredResourceList
+Set-Alias -Name List-CFGConfigurationRecorders -Value Get-CFGConfigurationRecorderList
+Set-Alias -Name List-CFGConfigurationRecorderList -Value Get-CFGConfigurationRecorderList
+Set-Alias -Name CFG-ListConfigurationRecorders -Value Get-CFGConfigurationRecorderList
 Set-Alias -Name List-CFGConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
 Set-Alias -Name List-CFGConformancePackComplianceScoreList -Value Get-CFGConformancePackComplianceScoreList
 Set-Alias -Name CFG-ListConformancePackComplianceScores -Value Get-CFGConformancePackComplianceScoreList
@@ -6386,6 +6397,8 @@ Set-Alias -Name Put-CFGResourceConfig -Value Write-CFGResourceConfig
 Set-Alias -Name CFG-PutResourceConfig -Value Write-CFGResourceConfig
 Set-Alias -Name Put-CFGRetentionConfiguration -Value Write-CFGRetentionConfiguration
 Set-Alias -Name CFG-PutRetentionConfiguration -Value Write-CFGRetentionConfiguration
+Set-Alias -Name Put-CFGServiceLinkedConfigurationRecorder -Value Write-CFGServiceLinkedConfigurationRecorder
+Set-Alias -Name CFG-PutServiceLinkedConfigurationRecorder -Value Write-CFGServiceLinkedConfigurationRecorder
 Set-Alias -Name Put-CFGStoredQuery -Value Write-CFGStoredQuery
 Set-Alias -Name CFG-PutStoredQuery -Value Write-CFGStoredQuery
 Set-Alias -Name CFG-SelectAggregateResourceConfig -Value Select-CFGAggregateResourceConfig
@@ -21112,6 +21125,18 @@ Set-Alias -Name CWOAM-PutSinkPolicy -Value Write-CWOAMSinkPolicy
 Set-Alias -Name CWOAM-TagResource -Value Add-CWOAMResourceTag
 Set-Alias -Name CWOAM-UntagResource -Value Remove-CWOAMResourceTag
 Set-Alias -Name CWOAM-UpdateLink -Value Update-CWOAMLink
+Set-Alias -Name CWOADMN-GetTelemetryEvaluationStatus -Value Get-CWOADMNTelemetryEvaluationStatus
+Set-Alias -Name CWOADMN-GetTelemetryEvaluationStatusForOrganization -Value Get-CWOADMNTelemetryEvaluationStatusForOrganization
+Set-Alias -Name List-CWOADMNResourceTelemetry -Value Get-CWOADMNResourceTelemetryList
+Set-Alias -Name List-CWOADMNResourceTelemetryList -Value Get-CWOADMNResourceTelemetryList
+Set-Alias -Name CWOADMN-ListResourceTelemetry -Value Get-CWOADMNResourceTelemetryList
+Set-Alias -Name List-CWOADMNResourceTelemetryForOrganization -Value Get-CWOADMNResourceTelemetryForOrganizationList
+Set-Alias -Name List-CWOADMNResourceTelemetryForOrganizationList -Value Get-CWOADMNResourceTelemetryForOrganizationList
+Set-Alias -Name CWOADMN-ListResourceTelemetryForOrganization -Value Get-CWOADMNResourceTelemetryForOrganizationList
+Set-Alias -Name CWOADMN-StartTelemetryEvaluation -Value Start-CWOADMNTelemetryEvaluation
+Set-Alias -Name CWOADMN-StartTelemetryEvaluationForOrganization -Value Start-CWOADMNTelemetryEvaluationForOrganization
+Set-Alias -Name CWOADMN-StopTelemetryEvaluation -Value Stop-CWOADMNTelemetryEvaluation
+Set-Alias -Name CWOADMN-StopTelemetryEvaluationForOrganization -Value Stop-CWOADMNTelemetryEvaluationForOrganization
 Set-Alias -Name Abort-OMICSMultipartReadSetUpload -Value Remove-OMICSMultipartReadSetUpload
 Set-Alias -Name OMICS-AbortMultipartReadSetUpload -Value Remove-OMICSMultipartReadSetUpload
 Set-Alias -Name Accept-OMICSShare -Value Receive-OMICSShare
