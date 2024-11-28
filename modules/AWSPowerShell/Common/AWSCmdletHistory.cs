@@ -33,6 +33,8 @@ namespace Amazon.PowerShell.Common
 
         const int DEFAULT_HISTORY_LENGTH = 5;
         const int DEFAULT_SERVICECALL_HISTORY_LENGTH = 5;
+        private bool AWSHistoryWarningDisplayed = false;
+
 
         static AWSCmdletHistoryBuffer _instance;
         internal static AWSCmdletHistoryBuffer Instance
@@ -122,7 +124,6 @@ namespace Amazon.PowerShell.Common
         {
             get
             {
-                Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
                 if (!RecordingEnabled)
                     return null;
 
@@ -152,7 +153,11 @@ namespace Amazon.PowerShell.Common
 
         public override string ToString()
         {
-            Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+            if (!AWSHistoryWarningDisplayed)
+            {
+                Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+                AWSHistoryWarningDisplayed = true;
+            }
 
             if (!RecordingEnabled)
                 return "AWS History Disabled";
@@ -255,9 +260,13 @@ namespace Amazon.PowerShell.Common
         {
             get
             {
-                Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
                 lock (_syncLock)
                 {
+                    if (!AWSHistoryWarningDisplayed)
+                    {
+                        Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+                        AWSHistoryWarningDisplayed = true;
+                    }
                     var lastInvoke = LastCommand;
                     if (lastInvoke != null)
                         return lastInvoke.LastServiceResponse;
@@ -275,9 +284,13 @@ namespace Amazon.PowerShell.Common
         {
             get
             {
-                Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
                 lock (_syncLock)
                 {
+                    if (!AWSHistoryWarningDisplayed)
+                    {
+                        Console.WriteLine("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+                        AWSHistoryWarningDisplayed = true;
+                    }
                     var lastInvoke = LastCommand;
                     if (lastInvoke != null)
                         return lastInvoke.LastServiceRequest;

@@ -32,10 +32,14 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class ClearAWSHistoryCmdlet : PSCmdlet
     {
+        protected override void BeginProcessing()
+        {
+            base.BeginProcessing();
+            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+        }
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
             AWSCmdletHistoryBuffer.Instance.Clear();
         }
     }
@@ -84,11 +88,15 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter IncludeSensitiveData { get; set; }
 
+        protected override void BeginProcessing()
+        {
+            base.BeginProcessing();
+            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-
-            WriteWarning("AWSHistory is deprecated and will be removed in the next major release. Instead, use '-Select *' when it is necessary to return the entire service response as cmdlet output.");
 
             if (MaxCmdletHistory != null)
             {
