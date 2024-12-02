@@ -69,6 +69,19 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String SamlConfiguration_AuthenticationUrl { get; set; }
         #endregion
         
+        #region Parameter BrowserExtensionConfiguration_EnabledBrowserExtension
+        /// <summary>
+        /// <para>
+        /// <para>Specify the browser extensions allowed for your Amazon Q web experience.</para><ul><li><para><c>CHROME</c> — Enables the extension for Chromium-based browsers (Google Chrome,
+        /// Microsoft Edge, Opera, etc.).</para></li><li><para><c>FIREFOX</c> — Enables the extension for Mozilla Firefox.</para></li><li><para><c>CHROME</c> and <c>FIREFOX</c> — Enable the extension for Chromium-based browsers
+        /// and Mozilla Firefox.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrowserExtensionConfiguration_EnabledBrowserExtensions")]
+        public System.String[] BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
+        #endregion
+        
         #region Parameter Origin
         /// <summary>
         /// <para>
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                context.BrowserExtensionConfiguration_EnabledBrowserExtension = new List<System.String>(this.BrowserExtensionConfiguration_EnabledBrowserExtension);
+            }
             context.ClientToken = this.ClientToken;
             context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
             context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
@@ -287,6 +304,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate BrowserExtensionConfiguration
+            var requestBrowserExtensionConfigurationIsNull = true;
+            request.BrowserExtensionConfiguration = new Amazon.QBusiness.Model.BrowserExtensionConfiguration();
+            List<System.String> requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = null;
+            if (cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension;
+            }
+            if (requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                request.BrowserExtensionConfiguration.EnabledBrowserExtensions = requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension;
+                requestBrowserExtensionConfigurationIsNull = false;
+            }
+             // determine if request.BrowserExtensionConfiguration should be set to null
+            if (requestBrowserExtensionConfigurationIsNull)
+            {
+                request.BrowserExtensionConfiguration = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -451,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public List<System.String> BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
             public System.String ClientToken { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }

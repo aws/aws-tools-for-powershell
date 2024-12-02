@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which the tags are to be added</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which the tags are to be added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

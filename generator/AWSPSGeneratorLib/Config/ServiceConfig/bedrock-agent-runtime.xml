@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="Rerank" OutputProperty="*" Verb="Invoke" Noun="Rerank" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,24 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveAndGenerateStream" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerateStream" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
+            <Params>
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

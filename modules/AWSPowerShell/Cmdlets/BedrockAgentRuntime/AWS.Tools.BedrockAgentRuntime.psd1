@@ -91,8 +91,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BARAgent', 
         'Invoke-BARFlow', 
         'Invoke-BARInlineAgent', 
+        'Invoke-BARRerank', 
         'Invoke-BARRetrieve', 
         'Invoke-BARRetrieveAndGenerate', 
+        'Invoke-BARRetrieveAndGenerateStream', 
         'Remove-BARAgentMemory')
 
     # Variables to export from this module

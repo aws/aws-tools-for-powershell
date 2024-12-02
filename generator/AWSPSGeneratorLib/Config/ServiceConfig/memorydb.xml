@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMultiRegionCluster" OutputProperty="MultiRegionCluster" Verb="New" Noun="MultiRegionCluster" ShouldProcessTarget="MultiRegionClusterNameSuffix" PipelineParameter="MultiRegionClusterNameSuffix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateParameterGroup" OutputProperty="ParameterGroup" Verb="New" Noun="ParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMultiRegionCluster" OutputProperty="MultiRegionCluster" Verb="Remove" Noun="MultiRegionCluster" ShouldProcessTarget="MultiRegionClusterName" PipelineParameter="MultiRegionClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMultiRegionClusters" OutputProperty="MultiRegionClusters" Verb="Get" Noun="MultiRegionCluster" PipelineParameter="MultiRegionClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAllowedMultiRegionClusterUpdates" OutputProperty="*" Verb="Get" Noun="AllowedMultiRegionClusterUpdateList" PipelineParameter="MultiRegionClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAllowedNodeTypeUpdates" OutputProperty="*" Verb="Get" Noun="AllowedNodeTypeUpdateList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +171,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMultiRegionCluster" OutputProperty="MultiRegionCluster" Verb="Update" Noun="MultiRegionCluster" ShouldProcessTarget="MultiRegionClusterName" PipelineParameter="MultiRegionClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

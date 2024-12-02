@@ -522,6 +522,32 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter ReadCacheConfiguration_SizeGiB
+        /// <summary>
+        /// <para>
+        /// <para> Required if <c>SizingMode</c> is set to <c>USER_PROVISIONED</c>. Specifies the size
+        /// of the file system's SSD read cache, in gibibytes (GiB). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_ReadCacheConfiguration_SizeGiB")]
+        public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
+        #endregion
+        
+        #region Parameter ReadCacheConfiguration_SizingMode
+        /// <summary>
+        /// <para>
+        /// <para> Specifies how the provisioned SSD read cache is sized, as follows: </para><ul><li><para>Set to <c>NO_CACHE</c> if you do not want to use an SSD read cache with your Intelligent-Tiering
+        /// file system.</para></li><li><para>Set to <c>USER_PROVISIONED</c> to specify the exact size of your SSD read cache.</para></li><li><para>Set to <c>PROPORTIONAL_TO_THROUGHPUT_CAPACITY</c> to have your SSD read cache automatically
+        /// sized based on your throughput capacity.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_ReadCacheConfiguration_SizingMode")]
+        [AWSConstantClassSource("Amazon.FSx.OpenZFSReadCacheSizingMode")]
+        public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }
+        #endregion
+        
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
@@ -540,27 +566,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// follows:</para><ul><li><para>For SSD storage, valid values are 32 GiB-65,536 GiB (64 TiB).</para></li><li><para>For HDD storage, valid values are 2000 GiB-65,536 GiB (64 TiB).</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? StorageCapacity { get; set; }
         #endregion
         
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Sets the storage type for the file system that you're creating. Valid values are <c>SSD</c>
-        /// and <c>HDD</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows,
+        /// <para>Sets the storage class for the file system that you're creating. Valid values are
+        /// <c>SSD</c>, <c>HDD</c>, and <c>INTELLIGENT_TIERING</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows,
         /// Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage. HDD is supported on <c>SINGLE_AZ_2</c>
         /// and <c>MULTI_AZ_1</c> Windows file system deployment types, and on <c>PERSISTENT_1</c>
-        /// Lustre file system deployment types.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
-        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i> and
-        /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
-        /// storage options</a> in the <i>FSx for Lustre User Guide</i>. </para>
+        /// Lustre file system deployment types.</para></li><li><para>Set to <c>INTELLIGENT_TIERING</c> to use fully elastic, intelligently-tiered storage.
+        /// Intelligent-Tiering is only available for OpenZFS file systems with the Multi-AZ deployment
+        /// type.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
+        /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
+        /// storage options</a> in the <i>FSx for Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance-intelligent-tiering">Working
+        /// with Intelligent-Tiering</a> in the <i>Amazon FSx for OpenZFS User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -770,6 +792,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OpenZFSConfiguration_DiskIopsConfiguration_Mode = this.OpenZFSConfiguration_DiskIopsConfiguration_Mode;
             context.OpenZFSConfiguration_EndpointIpAddressRange = this.OpenZFSConfiguration_EndpointIpAddressRange;
             context.OpenZFSConfiguration_PreferredSubnetId = this.OpenZFSConfiguration_PreferredSubnetId;
+            context.ReadCacheConfiguration_SizeGiB = this.ReadCacheConfiguration_SizeGiB;
+            context.ReadCacheConfiguration_SizingMode = this.ReadCacheConfiguration_SizingMode;
             context.RootVolumeConfiguration_CopyTagsToSnapshot = this.RootVolumeConfiguration_CopyTagsToSnapshot;
             context.RootVolumeConfiguration_DataCompressionType = this.RootVolumeConfiguration_DataCompressionType;
             if (this.RootVolumeConfiguration_NfsExport != null)
@@ -793,12 +817,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
             context.StorageCapacity = this.StorageCapacity;
-            #if MODULAR
-            if (this.StorageCapacity == null && ParameterWasBound(nameof(this.StorageCapacity)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StorageCapacity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
@@ -1144,6 +1162,41 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OpenZFSConfiguration.DiskIopsConfiguration = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration;
                 requestOpenZFSConfigurationIsNull = false;
             }
+            Amazon.FSx.Model.OpenZFSReadCacheConfiguration requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = null;
+            
+             // populate ReadCacheConfiguration
+            var requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = true;
+            requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = new Amazon.FSx.Model.OpenZFSReadCacheConfiguration();
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB = null;
+            if (cmdletContext.ReadCacheConfiguration_SizeGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB = cmdletContext.ReadCacheConfiguration_SizeGiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration.SizeGiB = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB.Value;
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = false;
+            }
+            Amazon.FSx.OpenZFSReadCacheSizingMode requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode = null;
+            if (cmdletContext.ReadCacheConfiguration_SizingMode != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode = cmdletContext.ReadCacheConfiguration_SizingMode;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration.SizingMode = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode;
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = false;
+            }
+             // determine if requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration should be set to null
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = null;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration != null)
+            {
+                request.OpenZFSConfiguration.ReadCacheConfiguration = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             Amazon.FSx.Model.OpenZFSCreateRootVolumeConfiguration requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration = null;
             
              // populate RootVolumeConfiguration
@@ -1336,6 +1389,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
             public System.String OpenZFSConfiguration_PreferredSubnetId { get; set; }
+            public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
+            public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }
             public System.Boolean? RootVolumeConfiguration_CopyTagsToSnapshot { get; set; }
             public Amazon.FSx.OpenZFSDataCompressionType RootVolumeConfiguration_DataCompressionType { get; set; }
             public List<Amazon.FSx.Model.OpenZFSNfsExport> RootVolumeConfiguration_NfsExport { get; set; }

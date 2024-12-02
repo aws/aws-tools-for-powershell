@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource.</para>
+        /// <para>The identifier of the resource.</para><ul><li><para>Amazon Web Services End User Messaging SMS phone number ARN when using <c>SMS_PHONE_NUMBER</c></para></li><li><para>Amazon Web Services End User Messaging Social phone number ARN when using <c>WHATSAPP_MESSAGING_PHONE_NUMBER</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

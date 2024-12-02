@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String ContactId { get; set; }
         #endregion
         
+        #region Parameter ContactRecordingType
+        /// <summary>
+        /// <para>
+        /// <para>The type of recording being operated on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactRecordingType")]
+        public Amazon.Connect.ContactRecordingType ContactRecordingType { get; set; }
+        #endregion
+        
         #region Parameter InitialContactId
         /// <summary>
         /// <para>
@@ -175,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContactRecordingType = this.ContactRecordingType;
             context.InitialContactId = this.InitialContactId;
             #if MODULAR
             if (this.InitialContactId == null && ParameterWasBound(nameof(this.InitialContactId)))
@@ -208,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ContactId != null)
             {
                 request.ContactId = cmdletContext.ContactId;
+            }
+            if (cmdletContext.ContactRecordingType != null)
+            {
+                request.ContactRecordingType = cmdletContext.ContactRecordingType;
             }
             if (cmdletContext.InitialContactId != null)
             {
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ContactId { get; set; }
+            public Amazon.Connect.ContactRecordingType ContactRecordingType { get; set; }
             public System.String InitialContactId { get; set; }
             public System.String InstanceId { get; set; }
             public System.Func<Amazon.Connect.Model.SuspendContactRecordingResponse, SuspendCONNContactRecordingCmdlet, object> Select { get; set; } =

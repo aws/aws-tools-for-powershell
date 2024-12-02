@@ -261,6 +261,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelDeclarativePoliciesReport" OutputProperty="Return" Verb="Stop" Noun="DeclarativePoliciesReport" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskId" PipelineParameter="ExportTaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1116,6 +1120,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDhcpOptions" OutputProperty="DhcpOptions" Verb="Get" Noun="DhcpOption" PositionalParameters="Filters" PipelineParameter="DhcpOptionsIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1651,6 +1659,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1720,6 +1732,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisableAddressTransfer" OutputProperty="AddressTransfer" Verb="Disable" Noun="AddressTransfer" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1857,6 +1873,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Enable" Noun="AllowedImagesSetting" ShouldProcessTarget="AllowedImagesSettingsState" PipelineParameter="AllowedImagesSettingsState" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableAwsNetworkPerformanceMetricSubscription" OutputProperty="Output" Verb="Enable" Noun="AwsNetworkPerformanceMetricSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1941,6 +1961,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportVerifiedAccessInstanceClientConfiguration" OutputProperty="*" Verb="Export" Noun="VerifiedAccessInstanceClientConfiguration" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAssociatedEnclaveCertificateIamRoles" OutputProperty="AssociatedRoles" Verb="Get" Noun="AssociatedEnclaveCertificateIamRole" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1966,6 +1994,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConsoleScreenshot" OutputProperty="*" Verb="Get" Noun="ConsoleScreenshot" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeclarativePoliciesReportSummary" OutputProperty="*" Verb="Get" Noun="DeclarativePoliciesReportSummary" PipelineParameter="ReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2118,6 +2150,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVerifiedAccessEndpointPolicy" OutputProperty="*" Verb="Get" Noun="VerifiedAccessEndpointPolicy" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVerifiedAccessEndpointTargets" OutputProperty="VerifiedAccessEndpointTargets" Verb="Get" Noun="VerifiedAccessEndpointTarget" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2581,6 +2617,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReplaceNetworkAclAssociation" OutputProperty="NewAssociationId" Verb="Set" Noun="NetworkAclAssociation" ShouldProcessTarget="AssociationId" PositionalParameters="NetworkAclId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2736,6 +2776,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendDiagnosticInterrupt" Verb="Send" Noun="DiagnosticInterrupt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeclarativePoliciesReport" OutputProperty="ReportId" Verb="Start" Noun="DeclarativePoliciesReport" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

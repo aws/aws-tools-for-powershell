@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <summary>
     /// Running <c>PutPermission</c> permits the specified Amazon Web Services account or
     /// Amazon Web Services organization to put events to the specified <i>event bus</i>.
-    /// Amazon EventBridge (CloudWatch Events) rules in your account are triggered by these
-    /// events arriving to an event bus in your account. 
+    /// Amazon EventBridge rules in your account are triggered by these events arriving to
+    /// an event bus in your account. 
     /// 
     ///  
     /// <para>

@@ -113,8 +113,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
         /// server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header
         /// to <c>true</c> causes Amazon S3 to use an S3 Bucket Key for object encryption with
-        /// SSE-KMS.</para><para>Specifying this header with an <i>object</i> action doesn’t affect <i>bucket-level</i>
-        /// settings for S3 Bucket Key.</para><note><para>This functionality is not supported by directory buckets.</para></note>
+        /// SSE-KMS.</para><para>Specifying this header with an <i>Copy</i> action doesn’t affect <i>bucket-level</i>
+        /// settings for S3 Bucket Key.</para><note><para><b>Directory buckets</b> - S3 Bucket Keys aren't supported, when you copy SSE-KMS
+        /// encrypted objects from general purpose buckets to directory buckets, from directory
+        /// buckets to general purpose buckets, or between directory buckets, through <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-Batch-Ops">the
+        /// Copy operation in Batch Operations</a>. In this case, Amazon S3 makes a call to KMS
+        /// every time a copy request is made for a KMS-encrypted object.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -901,8 +905,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter NewObjectMetadata_SSEAlgorithm
         /// <summary>
         /// <para>
-        /// <note><para>For directory buckets, only the server-side encryption with Amazon S3 managed keys
-        /// (SSE-S3) (<c>AES256</c>) is supported.</para></note>
+        /// <para>The server-side encryption algorithm used when storing objects in Amazon S3.</para><para><b>Directory buckets </b> - For directory buckets, there are only two supported options
+        /// for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3)
+        /// (<c>AES256</c>) and server-side encryption with KMS keys (SSE-KMS) (<c>KMS</c>). For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting
+        /// data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-Batch-Ops">the
+        /// Copy operation in Batch Operations</a>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_S3CopyObjectOperation.html">S3CopyObjectOperation</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -914,7 +922,24 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_SSEAwsKmsKeyId
         /// <summary>
         /// <para>
-        /// <note><para>This functionality is not supported by directory buckets.</para></note>
+        /// <para>Specifies the KMS key ID (Key ID, Key ARN, or Key Alias) to use for object encryption.
+        /// If the KMS key doesn't exist in the same account that's issuing the command, you must
+        /// use the full Key ARN not the Key ID.</para><note><para><b>Directory buckets</b> - If you specify <c>SSEAlgorithm</c> with <c>KMS</c>, you
+        /// must specify the <c> SSEAwsKmsKeyId</c> parameter with the ID (Key ID or Key ARN)
+        /// of the KMS symmetric encryption customer managed key to use. Otherwise, you get an
+        /// HTTP <c>400 Bad Request</c> error. The key alias format of the KMS key isn't supported.
+        /// To encrypt new object copies in a directory bucket with SSE-KMS, you must specify
+        /// SSE-KMS as the directory bucket's default encryption configuration with a KMS key
+        /// (specifically, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
+        /// managed key</a>). The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// Web Services managed key</a> (<c>aws/s3</c>) isn't supported. Your SSE-KMS configuration
+        /// can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
+        /// managed key</a> per directory bucket for the lifetime of the bucket. After you specify
+        /// a customer managed key for SSE-KMS as the bucket default encryption, you can't override
+        /// the customer managed key for the bucket's SSE-KMS configuration. Then, when you specify
+        /// server-side encryption settings for new object copies with SSE-KMS, you must make
+        /// sure the encryption key is the same customer managed key that you specified for the
+        /// directory bucket's default encryption configuration. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1000,8 +1025,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</para><ul><li><para><b>General purpose buckets</b> - For example, to copy objects to a general purpose
         /// bucket named <c>destinationBucket</c>, set the <c>TargetResource</c> property to <c>arn:aws:s3:::destinationBucket</c>.</para></li><li><para><b>Directory buckets</b> - For example, to copy objects to a directory bucket named
-        /// <c>destinationBucket</c> in the Availability Zone; identified by the AZ ID <c>usw2-az1</c>,
-        /// set the <c>TargetResource</c> property to <c>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az1</i>--x-s3</c>.</para></li></ul>
+        /// <c>destinationBucket</c> in the Availability Zone identified by the AZ ID <c>usw2-az1</c>,
+        /// set the <c>TargetResource</c> property to <c>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az1</i>--x-s3</c>.
+        /// A directory bucket as a destination bucket can be in Availability Zone or Local Zone.
+        /// </para><note><para>Copying objects across different Amazon Web Services Regions isn't supported when
+        /// the source or destination bucket is in Amazon Web Services Local Zones. The source
+        /// and destination buckets must have the same parent Amazon Web Services Region. Otherwise,
+        /// you get an HTTP <c>400 Bad Request</c> error with the error code <c>InvalidRequest</c>.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

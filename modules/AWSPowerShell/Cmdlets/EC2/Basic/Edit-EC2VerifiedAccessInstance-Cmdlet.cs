@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CidrEndpointsCustomSubDomain
+        /// <summary>
+        /// <para>
+        /// <para>The custom subdomain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CidrEndpointsCustomSubDomain { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -143,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VerifiedAccessInstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CidrEndpointsCustomSubDomain = this.CidrEndpointsCustomSubDomain;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.VerifiedAccessInstanceId = this.VerifiedAccessInstanceId;
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyVerifiedAccessInstanceRequest();
             
+            if (cmdletContext.CidrEndpointsCustomSubDomain != null)
+            {
+                request.CidrEndpointsCustomSubDomain = cmdletContext.CidrEndpointsCustomSubDomain;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CidrEndpointsCustomSubDomain { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String VerifiedAccessInstanceId { get; set; }

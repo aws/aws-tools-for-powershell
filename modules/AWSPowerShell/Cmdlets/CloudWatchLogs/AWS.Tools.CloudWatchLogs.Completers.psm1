@@ -104,6 +104,23 @@ $CWL_Completers = {
             break
         }
 
+        # Amazon.CloudWatchLogs.IntegrationStatus
+        "Get-CWLIntegrationList/IntegrationStatus"
+        {
+            $v = "ACTIVE","FAILED","PROVISIONING"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.IntegrationType
+        {
+            ($_ -eq "Get-CWLIntegrationList/IntegrationType") -Or
+            ($_ -eq "Write-CWLIntegration/IntegrationType")
+        }
+        {
+            $v = "OPENSEARCH"
+            break
+        }
+
         # Amazon.CloudWatchLogs.LogGroupClass
         {
             ($_ -eq "Get-CWLLogGroup/LogGroupClass") -Or
@@ -136,6 +153,18 @@ $CWL_Completers = {
         }
         {
             $v = "DATA_PROTECTION_POLICY","FIELD_INDEX_POLICY","SUBSCRIPTION_FILTER_POLICY","TRANSFORMER_POLICY"
+            break
+        }
+
+        # Amazon.CloudWatchLogs.QueryLanguage
+        {
+            ($_ -eq "Get-CWLQuery/QueryLanguage") -Or
+            ($_ -eq "Get-CWLQueryDefinition/QueryLanguage") -Or
+            ($_ -eq "Start-CWLQuery/QueryLanguage") -Or
+            ($_ -eq "Write-CWLQueryDefinition/QueryLanguage")
+        }
+        {
+            $v = "CWLI","PPL","SQL"
             break
         }
 
@@ -185,10 +214,13 @@ $CWL_Completers = {
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
     "EvaluationFrequency"=@("New-CWLLogAnomalyDetector","Update-CWLLogAnomalyDetector")
+    "IntegrationStatus"=@("Get-CWLIntegrationList")
+    "IntegrationType"=@("Get-CWLIntegrationList","Write-CWLIntegration")
     "LogGroupClass"=@("Get-CWLLogGroup","New-CWLLogGroup")
     "OrderBy"=@("Get-CWLLogStream")
     "OutputFormat"=@("Write-CWLDeliveryDestination")
     "PolicyType"=@("Get-CWLAccountPolicy","Remove-CWLAccountPolicy","Write-CWLAccountPolicy")
+    "QueryLanguage"=@("Get-CWLQuery","Get-CWLQueryDefinition","Start-CWLQuery","Write-CWLQueryDefinition")
     "Scope"=@("Write-CWLAccountPolicy")
     "Status"=@("Get-CWLQuery")
     "StatusCode"=@("Get-CWLExportTask")
@@ -262,6 +294,7 @@ $CWL_SelectMap = @{
                "Remove-CWLDeliverySource",
                "Remove-CWLDestination",
                "Remove-CWLIndexPolicy",
+               "Remove-CWLIntegration",
                "Remove-CWLLogAnomalyDetector",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
@@ -294,6 +327,7 @@ $CWL_SelectMap = @{
                "Get-CWLDeliveryDestination",
                "Get-CWLDeliveryDestinationPolicy",
                "Get-CWLDeliverySource",
+               "Get-CWLIntegration",
                "Get-CWLLogAnomalyDetector",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
@@ -301,6 +335,7 @@ $CWL_SelectMap = @{
                "Get-CWLQueryResult",
                "Get-CWLTransformer",
                "Get-CWLAnomalyList",
+               "Get-CWLIntegrationList",
                "Get-CWLLogAnomalyDetectorList",
                "Get-CWLLogGroupsForQueryList",
                "Get-CWLResourceTag",
@@ -313,6 +348,7 @@ $CWL_SelectMap = @{
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
                "Write-CWLIndexPolicy",
+               "Write-CWLIntegration",
                "Write-CWLLogEvent",
                "Write-CWLMetricFilter",
                "Write-CWLQueryDefinition",

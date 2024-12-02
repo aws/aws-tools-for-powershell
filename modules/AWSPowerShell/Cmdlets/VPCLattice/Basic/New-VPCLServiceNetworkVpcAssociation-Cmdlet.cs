@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceNetworkIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN
-        /// when the resources specified in the operation are in different accounts.</para>
+        /// <para>The ID or ARN of the service network. You must use an ARN if the resources are in
+        /// different accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

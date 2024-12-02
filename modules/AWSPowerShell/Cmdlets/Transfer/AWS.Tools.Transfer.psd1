@@ -109,6 +109,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TFRServerList', 
         'Get-TFRUser', 
         'Get-TFRUserList', 
+        'Get-TFRWebApp', 
+        'Get-TFRWebAppCustomization', 
+        'Get-TFRWebAppList', 
         'Get-TFRWorkflow', 
         'Get-TFRWorkflowList', 
         'Import-TFRCertificate', 
@@ -120,6 +123,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-TFRProfile', 
         'New-TFRServer', 
         'New-TFRUser', 
+        'New-TFRWebApp', 
         'New-TFRWorkflow', 
         'Remove-TFRAccess', 
         'Remove-TFRAgreement', 
@@ -131,6 +135,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-TFRServer', 
         'Remove-TFRSshPublicKey', 
         'Remove-TFRUser', 
+        'Remove-TFRWebApp', 
+        'Remove-TFRWebAppCustomization', 
         'Remove-TFRWorkflow', 
         'Send-TFRWorkflowStepState', 
         'Start-TFRDirectoryListing', 
@@ -146,7 +152,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-TFRHostKey', 
         'Update-TFRProfile', 
         'Update-TFRServer', 
-        'Update-TFRUser')
+        'Update-TFRUser', 
+        'Update-TFRWebApp', 
+        'Update-TFRWebAppCustomization')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network or service for which the
-        /// policy is created.</para>
+        /// <para>The ID or ARN of the service network or service for which the policy is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

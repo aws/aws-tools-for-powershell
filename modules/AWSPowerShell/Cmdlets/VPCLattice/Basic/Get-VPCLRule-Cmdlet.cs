@@ -28,8 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Retrieves information about listener rules. You can also retrieve information about
-    /// the default listener rule. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules">Listener
+    /// Retrieves information about the specified listener rules. You can also retrieve information
+    /// about the default listener rule. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules">Listener
     /// rules</a> in the <i>Amazon VPC Lattice User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "VPCLRule")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ListenerIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the listener.</para>
+        /// <para>The ID or ARN of the listener.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter RuleIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the listener rule.</para>
+        /// <para>The ID or ARN of the listener rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service.</para>
+        /// <para>The ID or ARN of the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

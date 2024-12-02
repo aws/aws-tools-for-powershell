@@ -147,6 +147,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.ImageExtractionStatus
+        {
+            ($_ -eq "New-QBUSDataSource/ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "Update-QBUSDataSource/ImageExtractionConfiguration_ImageExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.IndexType
         "New-QBUSIndex/Type"
         {
@@ -258,6 +268,7 @@ $QBUS_map = @{
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "IdentityType"=@("New-QBUSApplication")
+    "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
@@ -344,11 +355,13 @@ $QBUS_SelectMap = @{
                "Get-QBUSDataSource",
                "Get-QBUSGroup",
                "Get-QBUSIndex",
+               "Get-QBUSMedia",
                "Get-QBUSPlugin",
                "Get-QBUSRetriever",
                "Get-QBUSUser",
                "Get-QBUSWebExperience",
                "Get-QBUSApplicationList",
+               "Get-QBUSAttachmentList",
                "Get-QBUSConversationList",
                "Get-QBUSDataSourceList",
                "Get-QBUSDataSourceSyncJobList",

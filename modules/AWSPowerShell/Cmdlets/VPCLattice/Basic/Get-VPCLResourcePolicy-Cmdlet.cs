@@ -28,8 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Retrieves information about the resource policy. The resource policy is an IAM policy
-    /// created on behalf of the resource owner when they share a resource.
+    /// Retrieves information about the specified resource policy. The resource policy is
+    /// an IAM policy created on behalf of the resource owner when they share a resource.
     /// </summary>
     [Cmdlet("Get", "VPCLResourcePolicy")]
     [OutputType("System.String")]

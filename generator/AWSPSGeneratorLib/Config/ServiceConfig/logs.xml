@@ -81,6 +81,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="IntegrationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLogAnomalyDetector" Verb="Remove" Noun="LogAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -209,6 +215,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegration" OutputProperty="*" Verb="Get" Noun="Integration" PipelineParameter="IntegrationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogAnomalyDetector" OutputProperty="*" Verb="Get" Noun="LogAnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -234,6 +244,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="AnomalyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIntegrations" OutputProperty="IntegrationSummaries" Verb="Get" Noun="IntegrationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -282,6 +296,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutIndexPolicy" OutputProperty="IndexPolicy" Verb="Write" Noun="IndexPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutIntegration" OutputProperty="*" Verb="Write" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

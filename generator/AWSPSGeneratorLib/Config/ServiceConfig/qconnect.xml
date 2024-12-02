@@ -30,6 +30,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIGuardrail" OutputProperty="AiGuardrail" Verb="New" Noun="AIGuardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIGuardrailVersion" OutputProperty="*" Verb="New" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAIPrompt" OutputProperty="AiPrompt" Verb="New" Noun="AIPrompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -93,6 +101,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIGuardrail" Verb="Remove" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIGuardrailVersion" Verb="Remove" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAIPrompt" Verb="Remove" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -141,6 +157,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAIGuardrail" OutputProperty="*" Verb="Get" Noun="AIGuardrail" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAIPrompt" OutputProperty="*" Verb="Get" Noun="AIPrompt" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -177,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNextMessage" OutputProperty="*" Verb="Get" Noun="NextMessage" PipelineParameter="NextMessageToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -194,6 +218,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAIAgentVersions" OutputProperty="AiAgentVersionSummaries" Verb="Get" Noun="AIAgentVersionList" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIGuardrails" OutputProperty="AiGuardrailSummaries" Verb="Get" Noun="AIGuardrailList" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIGuardrailVersions" OutputProperty="AiGuardrailVersionSummaries" Verb="Get" Noun="AIGuardrailVersionList" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -226,6 +258,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMessages" OutputProperty="Messages" Verb="Get" Noun="MessageList" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,6 +321,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartContentUpload" OutputProperty="*" Verb="Start" Noun="ContentUpload" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -302,6 +342,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAIAgent" OutputProperty="AiAgent" Verb="Update" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAIGuardrail" OutputProperty="AiGuardrail" Verb="Update" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

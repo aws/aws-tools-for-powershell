@@ -598,6 +598,9 @@
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InternetMonitor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Invoicing">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Invoicing.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
     </Reference>
@@ -838,6 +841,9 @@
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkFlowMonitor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFlowMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
@@ -1062,6 +1068,9 @@
     </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityIR">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityIR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityLake">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityLake.dll</HintPath>
@@ -1770,6 +1779,9 @@
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InternetMonitor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Invoicing">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Invoicing.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoT.dll</HintPath>
     </Reference>
@@ -2010,6 +2022,9 @@
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkFlowMonitor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFlowMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
@@ -2234,6 +2249,9 @@
     </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityIR">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityIR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityLake">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityLake.dll</HintPath>

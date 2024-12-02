@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter VoiceRecordingConfiguration_IvrRecordingTrack
+        /// <summary>
+        /// <para>
+        /// <para>Identifies which IVR track is being recorded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.IvrRecordingTrack")]
+        public Amazon.Connect.IvrRecordingTrack VoiceRecordingConfiguration_IvrRecordingTrack { get; set; }
+        #endregion
+        
         #region Parameter VoiceRecordingConfiguration_VoiceRecordingTrack
         /// <summary>
         /// <para>
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VoiceRecordingConfiguration_IvrRecordingTrack = this.VoiceRecordingConfiguration_IvrRecordingTrack;
             context.VoiceRecordingConfiguration_VoiceRecordingTrack = this.VoiceRecordingConfiguration_VoiceRecordingTrack;
             
             // allow further manipulation of loaded context prior to processing
@@ -240,6 +252,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
              // populate VoiceRecordingConfiguration
             var requestVoiceRecordingConfigurationIsNull = true;
             request.VoiceRecordingConfiguration = new Amazon.Connect.Model.VoiceRecordingConfiguration();
+            Amazon.Connect.IvrRecordingTrack requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack = null;
+            if (cmdletContext.VoiceRecordingConfiguration_IvrRecordingTrack != null)
+            {
+                requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack = cmdletContext.VoiceRecordingConfiguration_IvrRecordingTrack;
+            }
+            if (requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack != null)
+            {
+                request.VoiceRecordingConfiguration.IvrRecordingTrack = requestVoiceRecordingConfiguration_voiceRecordingConfiguration_IvrRecordingTrack;
+                requestVoiceRecordingConfigurationIsNull = false;
+            }
             Amazon.Connect.VoiceRecordingTrack requestVoiceRecordingConfiguration_voiceRecordingConfiguration_VoiceRecordingTrack = null;
             if (cmdletContext.VoiceRecordingConfiguration_VoiceRecordingTrack != null)
             {
@@ -319,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ContactId { get; set; }
             public System.String InitialContactId { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.Connect.IvrRecordingTrack VoiceRecordingConfiguration_IvrRecordingTrack { get; set; }
             public Amazon.Connect.VoiceRecordingTrack VoiceRecordingConfiguration_VoiceRecordingTrack { get; set; }
             public System.Func<Amazon.Connect.Model.StartContactRecordingResponse, StartCONNContactRecordingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

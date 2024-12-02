@@ -28,8 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Deletes the association between a specified service and the specific service network.
-    /// This operation fails if an association is still in progress.
+    /// Deletes the association between a service and a service network. This operation fails
+    /// if an association is still in progress.
     /// </summary>
     [Cmdlet("Remove", "VPCLServiceNetworkServiceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteServiceNetworkServiceAssociationResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceNetworkServiceAssociationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the association.</para>
+        /// <para>The ID or ARN of the association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

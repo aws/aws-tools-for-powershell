@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ACLName
         /// <summary>
         /// <para>
-        /// <para>The name of the Access Control List</para>
+        /// <para>The name of the Access Control List.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter UserNamesToAdd
         /// <summary>
         /// <para>
-        /// <para>The list of users to add to the Access Control List</para>
+        /// <para>The list of users to add to the Access Control List.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter UserNamesToRemove
         /// <summary>
         /// <para>
-        /// <para>The list of users to remove from the Access Control List</para>
+        /// <para>The list of users to remove from the Access Control List.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

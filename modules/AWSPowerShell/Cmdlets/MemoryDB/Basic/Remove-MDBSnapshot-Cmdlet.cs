@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the snapshot to delete</para>
+        /// <para>The name of the snapshot to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

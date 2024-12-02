@@ -127,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Remove" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePrompt" OutputProperty="*" Verb="Remove" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -179,7 +183,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocument" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPrompt" OutputProperty="*" Verb="Get" Noun="Prompt" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IngestKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Add" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -220,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIngestionJobs" OutputProperty="IngestionJobSummaries" Verb="Get" Noun="IngestionJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocumentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates a data source connector for a knowledge base.
+    /// Connects a knowledge base to a data source. You specify the configuration for the
+    /// specific data source service in the <c>dataSourceConfiguration</c> field.
     /// 
     ///  <important><para>
     /// You can't change the <c>chunkingConfiguration</c> after you create the data source

@@ -70,6 +70,19 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String SamlConfiguration_AuthenticationUrl { get; set; }
         #endregion
         
+        #region Parameter BrowserExtensionConfiguration_EnabledBrowserExtension
+        /// <summary>
+        /// <para>
+        /// <para>Specify the browser extensions allowed for your Amazon Q web experience.</para><ul><li><para><c>CHROME</c> — Enables the extension for Chromium-based browsers (Google Chrome,
+        /// Microsoft Edge, Opera, etc.).</para></li><li><para><c>FIREFOX</c> — Enables the extension for Mozilla Firefox.</para></li><li><para><c>CHROME</c> and <c>FIREFOX</c> — Enable the extension for Chromium-based browsers
+        /// and Mozilla Firefox.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrowserExtensionConfiguration_EnabledBrowserExtensions")]
+        public System.String[] BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
+        #endregion
+        
         #region Parameter SamlConfiguration_MetadataXML
         /// <summary>
         /// <para>
@@ -292,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.SamlConfiguration_RoleArn = this.SamlConfiguration_RoleArn;
             context.SamlConfiguration_UserGroupAttribute = this.SamlConfiguration_UserGroupAttribute;
             context.SamlConfiguration_UserIdAttribute = this.SamlConfiguration_UserIdAttribute;
+            if (this.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                context.BrowserExtensionConfiguration_EnabledBrowserExtension = new List<System.String>(this.BrowserExtensionConfiguration_EnabledBrowserExtension);
+            }
             context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
             context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
             context.SamlConfiguration_AuthenticationUrl = this.SamlConfiguration_AuthenticationUrl;
@@ -394,6 +411,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthenticationConfigurationIsNull)
             {
                 request.AuthenticationConfiguration = null;
+            }
+            
+             // populate BrowserExtensionConfiguration
+            var requestBrowserExtensionConfigurationIsNull = true;
+            request.BrowserExtensionConfiguration = new Amazon.QBusiness.Model.BrowserExtensionConfiguration();
+            List<System.String> requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = null;
+            if (cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension;
+            }
+            if (requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                request.BrowserExtensionConfiguration.EnabledBrowserExtensions = requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension;
+                requestBrowserExtensionConfigurationIsNull = false;
+            }
+             // determine if request.BrowserExtensionConfiguration should be set to null
+            if (requestBrowserExtensionConfigurationIsNull)
+            {
+                request.BrowserExtensionConfiguration = null;
             }
             
              // populate IdentityProviderConfiguration
@@ -558,6 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String SamlConfiguration_RoleArn { get; set; }
             public System.String SamlConfiguration_UserGroupAttribute { get; set; }
             public System.String SamlConfiguration_UserIdAttribute { get; set; }
+            public List<System.String> BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
             public System.String SamlConfiguration_AuthenticationUrl { get; set; }

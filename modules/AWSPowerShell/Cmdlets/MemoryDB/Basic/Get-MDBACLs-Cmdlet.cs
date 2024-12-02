@@ -28,7 +28,7 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Returns a list of ACLs
+    /// Returns a list of ACLs.
     /// </summary>
     [Cmdlet("Get", "MDBACLs")]
     [OutputType("Amazon.MemoryDB.Model.ACL")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ACLName
         /// <summary>
         /// <para>
-        /// <para>The name of the ACL</para>
+        /// <para>The name of the ACL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

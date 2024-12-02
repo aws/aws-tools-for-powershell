@@ -61,6 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String QueryDefinitionNamePrefix { get; set; }
         #endregion
         
+        #region Parameter QueryLanguage
+        /// <summary>
+        /// <para>
+        /// <para>The query language used for this query. For more information about the query languages
+        /// that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported
+        /// query languages</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.QueryLanguage")]
+        public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -145,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.QueryDefinitionNamePrefix = this.QueryDefinitionNamePrefix;
+            context.QueryLanguage = this.QueryLanguage;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.QueryDefinitionNamePrefix != null)
             {
                 request.QueryDefinitionNamePrefix = cmdletContext.QueryDefinitionNamePrefix;
+            }
+            if (cmdletContext.QueryLanguage != null)
+            {
+                request.QueryLanguage = cmdletContext.QueryLanguage;
             }
             
             // Initialize loop variant and commence piping
@@ -261,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryDefinitionNamePrefix { get; set; }
+            public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeQueryDefinitionsResponse, GetCWLQueryDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueryDefinitions;
         }

@@ -53,6 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CustomerEndpoint_Address
+        /// <summary>
+        /// <para>
+        /// <para>Address of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerEndpoint_Address { get; set; }
+        #endregion
+        
+        #region Parameter SystemEndpoint_Address
+        /// <summary>
+        /// <para>
+        /// <para>Address of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SystemEndpoint_Address { get; set; }
+        #endregion
+        
         #region Parameter ContactId
         /// <summary>
         /// <para>
@@ -79,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter QueueInfo_Id
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the queue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueueInfo_Id { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -132,6 +162,38 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SegmentAttributes")]
         public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
+        #region Parameter CustomerEndpoint_Type
+        /// <summary>
+        /// <para>
+        /// <para>Type of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.EndpointType")]
+        public Amazon.Connect.EndpointType CustomerEndpoint_Type { get; set; }
+        #endregion
+        
+        #region Parameter SystemEndpoint_Type
+        /// <summary>
+        /// <para>
+        /// <para>Type of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.EndpointType")]
+        public Amazon.Connect.EndpointType SystemEndpoint_Type { get; set; }
+        #endregion
+        
+        #region Parameter UserInfo_UserId
+        /// <summary>
+        /// <para>
+        /// <para>The user identifier for the contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserInfo_UserId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -202,6 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomerEndpoint_Address = this.CustomerEndpoint_Address;
+            context.CustomerEndpoint_Type = this.CustomerEndpoint_Type;
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -211,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            context.QueueInfo_Id = this.QueueInfo_Id;
             if (this.Reference != null)
             {
                 context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
@@ -227,6 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
                 }
             }
+            context.SystemEndpoint_Address = this.SystemEndpoint_Address;
+            context.SystemEndpoint_Type = this.SystemEndpoint_Type;
+            context.UserInfo_UserId = this.UserInfo_UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -247,6 +315,35 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.ContactId = cmdletContext.ContactId;
             }
+            
+             // populate CustomerEndpoint
+            var requestCustomerEndpointIsNull = true;
+            request.CustomerEndpoint = new Amazon.Connect.Model.Endpoint();
+            System.String requestCustomerEndpoint_customerEndpoint_Address = null;
+            if (cmdletContext.CustomerEndpoint_Address != null)
+            {
+                requestCustomerEndpoint_customerEndpoint_Address = cmdletContext.CustomerEndpoint_Address;
+            }
+            if (requestCustomerEndpoint_customerEndpoint_Address != null)
+            {
+                request.CustomerEndpoint.Address = requestCustomerEndpoint_customerEndpoint_Address;
+                requestCustomerEndpointIsNull = false;
+            }
+            Amazon.Connect.EndpointType requestCustomerEndpoint_customerEndpoint_Type = null;
+            if (cmdletContext.CustomerEndpoint_Type != null)
+            {
+                requestCustomerEndpoint_customerEndpoint_Type = cmdletContext.CustomerEndpoint_Type;
+            }
+            if (requestCustomerEndpoint_customerEndpoint_Type != null)
+            {
+                request.CustomerEndpoint.Type = requestCustomerEndpoint_customerEndpoint_Type;
+                requestCustomerEndpointIsNull = false;
+            }
+             // determine if request.CustomerEndpoint should be set to null
+            if (requestCustomerEndpointIsNull)
+            {
+                request.CustomerEndpoint = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -259,6 +356,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate QueueInfo
+            var requestQueueInfoIsNull = true;
+            request.QueueInfo = new Amazon.Connect.Model.QueueInfoInput();
+            System.String requestQueueInfo_queueInfo_Id = null;
+            if (cmdletContext.QueueInfo_Id != null)
+            {
+                requestQueueInfo_queueInfo_Id = cmdletContext.QueueInfo_Id;
+            }
+            if (requestQueueInfo_queueInfo_Id != null)
+            {
+                request.QueueInfo.Id = requestQueueInfo_queueInfo_Id;
+                requestQueueInfoIsNull = false;
+            }
+             // determine if request.QueueInfo should be set to null
+            if (requestQueueInfoIsNull)
+            {
+                request.QueueInfo = null;
+            }
             if (cmdletContext.Reference != null)
             {
                 request.References = cmdletContext.Reference;
@@ -266,6 +382,54 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.SegmentAttribute != null)
             {
                 request.SegmentAttributes = cmdletContext.SegmentAttribute;
+            }
+            
+             // populate SystemEndpoint
+            var requestSystemEndpointIsNull = true;
+            request.SystemEndpoint = new Amazon.Connect.Model.Endpoint();
+            System.String requestSystemEndpoint_systemEndpoint_Address = null;
+            if (cmdletContext.SystemEndpoint_Address != null)
+            {
+                requestSystemEndpoint_systemEndpoint_Address = cmdletContext.SystemEndpoint_Address;
+            }
+            if (requestSystemEndpoint_systemEndpoint_Address != null)
+            {
+                request.SystemEndpoint.Address = requestSystemEndpoint_systemEndpoint_Address;
+                requestSystemEndpointIsNull = false;
+            }
+            Amazon.Connect.EndpointType requestSystemEndpoint_systemEndpoint_Type = null;
+            if (cmdletContext.SystemEndpoint_Type != null)
+            {
+                requestSystemEndpoint_systemEndpoint_Type = cmdletContext.SystemEndpoint_Type;
+            }
+            if (requestSystemEndpoint_systemEndpoint_Type != null)
+            {
+                request.SystemEndpoint.Type = requestSystemEndpoint_systemEndpoint_Type;
+                requestSystemEndpointIsNull = false;
+            }
+             // determine if request.SystemEndpoint should be set to null
+            if (requestSystemEndpointIsNull)
+            {
+                request.SystemEndpoint = null;
+            }
+            
+             // populate UserInfo
+            var requestUserInfoIsNull = true;
+            request.UserInfo = new Amazon.Connect.Model.UserInfo();
+            System.String requestUserInfo_userInfo_UserId = null;
+            if (cmdletContext.UserInfo_UserId != null)
+            {
+                requestUserInfo_userInfo_UserId = cmdletContext.UserInfo_UserId;
+            }
+            if (requestUserInfo_userInfo_UserId != null)
+            {
+                request.UserInfo.UserId = requestUserInfo_userInfo_UserId;
+                requestUserInfoIsNull = false;
+            }
+             // determine if request.UserInfo should be set to null
+            if (requestUserInfoIsNull)
+            {
+                request.UserInfo = null;
             }
             
             CmdletOutput output;
@@ -329,11 +493,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ContactId { get; set; }
+            public System.String CustomerEndpoint_Address { get; set; }
+            public Amazon.Connect.EndpointType CustomerEndpoint_Type { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String QueueInfo_Id { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
+            public System.String SystemEndpoint_Address { get; set; }
+            public Amazon.Connect.EndpointType SystemEndpoint_Type { get; set; }
+            public System.String UserInfo_UserId { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateContactResponse, UpdateCONNContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

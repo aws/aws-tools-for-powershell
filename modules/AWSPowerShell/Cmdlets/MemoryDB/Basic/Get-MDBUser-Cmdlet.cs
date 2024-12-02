@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user</para>
+        /// <para>The name of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -339,6 +339,7 @@ $CPF_SelectMap = @{
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFEventStream",
+               "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
                "New-CPFSegmentDefinition",
@@ -347,6 +348,7 @@ $CPF_SelectMap = @{
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFEventStream",
+               "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
                "Remove-CPFProfile",
                "Remove-CPFProfileKey",
@@ -360,6 +362,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
                "Get-CPFEventStream",
+               "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
@@ -377,6 +380,7 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
+               "Get-CPFEventTriggerList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
                "Get-CPFObjectTypeAttributeList",
@@ -397,6 +401,7 @@ $CPF_SelectMap = @{
                "Remove-CPFResourceTag",
                "Update-CPFCalculatedAttributeDefinition",
                "Update-CPFDomain",
+               "Update-CPFEventTrigger",
                "Update-CPFProfile")
 }
 

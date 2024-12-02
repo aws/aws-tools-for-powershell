@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter AccessLogSubscriptionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the access log subscription.</para>
+        /// <para>The ID or ARN of the access log subscription.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

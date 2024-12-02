@@ -115,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine to be used for the nodes in this cluster. The value must be
-        /// set to either Redis or Valkey.</para>
+        /// <para>The name of the engine to be used for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the engine to be used for the cluster.</para>
+        /// <para>The version number of the Redis OSS engine to be used for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,6 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter MultiRegionClusterName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the multi-Region cluster to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MultiRegionClusterName { get; set; }
         #endregion
         
         #region Parameter NodeType
@@ -400,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceWindow = this.MaintenanceWindow;
+            context.MultiRegionClusterName = this.MultiRegionClusterName;
             context.NodeType = this.NodeType;
             #if MODULAR
             if (this.NodeType == null && ParameterWasBound(nameof(this.NodeType)))
@@ -480,6 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.MaintenanceWindow != null)
             {
                 request.MaintenanceWindow = cmdletContext.MaintenanceWindow;
+            }
+            if (cmdletContext.MultiRegionClusterName != null)
+            {
+                request.MultiRegionClusterName = cmdletContext.MultiRegionClusterName;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -607,6 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceWindow { get; set; }
+            public System.String MultiRegionClusterName { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumReplicasPerShard { get; set; }
             public System.Int32? NumShard { get; set; }

@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
     /// Updates the service network and VPC association. If you add a security group to the
-    /// service network and VPC association, the association must continue to always have
-    /// at least one security group. You can add or edit security groups at any time. However,
-    /// to remove all security groups, you must first delete the association and recreate
-    /// it without security groups.
+    /// service network and VPC association, the association must continue to have at least
+    /// one security group. You can add or edit security groups at any time. However, to remove
+    /// all security groups, you must first delete the association and then recreate it without
+    /// security groups.
     /// </summary>
     [Cmdlet("Update", "VPCLServiceNetworkVpcAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.UpdateServiceNetworkVpcAssociationResponse")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceNetworkVpcAssociationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the association.</para>
+        /// <para>The ID or ARN of the association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -131,6 +131,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMedia" OutputProperty="*" Verb="Get" Noun="Media" PipelineParameter="MediaId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPlugin" OutputProperty="*" Verb="Get" Noun="Plugin" PipelineParameter="PluginId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachments" OutputProperty="Attachments" Verb="Get" Noun="AttachmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

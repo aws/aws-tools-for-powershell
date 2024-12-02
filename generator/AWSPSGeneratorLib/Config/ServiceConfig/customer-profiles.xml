@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventTrigger" OutputProperty="*" Verb="New" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationWorkflow" OutputProperty="*" Verb="New" Noun="IntegrationWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="EventStreamName" PipelineParameter="EventStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventTrigger" OutputProperty="Message" Verb="Remove" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEventStream" OutputProperty="*" Verb="Get" Noun="EventStream" PipelineParameter="EventStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventTrigger" OutputProperty="*" Verb="Get" Noun="EventTrigger" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEventStreams" OutputProperty="Items" Verb="Get" Noun="EventStreamList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventTriggers" OutputProperty="Items" Verb="Get" Noun="EventTriggerList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,6 +300,10 @@
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventTrigger" OutputProperty="*" Verb="Update" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">

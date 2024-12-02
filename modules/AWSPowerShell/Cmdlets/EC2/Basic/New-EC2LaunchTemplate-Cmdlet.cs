@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Operator_Principal
         /// <summary>
         /// <para>
-        /// <para>The entity that manages the resource.</para>
+        /// <para>The service provider that manages the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

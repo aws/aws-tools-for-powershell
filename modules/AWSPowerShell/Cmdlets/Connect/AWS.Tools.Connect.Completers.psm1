@@ -161,6 +161,17 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ContactRecordingType
+        {
+            ($_ -eq "Resume-CONNContactRecording/ContactRecordingType") -Or
+            ($_ -eq "Stop-CONNContactRecording/ContactRecordingType") -Or
+            ($_ -eq "Suspend-CONNContactRecording/ContactRecordingType")
+        }
+        {
+            $v = "AGENT","IVR","SCREEN"
+            break
+        }
+
         # Amazon.Connect.DirectoryType
         "New-CONNInstance/IdentityManagementType"
         {
@@ -182,8 +193,10 @@ $CONN_Completers = {
 
         # Amazon.Connect.EndpointType
         {
+            ($_ -eq "Update-CONNContact/CustomerEndpoint_Type") -Or
             ($_ -eq "Start-CONNOutboundChatContact/DestinationEndpoint_Type") -Or
-            ($_ -eq "Start-CONNOutboundChatContact/SourceEndpoint_Type")
+            ($_ -eq "Start-CONNOutboundChatContact/SourceEndpoint_Type") -Or
+            ($_ -eq "Update-CONNContact/SystemEndpoint_Type")
         }
         {
             $v = "CONNECT_PHONENUMBER_ARN","CONTACT_FLOW","EMAIL_ADDRESS","TELEPHONE_NUMBER","VOIP"
@@ -234,7 +247,7 @@ $CONN_Completers = {
             ($_ -eq "Remove-CONNFlow/ResourceType")
         }
         {
-            $v = "INBOUND_EMAIL","OUTBOUND_EMAIL","SMS_PHONE_NUMBER"
+            $v = "ANALYTICS_CONNECTOR","INBOUND_EMAIL","OUTBOUND_EMAIL","SMS_PHONE_NUMBER","WHATSAPP_MESSAGING_PHONE_NUMBER"
             break
         }
 
@@ -292,7 +305,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "APPLICATION","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -300,6 +313,13 @@ $CONN_Completers = {
         "Get-CONNMetricDataV2/Interval_IntervalPeriod"
         {
             $v = "DAY","FIFTEEN_MIN","HOUR","THIRTY_MIN","TOTAL","WEEK"
+            break
+        }
+
+        # Amazon.Connect.IvrRecordingTrack
+        "Start-CONNContactRecording/VoiceRecordingConfiguration_IvrRecordingTrack"
+        {
+            $v = "ALL"
             break
         }
 
@@ -316,7 +336,7 @@ $CONN_Completers = {
             ($_ -eq "Get-CONNFlowAssociationList/ResourceType")
         }
         {
-            $v = "INBOUND_EMAIL","OUTBOUND_EMAIL","VOICE_PHONE_NUMBER"
+            $v = "ANALYTICS_CONNECTOR","INBOUND_EMAIL","OUTBOUND_EMAIL","VOICE_PHONE_NUMBER","WHATSAPP_MESSAGING_PHONE_NUMBER"
             break
         }
 
@@ -589,8 +609,10 @@ $CONN_map = @{
     "Channel"=@("New-CONNContact")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
+    "CustomerEndpoint_Type"=@("Update-CONNContact")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
@@ -634,6 +656,7 @@ $CONN_map = @{
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "TimeRange_Type"=@("Search-CONNContact")
@@ -642,6 +665,7 @@ $CONN_map = @{
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNViewList","New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
+    "VoiceRecordingConfiguration_IvrRecordingTrack"=@("Start-CONNContactRecording")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
 

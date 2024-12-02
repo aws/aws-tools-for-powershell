@@ -207,6 +207,7 @@ $CCS2_SelectMap = @{
                "Suspend-CCS2Campaign",
                "Write-CCS2ConnectInstanceIntegration",
                "Write-CCS2OutboundRequestBatch",
+               "Write-CCS2ProfileOutboundRequestBatch",
                "Resume-CCS2Campaign",
                "Start-CCS2Campaign",
                "Start-CCS2InstanceOnboardingJob",

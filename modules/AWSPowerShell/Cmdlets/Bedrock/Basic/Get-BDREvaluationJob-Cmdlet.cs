@@ -28,9 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves the properties associated with a model evaluation job, including the status
-    /// of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model
-    /// evaluation</a>.
+    /// Gets information about an evaluation job, such as the status of the job.
     /// </summary>
     [Cmdlet("Get", "BDREvaluationJob")]
     [OutputType("Amazon.Bedrock.Model.GetEvaluationJobResponse")]
@@ -50,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model evaluation job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the evaluation job you want get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

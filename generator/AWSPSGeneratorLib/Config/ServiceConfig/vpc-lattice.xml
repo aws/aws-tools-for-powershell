@@ -30,6 +30,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceConfiguration" OutputProperty="*" Verb="New" Noun="ResourceConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceGateway" OutputProperty="*" Verb="New" Noun="ResourceGateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,6 +47,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateServiceNetwork" OutputProperty="*" Verb="New" Noun="ServiceNetwork" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceNetworkResourceAssociation" OutputProperty="*" Verb="New" Noun="ServiceNetworkResourceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,6 +78,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceConfiguration" Verb="Remove" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceEndpointAssociation" OutputProperty="*" Verb="Remove" Noun="ResourceEndpointAssociation" ShouldProcessTarget="ResourceEndpointAssociationIdentifier" PipelineParameter="ResourceEndpointAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceGateway" OutputProperty="*" Verb="Remove" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteServiceNetwork" Verb="Remove" Noun="ServiceNetwork" ShouldProcessTarget="ServiceNetworkIdentifier" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceNetworkResourceAssociation" OutputProperty="*" Verb="Remove" Noun="ServiceNetworkResourceAssociation" ShouldProcessTarget="ServiceNetworkResourceAssociationIdentifier" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +138,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceConfiguration" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceGateway" OutputProperty="*" Verb="Get" Noun="ResourceGateway" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -123,6 +159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetServiceNetwork" OutputProperty="*" Verb="Get" Noun="ServiceNetwork" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceNetworkResourceAssociation" OutputProperty="*" Verb="Get" Noun="ServiceNetworkResourceAssociation" PipelineParameter="ServiceNetworkResourceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,7 +186,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceConfigurations" OutputProperty="Items" Verb="Get" Noun="ResourceConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ResourceEndpointAssociationList" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceGateways" OutputProperty="Items" Verb="Get" Noun="ResourceGatewayList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRules" OutputProperty="Items" Verb="Get" Noun="RuleList" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceNetworkResourceAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkResourceAssociationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,6 +215,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListServiceNetworkVpcAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceNetworkVpcEndpointAssociations" OutputProperty="Items" Verb="Get" Noun="ServiceNetworkVpcEndpointAssociationList" PipelineParameter="ServiceNetworkIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,6 +263,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateListener" OutputProperty="*" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerIdentifier" PipelineParameter="ListenerIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceConfiguration" OutputProperty="*" Verb="Update" Noun="ResourceConfiguration" ShouldProcessTarget="ResourceConfigurationIdentifier" PipelineParameter="ResourceConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceGateway" OutputProperty="*" Verb="Update" Noun="ResourceGateway" ShouldProcessTarget="ResourceGatewayIdentifier" PipelineParameter="ResourceGatewayIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

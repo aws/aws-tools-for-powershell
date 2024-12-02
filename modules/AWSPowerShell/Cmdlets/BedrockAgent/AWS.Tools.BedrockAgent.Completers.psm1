@@ -170,7 +170,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "CONFLUENCE","S3","SALESFORCE","SHAREPOINT","WEB"
+            $v = "CONFLUENCE","CUSTOM","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
@@ -392,6 +392,7 @@ $AAB_SelectMap = @{
                "Remove-AABFlowAlias",
                "Remove-AABFlowVersion",
                "Remove-AABKnowledgeBase",
+               "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
@@ -405,7 +406,9 @@ $AAB_SelectMap = @{
                "Get-AABFlowVersion",
                "Get-AABIngestionJob",
                "Get-AABKnowledgeBase",
+               "Get-AABKnowledgeBaseDocument",
                "Get-AABPrompt",
+               "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
                "Get-AABAgentKnowledgeBasisList",
@@ -416,6 +419,7 @@ $AAB_SelectMap = @{
                "Get-AABFlowList",
                "Get-AABFlowVersionList",
                "Get-AABIngestionJobList",
+               "Get-AABKnowledgeBaseDocumentList",
                "Get-AABKnowledgeBasisList",
                "Get-AABPromptList",
                "Get-AABResourceTag",

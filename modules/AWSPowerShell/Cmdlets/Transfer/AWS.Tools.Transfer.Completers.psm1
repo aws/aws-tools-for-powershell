@@ -331,6 +331,7 @@ $TFR_SelectMap = @{
                "New-TFRProfile",
                "New-TFRServer",
                "New-TFRUser",
+               "New-TFRWebApp",
                "New-TFRWorkflow",
                "Remove-TFRAccess",
                "Remove-TFRAgreement",
@@ -341,6 +342,8 @@ $TFR_SelectMap = @{
                "Remove-TFRServer",
                "Remove-TFRSshPublicKey",
                "Remove-TFRUser",
+               "Remove-TFRWebApp",
+               "Remove-TFRWebAppCustomization",
                "Remove-TFRWorkflow",
                "Get-TFRAccess",
                "Get-TFRAgreement",
@@ -352,6 +355,8 @@ $TFR_SelectMap = @{
                "Get-TFRSecurityPolicy",
                "Get-TFRServer",
                "Get-TFRUser",
+               "Get-TFRWebApp",
+               "Get-TFRWebAppCustomization",
                "Get-TFRWorkflow",
                "Import-TFRCertificate",
                "Import-TFRHostKey",
@@ -368,6 +373,7 @@ $TFR_SelectMap = @{
                "Get-TFRServerList",
                "Get-TFRResourceTagList",
                "Get-TFRUserList",
+               "Get-TFRWebAppList",
                "Get-TFRWorkflowList",
                "Send-TFRWorkflowStepState",
                "Start-TFRDirectoryListing",
@@ -385,7 +391,9 @@ $TFR_SelectMap = @{
                "Update-TFRHostKey",
                "Update-TFRProfile",
                "Update-TFRServer",
-               "Update-TFRUser")
+               "Update-TFRUser",
+               "Update-TFRWebApp",
+               "Update-TFRWebAppCustomization")
 }
 
 _awsArgumentCompleterRegistration $TFR_SelectCompleters $TFR_SelectMap

@@ -42,6 +42,30 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The AI Guardrail identifier for the Answer Generation Guardrail used by the <c>ANSWER_RECOMMENDATION</c>
+        /// AI Agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId")]
+        public System.String AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
+        #endregion
+        
+        #region Parameter ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The AI Guardrail identifier for the Answer Generation guardrail used by the MANUAL_SEARCH
+        /// AI Agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId")]
+        public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
+        #endregion
+        
         #region Parameter AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId
         /// <summary>
         /// <para>
@@ -106,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public Amazon.QConnect.Model.AssociationConfiguration[] ManualSearchAIAgentConfiguration_AssociationConfiguration { get; set; }
         #endregion
         
+        #region Parameter SelfServiceAIAgentConfiguration_AssociationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The association configurations for overriding behavior on this AI Agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SelfServiceAIAgentConfiguration_AssociationConfigurations")]
+        public Amazon.QConnect.Model.AssociationConfiguration[] SelfServiceAIAgentConfiguration_AssociationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -155,6 +190,41 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId")]
         public System.String AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The AI Guardrail identifier used by the SELF_SERVICE AI Agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId")]
+        public System.String SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId { get; set; }
+        #endregion
+        
+        #region Parameter SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The AI Prompt identifier for the Self Service Answer Generation prompt used by the
+        /// SELF_SERVICE AI Agent</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId")]
+        public System.String SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId { get; set; }
+        #endregion
+        
+        #region Parameter SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId
+        /// <summary>
+        /// <para>
+        /// <para>The AI Prompt identifier for the Self Service Pre-Processing prompt used by the SELF_SERVICE
+        /// AI Agent</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId")]
+        public System.String SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -285,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId = this.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId;
             context.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId;
             if (this.AnswerRecommendationAIAgentConfiguration_AssociationConfiguration != null)
             {
@@ -292,11 +363,19 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             context.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId;
             context.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId;
+            context.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId;
             context.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId;
             if (this.ManualSearchAIAgentConfiguration_AssociationConfiguration != null)
             {
                 context.ManualSearchAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.ManualSearchAIAgentConfiguration_AssociationConfiguration);
             }
+            if (this.SelfServiceAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                context.SelfServiceAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.SelfServiceAIAgentConfiguration_AssociationConfiguration);
+            }
+            context.SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId = this.SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId;
+            context.SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId = this.SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId;
+            context.SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId = this.SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -360,6 +439,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
              // populate ManualSearchAIAgentConfiguration
             var requestConfiguration_configuration_ManualSearchAIAgentConfigurationIsNull = true;
             requestConfiguration_configuration_ManualSearchAIAgentConfiguration = new Amazon.QConnect.Model.ManualSearchAIAgentConfiguration();
+            System.String requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId = null;
+            if (cmdletContext.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId = cmdletContext.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId;
+            }
+            if (requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_ManualSearchAIAgentConfiguration.AnswerGenerationAIGuardrailId = requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId;
+                requestConfiguration_configuration_ManualSearchAIAgentConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AnswerGenerationAIPromptId = null;
             if (cmdletContext.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId != null)
             {
@@ -390,11 +479,76 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 request.Configuration.ManualSearchAIAgentConfiguration = requestConfiguration_configuration_ManualSearchAIAgentConfiguration;
                 requestConfigurationIsNull = false;
             }
+            Amazon.QConnect.Model.SelfServiceAIAgentConfiguration requestConfiguration_configuration_SelfServiceAIAgentConfiguration = null;
+            
+             // populate SelfServiceAIAgentConfiguration
+            var requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull = true;
+            requestConfiguration_configuration_SelfServiceAIAgentConfiguration = new Amazon.QConnect.Model.SelfServiceAIAgentConfiguration();
+            List<Amazon.QConnect.Model.AssociationConfiguration> requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_AssociationConfiguration = null;
+            if (cmdletContext.SelfServiceAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_AssociationConfiguration = cmdletContext.SelfServiceAIAgentConfiguration_AssociationConfiguration;
+            }
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_AssociationConfiguration != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration.AssociationConfigurations = requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_AssociationConfiguration;
+                requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAIGuardrailId = null;
+            if (cmdletContext.SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAIGuardrailId = cmdletContext.SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId;
+            }
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration.SelfServiceAIGuardrailId = requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAIGuardrailId;
+                requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId = null;
+            if (cmdletContext.SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId = cmdletContext.SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId;
+            }
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration.SelfServiceAnswerGenerationAIPromptId = requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId;
+                requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId = null;
+            if (cmdletContext.SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId = cmdletContext.SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId;
+            }
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId != null)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration.SelfServicePreProcessingAIPromptId = requestConfiguration_configuration_SelfServiceAIAgentConfiguration_selfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId;
+                requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SelfServiceAIAgentConfiguration should be set to null
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfigurationIsNull)
+            {
+                requestConfiguration_configuration_SelfServiceAIAgentConfiguration = null;
+            }
+            if (requestConfiguration_configuration_SelfServiceAIAgentConfiguration != null)
+            {
+                request.Configuration.SelfServiceAIAgentConfiguration = requestConfiguration_configuration_SelfServiceAIAgentConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.QConnect.Model.AnswerRecommendationAIAgentConfiguration requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration = null;
             
              // populate AnswerRecommendationAIAgentConfiguration
             var requestConfiguration_configuration_AnswerRecommendationAIAgentConfigurationIsNull = true;
             requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration = new Amazon.QConnect.Model.AnswerRecommendationAIAgentConfiguration();
+            System.String requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId = null;
+            if (cmdletContext.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId = cmdletContext.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId;
+            }
+            if (requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId != null)
+            {
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration.AnswerGenerationAIGuardrailId = requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId;
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId = null;
             if (cmdletContext.AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId != null)
             {
@@ -533,12 +687,18 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> AnswerRecommendationAIAgentConfiguration_AssociationConfiguration { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId { get; set; }
+            public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
             public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> ManualSearchAIAgentConfiguration_AssociationConfiguration { get; set; }
+            public List<Amazon.QConnect.Model.AssociationConfiguration> SelfServiceAIAgentConfiguration_AssociationConfiguration { get; set; }
+            public System.String SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId { get; set; }
+            public System.String SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId { get; set; }
+            public System.String SelfServiceAIAgentConfiguration_SelfServicePreProcessingAIPromptId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

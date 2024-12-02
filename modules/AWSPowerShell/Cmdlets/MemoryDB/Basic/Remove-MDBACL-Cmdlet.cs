@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ACLName
         /// <summary>
         /// <para>
-        /// <para>The name of the Access Control List to delete</para>
+        /// <para>The name of the Access Control List to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

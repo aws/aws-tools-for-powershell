@@ -28,7 +28,7 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Lists all access log subscriptions for the specified service network or service.
+    /// Lists the access log subscriptions for the specified service network or service.
     /// </summary>
     [Cmdlet("Get", "VPCLAccessLogSubscriptionList")]
     [OutputType("Amazon.VPCLattice.Model.AccessLogSubscriptionSummary")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network or service.</para>
+        /// <para>The ID or ARN of the service network or service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
