@@ -7362,6 +7362,18 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.PerformanceConfigLatency
+        {
+            ($_ -eq "Invoke-BDRRConverse/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BDRRModel/PerformanceConfigLatency") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/PerformanceConfigLatency")
+        }
+        {
+            $v = "optimized","standard"
+            break
+        }
+
         # Amazon.BedrockRuntime.Trace
         {
             ($_ -eq "Invoke-BDRRModel/Trace") -Or
@@ -7383,6 +7395,8 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
     "Source"=@("Invoke-BDRRGuardrail")
     "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
 }
@@ -63497,7 +63511,7 @@ $S3C_Completers = {
         # Amazon.S3Control.S3ChecksumAlgorithm
         "New-S3CJob/S3PutObjectCopy_ChecksumAlgorithm"
         {
-            $v = "CRC32","CRC32C","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
             break
         }
 

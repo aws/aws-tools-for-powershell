@@ -1,4 +1,12 @@
-﻿### 4.1.709 (2024-12-02 06:19Z)
+﻿### 4.1.710 (2024-12-03 08:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.938.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameter PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BDRRModel: added parameter PerformanceConfigLatency.
+    * Modified cmdlet Invoke-BDRRModelWithResponseStream: added parameter PerformanceConfigLatency.
+
+### 4.1.709 (2024-12-02 06:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.937.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Add-AABKnowledgeBaseDocument leveraging the IngestKnowledgeBaseDocuments service API.

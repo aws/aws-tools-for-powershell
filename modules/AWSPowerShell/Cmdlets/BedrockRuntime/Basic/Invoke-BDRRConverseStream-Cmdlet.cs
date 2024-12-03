@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// </para><para>
     /// This operation requires permission for the <c>bedrock:InvokeModelWithResponseStream</c>
     /// action.
+    /// </para><important><para>
+    /// To deny all inference access to resources that you specify in the modelId field, you
+    /// need to deny access to the <c>bedrock:InvokeModel</c> and <c>bedrock:InvokeModelWithResponseStream</c>
+    /// actions. Doing this also denies access to the resource through the base inference
+    /// actions (<a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html">InvokeModel</a>
+    /// and <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html">InvokeModelWithResponseStream</a>).
+    /// For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference">Deny
+    /// access for inference on specific models</a>. 
+    /// </para></important><para>
+    /// For troubleshooting some of the common errors you might encounter when using the <c>ConverseStream</c>
+    /// API, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html">Troubleshooting
+    /// Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BDRRConverseStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -156,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String GuardrailConfig_GuardrailVersion { get; set; }
         #endregion
         
+        #region Parameter PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+        #endregion
+        
         #region Parameter InferenceConfig_MaxToken
         /// <summary>
         /// <para>
@@ -193,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run
         /// inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a custom model, first purchase Provisioned Throughput for it. Then specify
         /// the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use
-        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li><li><para>To include a prompt that was defined in Prompt management, specify the ARN of the
-        /// prompt version to use.</para></li></ul><para>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
+        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li><li><para>To include a prompt that was defined in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management.html">Prompt
+        /// management</a>, specify the ARN of the prompt version to use.</para></li></ul><para>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
         /// models</a>.</para>
         /// </para>
         /// </summary>
@@ -408,6 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             if (this.PromptVariable != null)
             {
                 context.PromptVariable = new Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues>(StringComparer.Ordinal);
@@ -556,6 +580,25 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (cmdletContext.ModelId != null)
             {
                 request.ModelId = cmdletContext.ModelId;
+            }
+            
+             // populate PerformanceConfig
+            var requestPerformanceConfigIsNull = true;
+            request.PerformanceConfig = new Amazon.BedrockRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockRuntime.PerformanceConfigLatency requestPerformanceConfig_performanceConfig_Latency = null;
+            if (cmdletContext.PerformanceConfig_Latency != null)
+            {
+                requestPerformanceConfig_performanceConfig_Latency = cmdletContext.PerformanceConfig_Latency;
+            }
+            if (requestPerformanceConfig_performanceConfig_Latency != null)
+            {
+                request.PerformanceConfig.Latency = requestPerformanceConfig_performanceConfig_Latency;
+                requestPerformanceConfigIsNull = false;
+            }
+             // determine if request.PerformanceConfig should be set to null
+            if (requestPerformanceConfigIsNull)
+            {
+                request.PerformanceConfig = null;
             }
             if (cmdletContext.PromptVariable != null)
             {
@@ -717,6 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.Single? InferenceConfig_TopP { get; set; }
             public List<Amazon.BedrockRuntime.Model.Message> Message { get; set; }
             public System.String ModelId { get; set; }
+            public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
             public List<Amazon.BedrockRuntime.Model.SystemContentBlock> System { get; set; }
             public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
