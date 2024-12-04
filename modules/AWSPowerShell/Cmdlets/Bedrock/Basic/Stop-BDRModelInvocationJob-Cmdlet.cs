@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
     /// Stops a batch inference job. You're only charged for tokens that were already processed.
-    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-stop">Stop
+    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-stop.html">Stop
     /// a batch inference job</a>.
     /// </summary>
     [Cmdlet("Stop", "BDRModelInvocationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

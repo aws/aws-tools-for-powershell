@@ -91,6 +91,7 @@ $S3_Completers = {
         {
             ($_ -eq "Add-S3PublicAccessBlock/ChecksumAlgorithm") -Or
             ($_ -eq "Copy-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ACL/ChecksumAlgorithm") -Or
@@ -365,7 +366,7 @@ $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -452,11 +453,13 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("New-S3Session",
+    "Select"=@("New-S3BucketMetadataTableConfiguration",
+               "New-S3Session",
                "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
+               "Remove-S3BucketMetadataTableConfiguration",
                "Remove-S3BucketMetricsConfiguration",
                "Remove-S3BucketOwnershipControl",
                "Remove-S3BucketPolicy",
@@ -475,6 +478,7 @@ $S3_SelectMap = @{
                "Get-S3BucketInventoryConfiguration",
                "Get-S3BucketLocation",
                "Get-S3BucketLogging",
+               "Get-S3BucketMetadataTableConfiguration",
                "Get-S3BucketMetricsConfiguration",
                "Get-S3BucketNotification",
                "Get-S3BucketOwnershipControl",

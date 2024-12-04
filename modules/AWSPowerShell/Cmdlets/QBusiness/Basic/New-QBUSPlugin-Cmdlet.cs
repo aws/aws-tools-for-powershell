@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter OAuth2ClientCredentialConfiguration_AuthorizationUrl
+        /// <summary>
+        /// <para>
+        /// <para>The redirect URL required by the OAuth 2.0 protocol for Amazon Q Business to authenticate
+        /// a plugin user through a third party authentication server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthConfiguration_OAuth2ClientCredentialConfiguration_AuthorizationUrl")]
+        public System.String OAuth2ClientCredentialConfiguration_AuthorizationUrl { get; set; }
+        #endregion
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>
@@ -107,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter IdcAuthConfiguration_IdcApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM Identity Center Application used to configure
+        /// authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthConfiguration_IdcAuthConfiguration_IdcApplicationArn")]
+        public System.String IdcAuthConfiguration_IdcApplicationArn { get; set; }
         #endregion
         
         #region Parameter S3_Key
@@ -152,6 +176,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AuthConfiguration_BasicAuthConfiguration_RoleArn")]
         public System.String BasicAuthConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IdcAuthConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role with permissions to perform actions
+        /// on Amazon Web Services services on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthConfiguration_IdcAuthConfiguration_RoleArn")]
+        public System.String IdcAuthConfiguration_RoleArn { get; set; }
         #endregion
         
         #region Parameter OAuth2ClientCredentialConfiguration_RoleArn
@@ -212,6 +248,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.QBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter OAuth2ClientCredentialConfiguration_TokenUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL required by the OAuth 2.0 protocol to exchange an end user authorization code
+        /// for an access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthConfiguration_OAuth2ClientCredentialConfiguration_TokenUrl")]
+        public System.String OAuth2ClientCredentialConfiguration_TokenUrl { get; set; }
         #endregion
         
         #region Parameter Type
@@ -313,9 +361,13 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             #endif
             context.BasicAuthConfiguration_RoleArn = this.BasicAuthConfiguration_RoleArn;
             context.BasicAuthConfiguration_SecretArn = this.BasicAuthConfiguration_SecretArn;
+            context.IdcAuthConfiguration_IdcApplicationArn = this.IdcAuthConfiguration_IdcApplicationArn;
+            context.IdcAuthConfiguration_RoleArn = this.IdcAuthConfiguration_RoleArn;
             context.AuthConfiguration_NoAuthConfiguration = this.AuthConfiguration_NoAuthConfiguration;
+            context.OAuth2ClientCredentialConfiguration_AuthorizationUrl = this.OAuth2ClientCredentialConfiguration_AuthorizationUrl;
             context.OAuth2ClientCredentialConfiguration_RoleArn = this.OAuth2ClientCredentialConfiguration_RoleArn;
             context.OAuth2ClientCredentialConfiguration_SecretArn = this.OAuth2ClientCredentialConfiguration_SecretArn;
+            context.OAuth2ClientCredentialConfiguration_TokenUrl = this.OAuth2ClientCredentialConfiguration_TokenUrl;
             context.ClientToken = this.ClientToken;
             context.ApiSchema_Payload = this.ApiSchema_Payload;
             context.S3_Bucket = this.S3_Bucket;
@@ -410,11 +462,56 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 request.AuthConfiguration.BasicAuthConfiguration = requestAuthConfiguration_authConfiguration_BasicAuthConfiguration;
                 requestAuthConfigurationIsNull = false;
             }
+            Amazon.QBusiness.Model.IdcAuthConfiguration requestAuthConfiguration_authConfiguration_IdcAuthConfiguration = null;
+            
+             // populate IdcAuthConfiguration
+            var requestAuthConfiguration_authConfiguration_IdcAuthConfigurationIsNull = true;
+            requestAuthConfiguration_authConfiguration_IdcAuthConfiguration = new Amazon.QBusiness.Model.IdcAuthConfiguration();
+            System.String requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_IdcApplicationArn = null;
+            if (cmdletContext.IdcAuthConfiguration_IdcApplicationArn != null)
+            {
+                requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_IdcApplicationArn = cmdletContext.IdcAuthConfiguration_IdcApplicationArn;
+            }
+            if (requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_IdcApplicationArn != null)
+            {
+                requestAuthConfiguration_authConfiguration_IdcAuthConfiguration.IdcApplicationArn = requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_IdcApplicationArn;
+                requestAuthConfiguration_authConfiguration_IdcAuthConfigurationIsNull = false;
+            }
+            System.String requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_RoleArn = null;
+            if (cmdletContext.IdcAuthConfiguration_RoleArn != null)
+            {
+                requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_RoleArn = cmdletContext.IdcAuthConfiguration_RoleArn;
+            }
+            if (requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_RoleArn != null)
+            {
+                requestAuthConfiguration_authConfiguration_IdcAuthConfiguration.RoleArn = requestAuthConfiguration_authConfiguration_IdcAuthConfiguration_idcAuthConfiguration_RoleArn;
+                requestAuthConfiguration_authConfiguration_IdcAuthConfigurationIsNull = false;
+            }
+             // determine if requestAuthConfiguration_authConfiguration_IdcAuthConfiguration should be set to null
+            if (requestAuthConfiguration_authConfiguration_IdcAuthConfigurationIsNull)
+            {
+                requestAuthConfiguration_authConfiguration_IdcAuthConfiguration = null;
+            }
+            if (requestAuthConfiguration_authConfiguration_IdcAuthConfiguration != null)
+            {
+                request.AuthConfiguration.IdcAuthConfiguration = requestAuthConfiguration_authConfiguration_IdcAuthConfiguration;
+                requestAuthConfigurationIsNull = false;
+            }
             Amazon.QBusiness.Model.OAuth2ClientCredentialConfiguration requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration = null;
             
              // populate OAuth2ClientCredentialConfiguration
             var requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfigurationIsNull = true;
             requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration = new Amazon.QBusiness.Model.OAuth2ClientCredentialConfiguration();
+            System.String requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_AuthorizationUrl = null;
+            if (cmdletContext.OAuth2ClientCredentialConfiguration_AuthorizationUrl != null)
+            {
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_AuthorizationUrl = cmdletContext.OAuth2ClientCredentialConfiguration_AuthorizationUrl;
+            }
+            if (requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_AuthorizationUrl != null)
+            {
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration.AuthorizationUrl = requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_AuthorizationUrl;
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfigurationIsNull = false;
+            }
             System.String requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_RoleArn = null;
             if (cmdletContext.OAuth2ClientCredentialConfiguration_RoleArn != null)
             {
@@ -433,6 +530,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_SecretArn != null)
             {
                 requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration.SecretArn = requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_SecretArn;
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfigurationIsNull = false;
+            }
+            System.String requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_TokenUrl = null;
+            if (cmdletContext.OAuth2ClientCredentialConfiguration_TokenUrl != null)
+            {
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_TokenUrl = cmdletContext.OAuth2ClientCredentialConfiguration_TokenUrl;
+            }
+            if (requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_TokenUrl != null)
+            {
+                requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration.TokenUrl = requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration_oAuth2ClientCredentialConfiguration_TokenUrl;
                 requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfigurationIsNull = false;
             }
              // determine if requestAuthConfiguration_authConfiguration_OAuth2ClientCredentialConfiguration should be set to null
@@ -623,9 +730,13 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String ApplicationId { get; set; }
             public System.String BasicAuthConfiguration_RoleArn { get; set; }
             public System.String BasicAuthConfiguration_SecretArn { get; set; }
+            public System.String IdcAuthConfiguration_IdcApplicationArn { get; set; }
+            public System.String IdcAuthConfiguration_RoleArn { get; set; }
             public Amazon.QBusiness.Model.NoAuthConfiguration AuthConfiguration_NoAuthConfiguration { get; set; }
+            public System.String OAuth2ClientCredentialConfiguration_AuthorizationUrl { get; set; }
             public System.String OAuth2ClientCredentialConfiguration_RoleArn { get; set; }
             public System.String OAuth2ClientCredentialConfiguration_SecretArn { get; set; }
+            public System.String OAuth2ClientCredentialConfiguration_TokenUrl { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ApiSchema_Payload { get; set; }
             public System.String S3_Bucket { get; set; }

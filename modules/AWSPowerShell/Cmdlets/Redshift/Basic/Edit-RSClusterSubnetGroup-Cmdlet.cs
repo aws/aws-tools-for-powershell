@@ -30,6 +30,26 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Modifies a cluster subnet group to include the specified list of VPC subnets. The
     /// operation replaces the existing list of subnets with the new list of subnets.
+    /// 
+    ///  
+    /// <para>
+    /// VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
+    /// you own in a Region from reaching or being reached from the internet through internet
+    /// gateways and egress-only internet gateways. If a subnet group for a provisioned cluster
+    /// is in an account with VPC BPA turned on, the following capabilities are blocked:
+    /// </para><ul><li><para>
+    /// Creating a public cluster
+    /// </para></li><li><para>
+    /// Restoring a public cluster
+    /// </para></li><li><para>
+    /// Modifying a private cluster to be public
+    /// </para></li><li><para>
+    /// Adding a subnet with VPC BPA turned on to the subnet group when there's at least one
+    /// public cluster within the group
+    /// </para></li></ul><para>
+    /// For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block
+    /// public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "RSClusterSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ClusterSubnetGroup")]

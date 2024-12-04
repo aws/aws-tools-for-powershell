@@ -94,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
         /// the request.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is no longer required for idempotency.")]
         public System.String ClientToken { get; set; }
         #endregion
         
@@ -161,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -193,10 +197,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.DeleteDataSourceRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
@@ -270,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.String ClientToken { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }

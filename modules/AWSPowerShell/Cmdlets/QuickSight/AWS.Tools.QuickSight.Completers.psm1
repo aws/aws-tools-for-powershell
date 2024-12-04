@@ -294,6 +294,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IncludeGeneratedAnswer
+        "Search-QSQAResult/IncludeGeneratedAnswer"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
+        # Amazon.QuickSight.IncludeQuickSightQIndex
+        "Search-QSQAResult/IncludeQuickSightQIndex"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
         # Amazon.QuickSight.IngestionType
         {
             ($_ -eq "New-QSIngestion/IngestionType") -Or
@@ -361,6 +375,13 @@ $QS_Completers = {
         "Update-QSSPICECapacityConfiguration/PurchaseMode"
         {
             $v = "AUTO_PURCHASE","MANUAL"
+            break
+        }
+
+        # Amazon.QuickSight.QSearchStatus
+        "Update-QSQuickSightQSearchConfiguration/QSearchStatus"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -440,7 +461,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSIdentityPropagationConfig/Service")
         }
         {
-            $v = "REDSHIFT"
+            $v = "QBUSINESS","REDSHIFT"
             break
         }
 
@@ -583,6 +604,8 @@ $QS_map = @{
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "IncludeFolderMember"=@("Start-QSAssetBundleExportJob")
+    "IncludeGeneratedAnswer"=@("Search-QSQAResult")
+    "IncludeQuickSightQIndex"=@("Search-QSQAResult")
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
@@ -591,6 +614,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
+    "QSearchStatus"=@("Update-QSQuickSightQSearchConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
@@ -704,6 +728,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSet",
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
+               "Remove-QSDefaultQBusinessApplication",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
                "Remove-QSGroup",
@@ -747,6 +772,7 @@ $QS_SelectMap = @{
                "Get-QSDataSetRefreshProperty",
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
+               "Get-QSDefaultQBusinessApplication",
                "Get-QSFolder",
                "Get-QSFolderPermission",
                "Get-QSFolderResolvedPermission",
@@ -758,6 +784,7 @@ $QS_SelectMap = @{
                "Get-QSKeyRegistration",
                "Get-QSNamespace",
                "Get-QSQPersonalizationConfiguration",
+               "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
                "Get-QSTemplate",
@@ -775,6 +802,7 @@ $QS_SelectMap = @{
                "Get-QSVPCConnection",
                "New-QSEmbedUrlForAnonymousUser",
                "New-QSEmbedUrlForRegisteredUser",
+               "Initialize-QSEmbedUrlForRegisteredUserWithIdentity",
                "Get-QSDashboardEmbedUrl",
                "Get-QSSessionEmbedUrl",
                "Get-QSAnalysisList",
@@ -811,6 +839,7 @@ $QS_SelectMap = @{
                "Get-QSUserGroupList",
                "Get-QSUserList",
                "Get-QSVPCConnectionList",
+               "Search-QSQAResult",
                "Write-QSDataSetRefreshProperty",
                "Register-QSUser",
                "Restore-QSAnalysis",
@@ -831,6 +860,7 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
+               "Update-QSApplicationWithTokenExchangeGrant",
                "Update-QSBrand",
                "Update-QSBrandAssignment",
                "Update-QSBrandPublishedVersion",
@@ -844,6 +874,7 @@ $QS_SelectMap = @{
                "Update-QSDataSetPermission",
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
+               "Update-QSDefaultQBusinessApplication",
                "Update-QSFolder",
                "Update-QSFolderPermission",
                "Update-QSGroup",
@@ -853,6 +884,7 @@ $QS_SelectMap = @{
                "Update-QSKeyRegistration",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",
+               "Update-QSQuickSightQSearchConfiguration",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
                "Update-QSSPICECapacityConfiguration",

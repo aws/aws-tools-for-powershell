@@ -75,6 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.Model.Unit Detail_CreateEnvironment { get; set; }
         #endregion
         
+        #region Parameter Detail_CreateEnvironmentFromBlueprint
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DataZone.Model.Unit Detail_CreateEnvironmentFromBlueprint { get; set; }
+        #endregion
+        
         #region Parameter Detail_DelegateCreateEnvironmentProfile
         /// <summary>
         /// <para>
@@ -258,6 +268,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Boolean? CreateProject_IncludeChildDomainUnit { get; set; }
         #endregion
         
+        #region Parameter CreateProjectFromProjectProfile_IncludeChildDomainUnit
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include child domain units when creating a project from project
+        /// profile policy grant details</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Detail_CreateProjectFromProjectProfile_IncludeChildDomainUnits")]
+        public System.Boolean? CreateProjectFromProjectProfile_IncludeChildDomainUnit { get; set; }
+        #endregion
+        
         #region Parameter OverrideDomainUnitOwners_IncludeChildDomainUnit
         /// <summary>
         /// <para>
@@ -329,6 +351,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Principal_Project_ProjectIdentifier")]
         public System.String Project_ProjectIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter CreateProjectFromProjectProfile_ProjectProfile
+        /// <summary>
+        /// <para>
+        /// <para>Specifies project profiles when creating a project from project profile policy grant
+        /// details</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Detail_CreateProjectFromProjectProfile_ProjectProfiles")]
+        public System.String[] CreateProjectFromProjectProfile_ProjectProfile { get; set; }
         #endregion
         
         #region Parameter User_UserIdentifier
@@ -419,10 +453,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.CreateAssetType_IncludeChildDomainUnit = this.CreateAssetType_IncludeChildDomainUnit;
             context.CreateDomainUnit_IncludeChildDomainUnit = this.CreateDomainUnit_IncludeChildDomainUnit;
             context.Detail_CreateEnvironment = this.Detail_CreateEnvironment;
+            context.Detail_CreateEnvironmentFromBlueprint = this.Detail_CreateEnvironmentFromBlueprint;
             context.CreateEnvironmentProfile_DomainUnitId = this.CreateEnvironmentProfile_DomainUnitId;
             context.CreateFormType_IncludeChildDomainUnit = this.CreateFormType_IncludeChildDomainUnit;
             context.CreateGlossary_IncludeChildDomainUnit = this.CreateGlossary_IncludeChildDomainUnit;
             context.CreateProject_IncludeChildDomainUnit = this.CreateProject_IncludeChildDomainUnit;
+            context.CreateProjectFromProjectProfile_IncludeChildDomainUnit = this.CreateProjectFromProjectProfile_IncludeChildDomainUnit;
+            if (this.CreateProjectFromProjectProfile_ProjectProfile != null)
+            {
+                context.CreateProjectFromProjectProfile_ProjectProfile = new List<System.String>(this.CreateProjectFromProjectProfile_ProjectProfile);
+            }
             context.Detail_DelegateCreateEnvironmentProfile = this.Detail_DelegateCreateEnvironmentProfile;
             context.OverrideDomainUnitOwners_IncludeChildDomainUnit = this.OverrideDomainUnitOwners_IncludeChildDomainUnit;
             context.OverrideProjectOwners_IncludeChildDomainUnit = this.OverrideProjectOwners_IncludeChildDomainUnit;
@@ -496,6 +536,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_CreateEnvironment != null)
             {
                 request.Detail.CreateEnvironment = requestDetail_detail_CreateEnvironment;
+                requestDetailIsNull = false;
+            }
+            Amazon.DataZone.Model.Unit requestDetail_detail_CreateEnvironmentFromBlueprint = null;
+            if (cmdletContext.Detail_CreateEnvironmentFromBlueprint != null)
+            {
+                requestDetail_detail_CreateEnvironmentFromBlueprint = cmdletContext.Detail_CreateEnvironmentFromBlueprint;
+            }
+            if (requestDetail_detail_CreateEnvironmentFromBlueprint != null)
+            {
+                request.Detail.CreateEnvironmentFromBlueprint = requestDetail_detail_CreateEnvironmentFromBlueprint;
                 requestDetailIsNull = false;
             }
             Amazon.DataZone.Model.Unit requestDetail_detail_DelegateCreateEnvironmentProfile = null;
@@ -731,6 +781,41 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestDetail_detail_OverrideProjectOwners != null)
             {
                 request.Detail.OverrideProjectOwners = requestDetail_detail_OverrideProjectOwners;
+                requestDetailIsNull = false;
+            }
+            Amazon.DataZone.Model.CreateProjectFromProjectProfilePolicyGrantDetail requestDetail_detail_CreateProjectFromProjectProfile = null;
+            
+             // populate CreateProjectFromProjectProfile
+            var requestDetail_detail_CreateProjectFromProjectProfileIsNull = true;
+            requestDetail_detail_CreateProjectFromProjectProfile = new Amazon.DataZone.Model.CreateProjectFromProjectProfilePolicyGrantDetail();
+            System.Boolean? requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_IncludeChildDomainUnit = null;
+            if (cmdletContext.CreateProjectFromProjectProfile_IncludeChildDomainUnit != null)
+            {
+                requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_IncludeChildDomainUnit = cmdletContext.CreateProjectFromProjectProfile_IncludeChildDomainUnit.Value;
+            }
+            if (requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_IncludeChildDomainUnit != null)
+            {
+                requestDetail_detail_CreateProjectFromProjectProfile.IncludeChildDomainUnits = requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_IncludeChildDomainUnit.Value;
+                requestDetail_detail_CreateProjectFromProjectProfileIsNull = false;
+            }
+            List<System.String> requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_ProjectProfile = null;
+            if (cmdletContext.CreateProjectFromProjectProfile_ProjectProfile != null)
+            {
+                requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_ProjectProfile = cmdletContext.CreateProjectFromProjectProfile_ProjectProfile;
+            }
+            if (requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_ProjectProfile != null)
+            {
+                requestDetail_detail_CreateProjectFromProjectProfile.ProjectProfiles = requestDetail_detail_CreateProjectFromProjectProfile_createProjectFromProjectProfile_ProjectProfile;
+                requestDetail_detail_CreateProjectFromProjectProfileIsNull = false;
+            }
+             // determine if requestDetail_detail_CreateProjectFromProjectProfile should be set to null
+            if (requestDetail_detail_CreateProjectFromProjectProfileIsNull)
+            {
+                requestDetail_detail_CreateProjectFromProjectProfile = null;
+            }
+            if (requestDetail_detail_CreateProjectFromProjectProfile != null)
+            {
+                request.Detail.CreateProjectFromProjectProfile = requestDetail_detail_CreateProjectFromProjectProfile;
                 requestDetailIsNull = false;
             }
              // determine if request.Detail should be set to null
@@ -1034,10 +1119,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.Boolean? CreateAssetType_IncludeChildDomainUnit { get; set; }
             public System.Boolean? CreateDomainUnit_IncludeChildDomainUnit { get; set; }
             public Amazon.DataZone.Model.Unit Detail_CreateEnvironment { get; set; }
+            public Amazon.DataZone.Model.Unit Detail_CreateEnvironmentFromBlueprint { get; set; }
             public System.String CreateEnvironmentProfile_DomainUnitId { get; set; }
             public System.Boolean? CreateFormType_IncludeChildDomainUnit { get; set; }
             public System.Boolean? CreateGlossary_IncludeChildDomainUnit { get; set; }
             public System.Boolean? CreateProject_IncludeChildDomainUnit { get; set; }
+            public System.Boolean? CreateProjectFromProjectProfile_IncludeChildDomainUnit { get; set; }
+            public List<System.String> CreateProjectFromProjectProfile_ProjectProfile { get; set; }
             public Amazon.DataZone.Model.Unit Detail_DelegateCreateEnvironmentProfile { get; set; }
             public System.Boolean? OverrideDomainUnitOwners_IncludeChildDomainUnit { get; set; }
             public System.Boolean? OverrideProjectOwners_IncludeChildDomainUnit { get; set; }

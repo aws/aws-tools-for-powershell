@@ -171,6 +171,25 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
         #endregion
         
+        #region Parameter MultiRegionConsistency
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the consistency mode for a new global table. This parameter is only valid
+        /// when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a>
+        /// actions in the <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a>
+        /// action list.</para><para>You can specify one of the following consistency modes:</para><ul><li><para><c>EVENTUAL</c>: Configures a new global table for multi-Region eventual consistency.
+        /// This is the default consistency mode for global tables.</para></li><li><para><c>STRONG</c>: Configures a new global table for multi-Region strong consistency
+        /// (preview).</para><note><para>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability
+        /// currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global
+        /// tables multi-Region strong consistency</a>.</para></note></li></ul><para>If you don't specify this parameter, the global table consistency mode defaults to
+        /// <c>EVENTUAL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.MultiRegionConsistency")]
+        public Amazon.DynamoDBv2.MultiRegionConsistency MultiRegionConsistency { get; set; }
+        #endregion
+        
         #region Parameter ReadCapacity
         /// <summary>
         /// <para>
@@ -368,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.GlobalSecondaryIndexUpdate = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
             }
+            context.MultiRegionConsistency = this.MultiRegionConsistency;
             context.OnDemandThroughput_MaxReadRequestUnit = this.OnDemandThroughput_MaxReadRequestUnit;
             context.OnDemandThroughput_MaxWriteRequestUnit = this.OnDemandThroughput_MaxWriteRequestUnit;
             context.ReadCapacity = this.ReadCapacity;
@@ -422,6 +442,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.GlobalSecondaryIndexUpdate != null)
             {
                 request.GlobalSecondaryIndexUpdates = cmdletContext.GlobalSecondaryIndexUpdate;
+            }
+            if (cmdletContext.MultiRegionConsistency != null)
+            {
+                request.MultiRegionConsistency = cmdletContext.MultiRegionConsistency;
             }
             
              // populate OnDemandThroughput
@@ -655,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
+            public Amazon.DynamoDBv2.MultiRegionConsistency MultiRegionConsistency { get; set; }
             public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
             public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
             public System.Int64? ReadCapacity { get; set; }

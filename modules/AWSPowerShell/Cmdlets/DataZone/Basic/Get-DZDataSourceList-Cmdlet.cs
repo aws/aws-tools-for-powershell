@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ConnectionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectionIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
@@ -209,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.ProjectIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConnectionIdentifier = this.ConnectionIdentifier;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
             if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
@@ -249,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request and set iteration invariants
             var request = new Amazon.DataZone.Model.ListDataSourcesRequest();
             
+            if (cmdletContext.ConnectionIdentifier != null)
+            {
+                request.ConnectionIdentifier = cmdletContext.ConnectionIdentifier;
+            }
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
@@ -362,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConnectionIdentifier { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String EnvironmentIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }

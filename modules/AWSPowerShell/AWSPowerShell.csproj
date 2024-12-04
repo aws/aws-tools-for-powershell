@@ -439,6 +439,9 @@
     <Reference Include="AWSSDK.Drs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Drs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DSQL">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DSQL.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
@@ -1036,6 +1039,9 @@
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.S3Tables">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Tables.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMaker.dll</HintPath>
     </Reference>
@@ -1619,6 +1625,9 @@
     </Reference>
     <Reference Include="AWSSDK.Drs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Drs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DSQL">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DSQL.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DynamoDBv2.dll</HintPath>
@@ -2216,6 +2225,9 @@
     </Reference>
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Outposts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3Tables">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Tables.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMaker.dll</HintPath>

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.938.0",
+    "ProductVersion"    : "3.7.939.1",
     "CoreVersion"       : "3.7.400.59",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -80,7 +80,7 @@
             "InPreview"               : false
         },
         "CloudWatch"        : {
-            "Version" : "3.7.402.6",
+            "Version" : "3.7.402.7",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.403.9",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -292,7 +292,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "3.7.404.8",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.409.1",
+            "Version" : "3.7.410.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -788,7 +788,7 @@
             "InPreview"               : false
         },
         "Athena"                          : {
-            "Version" : "3.7.402.23",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.410.5",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -1196,7 +1196,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.410.2",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -1452,7 +1452,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.401.14",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2412,7 +2412,7 @@
             "InPreview"               : false
         },
         "RedshiftServerless"                  : {
-            "Version" : "3.7.401.16",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2772,7 +2772,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.409.0",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2780,7 +2780,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.410.1",
+            "Version" : "3.7.411.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.407.4",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2884,7 +2884,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.411.1",
+            "Version" : "3.7.412.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2892,7 +2892,7 @@
             "InPreview"               : false
         },
         "QBusiness"                           : {
-            "Version" : "3.7.405.1",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -2908,7 +2908,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "3.7.412.1",
+            "Version" : "3.7.413.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -3060,7 +3060,7 @@
             "InPreview"               : false
         },
         "QApps"                               : {
-            "Version" : "3.7.403.2",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -3205,6 +3205,22 @@
         },
         "NetworkFlowMonitor"                  : {
             "Version" : "3.7.400.1",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.400.59"
+            },
+            "InPreview"               : false
+        },
+        "S3Tables"                            : {
+            "Version" : "3.7.400.0",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.400.59"
+            },
+            "InPreview"               : false
+        },
+        "DSQL"                                : {
+            "Version" : "3.7.400.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"

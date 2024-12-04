@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Register" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Register" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +139,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAgentCollaborator" Verb="Unregister" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAgentKnowledgeBase" Verb="Unregister" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +156,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentAlias" OutputProperty="AgentAlias" Verb="Get" Noun="AgentAlias" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Get" Noun="AgentCollaborator" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAgentAliases" OutputProperty="AgentAliasSummaries" Verb="Get" Noun="AgentAliasList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentCollaborators" OutputProperty="AgentCollaboratorSummaries" Verb="Get" Noun="AgentCollaboratorList" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentAlias" OutputProperty="AgentAlias" Verb="Update" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Update" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

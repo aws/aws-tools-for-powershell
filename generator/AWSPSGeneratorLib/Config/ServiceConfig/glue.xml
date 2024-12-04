@@ -117,6 +117,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCatalog" Verb="New" Noun="Catalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateClassifier" Verb="New" Noun="Classifier" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -149,6 +153,18 @@
             <Params>
                 <Param Name="PublicKeys" NewName="PublicKeyList" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="IntegrationName" PipelineParameter="IntegrationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegrationResourceProperty" OutputProperty="*" Verb="New" Noun="IntegrationResourceProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntegrationTableProperties" Verb="New" Noun="IntegrationTableProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" OutputProperty="Name" Verb="New" Noun="Job" ShouldProcessTarget="Name" PipelineParameter="Command" NoPipelineParameter="false">
@@ -215,6 +231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCatalog" Verb="Remove" Noun="Catalog" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteClassifier" Verb="Remove" Noun="Classifier" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +272,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDevEndpoint" Verb="Remove" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegration" OutputProperty="*" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntegrationTableProperties" Verb="Remove" Noun="IntegrationTableProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -323,6 +351,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectionType" OutputProperty="*" Verb="Get" Noun="ConnectionType" PipelineParameter="ConnectionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntity" OutputProperty="Fields" Verb="Get" Noun="Entity" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundIntegrations" OutputProperty="InboundIntegrations" Verb="Get" Noun="InboundIntegration" PipelineParameter="IntegrationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIntegrations" OutputProperty="Integrations" Verb="Get" Noun="Integration" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="Blueprint" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -335,7 +379,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCatalog" OutputProperty="Catalog" Verb="Get" Noun="Catalog" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCatalogImportStatus" OutputProperty="ImportStatus" Verb="Get" Noun="CatalogImportStatus" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCatalogs" OutputProperty="CatalogList" Verb="Get" Noun="CatalogList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -436,6 +488,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEntityRecords" OutputProperty="Records" Verb="Get" Noun="EntityRecord" PipelineParameter="EntityName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegrationResourceProperty" OutputProperty="*" Verb="Get" Noun="IntegrationResourceProperty" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntegrationTableProperties" OutputProperty="*" Verb="Get" Noun="IntegrationTableProperty" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -629,6 +693,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectionTypes" OutputProperty="ConnectionTypes" Verb="Get" Noun="ConnectionTypeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -666,6 +734,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntities" OutputProperty="Entities" Verb="Get" Noun="EntityList" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -710,6 +782,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -861,6 +937,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCatalog" Verb="Update" Noun="Catalog" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateClassifier" Verb="Update" Noun="Classifier" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -898,6 +978,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevEndpoint" Verb="Update" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegrationResourceProperty" OutputProperty="*" Verb="Update" Noun="IntegrationResourceProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIntegrationTableProperties" Verb="Update" Noun="IntegrationTableProperty" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

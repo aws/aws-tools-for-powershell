@@ -83,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String[] ClientIdsForOIDC { get; set; }
         #endregion
         
+        #region Parameter QuickSightConfiguration_ClientNamespace
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon QuickSight namespace that is used as the identity provider. For more information
+        /// about QuickSight namespaces, see <a href="https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html">Namespace
+        /// operations</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QuickSightConfiguration_ClientNamespace { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -297,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.IdentityType = this.IdentityType;
             context.PersonalizationConfiguration_PersonalizationControlMode = this.PersonalizationConfiguration_PersonalizationControlMode;
             context.QAppsConfiguration_QAppsControlMode = this.QAppsConfiguration_QAppsControlMode;
+            context.QuickSightConfiguration_ClientNamespace = this.QuickSightConfiguration_ClientNamespace;
             context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
@@ -422,6 +435,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.QAppsConfiguration = null;
             }
+            
+             // populate QuickSightConfiguration
+            var requestQuickSightConfigurationIsNull = true;
+            request.QuickSightConfiguration = new Amazon.QBusiness.Model.QuickSightConfiguration();
+            System.String requestQuickSightConfiguration_quickSightConfiguration_ClientNamespace = null;
+            if (cmdletContext.QuickSightConfiguration_ClientNamespace != null)
+            {
+                requestQuickSightConfiguration_quickSightConfiguration_ClientNamespace = cmdletContext.QuickSightConfiguration_ClientNamespace;
+            }
+            if (requestQuickSightConfiguration_quickSightConfiguration_ClientNamespace != null)
+            {
+                request.QuickSightConfiguration.ClientNamespace = requestQuickSightConfiguration_quickSightConfiguration_ClientNamespace;
+                requestQuickSightConfigurationIsNull = false;
+            }
+             // determine if request.QuickSightConfiguration should be set to null
+            if (requestQuickSightConfigurationIsNull)
+            {
+                request.QuickSightConfiguration = null;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -502,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public Amazon.QBusiness.IdentityType IdentityType { get; set; }
             public Amazon.QBusiness.PersonalizationControlMode PersonalizationConfiguration_PersonalizationControlMode { get; set; }
             public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
+            public System.String QuickSightConfiguration_ClientNamespace { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QBusiness.Model.CreateApplicationResponse, NewQBUSApplicationCmdlet, object> Select { get; set; } =

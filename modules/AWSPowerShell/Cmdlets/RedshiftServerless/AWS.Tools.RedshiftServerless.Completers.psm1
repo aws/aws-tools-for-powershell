@@ -213,6 +213,7 @@ $RSS_SelectMap = @{
                "Get-RSSWorkgroup",
                "Get-RSSCustomDomainAssociationList",
                "Get-RSSEndpointAccessList",
+               "Get-RSSManagedWorkgroupList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
                "Get-RSSScheduledActionList",

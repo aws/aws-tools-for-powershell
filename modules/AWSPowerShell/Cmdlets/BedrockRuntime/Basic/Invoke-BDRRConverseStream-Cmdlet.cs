@@ -256,6 +256,16 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.Collections.Hashtable PromptVariable { get; set; }
         #endregion
         
+        #region Parameter RequestMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs that you can use to filter invocation logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable RequestMetadata { get; set; }
+        #endregion
+        
         #region Parameter InferenceConfig_StopSequence
         /// <summary>
         /// <para>
@@ -440,6 +450,14 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                     context.PromptVariable.Add((String)hashKey, (Amazon.BedrockRuntime.Model.PromptVariableValues)(this.PromptVariable[hashKey]));
                 }
             }
+            if (this.RequestMetadata != null)
+            {
+                context.RequestMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RequestMetadata.Keys)
+                {
+                    context.RequestMetadata.Add((String)hashKey, (System.String)(this.RequestMetadata[hashKey]));
+                }
+            }
             if (this.System != null)
             {
                 context.System = new List<Amazon.BedrockRuntime.Model.SystemContentBlock>(this.System);
@@ -604,6 +622,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             {
                 request.PromptVariables = cmdletContext.PromptVariable;
             }
+            if (cmdletContext.RequestMetadata != null)
+            {
+                request.RequestMetadata = cmdletContext.RequestMetadata;
+            }
             if (cmdletContext.System != null)
             {
                 request.System = cmdletContext.System;
@@ -762,6 +784,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.String ModelId { get; set; }
             public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
+            public Dictionary<System.String, System.String> RequestMetadata { get; set; }
             public List<Amazon.BedrockRuntime.Model.SystemContentBlock> System { get; set; }
             public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
             public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }

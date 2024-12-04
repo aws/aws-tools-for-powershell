@@ -174,6 +174,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.MultiRegionConsistency
+        "Update-DDBTable/MultiRegionConsistency"
+        {
+            $v = "EVENTUAL","STRONG"
+            break
+        }
+
         # Amazon.DynamoDBv2.ProjectionType
         "Add-DDBIndexSchema/ProjectionType"
         {
@@ -316,6 +323,7 @@ $DDB_map = @{
     "InputFormat"=@("Import-DDBTable")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
+    "MultiRegionConsistency"=@("Update-DDBTable")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")

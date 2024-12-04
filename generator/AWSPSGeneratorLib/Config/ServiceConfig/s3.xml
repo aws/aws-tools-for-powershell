@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBucketMetadataTableConfiguration" Verb="New" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSession" OutputProperty="Credentials" Verb="New" Noun="Session" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Verb="Remove" Noun="BucketInventoryConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketMetadataTableConfiguration" Verb="Remove" Noun="BucketMetadataTableConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketLogging" OutputProperty="BucketLoggingConfig" Verb="Get" Noun="BucketLogging" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketMetadataTableConfiguration" OutputProperty="GetBucketMetadataTableConfigurationResult" Verb="Get" Noun="BucketMetadataTableConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

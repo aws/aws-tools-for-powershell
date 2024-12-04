@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeploymentOrder
+        /// <summary>
+        /// <para>
+        /// <para>The deployment order of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DeploymentOrder { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -98,6 +108,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentBlueprintIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentConfigurationId
+        /// <summary>
+        /// <para>
+        /// <para>The configuration ID of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentConfigurationId { get; set; }
         #endregion
         
         #region Parameter EnvironmentProfileIdentifier
@@ -236,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.ProjectIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeploymentOrder = this.DeploymentOrder;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -247,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.EnvironmentAccountIdentifier = this.EnvironmentAccountIdentifier;
             context.EnvironmentAccountRegion = this.EnvironmentAccountRegion;
             context.EnvironmentBlueprintIdentifier = this.EnvironmentBlueprintIdentifier;
+            context.EnvironmentConfigurationId = this.EnvironmentConfigurationId;
             context.EnvironmentProfileIdentifier = this.EnvironmentProfileIdentifier;
             #if MODULAR
             if (this.EnvironmentProfileIdentifier == null && ParameterWasBound(nameof(this.EnvironmentProfileIdentifier)))
@@ -292,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.CreateEnvironmentRequest();
             
+            if (cmdletContext.DeploymentOrder != null)
+            {
+                request.DeploymentOrder = cmdletContext.DeploymentOrder.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -311,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EnvironmentBlueprintIdentifier != null)
             {
                 request.EnvironmentBlueprintIdentifier = cmdletContext.EnvironmentBlueprintIdentifier;
+            }
+            if (cmdletContext.EnvironmentConfigurationId != null)
+            {
+                request.EnvironmentConfigurationId = cmdletContext.EnvironmentConfigurationId;
             }
             if (cmdletContext.EnvironmentProfileIdentifier != null)
             {
@@ -393,11 +423,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? DeploymentOrder { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String EnvironmentAccountIdentifier { get; set; }
             public System.String EnvironmentAccountRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
+            public System.String EnvironmentConfigurationId { get; set; }
             public System.String EnvironmentProfileIdentifier { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }

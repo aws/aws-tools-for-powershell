@@ -31,16 +31,27 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// Deletes a data catalog.
     /// </summary>
     [Cmdlet("Remove", "ATHDataCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.Athena.Model.DeleteDataCatalogResponse")]
     [AWSCmdlet("Calls the Amazon Athena DeleteDataCatalog API operation.", Operation = new[] {"DeleteDataCatalog"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteDataCatalogResponse))]
-    [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteDataCatalogResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.DeleteDataCatalogResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.Athena.Model.DeleteDataCatalogResponse",
+        "This cmdlet returns an Amazon.Athena.Model.DeleteDataCatalogResponse object containing multiple properties."
     )]
     public partial class RemoveATHDataCatalogCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter DeleteCatalogOnly
+        /// <summary>
+        /// <para>
+        /// <para>Deletes the Athena Data Catalog. You can only use this with the <c>FEDERATED</c> catalogs.
+        /// You usually perform this before registering the connector with Glue Data Catalog.
+        /// After deletion, you will have to manage the Glue Connection and Lambda function. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteCatalogOnly { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
@@ -61,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.DeleteDataCatalogResponse).
+        /// Specifying the name of a property of type Amazon.Athena.Model.DeleteDataCatalogResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeleteCatalogOnly = this.DeleteCatalogOnly;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -143,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             // create request
             var request = new Amazon.Athena.Model.DeleteDataCatalogRequest();
             
+            if (cmdletContext.DeleteCatalogOnly != null)
+            {
+                request.DeleteCatalogOnly = cmdletContext.DeleteCatalogOnly.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -208,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteCatalogOnly { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Athena.Model.DeleteDataCatalogResponse, RemoveATHDataCatalogCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

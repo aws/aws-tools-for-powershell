@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.Boolean? GlueRunConfiguration_AutoImportDataQualityResult { get; set; }
         #endregion
         
+        #region Parameter GlueRunConfiguration_CatalogName
+        /// <summary>
+        /// <para>
+        /// <para>The catalog name in the Amazon Web Services Glue run configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_GlueRunConfiguration_CatalogName")]
+        public System.String GlueRunConfiguration_CatalogName { get; set; }
+        #endregion
+        
         #region Parameter RedshiftClusterSource_ClusterName
         /// <summary>
         /// <para>
@@ -77,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_RedshiftRunConfiguration_RedshiftStorage_RedshiftClusterSource_ClusterName")]
         public System.String RedshiftClusterSource_ClusterName { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConnectionIdentifier { get; set; }
         #endregion
         
         #region Parameter GlueRunConfiguration_DataAccessRole
@@ -159,14 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// publishes assets. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentIdentifier { get; set; }
         #endregion
         
@@ -269,6 +283,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DataZone.Timezone")]
         public Amazon.DataZone.Timezone Schedule_Timezone { get; set; }
+        #endregion
+        
+        #region Parameter SageMakerRunConfiguration_TrackingAsset
+        /// <summary>
+        /// <para>
+        /// <para>The tracking assets of the Amazon SageMaker run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_SageMakerRunConfiguration_TrackingAssets")]
+        public System.Collections.Hashtable SageMakerRunConfiguration_TrackingAsset { get; set; }
         #endregion
         
         #region Parameter Type
@@ -378,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             context.ClientToken = this.ClientToken;
             context.GlueRunConfiguration_AutoImportDataQualityResult = this.GlueRunConfiguration_AutoImportDataQualityResult;
+            context.GlueRunConfiguration_CatalogName = this.GlueRunConfiguration_CatalogName;
             context.GlueRunConfiguration_DataAccessRole = this.GlueRunConfiguration_DataAccessRole;
             if (this.GlueRunConfiguration_RelationalFilterConfiguration != null)
             {
@@ -391,6 +417,27 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 context.RedshiftRunConfiguration_RelationalFilterConfiguration = new List<Amazon.DataZone.Model.RelationalFilterConfiguration>(this.RedshiftRunConfiguration_RelationalFilterConfiguration);
             }
+            if (this.SageMakerRunConfiguration_TrackingAsset != null)
+            {
+                context.SageMakerRunConfiguration_TrackingAsset = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SageMakerRunConfiguration_TrackingAsset.Keys)
+                {
+                    object hashValue = this.SageMakerRunConfiguration_TrackingAsset[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.SageMakerRunConfiguration_TrackingAsset.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.SageMakerRunConfiguration_TrackingAsset.Add((String)hashKey, valueSet);
+                }
+            }
+            context.ConnectionIdentifier = this.ConnectionIdentifier;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -401,12 +448,6 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #endif
             context.EnableSetting = this.EnableSetting;
             context.EnvironmentIdentifier = this.EnvironmentIdentifier;
-            #if MODULAR
-            if (this.EnvironmentIdentifier == null && ParameterWasBound(nameof(this.EnvironmentIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -460,6 +501,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.DataZone.Model.DataSourceConfigurationInput();
+            Amazon.DataZone.Model.SageMakerRunConfigurationInput requestConfiguration_configuration_SageMakerRunConfiguration = null;
+            
+             // populate SageMakerRunConfiguration
+            var requestConfiguration_configuration_SageMakerRunConfigurationIsNull = true;
+            requestConfiguration_configuration_SageMakerRunConfiguration = new Amazon.DataZone.Model.SageMakerRunConfigurationInput();
+            Dictionary<System.String, List<System.String>> requestConfiguration_configuration_SageMakerRunConfiguration_sageMakerRunConfiguration_TrackingAsset = null;
+            if (cmdletContext.SageMakerRunConfiguration_TrackingAsset != null)
+            {
+                requestConfiguration_configuration_SageMakerRunConfiguration_sageMakerRunConfiguration_TrackingAsset = cmdletContext.SageMakerRunConfiguration_TrackingAsset;
+            }
+            if (requestConfiguration_configuration_SageMakerRunConfiguration_sageMakerRunConfiguration_TrackingAsset != null)
+            {
+                requestConfiguration_configuration_SageMakerRunConfiguration.TrackingAssets = requestConfiguration_configuration_SageMakerRunConfiguration_sageMakerRunConfiguration_TrackingAsset;
+                requestConfiguration_configuration_SageMakerRunConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_SageMakerRunConfiguration should be set to null
+            if (requestConfiguration_configuration_SageMakerRunConfigurationIsNull)
+            {
+                requestConfiguration_configuration_SageMakerRunConfiguration = null;
+            }
+            if (requestConfiguration_configuration_SageMakerRunConfiguration != null)
+            {
+                request.Configuration.SageMakerRunConfiguration = requestConfiguration_configuration_SageMakerRunConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.DataZone.Model.GlueRunConfigurationInput requestConfiguration_configuration_GlueRunConfiguration = null;
             
              // populate GlueRunConfiguration
@@ -473,6 +539,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult != null)
             {
                 requestConfiguration_configuration_GlueRunConfiguration.AutoImportDataQualityResult = requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult.Value;
+                requestConfiguration_configuration_GlueRunConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_CatalogName = null;
+            if (cmdletContext.GlueRunConfiguration_CatalogName != null)
+            {
+                requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_CatalogName = cmdletContext.GlueRunConfiguration_CatalogName;
+            }
+            if (requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_CatalogName != null)
+            {
+                requestConfiguration_configuration_GlueRunConfiguration.CatalogName = requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_CatalogName;
                 requestConfiguration_configuration_GlueRunConfigurationIsNull = false;
             }
             System.String requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_DataAccessRole = null;
@@ -635,6 +711,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Configuration = null;
             }
+            if (cmdletContext.ConnectionIdentifier != null)
+            {
+                request.ConnectionIdentifier = cmdletContext.ConnectionIdentifier;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -779,6 +859,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<Amazon.DataZone.Model.FormInput> AssetFormsInput { get; set; }
             public System.String ClientToken { get; set; }
             public System.Boolean? GlueRunConfiguration_AutoImportDataQualityResult { get; set; }
+            public System.String GlueRunConfiguration_CatalogName { get; set; }
             public System.String GlueRunConfiguration_DataAccessRole { get; set; }
             public List<Amazon.DataZone.Model.RelationalFilterConfiguration> GlueRunConfiguration_RelationalFilterConfiguration { get; set; }
             public System.String RedshiftRunConfiguration_DataAccessRole { get; set; }
@@ -786,6 +867,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String RedshiftClusterSource_ClusterName { get; set; }
             public System.String RedshiftServerlessSource_WorkgroupName { get; set; }
             public List<Amazon.DataZone.Model.RelationalFilterConfiguration> RedshiftRunConfiguration_RelationalFilterConfiguration { get; set; }
+            public Dictionary<System.String, List<System.String>> SageMakerRunConfiguration_TrackingAsset { get; set; }
+            public System.String ConnectionIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public Amazon.DataZone.EnableSetting EnableSetting { get; set; }

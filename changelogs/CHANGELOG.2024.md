@@ -1,4 +1,128 @@
-﻿### 4.1.710 (2024-12-03 08:01Z)
+﻿### 4.1.711 (2024-12-04 00:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.939.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Get-AABAgentCollaborator leveraging the GetAgentCollaborator service API.
+    * Added cmdlet Get-AABAgentCollaboratorList leveraging the ListAgentCollaborators service API.
+    * Added cmdlet Register-AABAgentCollaborator leveraging the AssociateAgentCollaborator service API.
+    * Added cmdlet Unregister-AABAgentCollaborator leveraging the DisassociateAgentCollaborator service API.
+    * Added cmdlet Update-AABAgentCollaborator leveraging the UpdateAgentCollaborator service API.
+    * Modified cmdlet New-AABAgent: added parameter AgentCollaboration.
+    * Modified cmdlet Update-AABAgent: added parameter AgentCollaboration.
+  * Amazon Athena
+    * Modified cmdlet Remove-ATHDataCatalog: added parameter DeleteCatalogOnly.
+  * Amazon Aurora DSQL. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DSQL and can be listed using the command 'Get-AWSCmdletName -Service DSQL'.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRModelCustomizationJob: added parameters InvocationLogsConfig_UsePromptResponse, InvocationLogSource_S3Uri, RequestMetadataFilters_AndAll, RequestMetadataFilters_Equal, RequestMetadataFilters_NotEqual, RequestMetadataFilters_OrAll, TeacherModelConfig_MaxResponseLengthForInference and TeacherModelConfig_TeacherModelIdentifier.
+    * Modified cmdlet Write-BDRModelInvocationLoggingConfiguration: added parameter LoggingConfig_VideoDataDeliveryEnabled.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgent: added parameters ConversationHistory_Message and SourceArn.
+  * Amazon Bedrock Runtime
+    * Added cmdlet Get-BDRRAsyncInvoke leveraging the GetAsyncInvoke service API.
+    * Added cmdlet Get-BDRRAsyncInvokeList leveraging the ListAsyncInvokes service API.
+    * Added cmdlet Start-BDRRAsyncInvoke leveraging the StartAsyncInvoke service API.
+    * Modified cmdlet Invoke-BDRRConverse: added parameter RequestMetadata.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameter RequestMetadata.
+  * Amazon DataZone
+    * Added cmdlet Get-DZConnection leveraging the GetConnection service API.
+    * Added cmdlet Get-DZConnectionList leveraging the ListConnections service API.
+    * Added cmdlet Get-DZJobRun leveraging the GetJobRun service API.
+    * Added cmdlet Get-DZJobRunList leveraging the ListJobRuns service API.
+    * Added cmdlet Get-DZLineageEvent leveraging the GetLineageEvent service API.
+    * Added cmdlet Get-DZLineageEventList leveraging the ListLineageEvents service API.
+    * Added cmdlet Get-DZProjectProfile leveraging the GetProjectProfile service API.
+    * Added cmdlet Get-DZProjectProfileList leveraging the ListProjectProfiles service API.
+    * Added cmdlet New-DZConnection leveraging the CreateConnection service API.
+    * Added cmdlet New-DZProjectProfile leveraging the CreateProjectProfile service API.
+    * Added cmdlet Remove-DZConnection leveraging the DeleteConnection service API.
+    * Added cmdlet Remove-DZProjectProfile leveraging the DeleteProjectProfile service API.
+    * Added cmdlet Update-DZConnection leveraging the UpdateConnection service API.
+    * Added cmdlet Update-DZProjectProfile leveraging the UpdateProjectProfile service API.
+    * Modified cmdlet Add-DZPolicyGrant: added parameters CreateProjectFromProjectProfile_IncludeChildDomainUnit, CreateProjectFromProjectProfile_ProjectProfile and Detail_CreateEnvironmentFromBlueprint.
+    * Modified cmdlet Get-DZDataSourceList: added parameter ConnectionIdentifier.
+    * Modified cmdlet New-DZDataSource: added parameters ConnectionIdentifier, GlueRunConfiguration_CatalogName and SageMakerRunConfiguration_TrackingAsset.
+    * Modified cmdlet New-DZDomain: added parameters DomainVersion and ServiceRole.
+    * Modified cmdlet New-DZEnvironment: added parameters DeploymentOrder and EnvironmentConfigurationId.
+    * Modified cmdlet New-DZProject: added parameters ProjectProfileId and UserParameter.
+    * Modified cmdlet Update-DZDataSource: added parameters GlueRunConfiguration_CatalogName and SageMakerRunConfiguration_TrackingAsset.
+    * Modified cmdlet Update-DZDomain: added parameter ServiceRole.
+    * Modified cmdlet Update-DZProject: added parameters EnvironmentDeploymentDetails_EnvironmentFailureReason and EnvironmentDeploymentDetails_OverallDeploymentStatus.
+    * Modified cmdlet Write-DZEnvironmentBlueprintConfiguration: added parameter EnvironmentRolePermissionBoundary.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameter MultiRegionConsistency.
+  * Amazon Glue
+    * Added cmdlet Edit-GLUEIntegration leveraging the ModifyIntegration service API.
+    * Added cmdlet Get-GLUECatalog leveraging the GetCatalog service API.
+    * Added cmdlet Get-GLUECatalogList leveraging the GetCatalogs service API.
+    * Added cmdlet Get-GLUEConnectionType leveraging the DescribeConnectionType service API.
+    * Added cmdlet Get-GLUEConnectionTypeList leveraging the ListConnectionTypes service API.
+    * Added cmdlet Get-GLUEEntity leveraging the DescribeEntity service API.
+    * Added cmdlet Get-GLUEEntityList leveraging the ListEntities service API.
+    * Added cmdlet Get-GLUEEntityRecord leveraging the GetEntityRecords service API.
+    * Added cmdlet Get-GLUEInboundIntegration leveraging the DescribeInboundIntegrations service API.
+    * Added cmdlet Get-GLUEIntegration leveraging the DescribeIntegrations service API.
+    * Added cmdlet Get-GLUEIntegrationResourceProperty leveraging the GetIntegrationResourceProperty service API.
+    * Added cmdlet Get-GLUEIntegrationTableProperty leveraging the GetIntegrationTableProperties service API.
+    * Added cmdlet New-GLUECatalog leveraging the CreateCatalog service API.
+    * Added cmdlet New-GLUEIntegration leveraging the CreateIntegration service API.
+    * Added cmdlet New-GLUEIntegrationResourceProperty leveraging the CreateIntegrationResourceProperty service API.
+    * Added cmdlet New-GLUEIntegrationTableProperty leveraging the CreateIntegrationTableProperties service API.
+    * Added cmdlet Remove-GLUECatalog leveraging the DeleteCatalog service API.
+    * Added cmdlet Remove-GLUEIntegration leveraging the DeleteIntegration service API.
+    * Added cmdlet Remove-GLUEIntegrationTableProperty leveraging the DeleteIntegrationTableProperties service API.
+    * Added cmdlet Update-GLUECatalog leveraging the UpdateCatalog service API.
+    * Added cmdlet Update-GLUEIntegrationResourceProperty leveraging the UpdateIntegrationResourceProperty service API.
+    * Added cmdlet Update-GLUEIntegrationTableProperty leveraging the UpdateIntegrationTableProperties service API.
+    * Modified cmdlet Get-GLUEConnection: added parameter ApplyOverrideForComputeEnvironment.
+    * Modified cmdlet Test-GLUEConnection: added parameters AuthenticationConfiguration_CustomAuthenticationCredential, AuthenticationConfiguration_KmsKeyArn, BasicAuthenticationCredentials_Password, BasicAuthenticationCredentials_Username, CatalogId, OAuth2Credentials_AccessToken, OAuth2Credentials_JwtToken, OAuth2Credentials_RefreshToken and OAuth2Credentials_UserManagedClientApplicationClientSecret.
+  * Amazon Lake Formation
+    * [Breaking Change] Modified cmdlet Add-LKFLFTagsToResource: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Get-LKFLakeFormationOptInList: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Get-LKFPermissionList: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Get-LKFResourceLFTag: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Grant-LKFPermission: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet New-LKFLakeFormationOptIn: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Remove-LKFLakeFormationOptIn: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Remove-LKFLFTagsFromResource: removed parameter Resource_Catalog; added parameter Catalog_Id.
+    * [Breaking Change] Modified cmdlet Revoke-LKFPermission: removed parameter Resource_Catalog; added parameter Catalog_Id.
+  * Amazon QBusiness
+    * Added cmdlet Add-QBUSPermission leveraging the AssociatePermission service API.
+    * Added cmdlet Get-QBUSDataAccessor leveraging the GetDataAccessor service API.
+    * Added cmdlet Get-QBUSDataAccessorList leveraging the ListDataAccessors service API.
+    * Added cmdlet Get-QBUSPluginActionList leveraging the ListPluginActions service API.
+    * Added cmdlet Get-QBUSPluginTypeActionList leveraging the ListPluginTypeActions service API.
+    * Added cmdlet Get-QBUSPluginTypeMetadataList leveraging the ListPluginTypeMetadata service API.
+    * Added cmdlet Get-QBUSPolicy leveraging the GetPolicy service API.
+    * Added cmdlet New-QBUSDataAccessor leveraging the CreateDataAccessor service API.
+    * Added cmdlet Remove-QBUSDataAccessor leveraging the DeleteDataAccessor service API.
+    * Added cmdlet Remove-QBUSPermission leveraging the DisassociatePermission service API.
+    * Added cmdlet Search-QBUSRelevantContent leveraging the SearchRelevantContent service API.
+    * Added cmdlet Update-QBUSDataAccessor leveraging the UpdateDataAccessor service API.
+    * Modified cmdlet New-QBUSApplication: added parameter QuickSightConfiguration_ClientNamespace.
+    * Modified cmdlet New-QBUSPlugin: added parameters IdcAuthConfiguration_IdcApplicationArn, IdcAuthConfiguration_RoleArn, OAuth2ClientCredentialConfiguration_AuthorizationUrl and OAuth2ClientCredentialConfiguration_TokenUrl.
+    * Modified cmdlet New-QBUSWebExperience: added parameters CustomizationConfiguration_CustomCSSUrl, CustomizationConfiguration_FaviconUrl, CustomizationConfiguration_FontUrl and CustomizationConfiguration_LogoUrl.
+    * Modified cmdlet Update-QBUSPlugin: added parameters IdcAuthConfiguration_IdcApplicationArn, IdcAuthConfiguration_RoleArn, OAuth2ClientCredentialConfiguration_AuthorizationUrl and OAuth2ClientCredentialConfiguration_TokenUrl.
+    * Modified cmdlet Update-QBUSWebExperience: added parameters CustomizationConfiguration_CustomCSSUrl, CustomizationConfiguration_FaviconUrl, CustomizationConfiguration_FontUrl and CustomizationConfiguration_LogoUrl.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSDefaultQBusinessApplication leveraging the DescribeDefaultQBusinessApplication service API.
+    * Added cmdlet Get-QSQuickSightQSearchConfiguration leveraging the DescribeQuickSightQSearchConfiguration service API.
+    * Added cmdlet Initialize-QSEmbedUrlForRegisteredUserWithIdentity leveraging the GenerateEmbedUrlForRegisteredUserWithIdentity service API.
+    * Added cmdlet Remove-QSDefaultQBusinessApplication leveraging the DeleteDefaultQBusinessApplication service API.
+    * Added cmdlet Search-QSQAResult leveraging the PredictQAResults service API.
+    * Added cmdlet Update-QSApplicationWithTokenExchangeGrant leveraging the UpdateApplicationWithTokenExchangeGrant service API.
+    * Added cmdlet Update-QSDefaultQBusinessApplication leveraging the UpdateDefaultQBusinessApplication service API.
+    * Added cmdlet Update-QSQuickSightQSearchConfiguration leveraging the UpdateQuickSightQSearchConfiguration service API.
+  * Amazon Redshift
+    * Added cmdlet Register-RSNamespace leveraging the RegisterNamespace service API.
+    * Added cmdlet Unregister-RSNamespace leveraging the DeregisterNamespace service API.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSManagedWorkgroupList leveraging the ListManagedWorkgroups service API.
+  * Amazon S3 Tables. Added cmdlets to support the service. Cmdlets for the service have the noun prefix S3T and can be listed using the command 'Get-AWSCmdletName -Service S3T'.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3BucketMetadataTableConfiguration leveraging the GetBucketMetadataTableConfiguration service API.
+    * Added cmdlet New-S3BucketMetadataTableConfiguration leveraging the CreateBucketMetadataTableConfiguration service API.
+    * Added cmdlet Remove-S3BucketMetadataTableConfiguration leveraging the DeleteBucketMetadataTableConfiguration service API.
+
+### 4.1.710 (2024-12-03 08:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.938.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Modified cmdlet Invoke-BDRRConverse: added parameter PerformanceConfig_Latency.

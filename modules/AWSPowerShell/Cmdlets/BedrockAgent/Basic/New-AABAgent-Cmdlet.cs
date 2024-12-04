@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AgentCollaboration
+        /// <summary>
+        /// <para>
+        /// <para>The agent's collaboration role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.AgentCollaboration")]
+        public Amazon.BedrockAgent.AgentCollaboration AgentCollaboration { get; set; }
+        #endregion
+        
         #region Parameter AgentName
         /// <summary>
         /// <para>
@@ -350,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.Select = (response, cmdlet) => this.AgentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AgentCollaboration = this.AgentCollaboration;
             context.AgentName = this.AgentName;
             #if MODULAR
             if (this.AgentName == null && ParameterWasBound(nameof(this.AgentName)))
@@ -402,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             // create request
             var request = new Amazon.BedrockAgent.Model.CreateAgentRequest();
             
+            if (cmdletContext.AgentCollaboration != null)
+            {
+                request.AgentCollaboration = cmdletContext.AgentCollaboration;
+            }
             if (cmdletContext.AgentName != null)
             {
                 request.AgentName = cmdletContext.AgentName;
@@ -624,6 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.BedrockAgent.AgentCollaboration AgentCollaboration { get; set; }
             public System.String AgentName { get; set; }
             public System.String AgentResourceRoleArn { get; set; }
             public System.String ClientToken { get; set; }

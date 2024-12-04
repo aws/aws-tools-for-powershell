@@ -4591,7 +4591,7 @@ $ATH_Completers = {
             ($_ -eq "Update-ATHDataCatalog/Type")
         }
         {
-            $v = "GLUE","HIVE","LAMBDA"
+            $v = "FEDERATED","GLUE","HIVE","LAMBDA"
             break
         }
 
@@ -6554,7 +6554,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.CustomizationType
         "New-BDRModelCustomizationJob/CustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING"
             break
         }
 
@@ -6596,7 +6596,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.ModelCustomization
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING"
             break
         }
 
@@ -6833,6 +6833,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.AgentCollaboration
+        {
+            ($_ -eq "New-AABAgent/AgentCollaboration") -Or
+            ($_ -eq "Update-AABAgent/AgentCollaboration")
+        }
+        {
+            $v = "DISABLED","SUPERVISOR","SUPERVISOR_ROUTER"
+            break
+        }
+
         # Amazon.BedrockAgent.ChunkingStrategy
         {
             ($_ -eq "New-AABDataSource/ChunkingConfiguration_ChunkingStrategy") -Or
@@ -6974,6 +6984,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.RelayConversationHistory
+        {
+            ($_ -eq "Register-AABAgentCollaborator/RelayConversationHistory") -Or
+            ($_ -eq "Update-AABAgentCollaborator/RelayConversationHistory")
+        }
+        {
+            $v = "DISABLED","TO_COLLABORATOR"
+            break
+        }
+
         # Amazon.BedrockAgent.SalesforceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType") -Or
@@ -7032,6 +7052,7 @@ $AAB_Completers = {
 $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
@@ -7050,6 +7071,7 @@ $AAB_map = @{
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
@@ -7105,7 +7127,8 @@ $AAB_SelectCompleters = {
 }
 
 $AAB_SelectMap = @{
-    "Select"=@("Register-AABAgentKnowledgeBase",
+    "Select"=@("Register-AABAgentCollaborator",
+               "Register-AABAgentKnowledgeBase",
                "New-AABAgent",
                "New-AABAgentActionGroup",
                "New-AABAgentAlias",
@@ -7127,10 +7150,12 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBase",
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
+               "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
                "Get-AABAgentActionGroup",
                "Get-AABAgentAlias",
+               "Get-AABAgentCollaborator",
                "Get-AABAgentKnowledgeBase",
                "Get-AABAgentVersion",
                "Get-AABDataSource",
@@ -7144,6 +7169,7 @@ $AAB_SelectMap = @{
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
+               "Get-AABAgentCollaboratorList",
                "Get-AABAgentKnowledgeBasisList",
                "Get-AABAgentList",
                "Get-AABAgentVersionList",
@@ -7165,6 +7191,7 @@ $AAB_SelectMap = @{
                "Update-AABAgent",
                "Update-AABAgentActionGroup",
                "Update-AABAgentAlias",
+               "Update-AABAgentCollaborator",
                "Update-AABAgentKnowledgeBase",
                "Update-AABDataSource",
                "Update-AABFlow",
@@ -7338,6 +7365,13 @@ $BDRR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockRuntime.AsyncInvokeStatus
+        "Get-BDRRAsyncInvokeList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress"
+            break
+        }
+
         # Amazon.BedrockRuntime.GuardrailContentSource
         "Invoke-BDRRGuardrail/Source"
         {
@@ -7374,6 +7408,20 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.SortAsyncInvocationBy
+        "Get-BDRRAsyncInvokeList/SortBy"
+        {
+            $v = "SubmissionTime"
+            break
+        }
+
+        # Amazon.BedrockRuntime.SortOrder
+        "Get-BDRRAsyncInvokeList/SortOrder"
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
         # Amazon.BedrockRuntime.Trace
         {
             ($_ -eq "Invoke-BDRRModel/Trace") -Or
@@ -7397,7 +7445,10 @@ $BDRR_map = @{
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "SortBy"=@("Get-BDRRAsyncInvokeList")
+    "SortOrder"=@("Get-BDRRAsyncInvokeList")
     "Source"=@("Invoke-BDRRGuardrail")
+    "StatusEqual"=@("Get-BDRRAsyncInvokeList")
     "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
 }
 
@@ -7454,8 +7505,11 @@ $BDRR_SelectMap = @{
     "Select"=@("Invoke-BDRRGuardrail",
                "Invoke-BDRRConverse",
                "Invoke-BDRRConverseStream",
+               "Get-BDRRAsyncInvoke",
                "Invoke-BDRRModel",
-               "Invoke-BDRRModelWithResponseStream")
+               "Invoke-BDRRModelWithResponseStream",
+               "Get-BDRRAsyncInvokeList",
+               "Start-BDRRAsyncInvoke")
 }
 
 _awsArgumentCompleterRegistration $BDRR_SelectCompleters $BDRR_SelectMap
@@ -19972,6 +20026,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.AuthenticationType
+        "New-DZConnection/AuthenticationConfiguration_AuthenticationType"
+        {
+            $v = "BASIC","CUSTOM","OAUTH2"
+            break
+        }
+
         # Amazon.DataZone.AuthType
         {
             ($_ -eq "New-DZDomain/SingleSignOn_Type") -Or
@@ -19986,6 +20047,13 @@ $DZ_Completers = {
         "New-DZListingChangeSet/Action"
         {
             $v = "PUBLISH","UNPUBLISH"
+            break
+        }
+
+        # Amazon.DataZone.ConnectionType
+        "Get-DZConnectionList/Type"
+        {
+            $v = "ATHENA","BIGQUERY","DATABRICKS","DOCUMENTDB","DYNAMODB","HYPERPOD","IAM","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","VERTICA","WORKFLOWS_MWAA"
             break
         }
 
@@ -20035,6 +20103,13 @@ $DZ_Completers = {
         }
         {
             $v = "OWNER"
+            break
+        }
+
+        # Amazon.DataZone.DomainVersion
+        "New-DZDomain/DomainVersion"
+        {
+            $v = "V1","V2"
             break
         }
 
@@ -20103,6 +20178,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.GlueConnectionType
+        "New-DZConnection/GlueConnectionInput_ConnectionType"
+        {
+            $v = "BIGQUERY","DOCUMENTDB","DYNAMODB","MYSQL","OPENSEARCH","ORACLE","POSTGRESQL","REDSHIFT","SAPHANA","SNOWFLAKE","SQLSERVER","TERADATA","VERTICA"
+            break
+        }
+
         # Amazon.DataZone.GroupProfileStatus
         "Update-DZGroupProfile/Status"
         {
@@ -20124,6 +20206,20 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.JobRunStatus
+        "Get-DZJobRunList/Status"
+        {
+            $v = "ABORTED","CANCELED","FAILED","IN_PROGRESS","PARTIALLY_SUCCEEDED","SCHEDULED","SUCCESS","TIMED_OUT"
+            break
+        }
+
+        # Amazon.DataZone.LineageEventProcessingStatus
+        "Get-DZLineageEventList/ProcessingStatus"
+        {
+            $v = "FAILED","PROCESSING","REQUESTED","SUCCESS"
+            break
+        }
+
         # Amazon.DataZone.ManagedPolicyType
         {
             ($_ -eq "Add-DZPolicyGrant/PolicyType") -Or
@@ -20131,7 +20227,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/PolicyType")
         }
         {
-            $v = "ADD_TO_PROJECT_MEMBER_POOL","CREATE_ASSET_TYPE","CREATE_DOMAIN_UNIT","CREATE_ENVIRONMENT","CREATE_ENVIRONMENT_PROFILE","CREATE_FORM_TYPE","CREATE_GLOSSARY","CREATE_PROJECT","DELEGATE_CREATE_ENVIRONMENT_PROFILE","OVERRIDE_DOMAIN_UNIT_OWNERS","OVERRIDE_PROJECT_OWNERS"
+            $v = "ADD_TO_PROJECT_MEMBER_POOL","CREATE_ASSET_TYPE","CREATE_DOMAIN_UNIT","CREATE_ENVIRONMENT","CREATE_ENVIRONMENT_FROM_BLUEPRINT","CREATE_ENVIRONMENT_PROFILE","CREATE_FORM_TYPE","CREATE_GLOSSARY","CREATE_PROJECT","CREATE_PROJECT_FROM_PROJECT_PROFILE","DELEGATE_CREATE_ENVIRONMENT_PROFILE","OVERRIDE_DOMAIN_UNIT_OWNERS","OVERRIDE_PROJECT_OWNERS"
             break
         }
 
@@ -20163,6 +20259,20 @@ $DZ_Completers = {
         "Get-DZNotificationList/Type"
         {
             $v = "EVENT","TASK"
+            break
+        }
+
+        # Amazon.DataZone.OAuth2GrantType
+        "New-DZConnection/OAuth2Properties_OAuth2GrantType"
+        {
+            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
+            break
+        }
+
+        # Amazon.DataZone.OverallDeploymentStatus
+        "Update-DZProject/EnvironmentDeploymentDetails_OverallDeploymentStatus"
+        {
+            $v = "FAILED_DEPLOYMENT","FAILED_VALIDATION","IN_PROGRESS","PENDING_DEPLOYMENT","SUCCESSFUL"
             break
         }
 
@@ -20207,8 +20317,18 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.SortFieldConnection
+        "Get-DZConnectionList/SortBy"
+        {
+            $v = "NAME"
+            break
+        }
+
         # Amazon.DataZone.SortFieldProject
-        "Get-DZProjectMembershipList/SortBy"
+        {
+            ($_ -eq "Get-DZProjectMembershipList/SortBy") -Or
+            ($_ -eq "Get-DZProjectProfileList/SortBy")
+        }
         {
             $v = "NAME"
             break
@@ -20231,8 +20351,12 @@ $DZ_Completers = {
             ($_ -eq "Search-DZListing/Sort_Order") -Or
             ($_ -eq "Search-DZResource/Sort_Order") -Or
             ($_ -eq "Search-DZType/Sort_Order") -Or
+            ($_ -eq "Get-DZConnectionList/SortOrder") -Or
+            ($_ -eq "Get-DZJobRunList/SortOrder") -Or
+            ($_ -eq "Get-DZLineageEventList/SortOrder") -Or
             ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
+            ($_ -eq "Get-DZProjectProfileList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionRequestList/SortOrder") -Or
@@ -20240,6 +20364,16 @@ $DZ_Completers = {
         }
         {
             $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.DataZone.Status
+        {
+            ($_ -eq "New-DZProjectProfile/Status") -Or
+            ($_ -eq "Update-DZProjectProfile/Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -20370,13 +20504,19 @@ $DZ_Completers = {
 $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
     "Action"=@("Get-DZRuleList","New-DZListingChangeSet","New-DZRule")
+    "AuthenticationConfiguration_AuthenticationType"=@("New-DZConnection")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
     "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
+    "DomainVersion"=@("New-DZDomain")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Add-DZEntityOwner","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
+    "EnvironmentDeploymentDetails_OverallDeploymentStatus"=@("Update-DZProject")
+    "GlueConnectionInput_ConnectionType"=@("New-DZConnection")
     "GroupType"=@("Search-DZGroupProfile")
+    "OAuth2Properties_OAuth2GrantType"=@("New-DZConnection")
     "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
+    "ProcessingStatus"=@("Get-DZLineageEventList")
     "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "RuleType"=@("Get-DZRuleList")
@@ -20385,13 +20525,13 @@ $DZ_map = @{
     "SingleSignOn_Type"=@("New-DZDomain","Update-DZDomain")
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
-    "SortBy"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "SortBy"=@("Get-DZConnectionList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZConnectionList","Get-DZJobRunList","Get-DZLineageEventList","Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZProjectProfileList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZJobRunList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","New-DZProjectProfile","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZProjectProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TargetType"=@("Get-DZRuleList")
     "TaskStatus"=@("Get-DZNotificationList")
-    "Type"=@("Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
+    "Type"=@("Get-DZConnectionList","Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -20456,6 +20596,7 @@ $DZ_SelectMap = @{
                "New-DZAssetFilter",
                "New-DZAssetRevision",
                "New-DZAssetType",
+               "New-DZConnection",
                "New-DZDataProduct",
                "New-DZDataProductRevision",
                "New-DZDataSource",
@@ -20471,6 +20612,7 @@ $DZ_SelectMap = @{
                "New-DZListingChangeSet",
                "New-DZProject",
                "New-DZProjectMembership",
+               "New-DZProjectProfile",
                "New-DZRule",
                "New-DZSubscriptionGrant",
                "New-DZSubscriptionRequest",
@@ -20479,6 +20621,7 @@ $DZ_SelectMap = @{
                "Remove-DZAsset",
                "Remove-DZAssetFilter",
                "Remove-DZAssetType",
+               "Remove-DZConnection",
                "Remove-DZDataProduct",
                "Remove-DZDataSource",
                "Remove-DZDomain",
@@ -20493,6 +20636,7 @@ $DZ_SelectMap = @{
                "Remove-DZListing",
                "Remove-DZProject",
                "Remove-DZProjectMembership",
+               "Remove-DZProjectProfile",
                "Remove-DZRule",
                "Remove-DZSubscriptionGrant",
                "Remove-DZSubscriptionRequest",
@@ -20502,6 +20646,7 @@ $DZ_SelectMap = @{
                "Get-DZAsset",
                "Get-DZAssetFilter",
                "Get-DZAssetType",
+               "Get-DZConnection",
                "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
@@ -20518,10 +20663,13 @@ $DZ_SelectMap = @{
                "Get-DZGlossaryTerm",
                "Get-DZGroupProfile",
                "Get-DZIamPortalLoginUrl",
+               "Get-DZJobRun",
+               "Get-DZLineageEvent",
                "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
                "Get-DZProject",
+               "Get-DZProjectProfile",
                "Get-DZRule",
                "Get-DZSubscription",
                "Get-DZSubscriptionGrant",
@@ -20531,6 +20679,7 @@ $DZ_SelectMap = @{
                "Get-DZUserProfile",
                "Get-DZAssetFilterList",
                "Get-DZAssetRevisionList",
+               "Get-DZConnectionList",
                "Get-DZDataProductRevisionList",
                "Get-DZDataSourceRunActivityList",
                "Get-DZDataSourceRunList",
@@ -20543,11 +20692,14 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentBlueprintList",
                "Get-DZEnvironmentProfileList",
                "Get-DZEnvironmentList",
+               "Get-DZJobRunList",
+               "Get-DZLineageEventList",
                "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotificationList",
                "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
+               "Get-DZProjectProfileList",
                "Get-DZProjectList",
                "Get-DZRuleList",
                "Get-DZSubscriptionGrantList",
@@ -20574,6 +20726,7 @@ $DZ_SelectMap = @{
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
                "Update-DZAssetFilter",
+               "Update-DZConnection",
                "Update-DZDataSource",
                "Update-DZDomain",
                "Update-DZDomainUnit",
@@ -20584,6 +20737,7 @@ $DZ_SelectMap = @{
                "Update-DZGlossaryTerm",
                "Update-DZGroupProfile",
                "Update-DZProject",
+               "Update-DZProjectProfile",
                "Update-DZRule",
                "Update-DZSubscriptionGrantStatus",
                "Update-DZSubscriptionRequest",
@@ -23595,6 +23749,70 @@ $DS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $DS_SelectCompleters $DS_SelectMap
+# Argument completions for service Amazon Aurora DSQL
+
+
+$DSQL_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.DSQL.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DSQL_SelectMap = @{
+    "Select"=@("New-DSQLCluster",
+               "New-DSQLMultiRegionCluster",
+               "Remove-DSQLCluster",
+               "Remove-DSQLMultiRegionCluster",
+               "Get-DSQLCluster",
+               "Get-DSQLClusterList",
+               "Get-DSQLResourceTag",
+               "Add-DSQLResourceTag",
+               "Remove-DSQLResourceTag",
+               "Update-DSQLCluster")
+}
+
+_awsArgumentCompleterRegistration $DSQL_SelectCompleters $DSQL_SelectMap
 # Argument completions for service Amazon DynamoDB
 
 
@@ -23694,6 +23912,13 @@ $DDB_Completers = {
         "Add-DDBKeySchema/KeyType"
         {
             $v = "HASH","RANGE"
+            break
+        }
+
+        # Amazon.DynamoDBv2.MultiRegionConsistency
+        "Update-DDBTable/MultiRegionConsistency"
+        {
+            $v = "EVENTUAL","STRONG"
             break
         }
 
@@ -23839,6 +24064,7 @@ $DDB_map = @{
     "InputFormat"=@("Import-DDBTable")
     "KeyDataType"=@("Add-DDBKeySchema")
     "KeyType"=@("Add-DDBKeySchema")
+    "MultiRegionConsistency"=@("Update-DDBTable")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
@@ -33123,7 +33349,7 @@ $GLUE_Completers = {
         # Amazon.Glue.AuthenticationType
         "Test-GLUEConnection/AuthenticationConfiguration_AuthenticationType"
         {
-            $v = "BASIC","CUSTOM","OAUTH2"
+            $v = "BASIC","CUSTOM","IAM","OAUTH2"
             break
         }
 
@@ -33151,10 +33377,17 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ComputeEnvironment
+        "Get-GLUEConnection/ApplyOverrideForComputeEnvironment"
+        {
+            $v = "ATHENA","PYTHON","SPARK"
+            break
+        }
+
         # Amazon.Glue.ConnectionType
         "Test-GLUEConnection/TestConnectionInput_ConnectionType"
         {
-            $v = "CUSTOM","JDBC","KAFKA","MARKETPLACE","MONGODB","NETWORK","SALESFORCE","SFTP","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT"
+            $v = "CUSTOM","FACEBOOKADS","GOOGLEADS","GOOGLEANALYTICS4","GOOGLESHEETS","HUBSPOT","INSTAGRAMADS","INTERCOM","JDBC","JIRACLOUD","KAFKA","MARKETO","MARKETPLACE","MONGODB","NETSUITEERP","NETWORK","SALESFORCE","SALESFORCEMARKETINGCLOUD","SALESFORCEPARDOT","SAPODATA","SERVICENOW","SFTP","SLACK","SNAPCHATADS","STRIPE","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT","ZENDESK","ZOHOCRM"
             break
         }
 
@@ -33414,6 +33647,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.UnnestSpec
+        {
+            ($_ -eq "New-GLUEIntegrationTableProperty/TargetTableConfig_UnnestSpec") -Or
+            ($_ -eq "Update-GLUEIntegrationTableProperty/TargetTableConfig_UnnestSpec")
+        }
+        {
+            $v = "FULL","NOUNNEST","TOPLEVEL"
+            break
+        }
+
         # Amazon.Glue.ViewDialect
         "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
         {
@@ -33452,6 +33695,7 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
@@ -33484,6 +33728,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
+    "TargetTableConfig_UnnestSpec"=@("New-GLUEIntegrationTableProperty","Update-GLUEIntegrationTableProperty")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
@@ -33564,6 +33809,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEStatement",
                "Get-GLUESchemaVersionValidity",
                "New-GLUEBlueprint",
+               "New-GLUECatalog",
                "New-GLUEClassifier",
                "New-GLUEColumnStatisticsTaskSetting",
                "New-GLUEConnection",
@@ -33572,6 +33818,9 @@ $GLUE_SelectMap = @{
                "New-GLUEDatabase",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
+               "New-GLUEIntegration",
+               "New-GLUEIntegrationResourceProperty",
+               "New-GLUEIntegrationTableProperty",
                "New-GLUEJob",
                "New-GLUEMLTransform",
                "New-GLUEPartition",
@@ -33588,6 +33837,7 @@ $GLUE_SelectMap = @{
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
                "Remove-GLUEBlueprint",
+               "Remove-GLUECatalog",
                "Remove-GLUEClassifier",
                "Remove-GLUEColumnStatisticsForPartition",
                "Remove-GLUEColumnStatisticsForTable",
@@ -33598,6 +33848,8 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDatabase",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
+               "Remove-GLUEIntegration",
+               "Remove-GLUEIntegrationTableProperty",
                "Remove-GLUEJob",
                "Remove-GLUEMLTransform",
                "Remove-GLUEPartition",
@@ -33615,10 +33867,16 @@ $GLUE_SelectMap = @{
                "Remove-GLUEUsageProfile",
                "Remove-GLUEUserDefinedFunction",
                "Remove-GLUEWorkflow",
+               "Get-GLUEConnectionType",
+               "Get-GLUEEntity",
+               "Get-GLUEInboundIntegration",
+               "Get-GLUEIntegration",
                "Get-GLUEBlueprint",
                "Get-GLUEBlueprintRun",
                "Get-GLUEBlueprintRunList",
+               "Get-GLUECatalog",
                "Get-GLUECatalogImportStatus",
+               "Get-GLUECatalogList",
                "Get-GLUEClassifier",
                "Get-GLUEClassifierList",
                "Get-GLUEColumnStatisticsForPartition",
@@ -33644,6 +33902,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityRulesetEvaluationRun",
                "Get-GLUEDevEndpoint",
                "Get-GLUEDevEndpointList",
+               "Get-GLUEEntityRecord",
+               "Get-GLUEIntegrationResourceProperty",
+               "Get-GLUEIntegrationTableProperty",
                "Get-GLUEJob",
                "Get-GLUEJobBookmark",
                "Get-GLUEJobRun",
@@ -33690,6 +33951,7 @@ $GLUE_SelectMap = @{
                "Import-GLUECatalog",
                "Get-GLUEBlueprintList",
                "Get-GLUEColumnStatisticsTaskRunList",
+               "Get-GLUEConnectionTypeList",
                "Get-GLUECrawlerNameList",
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
@@ -33700,6 +33962,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityStatisticAnnotationList",
                "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
+               "Get-GLUEEntityList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
                "Get-GLUERegistryList",
@@ -33711,6 +33974,7 @@ $GLUE_SelectMap = @{
                "Get-GLUETriggerNameList",
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
+               "Edit-GLUEIntegration",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Write-GLUEDataQualityProfileAnnotation",
                "Set-GLUEResourcePolicy",
@@ -33748,6 +34012,7 @@ $GLUE_SelectMap = @{
                "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
                "Update-GLUEBlueprint",
+               "Update-GLUECatalog",
                "Update-GLUEClassifier",
                "Update-GLUEColumnStatisticsForPartition",
                "Update-GLUEColumnStatisticsForTable",
@@ -33758,6 +34023,8 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
+               "Update-GLUEIntegrationResourceProperty",
+               "Update-GLUEIntegrationTableProperty",
                "Update-GLUEJob",
                "Update-GLUEJobFromSourceControl",
                "Update-GLUEMLTransform",
@@ -57491,7 +57758,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.IdentityType
         "New-QBUSApplication/IdentityType"
         {
-            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML"
+            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML","AWS_QUICKSIGHT_IDP"
             break
         }
 
@@ -57551,9 +57818,12 @@ $QBUS_Completers = {
         }
 
         # Amazon.QBusiness.PluginType
-        "New-QBUSPlugin/Type"
         {
-            $v = "CUSTOM","JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
+            ($_ -eq "Get-QBUSPluginTypeActionList/PluginType") -Or
+            ($_ -eq "New-QBUSPlugin/Type")
+        }
+        {
+            $v = "ASANA","ATLASSIAN_CONFLUENCE","CUSTOM","GOOGLE_CALENDAR","JIRA","JIRA_CLOUD","MICROSOFT_EXCHANGE","MICROSOFT_TEAMS","PAGERDUTY_ADVANCE","QUICKSIGHT","SALESFORCE","SALESFORCE_CRM","SERVICENOW_NOW_PLATFORM","SERVICE_NOW","SMARTSHEET","ZENDESK","ZENDESK_SUITE"
             break
         }
 
@@ -57620,6 +57890,7 @@ $QBUS_map = @{
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
@@ -57678,10 +57949,12 @@ $QBUS_SelectCompleters = {
 }
 
 $QBUS_SelectMap = @{
-    "Select"=@("Remove-QBUSBatchDeleteDocument",
+    "Select"=@("Add-QBUSPermission",
+               "Remove-QBUSBatchDeleteDocument",
                "Set-QBUSBatchPutDocument",
                "Set-QBUSChatSync",
                "New-QBUSApplication",
+               "New-QBUSDataAccessor",
                "New-QBUSDataSource",
                "New-QBUSIndex",
                "New-QBUSPlugin",
@@ -57691,6 +57964,7 @@ $QBUS_SelectMap = @{
                "Remove-QBUSApplication",
                "Remove-QBUSChatControlsConfiguration",
                "Remove-QBUSConversation",
+               "Remove-QBUSDataAccessor",
                "Remove-QBUSDataSource",
                "Remove-QBUSGroup",
                "Remove-QBUSIndex",
@@ -57698,37 +57972,46 @@ $QBUS_SelectMap = @{
                "Remove-QBUSRetriever",
                "Remove-QBUSUser",
                "Remove-QBUSWebExperience",
+               "Remove-QBUSPermission",
                "Get-QBUSApplication",
                "Get-QBUSChatControlsConfiguration",
+               "Get-QBUSDataAccessor",
                "Get-QBUSDataSource",
                "Get-QBUSGroup",
                "Get-QBUSIndex",
                "Get-QBUSMedia",
                "Get-QBUSPlugin",
+               "Get-QBUSPolicy",
                "Get-QBUSRetriever",
                "Get-QBUSUser",
                "Get-QBUSWebExperience",
                "Get-QBUSApplicationList",
                "Get-QBUSAttachmentList",
                "Get-QBUSConversationList",
+               "Get-QBUSDataAccessorList",
                "Get-QBUSDataSourceList",
                "Get-QBUSDataSourceSyncJobList",
                "Get-QBUSDocumentList",
                "Get-QBUSGroupList",
                "Get-QBUSIndexList",
                "Get-QBUSMessageList",
+               "Get-QBUSPluginActionList",
                "Get-QBUSPluginList",
+               "Get-QBUSPluginTypeActionList",
+               "Get-QBUSPluginTypeMetadataList",
                "Get-QBUSRetrieverList",
                "Get-QBUSResourceTag",
                "Get-QBUSWebExperienceList",
                "Write-QBUSFeedback",
                "Write-QBUSGroup",
+               "Search-QBUSRelevantContent",
                "Start-QBUSDataSourceSyncJob",
                "Stop-QBUSDataSourceSyncJob",
                "Add-QBUSResourceTag",
                "Remove-QBUSResourceTag",
                "Update-QBUSApplication",
                "Update-QBUSChatControlsConfiguration",
+               "Update-QBUSDataAccessor",
                "Update-QBUSDataSource",
                "Update-QBUSIndex",
                "Update-QBUSPlugin",
@@ -58497,6 +58780,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IncludeGeneratedAnswer
+        "Search-QSQAResult/IncludeGeneratedAnswer"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
+        # Amazon.QuickSight.IncludeQuickSightQIndex
+        "Search-QSQAResult/IncludeQuickSightQIndex"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
         # Amazon.QuickSight.IngestionType
         {
             ($_ -eq "New-QSIngestion/IngestionType") -Or
@@ -58564,6 +58861,13 @@ $QS_Completers = {
         "Update-QSSPICECapacityConfiguration/PurchaseMode"
         {
             $v = "AUTO_PURCHASE","MANUAL"
+            break
+        }
+
+        # Amazon.QuickSight.QSearchStatus
+        "Update-QSQuickSightQSearchConfiguration/QSearchStatus"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -58643,7 +58947,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSIdentityPropagationConfig/Service")
         }
         {
-            $v = "REDSHIFT"
+            $v = "QBUSINESS","REDSHIFT"
             break
         }
 
@@ -58786,6 +59090,8 @@ $QS_map = @{
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "IncludeFolderMember"=@("Start-QSAssetBundleExportJob")
+    "IncludeGeneratedAnswer"=@("Search-QSQAResult")
+    "IncludeQuickSightQIndex"=@("Search-QSQAResult")
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
@@ -58794,6 +59100,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
+    "QSearchStatus"=@("Update-QSQuickSightQSearchConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
@@ -58907,6 +59214,7 @@ $QS_SelectMap = @{
                "Remove-QSDataSet",
                "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
+               "Remove-QSDefaultQBusinessApplication",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
                "Remove-QSGroup",
@@ -58950,6 +59258,7 @@ $QS_SelectMap = @{
                "Get-QSDataSetRefreshProperty",
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
+               "Get-QSDefaultQBusinessApplication",
                "Get-QSFolder",
                "Get-QSFolderPermission",
                "Get-QSFolderResolvedPermission",
@@ -58961,6 +59270,7 @@ $QS_SelectMap = @{
                "Get-QSKeyRegistration",
                "Get-QSNamespace",
                "Get-QSQPersonalizationConfiguration",
+               "Get-QSQuickSightQSearchConfiguration",
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
                "Get-QSTemplate",
@@ -58978,6 +59288,7 @@ $QS_SelectMap = @{
                "Get-QSVPCConnection",
                "New-QSEmbedUrlForAnonymousUser",
                "New-QSEmbedUrlForRegisteredUser",
+               "Initialize-QSEmbedUrlForRegisteredUserWithIdentity",
                "Get-QSDashboardEmbedUrl",
                "Get-QSSessionEmbedUrl",
                "Get-QSAnalysisList",
@@ -59014,6 +59325,7 @@ $QS_SelectMap = @{
                "Get-QSUserGroupList",
                "Get-QSUserList",
                "Get-QSVPCConnectionList",
+               "Search-QSQAResult",
                "Write-QSDataSetRefreshProperty",
                "Register-QSUser",
                "Restore-QSAnalysis",
@@ -59034,6 +59346,7 @@ $QS_SelectMap = @{
                "Update-QSAccountSetting",
                "Update-QSAnalysis",
                "Update-QSAnalysisPermission",
+               "Update-QSApplicationWithTokenExchangeGrant",
                "Update-QSBrand",
                "Update-QSBrandAssignment",
                "Update-QSBrandPublishedVersion",
@@ -59047,6 +59360,7 @@ $QS_SelectMap = @{
                "Update-QSDataSetPermission",
                "Update-QSDataSource",
                "Update-QSDataSourcePermission",
+               "Update-QSDefaultQBusinessApplication",
                "Update-QSFolder",
                "Update-QSFolderPermission",
                "Update-QSGroup",
@@ -59056,6 +59370,7 @@ $QS_SelectMap = @{
                "Update-QSKeyRegistration",
                "Update-QSPublicSharingSetting",
                "Update-QSQPersonalizationConfiguration",
+               "Update-QSQuickSightQSearchConfiguration",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
                "Update-QSSPICECapacityConfiguration",
@@ -60046,6 +60361,7 @@ $RS_SelectMap = @{
                "Remove-RSSnapshotSchedule",
                "Remove-RSResourceTag",
                "Remove-RSUsageLimit",
+               "Unregister-RSNamespace",
                "Get-RSAccountAttribute",
                "Get-RSAuthenticationProfile",
                "Get-RSClusterDbRevision",
@@ -60122,6 +60438,7 @@ $RS_SelectMap = @{
                "Request-RSReservedNodeOffering",
                "Write-RSResourcePolicy",
                "Restart-RSCluster",
+               "Register-RSNamespace",
                "Deny-RSDataShare",
                "Reset-RSClusterParameterGroup",
                "Set-RSClusterSize",
@@ -60379,6 +60696,7 @@ $RSS_SelectMap = @{
                "Get-RSSWorkgroup",
                "Get-RSSCustomDomainAssociationList",
                "Get-RSSEndpointAccessList",
+               "Get-RSSManagedWorkgroupList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
                "Get-RSSScheduledActionList",
@@ -62934,6 +63252,7 @@ $S3_Completers = {
         {
             ($_ -eq "Add-S3PublicAccessBlock/ChecksumAlgorithm") -Or
             ($_ -eq "Copy-S3Object/ChecksumAlgorithm") -Or
+            ($_ -eq "New-S3BucketMetadataTableConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ACL/ChecksumAlgorithm") -Or
@@ -63208,7 +63527,7 @@ $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -63295,11 +63614,13 @@ $S3_SelectCompleters = {
 }
 
 $S3_SelectMap = @{
-    "Select"=@("New-S3Session",
+    "Select"=@("New-S3BucketMetadataTableConfiguration",
+               "New-S3Session",
                "Remove-S3BucketAnalyticsConfiguration",
                "Remove-S3BucketEncryption",
                "Remove-S3BucketIntelligentTieringConfiguration",
                "Remove-S3BucketInventoryConfiguration",
+               "Remove-S3BucketMetadataTableConfiguration",
                "Remove-S3BucketMetricsConfiguration",
                "Remove-S3BucketOwnershipControl",
                "Remove-S3BucketPolicy",
@@ -63318,6 +63639,7 @@ $S3_SelectMap = @{
                "Get-S3BucketInventoryConfiguration",
                "Get-S3BucketLocation",
                "Get-S3BucketLogging",
+               "Get-S3BucketMetadataTableConfiguration",
                "Get-S3BucketMetricsConfiguration",
                "Get-S3BucketNotification",
                "Get-S3BucketOwnershipControl",
@@ -63847,6 +64169,138 @@ $S3O_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $S3O_SelectCompleters $S3O_SelectMap
+# Argument completions for service Amazon S3 Tables
+
+
+$S3T_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.S3Tables.MaintenanceStatus
+        {
+            ($_ -eq "Write-S3TTableBucketMaintenanceConfiguration/Value_Status") -Or
+            ($_ -eq "Write-S3TTableMaintenanceConfiguration/Value_Status")
+        }
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.S3Tables.OpenTableFormat
+        "New-S3TTable/Format"
+        {
+            $v = "ICEBERG"
+            break
+        }
+
+        # Amazon.S3Tables.TableBucketMaintenanceType
+        "Write-S3TTableBucketMaintenanceConfiguration/Type"
+        {
+            $v = "icebergUnreferencedFileRemoval"
+            break
+        }
+
+        # Amazon.S3Tables.TableMaintenanceType
+        "Write-S3TTableMaintenanceConfiguration/Type"
+        {
+            $v = "icebergCompaction","icebergSnapshotManagement"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3T_map = @{
+    "Format"=@("New-S3TTable")
+    "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+    "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
+}
+
+_awsArgumentCompleterRegistration $S3T_Completers $S3T_map
+
+$S3T_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.S3T.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$S3T_SelectMap = @{
+    "Select"=@("New-S3TNamespace",
+               "New-S3TTable",
+               "New-S3TTableBucket",
+               "Remove-S3TNamespace",
+               "Remove-S3TTable",
+               "Remove-S3TTableBucket",
+               "Remove-S3TTableBucketPolicy",
+               "Remove-S3TTablePolicy",
+               "Get-S3TNamespace",
+               "Get-S3TTable",
+               "Get-S3TTableBucket",
+               "Get-S3TTableBucketMaintenanceConfiguration",
+               "Get-S3TTableBucketPolicy",
+               "Get-S3TTableMaintenanceConfiguration",
+               "Get-S3TTableMaintenanceJobStatus",
+               "Get-S3TTableMetadataLocation",
+               "Get-S3TTablePolicy",
+               "Get-S3TNamespaceList",
+               "Get-S3TTableBucketList",
+               "Get-S3TTableList",
+               "Write-S3TTableBucketMaintenanceConfiguration",
+               "Write-S3TTableBucketPolicy",
+               "Write-S3TTableMaintenanceConfiguration",
+               "Write-S3TTablePolicy",
+               "Rename-S3TTable",
+               "Update-S3TTableMetadataLocation")
+}
+
+_awsArgumentCompleterRegistration $S3T_SelectCompleters $S3T_SelectMap
 # Argument completions for service Amazon SageMaker Service
 
 

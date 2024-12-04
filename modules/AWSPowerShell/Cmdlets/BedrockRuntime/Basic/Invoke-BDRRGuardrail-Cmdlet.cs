@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
 {
     /// <summary>
     /// The action to apply a guardrail.
+    /// 
+    ///  
+    /// <para>
+    /// For troubleshooting some of the common errors you might encounter when using the <c>ApplyGuardrail</c>
+    /// API, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html">Troubleshooting
+    /// Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BDRRGuardrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockRuntime.Model.ApplyGuardrailResponse")]

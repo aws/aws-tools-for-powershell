@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter OAuth2Credentials_AccessToken
+        /// <summary>
+        /// <para>
+        /// <para>The access token used when the authentication type is OAuth2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_AccessToken")]
+        public System.String OAuth2Credentials_AccessToken { get; set; }
+        #endregion
+        
         #region Parameter AuthenticationConfiguration_AuthenticationType
         /// <summary>
         /// <para>
@@ -87,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication_AWSManagedClientApplicationReference")]
         public System.String OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
+        #endregion
+        
+        #region Parameter CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The catalog ID where the connection resides.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CatalogId { get; set; }
         #endregion
         
         #region Parameter ConnectionName
@@ -126,6 +147,40 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.ConnectionType TestConnectionInput_ConnectionType { get; set; }
         #endregion
         
+        #region Parameter AuthenticationConfiguration_CustomAuthenticationCredential
+        /// <summary>
+        /// <para>
+        /// <para>The credentials used when the authentication type is custom authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_CustomAuthenticationCredentials")]
+        public System.Collections.Hashtable AuthenticationConfiguration_CustomAuthenticationCredential { get; set; }
+        #endregion
+        
+        #region Parameter OAuth2Credentials_JwtToken
+        /// <summary>
+        /// <para>
+        /// <para>The JSON Web Token (JWT) used when the authentication type is OAuth2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_JwtToken")]
+        public System.String OAuth2Credentials_JwtToken { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the KMS key used to encrypt the connection. Only taken an as input in the
+        /// request and stored in the Secret Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_KmsKeyArn")]
+        public System.String AuthenticationConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter OAuth2Properties_OAuth2GrantType
         /// <summary>
         /// <para>
@@ -139,6 +194,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.OAuth2GrantType OAuth2Properties_OAuth2GrantType { get; set; }
         #endregion
         
+        #region Parameter BasicAuthenticationCredentials_Password
+        /// <summary>
+        /// <para>
+        /// <para>The password to connect to the data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_Password")]
+        public System.String BasicAuthenticationCredentials_Password { get; set; }
+        #endregion
+        
         #region Parameter AuthorizationCodeProperties_RedirectUri
         /// <summary>
         /// <para>
@@ -150,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_AuthorizationCodeProperties_RedirectUri")]
         public System.String AuthorizationCodeProperties_RedirectUri { get; set; }
+        #endregion
+        
+        #region Parameter OAuth2Credentials_RefreshToken
+        /// <summary>
+        /// <para>
+        /// <para>The refresh token used when the authentication type is OAuth2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_RefreshToken")]
+        public System.String OAuth2Credentials_RefreshToken { get; set; }
         #endregion
         
         #region Parameter AuthenticationConfiguration_SecretArn
@@ -197,6 +274,28 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
         #endregion
         
+        #region Parameter OAuth2Credentials_UserManagedClientApplicationClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>The client application client secret if the client application is user managed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_UserManagedClientApplicationClientSecret")]
+        public System.String OAuth2Credentials_UserManagedClientApplicationClientSecret { get; set; }
+        #endregion
+        
+        #region Parameter BasicAuthenticationCredentials_Username
+        /// <summary>
+        /// <para>
+        /// <para>The username to connect to the data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TestConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_Username")]
+        public System.String BasicAuthenticationCredentials_Username { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -242,12 +341,28 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.ConnectionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CatalogId = this.CatalogId;
             context.ConnectionName = this.ConnectionName;
             context.AuthenticationConfiguration_AuthenticationType = this.AuthenticationConfiguration_AuthenticationType;
+            context.BasicAuthenticationCredentials_Password = this.BasicAuthenticationCredentials_Password;
+            context.BasicAuthenticationCredentials_Username = this.BasicAuthenticationCredentials_Username;
+            if (this.AuthenticationConfiguration_CustomAuthenticationCredential != null)
+            {
+                context.AuthenticationConfiguration_CustomAuthenticationCredential = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AuthenticationConfiguration_CustomAuthenticationCredential.Keys)
+                {
+                    context.AuthenticationConfiguration_CustomAuthenticationCredential.Add((String)hashKey, (System.String)(this.AuthenticationConfiguration_CustomAuthenticationCredential[hashKey]));
+                }
+            }
+            context.AuthenticationConfiguration_KmsKeyArn = this.AuthenticationConfiguration_KmsKeyArn;
             context.AuthorizationCodeProperties_AuthorizationCode = this.AuthorizationCodeProperties_AuthorizationCode;
             context.AuthorizationCodeProperties_RedirectUri = this.AuthorizationCodeProperties_RedirectUri;
             context.OAuth2ClientApplication_AWSManagedClientApplicationReference = this.OAuth2ClientApplication_AWSManagedClientApplicationReference;
             context.OAuth2ClientApplication_UserManagedClientApplicationClientId = this.OAuth2ClientApplication_UserManagedClientApplicationClientId;
+            context.OAuth2Credentials_AccessToken = this.OAuth2Credentials_AccessToken;
+            context.OAuth2Credentials_JwtToken = this.OAuth2Credentials_JwtToken;
+            context.OAuth2Credentials_RefreshToken = this.OAuth2Credentials_RefreshToken;
+            context.OAuth2Credentials_UserManagedClientApplicationClientSecret = this.OAuth2Credentials_UserManagedClientApplicationClientSecret;
             context.OAuth2Properties_OAuth2GrantType = this.OAuth2Properties_OAuth2GrantType;
             context.OAuth2Properties_TokenUrl = this.OAuth2Properties_TokenUrl;
             if (this.OAuth2Properties_TokenUrlParametersMap != null)
@@ -284,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.TestConnectionRequest();
             
+            if (cmdletContext.CatalogId != null)
+            {
+                request.CatalogId = cmdletContext.CatalogId;
+            }
             if (cmdletContext.ConnectionName != null)
             {
                 request.ConnectionName = cmdletContext.ConnectionName;
@@ -327,6 +446,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration.AuthenticationType = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_AuthenticationType;
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfigurationIsNull = false;
             }
+            Dictionary<System.String, System.String> requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_CustomAuthenticationCredential = null;
+            if (cmdletContext.AuthenticationConfiguration_CustomAuthenticationCredential != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_CustomAuthenticationCredential = cmdletContext.AuthenticationConfiguration_CustomAuthenticationCredential;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_CustomAuthenticationCredential != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration.CustomAuthenticationCredentials = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_CustomAuthenticationCredential;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfigurationIsNull = false;
+            }
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_KmsKeyArn = null;
+            if (cmdletContext.AuthenticationConfiguration_KmsKeyArn != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_KmsKeyArn = cmdletContext.AuthenticationConfiguration_KmsKeyArn;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_KmsKeyArn != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration.KmsKeyArn = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_KmsKeyArn;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfigurationIsNull = false;
+            }
             System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_SecretArn = null;
             if (cmdletContext.AuthenticationConfiguration_SecretArn != null)
             {
@@ -335,6 +474,41 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_SecretArn != null)
             {
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration.SecretArn = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_authenticationConfiguration_SecretArn;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.BasicAuthenticationCredentials requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials = null;
+            
+             // populate BasicAuthenticationCredentials
+            var requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentialsIsNull = true;
+            requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials = new Amazon.Glue.Model.BasicAuthenticationCredentials();
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Password = null;
+            if (cmdletContext.BasicAuthenticationCredentials_Password != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Password = cmdletContext.BasicAuthenticationCredentials_Password;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Password != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials.Password = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Password;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentialsIsNull = false;
+            }
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Username = null;
+            if (cmdletContext.BasicAuthenticationCredentials_Username != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Username = cmdletContext.BasicAuthenticationCredentials_Username;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Username != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials.Username = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials_basicAuthenticationCredentials_Username;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentialsIsNull = false;
+            }
+             // determine if requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials should be set to null
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentialsIsNull)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials = null;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration.BasicAuthenticationCredentials = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_BasicAuthenticationCredentials;
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfigurationIsNull = false;
             }
             Amazon.Glue.Model.OAuth2PropertiesInput requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties = null;
@@ -442,6 +616,61 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties.OAuth2ClientApplication = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2ClientApplication;
                 requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
             }
+            Amazon.Glue.Model.OAuth2Credentials requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials = null;
+            
+             // populate OAuth2Credentials
+            var requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull = true;
+            requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials = new Amazon.Glue.Model.OAuth2Credentials();
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_AccessToken = null;
+            if (cmdletContext.OAuth2Credentials_AccessToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_AccessToken = cmdletContext.OAuth2Credentials_AccessToken;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_AccessToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials.AccessToken = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_AccessToken;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull = false;
+            }
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_JwtToken = null;
+            if (cmdletContext.OAuth2Credentials_JwtToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_JwtToken = cmdletContext.OAuth2Credentials_JwtToken;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_JwtToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials.JwtToken = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_JwtToken;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull = false;
+            }
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_RefreshToken = null;
+            if (cmdletContext.OAuth2Credentials_RefreshToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_RefreshToken = cmdletContext.OAuth2Credentials_RefreshToken;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_RefreshToken != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials.RefreshToken = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_RefreshToken;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull = false;
+            }
+            System.String requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_UserManagedClientApplicationClientSecret = null;
+            if (cmdletContext.OAuth2Credentials_UserManagedClientApplicationClientSecret != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_UserManagedClientApplicationClientSecret = cmdletContext.OAuth2Credentials_UserManagedClientApplicationClientSecret;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_UserManagedClientApplicationClientSecret != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials.UserManagedClientApplicationClientSecret = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials_oAuth2Credentials_UserManagedClientApplicationClientSecret;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull = false;
+            }
+             // determine if requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials should be set to null
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2CredentialsIsNull)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials = null;
+            }
+            if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials != null)
+            {
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties.OAuth2Credentials = requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_testConnectionInput_AuthenticationConfiguration_OAuth2Properties_OAuth2Credentials;
+                requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull = false;
+            }
              // determine if requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2Properties should be set to null
             if (requestTestConnectionInput_testConnectionInput_AuthenticationConfiguration_testConnectionInput_AuthenticationConfiguration_OAuth2PropertiesIsNull)
             {
@@ -528,12 +757,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CatalogId { get; set; }
             public System.String ConnectionName { get; set; }
             public Amazon.Glue.AuthenticationType AuthenticationConfiguration_AuthenticationType { get; set; }
+            public System.String BasicAuthenticationCredentials_Password { get; set; }
+            public System.String BasicAuthenticationCredentials_Username { get; set; }
+            public Dictionary<System.String, System.String> AuthenticationConfiguration_CustomAuthenticationCredential { get; set; }
+            public System.String AuthenticationConfiguration_KmsKeyArn { get; set; }
             public System.String AuthorizationCodeProperties_AuthorizationCode { get; set; }
             public System.String AuthorizationCodeProperties_RedirectUri { get; set; }
             public System.String OAuth2ClientApplication_AWSManagedClientApplicationReference { get; set; }
             public System.String OAuth2ClientApplication_UserManagedClientApplicationClientId { get; set; }
+            public System.String OAuth2Credentials_AccessToken { get; set; }
+            public System.String OAuth2Credentials_JwtToken { get; set; }
+            public System.String OAuth2Credentials_RefreshToken { get; set; }
+            public System.String OAuth2Credentials_UserManagedClientApplicationClientSecret { get; set; }
             public Amazon.Glue.OAuth2GrantType OAuth2Properties_OAuth2GrantType { get; set; }
             public System.String OAuth2Properties_TokenUrl { get; set; }
             public Dictionary<System.String, System.String> OAuth2Properties_TokenUrlParametersMap { get; set; }

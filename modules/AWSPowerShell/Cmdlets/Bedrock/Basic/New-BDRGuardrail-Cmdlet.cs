@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// to the user if a user input or model response is in violation of the policies defined
     /// in the guardrail.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Guardrails
-    /// for Amazon Bedrock</a> in the <i>Amazon Bedrock User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon
+    /// Bedrock Guardrails</a> in the <i>Amazon Bedrock User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BDRGuardrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

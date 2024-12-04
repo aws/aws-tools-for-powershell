@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The service role of the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceRole { get; set; }
+        #endregion
+        
         #region Parameter SingleSignOn_Type
         /// <summary>
         /// <para>
@@ -194,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.Name = this.Name;
+            context.ServiceRole = this.ServiceRole;
             context.SingleSignOn_Type = this.SingleSignOn_Type;
             context.SingleSignOn_UserAssignment = this.SingleSignOn_UserAssignment;
             
@@ -231,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ServiceRole != null)
+            {
+                request.ServiceRole = cmdletContext.ServiceRole;
             }
             
              // populate SingleSignOn
@@ -327,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainExecutionRole { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
+            public System.String ServiceRole { get; set; }
             public Amazon.DataZone.AuthType SingleSignOn_Type { get; set; }
             public Amazon.DataZone.UserAssignment SingleSignOn_UserAssignment { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateDomainResponse, UpdateDZDomainCmdlet, object> Select { get; set; } =

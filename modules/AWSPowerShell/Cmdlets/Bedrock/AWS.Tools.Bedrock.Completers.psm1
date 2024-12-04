@@ -100,7 +100,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.CustomizationType
         "New-BDRModelCustomizationJob/CustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING"
             break
         }
 
@@ -142,7 +142,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.ModelCustomization
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
-            $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            $v = "CONTINUED_PRE_TRAINING","DISTILLATION","FINE_TUNING"
             break
         }
 

@@ -49,18 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Resource_Catalog
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the Data Catalog. By default, the account ID. The Data Catalog
-        /// is the persistent metadata store. It contains database definitions, table definitions,
-        /// and other control information to manage your Lake Formation environment. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.LakeFormation.Model.CatalogResource Resource_Catalog { get; set; }
-        #endregion
-        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -247,6 +235,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Resource_LFTagPolicy_ExpressionName")]
         public System.String LFTagPolicy_ExpressionName { get; set; }
+        #endregion
+        
+        #region Parameter Catalog_Id
+        /// <summary>
+        /// <para>
+        /// <para>An identifier for the catalog resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Catalog_Id")]
+        public System.String Catalog_Id { get; set; }
         #endregion
         
         #region Parameter Database_Name
@@ -493,7 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.PermissionsWithGrantOption = new List<System.String>(this.PermissionsWithGrantOption);
             }
             context.Principal_DataLakePrincipalIdentifier = this.Principal_DataLakePrincipalIdentifier;
-            context.Resource_Catalog = this.Resource_Catalog;
+            context.Catalog_Id = this.Catalog_Id;
             context.Database_CatalogId = this.Database_CatalogId;
             context.Database_Name = this.Database_Name;
             context.DataCellsFilter_DatabaseName = this.DataCellsFilter_DatabaseName;
@@ -584,9 +583,24 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             var requestResourceIsNull = true;
             request.Resource = new Amazon.LakeFormation.Model.Resource();
             Amazon.LakeFormation.Model.CatalogResource requestResource_resource_Catalog = null;
-            if (cmdletContext.Resource_Catalog != null)
+            
+             // populate Catalog
+            var requestResource_resource_CatalogIsNull = true;
+            requestResource_resource_Catalog = new Amazon.LakeFormation.Model.CatalogResource();
+            System.String requestResource_resource_Catalog_catalog_Id = null;
+            if (cmdletContext.Catalog_Id != null)
             {
-                requestResource_resource_Catalog = cmdletContext.Resource_Catalog;
+                requestResource_resource_Catalog_catalog_Id = cmdletContext.Catalog_Id;
+            }
+            if (requestResource_resource_Catalog_catalog_Id != null)
+            {
+                requestResource_resource_Catalog.Id = requestResource_resource_Catalog_catalog_Id;
+                requestResource_resource_CatalogIsNull = false;
+            }
+             // determine if requestResource_resource_Catalog should be set to null
+            if (requestResource_resource_CatalogIsNull)
+            {
+                requestResource_resource_Catalog = null;
             }
             if (requestResource_resource_Catalog != null)
             {
@@ -1058,7 +1072,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<System.String> Permission { get; set; }
             public List<System.String> PermissionsWithGrantOption { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
-            public Amazon.LakeFormation.Model.CatalogResource Resource_Catalog { get; set; }
+            public System.String Catalog_Id { get; set; }
             public System.String Database_CatalogId { get; set; }
             public System.String Database_Name { get; set; }
             public System.String DataCellsFilter_DatabaseName { get; set; }

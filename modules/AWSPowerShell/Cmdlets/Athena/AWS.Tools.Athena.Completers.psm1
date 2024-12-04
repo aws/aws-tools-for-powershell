@@ -103,7 +103,7 @@ $ATH_Completers = {
             ($_ -eq "Update-ATHDataCatalog/Type")
         }
         {
-            $v = "GLUE","HIVE","LAMBDA"
+            $v = "FEDERATED","GLUE","HIVE","LAMBDA"
             break
         }
 

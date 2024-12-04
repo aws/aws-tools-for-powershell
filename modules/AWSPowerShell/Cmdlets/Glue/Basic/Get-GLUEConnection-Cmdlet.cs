@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplyOverrideForComputeEnvironment
+        /// <summary>
+        /// <para>
+        /// <para>For connections that may be used in multiple services, specifies returning properties
+        /// for the specified compute environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ComputeEnvironment")]
+        public Amazon.Glue.ComputeEnvironment ApplyOverrideForComputeEnvironment { get; set; }
+        #endregion
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -130,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplyOverrideForComputeEnvironment = this.ApplyOverrideForComputeEnvironment;
             context.CatalogId = this.CatalogId;
             context.HidePassword = this.HidePassword;
             context.Name = this.Name;
@@ -155,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.GetConnectionRequest();
             
+            if (cmdletContext.ApplyOverrideForComputeEnvironment != null)
+            {
+                request.ApplyOverrideForComputeEnvironment = cmdletContext.ApplyOverrideForComputeEnvironment;
+            }
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
@@ -228,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Glue.ComputeEnvironment ApplyOverrideForComputeEnvironment { get; set; }
             public System.String CatalogId { get; set; }
             public System.Boolean? HidePassword { get; set; }
             public System.String Name { get; set; }

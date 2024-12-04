@@ -100,6 +100,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.AgentCollaboration
+        {
+            ($_ -eq "New-AABAgent/AgentCollaboration") -Or
+            ($_ -eq "Update-AABAgent/AgentCollaboration")
+        }
+        {
+            $v = "DISABLED","SUPERVISOR","SUPERVISOR_ROUTER"
+            break
+        }
+
         # Amazon.BedrockAgent.ChunkingStrategy
         {
             ($_ -eq "New-AABDataSource/ChunkingConfiguration_ChunkingStrategy") -Or
@@ -241,6 +251,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.RelayConversationHistory
+        {
+            ($_ -eq "Register-AABAgentCollaborator/RelayConversationHistory") -Or
+            ($_ -eq "Update-AABAgentCollaborator/RelayConversationHistory")
+        }
+        {
+            $v = "DISABLED","TO_COLLABORATOR"
+            break
+        }
+
         # Amazon.BedrockAgent.SalesforceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType") -Or
@@ -299,6 +319,7 @@ $AAB_Completers = {
 $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
@@ -317,6 +338,7 @@ $AAB_map = @{
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
@@ -372,7 +394,8 @@ $AAB_SelectCompleters = {
 }
 
 $AAB_SelectMap = @{
-    "Select"=@("Register-AABAgentKnowledgeBase",
+    "Select"=@("Register-AABAgentCollaborator",
+               "Register-AABAgentKnowledgeBase",
                "New-AABAgent",
                "New-AABAgentActionGroup",
                "New-AABAgentAlias",
@@ -394,10 +417,12 @@ $AAB_SelectMap = @{
                "Remove-AABKnowledgeBase",
                "Remove-AABKnowledgeBaseDocument",
                "Remove-AABPrompt",
+               "Unregister-AABAgentCollaborator",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
                "Get-AABAgentActionGroup",
                "Get-AABAgentAlias",
+               "Get-AABAgentCollaborator",
                "Get-AABAgentKnowledgeBase",
                "Get-AABAgentVersion",
                "Get-AABDataSource",
@@ -411,6 +436,7 @@ $AAB_SelectMap = @{
                "Add-AABKnowledgeBaseDocument",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
+               "Get-AABAgentCollaboratorList",
                "Get-AABAgentKnowledgeBasisList",
                "Get-AABAgentList",
                "Get-AABAgentVersionList",
@@ -432,6 +458,7 @@ $AAB_SelectMap = @{
                "Update-AABAgent",
                "Update-AABAgentActionGroup",
                "Update-AABAgentAlias",
+               "Update-AABAgentCollaborator",
                "Update-AABAgentKnowledgeBase",
                "Update-AABDataSource",
                "Update-AABFlow",
