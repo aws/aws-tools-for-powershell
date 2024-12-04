@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateQuery" OutputProperty="Queries" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -132,8 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter GroupMembers_MemberGroup
         /// <summary>
         /// <para>
-        /// <para>A list of sub groups that belong to a group. For example, the sub groups "Research",
-        /// "Engineering", and "Sales and Marketing" all belong to the group "Company".</para>
+        /// <para>A list of users that belong to a group. This can also include sub groups. For example,
+        /// the sub groups "Research", "Engineering", and "Sales and Marketing" all belong to
+        /// the group "Company A".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter OrderingId
         /// <summary>
         /// <para>
-        /// <para>The timestamp identifier you specify to ensure Amazon Kendra does not override the
+        /// <para>The timestamp identifier you specify to ensure Amazon Kendra doesn't override the
         /// latest <c>PUT</c> action with previous actions. The highest number ID, which is the
         /// ordering ID, is the latest action you want to process and apply on top of other actions
         /// with lower number IDs. This prevents previous actions with lower number IDs from possibly
@@ -175,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role that has access to the S3 file that contains
-        /// your list of users or sub groups that belong to a group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds">IAM
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that
+        /// contains your list of users that belong to a group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-ds">IAM
         /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

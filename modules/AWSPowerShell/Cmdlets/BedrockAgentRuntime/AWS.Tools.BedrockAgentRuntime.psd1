@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BAROptimizePrompt', 
         'Invoke-BARAgent', 
         'Invoke-BARFlow', 
+        'Invoke-BARGenerateQuery', 
         'Invoke-BARInlineAgent', 
         'Invoke-BARRerank', 
         'Invoke-BARRetrieve', 

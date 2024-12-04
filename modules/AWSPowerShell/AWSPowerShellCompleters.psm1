@@ -6759,6 +6759,7 @@ $BDR_SelectMap = @{
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
                "New-BDRInferenceProfile",
+               "New-BDRMarketplaceModelEndpoint",
                "New-BDRModelCopyJob",
                "New-BDRModelCustomizationJob",
                "New-BDRModelImportJob",
@@ -6768,19 +6769,23 @@ $BDR_SelectMap = @{
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
                "Remove-BDRInferenceProfile",
+               "Remove-BDRMarketplaceModelEndpoint",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
+               "Unregister-BDRMarketplaceModelEndpoint",
                "Get-BDRCustomModel",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
                "Get-BDRGuardrail",
                "Get-BDRImportedModel",
                "Get-BDRInferenceProfile",
+               "Get-BDRMarketplaceModelEndpoint",
                "Get-BDRModelCopyJob",
                "Get-BDRModelCustomizationJob",
                "Get-BDRModelImportJob",
                "Get-BDRModelInvocationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
+               "Get-BDRPromptRouter",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRCustomModelList",
                "Get-BDREvaluationJobList",
@@ -6788,19 +6793,23 @@ $BDR_SelectMap = @{
                "Get-BDRGuardrailList",
                "Get-BDRImportedModelList",
                "Get-BDRInferenceProfileList",
+               "Get-BDRMarketplaceModelEndpointList",
                "Get-BDRModelCopyJobList",
                "Get-BDRModelCustomizationJobList",
                "Get-BDRModelImportJobList",
                "Get-BDRModelInvocationJobList",
+               "Get-BDRPromptRouterList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Register-BDRMarketplaceModelEndpoint",
                "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Stop-BDRModelInvocationJob",
                "Add-BDRResourceTag",
                "Remove-BDRResourceTag",
                "Update-BDRGuardrail",
+               "Update-BDRMarketplaceModelEndpoint",
                "Update-BDRProvisionedModelThroughput")
 }
 
@@ -6913,7 +6922,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "CONFLUENCE","CUSTOM","S3","SALESFORCE","SHAREPOINT","WEB"
+            $v = "CONFLUENCE","CUSTOM","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
@@ -6960,7 +6969,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_Type")
         }
         {
-            $v = "VECTOR"
+            $v = "KENDRA","SQL","VECTOR"
             break
         }
 
@@ -6974,13 +6983,65 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ParsingModality
+        {
+            ($_ -eq "New-AABDataSource/BedrockDataAutomationConfiguration_ParsingModality") -Or
+            ($_ -eq "Update-AABDataSource/BedrockDataAutomationConfiguration_ParsingModality") -Or
+            ($_ -eq "New-AABDataSource/BedrockFoundationModelConfiguration_ParsingModality") -Or
+            ($_ -eq "Update-AABDataSource/BedrockFoundationModelConfiguration_ParsingModality")
+        }
+        {
+            $v = "MULTIMODAL"
+            break
+        }
+
         # Amazon.BedrockAgent.ParsingStrategy
         {
             ($_ -eq "New-AABDataSource/ParsingConfiguration_ParsingStrategy") -Or
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgent.QueryEngineType
+        {
+            ($_ -eq "New-AABKnowledgeBase/SqlKnowledgeBaseConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/SqlKnowledgeBaseConfiguration_Type")
+        }
+        {
+            $v = "REDSHIFT"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftProvisionedAuthType
+        {
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type")
+        }
+        {
+            $v = "IAM","USERNAME","USERNAME_PASSWORD"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftQueryEngineType
+        {
+            ($_ -eq "New-AABKnowledgeBase/QueryEngineConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/QueryEngineConfiguration_Type")
+        }
+        {
+            $v = "PROVISIONED","SERVERLESS"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftServerlessAuthType
+        {
+            ($_ -eq "New-AABKnowledgeBase/AuthConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/AuthConfiguration_Type")
+        }
+        {
+            $v = "IAM","USERNAME_PASSWORD"
             break
         }
 
@@ -7053,7 +7114,10 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
+    "AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "BedrockDataAutomationConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "BedrockFoundationModelConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
@@ -7066,14 +7130,17 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "QueryEngineConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
+    "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
 
@@ -7210,10 +7277,24 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.InputQueryType
+        "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
+        {
+            $v = "TEXT"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.MemoryType
         "Get-BARAgentMemory/MemoryType"
         {
             $v = "SESSION_SUMMARY"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.QueryTransformationMode
+        "Invoke-BARGenerateQuery/TransformationConfiguration_Mode"
+        {
+            $v = "TEXT_TO_SQL"
             break
         }
 
@@ -7266,6 +7347,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.TextToSqlConfigurationType
+        "Invoke-BARGenerateQuery/TextToSqlConfiguration_Type"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType
         {
             ($_ -eq "Invoke-BARRetrieve/RerankingConfiguration_Type") -Or
@@ -7288,9 +7376,12 @@ $BAR_Completers = {
 $BAR_map = @{
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "TextToSqlConfiguration_Type"=@("Invoke-BARGenerateQuery")
+    "TransformationConfiguration_Mode"=@("Invoke-BARGenerateQuery")
     "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
 }
 
@@ -7345,6 +7436,7 @@ $BAR_SelectCompleters = {
 
 $BAR_SelectMap = @{
     "Select"=@("Remove-BARAgentMemory",
+               "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
@@ -7357,6 +7449,278 @@ $BAR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap
+# Argument completions for service Data Automation for Amazon Bedrock
+
+
+$BDA_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockDataAutomation.BlueprintStage
+        {
+            ($_ -eq "Get-BDADataAutomationProjectList/BlueprintFilter_BlueprintStage") -Or
+            ($_ -eq "Get-BDABlueprint/BlueprintStage") -Or
+            ($_ -eq "New-BDABlueprint/BlueprintStage") -Or
+            ($_ -eq "Update-BDABlueprint/BlueprintStage")
+        }
+        {
+            $v = "DEVELOPMENT","LIVE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.BlueprintStageFilter
+        "Get-BDABlueprintList/BlueprintStageFilter"
+        {
+            $v = "ALL","DEVELOPMENT","LIVE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.DataAutomationProjectStage
+        {
+            ($_ -eq "Get-BDABlueprintList/ProjectFilter_ProjectStage") -Or
+            ($_ -eq "Get-BDADataAutomationProject/ProjectStage") -Or
+            ($_ -eq "New-BDADataAutomationProject/ProjectStage") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ProjectStage")
+        }
+        {
+            $v = "DEVELOPMENT","LIVE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.DataAutomationProjectStageFilter
+        "Get-BDADataAutomationProjectList/ProjectStageFilter"
+        {
+            $v = "ALL","DEVELOPMENT","LIVE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.ResourceOwner
+        {
+            ($_ -eq "Get-BDABlueprintList/ResourceOwner") -Or
+            ($_ -eq "Get-BDADataAutomationProjectList/ResourceOwner")
+        }
+        {
+            $v = "ACCOUNT","SERVICE"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.State
+        {
+            ($_ -eq "New-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/Splitter_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/Splitter_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_GenerativeField_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Audio_GenerativeField_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Document_Extraction_BoundingBox_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Document_Extraction_BoundingBox_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Document_GenerativeField_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Document_GenerativeField_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Image_Extraction_BoundingBox_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Image_Extraction_BoundingBox_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Image_Extraction_Category_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Image_Extraction_Category_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Image_GenerativeField_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Image_GenerativeField_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Video_Extraction_BoundingBox_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Video_Extraction_BoundingBox_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Video_Extraction_Category_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Video_Extraction_Category_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Video_GenerativeField_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/StandardOutputConfiguration_Video_GenerativeField_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.BedrockDataAutomation.Type
+        "New-BDABlueprint/Type"
+        {
+            $v = "DOCUMENT","IMAGE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDA_map = @{
+    "AdditionalFileFormat_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
+    "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
+    "BlueprintStageFilter"=@("Get-BDABlueprintList")
+    "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
+    "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")
+    "ResourceOwner"=@("Get-BDABlueprintList","Get-BDADataAutomationProjectList")
+    "Splitter_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Audio_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Audio_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Document_Extraction_BoundingBox_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Document_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Image_Extraction_BoundingBox_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Image_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Image_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Video_Extraction_BoundingBox_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Video_Extraction_Category_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "StandardOutputConfiguration_Video_GenerativeField_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "Type"=@("New-BDABlueprint")
+}
+
+_awsArgumentCompleterRegistration $BDA_Completers $BDA_map
+
+$BDA_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BDA.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDA_SelectMap = @{
+    "Select"=@("New-BDABlueprint",
+               "New-BDABlueprintVersion",
+               "New-BDADataAutomationProject",
+               "Remove-BDABlueprint",
+               "Remove-BDADataAutomationProject",
+               "Get-BDABlueprint",
+               "Get-BDADataAutomationProject",
+               "Get-BDABlueprintList",
+               "Get-BDADataAutomationProjectList",
+               "Update-BDABlueprint",
+               "Update-BDADataAutomationProject")
+}
+
+_awsArgumentCompleterRegistration $BDA_SelectCompleters $BDA_SelectMap
+# Argument completions for service Runtime for Amazon Bedrock Data Automation
+
+
+$BDAR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockDataAutomationRuntime.DataAutomationStage
+        "Invoke-BDARDataAutomationAsync/DataAutomationConfiguration_Stage"
+        {
+            $v = "DEVELOPMENT","LIVE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDAR_map = @{
+    "DataAutomationConfiguration_Stage"=@("Invoke-BDARDataAutomationAsync")
+}
+
+_awsArgumentCompleterRegistration $BDAR_Completers $BDAR_map
+
+$BDAR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BDAR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDAR_SelectMap = @{
+    "Select"=@("Get-BDARDataAutomationStatus",
+               "Invoke-BDARDataAutomationAsync")
+}
+
+_awsArgumentCompleterRegistration $BDAR_SelectCompleters $BDAR_SelectMap
 # Argument completions for service Amazon Bedrock Runtime
 
 
@@ -40489,7 +40853,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.IndexEdition
         "New-KNDRIndex/Edition"
         {
-            $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION"
+            $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION","GEN_AI_ENTERPRISE_EDITION"
             break
         }
 
@@ -64319,6 +64683,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ActivationState
+        {
+            ($_ -eq "New-SMComputeQuota/ActivationState") -Or
+            ($_ -eq "Update-SMComputeQuota/ActivationState")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.AdditionalS3DataSourceDataType
         "New-SMAlgorithm/AdditionalS3DataSource_S3DataType"
         {
@@ -64692,6 +65066,16 @@ $SM_Completers = {
         "Get-SMMonitoringExecutionList/StatusEqual"
         {
             $v = "Completed","CompletedWithViolations","Failed","InProgress","Pending","Stopped","Stopping"
+            break
+        }
+
+        # Amazon.SageMaker.FairShare
+        {
+            ($_ -eq "New-SMClusterSchedulerConfig/SchedulerConfig_FairShare") -Or
+            ($_ -eq "Update-SMClusterSchedulerConfig/SchedulerConfig_FairShare")
+        }
+        {
+            $v = "Disabled","Enabled"
             break
         }
 
@@ -65221,6 +65605,30 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.PartnerAppAuthType
+        "New-SMPartnerApp/AuthType"
+        {
+            $v = "IAM"
+            break
+        }
+
+        # Amazon.SageMaker.PartnerAppType
+        "New-SMPartnerApp/Type"
+        {
+            $v = "comet","deepchecks-llm-evaluation","fiddler","lakera-guard"
+            break
+        }
+
+        # Amazon.SageMaker.PreemptTeamTasks
+        {
+            ($_ -eq "New-SMComputeQuota/ComputeQuotaConfig_PreemptTeamTask") -Or
+            ($_ -eq "Update-SMComputeQuota/ComputeQuotaConfig_PreemptTeamTask")
+        }
+        {
+            $v = "LowerPriority","Never"
+            break
+        }
+
         # Amazon.SageMaker.ProblemType
         {
             ($_ -eq "New-SMAutoMLJob/ProblemType") -Or
@@ -65338,6 +65746,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ReservedCapacityInstanceType
+        "Search-SMTrainingPlanOffering/InstanceType"
+        {
+            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.trn2.48xlarge"
+            break
+        }
+
         # Amazon.SageMaker.ResourceCatalogSortBy
         "Get-SMResourceCatalogList/SortBy"
         {
@@ -65349,6 +65764,16 @@ $SM_Completers = {
         "Get-SMResourceCatalogList/SortOrder"
         {
             $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.SageMaker.ResourceSharingStrategy
+        {
+            ($_ -eq "New-SMComputeQuota/ResourceSharingConfig_Strategy") -Or
+            ($_ -eq "Update-SMComputeQuota/ResourceSharingConfig_Strategy")
+        }
+        {
+            $v = "DontLend","Lend","LendAndBorrow"
             break
         }
 
@@ -65383,6 +65808,16 @@ $SM_Completers = {
         "New-SMTransformJob/S3DataSource_S3DataType"
         {
             $v = "AugmentedManifestFile","ManifestFile","S3Prefix"
+            break
+        }
+
+        # Amazon.SageMaker.SchedulerResourceStatus
+        {
+            ($_ -eq "Get-SMClusterSchedulerConfigList/Status") -Or
+            ($_ -eq "Get-SMComputeQuotaList/Status")
+        }
+        {
+            $v = "Created","CreateFailed","CreateRollbackFailed","Creating","Deleted","DeleteFailed","DeleteRollbackFailed","Deleting","Updated","UpdateFailed","UpdateRollbackFailed","Updating"
             break
         }
 
@@ -65447,6 +65882,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.SortClusterSchedulerConfigBy
+        "Get-SMClusterSchedulerConfigList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+
         # Amazon.SageMaker.SortContextsBy
         "Get-SMContextList/SortBy"
         {
@@ -65485,7 +65927,9 @@ $SM_Completers = {
             ($_ -eq "Get-SMAssociationList/SortOrder") -Or
             ($_ -eq "Get-SMClusterList/SortOrder") -Or
             ($_ -eq "Get-SMClusterNodeList/SortOrder") -Or
+            ($_ -eq "Get-SMClusterSchedulerConfigList/SortOrder") -Or
             ($_ -eq "Get-SMCompilationJobList/SortOrder") -Or
+            ($_ -eq "Get-SMComputeQuotaList/SortOrder") -Or
             ($_ -eq "Get-SMContextList/SortOrder") -Or
             ($_ -eq "Get-SMDataQualityJobDefinitionList/SortOrder") -Or
             ($_ -eq "Get-SMDeviceFleetList/SortOrder") -Or
@@ -65544,6 +65988,13 @@ $SM_Completers = {
         "Get-SMPipelineList/SortBy"
         {
             $v = "CreationTime","Name"
+            break
+        }
+
+        # Amazon.SageMaker.SortQuotaBy
+        "Get-SMComputeQuotaList/SortBy"
+        {
+            $v = "ClusterArn","CreationTime","Name","Status"
             break
         }
 
@@ -65705,7 +66156,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TrainingInstanceType
         "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r5d.12xlarge","ml.r5d.16xlarge","ml.r5d.24xlarge","ml.r5d.2xlarge","ml.r5d.4xlarge","ml.r5d.8xlarge","ml.r5d.large","ml.r5d.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -65730,6 +66181,20 @@ $SM_Completers = {
         }
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
+        # Amazon.SageMaker.TrainingPlanSortBy
+        "Get-SMTrainingPlanList/SortBy"
+        {
+            $v = "StartTime","Status","TrainingPlanName"
+            break
+        }
+
+        # Amazon.SageMaker.TrainingPlanSortOrder
+        "Get-SMTrainingPlanList/SortOrder"
+        {
+            $v = "Ascending","Descending"
             break
         }
 
@@ -65800,6 +66265,7 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "ActivationState"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "AdditionalS3DataSource_CompressionType"=@("New-SMAlgorithm")
     "AdditionalS3DataSource_S3DataType"=@("New-SMAlgorithm")
     "AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
@@ -65810,6 +66276,7 @@ $SM_map = @{
     "AppTypeEqual"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
+    "AuthType"=@("New-SMPartnerApp")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
@@ -65818,6 +66285,7 @@ $SM_map = @{
     "BatchTransformInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition","New-SMProcessingJob")
+    "ComputeQuotaConfig_PreemptTeamTask"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
     "ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
     "CrossAccountFilterOption"=@("Get-SMModelPackageGroupList","Search-SMResource")
@@ -65848,7 +66316,7 @@ $SM_map = @{
     "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
-    "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
+    "InstanceType"=@("New-SMNotebookInstance","Search-SMTrainingPlanOffering","Update-SMNotebookInstance")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
@@ -65867,22 +66335,24 @@ $SM_map = @{
     "ProblemType"=@("New-SMAutoMLJob")
     "Processor"=@("New-SMImageVersion","Update-SMImageVersion")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
+    "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "S3DataSource_S3DataType"=@("New-SMTransformJob")
+    "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")
     "SearchExpression_Operator"=@("Search-SMResource")
     "SkipModelValidation"=@("New-SMModelPackage")
-    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMClusterSchedulerConfigList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMComputeQuotaList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMMlflowTrackingServerList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTrainingPlanList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
     "SpaceSettings_AppType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMSpace","Update-SMSpace")
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
-    "Status"=@("Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
+    "Status"=@("Get-SMClusterSchedulerConfigList","Get-SMComputeQuotaList","Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEqual"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMOptimizationJobList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
@@ -65907,7 +66377,7 @@ $SM_map = @{
     "TransformResources_InstanceType"=@("New-SMTransformJob")
     "TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
-    "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment")
+    "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment","New-SMPartnerApp")
     "VendorGuidance"=@("New-SMImageVersion","Update-SMImageVersion")
     "WarmPoolStatusEqual"=@("Get-SMTrainingJobList")
     "WarmStartConfig_WarmStartType"=@("New-SMHyperParameterTuningJob")
@@ -65976,8 +66446,10 @@ $SM_SelectMap = @{
                "New-SMAutoMLJob",
                "New-SMAutoMLJobV2",
                "New-SMCluster",
+               "New-SMClusterSchedulerConfig",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
+               "New-SMComputeQuota",
                "New-SMContext",
                "New-SMDataQualityJobDefinition",
                "New-SMDeviceFleet",
@@ -66013,6 +66485,8 @@ $SM_SelectMap = @{
                "New-SMNotebookInstance",
                "New-SMNotebookInstanceLifecycleConfig",
                "New-SMOptimizationJob",
+               "New-SMPartnerApp",
+               "New-SMPartnerAppPresignedUrl",
                "New-SMPipeline",
                "New-SMPresignedDomainUrl",
                "New-SMPresignedMlflowTrackingServerUrl",
@@ -66022,6 +66496,7 @@ $SM_SelectMap = @{
                "New-SMSpace",
                "New-SMStudioLifecycleConfig",
                "New-SMTrainingJob",
+               "New-SMTrainingPlan",
                "New-SMTransformJob",
                "New-SMTrial",
                "New-SMTrialComponent",
@@ -66035,8 +66510,10 @@ $SM_SelectMap = @{
                "Remove-SMArtifact",
                "Remove-SMAssociation",
                "Remove-SMCluster",
+               "Remove-SMClusterSchedulerConfig",
                "Remove-SMCodeRepository",
                "Remove-SMCompilationJob",
+               "Remove-SMComputeQuota",
                "Remove-SMContext",
                "Remove-SMDataQualityJobDefinition",
                "Remove-SMDeviceFleet",
@@ -66070,6 +66547,7 @@ $SM_SelectMap = @{
                "Remove-SMNotebookInstance",
                "Remove-SMNotebookInstanceLifecycleConfig",
                "Remove-SMOptimizationJob",
+               "Remove-SMPartnerApp",
                "Remove-SMPipeline",
                "Remove-SMProject",
                "Remove-SMSpace",
@@ -66090,8 +66568,10 @@ $SM_SelectMap = @{
                "Get-SMAutoMLJobV2",
                "Get-SMCluster",
                "Get-SMClusterNode",
+               "Get-SMClusterSchedulerConfig",
                "Get-SMCodeRepository",
                "Get-SMCompilationJob",
+               "Get-SMComputeQuota",
                "Get-SMContext",
                "Get-SMDataQualityJobDefinition",
                "Get-SMDevice",
@@ -66129,6 +66609,7 @@ $SM_SelectMap = @{
                "Get-SMNotebookInstance",
                "Get-SMNotebookInstanceLifecycleConfig",
                "Get-SMOptimizationJob",
+               "Get-SMPartnerApp",
                "Get-SMPipeline",
                "Get-SMPipelineDefinitionForExecution",
                "Get-SMPipelineExecution",
@@ -66138,6 +66619,7 @@ $SM_SelectMap = @{
                "Get-SMStudioLifecycleConfig",
                "Get-SMSubscribedWorkteam",
                "Get-SMTrainingJob",
+               "Get-SMTrainingPlan",
                "Get-SMTransformJob",
                "Get-SMTrial",
                "Get-SMTrialComponent",
@@ -66165,8 +66647,10 @@ $SM_SelectMap = @{
                "Get-SMCandidatesForAutoMLJobList",
                "Get-SMClusterNodeList",
                "Get-SMClusterList",
+               "Get-SMClusterSchedulerConfigList",
                "Get-SMCodeRepositoryList",
                "Get-SMCompilationJobList",
+               "Get-SMComputeQuotaList",
                "Get-SMContextList",
                "Get-SMDataQualityJobDefinitionList",
                "Get-SMDeviceFleetList",
@@ -66211,6 +66695,7 @@ $SM_SelectMap = @{
                "Get-SMNotebookInstanceLifecycleConfigList",
                "Get-SMNotebookInstanceList",
                "Get-SMOptimizationJobList",
+               "Get-SMPartnerAppList",
                "Get-SMPipelineExecutionList",
                "Get-SMPipelineExecutionStepList",
                "Get-SMPipelineParametersForExecutionList",
@@ -66225,6 +66710,7 @@ $SM_SelectMap = @{
                "Get-SMResourceTagList",
                "Get-SMTrainingJobList",
                "Get-SMTrainingJobsForHyperParameterTuningJobList",
+               "Get-SMTrainingPlanList",
                "Get-SMTransformJobList",
                "Get-SMTrialComponentList",
                "Get-SMTrialList",
@@ -66237,6 +66723,7 @@ $SM_SelectMap = @{
                "Invoke-SMUiTemplateRendering",
                "Restart-SMPipelineExecution",
                "Search-SMResource",
+               "Search-SMTrainingPlanOffering",
                "Send-SMPipelineExecutionStepFailure",
                "Send-SMPipelineExecutionStepSuccess",
                "Start-SMEdgeDeploymentStage",
@@ -66265,8 +66752,10 @@ $SM_SelectMap = @{
                "Update-SMAppImageConfig",
                "Update-SMArtifact",
                "Update-SMCluster",
+               "Update-SMClusterSchedulerConfig",
                "Update-SMClusterSoftware",
                "Update-SMCodeRepository",
+               "Update-SMComputeQuota",
                "Update-SMContext",
                "Update-SMDeviceFleet",
                "Update-SMDevice",
@@ -66289,6 +66778,7 @@ $SM_SelectMap = @{
                "Update-SMMonitoringSchedule",
                "Update-SMNotebookInstance",
                "Update-SMNotebookInstanceLifecycleConfig",
+               "Update-SMPartnerApp",
                "Update-SMPipeline",
                "Update-SMPipelineExecution",
                "Update-SMProject",

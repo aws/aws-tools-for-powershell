@@ -74,8 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The Amazon Kendra edition to use for the index. Choose <c>DEVELOPER_EDITION</c> for
         /// indexes intended for development, testing, or proof of concept. Use <c>ENTERPRISE_EDITION</c>
-        /// for production. Once you set the edition for an index, it can't be changed.</para><para>The <c>Edition</c> parameter is optional. If you don't supply a value, the default
-        /// is <c>ENTERPRISE_EDITION</c>.</para><para>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
+        /// for production. Use <c>GEN_AI_ENTERPRISE_EDITION</c> for creating generative AI applications.
+        /// Once you set the edition for an index, it can't be changed. </para><para>The <c>Edition</c> parameter is optional. If you don't supply a value, the default
+        /// is <c>ENTERPRISE_EDITION</c>.</para><para>For more information on quota limits for Gen AI Enterprise Edition, Enterprise Edition,
+        /// and Developer Edition indices, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserContextPolicy
         /// <summary>
         /// <para>
-        /// <para>The user context policy.</para><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If you want to filter
+        /// <para>The user context policy.</para><important><para>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+        /// <c>ATTRIBUTE_FILTER</c> to filter search results by user context. If you're using
+        /// an Amazon Kendra Gen AI Enterprise Edition index and you try to use <c>USER_TOKEN</c>
+        /// to configure user context policy, Amazon Kendra returns a <c>ValidationException</c>
+        /// error.</para></important><dl><dt>ATTRIBUTE_FILTER</dt><dd><para>All indexed content is searchable and displayable for all users. If you want to filter
         /// search results on user context, you can use the attribute filters of <c>_user_id</c>
         /// and <c>_group_ids</c> or you can provide user and group information in <c>UserContext</c>.
         /// </para></dd><dt>USER_TOKEN</dt><dd><para>Enables token-based user access control to filter search results on user context.
@@ -174,7 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserTokenConfiguration
         /// <summary>
         /// <para>
-        /// <para>The user token configuration.</para>
+        /// <para>The user token configuration.</para><important><para>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+        /// <c>UserTokenConfigurations</c> to configure user context policy, Amazon Kendra returns
+        /// a <c>ValidationException</c> error.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -152,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access <c>Query</c> API,
-        /// <c>QuerySuggestions</c> API, <c>SubmitFeedback</c> API, and IAM Identity Center that
-        /// stores your user and group information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access the <c>Query</c>
+        /// API, <c>QuerySuggestions</c> API, <c>SubmitFeedback</c> API, and IAM Identity Center
+        /// that stores your users and groups information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

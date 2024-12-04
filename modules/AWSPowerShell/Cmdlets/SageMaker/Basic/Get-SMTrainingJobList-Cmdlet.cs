@@ -143,6 +143,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.TrainingJobStatus StatusEqual { get; set; }
         #endregion
         
+        #region Parameter TrainingPlanArnEqual
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN); of the training plan to filter training jobs by. For
+        /// more information about reserving GPU capacity for your SageMaker training jobs using
+        /// Amazon SageMaker Training Plan, see <c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a></c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingPlanArnEquals")]
+        public System.String TrainingPlanArnEqual { get; set; }
+        #endregion
+        
         #region Parameter WarmPoolStatusEqual
         /// <summary>
         /// <para>
@@ -250,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.StatusEqual = this.StatusEqual;
+            context.TrainingPlanArnEqual = this.TrainingPlanArnEqual;
             context.WarmPoolStatusEqual = this.WarmPoolStatusEqual;
             
             // allow further manipulation of loaded context prior to processing
@@ -305,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.StatusEqual != null)
             {
                 request.StatusEquals = cmdletContext.StatusEqual;
+            }
+            if (cmdletContext.TrainingPlanArnEqual != null)
+            {
+                request.TrainingPlanArnEquals = cmdletContext.TrainingPlanArnEqual;
             }
             if (cmdletContext.WarmPoolStatusEqual != null)
             {
@@ -396,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.StatusEqual != null)
             {
                 request.StatusEquals = cmdletContext.StatusEqual;
+            }
+            if (cmdletContext.TrainingPlanArnEqual != null)
+            {
+                request.TrainingPlanArnEquals = cmdletContext.TrainingPlanArnEqual;
             }
             if (cmdletContext.WarmPoolStatusEqual != null)
             {
@@ -534,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.SortBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
             public Amazon.SageMaker.TrainingJobStatus StatusEqual { get; set; }
+            public System.String TrainingPlanArnEqual { get; set; }
             public Amazon.SageMaker.WarmPoolResourceStatus WarmPoolStatusEqual { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListTrainingJobsResponse, GetSMTrainingJobListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainingJobSummaries;

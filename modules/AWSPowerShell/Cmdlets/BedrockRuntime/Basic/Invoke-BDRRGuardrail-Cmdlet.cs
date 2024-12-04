@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     public partial class InvokeBDRRGuardrailCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Content

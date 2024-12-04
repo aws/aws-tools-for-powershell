@@ -84,6 +84,8 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -353,6 +355,8 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

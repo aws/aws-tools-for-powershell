@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>bedrock-data-automation</C2jFilename>
+    <AssemblyName>BedrockDataAutomation</AssemblyName>
+    <ServiceNounPrefix>BDA</ServiceNounPrefix>
+    <ServiceName>Data Automation for Amazon Bedrock</ServiceName>
+    <ServiceClientInterface>IAmazonBedrockDataAutomation</ServiceClientInterface>
+    <ServiceClient>AmazonBedrockDataAutomationClient</ServiceClient>
+    <ServiceModuleGuid>ee533d77-339d-4172-b1d4-e91fa67edd08</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBlueprint" OutputProperty="Blueprint" Verb="New" Noun="Blueprint" ShouldProcessTarget="BlueprintName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBlueprintVersion" OutputProperty="Blueprint" Verb="New" Noun="BlueprintVersion" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataAutomationProject" OutputProperty="*" Verb="New" Noun="DataAutomationProject" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_State" NewName="StandardOutputConfiguration_Audio_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_Category_State" NewName="StandardOutputConfiguration_Image_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_Category_State" NewName="StandardOutputConfiguration_Video_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_Types" NewName="StandardOutputConfiguration_Audio_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_Category_Types" NewName="StandardOutputConfiguration_Image_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_Category_Types" NewName="StandardOutputConfiguration_Video_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Audio_GenerativeField_State" NewName="StandardOutputConfiguration_Audio_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Document_GenerativeField_State" NewName="StandardOutputConfiguration_Document_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Image_GenerativeField_State" NewName="StandardOutputConfiguration_Image_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Video_GenerativeField_State" NewName="StandardOutputConfiguration_Video_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Audio_GenerativeField_Types" NewName="StandardOutputConfiguration_Audio_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Image_GenerativeField_Types" NewName="StandardOutputConfiguration_Image_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Video_GenerativeField_Types" NewName="StandardOutputConfiguration_Video_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBlueprint" Verb="Remove" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataAutomationProject" OutputProperty="*" Verb="Remove" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBlueprint" OutputProperty="Blueprint" Verb="Get" Noun="Blueprint" PipelineParameter="BlueprintArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAutomationProject" OutputProperty="Project" Verb="Get" Noun="DataAutomationProject" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataAutomationProjects" OutputProperty="Projects" Verb="Get" Noun="DataAutomationProjectList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBlueprint" OutputProperty="Blueprint" Verb="Update" Noun="Blueprint" ShouldProcessTarget="BlueprintArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataAutomationProject" OutputProperty="*" Verb="Update" Noun="DataAutomationProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_State" NewName="StandardOutputConfiguration_Audio_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_Category_State" NewName="StandardOutputConfiguration_Image_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_Category_State" NewName="StandardOutputConfiguration_Video_Extraction_Category_State" />
+                <Param Name="StandardOutputConfiguration_Audio_Extraction_Category_Types" NewName="StandardOutputConfiguration_Audio_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_Category_Types" NewName="StandardOutputConfiguration_Image_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_Category_Types" NewName="StandardOutputConfiguration_Video_Extraction_Category_Types" />
+                <Param Name="StandardOutputConfiguration_Audio_GenerativeField_State" NewName="StandardOutputConfiguration_Audio_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Document_GenerativeField_State" NewName="StandardOutputConfiguration_Document_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Image_GenerativeField_State" NewName="StandardOutputConfiguration_Image_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Video_GenerativeField_State" NewName="StandardOutputConfiguration_Video_GenerativeField_State" />
+                <Param Name="StandardOutputConfiguration_Audio_GenerativeField_Types" NewName="StandardOutputConfiguration_Audio_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Image_GenerativeField_Types" NewName="StandardOutputConfiguration_Image_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Video_GenerativeField_Types" NewName="StandardOutputConfiguration_Video_GenerativeField_Types" />
+                <Param Name="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" />
+                <Param Name="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" />
+                <Param Name="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

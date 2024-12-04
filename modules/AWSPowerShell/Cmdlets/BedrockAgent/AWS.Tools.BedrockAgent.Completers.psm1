@@ -180,7 +180,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "CONFLUENCE","CUSTOM","S3","SALESFORCE","SHAREPOINT","WEB"
+            $v = "CONFLUENCE","CUSTOM","REDSHIFT_METADATA","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
@@ -227,7 +227,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_Type")
         }
         {
-            $v = "VECTOR"
+            $v = "KENDRA","SQL","VECTOR"
             break
         }
 
@@ -241,13 +241,65 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ParsingModality
+        {
+            ($_ -eq "New-AABDataSource/BedrockDataAutomationConfiguration_ParsingModality") -Or
+            ($_ -eq "Update-AABDataSource/BedrockDataAutomationConfiguration_ParsingModality") -Or
+            ($_ -eq "New-AABDataSource/BedrockFoundationModelConfiguration_ParsingModality") -Or
+            ($_ -eq "Update-AABDataSource/BedrockFoundationModelConfiguration_ParsingModality")
+        }
+        {
+            $v = "MULTIMODAL"
+            break
+        }
+
         # Amazon.BedrockAgent.ParsingStrategy
         {
             ($_ -eq "New-AABDataSource/ParsingConfiguration_ParsingStrategy") -Or
             ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
         }
         {
-            $v = "BEDROCK_FOUNDATION_MODEL"
+            $v = "BEDROCK_DATA_AUTOMATION","BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgent.QueryEngineType
+        {
+            ($_ -eq "New-AABKnowledgeBase/SqlKnowledgeBaseConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/SqlKnowledgeBaseConfiguration_Type")
+        }
+        {
+            $v = "REDSHIFT"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftProvisionedAuthType
+        {
+            ($_ -eq "New-AABKnowledgeBase/KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type")
+        }
+        {
+            $v = "IAM","USERNAME","USERNAME_PASSWORD"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftQueryEngineType
+        {
+            ($_ -eq "New-AABKnowledgeBase/QueryEngineConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/QueryEngineConfiguration_Type")
+        }
+        {
+            $v = "PROVISIONED","SERVERLESS"
+            break
+        }
+
+        # Amazon.BedrockAgent.RedshiftServerlessAuthType
+        {
+            ($_ -eq "New-AABKnowledgeBase/AuthConfiguration_Type") -Or
+            ($_ -eq "Update-AABKnowledgeBase/AuthConfiguration_Type")
+        }
+        {
+            $v = "IAM","USERNAME_PASSWORD"
             break
         }
 
@@ -320,7 +372,10 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "AgentCollaboration"=@("New-AABAgent","Update-AABAgent")
+    "AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "BedrockDataAutomationConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
+    "BedrockFoundationModelConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
@@ -333,14 +388,17 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
     "OrchestrationType"=@("New-AABAgent","Update-AABAgent")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "QueryEngineConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "RelayConversationHistory"=@("Register-AABAgentCollaborator","Update-AABAgentCollaborator")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
+    "SqlKnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
 }
 

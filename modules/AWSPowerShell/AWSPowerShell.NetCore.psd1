@@ -99,6 +99,8 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Bedrock.dll',
         'AWSSDK.BedrockAgent.dll',
         'AWSSDK.BedrockAgentRuntime.dll',
+        'AWSSDK.BedrockDataAutomation.dll',
+        'AWSSDK.BedrockDataAutomationRuntime.dll',
         'AWSSDK.BedrockRuntime.dll',
         'AWSSDK.Billing.dll',
         'AWSSDK.BillingConductor.dll',

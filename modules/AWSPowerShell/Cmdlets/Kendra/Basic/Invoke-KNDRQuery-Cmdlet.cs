@@ -56,7 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// parameter. Each query returns the 100 most relevant results. If you filter result
     /// type to only question-answers, a maximum of four results are returned. If you filter
     /// result type to only answers, a maximum of three results are returned.
-    /// </para>
+    /// </para><important><para>
+    /// If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+    /// <c>ATTRIBUTE_FILTER</c> to filter search results by user context. If you're using
+    /// an Amazon Kendra Gen AI Enterprise Edition index and you try to use <c>USER_TOKEN</c>
+    /// to configure user context policy, Amazon Kendra returns a <c>ValidationException</c>
+    /// error.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Invoke", "KNDRQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kendra.Model.QueryResponse")]
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>Filters search results by document fields/attributes. You can only provide one attribute
         /// filter; however, the <c>AndAllFilters</c>, <c>NotFilter</c>, and <c>OrAllFilters</c>
         /// parameters contain a list of other filters.</para><para>The <c>AttributeFilter</c> parameter means you can create a set of filtering rules
-        /// that a document must satisfy to be included in the query results.</para>
+        /// that a document must satisfy to be included in the query results.</para><note><para>For Amazon Kendra Gen AI Enterprise Edition indices use <c>AttributeFilter</c> to
+        /// enable document filtering for end users using <c>_email_id</c> or include public documents
+        /// (<c>_email_id=null</c>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

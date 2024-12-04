@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.SortOrder SortOrder { get; set; }
         #endregion
         
+        #region Parameter TrainingPlanArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN); of the training plan to filter clusters by. For more
+        /// information about reserving GPU capacity for your SageMaker HyperPod clusters using
+        /// Amazon SageMaker Training Plan, see <c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a></c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainingPlanArn { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -171,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
+            context.TrainingPlanArn = this.TrainingPlanArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -212,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.TrainingPlanArn != null)
+            {
+                request.TrainingPlanArn = cmdletContext.TrainingPlanArn;
             }
             
             // Initialize loop variant and commence piping
@@ -305,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.ClusterSortBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
+            public System.String TrainingPlanArn { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListClustersResponse, GetSMClusterListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterSummaries;
         }

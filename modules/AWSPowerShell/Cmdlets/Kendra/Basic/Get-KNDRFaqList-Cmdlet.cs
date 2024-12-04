@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets a list of FAQ lists associated with an index.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of FAQs associated with an index.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KNDRFaqList")]
     [OutputType("Amazon.Kendra.Model.FaqSummary")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The index that contains the FAQ lists.</para>
+        /// <para>The index for the FAQs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,10 +80,24 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.InputQueryType
+        "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
+        {
+            $v = "TEXT"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.MemoryType
         "Get-BARAgentMemory/MemoryType"
         {
             $v = "SESSION_SUMMARY"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.QueryTransformationMode
+        "Invoke-BARGenerateQuery/TransformationConfiguration_Mode"
+        {
+            $v = "TEXT_TO_SQL"
             break
         }
 
@@ -136,6 +150,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.TextToSqlConfigurationType
+        "Invoke-BARGenerateQuery/TextToSqlConfiguration_Type"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType
         {
             ($_ -eq "Invoke-BARRetrieve/RerankingConfiguration_Type") -Or
@@ -158,9 +179,12 @@ $BAR_Completers = {
 $BAR_map = @{
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "TextToSqlConfiguration_Type"=@("Invoke-BARGenerateQuery")
+    "TransformationConfiguration_Mode"=@("Invoke-BARGenerateQuery")
     "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
 }
 
@@ -215,6 +239,7 @@ $BAR_SelectCompleters = {
 
 $BAR_SelectMap = @{
     "Select"=@("Remove-BARAgentMemory",
+               "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
                "Invoke-BARAgent",
                "Invoke-BARFlow",

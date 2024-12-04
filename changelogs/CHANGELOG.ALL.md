@@ -1,4 +1,49 @@
-﻿### 4.1.711 (2024-12-04 00:43Z)
+﻿### 4.1.712 (2024-12-04 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.940.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameters BedrockDataAutomationConfiguration_ParsingModality and BedrockFoundationModelConfiguration_ParsingModality.
+    * Modified cmdlet New-AABKnowledgeBase: added parameters AuthConfiguration_DatabaseUser, AuthConfiguration_Type, AuthConfiguration_UsernamePasswordSecretArn, GenerationContext_CuratedQuery, GenerationContext_Table, KendraKnowledgeBaseConfiguration_KendraIndexArn, KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type, KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn, ProvisionedConfiguration_ClusterIdentifier, QueryEngineConfiguration_Type, QueryGenerationConfiguration_ExecutionTimeoutSecond, RedshiftConfiguration_StorageConfiguration, ServerlessConfiguration_WorkgroupArn, SqlKnowledgeBaseConfiguration_Type and SupplementalDataStorageConfiguration_StorageLocation.
+    * Modified cmdlet Update-AABDataSource: added parameters BedrockDataAutomationConfiguration_ParsingModality and BedrockFoundationModelConfiguration_ParsingModality.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters AuthConfiguration_DatabaseUser, AuthConfiguration_Type, AuthConfiguration_UsernamePasswordSecretArn, GenerationContext_CuratedQuery, GenerationContext_Table, KendraKnowledgeBaseConfiguration_KendraIndexArn, KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type, KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn, ProvisionedConfiguration_ClusterIdentifier, QueryEngineConfiguration_Type, QueryGenerationConfiguration_ExecutionTimeoutSecond, RedshiftConfiguration_StorageConfiguration, ServerlessConfiguration_WorkgroupArn, SqlKnowledgeBaseConfiguration_Type and SupplementalDataStorageConfiguration_StorageLocation.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRMarketplaceModelEndpoint leveraging the GetMarketplaceModelEndpoint service API.
+    * Added cmdlet Get-BDRMarketplaceModelEndpointList leveraging the ListMarketplaceModelEndpoints service API.
+    * Added cmdlet Get-BDRPromptRouter leveraging the GetPromptRouter service API.
+    * Added cmdlet Get-BDRPromptRouterList leveraging the ListPromptRouters service API.
+    * Added cmdlet New-BDRMarketplaceModelEndpoint leveraging the CreateMarketplaceModelEndpoint service API.
+    * Added cmdlet Register-BDRMarketplaceModelEndpoint leveraging the RegisterMarketplaceModelEndpoint service API.
+    * Added cmdlet Remove-BDRMarketplaceModelEndpoint leveraging the DeleteMarketplaceModelEndpoint service API.
+    * Added cmdlet Unregister-BDRMarketplaceModelEndpoint leveraging the DeregisterMarketplaceModelEndpoint service API.
+    * Added cmdlet Update-BDRMarketplaceModelEndpoint leveraging the UpdateMarketplaceModelEndpoint service API.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Invoke-BARGenerateQuery leveraging the GenerateQuery service API.
+  * Amazon Data Automation for Amazon Bedrock. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BDA and can be listed using the command 'Get-AWSCmdletName -Service BDA'.
+  * Amazon Runtime for Amazon Bedrock Data Automation. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BDAR and can be listed using the command 'Get-AWSCmdletName -Service BDAR'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMClusterSchedulerConfig leveraging the DescribeClusterSchedulerConfig service API.
+    * Added cmdlet Get-SMClusterSchedulerConfigList leveraging the ListClusterSchedulerConfigs service API.
+    * Added cmdlet Get-SMComputeQuota leveraging the DescribeComputeQuota service API.
+    * Added cmdlet Get-SMComputeQuotaList leveraging the ListComputeQuotas service API.
+    * Added cmdlet Get-SMPartnerApp leveraging the DescribePartnerApp service API.
+    * Added cmdlet Get-SMPartnerAppList leveraging the ListPartnerApps service API.
+    * Added cmdlet Get-SMTrainingPlan leveraging the DescribeTrainingPlan service API.
+    * Added cmdlet Get-SMTrainingPlanList leveraging the ListTrainingPlans service API.
+    * Added cmdlet New-SMClusterSchedulerConfig leveraging the CreateClusterSchedulerConfig service API.
+    * Added cmdlet New-SMComputeQuota leveraging the CreateComputeQuota service API.
+    * Added cmdlet New-SMPartnerApp leveraging the CreatePartnerApp service API.
+    * Added cmdlet New-SMPartnerAppPresignedUrl leveraging the CreatePartnerAppPresignedUrl service API.
+    * Added cmdlet New-SMTrainingPlan leveraging the CreateTrainingPlan service API.
+    * Added cmdlet Remove-SMClusterSchedulerConfig leveraging the DeleteClusterSchedulerConfig service API.
+    * Added cmdlet Remove-SMComputeQuota leveraging the DeleteComputeQuota service API.
+    * Added cmdlet Remove-SMPartnerApp leveraging the DeletePartnerApp service API.
+    * Added cmdlet Search-SMTrainingPlanOffering leveraging the SearchTrainingPlanOfferings service API.
+    * Added cmdlet Update-SMClusterSchedulerConfig leveraging the UpdateClusterSchedulerConfig service API.
+    * Added cmdlet Update-SMComputeQuota leveraging the UpdateComputeQuota service API.
+    * Added cmdlet Update-SMPartnerApp leveraging the UpdatePartnerApp service API.
+    * Modified cmdlet Get-SMClusterList: added parameter TrainingPlanArn.
+    * Modified cmdlet Get-SMTrainingJobList: added parameter TrainingPlanArnEqual.
+
+### 4.1.711 (2024-12-04 00:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.939.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Get-AABAgentCollaborator leveraging the GetAgentCollaborator service API.

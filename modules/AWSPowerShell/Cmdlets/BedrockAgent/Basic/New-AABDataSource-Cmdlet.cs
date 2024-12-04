@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
-        /// profile</a>.</para>
+        /// profile</a> to use for parsing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -452,6 +452,32 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_OverlapTokens")]
         public System.Int32? HierarchicalChunkingConfiguration_OverlapToken { get; set; }
+        #endregion
+        
+        #region Parameter BedrockDataAutomationConfiguration_ParsingModality
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable parsing of multimodal data, including both text and/or
+        /// images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_ParsingModality")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.ParsingModality")]
+        public Amazon.BedrockAgent.ParsingModality BedrockDataAutomationConfiguration_ParsingModality { get; set; }
+        #endregion
+        
+        #region Parameter BedrockFoundationModelConfiguration_ParsingModality
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable parsing of multimodal data, including both text and/or
+        /// images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingModality")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.ParsingModality")]
+        public Amazon.BedrockAgent.ParsingModality BedrockFoundationModelConfiguration_ParsingModality { get; set; }
         #endregion
         
         #region Parameter ParsingPrompt_ParsingPromptText
@@ -782,7 +808,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 context.CustomTransformationConfiguration_Transformation = new List<Amazon.BedrockAgent.Model.Transformation>(this.CustomTransformationConfiguration_Transformation);
             }
+            context.BedrockDataAutomationConfiguration_ParsingModality = this.BedrockDataAutomationConfiguration_ParsingModality;
             context.BedrockFoundationModelConfiguration_ModelArn = this.BedrockFoundationModelConfiguration_ModelArn;
+            context.BedrockFoundationModelConfiguration_ParsingModality = this.BedrockFoundationModelConfiguration_ParsingModality;
             context.ParsingPrompt_ParsingPromptText = this.ParsingPrompt_ParsingPromptText;
             context.ParsingConfiguration_ParsingStrategy = this.ParsingConfiguration_ParsingStrategy;
             
@@ -1528,6 +1556,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration.ParsingStrategy = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_parsingConfiguration_ParsingStrategy;
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.BedrockDataAutomationConfiguration requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = null;
+            
+             // populate BedrockDataAutomationConfiguration
+            var requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull = true;
+            requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = new Amazon.BedrockAgent.Model.BedrockDataAutomationConfiguration();
+            Amazon.BedrockAgent.ParsingModality requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality = null;
+            if (cmdletContext.BedrockDataAutomationConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality = cmdletContext.BedrockDataAutomationConfiguration_ParsingModality;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration.ParsingModality = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull = false;
+            }
+             // determine if requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration should be set to null
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = null;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration.BedrockDataAutomationConfiguration = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.BedrockFoundationModelConfiguration requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration = null;
             
              // populate BedrockFoundationModelConfiguration
@@ -1541,6 +1594,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ModelArn != null)
             {
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration.ModelArn = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ModelArn;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.ParsingModality requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality = null;
+            if (cmdletContext.BedrockFoundationModelConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality = cmdletContext.BedrockFoundationModelConfiguration_ParsingModality;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration.ParsingModality = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality;
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfigurationIsNull = false;
             }
             Amazon.BedrockAgent.Model.ParsingPrompt requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingPrompt = null;
@@ -1838,7 +1901,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.Int32? SemanticChunkingConfiguration_MaxToken { get; set; }
             public System.String S3Location_Uri { get; set; }
             public List<Amazon.BedrockAgent.Model.Transformation> CustomTransformationConfiguration_Transformation { get; set; }
+            public Amazon.BedrockAgent.ParsingModality BedrockDataAutomationConfiguration_ParsingModality { get; set; }
             public System.String BedrockFoundationModelConfiguration_ModelArn { get; set; }
+            public Amazon.BedrockAgent.ParsingModality BedrockFoundationModelConfiguration_ParsingModality { get; set; }
             public System.String ParsingPrompt_ParsingPromptText { get; set; }
             public Amazon.BedrockAgent.ParsingStrategy ParsingConfiguration_ParsingStrategy { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.CreateDataSourceResponse, NewAABDataSourceCmdlet, object> Select { get; set; } =
