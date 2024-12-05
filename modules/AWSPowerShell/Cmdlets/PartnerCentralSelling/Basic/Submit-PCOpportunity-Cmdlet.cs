@@ -28,35 +28,27 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier.
-    /// </para>
+    /// Use this action to submit an opportunity that was previously created by partner for
+    /// AWS review. After you perform this action, the opportunity becomes non-editable until
+    /// it is reviewed by AWS and has <c> LifeCycle.ReviewStatus </c> as either <c>Approved</c>
+    /// or <c>Action Required</c>.
     /// </summary>
-    [Cmdlet("Get", "PCOpportunity")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetOpportunity API operation.", Operation = new[] {"GetOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetOpportunityResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetOpportunityResponse object containing multiple properties."
+    [Cmdlet("Submit", "PCOpportunity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Partner Central Selling API SubmitOpportunity API operation.", Operation = new[] {"SubmitOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse))]
+    [AWSCmdletOutput("None or Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class SubmitPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment.</para>
+        /// <para> Specifies the catalog related to the request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
+        /// <para> The identifier of the opportunity previously created by partner and needs to be submitted.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,11 +80,39 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter InvolvementType
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the level of AWS sellers' involvement on the opportunity. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.SalesInvolvementType")]
+        public Amazon.PartnerCentralSelling.SalesInvolvementType InvolvementType { get; set; }
+        #endregion
+        
+        #region Parameter Visibility
+        /// <summary>
+        /// <para>
+        /// <para> Determines whether to restrict visibility of the opportunity from AWS sales. Default
+        /// value is Full. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.Visibility")]
+        public Amazon.PartnerCentralSelling.Visibility Visibility { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetOpportunityResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetOpportunityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +129,26 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Submit-PCOpportunity (SubmitOpportunity)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -121,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse, SubmitPCOpportunityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InvolvementType = this.InvolvementType;
+            #if MODULAR
+            if (this.InvolvementType == null && ParameterWasBound(nameof(this.InvolvementType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InvolvementType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Visibility = this.Visibility;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetOpportunityRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.SubmitOpportunityRequest();
             
             if (cmdletContext.Catalog != null)
             {
@@ -170,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.InvolvementType != null)
+            {
+                request.InvolvementType = cmdletContext.InvolvementType;
+            }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
             }
             
             CmdletOutput output;
@@ -204,15 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetOpportunityRequest request)
+        private Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.SubmitOpportunityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetOpportunity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "SubmitOpportunity");
             try
             {
                 #if DESKTOP
-                return client.GetOpportunity(request);
+                return client.SubmitOpportunity(request);
                 #elif CORECLR
-                return client.GetOpportunityAsync(request).GetAwaiter().GetResult();
+                return client.SubmitOpportunityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,8 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             public System.String Catalog { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.PartnerCentralSelling.SalesInvolvementType InvolvementType { get; set; }
+            public Amazon.PartnerCentralSelling.Visibility Visibility { get; set; }
+            public System.Func<Amazon.PartnerCentralSelling.Model.SubmitOpportunityResponse, SubmitPCOpportunityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

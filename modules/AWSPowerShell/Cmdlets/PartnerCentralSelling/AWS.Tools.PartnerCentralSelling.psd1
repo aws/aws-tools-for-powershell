@@ -87,19 +87,40 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-PCAwsOpportunitySummary', 
+        'Get-PCEngagement', 
+        'Get-PCEngagementByAcceptingInvitationTaskList', 
+        'Get-PCEngagementFromOpportunityTaskList', 
         'Get-PCEngagementInvitation', 
         'Get-PCEngagementInvitationList', 
+        'Get-PCEngagementList', 
+        'Get-PCEngagementMemberList', 
+        'Get-PCEngagementResourceAssociationList', 
         'Get-PCOpportunity', 
         'Get-PCOpportunityList', 
+        'Get-PCResourceSnapshot', 
+        'Get-PCResourceSnapshotJob', 
+        'Get-PCResourceSnapshotJobList', 
+        'Get-PCResourceSnapshotList', 
+        'Get-PCSellingSystemSetting', 
         'Get-PCSolutionList', 
+        'Invoke-PCAcceptEngagementInvitation', 
         'Invoke-PCAssignOpportunity', 
         'Invoke-PCAssociateOpportunity', 
+        'Invoke-PCCreateEngagement', 
+        'Invoke-PCCreateEngagementInvitation', 
         'Invoke-PCCreateOpportunity', 
         'Invoke-PCDisassociateOpportunity', 
         'Invoke-PCRejectEngagementInvitation', 
+        'Invoke-PCResourceSnapshot', 
+        'Invoke-PCResourceSnapshotJob', 
         'Invoke-PCStartEngagementByAcceptingInvitationTask', 
         'Invoke-PCStartEngagementFromOpportunityTask', 
-        'Update-PCOpportunity')
+        'Remove-PCResourceSnapshotJob', 
+        'Start-PCResourceSnapshotJob', 
+        'Stop-PCResourceSnapshotJob', 
+        'Submit-PCOpportunity', 
+        'Update-PCOpportunity', 
+        'Write-PCSellingSystemSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'

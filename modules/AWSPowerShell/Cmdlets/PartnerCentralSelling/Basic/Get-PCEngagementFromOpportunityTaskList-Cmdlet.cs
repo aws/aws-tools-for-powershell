@@ -28,18 +28,17 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Retrieves a list of Partner Solutions that the partner registered on Partner Central.
-    /// This API is used to generate a list of solutions that an end user selects from for
-    /// association with an opportunity.
+    /// Lists all in-progress, completed, or failed <c>EngagementFromOpportunity</c> tasks
+    /// that were initiated by the caller's account.
     /// </summary>
-    [Cmdlet("Get", "PCSolutionList")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.SolutionBase")]
-    [AWSCmdlet("Calls the Partner Central Selling API ListSolutions API operation.", Operation = new[] {"ListSolutions"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.ListSolutionsResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.SolutionBase or Amazon.PartnerCentralSelling.Model.ListSolutionsResponse",
-        "This cmdlet returns a collection of Amazon.PartnerCentralSelling.Model.SolutionBase objects.",
-        "The service call response (type Amazon.PartnerCentralSelling.Model.ListSolutionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PCEngagementFromOpportunityTaskList")]
+    [OutputType("Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTaskSummary")]
+    [AWSCmdlet("Calls the Partner Central Selling API ListEngagementFromOpportunityTasks API operation.", Operation = new[] {"ListEngagementFromOpportunityTasks"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse))]
+    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTaskSummary or Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse",
+        "This cmdlet returns a collection of Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTaskSummary objects.",
+        "The service call response (type Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPCSolutionListCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetPCEngagementFromOpportunityTaskListCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -47,17 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the solutions are listed in. Use <c>AWS</c> to list solutions in the Amazon
-        /// Web Services catalog, and <c>Sandbox</c> to list solutions in a secure and isolated
-        /// testing environment.</para>
+        /// <para> Specifies the catalog related to the request. Valid values are: </para><ul><li><para> AWS: Retrieves the request from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the request from a sandbox environment used for testing or development
+        /// purposes. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -65,45 +61,42 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Catalog { get; set; }
         #endregion
         
-        #region Parameter Category
+        #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para>Filters the solutions based on the category to which they belong. This allows partners
-        /// to search for solutions within specific categories, such as <c>Software</c>, <c>Consulting</c>,
-        /// or <c>Managed Services</c>.</para>
+        /// <para> Filters tasks by the identifiers of the engagements they created or are associated
+        /// with. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Category { get; set; }
+        public System.String[] EngagementIdentifier { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter OpportunityIdentifier
         /// <summary>
         /// <para>
-        /// <para>Filters the solutions based on their unique identifier. Use this filter to retrieve
-        /// specific solutions by providing the solution's identifier for accurate results.</para>
+        /// <para> The identifier of the original opportunity associated with this task. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Identifier { get; set; }
+        public System.String[] OpportunityIdentifier { get; set; }
         #endregion
         
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>Specifies the attribute to sort by, such as <c>Name</c>, <c>CreatedDate</c>, or <c>Status</c>.</para>
+        /// <para> Specifies the field by which the task list should be sorted. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.SolutionSortName")]
-        public Amazon.PartnerCentralSelling.SolutionSortName Sort_SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.ListTasksSortName")]
+        public Amazon.PartnerCentralSelling.ListTasksSortName Sort_SortBy { get; set; }
         #endregion
         
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>Specifies the sorting order, either <c>Ascending</c> or <c>Descending</c>. The default
-        /// is <c>Descending</c>.</para>
+        /// <para> Determines the order in which the sorted results are presented. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,22 +104,34 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter TaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>Filters solutions based on their status. This filter helps partners manage their solution
-        /// portfolios effectively.</para>
+        /// <para> Filters tasks by their unique identifiers. Use this when you want to retrieve information
+        /// about specific tasks. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Status { get; set; }
+        public System.String[] TaskIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter TaskStatus
+        /// <summary>
+        /// <para>
+        /// <para> Filters the tasks based on their current status. This allows you to focus on tasks
+        /// in specific states. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] TaskStatus { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by a single call. This value must be provided
-        /// in the next call to retrieve the next set of results.</para><para>Default: 20</para>
+        /// <para> Specifies the maximum number of results to return in a single page of the response.Use
+        /// this parameter to control the number of items returned in each request, which can
+        /// be useful for performance tuning and managing large result sets. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,31 +142,32 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token used to retrieve the next set of results in subsequent calls. This
-        /// token is included in the response only if there are additional result pages available.</para>
+        /// <para> The token for requesting the next page of results. This value is obtained from the
+        /// NextToken field in the response of a previous call to this API. Use this parameter
+        /// for pagination when the result set spans multiple pages. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SolutionSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.ListSolutionsResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.ListSolutionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TaskSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse).
+        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SolutionSummaries";
+        public string Select { get; set; } = "TaskSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NextToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NextToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Catalog parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Catalog' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NextToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Catalog' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -179,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListSolutionsResponse, GetPCSolutionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse, GetPCEngagementFromOpportunityTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -188,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NextToken;
+                context.Select = (response, cmdlet) => this.Catalog;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Catalog = this.Catalog;
@@ -198,21 +204,25 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Category != null)
+            if (this.EngagementIdentifier != null)
             {
-                context.Category = new List<System.String>(this.Category);
-            }
-            if (this.Identifier != null)
-            {
-                context.Identifier = new List<System.String>(this.Identifier);
+                context.EngagementIdentifier = new List<System.String>(this.EngagementIdentifier);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.OpportunityIdentifier != null)
+            {
+                context.OpportunityIdentifier = new List<System.String>(this.OpportunityIdentifier);
+            }
             context.Sort_SortBy = this.Sort_SortBy;
             context.Sort_SortOrder = this.Sort_SortOrder;
-            if (this.Status != null)
+            if (this.TaskIdentifier != null)
             {
-                context.Status = new List<System.String>(this.Status);
+                context.TaskIdentifier = new List<System.String>(this.TaskIdentifier);
+            }
+            if (this.TaskStatus != null)
+            {
+                context.TaskStatus = new List<System.String>(this.TaskStatus);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -228,19 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.ListSolutionsRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksRequest();
             
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
             }
-            if (cmdletContext.Category != null)
+            if (cmdletContext.EngagementIdentifier != null)
             {
-                request.Category = cmdletContext.Category;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
+                request.EngagementIdentifier = cmdletContext.EngagementIdentifier;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -250,11 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.NextToken = cmdletContext.NextToken;
             }
+            if (cmdletContext.OpportunityIdentifier != null)
+            {
+                request.OpportunityIdentifier = cmdletContext.OpportunityIdentifier;
+            }
             
              // populate Sort
             var requestSortIsNull = true;
-            request.Sort = new Amazon.PartnerCentralSelling.Model.SolutionSort();
-            Amazon.PartnerCentralSelling.SolutionSortName requestSort_sort_SortBy = null;
+            request.Sort = new Amazon.PartnerCentralSelling.Model.ListTasksSortBase();
+            Amazon.PartnerCentralSelling.ListTasksSortName requestSort_sort_SortBy = null;
             if (cmdletContext.Sort_SortBy != null)
             {
                 requestSort_sort_SortBy = cmdletContext.Sort_SortBy;
@@ -279,9 +289,13 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.Sort = null;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.TaskIdentifier != null)
             {
-                request.Status = cmdletContext.Status;
+                request.TaskIdentifier = cmdletContext.TaskIdentifier;
+            }
+            if (cmdletContext.TaskStatus != null)
+            {
+                request.TaskStatus = cmdletContext.TaskStatus;
             }
             
             CmdletOutput output;
@@ -316,15 +330,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.ListSolutionsResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.ListSolutionsRequest request)
+        private Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "ListSolutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "ListEngagementFromOpportunityTasks");
             try
             {
                 #if DESKTOP
-                return client.ListSolutions(request);
+                return client.ListEngagementFromOpportunityTasks(request);
                 #elif CORECLR
-                return client.ListSolutionsAsync(request).GetAwaiter().GetResult();
+                return client.ListEngagementFromOpportunityTasksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -345,15 +359,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
-            public List<System.String> Category { get; set; }
-            public List<System.String> Identifier { get; set; }
+            public List<System.String> EngagementIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.PartnerCentralSelling.SolutionSortName Sort_SortBy { get; set; }
+            public List<System.String> OpportunityIdentifier { get; set; }
+            public Amazon.PartnerCentralSelling.ListTasksSortName Sort_SortBy { get; set; }
             public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
-            public List<System.String> Status { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.ListSolutionsResponse, GetPCSolutionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SolutionSummaries;
+            public List<System.String> TaskIdentifier { get; set; }
+            public List<System.String> TaskStatus { get; set; }
+            public System.Func<Amazon.PartnerCentralSelling.Model.ListEngagementFromOpportunityTasksResponse, GetPCEngagementFromOpportunityTaskListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TaskSummaries;
         }
         
     }

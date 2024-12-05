@@ -28,35 +28,28 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier.
-    /// </para>
+    /// Use the <c>AcceptEngagementInvitation</c> action to accept an engagement invitation
+    /// shared by AWS. Accepting the invitation indicates your willingness to participate
+    /// in the engagement, granting you access to all engagement-related data.
     /// </summary>
-    [Cmdlet("Get", "PCOpportunity")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetOpportunity API operation.", Operation = new[] {"GetOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetOpportunityResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetOpportunityResponse object containing multiple properties."
+    [Cmdlet("Invoke", "PCAcceptEngagementInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Partner Central Selling API AcceptEngagementInvitation API operation.", Operation = new[] {"AcceptEngagementInvitation"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse))]
+    [AWSCmdletOutput("None or Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class InvokePCAcceptEngagementInvitationCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment.</para>
+        /// <para> The <c>CatalogType</c> parameter specifies the catalog associated with the engagement
+        /// invitation. Accepted values are <c>AWS</c> and <c>Sandbox</c>, which determine the
+        /// environment in which the engagement invitation is managed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
+        /// <para> The <c>Identifier</c> parameter in the <c>AcceptEngagementInvitationRequest</c> specifies
+        /// the unique identifier of the <c>EngagementInvitation</c> to be accepted. Providing
+        /// the correct identifier ensures that the intended invitation is accepted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetOpportunityResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetOpportunityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-PCAcceptEngagementInvitation (AcceptEngagementInvitation)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -121,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse, InvokePCAcceptEngagementInvitationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetOpportunityRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationRequest();
             
             if (cmdletContext.Catalog != null)
             {
@@ -204,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetOpportunityRequest request)
+        private Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetOpportunity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "AcceptEngagementInvitation");
             try
             {
                 #if DESKTOP
-                return client.GetOpportunity(request);
+                return client.AcceptEngagementInvitation(request);
                 #elif CORECLR
-                return client.GetOpportunityAsync(request).GetAwaiter().GetResult();
+                return client.AcceptEngagementInvitationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,8 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             public System.String Catalog { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.PartnerCentralSelling.Model.AcceptEngagementInvitationResponse, InvokePCAcceptEngagementInvitationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

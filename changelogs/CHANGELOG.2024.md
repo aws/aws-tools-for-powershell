@@ -1,4 +1,32 @@
-﻿### 4.1.712 (2024-12-04 21:18Z)
+﻿### 4.1.713 (2024-12-05 03:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.941.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Partner Central Selling API
+    * Added cmdlet Get-PCEngagement leveraging the GetEngagement service API.
+    * Added cmdlet Get-PCEngagementByAcceptingInvitationTaskList leveraging the ListEngagementByAcceptingInvitationTasks service API.
+    * Added cmdlet Get-PCEngagementFromOpportunityTaskList leveraging the ListEngagementFromOpportunityTasks service API.
+    * Added cmdlet Get-PCEngagementList leveraging the ListEngagements service API.
+    * Added cmdlet Get-PCEngagementMemberList leveraging the ListEngagementMembers service API.
+    * Added cmdlet Get-PCEngagementResourceAssociationList leveraging the ListEngagementResourceAssociations service API.
+    * Added cmdlet Get-PCResourceSnapshot leveraging the GetResourceSnapshot service API.
+    * Added cmdlet Get-PCResourceSnapshotJob leveraging the GetResourceSnapshotJob service API.
+    * Added cmdlet Get-PCResourceSnapshotJobList leveraging the ListResourceSnapshotJobs service API.
+    * Added cmdlet Get-PCResourceSnapshotList leveraging the ListResourceSnapshots service API.
+    * Added cmdlet Get-PCSellingSystemSetting leveraging the GetSellingSystemSettings service API.
+    * Added cmdlet Invoke-PCAcceptEngagementInvitation leveraging the AcceptEngagementInvitation service API.
+    * Added cmdlet Invoke-PCCreateEngagement leveraging the CreateEngagement service API.
+    * Added cmdlet Invoke-PCCreateEngagementInvitation leveraging the CreateEngagementInvitation service API.
+    * Added cmdlet Invoke-PCResourceSnapshot leveraging the CreateResourceSnapshot service API.
+    * Added cmdlet Invoke-PCResourceSnapshotJob leveraging the CreateResourceSnapshotJob service API.
+    * Added cmdlet Remove-PCResourceSnapshotJob leveraging the DeleteResourceSnapshotJob service API.
+    * Added cmdlet Start-PCResourceSnapshotJob leveraging the StartResourceSnapshotJob service API.
+    * Added cmdlet Stop-PCResourceSnapshotJob leveraging the StopResourceSnapshotJob service API.
+    * Added cmdlet Submit-PCOpportunity leveraging the SubmitOpportunity service API.
+    * Added cmdlet Write-PCSellingSystemSetting leveraging the PutSellingSystemSettings service API.
+    * Modified cmdlet Get-PCEngagementInvitationList: added parameters EngagementIdentifier, SenderAwsAccountId and Status.
+  * Amazon QBusiness
+    * [Breaking Change] Modified cmdlet Search-QBUSRelevantContent: removed parameters UserGroup and UserId.
+
+### 4.1.712 (2024-12-04 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.940.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABDataSource: added parameters BedrockDataAutomationConfiguration_ParsingModality and BedrockFoundationModelConfiguration_ParsingModality.

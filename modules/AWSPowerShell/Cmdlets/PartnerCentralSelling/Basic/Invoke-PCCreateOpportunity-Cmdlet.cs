@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// <summary>
     /// Creates an <c>Opportunity</c> record in Partner Central. Use this operation to create
     /// a potential business opportunity for submission to Amazon Web Services. Creating an
-    /// opportunity sets <c>Lifecycle.ReviewStatus</c> to <c>Pending Submission</c>. 
+    /// opportunity sets <c>Lifecycle.ReviewStatus</c> to <c>Pending Submission</c>.
     /// 
     ///  
     /// <para>
-    ///  To submit an opportunity, follow these steps: 
+    /// To submit an opportunity, follow these steps:
     /// </para><ol><li><para>
     /// To create the opportunity, use <c>CreateOpportunity</c>.
     /// </para></li><li><para>
@@ -42,12 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// </para></li><li><para>
     /// To submit the opportunity, use <c>StartEngagementFromOpportunityTask</c>.
     /// </para></li></ol><para>
-    ///  After submission, you can't edit the opportunity until the review is complete. But
+    /// After submission, you can't edit the opportunity until the review is complete. But
     /// opportunities in the <c>Pending Submission</c> state must have complete details. You
-    /// can update the opportunity while it's in the <c>Pending Submission</c> state. 
+    /// can update the opportunity while it's in the <c>Pending Submission</c> state.
     /// </para><para>
-    ///  There's a set of mandatory fields to create opportunities, but consider providing
-    /// optional fields to enrich the opportunity record. 
+    /// There's a set of mandatory fields to create opportunities, but consider providing
+    /// optional fields to enrich the opportunity record.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "PCCreateOpportunity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Captures additional comments or information for the <c>Opportunity</c> that weren't
-        /// captured in other fields. </para>
+        /// captured in other fields.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_ApnProgram
         /// <summary>
         /// <para>
-        /// <para> Specifies the Amazon Partner Network (APN) program that influenced the <c>Opportunity</c>.
+        /// <para>Specifies the Amazon Partner Network (APN) program that influenced the <c>Opportunity</c>.
         /// APN programs refer to specific partner programs or initiatives that can impact the
-        /// <c>Opportunity</c>. </para><para> Valid values: <c>APN Immersion Days | APN Solution Space | ATO (Authority to Operate)
+        /// <c>Opportunity</c>.</para><para>Valid values: <c>APN Immersion Days | APN Solution Space | ATO (Authority to Operate)
         /// | AWS Marketplace Campaign | IS Immersion Day SFID Program | ISV Workload Migration
         /// | Migration Acceleration Program | P3 | Partner Launch Initiative | Partner Opportunity
         /// Acceleration Funded | The Next Smart | VMware Cloud on AWS | Well-Architected | Windows
@@ -107,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Account_AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Specifies the <c>Customer</c> Amazon Web Services account ID associated with the <c>Opportunity</c>.
-        /// </para>
+        /// <para>Specifies the <c>Customer</c> Amazon Web Services account ID associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Marketing_AwsFundingUsed
         /// <summary>
         /// <para>
-        /// <para>Indicates if the <c>Opportunity</c> is a marketing development fund (MDF) funded activity.
-        /// </para>
+        /// <para>Indicates if the <c>Opportunity</c> is a marketing development fund (MDF) funded activity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// campaign code is a reference to specific marketing initiatives, promotions, or activities.
         /// This field captures the identifier used to track and categorize the <c>Opportunity</c>
         /// within marketing campaigns. If you don't have a campaign code, contact your Amazon
-        /// Web Services point of contact to obtain one. </para>
+        /// Web Services point of contact to obtain one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,11 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog associated with the request. This field takes a string value
+        /// <para>Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunity is created in. Use <c>AWS</c> to create opportunities
         /// in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in secure, isolated
-        /// environments. </para>
+        /// environments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Specifies the <c>Opportunity</c>'s channel that the marketing activity is associated
         /// with or was contacted through. This field provides information about the specific
-        /// marketing channel that contributed to the generation of the lead or contact. </para>
+        /// marketing channel that contributed to the generation of the lead or contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_City
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s city associated with the <c>Opportunity</c>. </para>
+        /// <para>Specifies the end <c>Customer</c>'s city associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,10 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ClosedLostReason
         /// <summary>
         /// <para>
-        /// <para> Specifies the reason code when an opportunity is marked as <i>Closed Lost</i>. When
+        /// <para>Specifies the reason code when an opportunity is marked as <i>Closed Lost</i>. When
         /// you select an appropriate reason code, you communicate the context for closing the
         /// <c>Opportunity</c>, and aid in accurate reports and analysis of opportunity outcomes.
-        /// The possible values are: </para><ul><li><para>Customer Deficiency: The customer lacked necessary resources or capabilities.</para></li><li><para>Delay/Cancellation of Project: The project was delayed or canceled.</para></li><li><para>Legal/Tax/Regulatory: Legal, tax, or regulatory issues prevented progress.</para></li><li><para>Lost to Competitor—Google: The opportunity was lost to Google.</para></li><li><para>Lost to Competitor—Microsoft: The opportunity was lost to Microsoft.</para></li><li><para>Lost to Competitor—SoftLayer: The opportunity was lost to SoftLayer.</para></li><li><para>Lost to Competitor—VMWare: The opportunity was lost to VMWare.</para></li><li><para>Lost to Competitor—Other: The opportunity was lost to a competitor not listed above.</para></li><li><para>No Opportunity: There was no opportunity to pursue.</para></li><li><para>On Premises Deployment: The customer chose an on-premises solution.</para></li><li><para>Partner Gap: The partner lacked necessary resources or capabilities.</para></li><li><para>Price: The price was not competitive or acceptable to the customer.</para></li><li><para>Security/Compliance: Security or compliance issues prevented progress.</para></li><li><para>Technical Limitations: Technical limitations prevented progress.</para></li><li><para>Customer Experience: Issues related to the customer's experience impacted the decision.</para></li><li><para>Other: Any reason not covered by the other values.</para></li><li><para>People/Relationship/Governance: Issues related to people, relationships, or governance.</para></li><li><para>Product/Technology: Issues related to the product or technology.</para></li><li><para>Financial/Commercial: Financial or commercial issues impacted the decision.</para></li></ul>
+        /// The possible values are:</para><ul><li><para>Customer Deficiency: The customer lacked necessary resources or capabilities.</para></li><li><para>Delay/Cancellation of Project: The project was delayed or canceled.</para></li><li><para>Legal/Tax/Regulatory: Legal, tax, or regulatory issues prevented progress.</para></li><li><para>Lost to Competitor—Google: The opportunity was lost to Google.</para></li><li><para>Lost to Competitor—Microsoft: The opportunity was lost to Microsoft.</para></li><li><para>Lost to Competitor—SoftLayer: The opportunity was lost to SoftLayer.</para></li><li><para>Lost to Competitor—VMWare: The opportunity was lost to VMWare.</para></li><li><para>Lost to Competitor—Other: The opportunity was lost to a competitor not listed above.</para></li><li><para>No Opportunity: There was no opportunity to pursue.</para></li><li><para>On Premises Deployment: The customer chose an on-premises solution.</para></li><li><para>Partner Gap: The partner lacked necessary resources or capabilities.</para></li><li><para>Price: The price was not competitive or acceptable to the customer.</para></li><li><para>Security/Compliance: Security or compliance issues prevented progress.</para></li><li><para>Technical Limitations: Technical limitations prevented progress.</para></li><li><para>Customer Experience: Issues related to the customer's experience impacted the decision.</para></li><li><para>Other: Any reason not covered by the other values.</para></li><li><para>People/Relationship/Governance: Issues related to people, relationships, or governance.</para></li><li><para>Product/Technology: Issues related to the product or technology.</para></li><li><para>Financial/Commercial: Financial or commercial issues impacted the decision.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,8 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Account_CompanyName
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s company name associated with the <c>Opportunity</c>.
-        /// </para>
+        /// <para>Specifies the end <c>Customer</c>'s company name associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -217,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Name of the <c>Opportunity</c>'s competitor (if any). Use <c>Other</c> to submit a
-        /// value not in the picklist. </para>
+        /// value not in the picklist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,8 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_CountryCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s country associated with the <c>Opportunity</c>.
-        /// </para>
+        /// <para>Specifies the end <c>Customer</c>'s country associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// on how the proposed solution meets the customer's needs and provides value. Use concise
         /// language and precise descriptions to convey the context and significance of the <c>Opportunity</c>.
         /// The content in this field helps Amazon Web Services understand the nature of the <c>Opportunity</c>
-        /// and the strategic fit of the partner's solution. </para>
+        /// and the strategic fit of the partner's solution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,9 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_CustomerUseCase
         /// <summary>
         /// <para>
-        /// <para> Specifies the proposed solution focus or type of workload for the Opportunity. This
+        /// <para>Specifies the proposed solution focus or type of workload for the Opportunity. This
         /// field captures the primary use case or objective of the proposed solution, and provides
-        /// context and clarity to the addressed workload. </para><para> Valid values: <c>AI Machine Learning and Analytics | Archiving | Big Data: Data Warehouse/Data
+        /// context and clarity to the addressed workload.</para><para>Valid values: <c>AI Machine Learning and Analytics | Archiving | Big Data: Data Warehouse/Data
         /// Integration/ETL/Data Lake/BI | Blockchain | Business Applications: Mainframe Modernization
         /// | Business Applications &amp; Contact Center | Business Applications &amp; SAP Production
         /// | Centralized Operations Management | Cloud Management Tools | Cloud Management Tools
@@ -311,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the customer's intended payment type agreement or procurement method to
-        /// acquire the solution or service outlined in the <c>Opportunity</c>. </para>
+        /// acquire the solution or service outlined in the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,8 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_DeliveryModel
         /// <summary>
         /// <para>
-        /// <para> Specifies the deployment or consumption model for your solution or service in the
-        /// <c>Opportunity</c>'s context. You can select multiple options. </para><para> Options' descriptions from the <c>Delivery Model</c> field are: </para><ul><li><para>SaaS or PaaS: Your Amazon Web Services based solution deployed as SaaS or PaaS in
+        /// <para>Specifies the deployment or consumption model for your solution or service in the
+        /// <c>Opportunity</c>'s context. You can select multiple options.</para><para>Options' descriptions from the <c>Delivery Model</c> field are:</para><ul><li><para>SaaS or PaaS: Your Amazon Web Services based solution deployed as SaaS or PaaS in
         /// your Amazon Web Services environment.</para></li><li><para>BYOL or AMI: Your Amazon Web Services based solution deployed as BYOL or AMI in the
         /// end customer's Amazon Web Services environment.</para></li><li><para>Managed Services: The end customer's Amazon Web Services business management (For
         /// example: Consulting, design, implementation, billing support, cost optimization, technical
@@ -340,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Account_Dun
         /// <summary>
         /// <para>
-        /// <para>Indicates the <c>Customer</c> DUNS number, if available. </para>
+        /// <para>Indicates the <c>Customer</c> DUNS number, if available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -352,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the <c>Opportunity</c>'s customer engagement start date for the contract's
-        /// effectiveness. </para>
+        /// effectiveness.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Specifies the expiration date for the contract between the customer and Amazon Web
         /// Services partner. It signifies the termination date of the agreed-upon engagement
-        /// period between both parties. </para>
+        /// period between both parties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <para>
         /// <para>Specifies the industry the end <c>Customer</c> belongs to that's associated with the
         /// <c>Opportunity</c>. It refers to the category or sector where the customer's business
-        /// operates. This is a required field. </para>
+        /// operates. This is a required field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -415,8 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the upcoming actions or tasks for the <c>Opportunity</c>. Use this field
-        /// to communicate with Amazon Web Services about the next actions required for the <c>Opportunity</c>.
-        /// </para>
+        /// to communicate with Amazon Web Services about the next actions required for the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Captures a chronological record of the next steps or actions planned or taken for
-        /// the current opportunity, along with the timestamp. </para>
+        /// the current opportunity, along with the timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,11 +444,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter OpportunityType
         /// <summary>
         /// <para>
-        /// <para> Specifies the opportunity type as a renewal, new, or expansion. </para><para> Opportunity types: </para><ul><li><para> New opportunity: Represents a new business opportunity with a potential customer
-        /// that's not previously engaged with your solutions or services. </para></li><li><para> Renewal opportunity: Represents an opportunity to renew an existing contract or subscription
-        /// with a current customer, ensuring continuity of service. </para></li><li><para> Expansion opportunity: Represents an opportunity to expand the scope of an existing
+        /// <para>Specifies the opportunity type as a renewal, new, or expansion.</para><para>Opportunity types:</para><ul><li><para>New opportunity: Represents a new business opportunity with a potential customer that's
+        /// not previously engaged with your solutions or services.</para></li><li><para>Renewal opportunity: Represents an opportunity to renew an existing contract or subscription
+        /// with a current customer, ensuring continuity of service.</para></li><li><para>Expansion opportunity: Represents an opportunity to expand the scope of an existing
         /// contract or subscription, either by adding new services or increasing the volume of
-        /// existing services for a current customer. </para></li></ul>
+        /// existing services for a current customer.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -464,12 +459,12 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para> Specifies the origin of the opportunity, indicating if it was sourced from Amazon
+        /// <para>Specifies the origin of the opportunity, indicating if it was sourced from Amazon
         /// Web Services or the partner. For all opportunities created with <c>Catalog: AWS</c>,
         /// this field must only be <c>Partner Referral</c>. However, when using <c>Catalog: Sandbox</c>,
         /// you can set this field to <c>AWS Referral</c> to simulate Amazon Web Services referral
         /// creation. This allows Amazon Web Services-originated flows testing in the sandbox
-        /// catalog. </para>
+        /// catalog.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,7 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_OtherCompetitorName
         /// <summary>
         /// <para>
-        /// <para>Only allowed when <c>CompetitorNames</c> has <c>Other</c> selected. </para>
+        /// <para>Only allowed when <c>CompetitorNames</c> has <c>Other</c> selected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -492,7 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the end <c>Customer</c>'s industry associated with the <c>Opportunity</c>,
-        /// when the selected value in the <c>Industry</c> field is <c>Other</c>. </para>
+        /// when the selected value in the <c>Industry</c> field is <c>Other</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -504,7 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>Specifies the offered solution for the customer's business problem when the <c> RelatedEntityIdentifiers.Solutions</c>
-        /// field value is <c>Other</c>. </para>
+        /// field value is <c>Other</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,11 +509,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter PartnerOpportunityIdentifier
         /// <summary>
         /// <para>
-        /// <para> Specifies the opportunity's unique identifier in the partner's CRM system. This value
+        /// <para>Specifies the opportunity's unique identifier in the partner's CRM system. This value
         /// is essential to track and reconcile because it's included in the outbound payload
-        /// to the partner. </para><para> This field allows partners to link an opportunity to their CRM, which helps to ensure
+        /// to the partner.</para><para>This field allows partners to link an opportunity to their CRM, which helps to ensure
         /// seamless integration and accurate synchronization between the Partner Central API
-        /// and the partner's internal systems. </para>
+        /// and the partner's internal systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -528,8 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_PostalCode
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s postal code associated with the <c>Opportunity</c>.
-        /// </para>
+        /// <para>Specifies the end <c>Customer</c>'s postal code associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,22 +534,22 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter PrimaryNeedsFromAw
         /// <summary>
         /// <para>
-        /// <para> Identifies the type of support the partner needs from Amazon Web Services. </para><para> Valid values: </para><ul><li><para> Cosell—Architectural Validation: Confirmation from Amazon Web Services that the partner's
+        /// <para>Identifies the type of support the partner needs from Amazon Web Services.</para><para>Valid values:</para><ul><li><para>Cosell—Architectural Validation: Confirmation from Amazon Web Services that the partner's
         /// proposed solution architecture is aligned with Amazon Web Services best practices
-        /// and poses minimal architectural risks. </para></li><li><para> Cosell—Business Presentation: Request Amazon Web Services seller's participation
-        /// in a joint customer presentation. </para></li><li><para> Cosell—Competitive Information: Access to Amazon Web Services competitive resources
-        /// and support for the partner's proposed solution. </para></li><li><para> Cosell—Pricing Assistance: Connect with an Amazon Web Services seller for support
+        /// and poses minimal architectural risks.</para></li><li><para>Cosell—Business Presentation: Request Amazon Web Services seller's participation in
+        /// a joint customer presentation.</para></li><li><para>Cosell—Competitive Information: Access to Amazon Web Services competitive resources
+        /// and support for the partner's proposed solution.</para></li><li><para>Cosell—Pricing Assistance: Connect with an Amazon Web Services seller for support
         /// situations where a partner may be receiving an upfront discount on a service (for
-        /// example: EDP deals). </para></li><li><para> Cosell—Technical Consultation: Connect with an Amazon Web Services Solutions Architect
-        /// to address the partner's questions about the proposed solution. </para></li><li><para> Cosell—Total Cost of Ownership Evaluation: Assistance with quoting different cost
+        /// example: EDP deals).</para></li><li><para>Cosell—Technical Consultation: Connect with an Amazon Web Services Solutions Architect
+        /// to address the partner's questions about the proposed solution.</para></li><li><para>Cosell—Total Cost of Ownership Evaluation: Assistance with quoting different cost
         /// savings of proposed solutions on Amazon Web Services versus on-premises or a traditional
-        /// hosting environment. </para></li><li><para> Cosell—Deal Support: Request Amazon Web Services seller's support to progress the
-        /// opportunity (for example: joint customer call, strategic positioning). </para></li><li><para> Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where
-        /// the partner needs Amazon Web Services RFx support. </para></li><li><para> Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support
+        /// hosting environment.</para></li><li><para>Cosell—Deal Support: Request Amazon Web Services seller's support to progress the
+        /// opportunity (for example: joint customer call, strategic positioning).</para></li><li><para>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where
+        /// the partner needs Amazon Web Services RFx support.</para></li><li><para>Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support
         /// from an Amazon Web Services sales representative, and the partner solely manages the
         /// opportunity. It's possible to request coselling support on these opportunities at
         /// any stage during their lifecycles. This is also known as a for-visibility-only (FVO)
-        /// opportunity. </para></li></ul>
+        /// opportunity.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,7 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_RelatedOpportunityIdentifier
         /// <summary>
         /// <para>
-        /// <para>Specifies the current opportunity's parent opportunity identifier. </para>
+        /// <para>Specifies the current opportunity's parent opportunity identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,15 +582,13 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewStatus
         /// <summary>
         /// <para>
-        /// <para> Indicates the review status of an opportunity referred by a partner. This field is
-        /// read-only and only applicable for partner referrals. The possible values are: </para><ul><li><para> Pending Submission: Not submitted for validation (editable). </para></li><li><para> Submitted: Submitted for validation, and Amazon Web Services hasn't reviewed it (read-only).
-        /// </para></li><li><para> In Review: Amazon Web Services is validating (read-only). </para></li><li><para> Action Required: Issues that Amazon Web Services highlights need to be addressed.
+        /// <para>Indicates the review status of an opportunity referred by a partner. This field is
+        /// read-only and only applicable for partner referrals. The possible values are:</para><ul><li><para>Pending Submission: Not submitted for validation (editable).</para></li><li><para>Submitted: Submitted for validation, and Amazon Web Services hasn't reviewed it (read-only).</para></li><li><para>In Review: Amazon Web Services is validating (read-only).</para></li><li><para>Action Required: Issues that Amazon Web Services highlights need to be addressed.
         /// Partners should use the <c>UpdateOpportunity</c> API action to update the opportunity
         /// and helps to ensure that all required changes are made. Only the following fields
-        /// are editable when the <c>Lifecycle.ReviewStatus</c> is <c>Action Required</c>: </para><ul><li><para>Customer.Account.Address.City</para></li><li><para>Customer.Account.Address.CountryCode</para></li><li><para>Customer.Account.Address.PostalCode</para></li><li><para>Customer.Account.Address.StateOrRegion</para></li><li><para>Customer.Account.Address.StreetAddress</para></li><li><para>Customer.Account.WebsiteUrl</para></li><li><para>LifeCycle.TargetCloseDate</para></li><li><para>Project.ExpectedMonthlyAWSRevenue.Amount</para></li><li><para>Project.ExpectedMonthlyAWSRevenue.CurrencyCode</para></li><li><para>Project.CustomerBusinessProblem</para></li><li><para>PartnerOpportunityIdentifier</para></li></ul><para> After updates, the opportunity re-enters the validation phase. This process repeats
+        /// are editable when the <c>Lifecycle.ReviewStatus</c> is <c>Action Required</c>:</para><ul><li><para>Customer.Account.Address.City</para></li><li><para>Customer.Account.Address.CountryCode</para></li><li><para>Customer.Account.Address.PostalCode</para></li><li><para>Customer.Account.Address.StateOrRegion</para></li><li><para>Customer.Account.Address.StreetAddress</para></li><li><para>Customer.Account.WebsiteUrl</para></li><li><para>LifeCycle.TargetCloseDate</para></li><li><para>Project.ExpectedMonthlyAWSRevenue.Amount</para></li><li><para>Project.ExpectedMonthlyAWSRevenue.CurrencyCode</para></li><li><para>Project.CustomerBusinessProblem</para></li><li><para>PartnerOpportunityIdentifier</para></li></ul><para>After updates, the opportunity re-enters the validation phase. This process repeats
         /// until all issues are resolved, and the opportunity's <c>Lifecycle.ReviewStatus</c>
-        /// is set to <c>Approved</c> or <c>Rejected</c>. </para></li><li><para> Approved: Validated and converted into the Amazon Web Services seller's pipeline
-        /// (editable). </para></li><li><para> Rejected: Disqualified (read-only). </para></li></ul>
+        /// is set to <c>Approved</c> or <c>Rejected</c>.</para></li><li><para>Approved: Validated and converted into the Amazon Web Services seller's pipeline (editable).</para></li><li><para>Rejected: Disqualified (read-only).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -607,10 +599,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_ReviewStatusReason
         /// <summary>
         /// <para>
-        /// <para> Indicates the reason a decision was made during the opportunity review process. This
+        /// <para>Indicates the reason a decision was made during the opportunity review process. This
         /// field combines the reasons for both disqualified and action required statuses, and
-        /// provide clarity for why an opportunity was disqualified or requires further action.
-        /// </para>
+        /// provide clarity for why an opportunity was disqualified or requires further action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -620,16 +611,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_SalesActivity
         /// <summary>
         /// <para>
-        /// <para> Specifies the <c>Opportunity</c>'s sales activities conducted with the end customer.
-        /// These activities help drive Amazon Web Services assignment priority. </para><para> Valid values: </para><ul><li><para> Initialized discussions with customer: Initial conversations with the customer to
-        /// understand their needs and introduce your solution. </para></li><li><para> Customer has shown interest in solution: After initial discussions, the customer
-        /// is interested in your solution. </para></li><li><para> Conducted POC/demo: You conducted a proof of concept (POC) or demonstration of the
-        /// solution for the customer. </para></li><li><para> In evaluation/planning stage: The customer is evaluating the solution and planning
-        /// potential implementation. </para></li><li><para> Agreed on solution to Business Problem: Both parties agree on how the solution addresses
-        /// the customer's business problem. </para></li><li><para> Completed Action Plan: A detailed action plan is complete and outlines the steps
-        /// for implementation. </para></li><li><para> Finalized Deployment Need: Both parties agree with and finalized the deployment needs.
-        /// </para></li><li><para> SOW Signed: Both parties signed a statement of work (SOW), and formalize the agreement
-        /// and detail the project scope and deliverables. </para></li></ul>
+        /// <para>Specifies the <c>Opportunity</c>'s sales activities conducted with the end customer.
+        /// These activities help drive Amazon Web Services assignment priority.</para><para>Valid values:</para><ul><li><para>Initialized discussions with customer: Initial conversations with the customer to
+        /// understand their needs and introduce your solution.</para></li><li><para>Customer has shown interest in solution: After initial discussions, the customer is
+        /// interested in your solution.</para></li><li><para>Conducted POC/demo: You conducted a proof of concept (POC) or demonstration of the
+        /// solution for the customer.</para></li><li><para>In evaluation/planning stage: The customer is evaluating the solution and planning
+        /// potential implementation.</para></li><li><para>Agreed on solution to Business Problem: Both parties agree on how the solution addresses
+        /// the customer's business problem.</para></li><li><para>Completed Action Plan: A detailed action plan is complete and outlines the steps for
+        /// implementation.</para></li><li><para>Finalized Deployment Need: Both parties agree with and finalized the deployment needs.</para></li><li><para>SOW Signed: Both parties signed a statement of work (SOW), and formalize the agreement
+        /// and detail the project scope and deliverables.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -640,11 +630,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Marketing_Source
         /// <summary>
         /// <para>
-        /// <para> Indicates if the <c>Opportunity</c> was sourced from an Amazon Web Services marketing
+        /// <para>Indicates if the <c>Opportunity</c> was sourced from an Amazon Web Services marketing
         /// activity. Use the value <c>Marketing Activity</c>. Use <c>None</c> if it's not associated
         /// with an Amazon Web Services marketing activity. This field helps Amazon Web Services
         /// track the return on marketing investments and enables better distribution of marketing
-        /// budgets among partners. </para>
+        /// budgets among partners.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -655,19 +645,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_Stage
         /// <summary>
         /// <para>
-        /// <para> Specifies the current stage of the <c>Opportunity</c>'s lifecycle as it maps to Amazon
+        /// <para>Specifies the current stage of the <c>Opportunity</c>'s lifecycle as it maps to Amazon
         /// Web Services stages from the current stage in the partner CRM. This field provides
         /// a translated value of the stage, and offers insight into the <c>Opportunity</c>'s
-        /// progression in the sales cycle, according to Amazon Web Services definitions. </para><note><para>A lead and a prospect must be further matured to a <c>Qualified</c> opportunity before
+        /// progression in the sales cycle, according to Amazon Web Services definitions.</para><note><para>A lead and a prospect must be further matured to a <c>Qualified</c> opportunity before
         /// submission. Opportunities that were closed/lost before submission aren't suitable
-        /// for submission.</para></note><para> The descriptions of each sales stage are: </para><ul><li><para> Prospect: Amazon Web Services identifies the opportunity. It can be active (Comes
+        /// for submission.</para></note><para>The descriptions of each sales stage are:</para><ul><li><para>Prospect: Amazon Web Services identifies the opportunity. It can be active (Comes
         /// directly from the end customer through a lead) or latent (Your account team believes
-        /// it exists based on research, account plans, sales plays). </para></li><li><para> Qualified: Your account team engaged with the customer to discuss viability and requirements.
+        /// it exists based on research, account plans, sales plays).</para></li><li><para>Qualified: Your account team engaged with the customer to discuss viability and requirements.
         /// The customer agreed that the opportunity is real, of interest, and may solve business/technical
-        /// needs. </para></li><li><para> Technical Validation: All parties understand the implementation plan. </para></li><li><para> Business Validation: Pricing was proposed, and all parties agree to the steps to
-        /// close. </para></li><li><para> Committed: The customer signed the contract, but Amazon Web Services hasn't started
-        /// billing. </para></li><li><para> Launched: The workload is complete, and Amazon Web Services has started billing.
-        /// </para></li><li><para> Closed Lost: The opportunity is lost, and there are no steps to move forward. </para></li></ul>
+        /// needs.</para></li><li><para>Technical Validation: All parties understand the implementation plan.</para></li><li><para>Business Validation: Pricing was proposed, and all parties agree to the steps to close.</para></li><li><para>Committed: The customer signed the contract, but Amazon Web Services hasn't started
+        /// billing.</para></li><li><para>Launched: The workload is complete, and Amazon Web Services has started billing.</para></li><li><para>Closed Lost: The opportunity is lost, and there are no steps to move forward.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -678,8 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_StateOrRegion
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s state or region associated with the <c>Opportunity</c>.
-        /// </para><para>Valid values: <c>Alabama | Alaska | American Samoa | Arizona | Arkansas | California
+        /// <para>Specifies the end <c>Customer</c>'s state or region associated with the <c>Opportunity</c>.</para><para>Valid values: <c>Alabama | Alaska | American Samoa | Arizona | Arkansas | California
         /// | Colorado | Connecticut | Delaware | Dist. of Columbia | Federated States of Micronesia
         /// | Florida | Georgia | Guam | Hawaii | Idaho | Illinois | Indiana | Iowa | Kansas |
         /// Kentucky | Louisiana | Maine | Marshall Islands | Maryland | Massachusetts | Michigan
@@ -699,8 +686,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Address_StreetAddress
         /// <summary>
         /// <para>
-        /// <para>Specifies the end <c>Customer</c>'s street address associated with the <c>Opportunity</c>.
-        /// </para>
+        /// <para>Specifies the end <c>Customer</c>'s street address associated with the <c>Opportunity</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -711,10 +697,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter LifeCycle_TargetCloseDate
         /// <summary>
         /// <para>
-        /// <para> Specifies the date when Amazon Web Services expects to start significant billing,
+        /// <para>Specifies the date when Amazon Web Services expects to start significant billing,
         /// when the project finishes, and when it moves into production. This field informs the
         /// Amazon Web Services seller about when the opportunity launches and starts to incur
-        /// Amazon Web Services usage. </para><para> Ensure the <c>Target Close Date</c> isn't in the past. </para>
+        /// Amazon Web Services usage.</para><para>Ensure the <c>Target Close Date</c> isn't in the past.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -724,7 +710,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Project_Title
         /// <summary>
         /// <para>
-        /// <para>Specifies the <c>Opportunity</c>'s title or name. </para>
+        /// <para>Specifies the <c>Opportunity</c>'s title or name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -734,10 +720,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Marketing_UseCase
         /// <summary>
         /// <para>
-        /// <para> Specifies the marketing activity use case or purpose that led to the <c>Opportunity</c>'s
+        /// <para>Specifies the marketing activity use case or purpose that led to the <c>Opportunity</c>'s
         /// creation or contact. This field captures the context or marketing activity's execution's
         /// intention and the direct correlation to the generated opportunity or contact. Must
-        /// be empty when <c>Marketing.AWSFundingUsed = No</c>. </para><para> Valid values: <c>AI/ML | Analytics | Application Integration | Blockchain | Business
+        /// be empty when <c>Marketing.AWSFundingUsed = No</c>.</para><para>Valid values: <c>AI/ML | Analytics | Application Integration | Blockchain | Business
         /// Applications | Cloud Financial Management | Compute | Containers | Customer Engagement
         /// | Databases | Developer Tools | End User Computing | Front End Web &amp; Mobile |
         /// Game Tech | IoT | Management &amp; Governance | Media Services | Migration &amp; Transfer
@@ -753,10 +739,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Account_WebsiteUrl
         /// <summary>
         /// <para>
-        /// <para> Specifies the end customer's company website URL associated with the <c>Opportunity</c>.
+        /// <para>Specifies the end customer's company website URL associated with the <c>Opportunity</c>.
         /// This value is crucial to map the customer within the Amazon Web Services CRM system.
         /// This field is required in all cases except when the opportunity is related to national
-        /// security. </para>
+        /// security.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -767,12 +753,12 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> Required to be unique, and should be unchanging, it can be randomly generated or
-        /// a meaningful string. </para><para> Default: None </para><para> Best practice: To help ensure uniqueness and avoid conflicts, use a Universally Unique
+        /// <para>Required to be unique, and should be unchanging, it can be randomly generated or a
+        /// meaningful string.</para><para>Default: None</para><para>Best practice: To help ensure uniqueness and avoid conflicts, use a Universally Unique
         /// Identifier (UUID) as the <c>ClientToken</c>. You can use standard libraries from most
         /// programming languages to generate this. If you use the same client token, the API
         /// returns the following error: "Conflicting client token submitted for a new request
-        /// body." </para>
+        /// body."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

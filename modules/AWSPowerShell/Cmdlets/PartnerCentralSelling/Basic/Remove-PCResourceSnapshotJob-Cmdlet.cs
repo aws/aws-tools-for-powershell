@@ -28,35 +28,26 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier.
-    /// </para>
+    /// Use this action to deletes a previously created resource snapshot job. The job must
+    /// be in a stopped state before it can be deleted.
     /// </summary>
-    [Cmdlet("Get", "PCOpportunity")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetOpportunity API operation.", Operation = new[] {"GetOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetOpportunityResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetOpportunityResponse object containing multiple properties."
+    [Cmdlet("Remove", "PCResourceSnapshotJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Partner Central Selling API DeleteResourceSnapshotJob API operation.", Operation = new[] {"DeleteResourceSnapshotJob"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse))]
+    [AWSCmdletOutput("None or Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class RemovePCResourceSnapshotJobCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment.</para>
+        /// <para> Specifies the catalog from which to delete the snapshot job. Valid values are <c>AWS</c>
+        /// and <c>Sandbox</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Catalog { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter ResourceSnapshotJobIdentifier
         /// <summary>
         /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
+        /// <para> The unique identifier of the resource snapshot job to be deleted. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,14 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ResourceSnapshotJobIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetOpportunityResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetOpportunityResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,18 +90,34 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceSnapshotJobIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceSnapshotJobIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceSnapshotJobIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceSnapshotJobIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PCResourceSnapshotJob (DeleteResourceSnapshotJob)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -121,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse, RemovePCResourceSnapshotJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.ResourceSnapshotJobIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Catalog = this.Catalog;
@@ -140,11 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.ResourceSnapshotJobIdentifier = this.ResourceSnapshotJobIdentifier;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.ResourceSnapshotJobIdentifier == null && ParameterWasBound(nameof(this.ResourceSnapshotJobIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceSnapshotJobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -161,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetOpportunityRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobRequest();
             
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.ResourceSnapshotJobIdentifier != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.ResourceSnapshotJobIdentifier = cmdletContext.ResourceSnapshotJobIdentifier;
             }
             
             CmdletOutput output;
@@ -204,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetOpportunityRequest request)
+        private Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetOpportunity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "DeleteResourceSnapshotJob");
             try
             {
                 #if DESKTOP
-                return client.GetOpportunity(request);
+                return client.DeleteResourceSnapshotJob(request);
                 #elif CORECLR
-                return client.GetOpportunityAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourceSnapshotJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,9 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceSnapshotJobIdentifier { get; set; }
+            public System.Func<Amazon.PartnerCentralSelling.Model.DeleteResourceSnapshotJobResponse, RemovePCResourceSnapshotJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

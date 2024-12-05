@@ -28,52 +28,25 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier.
-    /// </para>
+    /// Retrieves the currently set system settings, which include the IAM Role used for resource
+    /// snapshot jobs.
     /// </summary>
-    [Cmdlet("Get", "PCOpportunity")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetOpportunity API operation.", Operation = new[] {"GetOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetOpportunityResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetOpportunityResponse object containing multiple properties."
+    [Cmdlet("Get", "PCSellingSystemSetting")]
+    [OutputType("Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse")]
+    [AWSCmdlet("Calls the Partner Central Selling API GetSellingSystemSettings API operation.", Operation = new[] {"GetSellingSystemSettings"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse))]
+    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse",
+        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse object containing multiple properties."
     )]
-    public partial class GetPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetPCSellingSystemSettingCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Catalog { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
+        /// <para>Specifies the catalog in which the settings are defined. Acceptable values include
+        /// <c>AWS</c> for production and <c>Sandbox</c> for testing environments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,14 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String Catalog { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetOpportunityResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetOpportunityResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse).
+        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Catalog parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Catalog' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Catalog' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse, GetPCSellingSystemSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.Catalog;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Catalog = this.Catalog;
@@ -138,13 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
             {
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -161,15 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetOpportunityRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsRequest();
             
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -204,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetOpportunityRequest request)
+        private Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetOpportunity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetSellingSystemSettings");
             try
             {
                 #if DESKTOP
-                return client.GetOpportunity(request);
+                return client.GetSellingSystemSettings(request);
                 #elif CORECLR
-                return client.GetOpportunityAsync(request).GetAwaiter().GetResult();
+                return client.GetSellingSystemSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,8 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.PartnerCentralSelling.Model.GetSellingSystemSettingsResponse, GetPCSellingSystemSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

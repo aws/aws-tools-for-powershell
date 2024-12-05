@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.940.0",
+    "ProductVersion"    : "3.7.941.0",
     "CoreVersion"       : "3.7.400.59",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -2892,7 +2892,7 @@
             "InPreview"               : false
         },
         "QBusiness"                           : {
-            "Version" : "3.7.406.0",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"
@@ -3140,7 +3140,7 @@
             "InPreview"               : false
         },
         "PartnerCentralSelling"               : {
-            "Version" : "3.7.401.7",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.59"

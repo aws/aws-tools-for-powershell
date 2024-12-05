@@ -28,30 +28,28 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Retrieves a list of Partner Solutions that the partner registered on Partner Central.
-    /// This API is used to generate a list of solutions that an end user selects from for
-    /// association with an opportunity.
+    /// Retrieves a list of resource view snapshots based on specified criteria.
     /// </summary>
-    [Cmdlet("Get", "PCSolutionList")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.SolutionBase")]
-    [AWSCmdlet("Calls the Partner Central Selling API ListSolutions API operation.", Operation = new[] {"ListSolutions"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.ListSolutionsResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.SolutionBase or Amazon.PartnerCentralSelling.Model.ListSolutionsResponse",
-        "This cmdlet returns a collection of Amazon.PartnerCentralSelling.Model.SolutionBase objects.",
-        "The service call response (type Amazon.PartnerCentralSelling.Model.ListSolutionsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "PCResourceSnapshotList")]
+    [OutputType("Amazon.PartnerCentralSelling.Model.ResourceSnapshotSummary")]
+    [AWSCmdlet("Calls the Partner Central Selling API ListResourceSnapshots API operation.", Operation = new[] {"ListResourceSnapshots"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse))]
+    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.ResourceSnapshotSummary or Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse",
+        "This cmdlet returns a collection of Amazon.PartnerCentralSelling.Model.ResourceSnapshotSummary objects.",
+        "The service call response (type Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPCSolutionListCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetPCResourceSnapshotListCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the solutions are listed in. Use <c>AWS</c> to list solutions in the Amazon
-        /// Web Services catalog, and <c>Sandbox</c> to list solutions in a secure and isolated
-        /// testing environment.</para>
+        /// <para> Specifies the catalog related to the request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,68 +63,70 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Catalog { get; set; }
         #endregion
         
-        #region Parameter Category
+        #region Parameter CreatedBy
         /// <summary>
         /// <para>
-        /// <para>Filters the solutions based on the category to which they belong. This allows partners
-        /// to search for solutions within specific categories, such as <c>Software</c>, <c>Consulting</c>,
-        /// or <c>Managed Services</c>.</para>
+        /// <para> Filters the response to include only snapshots of resources created by the specified
+        /// AWS account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Category { get; set; }
+        public System.String CreatedBy { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para>Filters the solutions based on their unique identifier. Use this filter to retrieve
-        /// specific solutions by providing the solution's identifier for accurate results.</para>
+        /// <para> The unique identifier of the engagement associated with the snapshots. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Identifier { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EngagementIdentifier { get; set; }
         #endregion
         
-        #region Parameter Sort_SortBy
+        #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>Specifies the attribute to sort by, such as <c>Name</c>, <c>CreatedDate</c>, or <c>Status</c>.</para>
+        /// <para> Filters the response to include only snapshots of the specified resource. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.SolutionSortName")]
-        public Amazon.PartnerCentralSelling.SolutionSortName Sort_SortBy { get; set; }
+        public System.String ResourceIdentifier { get; set; }
         #endregion
         
-        #region Parameter Sort_SortOrder
+        #region Parameter ResourceSnapshotTemplateIdentifier
         /// <summary>
         /// <para>
-        /// <para>Specifies the sorting order, either <c>Ascending</c> or <c>Descending</c>. The default
-        /// is <c>Descending</c>.</para>
+        /// <para> Filters the response to include only snapshots created using the specified template.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.PartnerCentralSelling.SortOrder")]
-        public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
+        public System.String ResourceSnapshotTemplateIdentifier { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Filters solutions based on their status. This filter helps partners manage their solution
-        /// portfolios effectively.</para>
+        /// <para> Filters the response to include only snapshots of the specified resource type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Status { get; set; }
+        [AWSConstantClassSource("Amazon.PartnerCentralSelling.ResourceType")]
+        public Amazon.PartnerCentralSelling.ResourceType ResourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by a single call. This value must be provided
-        /// in the next call to retrieve the next set of results.</para><para>Default: 20</para>
+        /// <para> The maximum number of results to return in a single call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,31 +137,30 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token used to retrieve the next set of results in subsequent calls. This
-        /// token is included in the response only if there are additional result pages available.</para>
+        /// <para> The token for the next set of results. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SolutionSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.ListSolutionsResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.ListSolutionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceSnapshotSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse).
+        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SolutionSummaries";
+        public string Select { get; set; } = "ResourceSnapshotSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NextToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NextToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EngagementIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EngagementIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NextToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EngagementIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -179,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListSolutionsResponse, GetPCSolutionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse, GetPCResourceSnapshotListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -188,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NextToken;
+                context.Select = (response, cmdlet) => this.EngagementIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Catalog = this.Catalog;
@@ -198,22 +197,19 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Category != null)
+            context.CreatedBy = this.CreatedBy;
+            context.EngagementIdentifier = this.EngagementIdentifier;
+            #if MODULAR
+            if (this.EngagementIdentifier == null && ParameterWasBound(nameof(this.EngagementIdentifier)))
             {
-                context.Category = new List<System.String>(this.Category);
+                WriteWarning("You are passing $null as a value for parameter EngagementIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            if (this.Identifier != null)
-            {
-                context.Identifier = new List<System.String>(this.Identifier);
-            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Sort_SortBy = this.Sort_SortBy;
-            context.Sort_SortOrder = this.Sort_SortOrder;
-            if (this.Status != null)
-            {
-                context.Status = new List<System.String>(this.Status);
-            }
+            context.ResourceIdentifier = this.ResourceIdentifier;
+            context.ResourceSnapshotTemplateIdentifier = this.ResourceSnapshotTemplateIdentifier;
+            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -228,19 +224,19 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.ListSolutionsRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsRequest();
             
             if (cmdletContext.Catalog != null)
             {
                 request.Catalog = cmdletContext.Catalog;
             }
-            if (cmdletContext.Category != null)
+            if (cmdletContext.CreatedBy != null)
             {
-                request.Category = cmdletContext.Category;
+                request.CreatedBy = cmdletContext.CreatedBy;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.EngagementIdentifier != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.EngagementIdentifier = cmdletContext.EngagementIdentifier;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -250,38 +246,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.NextToken = cmdletContext.NextToken;
             }
-            
-             // populate Sort
-            var requestSortIsNull = true;
-            request.Sort = new Amazon.PartnerCentralSelling.Model.SolutionSort();
-            Amazon.PartnerCentralSelling.SolutionSortName requestSort_sort_SortBy = null;
-            if (cmdletContext.Sort_SortBy != null)
+            if (cmdletContext.ResourceIdentifier != null)
             {
-                requestSort_sort_SortBy = cmdletContext.Sort_SortBy;
+                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
             }
-            if (requestSort_sort_SortBy != null)
+            if (cmdletContext.ResourceSnapshotTemplateIdentifier != null)
             {
-                request.Sort.SortBy = requestSort_sort_SortBy;
-                requestSortIsNull = false;
+                request.ResourceSnapshotTemplateIdentifier = cmdletContext.ResourceSnapshotTemplateIdentifier;
             }
-            Amazon.PartnerCentralSelling.SortOrder requestSort_sort_SortOrder = null;
-            if (cmdletContext.Sort_SortOrder != null)
+            if (cmdletContext.ResourceType != null)
             {
-                requestSort_sort_SortOrder = cmdletContext.Sort_SortOrder;
-            }
-            if (requestSort_sort_SortOrder != null)
-            {
-                request.Sort.SortOrder = requestSort_sort_SortOrder;
-                requestSortIsNull = false;
-            }
-             // determine if request.Sort should be set to null
-            if (requestSortIsNull)
-            {
-                request.Sort = null;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
+                request.ResourceType = cmdletContext.ResourceType;
             }
             
             CmdletOutput output;
@@ -316,15 +291,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.ListSolutionsResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.ListSolutionsRequest request)
+        private Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "ListSolutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "ListResourceSnapshots");
             try
             {
                 #if DESKTOP
-                return client.ListSolutions(request);
+                return client.ListResourceSnapshots(request);
                 #elif CORECLR
-                return client.ListSolutionsAsync(request).GetAwaiter().GetResult();
+                return client.ListResourceSnapshotsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -345,15 +320,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
-            public List<System.String> Category { get; set; }
-            public List<System.String> Identifier { get; set; }
+            public System.String CreatedBy { get; set; }
+            public System.String EngagementIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.PartnerCentralSelling.SolutionSortName Sort_SortBy { get; set; }
-            public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
-            public List<System.String> Status { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.ListSolutionsResponse, GetPCSolutionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SolutionSummaries;
+            public System.String ResourceIdentifier { get; set; }
+            public System.String ResourceSnapshotTemplateIdentifier { get; set; }
+            public Amazon.PartnerCentralSelling.ResourceType ResourceType { get; set; }
+            public System.Func<Amazon.PartnerCentralSelling.Model.ListResourceSnapshotsResponse, GetPCResourceSnapshotListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceSnapshotSummaries;
         }
         
     }

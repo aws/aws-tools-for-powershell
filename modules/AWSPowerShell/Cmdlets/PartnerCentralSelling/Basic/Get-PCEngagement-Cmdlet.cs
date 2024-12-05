@@ -28,21 +28,15 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier.
-    /// </para>
+    /// Use this action to retrieve the engagement record for a given <c>EngagementIdentifier</c>.
     /// </summary>
-    [Cmdlet("Get", "PCOpportunity")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetOpportunity API operation.", Operation = new[] {"GetOpportunity"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetOpportunityResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetOpportunityResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetOpportunityResponse object containing multiple properties."
+    [Cmdlet("Get", "PCEngagement")]
+    [OutputType("Amazon.PartnerCentralSelling.Model.GetEngagementResponse")]
+    [AWSCmdlet("Calls the Partner Central Selling API GetEngagement API operation.", Operation = new[] {"GetEngagement"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetEngagementResponse))]
+    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetEngagementResponse",
+        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetEngagementResponse object containing multiple properties."
     )]
-    public partial class GetPCOpportunityCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetPCEngagementCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
@@ -52,11 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog associated with the request. This field takes a string value
-        /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
-        /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
-        /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment.</para>
+        /// <para> Specifies the catalog related to the engagement request. Valid values are <c>AWS</c>
+        /// and <c>Sandbox</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
+        /// <para> Specifies the identifier of the Engagement record to retrieve. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetOpportunityResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetOpportunityResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetEngagementResponse).
+        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetEngagementResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetEngagementResponse, GetPCEngagementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetOpportunityRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.GetEngagementRequest();
             
             if (cmdletContext.Catalog != null)
             {
@@ -204,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetOpportunityResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetOpportunityRequest request)
+        private Amazon.PartnerCentralSelling.Model.GetEngagementResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetEngagementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetOpportunity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetEngagement");
             try
             {
                 #if DESKTOP
-                return client.GetOpportunity(request);
+                return client.GetEngagement(request);
                 #elif CORECLR
-                return client.GetOpportunityAsync(request).GetAwaiter().GetResult();
+                return client.GetEngagementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             public System.String Catalog { get; set; }
             public System.String Identifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetOpportunityResponse, GetPCOpportunityCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.PartnerCentralSelling.Model.GetEngagementResponse, GetPCEngagementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

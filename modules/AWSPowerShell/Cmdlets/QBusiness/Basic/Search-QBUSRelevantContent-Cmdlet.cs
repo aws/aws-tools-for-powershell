@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// <summary>
     /// Searches for relevant content in a Q Business application based on a query. This operation
     /// takes a search query text, the Q Business application identifier, and optional filters
-    /// (such as user ID, user groups, content source, and maximum results) as input. It returns
-    /// a list of relevant content items, where each item includes the content text, the unique
-    /// document identifier, the document title, the document URI, any relevant document attributes,
-    /// and score attributes indicating the confidence level of the relevance.
+    /// (such as content source and maximum results) as input. It returns a list of relevant
+    /// content items, where each item includes the content text, the unique document identifier,
+    /// the document title, the document URI, any relevant document attributes, and score
+    /// attributes indicating the confidence level of the relevance.
     /// </summary>
     [Cmdlet("Search", "QBUSRelevantContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.RelevantContent")]
@@ -100,27 +100,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContentSource_Retriever_RetrieverId")]
         public System.String Retriever_RetrieverId { get; set; }
-        #endregion
-        
-        #region Parameter UserGroup
-        /// <summary>
-        /// <para>
-        /// <para>The groups the user belongs to. Used for access control.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UserGroups")]
-        public System.String[] UserGroup { get; set; }
-        #endregion
-        
-        #region Parameter UserId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the user performing the search. Used for access control.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -224,11 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.UserGroup != null)
-            {
-                context.UserGroup = new List<System.String>(this.UserGroup);
-            }
-            context.UserId = this.UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -299,14 +273,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.QueryText = cmdletContext.QueryText;
             }
-            if (cmdletContext.UserGroup != null)
-            {
-                request.UserGroups = cmdletContext.UserGroup;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
-            }
             
             CmdletOutput output;
             
@@ -374,8 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryText { get; set; }
-            public List<System.String> UserGroup { get; set; }
-            public System.String UserId { get; set; }
             public System.Func<Amazon.QBusiness.Model.SearchRelevantContentResponse, SearchQBUSRelevantContentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RelevantContent;
         }
