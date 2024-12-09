@@ -1,4 +1,10 @@
-﻿### 4.1.713 (2024-12-05 03:34Z)
+﻿### 4.1.714 (2024-12-09 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.942.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2InstanceNetworkPerformanceOption leveraging the ModifyInstanceNetworkPerformanceOptions service API.
+    * Modified cmdlet New-EC2Instance: added parameter NetworkPerformanceOptions_BandwidthWeighting.
+
+### 4.1.713 (2024-12-05 03:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.941.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Partner Central Selling API
     * Added cmdlet Get-PCEngagement leveraging the GetEngagement service API.

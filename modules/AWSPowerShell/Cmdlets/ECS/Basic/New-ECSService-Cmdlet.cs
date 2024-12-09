@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The capacity provider strategy to use for the service.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
         /// must be omitted. If no <c>capacityProviderStrategy</c> or <c>launchType</c> is specified,
-        /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
+        /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>A capacity provider strategy can contain a maximum of 20 capacity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +375,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <c>maximumPercent</c> value of 200%, the scheduler may start four new tasks before
         /// stopping the four older tasks (provided that the cluster resources required to do
         /// this are available). The default <c>maximumPercent</c> value for a service using the
-        /// <c>REPLICA</c> service scheduler is 200%.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
+        /// <c>REPLICA</c> service scheduler is 200%.</para><para>The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting
+        /// replacement tasks first and then stopping the unhealthy tasks, as long as cluster
+        /// resources for starting replacement tasks are available. For more information about
+        /// how the scheduler replaces unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
+        /// ECS services</a>.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
         /// deployment types, and tasks in the service use the EC2 launch type, the <b>maximum
         /// percent</b> value is set to the default value. The <b>maximum percent</b> value is
         /// used to define the upper limit on the number of the tasks in the service that remain
@@ -400,7 +404,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// using additional cluster capacity. For example, if your service has a <c>desiredCount</c>
         /// of four tasks and a <c>minimumHealthyPercent</c> of 50%, the service scheduler may
         /// stop two existing tasks to free up cluster capacity before starting two new tasks.
-        /// </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
+        /// </para><para> If any tasks are unhealthy and if <c>maximumPercent</c> doesn't allow the Amazon
+        /// ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks
+        /// one-by-one — using the <c>minimumHealthyPercent</c> as a constraint — to clear up
+        /// capacity to launch replacement tasks. For more information about how the scheduler
+        /// replaces unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
+        /// ECS services</a> . </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
         /// service pass their health checks.</para></li><li><para>If a task has no essential containers with a health check defined, the service scheduler
         /// will wait for 40 seconds after a task reaches a <c>RUNNING</c> state before the task
         /// is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service

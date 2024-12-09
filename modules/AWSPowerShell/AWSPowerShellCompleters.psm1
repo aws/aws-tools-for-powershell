@@ -25305,6 +25305,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InstanceBandwidthWeighting
+        {
+            ($_ -eq "Edit-EC2InstanceNetworkPerformanceOption/BandwidthWeighting") -Or
+            ($_ -eq "New-EC2Instance/NetworkPerformanceOptions_BandwidthWeighting")
+        }
+        {
+            $v = "default","ebs-1","vpc-1"
+            break
+        }
+
         # Amazon.EC2.InstanceInterruptionBehavior
         {
             ($_ -eq "Request-EC2SpotInstance/InstanceInterruptionBehavior") -Or
@@ -25959,6 +25969,7 @@ $EC2_map = @{
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "AutoRecovery"=@("Edit-EC2InstanceMaintenanceOption")
     "AwsService"=@("New-EC2IpamPool")
+    "BandwidthWeighting"=@("Edit-EC2InstanceNetworkPerformanceOption")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
@@ -26017,6 +26028,7 @@ $EC2_map = @{
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
+    "NetworkPerformanceOptions_BandwidthWeighting"=@("New-EC2Instance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
@@ -26666,6 +26678,7 @@ $EC2_SelectMap = @{
                "Edit-EC2InstanceMaintenanceOption",
                "Edit-EC2InstanceMetadataDefault",
                "Edit-EC2InstanceMetadataOption",
+               "Edit-EC2InstanceNetworkPerformanceOption",
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",
                "Edit-EC2IpamPool",

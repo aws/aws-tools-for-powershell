@@ -10661,6 +10661,9 @@ Set-Alias -Name EC2-ModifyInstanceMetadataDefaults -Value Edit-EC2InstanceMetada
 Set-Alias -Name Modify-EC2InstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name Modify-EC2InstanceMetadataOption -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name EC2-ModifyInstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
+Set-Alias -Name Modify-EC2InstanceNetworkPerformanceOptions -Value Edit-EC2InstanceNetworkPerformanceOption
+Set-Alias -Name Modify-EC2InstanceNetworkPerformanceOption -Value Edit-EC2InstanceNetworkPerformanceOption
+Set-Alias -Name EC2-ModifyInstanceNetworkPerformanceOptions -Value Edit-EC2InstanceNetworkPerformanceOption
 Set-Alias -Name Modify-EC2InstancePlacement -Value Edit-EC2InstancePlacement
 Set-Alias -Name EC2-ModifyInstancePlacement -Value Edit-EC2InstancePlacement
 Set-Alias -Name Modify-EC2Ipam -Value Edit-EC2Ipam

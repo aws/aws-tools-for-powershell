@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// express (NVMe) is supported for instance store (<c>required</c> | <c>supported</c>
         /// | <c>unsupported</c>).</para></li><li><para><c>instance-storage-info.total-size-in-gb</c> - The total amount of storage available
         /// from all local instance storage, in GB.</para></li><li><para><c>instance-storage-supported</c> - Indicates whether the instance type has local
-        /// instance storage (<c>true</c> | <c>false</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example <c>c5.2xlarge</c> or c5*).</para></li><li><para><c>memory-info.size-in-mib</c> - The memory size.</para></li><li><para><c>network-info.efa-info.maximum-efa-interfaces</c> - The maximum number of Elastic
+        /// instance storage (<c>true</c> | <c>false</c>).</para></li><li><para><c>instance-type</c> - The instance type (for example <c>c5.2xlarge</c> or c5*).</para></li><li><para><c>memory-info.size-in-mib</c> - The memory size.</para></li><li><para><c>network-info.bandwidth-weightings</c> - For instances that support bandwidth weighting
+        /// to boost performance (<c>default</c>, <c>vpc-1</c>, <c>ebs-1</c>).</para></li><li><para><c>network-info.efa-info.maximum-efa-interfaces</c> - The maximum number of Elastic
         /// Fabric Adapters (EFAs) per instance.</para></li><li><para><c>network-info.efa-supported</c> - Indicates whether the instance type supports
         /// Elastic Fabric Adapter (EFA) (<c>true</c> | <c>false</c>).</para></li><li><para><c>network-info.ena-support</c> - Indicates whether Elastic Network Adapter (ENA)
         /// is supported or required (<c>required</c> | <c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>network-info.encryption-in-transit-supported</c> - Indicates whether the instance

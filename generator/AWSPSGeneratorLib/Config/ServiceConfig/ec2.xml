@@ -2313,6 +2313,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceNetworkPerformanceOptions" OutputProperty="*" Verb="Edit" Noun="InstanceNetworkPerformanceOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstancePlacement" OutputProperty="Return" Verb="Edit" Noun="InstancePlacement" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -29,16 +29,32 @@ namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
     /// Adds a new Amazon Web Services Region to the keyspace. You can add a new Region to
-    /// a keyspace that is either a single or a multi-Region keyspace. The new replica Region
-    /// is applied to all tables in the keyspace. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/keyspaces-multi-region-add-replica.html">Add
-    /// an Amazon Web Services Region to a keyspace in Amazon Keyspaces</a> in the <i>Amazon
-    /// Keyspaces Developer Guide</i>. 
+    /// a keyspace that is either a single or a multi-Region keyspace. Amazon Keyspaces is
+    /// going to replicate all tables in the keyspace to the new Region. To successfully replicate
+    /// all tables to the new Region, they must use client-side timestamps for conflict resolution.
+    /// To enable client-side timestamps, specify <c>clientSideTimestamps.status = enabled</c>
+    /// when invoking the API. For more information about client-side timestamps, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps.html">Client-side
+    /// timestamps in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// 
     ///  
     /// <para>
-    /// To change a single-Region to a multi-Region keyspace, you have to enable client-side
-    /// timestamps for all tables in the keyspace. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps.html">Client-side
-    /// timestamps in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.
+    /// To add a Region to a keyspace using the <c>UpdateKeyspace</c> API, the IAM principal
+    /// needs permissions for the following IAM actions:
+    /// </para><ul><li><para><c>cassandra:Alter</c></para></li><li><para><c>cassandra:AlterMultiRegionResource</c></para></li><li><para><c>cassandra:Create</c></para></li><li><para><c>cassandra:CreateMultiRegionResource</c></para></li><li><para><c>cassandra:Select</c></para></li><li><para><c>cassandra:SelectMultiRegionResource</c></para></li><li><para><c>cassandra:Modify</c></para></li><li><para><c>cassandra:ModifyMultiRegionResource</c></para></li></ul><para>
+    /// If the keyspace contains a table that is configured in provisioned mode with auto
+    /// scaling enabled, the following additional IAM actions need to be allowed.
+    /// </para><ul><li><para><c>application-autoscaling:RegisterScalableTarget</c></para></li><li><para><c>application-autoscaling:DeregisterScalableTarget</c></para></li><li><para><c>application-autoscaling:DescribeScalableTargets</c></para></li><li><para><c>application-autoscaling:PutScalingPolicy</c></para></li><li><para><c>application-autoscaling:DescribeScalingPolicies</c></para></li></ul><para>
+    /// To use the <c>UpdateKeyspace</c> API, the IAM principal also needs permissions to
+    /// create a service-linked role with the following elements:
+    /// </para><ul><li><para><c>iam:CreateServiceLinkedRole</c> - The <b>action</b> the principal can perform.
+    /// </para></li><li><para><c>arn:aws:iam::*:role/aws-service-role/replication.cassandra.amazonaws.com/AWSServiceRoleForKeyspacesReplication</c>
+    /// - The <b>resource</b> that the action can be performed on. 
+    /// </para></li><li><para><c>iam:AWSServiceName: replication.cassandra.amazonaws.com</c> - The only Amazon
+    /// Web Services service that this role can be attached to is Amazon Keyspaces.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/howitworks_replication_permissions_addReplica.html">Configure
+    /// the IAM permissions required to add an Amazon Web Services Region to a keyspace</a>
+    /// in the <i>Amazon Keyspaces Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KSKeyspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
