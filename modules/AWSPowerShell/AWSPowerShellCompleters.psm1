@@ -17438,6 +17438,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.DeviceType
+        "New-CONNPushNotificationRegistration/DeviceType"
+        {
+            $v = "APNS","APNS_SANDBOX","GCM"
+            break
+        }
+
         # Amazon.Connect.DirectoryType
         "New-CONNInstance/IdentityManagementType"
         {
@@ -17617,7 +17624,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ParticipantRole
-        "New-CONNParticipant/ParticipantDetails_ParticipantRole"
+        {
+            ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantDetails_ParticipantRole")
+        }
         {
             $v = "AGENT","CUSTOMER","CUSTOM_BOT","SUPERVISOR","SYSTEM"
             break
@@ -17873,6 +17883,7 @@ $CONN_map = @{
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "Channel"=@("New-CONNContact")
+    "ContactConfiguration_ParticipantRole"=@("New-CONNPushNotificationRegistration")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
@@ -17880,6 +17891,7 @@ $CONN_map = @{
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
+    "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
@@ -18021,6 +18033,7 @@ $CONN_SelectMap = @{
                "New-CONNPersistentContactAssociation",
                "New-CONNPredefinedAttribute",
                "New-CONNPrompt",
+               "New-CONNPushNotificationRegistration",
                "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
@@ -18046,6 +18059,7 @@ $CONN_SelectMap = @{
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNPredefinedAttribute",
                "Remove-CONNPrompt",
+               "Remove-CONNPushNotificationRegistration",
                "Remove-CONNQueue",
                "Remove-CONNQuickConnect",
                "Remove-CONNRoutingProfile",
@@ -40404,6 +40418,16 @@ $IVSRT_Completers = {
             break
         }
 
+        # Amazon.IVSRealTime.ThumbnailRecordingMode
+        {
+            ($_ -eq "New-IVSRTStage/ThumbnailConfiguration_RecordingMode") -Or
+            ($_ -eq "Update-IVSRTStage/ThumbnailConfiguration_RecordingMode")
+        }
+        {
+            $v = "DISABLED","INTERVAL"
+            break
+        }
+
         # Amazon.IVSRealTime.VideoAspectRatio
         "Start-IVSRTComposition/Grid_VideoAspectRatio"
         {
@@ -40438,6 +40462,7 @@ $IVSRT_map = @{
     "Pip_PipBehavior"=@("Start-IVSRTComposition")
     "Pip_PipPosition"=@("Start-IVSRTComposition")
     "Pip_VideoFillMode"=@("Start-IVSRTComposition")
+    "ThumbnailConfiguration_RecordingMode"=@("New-IVSRTStage","Update-IVSRTStage")
 }
 
 _awsArgumentCompleterRegistration $IVSRT_Completers $IVSRT_map
@@ -69122,9 +69147,13 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.DkimSigningAttributesOrigin
-        "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributesOrigin"
         {
-            $v = "AWS_SES","EXTERNAL"
+            ($_ -eq "New-SES2EmailIdentity/DkimSigningAttributes_DomainSigningAttributesOrigin") -Or
+            ($_ -eq "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributes_DomainSigningAttributesOrigin") -Or
+            ($_ -eq "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributesOrigin")
+        }
+        {
+            $v = "AWS_SES","AWS_SES_AF_SOUTH_1","AWS_SES_AP_NORTHEAST_1","AWS_SES_AP_NORTHEAST_2","AWS_SES_AP_NORTHEAST_3","AWS_SES_AP_SOUTHEAST_1","AWS_SES_AP_SOUTHEAST_2","AWS_SES_AP_SOUTHEAST_3","AWS_SES_AP_SOUTH_1","AWS_SES_CA_CENTRAL_1","AWS_SES_EU_CENTRAL_1","AWS_SES_EU_NORTH_1","AWS_SES_EU_SOUTH_1","AWS_SES_EU_WEST_1","AWS_SES_EU_WEST_2","AWS_SES_EU_WEST_3","AWS_SES_IL_CENTRAL_1","AWS_SES_ME_SOUTH_1","AWS_SES_SA_EAST_1","AWS_SES_US_EAST_1","AWS_SES_US_EAST_2","AWS_SES_US_WEST_1","AWS_SES_US_WEST_2","EXTERNAL"
             break
         }
 
@@ -69254,6 +69283,7 @@ $SES2_map = @{
     "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")
     "DashboardOptions_EngagementMetric"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "DkimSigningAttributes_DomainSigningAttributesOrigin"=@("New-SES2EmailIdentity")
     "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
     "ExportDestination_DataFormat"=@("New-SES2ExportJob")
     "ExportSourceType"=@("Get-SES2ExportJobList")
@@ -69268,6 +69298,7 @@ $SES2_map = @{
     "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "Reason"=@("Write-SES2SuppressedDestination")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
+    "SigningAttributes_DomainSigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")

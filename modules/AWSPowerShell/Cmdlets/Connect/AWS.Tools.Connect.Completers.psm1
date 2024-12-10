@@ -172,6 +172,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.DeviceType
+        "New-CONNPushNotificationRegistration/DeviceType"
+        {
+            $v = "APNS","APNS_SANDBOX","GCM"
+            break
+        }
+
         # Amazon.Connect.DirectoryType
         "New-CONNInstance/IdentityManagementType"
         {
@@ -351,7 +358,10 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ParticipantRole
-        "New-CONNParticipant/ParticipantDetails_ParticipantRole"
+        {
+            ($_ -eq "New-CONNPushNotificationRegistration/ContactConfiguration_ParticipantRole") -Or
+            ($_ -eq "New-CONNParticipant/ParticipantDetails_ParticipantRole")
+        }
         {
             $v = "AGENT","CUSTOMER","CUSTOM_BOT","SUPERVISOR","SYSTEM"
             break
@@ -607,6 +617,7 @@ $CONN_map = @{
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "Channel"=@("New-CONNContact")
+    "ContactConfiguration_ParticipantRole"=@("New-CONNPushNotificationRegistration")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "ContactRecordingType"=@("Resume-CONNContactRecording","Stop-CONNContactRecording","Suspend-CONNContactRecording")
@@ -614,6 +625,7 @@ $CONN_map = @{
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
+    "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
@@ -755,6 +767,7 @@ $CONN_SelectMap = @{
                "New-CONNPersistentContactAssociation",
                "New-CONNPredefinedAttribute",
                "New-CONNPrompt",
+               "New-CONNPushNotificationRegistration",
                "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
@@ -780,6 +793,7 @@ $CONN_SelectMap = @{
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNPredefinedAttribute",
                "Remove-CONNPrompt",
+               "Remove-CONNPushNotificationRegistration",
                "Remove-CONNQueue",
                "Remove-CONNQuickConnect",
                "Remove-CONNRoutingProfile",

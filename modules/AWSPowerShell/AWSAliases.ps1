@@ -6566,6 +6566,8 @@ Set-Alias -Name Create-CONNPredefinedAttribute -Value New-CONNPredefinedAttribut
 Set-Alias -Name CONN-CreatePredefinedAttribute -Value New-CONNPredefinedAttribute
 Set-Alias -Name Create-CONNPrompt -Value New-CONNPrompt
 Set-Alias -Name CONN-CreatePrompt -Value New-CONNPrompt
+Set-Alias -Name Create-CONNPushNotificationRegistration -Value New-CONNPushNotificationRegistration
+Set-Alias -Name CONN-CreatePushNotificationRegistration -Value New-CONNPushNotificationRegistration
 Set-Alias -Name Create-CONNQueue -Value New-CONNQueue
 Set-Alias -Name CONN-CreateQueue -Value New-CONNQueue
 Set-Alias -Name Create-CONNQuickConnect -Value New-CONNQuickConnect
@@ -6616,6 +6618,8 @@ Set-Alias -Name Delete-CONNPredefinedAttribute -Value Remove-CONNPredefinedAttri
 Set-Alias -Name CONN-DeletePredefinedAttribute -Value Remove-CONNPredefinedAttribute
 Set-Alias -Name Delete-CONNPrompt -Value Remove-CONNPrompt
 Set-Alias -Name CONN-DeletePrompt -Value Remove-CONNPrompt
+Set-Alias -Name Delete-CONNPushNotificationRegistration -Value Remove-CONNPushNotificationRegistration
+Set-Alias -Name CONN-DeletePushNotificationRegistration -Value Remove-CONNPushNotificationRegistration
 Set-Alias -Name Delete-CONNQueue -Value Remove-CONNQueue
 Set-Alias -Name CONN-DeleteQueue -Value Remove-CONNQueue
 Set-Alias -Name Delete-CONNQuickConnect -Value Remove-CONNQuickConnect

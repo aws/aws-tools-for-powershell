@@ -87,6 +87,58 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String ConfigurationSetName { get; set; }
         #endregion
         
+        #region Parameter DkimSigningAttributes_DomainSigningAttributesOrigin
+        /// <summary>
+        /// <para>
+        /// <para>The attribute to use for configuring DKIM for the identity depends on the operation:
+        /// </para><ol><li><para>For <c>PutEmailIdentityDkimSigningAttributes</c>: </para><ul><li><para>None of the values are allowed - use the <a href="https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutEmailIdentityDkimSigningAttributes.html#SES-PutEmailIdentityDkimSigningAttributes-request-SigningAttributesOrigin"><c>SigningAttributesOrigin</c></a> parameter instead </para></li></ul></li><li><para>For <c>CreateEmailIdentity</c> when replicating a parent identity's DKIM configuration:
+        /// </para><ul><li><para>Allowed values: All values except <c>AWS_SES</c> and <c>EXTERNAL</c></para></li></ul></li></ol><ul><li><para><c>AWS_SES</c> – Configure DKIM for the identity by using Easy DKIM. </para></li><li><para><c>EXTERNAL</c> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).
+        /// </para></li><li><para><c>AWS_SES_AF_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Africa (Cape Town) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_EU_NORTH_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Europe (Stockholm) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Asia Pacific (Mumbai) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_EU_WEST_3</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Europe (Paris) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_WEST_2</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Europe (London) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Europe (Milan) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_EU_WEST_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Europe (Ireland) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_AP_NORTHEAST_3</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Osaka) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_2</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Seoul) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_ME_SOUTH_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in Middle East (Bahrain) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_NORTHEAST_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Tokyo) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_IL_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Israel (Tel Aviv) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_SA_EAST_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in South America (São Paulo) region using Deterministic Easy-DKIM
+        /// (DEED). </para></li><li><para><c>AWS_SES_CA_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Canada (Central) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Singapore) region using Deterministic Easy-DKIM
+        /// (DEED). </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_2</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Sydney) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_AP_SOUTHEAST_3</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Asia Pacific (Jakarta) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_EU_CENTRAL_1</c> – Configure DKIM for the identity by replicating from
+        /// a parent identity in Europe (Frankfurt) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_US_EAST_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in US East (N. Virginia) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_US_EAST_2</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in US East (Ohio) region using Deterministic Easy-DKIM (DEED). </para></li><li><para><c>AWS_SES_US_WEST_1</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in US West (N. California) region using Deterministic Easy-DKIM (DEED).
+        /// </para></li><li><para><c>AWS_SES_US_WEST_2</c> – Configure DKIM for the identity by replicating from a
+        /// parent identity in US West (Oregon) region using Deterministic Easy-DKIM (DEED). </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.DkimSigningAttributesOrigin")]
+        public Amazon.SimpleEmailV2.DkimSigningAttributesOrigin DkimSigningAttributes_DomainSigningAttributesOrigin { get; set; }
+        #endregion
+        
         #region Parameter DkimSigningAttributes_DomainSigningPrivateKey
         /// <summary>
         /// <para>
@@ -213,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConfigurationSetName = this.ConfigurationSetName;
+            context.DkimSigningAttributes_DomainSigningAttributesOrigin = this.DkimSigningAttributes_DomainSigningAttributesOrigin;
             context.DkimSigningAttributes_DomainSigningPrivateKey = this.DkimSigningAttributes_DomainSigningPrivateKey;
             context.DkimSigningAttributes_DomainSigningSelector = this.DkimSigningAttributes_DomainSigningSelector;
             context.DkimSigningAttributes_NextSigningKeyLength = this.DkimSigningAttributes_NextSigningKeyLength;
@@ -251,6 +304,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
              // populate DkimSigningAttributes
             var requestDkimSigningAttributesIsNull = true;
             request.DkimSigningAttributes = new Amazon.SimpleEmailV2.Model.DkimSigningAttributes();
+            Amazon.SimpleEmailV2.DkimSigningAttributesOrigin requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningAttributesOrigin = null;
+            if (cmdletContext.DkimSigningAttributes_DomainSigningAttributesOrigin != null)
+            {
+                requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningAttributesOrigin = cmdletContext.DkimSigningAttributes_DomainSigningAttributesOrigin;
+            }
+            if (requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningAttributesOrigin != null)
+            {
+                request.DkimSigningAttributes.DomainSigningAttributesOrigin = requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningAttributesOrigin;
+                requestDkimSigningAttributesIsNull = false;
+            }
             System.String requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningPrivateKey = null;
             if (cmdletContext.DkimSigningAttributes_DomainSigningPrivateKey != null)
             {
@@ -356,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationSetName { get; set; }
+            public Amazon.SimpleEmailV2.DkimSigningAttributesOrigin DkimSigningAttributes_DomainSigningAttributesOrigin { get; set; }
             public System.String DkimSigningAttributes_DomainSigningPrivateKey { get; set; }
             public System.String DkimSigningAttributes_DomainSigningSelector { get; set; }
             public Amazon.SimpleEmailV2.DkimSigningKeyLength DkimSigningAttributes_NextSigningKeyLength { get; set; }

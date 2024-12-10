@@ -1,4 +1,16 @@
-﻿### 4.1.714 (2024-12-09 22:01Z)
+﻿### 4.1.715 (2024-12-10 22:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.943.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet New-CONNPushNotificationRegistration leveraging the CreatePushNotificationRegistration service API.
+    * Added cmdlet Remove-CONNPushNotificationRegistration leveraging the DeletePushNotificationRegistration service API.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTStage: added parameters ThumbnailConfiguration_RecordingMode, ThumbnailConfiguration_Storage and ThumbnailConfiguration_TargetIntervalSecond.
+    * Modified cmdlet Update-IVSRTStage: added parameters ThumbnailConfiguration_RecordingMode, ThumbnailConfiguration_Storage and ThumbnailConfiguration_TargetIntervalSecond.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2EmailIdentity: added parameter DkimSigningAttributes_DomainSigningAttributesOrigin.
+    * Modified cmdlet Write-SES2EmailIdentityDkimSigningAttribute: added parameter SigningAttributes_DomainSigningAttributesOrigin.
+
+### 4.1.714 (2024-12-09 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.942.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Edit-EC2InstanceNetworkPerformanceOption leveraging the ModifyInstanceNetworkPerformanceOptions service API.
