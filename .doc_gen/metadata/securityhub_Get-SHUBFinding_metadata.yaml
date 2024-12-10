@@ -7,12 +7,12 @@ securityhub_GetSHUBFinding:
     PowerShell:
       versions:
       - excerpts:
-        - description: '<emphasis role="bold">Example 1: This command retrieves Security Hub findings from AWS EC2 service.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: This command retrieves Security Hub findings from &EC2; service.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
           - .doc_gen/snippet_files/securityhub_Get-SHUBFinding.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: This command retrieves Security Hub findings from AWS account ID 123456789012.</emphasis>'
+        - description: '<emphasis role="bold">Example 2: This command retrieves Security Hub findings from &AWS; account ID 123456789012.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
