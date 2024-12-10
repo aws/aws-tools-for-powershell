@@ -7,7 +7,7 @@ securityhub_GetSHUBFinding:
     PowerShell:
       versions:
       - excerpts:
-        - description: '<emphasis role="bold">Example 1: This command retrieves Security Hub findings from AWS EC2; service.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: This command retrieves Security Hub findings from Amazon EC2; service.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
