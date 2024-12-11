@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReplaceRoute API operation.", Operation = new[] {"ReplaceRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ReplaceRouteResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ReplaceRouteResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ReplaceRouteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReplaceRouteResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

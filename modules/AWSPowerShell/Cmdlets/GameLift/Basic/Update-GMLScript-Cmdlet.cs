@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service UpdateScript API operation.", Operation = new[] {"UpdateScript"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateScriptResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Script or Amazon.GameLift.Model.UpdateScriptResponse",
         "This cmdlet returns an Amazon.GameLift.Model.Script object.",
-        "The service call response (type Amazon.GameLift.Model.UpdateScriptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.UpdateScriptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGMLScriptCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with a script. Script names don't need to be
-        /// unique.</para>
+        /// <para>A descriptive label that is associated with a script. Script names do not need to
+        /// be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information associated with a build or script. Version strings don't need
-        /// to be unique.</para>
+        /// <para>Version information that is associated with a build or script. Version strings do
+        /// not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

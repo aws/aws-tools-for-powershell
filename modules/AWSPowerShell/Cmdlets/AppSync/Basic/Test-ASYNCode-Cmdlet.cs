@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [OutputType("Amazon.AppSync.Model.EvaluateCodeResponse")]
     [AWSCmdlet("Calls the AWS AppSync EvaluateCode API operation.", Operation = new[] {"EvaluateCode"}, SelectReturnType = typeof(Amazon.AppSync.Model.EvaluateCodeResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.EvaluateCodeResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.EvaluateCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppSync.Model.EvaluateCodeResponse object containing multiple properties."
     )]
     public partial class TestASYNCodeCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

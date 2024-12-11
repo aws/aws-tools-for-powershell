@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeOrganizationConfiguration API operation.", Operation = new[] {"GetDataLakeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration or Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeAutoEnableNewAccountConfiguration objects.",
-        "The service call response (type Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.GetDataLakeOrganizationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSLKDataLakeOrganizationConfigurationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DeleteDataset API operation.", Operation = new[] {"DeleteDataset"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteDatasetResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteDatasetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.DeleteDatasetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.DeleteDatasetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveREKDatasetCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight GetDashboardEmbedUrl API operation.", Operation = new[] {"GetDashboardEmbedUrl"}, SelectReturnType = typeof(Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.GetDashboardEmbedUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSDashboardEmbedUrlCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

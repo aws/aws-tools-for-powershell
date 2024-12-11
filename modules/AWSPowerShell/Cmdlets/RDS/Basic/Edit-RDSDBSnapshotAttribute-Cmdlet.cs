@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBSnapshotAttribute API operation.", Operation = new[] {"ModifyDBSnapshotAttribute"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyDBSnapshotAttributeResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshotAttributesResult or Amazon.RDS.Model.ModifyDBSnapshotAttributeResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBSnapshotAttributesResult object.",
-        "The service call response (type Amazon.RDS.Model.ModifyDBSnapshotAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBSnapshotAttributeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRDSDBSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

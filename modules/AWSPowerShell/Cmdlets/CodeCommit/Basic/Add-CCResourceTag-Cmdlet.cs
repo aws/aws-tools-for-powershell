@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCommit.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCommit.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCCResourceTagCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

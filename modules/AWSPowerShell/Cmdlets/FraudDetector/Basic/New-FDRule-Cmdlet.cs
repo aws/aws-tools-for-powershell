@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector CreateRule API operation.", Operation = new[] {"CreateRule"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.CreateRuleResponse))]
     [AWSCmdletOutput("Amazon.FraudDetector.Model.Rule or Amazon.FraudDetector.Model.CreateRuleResponse",
         "This cmdlet returns an Amazon.FraudDetector.Model.Rule object.",
-        "The service call response (type Amazon.FraudDetector.Model.CreateRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FraudDetector.Model.CreateRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFDRuleCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

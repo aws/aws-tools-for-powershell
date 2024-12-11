@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 ListTrafficPolicyVersions API operation.", Operation = new[] {"ListTrafficPolicyVersions"}, SelectReturnType = typeof(Amazon.Route53.Model.ListTrafficPolicyVersionsResponse), LegacyAlias="Get-R53TrafficPolicyVersions")]
     [AWSCmdletOutput("Amazon.Route53.Model.TrafficPolicy or Amazon.Route53.Model.ListTrafficPolicyVersionsResponse",
         "This cmdlet returns a collection of Amazon.Route53.Model.TrafficPolicy objects.",
-        "The service call response (type Amazon.Route53.Model.ListTrafficPolicyVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListTrafficPolicyVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53TrafficPolicyVersionListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-TrafficPolicyVersionMarker $null' for the first call and '-TrafficPolicyVersionMarker $AWSHistory.LastServiceResponse.TrafficPolicyVersionMarker' for subsequent calls.
+        /// <br/>'TrafficPolicyVersionMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-TrafficPolicyVersionMarker' to null for the first call then set the 'TrafficPolicyVersionMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

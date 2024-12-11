@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
     [AWSCmdlet("Calls the Private CA Connector for SCEP GetConnector API operation.", Operation = new[] {"GetConnector"}, SelectReturnType = typeof(Amazon.PcaConnectorScep.Model.GetConnectorResponse))]
     [AWSCmdletOutput("Amazon.PcaConnectorScep.Model.Connector or Amazon.PcaConnectorScep.Model.GetConnectorResponse",
         "This cmdlet returns an Amazon.PcaConnectorScep.Model.Connector object.",
-        "The service call response (type Amazon.PcaConnectorScep.Model.GetConnectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorScep.Model.GetConnectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCASCEPConnectorCmdlet : AmazonPcaConnectorScepClientCmdlet, IExecutor
     {

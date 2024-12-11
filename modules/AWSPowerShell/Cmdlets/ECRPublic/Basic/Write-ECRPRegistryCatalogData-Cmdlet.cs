@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public PutRegistryCatalogData API operation.", Operation = new[] {"PutRegistryCatalogData"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.PutRegistryCatalogDataResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.RegistryCatalogData or Amazon.ECRPublic.Model.PutRegistryCatalogDataResponse",
         "This cmdlet returns an Amazon.ECRPublic.Model.RegistryCatalogData object.",
-        "The service call response (type Amazon.ECRPublic.Model.PutRegistryCatalogDataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECRPublic.Model.PutRegistryCatalogDataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteECRPRegistryCatalogDataCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

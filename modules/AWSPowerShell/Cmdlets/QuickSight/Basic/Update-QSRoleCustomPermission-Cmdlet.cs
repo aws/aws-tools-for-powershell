@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateRoleCustomPermissionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateRoleCustomPermission API operation.", Operation = new[] {"UpdateRoleCustomPermission"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateRoleCustomPermissionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateRoleCustomPermissionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateRoleCustomPermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateRoleCustomPermissionResponse object containing multiple properties."
     )]
     public partial class UpdateQSRoleCustomPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

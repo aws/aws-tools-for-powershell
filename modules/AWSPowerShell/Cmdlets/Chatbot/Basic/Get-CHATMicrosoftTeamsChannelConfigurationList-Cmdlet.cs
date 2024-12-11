@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot ListMicrosoftTeamsChannelConfigurations API operation.", Operation = new[] {"ListMicrosoftTeamsChannelConfigurations"}, SelectReturnType = typeof(Amazon.Chatbot.Model.ListMicrosoftTeamsChannelConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.Chatbot.Model.TeamsChannelConfiguration or Amazon.Chatbot.Model.ListMicrosoftTeamsChannelConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.Chatbot.Model.TeamsChannelConfiguration objects.",
-        "The service call response (type Amazon.Chatbot.Model.ListMicrosoftTeamsChannelConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chatbot.Model.ListMicrosoftTeamsChannelConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHATMicrosoftTeamsChannelConfigurationListCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

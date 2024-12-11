@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetMediaInsightsPipelineConfiguration API operation.", Operation = new[] {"GetMediaInsightsPipelineConfiguration"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetMediaInsightsPipelineConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.MediaInsightsPipelineConfiguration or Amazon.ChimeSDKMediaPipelines.Model.GetMediaInsightsPipelineConfigurationResponse",
         "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.MediaInsightsPipelineConfiguration object.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetMediaInsightsPipelineConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetMediaInsightsPipelineConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMMPMediaInsightsPipelineConfigurationCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend ListEventsDetectionJobs API operation.", Operation = new[] {"ListEventsDetectionJobs"}, SelectReturnType = typeof(Amazon.Comprehend.Model.ListEventsDetectionJobsResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.EventsDetectionJobProperties or Amazon.Comprehend.Model.ListEventsDetectionJobsResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.EventsDetectionJobProperties objects.",
-        "The service call response (type Amazon.Comprehend.Model.ListEventsDetectionJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.ListEventsDetectionJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOMPEventsDetectionJobListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

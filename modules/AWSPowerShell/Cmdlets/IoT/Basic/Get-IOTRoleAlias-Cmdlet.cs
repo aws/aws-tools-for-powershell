@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DescribeRoleAlias API operation.", Operation = new[] {"DescribeRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeRoleAliasResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.RoleAliasDescription or Amazon.IoT.Model.DescribeRoleAliasResponse",
         "This cmdlet returns an Amazon.IoT.Model.RoleAliasDescription object.",
-        "The service call response (type Amazon.IoT.Model.DescribeRoleAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeRoleAliasResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

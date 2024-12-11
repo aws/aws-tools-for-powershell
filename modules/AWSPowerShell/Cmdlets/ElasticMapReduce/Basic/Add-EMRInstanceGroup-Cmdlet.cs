@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce AddInstanceGroups API operation.", Operation = new[] {"AddInstanceGroups"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse object containing multiple properties."
     )]
     public partial class AddEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

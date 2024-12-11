@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSNSResourceTagCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

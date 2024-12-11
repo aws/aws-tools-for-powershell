@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [AWSCmdlet("Calls the AWS WAF V2 PutLoggingConfiguration API operation.", Operation = new[] {"PutLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.PutLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.LoggingConfiguration or Amazon.WAFV2.Model.PutLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.WAFV2.Model.LoggingConfiguration object.",
-        "The service call response (type Amazon.WAFV2.Model.PutLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFV2.Model.PutLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteWAF2LoggingConfigurationCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
@@ -159,7 +159,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Indicates whether the logging configuration was created by Firewall Manager, as part
         /// of an WAF policy configuration. If true, only Firewall Manager can modify or delete
-        /// the configuration. </para>
+        /// the configuration. </para><para>The logging configuration can be created by Firewall Manager for use with any web
+        /// ACL that Firewall Manager is using for an WAF policy. Web ACLs that Firewall Manager
+        /// creates and uses have their <c>ManagedByFirewallManager</c> property set to true.
+        /// Web ACLs that were created by a customer account and then retrofitted by Firewall
+        /// Manager for use by a policy have their <c>RetrofittedByFirewallManager</c> property
+        /// set to true. For either case, any corresponding logging configuration will indicate
+        /// <c>ManagedByFirewallManager</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,17 +28,17 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Dynamically increases the number of replicas in a Redis OSS (cluster mode disabled)
-    /// replication group or the number of replica nodes in one or more node groups (shards)
-    /// of a Redis OSS (cluster mode enabled) replication group. This operation is performed
-    /// with no cluster down time.
+    /// Dynamically increases the number of replicas in a Valkey or Redis OSS (cluster mode
+    /// disabled) replication group or the number of replica nodes in one or more node groups
+    /// (shards) of a Valkey or Redis OSS (cluster mode enabled) replication group. This operation
+    /// is performed with no cluster down time.
     /// </summary>
     [Cmdlet("Request", "ECReplicaCountIncrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
     [AWSCmdlet("Calls the Amazon ElastiCache IncreaseReplicaCount API operation.", Operation = new[] {"IncreaseReplicaCount"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.IncreaseReplicaCountResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup or Amazon.ElastiCache.Model.IncreaseReplicaCountResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.IncreaseReplicaCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.IncreaseReplicaCountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestECReplicaCountIncreaseCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -66,9 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of read replica nodes you want at the completion of this operation. For
-        /// Redis OSS (cluster mode disabled) replication groups, this is the number of replica
-        /// nodes in the replication group. For Redis OSS (cluster mode enabled) replication groups,
-        /// this is the number of replica nodes in each of the replication group's node groups.</para>
+        /// Valkey or Redis OSS (cluster mode disabled) replication groups, this is the number
+        /// of replica nodes in the replication group. For Valkey or Redis OSS (cluster mode enabled)
+        /// replication groups, this is the number of replica nodes in each of the replication
+        /// group's node groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of <c>ConfigureShard</c> objects that can be used to configure each shard in
-        /// a Redis OSS (cluster mode enabled) replication group. The <c>ConfigureShard</c> has
-        /// three members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
+        /// a Valkey or Redis OSS (cluster mode enabled) replication group. The <c>ConfigureShard</c>
+        /// has three members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

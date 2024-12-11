@@ -30,11 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// <note><para>
     /// This operation is not supported by directory buckets.
-    /// </para></note><important><para>
-    /// The <c>SELECT</c> job type for the RestoreObject operation is no longer available
-    /// to new customers. Existing customers of Amazon S3 Select can continue to use the feature
-    /// as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn
-    /// more</a></para></important><para>
+    /// </para></note><para>
     /// Restores an archived copy of an object back into Amazon S3
     /// </para><para>
     /// This functionality is not supported for Amazon S3 on Outposts.
@@ -142,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.RestoreObjectResponse")]
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) RestoreObject API operation.", Operation = new[] {"RestoreObject"}, SelectReturnType = typeof(Amazon.S3.Model.RestoreObjectResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.RestoreObjectResponse",
-        "This cmdlet returns an Amazon.S3.Model.RestoreObjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3.Model.RestoreObjectResponse object containing multiple properties."
     )]
     public partial class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events PutPartnerEvents API operation.", Operation = new[] {"PutPartnerEvents"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.PutPartnerEventsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.PutPartnerEventsResultEntry or Amazon.CloudWatchEvents.Model.PutPartnerEventsResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchEvents.Model.PutPartnerEventsResultEntry objects.",
-        "The service call response (type Amazon.CloudWatchEvents.Model.PutPartnerEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvents.Model.PutPartnerEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCWEPartnerEventCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

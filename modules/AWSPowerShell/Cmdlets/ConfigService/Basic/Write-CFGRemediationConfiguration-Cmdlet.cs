@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutRemediationConfigurations API operation.", Operation = new[] {"PutRemediationConfigurations"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutRemediationConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.FailedRemediationBatch or Amazon.ConfigService.Model.PutRemediationConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.ConfigService.Model.FailedRemediationBatch objects.",
-        "The service call response (type Amazon.ConfigService.Model.PutRemediationConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutRemediationConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGRemediationConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

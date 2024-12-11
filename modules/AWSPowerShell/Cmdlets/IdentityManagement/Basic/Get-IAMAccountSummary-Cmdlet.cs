@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GetAccountSummary API operation.", Operation = new[] {"GetAccountSummary"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetAccountSummaryResponse))]
     [AWSCmdletOutput("System.String or Amazon.IdentityManagement.Model.GetAccountSummaryResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetAccountSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetAccountSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAccountSummaryCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager GetChangeLogs API operation.", Operation = new[] {"GetChangeLogs"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetChangeLogsResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.ChangeLog or Amazon.AuditManager.Model.GetChangeLogsResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.ChangeLog objects.",
-        "The service call response (type Amazon.AuditManager.Model.GetChangeLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.GetChangeLogsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMChangeLogCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

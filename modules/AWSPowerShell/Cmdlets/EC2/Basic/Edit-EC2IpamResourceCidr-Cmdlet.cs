@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamResourceCidr API operation.", Operation = new[] {"ModifyIpamResourceCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceCidrResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceCidr or Amazon.EC2.Model.ModifyIpamResourceCidrResponse",
         "This cmdlet returns an Amazon.EC2.Model.IpamResourceCidr object.",
-        "The service call response (type Amazon.EC2.Model.ModifyIpamResourceCidrResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyIpamResourceCidrResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2IpamResourceCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

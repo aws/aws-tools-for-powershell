@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service StopDataCollectionByAgentIds API operation.", Operation = new[] {"StopDataCollectionByAgentIds"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse))]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus or Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse",
         "This cmdlet returns a collection of Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

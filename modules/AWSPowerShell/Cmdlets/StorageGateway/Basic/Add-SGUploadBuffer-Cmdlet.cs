@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway AddUploadBuffer API operation.", Operation = new[] {"AddUploadBuffer"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.AddUploadBufferResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.AddUploadBufferResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.AddUploadBufferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AddUploadBufferResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddSGUploadBufferCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

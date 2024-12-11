@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     [OutputType("Amazon.SSOOIDC.Model.RegisterClientResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On OIDC RegisterClient API operation.", Operation = new[] {"RegisterClient"}, SelectReturnType = typeof(Amazon.SSOOIDC.Model.RegisterClientResponse))]
     [AWSCmdletOutput("Amazon.SSOOIDC.Model.RegisterClientResponse",
-        "This cmdlet returns an Amazon.SSOOIDC.Model.RegisterClientResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOOIDC.Model.RegisterClientResponse object containing multiple properties."
     )]
     public partial class RegisterSSOOIDCClientCmdlet : AmazonSSOOIDCClientCmdlet, IExecutor
     {

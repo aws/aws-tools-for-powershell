@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteCustomDBEngineVersion API operation.", Operation = new[] {"DeleteCustomDBEngineVersion"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse object containing multiple properties."
     )]
     public partial class RemoveRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

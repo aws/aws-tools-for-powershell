@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [OutputType("Amazon.TimestreamWrite.Model.WriteRecordsResponse")]
     [AWSCmdlet("Calls the Amazon Timestream Write WriteRecords API operation.", Operation = new[] {"WriteRecords"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.WriteRecordsResponse))]
     [AWSCmdletOutput("Amazon.TimestreamWrite.Model.WriteRecordsResponse",
-        "This cmdlet returns an Amazon.TimestreamWrite.Model.WriteRecordsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamWrite.Model.WriteRecordsResponse object containing multiple properties."
     )]
     public partial class WriteTSWRecordCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

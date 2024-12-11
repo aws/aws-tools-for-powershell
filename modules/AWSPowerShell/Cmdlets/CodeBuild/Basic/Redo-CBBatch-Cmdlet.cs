@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild RetryBuildBatch API operation.", Operation = new[] {"RetryBuildBatch"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.RetryBuildBatchResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.BuildBatch or Amazon.CodeBuild.Model.RetryBuildBatchResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.BuildBatch object.",
-        "The service call response (type Amazon.CodeBuild.Model.RetryBuildBatchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.RetryBuildBatchResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RedoCBBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

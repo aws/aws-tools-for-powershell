@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 RestoreBackup API operation.", Operation = new[] {"RestoreBackup"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.RestoreBackupResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Backup or Amazon.CloudHSMV2.Model.RestoreBackupResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.Backup object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.RestoreBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.RestoreBackupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreHSM2BackupCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

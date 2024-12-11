@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUserPoolMfaConfig API operation.", Operation = new[] {"GetUserPoolMfaConfig"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse object containing multiple properties."
     )]
     public partial class GetCGIPUserPoolMfaConfigCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

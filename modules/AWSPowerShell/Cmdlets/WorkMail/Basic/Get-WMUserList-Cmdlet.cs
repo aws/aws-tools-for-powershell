@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail ListUsers API operation.", Operation = new[] {"ListUsers"}, SelectReturnType = typeof(Amazon.WorkMail.Model.ListUsersResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.User or Amazon.WorkMail.Model.ListUsersResponse",
         "This cmdlet returns a collection of Amazon.WorkMail.Model.User objects.",
-        "The service call response (type Amazon.WorkMail.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMail.Model.ListUsersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWMUserListCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Filters_DisplayNamePrefix { get; set; }
+        #endregion
+        
+        #region Parameter Filters_IdentityProviderUserIdPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Filters only users with the ID from the IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filters_IdentityProviderUserIdPrefix { get; set; }
         #endregion
         
         #region Parameter OrganizationId
@@ -125,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Filters_DisplayNamePrefix = this.Filters_DisplayNamePrefix;
+            context.Filters_IdentityProviderUserIdPrefix = this.Filters_IdentityProviderUserIdPrefix;
             context.Filters_PrimaryEmailPrefix = this.Filters_PrimaryEmailPrefix;
             context.Filters_State = this.Filters_State;
             context.Filters_UsernamePrefix = this.Filters_UsernamePrefix;
@@ -228,6 +239,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (requestFilters_filters_DisplayNamePrefix != null)
             {
                 request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_IdentityProviderUserIdPrefix = null;
+            if (cmdletContext.Filters_IdentityProviderUserIdPrefix != null)
+            {
+                requestFilters_filters_IdentityProviderUserIdPrefix = cmdletContext.Filters_IdentityProviderUserIdPrefix;
+            }
+            if (requestFilters_filters_IdentityProviderUserIdPrefix != null)
+            {
+                request.Filters.IdentityProviderUserIdPrefix = requestFilters_filters_IdentityProviderUserIdPrefix;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_PrimaryEmailPrefix = null;
@@ -340,6 +361,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (requestFilters_filters_DisplayNamePrefix != null)
             {
                 request.Filters.DisplayNamePrefix = requestFilters_filters_DisplayNamePrefix;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_IdentityProviderUserIdPrefix = null;
+            if (cmdletContext.Filters_IdentityProviderUserIdPrefix != null)
+            {
+                requestFilters_filters_IdentityProviderUserIdPrefix = cmdletContext.Filters_IdentityProviderUserIdPrefix;
+            }
+            if (requestFilters_filters_IdentityProviderUserIdPrefix != null)
+            {
+                request.Filters.IdentityProviderUserIdPrefix = requestFilters_filters_IdentityProviderUserIdPrefix;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_PrimaryEmailPrefix = null;
@@ -505,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Filters_DisplayNamePrefix { get; set; }
+            public System.String Filters_IdentityProviderUserIdPrefix { get; set; }
             public System.String Filters_PrimaryEmailPrefix { get; set; }
             public Amazon.WorkMail.EntityState Filters_State { get; set; }
             public System.String Filters_UsernamePrefix { get; set; }

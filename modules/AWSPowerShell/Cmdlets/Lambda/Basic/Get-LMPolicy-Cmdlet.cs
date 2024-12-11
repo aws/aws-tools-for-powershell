@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetPolicyResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetPolicy API operation.", Operation = new[] {"GetPolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetPolicyResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetPolicyResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.GetPolicyResponse object containing multiple properties."
     )]
     public partial class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

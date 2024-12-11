@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

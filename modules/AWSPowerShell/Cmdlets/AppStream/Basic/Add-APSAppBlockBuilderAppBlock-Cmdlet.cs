@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream AssociateAppBlockBuilderAppBlock API operation.", Operation = new[] {"AssociateAppBlockBuilderAppBlock"}, SelectReturnType = typeof(Amazon.AppStream.Model.AssociateAppBlockBuilderAppBlockResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.AppBlockBuilderAppBlockAssociation or Amazon.AppStream.Model.AssociateAppBlockBuilderAppBlockResponse",
         "This cmdlet returns an Amazon.AppStream.Model.AppBlockBuilderAppBlockAssociation object.",
-        "The service call response (type Amazon.AppStream.Model.AssociateAppBlockBuilderAppBlockResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.AssociateAppBlockBuilderAppBlockResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddAPSAppBlockBuilderAppBlockCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

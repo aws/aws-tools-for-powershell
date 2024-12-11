@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     [AWSCmdlet("Calls the Amazon Data Lifecycle Manager UpdateLifecyclePolicy API operation.", Operation = new[] {"UpdateLifecyclePolicy"}, SelectReturnType = typeof(Amazon.DLM.Model.UpdateLifecyclePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.DLM.Model.UpdateLifecyclePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DLM.Model.UpdateLifecyclePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DLM.Model.UpdateLifecyclePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDLMLifecyclePolicyCmdlet : AmazonDLMClientCmdlet, IExecutor
     {

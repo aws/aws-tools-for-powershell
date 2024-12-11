@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs CreateExportTask API operation.", Operation = new[] {"CreateExportTask"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CreateExportTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudWatchLogs.Model.CreateExportTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -89,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The prefix used as the start of the key for every object exported. If you don't specify
-        /// a value, the default is <c>exportedlogs</c>.</para>
+        /// a value, the default is <c>exportedlogs</c>.</para><para>The length of this parameter must comply with the S3 object key name length limits.
+        /// The object key name is a sequence of Unicode characters with UTF-8 encoding, and can
+        /// be up to 1,024 bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [OutputType("Amazon.Private5G.Model.PingResponse")]
     [AWSCmdlet("Calls the AWS Private 5G Ping API operation.", Operation = new[] {"Ping"}, SelectReturnType = typeof(Amazon.Private5G.Model.PingResponse))]
     [AWSCmdletOutput("Amazon.Private5G.Model.PingResponse",
-        "This cmdlet returns an Amazon.Private5G.Model.PingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Private5G.Model.PingResponse object containing multiple properties."
     )]
     public partial class PingPV5GPingCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

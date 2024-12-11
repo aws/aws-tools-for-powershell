@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DescribeCacheClusters API operation.", Operation = new[] {"DescribeCacheClusters"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DescribeCacheClustersResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster or Amazon.ElastiCache.Model.DescribeCacheClustersResponse",
         "This cmdlet returns a collection of Amazon.ElastiCache.Model.CacheCluster objects.",
-        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheClustersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>An optional flag that can be included in the <c>DescribeCacheCluster</c> request to
         /// show only nodes (API/CLI: clusters) that are not members of a replication group. In
-        /// practice, this mean Memcached and single node Redis OSS clusters.</para>
+        /// practice, this means Memcached and single node Valkey or Redis OSS clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

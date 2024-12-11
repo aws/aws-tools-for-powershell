@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyAddressAttribute API operation.", Operation = new[] {"ModifyAddressAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyAddressAttributeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AddressAttribute or Amazon.EC2.Model.ModifyAddressAttributeResponse",
         "This cmdlet returns an Amazon.EC2.Model.AddressAttribute object.",
-        "The service call response (type Amazon.EC2.Model.ModifyAddressAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyAddressAttributeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2AddressAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

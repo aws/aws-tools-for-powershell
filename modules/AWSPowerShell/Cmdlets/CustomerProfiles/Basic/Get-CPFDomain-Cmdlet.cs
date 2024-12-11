@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetDomainResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetDomain API operation.", Operation = new[] {"GetDomain"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetDomainResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetDomainResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetDomainResponse object containing multiple properties."
     )]
     public partial class GetCPFDomainCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

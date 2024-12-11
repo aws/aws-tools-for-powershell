@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline PollForTask API operation.", Operation = new[] {"PollForTask"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.PollForTaskResponse))]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.TaskObject or Amazon.DataPipeline.Model.PollForTaskResponse",
         "This cmdlet returns an Amazon.DataPipeline.Model.TaskObject object.",
-        "The service call response (type Amazon.DataPipeline.Model.PollForTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.PollForTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDPTaskCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

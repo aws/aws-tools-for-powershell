@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor StartQuery API operation.", Operation = new[] {"StartQuery"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.StartQueryResponse))]
     [AWSCmdletOutput("System.String or Amazon.InternetMonitor.Model.StartQueryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.InternetMonitor.Model.StartQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.InternetMonitor.Model.StartQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCWIMQueryCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
@@ -127,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// and the best performing EC2 configuration, at 1 hour intervals.</para></li><li><para><c>OVERALL_TRAFFIC_SUGGESTIONS</c>: Provides TTFB, using a 30-day weighted average,
         /// for all traffic in each Amazon Web Services location that is monitored.</para></li><li><para><c>OVERALL_TRAFFIC_SUGGESTIONS_DETAILS</c>: Provides TTFB, using a 30-day weighted
         /// average, for each top location, for a proposed Amazon Web Services location. Must
-        /// provide a Amazon Web Services location to search.</para></li></ul><para>For lists of the fields returned with each query type and more information about how
+        /// provide an Amazon Web Services location to search.</para></li><li><para><c>ROUTING_SUGGESTIONS</c>: Provides the predicted average round-trip time (RTT)
+        /// from an IP prefix toward an Amazon Web Services location for a DNS resolver. The RTT
+        /// is calculated at one hour intervals, over a one hour period.</para></li></ul><para>For lists of the fields returned with each query type and more information about how
         /// each type of query is performed, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">
         /// Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
         /// Internet Monitor User Guide.</para>

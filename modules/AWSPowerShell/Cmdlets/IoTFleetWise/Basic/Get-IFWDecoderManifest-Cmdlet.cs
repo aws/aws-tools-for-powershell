@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [OutputType("Amazon.IoTFleetWise.Model.GetDecoderManifestResponse")]
     [AWSCmdlet("Calls the AWS IoT FleetWise GetDecoderManifest API operation.", Operation = new[] {"GetDecoderManifest"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.GetDecoderManifestResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.GetDecoderManifestResponse",
-        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetDecoderManifestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetDecoderManifestResponse object containing multiple properties."
     )]
     public partial class GetIFWDecoderManifestCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

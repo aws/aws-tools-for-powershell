@@ -44,11 +44,6 @@ auto-scaling_DescribeLaunchConfigurations:
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.4.1.ps1
           description:
-        - snippet_files: []
-          description: '<emphasis role="bold">Example 5: This example describes all your launch configurations, in batches of 10.</emphasis>'
-        - snippet_files:
-          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.5.1.ps1
-          description:
   services:
     auto-scaling:
       DescribeLaunchConfigurations:

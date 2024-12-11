@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     [OutputType("Amazon.EBS.Model.StartSnapshotResponse")]
     [AWSCmdlet("Calls the Amazon EBS StartSnapshot API operation.", Operation = new[] {"StartSnapshot"}, SelectReturnType = typeof(Amazon.EBS.Model.StartSnapshotResponse))]
     [AWSCmdletOutput("Amazon.EBS.Model.StartSnapshotResponse",
-        "This cmdlet returns an Amazon.EBS.Model.StartSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EBS.Model.StartSnapshotResponse object containing multiple properties."
     )]
     public partial class StartEBSSnapshotCmdlet : AmazonEBSClientCmdlet, IExecutor
     {

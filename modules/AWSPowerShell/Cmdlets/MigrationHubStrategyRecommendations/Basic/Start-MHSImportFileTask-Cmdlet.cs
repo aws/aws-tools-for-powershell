@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations StartImportFileTask API operation.", Operation = new[] {"StartImportFileTask"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.StartImportFileTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.MigrationHubStrategyRecommendations.Model.StartImportFileTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.StartImportFileTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.StartImportFileTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMHSImportFileTaskCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [OutputType("Amazon.Imagebuilder.Model.PutImageRecipePolicyResponse")]
     [AWSCmdlet("Calls the EC2 Image Builder PutImageRecipePolicy API operation.", Operation = new[] {"PutImageRecipePolicy"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.PutImageRecipePolicyResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.PutImageRecipePolicyResponse",
-        "This cmdlet returns an Amazon.Imagebuilder.Model.PutImageRecipePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Imagebuilder.Model.PutImageRecipePolicyResponse object containing multiple properties."
     )]
     public partial class WriteEC2IBImageRecipePolicyCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

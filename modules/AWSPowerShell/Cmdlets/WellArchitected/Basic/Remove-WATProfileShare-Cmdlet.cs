@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteProfileShare API operation.", Operation = new[] {"DeleteProfileShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteProfileShareResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteProfileShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteProfileShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteProfileShareResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATProfileShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

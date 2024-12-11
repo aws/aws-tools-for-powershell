@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT TransferCertificate API operation.", Operation = new[] {"TransferCertificate"}, SelectReturnType = typeof(Amazon.IoT.Model.TransferCertificateResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoT.Model.TransferCertificateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoT.Model.TransferCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.TransferCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

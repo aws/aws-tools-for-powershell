@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning DeleteDataSource API operation.", Operation = new[] {"DeleteDataSource"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.DeleteDataSourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.MachineLearning.Model.DeleteDataSourceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MachineLearning.Model.DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.DeleteDataSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

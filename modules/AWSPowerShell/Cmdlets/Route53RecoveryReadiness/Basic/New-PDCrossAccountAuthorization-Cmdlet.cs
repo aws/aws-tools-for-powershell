@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness CreateCrossAccountAuthorization API operation.", Operation = new[] {"CreateCrossAccountAuthorization"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.CreateCrossAccountAuthorizationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53RecoveryReadiness.Model.CreateCrossAccountAuthorizationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53RecoveryReadiness.Model.CreateCrossAccountAuthorizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryReadiness.Model.CreateCrossAccountAuthorizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPDCrossAccountAuthorizationCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

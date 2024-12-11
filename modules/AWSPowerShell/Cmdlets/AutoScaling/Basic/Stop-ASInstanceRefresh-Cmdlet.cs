@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// your Auto Scaling group after you make configuration changes.
     /// </para><para>
     /// When you cancel an instance refresh, this does not roll back any changes that it made.
-    /// Use the <a>RollbackInstanceRefresh</a> API to roll back instead.
+    /// Use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html">RollbackInstanceRefresh</a>
+    /// API to roll back instead.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling CancelInstanceRefresh API operation.", Operation = new[] {"CancelInstanceRefresh"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CancelInstanceRefreshResponse))]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.CancelInstanceRefreshResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AutoScaling.Model.CancelInstanceRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.CancelInstanceRefreshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

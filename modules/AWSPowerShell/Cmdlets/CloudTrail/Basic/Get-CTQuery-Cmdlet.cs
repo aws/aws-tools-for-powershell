@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.DescribeQueryResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail DescribeQuery API operation.", Operation = new[] {"DescribeQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DescribeQueryResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.DescribeQueryResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.DescribeQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.DescribeQueryResponse object containing multiple properties."
     )]
     public partial class GetCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

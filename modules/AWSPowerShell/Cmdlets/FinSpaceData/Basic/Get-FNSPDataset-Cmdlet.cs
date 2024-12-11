@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [OutputType("Amazon.FinSpaceData.Model.GetDatasetResponse")]
     [AWSCmdlet("Calls the FinSpace Public API GetDataset API operation.", Operation = new[] {"GetDataset"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.GetDatasetResponse))]
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetDatasetResponse",
-        "This cmdlet returns an Amazon.FinSpaceData.Model.GetDatasetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FinSpaceData.Model.GetDatasetResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [OutputType("Amazon.DataExchange.Model.SendApiAssetResponse")]
     [AWSCmdlet("Calls the AWS Data Exchange SendApiAsset API operation.", Operation = new[] {"SendApiAsset"}, SelectReturnType = typeof(Amazon.DataExchange.Model.SendApiAssetResponse))]
     [AWSCmdletOutput("Amazon.DataExchange.Model.SendApiAssetResponse",
-        "This cmdlet returns an Amazon.DataExchange.Model.SendApiAssetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataExchange.Model.SendApiAssetResponse object containing multiple properties."
     )]
     public partial class SendDTEXApiAssetCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

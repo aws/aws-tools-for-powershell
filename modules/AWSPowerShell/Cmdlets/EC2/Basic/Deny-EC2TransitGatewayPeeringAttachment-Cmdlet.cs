@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectTransitGatewayPeeringAttachment API operation.", Operation = new[] {"RejectTransitGatewayPeeringAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPeeringAttachment or Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPeeringAttachment object.",
-        "The service call response (type Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RejectTransitGatewayPeeringAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyEC2TransitGatewayPeeringAttachmentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

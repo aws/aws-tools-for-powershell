@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition UpdateStreamProcessor API operation.", Operation = new[] {"UpdateStreamProcessor"}, SelectReturnType = typeof(Amazon.Rekognition.Model.UpdateStreamProcessorResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.UpdateStreamProcessorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.UpdateStreamProcessorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.UpdateStreamProcessorResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateREKStreamProcessorCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

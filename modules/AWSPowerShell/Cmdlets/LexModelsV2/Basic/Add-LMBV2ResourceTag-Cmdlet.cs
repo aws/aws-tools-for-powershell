@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelsV2.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelsV2.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelsV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddLMBV2ResourceTagCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

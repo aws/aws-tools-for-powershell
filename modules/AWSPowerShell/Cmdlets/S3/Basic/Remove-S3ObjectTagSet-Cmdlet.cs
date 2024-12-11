@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) DeleteObjectTagging API operation.", Operation = new[] {"DeleteObjectTagging"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteObjectTaggingResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3.Model.DeleteObjectTaggingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.S3.Model.DeleteObjectTaggingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.DeleteObjectTaggingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3ObjectTagSetCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

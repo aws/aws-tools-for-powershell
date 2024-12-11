@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) RegisterWorkflowType API operation.", Operation = new[] {"RegisterWorkflowType"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.RegisterWorkflowTypeResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.RegisterWorkflowTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.RegisterWorkflowTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.RegisterWorkflowTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSWFWorkflowTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

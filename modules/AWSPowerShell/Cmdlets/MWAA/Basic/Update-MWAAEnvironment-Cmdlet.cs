@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [AWSCmdlet("Calls the AmazonMWAA UpdateEnvironment API operation.", Operation = new[] {"UpdateEnvironment"}, SelectReturnType = typeof(Amazon.MWAA.Model.UpdateEnvironmentResponse))]
     [AWSCmdletOutput("System.String or Amazon.MWAA.Model.UpdateEnvironmentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MWAA.Model.UpdateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MWAA.Model.UpdateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// other resources used in your workflows are compatible with the new Apache Airflow
         /// version. For more information about updating your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading
         /// an Amazon MWAA environment</a>.</para><para>Valid values: <c>1.10.12</c>, <c>2.0.2</c>, <c>2.2.2</c>, <c>2.4.3</c>, <c>2.5.1</c>,
-        /// <c>2.6.3</c>, <c>2.7.2</c>, <c>2.8.1</c>.</para>
+        /// <c>2.6.3</c>, <c>2.7.2</c>, <c>2.8.1</c>, <c>2.9.2</c>, and <c>2.10.1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

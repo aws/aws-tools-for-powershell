@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteWorkloadShare API operation.", Operation = new[] {"DeleteWorkloadShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteWorkloadShareResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteWorkloadShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteWorkloadShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteWorkloadShareResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATWorkloadShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

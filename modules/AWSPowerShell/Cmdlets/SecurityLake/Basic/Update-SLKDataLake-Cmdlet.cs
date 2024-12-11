@@ -28,15 +28,35 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Specifies where to store your security data and for how long. You can add a rollup
-    /// Region to consolidate data from multiple Amazon Web Services Regions.
+    /// You can use <c>UpdateDataLake</c> to specify where to store your security data, how
+    /// it should be encrypted at rest and for how long. You can add a <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#add-rollup-region">Rollup
+    /// Region</a> to consolidate data from multiple Amazon Web Services Regions, replace
+    /// default encryption (SSE-S3) with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">Customer
+    /// Manged Key</a>, or specify transition and expiration actions through storage <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Lifecycle
+    /// management</a>. The <c>UpdateDataLake</c> API works as an "upsert" operation that
+    /// performs an insert if the specified item or record does not exist, or an update if
+    /// it already exists. Security Lake securely stores your data at rest using Amazon Web
+    /// Services encryption solutions. For more details, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/data-protection.html">Data
+    /// protection in Amazon Security Lake</a>.
+    /// 
+    ///  
+    /// <para>
+    /// For example, omitting the key <c>encryptionConfiguration</c> from a Region that is
+    /// included in an update call that currently uses KMS will leave that Region's KMS key
+    /// in place, but specifying <c>encryptionConfiguration: {kmsKeyId: 'S3_MANAGED_KEY'}</c>
+    /// for that same Region will reset the key to <c>S3-managed</c>.
+    /// </para><para>
+    /// For more details about lifecycle management and how to update retention settings for
+    /// one or more Regions after enabling Security Lake, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Amazon
+    /// Security Lake User Guide</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SLKDataLake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.DataLakeResource")]
     [AWSCmdlet("Calls the Amazon Security Lake UpdateDataLake API operation.", Operation = new[] {"UpdateDataLake"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateDataLakeResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.DataLakeResource or Amazon.SecurityLake.Model.UpdateDataLakeResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.DataLakeResource objects.",
-        "The service call response (type Amazon.SecurityLake.Model.UpdateDataLakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.UpdateDataLakeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSLKDataLakeCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -46,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Specify the Region or Regions that will contribute data to the rollup region.</para>
+        /// <para>Specifies the Region or Regions that will contribute data to the rollup region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

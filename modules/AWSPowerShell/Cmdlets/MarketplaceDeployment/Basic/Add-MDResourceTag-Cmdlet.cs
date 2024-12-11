@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MD
     [AWSCmdlet("Calls the AWS Marketplace Deployment Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MarketplaceDeployment.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MarketplaceDeployment.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MarketplaceDeployment.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MarketplaceDeployment.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMDResourceTagCmdlet : AmazonMarketplaceDeploymentClientCmdlet, IExecutor
     {

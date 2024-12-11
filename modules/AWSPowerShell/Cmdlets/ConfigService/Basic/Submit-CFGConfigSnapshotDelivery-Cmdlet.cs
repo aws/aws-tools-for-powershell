@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeliverConfigSnapshot API operation.", Operation = new[] {"DeliverConfigSnapshot"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeliverConfigSnapshotResponse))]
     [AWSCmdletOutput("System.String or Amazon.ConfigService.Model.DeliverConfigSnapshotResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ConfigService.Model.DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DeliverConfigSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SubmitCFGConfigSnapshotDeliveryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

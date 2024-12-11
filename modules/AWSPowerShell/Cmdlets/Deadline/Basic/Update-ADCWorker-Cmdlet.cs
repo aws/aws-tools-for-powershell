@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud UpdateWorker API operation.", Operation = new[] {"UpdateWorker"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateWorkerResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.LogConfiguration or Amazon.Deadline.Model.UpdateWorkerResponse",
         "This cmdlet returns an Amazon.Deadline.Model.LogConfiguration object.",
-        "The service call response (type Amazon.Deadline.Model.UpdateWorkerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.UpdateWorkerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateADCWorkerCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

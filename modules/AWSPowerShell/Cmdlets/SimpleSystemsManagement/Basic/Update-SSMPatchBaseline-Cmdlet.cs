@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.UpdatePatchBaselineResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager UpdatePatchBaseline API operation.", Operation = new[] {"UpdatePatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdatePatchBaselineResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdatePatchBaselineResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UpdatePatchBaselineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UpdatePatchBaselineResponse object containing multiple properties."
     )]
     public partial class UpdateSSMPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

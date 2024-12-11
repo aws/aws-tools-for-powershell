@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
     [OutputType("Amazon.QLDBSession.Model.SendCommandResponse")]
     [AWSCmdlet("Calls the Amazon QLDB Session SendCommand API operation.", Operation = new[] {"SendCommand"}, SelectReturnType = typeof(Amazon.QLDBSession.Model.SendCommandResponse))]
     [AWSCmdletOutput("Amazon.QLDBSession.Model.SendCommandResponse",
-        "This cmdlet returns an Amazon.QLDBSession.Model.SendCommandResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QLDBSession.Model.SendCommandResponse object containing multiple properties."
     )]
     public partial class SendQLDBSCommandCmdlet : AmazonQLDBSessionClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.UpdateAppVersionResourceResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub UpdateAppVersionResource API operation.", Operation = new[] {"UpdateAppVersionResource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.UpdateAppVersionResourceResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.UpdateAppVersionResourceResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.UpdateAppVersionResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.UpdateAppVersionResourceResponse object containing multiple properties."
     )]
     public partial class UpdateRESHAppVersionResourceCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

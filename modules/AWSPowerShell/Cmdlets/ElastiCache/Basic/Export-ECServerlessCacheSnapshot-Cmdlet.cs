@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Provides the functionality to export the serverless cache snapshot data to Amazon
-    /// S3. Available for Redis OSS only.
+    /// S3. Available for Valkey and Redis OSS only.
     /// </summary>
     [Cmdlet("Export", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
     [AWSCmdlet("Calls the Amazon ElastiCache ExportServerlessCacheSnapshot API operation.", Operation = new[] {"ExportServerlessCacheSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.ExportServerlessCacheSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCacheSnapshot or Amazon.ElastiCache.Model.ExportServerlessCacheSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCacheSnapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.ExportServerlessCacheSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ExportServerlessCacheSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportECServerlessCacheSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Name of the Amazon S3 bucket to export the snapshot to. The Amazon S3 bucket must
-        /// also be in same region as the snapshot. Available for Redis OSS only.</para>
+        /// also be in same region as the snapshot. Available for Valkey and Redis OSS only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the serverless cache snapshot to be exported to S3. Available for
-        /// Redis OSS only.</para>
+        /// Valkey and Redis OSS only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

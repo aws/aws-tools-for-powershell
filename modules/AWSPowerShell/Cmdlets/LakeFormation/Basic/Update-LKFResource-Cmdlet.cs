@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation UpdateResource API operation.", Operation = new[] {"UpdateResource"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.UpdateResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.UpdateResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.UpdateResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.UpdateResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

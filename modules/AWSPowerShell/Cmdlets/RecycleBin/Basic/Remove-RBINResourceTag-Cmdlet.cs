@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     [AWSCmdlet("Calls the Amazon Recycle Bin UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RecycleBin.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RecycleBin.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RecycleBin.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRBINResourceTagCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {

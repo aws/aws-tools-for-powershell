@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     [AWSCmdlet("Calls the EMR Serverless StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.StartApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.EMRServerless.Model.StartApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EMRServerless.Model.StartApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EMRServerless.Model.StartApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartEMRServerlessApplicationCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {

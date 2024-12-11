@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SMSVPoolOriginationIdentityList', 
         'Get-SMSVProtectConfiguration', 
         'Get-SMSVProtectConfigurationCountryRuleSet', 
+        'Get-SMSVProtectConfigurationRuleSetNumberOverrideList', 
         'Get-SMSVRegistration', 
         'Get-SMSVRegistrationAssociationList', 
         'Get-SMSVRegistrationAttachment', 
@@ -134,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SMSVPhoneNumber', 
         'Remove-SMSVPool', 
         'Remove-SMSVProtectConfiguration', 
+        'Remove-SMSVProtectConfigurationRuleSetNumberOverride', 
         'Remove-SMSVRegistration', 
         'Remove-SMSVRegistrationAttachment', 
         'Remove-SMSVRegistrationFieldValue', 
@@ -149,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SMSVTextMessage', 
         'Send-SMSVVoiceMessage', 
         'Set-SMSVAccountDefaultProtectConfiguration', 
+        'Set-SMSVDefaultMessageFeedbackEnabled', 
         'Set-SMSVDefaultMessageType', 
         'Set-SMSVDefaultSenderId', 
         'Set-SMSVKeyword', 
@@ -166,6 +169,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SMSVProtectConfiguration', 
         'Update-SMSVProtectConfigurationCountryRuleSet', 
         'Update-SMSVSenderId', 
+        'Write-SMSVMessageFeedback', 
+        'Write-SMSVProtectConfigurationRuleSetNumberOverride', 
         'Write-SMSVResourcePolicy')
 
     # Variables to export from this module

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteBackendEnvironment API operation.", Operation = new[] {"DeleteBackendEnvironment"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteBackendEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.BackendEnvironment or Amazon.Amplify.Model.DeleteBackendEnvironmentResponse",
         "This cmdlet returns an Amazon.Amplify.Model.BackendEnvironment object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteBackendEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteBackendEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPBackendEnvironmentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

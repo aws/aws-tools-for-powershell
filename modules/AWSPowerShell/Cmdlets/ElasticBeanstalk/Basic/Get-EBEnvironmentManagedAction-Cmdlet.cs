@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeEnvironmentManagedActions API operation.", Operation = new[] {"DescribeEnvironmentManagedActions"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionsResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ManagedAction or Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionsResponse",
         "This cmdlet returns a collection of Amazon.ElasticBeanstalk.Model.ManagedAction objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEBEnvironmentManagedActionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

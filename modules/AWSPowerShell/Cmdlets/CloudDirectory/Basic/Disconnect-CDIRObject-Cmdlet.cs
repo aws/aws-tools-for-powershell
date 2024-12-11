@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory DetachObject API operation.", Operation = new[] {"DetachObject"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.DetachObjectResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.DetachObjectResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.DetachObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.DetachObjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisconnectCDIRObjectCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

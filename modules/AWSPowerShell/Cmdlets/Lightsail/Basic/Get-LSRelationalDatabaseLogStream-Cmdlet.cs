@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetRelationalDatabaseLogStreams API operation.", Operation = new[] {"GetRelationalDatabaseLogStreams"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetRelationalDatabaseLogStreamsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Lightsail.Model.GetRelationalDatabaseLogStreamsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetRelationalDatabaseLogStreamsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetRelationalDatabaseLogStreamsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSRelationalDatabaseLogStreamCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

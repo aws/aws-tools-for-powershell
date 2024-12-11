@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless GetPositionEstimate API operation.", Operation = new[] {"GetPositionEstimate"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.GetPositionEstimateResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.IoTWireless.Model.GetPositionEstimateResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.IoTWireless.Model.GetPositionEstimateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.GetPositionEstimateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWPositionEstimateCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

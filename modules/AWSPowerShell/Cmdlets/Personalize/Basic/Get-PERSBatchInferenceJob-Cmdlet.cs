@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DescribeBatchInferenceJob API operation.", Operation = new[] {"DescribeBatchInferenceJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeBatchInferenceJobResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.BatchInferenceJob or Amazon.Personalize.Model.DescribeBatchInferenceJobResponse",
         "This cmdlet returns an Amazon.Personalize.Model.BatchInferenceJob object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeBatchInferenceJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.DescribeBatchInferenceJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSBatchInferenceJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

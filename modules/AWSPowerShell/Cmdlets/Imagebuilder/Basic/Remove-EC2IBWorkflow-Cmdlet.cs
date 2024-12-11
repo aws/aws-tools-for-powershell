@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder DeleteWorkflow API operation.", Operation = new[] {"DeleteWorkflow"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.DeleteWorkflowResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.DeleteWorkflowResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.DeleteWorkflowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.DeleteWorkflowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2IBWorkflowCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

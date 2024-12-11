@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.GetEnrollmentStatusResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer GetEnrollmentStatus API operation.", Operation = new[] {"GetEnrollmentStatus"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetEnrollmentStatusResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.GetEnrollmentStatusResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.GetEnrollmentStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.GetEnrollmentStatusResponse object containing multiple properties."
     )]
     public partial class GetCOEnrollmentStatusCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

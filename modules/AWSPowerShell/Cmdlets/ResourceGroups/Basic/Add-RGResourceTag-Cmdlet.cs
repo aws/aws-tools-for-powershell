@@ -28,8 +28,9 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Adds tags to a resource group with the specified ARN. Existing tags on a resource
-    /// group are not changed if they are not specified in the request parameters.
+    /// Adds tags to a resource group with the specified Amazon resource name (ARN). Existing
+    /// tags on a resource group are not changed if they are not specified in the request
+    /// parameters.
     /// 
     ///  <important><para>
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.TagResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups Tag API operation.", Operation = new[] {"Tag"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.TagResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.TagResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.TagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.TagResponse object containing multiple properties."
     )]
     public partial class AddRGResourceTagCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group to which to add tags.</para>
+        /// <para>The Amazon resource name (ARN) of the resource group to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

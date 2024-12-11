@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions ListStateMachineVersions API operation.", Operation = new[] {"ListStateMachineVersions"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.ListStateMachineVersionsResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.StateMachineVersionListItem or Amazon.StepFunctions.Model.ListStateMachineVersionsResponse",
         "This cmdlet returns a collection of Amazon.StepFunctions.Model.StateMachineVersionListItem objects.",
-        "The service call response (type Amazon.StepFunctions.Model.ListStateMachineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StepFunctions.Model.ListStateMachineVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSFNStateMachineVersionListCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.GetTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.GetTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.GetTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

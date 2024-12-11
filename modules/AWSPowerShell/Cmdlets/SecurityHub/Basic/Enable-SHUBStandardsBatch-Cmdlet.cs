@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub BatchEnableStandards API operation.", Operation = new[] {"BatchEnableStandards"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchEnableStandardsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.StandardsSubscription or Amazon.SecurityHub.Model.BatchEnableStandardsResponse",
         "This cmdlet returns a collection of Amazon.SecurityHub.Model.StandardsSubscription objects.",
-        "The service call response (type Amazon.SecurityHub.Model.BatchEnableStandardsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.BatchEnableStandardsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableSHUBStandardsBatchCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

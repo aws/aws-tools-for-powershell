@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDomainDeliverabilityCampaign API operation.", Operation = new[] {"GetDomainDeliverabilityCampaign"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DomainDeliverabilityCampaign or Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse",
         "This cmdlet returns an Amazon.SimpleEmailV2.Model.DomainDeliverabilityCampaign object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetDomainDeliverabilityCampaignResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2DomainDeliverabilityCampaignCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

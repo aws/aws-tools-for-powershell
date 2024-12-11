@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [AWSCmdlet("Calls the AWS Migration Hub CreateProgressUpdateStream API operation.", Operation = new[] {"CreateProgressUpdateStream"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewMHProgressUpdateStreamCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

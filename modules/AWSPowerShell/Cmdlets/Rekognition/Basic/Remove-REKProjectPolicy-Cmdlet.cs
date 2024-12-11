@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DeleteProjectPolicy API operation.", Operation = new[] {"DeleteProjectPolicy"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteProjectPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteProjectPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.DeleteProjectPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.DeleteProjectPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveREKProjectPolicyCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

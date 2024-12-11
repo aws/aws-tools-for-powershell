@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier DeleteVaultNotifications API operation.", Operation = new[] {"DeleteVaultNotifications"}, SelectReturnType = typeof(Amazon.Glacier.Model.DeleteVaultNotificationsResponse))]
     [AWSCmdletOutput("None or Amazon.Glacier.Model.DeleteVaultNotificationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glacier.Model.DeleteVaultNotificationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glacier.Model.DeleteVaultNotificationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLCVaultNotificationCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

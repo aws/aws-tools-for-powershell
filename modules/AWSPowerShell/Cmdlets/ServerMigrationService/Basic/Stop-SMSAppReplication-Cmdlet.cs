@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service StopAppReplication API operation.", Operation = new[] {"StopAppReplication"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.StopAppReplicationResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.StopAppReplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.StopAppReplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.StopAppReplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSMSAppReplicationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

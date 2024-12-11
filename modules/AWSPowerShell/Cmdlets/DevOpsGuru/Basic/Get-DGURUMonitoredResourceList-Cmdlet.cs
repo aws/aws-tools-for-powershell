@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru ListMonitoredResources API operation.", Operation = new[] {"ListMonitoredResources"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.ListMonitoredResourcesResponse))]
     [AWSCmdletOutput("Amazon.DevOpsGuru.Model.MonitoredResourceIdentifier or Amazon.DevOpsGuru.Model.ListMonitoredResourcesResponse",
         "This cmdlet returns a collection of Amazon.DevOpsGuru.Model.MonitoredResourceIdentifier objects.",
-        "The service call response (type Amazon.DevOpsGuru.Model.ListMonitoredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DevOpsGuru.Model.ListMonitoredResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDGURUMonitoredResourceListCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

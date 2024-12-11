@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DescribeDBClusterSnapshots API operation.", Operation = new[] {"DescribeDBClusterSnapshots"}, SelectReturnType = typeof(Amazon.Neptune.Model.DescribeDBClusterSnapshotsResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DBClusterSnapshot or Amazon.Neptune.Model.DescribeDBClusterSnapshotsResponse",
         "This cmdlet returns a collection of Amazon.Neptune.Model.DBClusterSnapshot objects.",
-        "The service call response (type Amazon.Neptune.Model.DescribeDBClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.DescribeDBClusterSnapshotsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNPTDBClusterSnapshotCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreateAccessEntry API operation.", Operation = new[] {"CreateAccessEntry"}, SelectReturnType = typeof(Amazon.EKS.Model.CreateAccessEntryResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.AccessEntry or Amazon.EKS.Model.CreateAccessEntryResponse",
         "This cmdlet returns an Amazon.EKS.Model.AccessEntry object.",
-        "The service call response (type Amazon.EKS.Model.CreateAccessEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.CreateAccessEntryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEKSAccessEntryCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

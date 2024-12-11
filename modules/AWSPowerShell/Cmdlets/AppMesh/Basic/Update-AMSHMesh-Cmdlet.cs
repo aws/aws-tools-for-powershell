@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh UpdateMesh API operation.", Operation = new[] {"UpdateMesh"}, SelectReturnType = typeof(Amazon.AppMesh.Model.UpdateMeshResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.MeshData or Amazon.AppMesh.Model.UpdateMeshResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.MeshData object.",
-        "The service call response (type Amazon.AppMesh.Model.UpdateMeshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.UpdateMeshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

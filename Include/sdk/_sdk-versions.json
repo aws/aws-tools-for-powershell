@@ -2059,14 +2059,6 @@
             },
             "InPreview"               : false
         },
-        "NimbleStudio"                    : {
-            "Version" : "4.0.0.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.0"
-            },
-            "InPreview"               : false
-        },
         "FinSpaceData"                    : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
@@ -3100,6 +3092,70 @@
             "InPreview"               : false
         },
         "DynamoDBStreams"                     : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "MarketplaceReporting"                : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "SocialMessaging"                     : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "GeoPlaces"                           : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "GeoMaps"                             : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "GeoRoutes"                           : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "Billing"                             : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "PartnerCentralSelling"               : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "ConnectCampaignsV2"                  : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

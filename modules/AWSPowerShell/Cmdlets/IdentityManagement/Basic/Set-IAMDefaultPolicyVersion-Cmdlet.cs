@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management SetDefaultPolicyVersion API operation.", Operation = new[] {"SetDefaultPolicyVersion"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.SetDefaultPolicyVersionResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.SetDefaultPolicyVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.SetDefaultPolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.SetDefaultPolicyVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetIAMDefaultPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

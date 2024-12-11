@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently ListFeatures API operation.", Operation = new[] {"ListFeatures"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.ListFeaturesResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.FeatureSummary or Amazon.CloudWatchEvidently.Model.ListFeaturesResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.FeatureSummary objects.",
-        "The service call response (type Amazon.CloudWatchEvidently.Model.ListFeaturesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvidently.Model.ListFeaturesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWEVDFeatureListCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

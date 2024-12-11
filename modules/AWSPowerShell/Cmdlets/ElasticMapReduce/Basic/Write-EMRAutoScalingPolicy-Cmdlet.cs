@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce PutAutoScalingPolicy API operation.", Operation = new[] {"PutAutoScalingPolicy"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse object containing multiple properties."
     )]
     public partial class WriteEMRAutoScalingPolicyCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

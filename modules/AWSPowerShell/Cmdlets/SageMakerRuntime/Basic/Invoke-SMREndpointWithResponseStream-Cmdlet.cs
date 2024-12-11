@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     [OutputType("Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Runtime InvokeEndpointWithResponseStream API operation.", Operation = new[] {"InvokeEndpointWithResponseStream"}, SelectReturnType = typeof(Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse))]
     [AWSCmdletOutput("Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse",
-        "This cmdlet returns an Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse object containing multiple properties."
     )]
     public partial class InvokeSMREndpointWithResponseStreamCmdlet : AmazonSageMakerRuntimeClientCmdlet, IExecutor
     {

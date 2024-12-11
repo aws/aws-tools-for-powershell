@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder CreateImagePipeline API operation.", Operation = new[] {"CreateImagePipeline"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CreateImagePipelineResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CreateImagePipelineResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.CreateImagePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.CreateImagePipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2IBImagePipelineCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter EcrConfiguration_ContainerTag
         /// <summary>
         /// <para>
-        /// <para>Tags for Image Builder to apply to the output container image that &amp;INS; scans.
-        /// Tags can help you identify and manage your scanned images.</para>
+        /// <para>Tags for Image Builder to apply to the output container image that Amazon Inspector
+        /// scans. Tags can help you identify and manage your scanned images.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

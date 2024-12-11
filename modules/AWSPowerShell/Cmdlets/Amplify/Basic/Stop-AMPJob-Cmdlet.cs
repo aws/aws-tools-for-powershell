@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify StopJob API operation.", Operation = new[] {"StopJob"}, SelectReturnType = typeof(Amazon.Amplify.Model.StopJobResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.JobSummary or Amazon.Amplify.Model.StopJobResponse",
         "This cmdlet returns an Amazon.Amplify.Model.JobSummary object.",
-        "The service call response (type Amazon.Amplify.Model.StopJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.StopJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopAMPJobCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

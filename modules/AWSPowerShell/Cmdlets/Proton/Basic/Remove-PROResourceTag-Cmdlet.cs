@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Proton.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Proton.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Proton.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Proton.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

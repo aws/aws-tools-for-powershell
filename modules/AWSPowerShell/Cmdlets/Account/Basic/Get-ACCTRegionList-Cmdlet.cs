@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account ListRegions API operation.", Operation = new[] {"ListRegions"}, SelectReturnType = typeof(Amazon.Account.Model.ListRegionsResponse))]
     [AWSCmdletOutput("Amazon.Account.Model.Region or Amazon.Account.Model.ListRegionsResponse",
         "This cmdlet returns a collection of Amazon.Account.Model.Region objects.",
-        "The service call response (type Amazon.Account.Model.ListRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Account.Model.ListRegionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACCTRegionListCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

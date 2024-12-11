@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CopyWorkspaceImage API operation.", Operation = new[] {"CopyWorkspaceImage"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CopyWorkspaceImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpaces.Model.CopyWorkspaceImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpaces.Model.CopyWorkspaceImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.CopyWorkspaceImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

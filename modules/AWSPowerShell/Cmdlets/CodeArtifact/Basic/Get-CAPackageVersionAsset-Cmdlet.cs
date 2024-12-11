@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact GetPackageVersionAsset API operation.", Operation = new[] {"GetPackageVersionAsset"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.GetPackageVersionAssetResponse object containing multiple properties."
     )]
     public partial class GetCAPackageVersionAssetCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

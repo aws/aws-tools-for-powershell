@@ -28,13 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Retrieves a collection of fleet resources in an Amazon Web Services Region. You can
     /// filter the result set to find only those fleets that are deployed with a specific
     /// build or script. For fleets that have multiple locations, this operation retrieves
     /// fleets based on their home Region only.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You can use operation in the following ways: 
     /// </para><ul><li><para>
     /// To get a list of all fleets in a Region, don't provide a build or script identifier.
@@ -44,9 +44,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// To get a list of all Realtime Servers fleets with a specific configuration script,
     /// provide the script ID. 
-    /// </para></li><li><para>
-    ///  To get a list of all fleets with a specific container group definition, provide the
-    /// <c>ContainerGroupDefinition</c> ID. 
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
@@ -61,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service ListFleets API operation.", Operation = new[] {"ListFleets"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListFleetsResponse))]
     [AWSCmdletOutput("System.String or Amazon.GameLift.Model.ListFleetsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GameLift.Model.ListFleetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.ListFleetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -77,17 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BuildId { get; set; }
-        #endregion
-        
-        #region Parameter ContainerGroupDefinitionName
-        /// <summary>
-        /// <para>
-        /// <para>The container group definition name to request fleets for. Use this parameter to return
-        /// only fleets that are deployed with the specified container group definition.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ContainerGroupDefinitionName { get; set; }
         #endregion
         
         #region Parameter ScriptId
@@ -127,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.BuildId = this.BuildId;
-            context.ContainerGroupDefinitionName = this.ContainerGroupDefinitionName;
             context.Limit = this.Limit;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
@@ -206,10 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.BuildId != null)
             {
                 request.BuildId = cmdletContext.BuildId;
-            }
-            if (cmdletContext.ContainerGroupDefinitionName != null)
-            {
-                request.ContainerGroupDefinitionName = cmdletContext.ContainerGroupDefinitionName;
             }
             if (cmdletContext.Limit != null)
             {
@@ -277,10 +258,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.BuildId != null)
             {
                 request.BuildId = cmdletContext.BuildId;
-            }
-            if (cmdletContext.ContainerGroupDefinitionName != null)
-            {
-                request.ContainerGroupDefinitionName = cmdletContext.ContainerGroupDefinitionName;
             }
             if (cmdletContext.ScriptId != null)
             {
@@ -399,7 +376,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BuildId { get; set; }
-            public System.String ContainerGroupDefinitionName { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.String ScriptId { get; set; }

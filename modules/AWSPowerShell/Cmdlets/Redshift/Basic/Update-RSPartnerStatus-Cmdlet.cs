@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.UpdatePartnerStatusResponse")]
     [AWSCmdlet("Calls the Amazon Redshift UpdatePartnerStatus API operation.", Operation = new[] {"UpdatePartnerStatus"}, SelectReturnType = typeof(Amazon.Redshift.Model.UpdatePartnerStatusResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.UpdatePartnerStatusResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.UpdatePartnerStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.UpdatePartnerStatusResponse object containing multiple properties."
     )]
     public partial class UpdateRSPartnerStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

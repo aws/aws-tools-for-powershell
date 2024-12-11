@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad GetDirectoryRegistration API operation.", Operation = new[] {"GetDirectoryRegistration"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.GetDirectoryRegistrationResponse))]
     [AWSCmdletOutput("Amazon.PcaConnectorAd.Model.DirectoryRegistration or Amazon.PcaConnectorAd.Model.GetDirectoryRegistrationResponse",
         "This cmdlet returns an Amazon.PcaConnectorAd.Model.DirectoryRegistration object.",
-        "The service call response (type Amazon.PcaConnectorAd.Model.GetDirectoryRegistrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorAd.Model.GetDirectoryRegistrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCAADDirectoryRegistrationCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

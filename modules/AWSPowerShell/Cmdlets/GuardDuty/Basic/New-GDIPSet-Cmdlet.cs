@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty CreateIPSet API operation.", Operation = new[] {"CreateIPSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.CreateIPSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.CreateIPSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GuardDuty.Model.CreateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.CreateIPSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGDIPSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -66,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The unique ID of the detector of the GuardDuty account for which you want to create
-        /// an IPSet.</para>
+        /// an IPSet.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.MainframeModernization.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMResourceTagCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

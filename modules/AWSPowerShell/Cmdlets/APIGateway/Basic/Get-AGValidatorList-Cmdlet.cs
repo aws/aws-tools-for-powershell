@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway GetRequestValidators API operation.", Operation = new[] {"GetRequestValidators"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetRequestValidatorsResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.RequestValidator or Amazon.APIGateway.Model.GetRequestValidatorsResponse",
         "This cmdlet returns a collection of Amazon.APIGateway.Model.RequestValidator objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetRequestValidatorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.APIGateway.Model.GetRequestValidatorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAGValidatorListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Position $null' for the first call and '-Position $AWSHistory.LastServiceResponse.Position' for subsequent calls.
+        /// <br/>'Position' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Position' to null for the first call then set the 'Position' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

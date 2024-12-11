@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange ListCapabilities API operation.", Operation = new[] {"ListCapabilities"}, SelectReturnType = typeof(Amazon.B2bi.Model.ListCapabilitiesResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.CapabilitySummary or Amazon.B2bi.Model.ListCapabilitiesResponse",
         "This cmdlet returns a collection of Amazon.B2bi.Model.CapabilitySummary objects.",
-        "The service call response (type Amazon.B2bi.Model.ListCapabilitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.ListCapabilitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetB2BICapabilityListCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

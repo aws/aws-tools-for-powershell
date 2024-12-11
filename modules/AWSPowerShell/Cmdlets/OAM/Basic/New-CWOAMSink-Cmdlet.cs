@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [OutputType("Amazon.OAM.Model.CreateSinkResponse")]
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager CreateSink API operation.", Operation = new[] {"CreateSink"}, SelectReturnType = typeof(Amazon.OAM.Model.CreateSinkResponse))]
     [AWSCmdletOutput("Amazon.OAM.Model.CreateSinkResponse",
-        "This cmdlet returns an Amazon.OAM.Model.CreateSinkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OAM.Model.CreateSinkResponse object containing multiple properties."
     )]
     public partial class NewCWOAMSinkCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

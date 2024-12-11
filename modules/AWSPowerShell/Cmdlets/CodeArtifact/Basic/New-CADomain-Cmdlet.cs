@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.CreateDomainResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.DomainDescription or Amazon.CodeArtifact.Model.CreateDomainResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.DomainDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.CreateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.CreateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCADomainCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

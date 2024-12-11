@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.DeleteSecretResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager DeleteSecret API operation.", Operation = new[] {"DeleteSecret"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.DeleteSecretResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.DeleteSecretResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.DeleteSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.DeleteSecretResponse object containing multiple properties."
     )]
     public partial class RemoveSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce ModifyCluster API operation.", Operation = new[] {"ModifyCluster"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.ModifyClusterResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.ElasticMapReduce.Model.ModifyClusterResponse",
-        "This cmdlet returns a collection of System.Int32 objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.ModifyClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int32 object.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.ModifyClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEMRClusterCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -84,6 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public string Select { get; set; } = "StepConcurrencyLevel";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ClusterId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -110,11 +120,21 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.ModifyClusterResponse, EditEMRClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ClusterId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClusterId = this.ClusterId;
             #if MODULAR
             if (this.ClusterId == null && ParameterWasBound(nameof(this.ClusterId)))

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator ProvisionByoipCidr API operation.", Operation = new[] {"ProvisionByoipCidr"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.ProvisionByoipCidrResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.ByoipCidr or Amazon.GlobalAccelerator.Model.ProvisionByoipCidrResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.ByoipCidr object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.ProvisionByoipCidrResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.ProvisionByoipCidrResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddGACLByoipCidrProvisionCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

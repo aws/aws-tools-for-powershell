@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GetServerCertificate API operation.", Operation = new[] {"GetServerCertificate"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetServerCertificateResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServerCertificate or Amazon.IdentityManagement.Model.GetServerCertificateResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.ServerCertificate object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetServerCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

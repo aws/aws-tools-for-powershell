@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric ListAppBundles API operation.", Operation = new[] {"ListAppBundles"}, SelectReturnType = typeof(Amazon.AppFabric.Model.ListAppBundlesResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.AppBundleSummary or Amazon.AppFabric.Model.ListAppBundlesResponse",
         "This cmdlet returns a collection of Amazon.AppFabric.Model.AppBundleSummary objects.",
-        "The service call response (type Amazon.AppFabric.Model.ListAppBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.ListAppBundlesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFABAppBundleListCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

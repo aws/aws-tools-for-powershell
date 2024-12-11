@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [AWSCmdlet("Calls the Amazon Medical Imaging Service SearchImageSets API operation.", Operation = new[] {"SearchImageSets"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.SearchImageSetsResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.ImageSetsMetadataSummary or Amazon.MedicalImaging.Model.SearchImageSetsResponse",
         "This cmdlet returns a collection of Amazon.MedicalImaging.Model.ImageSetsMetadataSummary objects.",
-        "The service call response (type Amazon.MedicalImaging.Model.SearchImageSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MedicalImaging.Model.SearchImageSetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SearchMISImageSetCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

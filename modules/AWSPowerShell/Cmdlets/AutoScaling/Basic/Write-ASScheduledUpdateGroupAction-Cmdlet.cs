@@ -35,9 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.html">Scheduled
     /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// You can view the scheduled actions for an Auto Scaling group using the <a>DescribeScheduledActions</a>
+    /// You can view the scheduled actions for an Auto Scaling group using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScheduledActions.html">DescribeScheduledActions</a>
     /// API call. If you are no longer using a scheduled action, you can delete it by calling
-    /// the <a>DeleteScheduledAction</a> API.
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeleteScheduledAction.html">DeleteScheduledAction</a>
+    /// API.
     /// </para><para>
     /// If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
     /// error message.
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling PutScheduledUpdateGroupAction API operation.", Operation = new[] {"PutScheduledUpdateGroupAction"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteASScheduledUpdateGroupActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [AWSCmdlet("Calls the Amazon Chime SDK Identity ListAppInstanceUserEndpoints API operation.", Operation = new[] {"ListAppInstanceUserEndpoints"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.ListAppInstanceUserEndpointsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKIdentity.Model.AppInstanceUserEndpointSummary or Amazon.ChimeSDKIdentity.Model.ListAppInstanceUserEndpointsResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKIdentity.Model.AppInstanceUserEndpointSummary objects.",
-        "The service call response (type Amazon.ChimeSDKIdentity.Model.ListAppInstanceUserEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKIdentity.Model.ListAppInstanceUserEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMIDAppInstanceUserEndpointListCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

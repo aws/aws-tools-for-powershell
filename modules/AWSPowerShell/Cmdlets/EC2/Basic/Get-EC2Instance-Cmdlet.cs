@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstances API operation.", Operation = new[] {"DescribeInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Reservation or Amazon.EC2.Model.DescribeInstancesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Reservation objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// applicable.</para></li><li><para><c>hypervisor</c> - The hypervisor type of the instance (<c>ovm</c> | <c>xen</c>).
         /// The value <c>xen</c> is used for both Xen and Nitro hypervisors.</para></li><li><para><c>iam-instance-profile.arn</c> - The instance profile associated with the instance.
         /// Specified as an ARN.</para></li><li><para><c>iam-instance-profile.id</c> - The instance profile associated with the instance.
-        /// Specified as an ID.</para></li><li><para><c>iam-instance-profile.name</c> - The instance profile associated with the instance.
-        /// Specified as an name.</para></li><li><para><c>image-id</c> - The ID of the image used to launch the instance.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>instance-lifecycle</c> - Indicates whether this is a Spot Instance, a Scheduled
+        /// Specified as an ID.</para></li><li><para><c>image-id</c> - The ID of the image used to launch the instance.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>instance-lifecycle</c> - Indicates whether this is a Spot Instance, a Scheduled
         /// Instance, or a Capacity Block (<c>spot</c> | <c>scheduled</c> | <c>capacity-block</c>).</para></li><li><para><c>instance-state-code</c> - The state of the instance, as a 16-bit unsigned integer.
         /// The high byte is used for internal purposes and should be ignored. The low byte is
         /// set based on the state represented. The valid values are: 0 (pending), 16 (running),
@@ -224,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.EC2 module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

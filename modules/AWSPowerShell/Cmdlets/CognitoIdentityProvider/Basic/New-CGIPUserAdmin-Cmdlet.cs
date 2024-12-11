@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminCreateUser API operation.", Operation = new[] {"AdminCreateUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminCreateUserResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserType or Amazon.CognitoIdentityProvider.Model.AdminCreateUserResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.UserType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminCreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminCreateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCGIPUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

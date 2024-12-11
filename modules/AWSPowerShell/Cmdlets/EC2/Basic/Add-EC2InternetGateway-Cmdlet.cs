@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AttachInternetGateway API operation.", Operation = new[] {"AttachInternetGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachInternetGatewayResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.AttachInternetGatewayResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.AttachInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.AttachInternetGatewayResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEC2InternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

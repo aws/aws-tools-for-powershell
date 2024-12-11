@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics BackTestAnomalyDetector API operation.", Operation = new[] {"BackTestAnomalyDetector"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.BackTestAnomalyDetectorResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutMetrics.Model.BackTestAnomalyDetectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutMetrics.Model.BackTestAnomalyDetectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutMetrics.Model.BackTestAnomalyDetectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableLOMBackTestAnomalyDetectorCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

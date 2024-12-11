@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise ExecuteAction API operation.", Operation = new[] {"ExecuteAction"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ExecuteActionResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTSiteWise.Model.ExecuteActionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.ExecuteActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.ExecuteActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartIOTSWActionCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

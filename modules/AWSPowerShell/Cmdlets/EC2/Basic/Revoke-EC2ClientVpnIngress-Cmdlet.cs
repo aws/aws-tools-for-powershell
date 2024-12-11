@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RevokeClientVpnIngress API operation.", Operation = new[] {"RevokeClientVpnIngress"}, SelectReturnType = typeof(Amazon.EC2.Model.RevokeClientVpnIngressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus or Amazon.EC2.Model.RevokeClientVpnIngressResponse",
         "This cmdlet returns an Amazon.EC2.Model.ClientVpnAuthorizationRuleStatus object.",
-        "The service call response (type Amazon.EC2.Model.RevokeClientVpnIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RevokeClientVpnIngressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RevokeEC2ClientVpnIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -72,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RevokeAllGroup
         /// <summary>
         /// <para>
-        /// <para>Indicates whether access should be revoked for all clients.</para>
+        /// <para>Indicates whether access should be revoked for all groups for a single <c>TargetNetworkCidr</c>
+        /// that earlier authorized ingress for all groups using <c>AuthorizeAllGroups</c>. This
+        /// does not impact other authorization rules that allowed ingress to the same <c>TargetNetworkCidr</c>
+        /// with a specific <c>AccessGroupId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

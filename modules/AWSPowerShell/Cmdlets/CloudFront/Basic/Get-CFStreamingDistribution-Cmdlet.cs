@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetStreamingDistribution API operation.", Operation = new[] {"GetStreamingDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetStreamingDistributionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistribution or Amazon.CloudFront.Model.GetStreamingDistributionResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.StreamingDistribution object.",
-        "The service call response (type Amazon.CloudFront.Model.GetStreamingDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetStreamingDistributionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

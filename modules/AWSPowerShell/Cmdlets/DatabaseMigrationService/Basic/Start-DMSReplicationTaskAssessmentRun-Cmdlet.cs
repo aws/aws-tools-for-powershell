@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service StartReplicationTaskAssessmentRun API operation.", Operation = new[] {"StartReplicationTaskAssessmentRun"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun or Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDMSReplicationTaskAssessmentRunCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
@@ -188,6 +188,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ServiceAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags to be assigned to the premigration assessment run that you want to
+        /// start.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplicationTaskAssessmentRun'.
@@ -269,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 WriteWarning("You are passing $null as a value for parameter ServiceAccessRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -320,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ServiceAccessRoleArn != null)
             {
                 request.ServiceAccessRoleArn = cmdletContext.ServiceAccessRoleArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -391,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ResultLocationBucket { get; set; }
             public System.String ResultLocationFolder { get; set; }
             public System.String ServiceAccessRoleArn { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.StartReplicationTaskAssessmentRunResponse, StartDMSReplicationTaskAssessmentRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationTaskAssessmentRun;
         }

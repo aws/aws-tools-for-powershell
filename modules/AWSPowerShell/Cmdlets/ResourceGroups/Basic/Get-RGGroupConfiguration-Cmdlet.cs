@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.GetGroupConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups GetGroupConfiguration API operation.", Operation = new[] {"GetGroupConfiguration"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GetGroupConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GetGroupConfigurationResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.GetGroupConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.GetGroupConfigurationResponse object containing multiple properties."
     )]
     public partial class GetRGGroupConfigurationCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group for which you want to retrive the service
-        /// configuration.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group for which you want
+        /// to retrive the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

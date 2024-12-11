@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.GetQueueResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud GetQueue API operation.", Operation = new[] {"GetQueue"}, SelectReturnType = typeof(Amazon.Deadline.Model.GetQueueResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.GetQueueResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.GetQueueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.GetQueueResponse object containing multiple properties."
     )]
     public partial class GetADCQueueCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

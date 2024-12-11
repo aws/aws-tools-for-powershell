@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySubnetAttribute API operation.", Operation = new[] {"ModifySubnetAttribute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySubnetAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ModifySubnetAttributeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -97,11 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
-        /// should return synthetic IPv6 addresses for IPv4-only destinations.</para><note><para>You must first configure a NAT gateway in a public subnet (separate from the subnet
+        /// should return synthetic IPv6 addresses for IPv4-only destinations.</para><para>You must first configure a NAT gateway in a public subnet (separate from the subnet
         /// containing the IPv6-only workloads). For example, the subnet containing the NAT gateway
         /// should have a <c>0.0.0.0/0</c> route pointing to the internet gateway. For more information,
         /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure
-        /// DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</para></note>
+        /// DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

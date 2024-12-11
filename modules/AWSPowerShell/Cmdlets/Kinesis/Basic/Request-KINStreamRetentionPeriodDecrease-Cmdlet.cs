@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis DecreaseStreamRetentionPeriod API operation.", Operation = new[] {"DecreaseStreamRetentionPeriod"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse) be returned by specifying '-Select *'."
     )]
     public partial class RequestKINStreamRetentionPeriodDecreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

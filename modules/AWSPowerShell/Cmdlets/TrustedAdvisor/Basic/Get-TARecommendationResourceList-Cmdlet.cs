@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
     [AWSCmdlet("Calls the Trusted Advisor ListRecommendationResources API operation.", Operation = new[] {"ListRecommendationResources"}, SelectReturnType = typeof(Amazon.TrustedAdvisor.Model.ListRecommendationResourcesResponse))]
     [AWSCmdletOutput("Amazon.TrustedAdvisor.Model.RecommendationResourceSummary or Amazon.TrustedAdvisor.Model.ListRecommendationResourcesResponse",
         "This cmdlet returns a collection of Amazon.TrustedAdvisor.Model.RecommendationResourceSummary objects.",
-        "The service call response (type Amazon.TrustedAdvisor.Model.ListRecommendationResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TrustedAdvisor.Model.ListRecommendationResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTARecommendationResourceListCmdlet : AmazonTrustedAdvisorClientCmdlet, IExecutor
     {

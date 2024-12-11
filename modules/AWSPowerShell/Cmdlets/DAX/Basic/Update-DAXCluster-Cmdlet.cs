@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.DAX.Model.UpdateClusterResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster or Amazon.DAX.Model.UpdateClusterResponse",
         "This cmdlet returns an Amazon.DAX.Model.Cluster object.",
-        "The service call response (type Amazon.DAX.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.UpdateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDAXClusterCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

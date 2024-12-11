@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CodeBuild.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeBuild.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeBuild.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCBResourcePolicyCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

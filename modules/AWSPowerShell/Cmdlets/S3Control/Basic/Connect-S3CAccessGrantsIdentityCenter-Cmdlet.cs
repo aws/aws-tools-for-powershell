@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control AssociateAccessGrantsIdentityCenter API operation.", Operation = new[] {"AssociateAccessGrantsIdentityCenter"}, SelectReturnType = typeof(Amazon.S3Control.Model.AssociateAccessGrantsIdentityCenterResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.AssociateAccessGrantsIdentityCenterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.AssociateAccessGrantsIdentityCenterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.AssociateAccessGrantsIdentityCenterResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConnectS3CAccessGrantsIdentityCenterCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

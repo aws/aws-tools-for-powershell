@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetUnfilteredTableMetadataResponse")]
     [AWSCmdlet("Calls the AWS Glue GetUnfilteredTableMetadata API operation.", Operation = new[] {"GetUnfilteredTableMetadata"}, SelectReturnType = typeof(Amazon.Glue.Model.GetUnfilteredTableMetadataResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetUnfilteredTableMetadataResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetUnfilteredTableMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetUnfilteredTableMetadataResponse object containing multiple properties."
     )]
     public partial class GetGLUEUnfilteredTableMetadataCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

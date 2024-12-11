@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.CreateFolderResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight CreateFolder API operation.", Operation = new[] {"CreateFolder"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateFolderResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.CreateFolderResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CreateFolderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.CreateFolderResponse object containing multiple properties."
     )]
     public partial class NewQSFolderCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

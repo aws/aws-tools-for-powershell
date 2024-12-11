@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.DescribeExecutionResponse")]
     [AWSCmdlet("Calls the AWS Step Functions DescribeExecution API operation.", Operation = new[] {"DescribeExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DescribeExecutionResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeExecutionResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.DescribeExecutionResponse object containing multiple properties."
     )]
     public partial class GetSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

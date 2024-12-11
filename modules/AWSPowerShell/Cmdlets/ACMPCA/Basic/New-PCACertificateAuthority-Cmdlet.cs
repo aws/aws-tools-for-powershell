@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority CreateCertificateAuthority API operation.", Operation = new[] {"CreateCertificateAuthority"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse))]
     [AWSCmdletOutput("System.String or Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPCACertificateAuthorityCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
@@ -134,15 +134,15 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter RevocationConfiguration
         /// <summary>
         /// <para>
-        /// <para>Contains information to enable Online Certificate Status Protocol (OCSP) support,
-        /// to enable a certificate revocation list (CRL), to enable both, or to enable neither.
-        /// The default is for both certificate validation mechanisms to be disabled. </para><note><para>The following requirements apply to revocation configurations.</para><ul><li><para>A configuration disabling CRLs or OCSP must contain only the <c>Enabled=False</c>
+        /// <para>Contains information to enable support for Online Certificate Status Protocol (OCSP),
+        /// certificate revocation list (CRL), both protocols, or neither. By default, both certificate
+        /// validation mechanisms are disabled.</para><para>The following requirements apply to revocation configurations.</para><ul><li><para>A configuration disabling CRLs or OCSP must contain only the <c>Enabled=False</c>
         /// parameter, and will fail if other parameters such as <c>CustomCname</c> or <c>ExpirationInDays</c>
         /// are included.</para></li><li><para>In a CRL configuration, the <c>S3BucketName</c> parameter must conform to <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Amazon
         /// S3 bucket naming rules</a>.</para></li><li><para>A configuration containing a custom Canonical Name (CNAME) parameter for CRLs or OCSP
         /// must conform to <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC2396</a> restrictions
         /// on the use of special characters in a CNAME. </para></li><li><para>In a CRL or OCSP configuration, the value of a CNAME parameter must not include a
-        /// protocol prefix such as "http://" or "https://".</para></li></ul></note><para> For more information, see the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a>
+        /// protocol prefix such as "http://" or "https://".</para></li></ul><para> For more information, see the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_OcspConfiguration.html">OcspConfiguration</a>
         /// and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
         /// types.</para>
         /// </para>

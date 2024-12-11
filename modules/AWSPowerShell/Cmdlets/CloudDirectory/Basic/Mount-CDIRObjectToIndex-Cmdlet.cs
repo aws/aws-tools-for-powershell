@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory AttachToIndex API operation.", Operation = new[] {"AttachToIndex"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.AttachToIndexResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.AttachToIndexResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.AttachToIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.AttachToIndexResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MountCDIRObjectToIndexCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager PutAccountConfiguration API operation.", Operation = new[] {"PutAccountConfiguration"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.PutAccountConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.CertificateManager.Model.PutAccountConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CertificateManager.Model.PutAccountConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.PutAccountConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteACMAccountConfigurationCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

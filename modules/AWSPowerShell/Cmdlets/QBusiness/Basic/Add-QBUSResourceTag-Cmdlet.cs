@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.QBusiness.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddQBUSResourceTagCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

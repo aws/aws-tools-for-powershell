@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.StartCalculationExecutionResponse")]
     [AWSCmdlet("Calls the Amazon Athena StartCalculationExecution API operation.", Operation = new[] {"StartCalculationExecution"}, SelectReturnType = typeof(Amazon.Athena.Model.StartCalculationExecutionResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.StartCalculationExecutionResponse",
-        "This cmdlet returns an Amazon.Athena.Model.StartCalculationExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.StartCalculationExecutionResponse object containing multiple properties."
     )]
     public partial class StartATHCalculationExecutionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

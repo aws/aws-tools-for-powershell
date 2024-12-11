@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     [AWSCmdlet("Calls the AWS Cost and Usage Report DeleteReportDefinition API operation.", Operation = new[] {"DeleteReportDefinition"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCURReportDefinitionCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {

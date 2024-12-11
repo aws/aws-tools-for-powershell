@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.BatchUpdateScheduleResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive BatchUpdateSchedule API operation.", Operation = new[] {"BatchUpdateSchedule"}, SelectReturnType = typeof(Amazon.MediaLive.Model.BatchUpdateScheduleResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.BatchUpdateScheduleResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.BatchUpdateScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.BatchUpdateScheduleResponse object containing multiple properties."
     )]
     public partial class UpdateEMLScheduleBatchCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

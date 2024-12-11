@@ -873,7 +873,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartScreenSharing" Verb="Start" Noun="ScreenSharing" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,13 +28,22 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
     /// Creates a version of a robot application.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ROBORobotApplicationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker CreateRobotApplicationVersion API operation.", Operation = new[] {"CreateRobotApplicationVersion"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.CreateRobotApplicationVersionResponse object containing multiple properties."
     )]
     public partial class NewROBORobotApplicationVersionCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

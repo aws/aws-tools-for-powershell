@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.GetUserDetailsResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst GetUserDetails API operation.", Operation = new[] {"GetUserDetails"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.GetUserDetailsResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.GetUserDetailsResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetUserDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetUserDetailsResponse object containing multiple properties."
     )]
     public partial class GetCCATUserDetailCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

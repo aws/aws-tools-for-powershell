@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice DeleteAccessLogSubscription API operation.", Operation = new[] {"DeleteAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VPCLattice.Model.DeleteAccessLogSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveVPCLAccessLogSubscriptionCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

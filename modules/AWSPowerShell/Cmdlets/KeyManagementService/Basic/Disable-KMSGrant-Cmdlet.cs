@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service RetireGrant API operation.", Operation = new[] {"RetireGrant"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.RetireGrantResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.RetireGrantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.RetireGrantResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

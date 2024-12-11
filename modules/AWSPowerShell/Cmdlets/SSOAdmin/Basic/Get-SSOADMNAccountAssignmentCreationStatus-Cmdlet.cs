@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribeAccountAssignmentCreationStatus API operation.", Operation = new[] {"DescribeAccountAssignmentCreationStatus"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribeAccountAssignmentCreationStatusResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus or Amazon.SSOAdmin.Model.DescribeAccountAssignmentCreationStatusResponse",
         "This cmdlet returns an Amazon.SSOAdmin.Model.AccountAssignmentOperationStatus object.",
-        "The service call response (type Amazon.SSOAdmin.Model.DescribeAccountAssignmentCreationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.DescribeAccountAssignmentCreationStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSOADMNAccountAssignmentCreationStatusCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service ListLaunchActions API operation.", Operation = new[] {"ListLaunchActions"}, SelectReturnType = typeof(Amazon.Drs.Model.ListLaunchActionsResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.LaunchAction or Amazon.Drs.Model.ListLaunchActionsResponse",
         "This cmdlet returns a collection of Amazon.Drs.Model.LaunchAction objects.",
-        "The service call response (type Amazon.Drs.Model.ListLaunchActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.ListLaunchActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEDRSLaunchActionListCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

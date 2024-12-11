@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Tnb.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Tnb.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Tnb.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Tnb.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTNBResourceTagCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

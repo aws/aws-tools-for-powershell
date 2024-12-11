@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ISCAN
     [AWSCmdlet("Calls the Inspector Scan ScanSbom API operation.", Operation = new[] {"ScanSbom"}, SelectReturnType = typeof(Amazon.InspectorScan.Model.ScanSbomResponse))]
     [AWSCmdletOutput("Amazon.Runtime.Documents.Document or Amazon.InspectorScan.Model.ScanSbomResponse",
         "This cmdlet returns an Amazon.Runtime.Documents.Document object.",
-        "The service call response (type Amazon.InspectorScan.Model.ScanSbomResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.InspectorScan.Model.ScanSbomResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeISCANSbomScanCmdlet : AmazonInspectorScanClientCmdlet, IExecutor
     {

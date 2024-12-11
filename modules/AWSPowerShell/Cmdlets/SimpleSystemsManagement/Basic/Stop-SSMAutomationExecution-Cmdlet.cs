@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager StopAutomationExecution API operation.", Operation = new[] {"StopAutomationExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

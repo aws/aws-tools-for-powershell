@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.CreateSchemaResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry CreateSchema API operation.", Operation = new[] {"CreateSchema"}, SelectReturnType = typeof(Amazon.Schemas.Model.CreateSchemaResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.CreateSchemaResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.CreateSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.CreateSchemaResponse object containing multiple properties."
     )]
     public partial class NewSCHMSchemaCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

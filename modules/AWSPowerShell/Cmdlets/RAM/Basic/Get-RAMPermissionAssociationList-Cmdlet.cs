@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListPermissionAssociations API operation.", Operation = new[] {"ListPermissionAssociations"}, SelectReturnType = typeof(Amazon.RAM.Model.ListPermissionAssociationsResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.AssociatedPermission or Amazon.RAM.Model.ListPermissionAssociationsResponse",
         "This cmdlet returns a collection of Amazon.RAM.Model.AssociatedPermission objects.",
-        "The service call response (type Amazon.RAM.Model.ListPermissionAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.ListPermissionAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRAMPermissionAssociationListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

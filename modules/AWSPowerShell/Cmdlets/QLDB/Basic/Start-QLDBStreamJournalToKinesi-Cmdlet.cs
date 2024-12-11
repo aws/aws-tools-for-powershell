@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [AWSCmdlet("Calls the Amazon QLDB StreamJournalToKinesis API operation.", Operation = new[] {"StreamJournalToKinesis"}, SelectReturnType = typeof(Amazon.QLDB.Model.StreamJournalToKinesisResponse))]
     [AWSCmdletOutput("System.String or Amazon.QLDB.Model.StreamJournalToKinesisResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QLDB.Model.StreamJournalToKinesisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QLDB.Model.StreamJournalToKinesisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartQLDBStreamJournalToKinesiCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [AWSCmdlet("Calls the AWS Compute Optimizer DeleteRecommendationPreferences API operation.", Operation = new[] {"DeleteRecommendationPreferences"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.DeleteRecommendationPreferencesResponse))]
     [AWSCmdletOutput("None or Amazon.ComputeOptimizer.Model.DeleteRecommendationPreferencesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ComputeOptimizer.Model.DeleteRecommendationPreferencesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ComputeOptimizer.Model.DeleteRecommendationPreferencesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCORecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

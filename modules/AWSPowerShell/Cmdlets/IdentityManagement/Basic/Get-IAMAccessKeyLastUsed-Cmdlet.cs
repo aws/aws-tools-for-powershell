@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse")]
     [AWSCmdlet("Calls the AWS Identity and Access Management GetAccessKeyLastUsed API operation.", Operation = new[] {"GetAccessKeyLastUsed"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse object containing multiple properties."
     )]
     public partial class GetIAMAccessKeyLastUsedCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.DeletionProtectionSettings or Amazon.AppConfig.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.AppConfig.Model.DeletionProtectionSettings object.",
-        "The service call response (type Amazon.AppConfig.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppConfig.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAPPCAccountSettingCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

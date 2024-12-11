@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Tag or Amazon.SimpleNotificationService.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SimpleNotificationService.Model.Tag objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNSResourceTagCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

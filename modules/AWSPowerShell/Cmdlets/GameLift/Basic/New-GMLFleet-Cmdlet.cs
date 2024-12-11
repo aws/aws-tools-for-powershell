@@ -28,11 +28,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Creates a fleet of compute resources to host your game servers. Use this operation
     /// to set up the following types of fleets based on compute type: 
-    /// </para><para><b>Managed EC2 fleet</b></para><para>
+    /// 
+    ///  
+    /// <para><b>Managed EC2 fleet</b></para><para>
     /// An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your
     /// game server build is deployed to each fleet instance. Amazon GameLift manages the
     /// fleet's instances and controls the lifecycle of game server processes, which host
@@ -53,23 +53,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
     /// on/off for each location.
-    /// </para><para><b>Managed container fleet</b></para><para>
-    /// A container fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances.
-    /// Your container architecture is deployed to each fleet instance based on the fleet
-    /// configuration. Amazon GameLift manages the containers on each fleet instance and controls
-    /// the lifecycle of game server processes, which host game sessions for players. Container
-    /// fleets can have instances in multiple locations. Each container on an instance that
-    /// runs game server processes is registered as a <c>Compute</c>.
-    /// </para><para>
-    /// To create a container fleet, provide these required parameters:
-    /// </para><ul><li><para><c>ComputeType</c> set to <c>CONTAINER</c></para></li><li><para><c>ContainerGroupsConfiguration</c></para></li><li><para><c>EC2InboundPermissions</c></para></li><li><para><c>EC2InstanceType</c></para></li><li><para><c>FleetType</c> set to <c>ON_DEMAND</c></para></li><li><para><c>Name</c></para></li><li><para><c>RuntimeConfiguration</c> with at least one <c>ServerProcesses</c> configuration
-    /// </para></li></ul><para>
-    /// If successful, this operation creates a new fleet resource and places it in <c>NEW</c>
-    /// status while Amazon GameLift initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet
-    /// creation workflow</a>. 
-    /// </para><para>
-    /// When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
-    /// on/off for each location.
     /// </para><para><b>Anywhere fleet</b></para><para>
     /// An Anywhere fleet represents compute resources that are not owned or managed by Amazon
     /// GameLift. You might create an Anywhere fleet with your local machine for testing,
@@ -82,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, this operation creates a new fleet resource and places it in <c>ACTIVE</c>
     /// status. You can register computes with a fleet in <c>ACTIVE</c> status. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-build-fleet.html">Setting
-    /// up a container fleet</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
+    /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
     /// fleet creation issues</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location
     /// fleets</a></para>
     /// </summary>
@@ -92,10 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service CreateFleet API operation.", Operation = new[] {"CreateFleet"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateFleetResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.FleetAttributes or Amazon.GameLift.Model.CreateFleetResponse",
         "This cmdlet returns an Amazon.GameLift.Model.FleetAttributes object.",
-        "The service call response (type Amazon.GameLift.Model.CreateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.CreateFleetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -115,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CertificateConfiguration_CertificateType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a TLS/SSL certificate is generated for a fleet. </para><para>Valid values include: </para><ul><li><para><b>GENERATED</b> - Generate a TLS/SSL certificate for this fleet.</para></li><li><para><b>DISABLED</b> - (default) Do not generate a TLS/SSL certificate for this fleet.
+        /// <para>Indicates whether a TLS/SSL certificate is generated for a fleet. </para><para>Valid values include: </para><ul><li><para><b>GENERATED</b> -- Generate a TLS/SSL certificate for this fleet.</para></li><li><para><b>DISABLED</b> -- (default) Do not generate a TLS/SSL certificate for this fleet.
         /// </para></li></ul>
         /// </para>
         /// </summary>
@@ -128,27 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The type of compute resource used to host your game servers. </para><ul><li><para><c>EC2</c> – The game server build is deployed to Amazon EC2 instances for cloud
-        /// hosting. This is the default setting.</para></li><li><para><c>CONTAINER</c> – Container images with your game server build and supporting software
-        /// are deployed to Amazon EC2 instances for cloud hosting. With this compute type, you
-        /// must specify the <c>ContainerGroupsConfiguration</c> parameter.</para></li><li><para><c>ANYWHERE</c> – Game servers or container images with your game server and supporting
-        /// software are deployed to compute resources that are provided and managed by you. With
-        /// this compute type, you can also set the <c>AnywhereConfiguration</c> parameter.</para></li></ul>
+        /// hosting. This is the default setting.</para></li><li><para><c>ANYWHERE</c> – Your game server and supporting software is deployed to compute
+        /// resources that are provided and managed by you. With this compute type, you can also
+        /// set the <c>AnywhereConfiguration</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.GameLift.ComputeType")]
         public Amazon.GameLift.ComputeType ComputeType { get; set; }
-        #endregion
-        
-        #region Parameter ContainerGroupsConfiguration_ContainerGroupDefinitionName
-        /// <summary>
-        /// <para>
-        /// <para>The list of container group definition names to deploy to a new container fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ContainerGroupsConfiguration_ContainerGroupDefinitionNames")]
-        public System.String[] ContainerGroupsConfiguration_ContainerGroupDefinitionName { get; set; }
         #endregion
         
         #region Parameter AnywhereConfiguration_Cost
@@ -173,34 +144,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance
-        /// <summary>
-        /// <para>
-        /// <para>The number of times to replicate the replica container group on each instance in a
-        /// container fleet. By default, Amazon GameLift calculates the maximum number of replica
-        /// container groups that can fit on a fleet instance (based on CPU and memory resources).
-        /// Leave this parameter empty if you want to use the maximum number, or specify a desired
-        /// number to override the maximum. The desired number is used if it's less than the maximum
-        /// number.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance { get; set; }
-        #endregion
-        
         #region Parameter EC2InboundPermission
         /// <summary>
         /// <para>
         /// <para>The IP address ranges and port settings that allow inbound traffic to access game
-        /// server processes and other processes on this fleet. Set this parameter for EC2 and
-        /// container fleets. You can leave this parameter empty when creating the fleet, but
-        /// you must call <a>UpdateFleetPortSettings</a> to set it before players can connect
-        /// to game sessions. As a best practice, we recommend opening ports for remote access
-        /// only when you need them and closing them when you're finished. For Realtime Servers
-        /// fleets, Amazon GameLift automatically sets TCP and UDP ranges.</para><para>To manage inbound access for a container fleet, set this parameter to the same port
-        /// numbers that you set for the fleet's connection port range. During the life of the
-        /// fleet, update this parameter to control which connection ports are open to inbound
-        /// traffic.</para>
+        /// server processes and other processes on this fleet. Set this parameter for managed
+        /// EC2 fleets. You can leave this parameter empty when creating the fleet, but you must
+        /// call <a>UpdateFleetPortSettings</a> to set it before players can connect to game sessions.
+        /// As a best practice, we recommend opening ports for remote access only when you need
+        /// them and closing them when you're finished. For Realtime Servers fleets, Amazon GameLift
+        /// automatically sets TCP and UDP ranges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,10 +164,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter EC2InstanceType
         /// <summary>
         /// <para>
-        /// <para>The Amazon GameLift-supported Amazon EC2 instance type to use with EC2 and container
-        /// fleets. Instance type determines the computing resources that will be used to host
-        /// your game servers, including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance
-        /// Types</a> for detailed descriptions of Amazon EC2 instance types.</para>
+        /// <para>The Amazon GameLift-supported Amazon EC2 instance type to use with managed EC2 fleets.
+        /// Instance type determines the computing resources that will be used to host your game
+        /// servers, including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon
+        /// Elastic Compute Cloud Instance Types</a> for detailed descriptions of Amazon EC2 instance
+        /// types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,17 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.FleetType FleetType { get; set; }
         #endregion
         
-        #region Parameter ConnectionPortRange_FromPort
-        /// <summary>
-        /// <para>
-        /// <para>Starting value for the port range.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ContainerGroupsConfiguration_ConnectionPortRange_FromPort")]
-        public System.Int32? ConnectionPortRange_FromPort { get; set; }
-        #endregion
-        
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
@@ -264,13 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceRoleArn
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for an IAM role with access permissions to other Amazon Web Services
-        /// services. Any application that runs on an instance in the fleet--including install
-        /// scripts, server processes, and other processes--can use these permissions to interact
-        /// with Amazon Web Services resources that you own or have access to. For more information
-        /// about using the role with your game server builds, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-        /// Communicate with other Amazon Web Services resources from your fleets</a>. This fleet
-        /// property can't be changed after the fleet is created.</para>
+        /// <para>A unique identifier for an IAM role that manages access to your Amazon Web Services
+        /// services. With an instance role ARN set, any application that runs on an instance
+        /// in this fleet can assume the role, including install scripts, server processes, and
+        /// daemons (background processes). Create a role or look up a role's ARN by using the
+        /// <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web
+        /// Services Management Console. Learn more about using on-box credentials for your game
+        /// servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Access external resources from a game server</a>. This fleet property can't be changed
+        /// after the fleet is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,9 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance or
-        /// container. This setting limits the instance resources that can be used for new game
-        /// activations at any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
+        /// setting limits the instance resources that can be used for new game activations at
+        /// any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -501,18 +446,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.Model.Tag[] Tag { get; set; }
         #endregion
         
-        #region Parameter ConnectionPortRange_ToPort
-        /// <summary>
-        /// <para>
-        /// <para>Ending value for the port. Port numbers are end-inclusive. This value must be equal
-        /// to or greater than <c>FromPort</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ContainerGroupsConfiguration_ConnectionPortRange_ToPort")]
-        public System.Int32? ConnectionPortRange_ToPort { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'FleetAttributes'.
@@ -522,6 +455,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "FleetAttributes";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the BuildId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BuildId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BuildId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -550,22 +493,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.GameLift.Model.CreateFleetResponse, NewGMLFleetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.BuildId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AnywhereConfiguration_Cost = this.AnywhereConfiguration_Cost;
             context.BuildId = this.BuildId;
             context.CertificateConfiguration_CertificateType = this.CertificateConfiguration_CertificateType;
             context.ComputeType = this.ComputeType;
-            context.ConnectionPortRange_FromPort = this.ConnectionPortRange_FromPort;
-            context.ConnectionPortRange_ToPort = this.ConnectionPortRange_ToPort;
-            if (this.ContainerGroupsConfiguration_ContainerGroupDefinitionName != null)
-            {
-                context.ContainerGroupsConfiguration_ContainerGroupDefinitionName = new List<System.String>(this.ContainerGroupsConfiguration_ContainerGroupDefinitionName);
-            }
-            context.ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance = this.ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance;
             context.Description = this.Description;
             if (this.EC2InboundPermission != null)
             {
@@ -673,70 +619,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.ComputeType != null)
             {
                 request.ComputeType = cmdletContext.ComputeType;
-            }
-            
-             // populate ContainerGroupsConfiguration
-            var requestContainerGroupsConfigurationIsNull = true;
-            request.ContainerGroupsConfiguration = new Amazon.GameLift.Model.ContainerGroupsConfiguration();
-            List<System.String> requestContainerGroupsConfiguration_containerGroupsConfiguration_ContainerGroupDefinitionName = null;
-            if (cmdletContext.ContainerGroupsConfiguration_ContainerGroupDefinitionName != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ContainerGroupDefinitionName = cmdletContext.ContainerGroupsConfiguration_ContainerGroupDefinitionName;
-            }
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_ContainerGroupDefinitionName != null)
-            {
-                request.ContainerGroupsConfiguration.ContainerGroupDefinitionNames = requestContainerGroupsConfiguration_containerGroupsConfiguration_ContainerGroupDefinitionName;
-                requestContainerGroupsConfigurationIsNull = false;
-            }
-            System.Int32? requestContainerGroupsConfiguration_containerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance = null;
-            if (cmdletContext.ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance = cmdletContext.ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance.Value;
-            }
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance != null)
-            {
-                request.ContainerGroupsConfiguration.DesiredReplicaContainerGroupsPerInstance = requestContainerGroupsConfiguration_containerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance.Value;
-                requestContainerGroupsConfigurationIsNull = false;
-            }
-            Amazon.GameLift.Model.ConnectionPortRange requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange = null;
-            
-             // populate ConnectionPortRange
-            var requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRangeIsNull = true;
-            requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange = new Amazon.GameLift.Model.ConnectionPortRange();
-            System.Int32? requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_FromPort = null;
-            if (cmdletContext.ConnectionPortRange_FromPort != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_FromPort = cmdletContext.ConnectionPortRange_FromPort.Value;
-            }
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_FromPort != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange.FromPort = requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_FromPort.Value;
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRangeIsNull = false;
-            }
-            System.Int32? requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_ToPort = null;
-            if (cmdletContext.ConnectionPortRange_ToPort != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_ToPort = cmdletContext.ConnectionPortRange_ToPort.Value;
-            }
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_ToPort != null)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange.ToPort = requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange_connectionPortRange_ToPort.Value;
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRangeIsNull = false;
-            }
-             // determine if requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange should be set to null
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRangeIsNull)
-            {
-                requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange = null;
-            }
-            if (requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange != null)
-            {
-                request.ContainerGroupsConfiguration.ConnectionPortRange = requestContainerGroupsConfiguration_containerGroupsConfiguration_ConnectionPortRange;
-                requestContainerGroupsConfigurationIsNull = false;
-            }
-             // determine if request.ContainerGroupsConfiguration should be set to null
-            if (requestContainerGroupsConfigurationIsNull)
-            {
-                request.ContainerGroupsConfiguration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -939,10 +821,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String BuildId { get; set; }
             public Amazon.GameLift.CertificateType CertificateConfiguration_CertificateType { get; set; }
             public Amazon.GameLift.ComputeType ComputeType { get; set; }
-            public System.Int32? ConnectionPortRange_FromPort { get; set; }
-            public System.Int32? ConnectionPortRange_ToPort { get; set; }
-            public List<System.String> ContainerGroupsConfiguration_ContainerGroupDefinitionName { get; set; }
-            public System.Int32? ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.GameLift.Model.IpPermission> EC2InboundPermission { get; set; }
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }

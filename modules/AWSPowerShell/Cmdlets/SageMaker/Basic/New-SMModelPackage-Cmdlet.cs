@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateModelPackage API operation.", Operation = new[] {"CreateModelPackage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateModelPackageResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateModelPackageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateModelPackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateModelPackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
@@ -827,6 +827,36 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String SourceUri { get; set; }
         #endregion
         
+        #region Parameter ModelLifeCycle_Stage
+        /// <summary>
+        /// <para>
+        /// <para> The current stage in the model life cycle. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_Stage { get; set; }
+        #endregion
+        
+        #region Parameter ModelLifeCycle_StageDescription
+        /// <summary>
+        /// <para>
+        /// <para> Describes the stage related details. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_StageDescription { get; set; }
+        #endregion
+        
+        #region Parameter ModelLifeCycle_StageStatus
+        /// <summary>
+        /// <para>
+        /// <para> The current status of a stage in model life cycle. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelLifeCycle_StageStatus { get; set; }
+        #endregion
+        
         #region Parameter InferenceSpecification_SupportedContentType
         /// <summary>
         /// <para>
@@ -1043,6 +1073,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelApprovalStatus = this.ModelApprovalStatus;
             context.ModelCard_ModelCardContent = this.ModelCard_ModelCardContent;
             context.ModelCard_ModelCardStatus = this.ModelCard_ModelCardStatus;
+            context.ModelLifeCycle_Stage = this.ModelLifeCycle_Stage;
+            context.ModelLifeCycle_StageDescription = this.ModelLifeCycle_StageDescription;
+            context.ModelLifeCycle_StageStatus = this.ModelLifeCycle_StageStatus;
             context.PostTrainingReport_ContentDigest = this.PostTrainingReport_ContentDigest;
             context.PostTrainingReport_ContentType = this.PostTrainingReport_ContentType;
             context.PostTrainingReport_S3Uri = this.PostTrainingReport_S3Uri;
@@ -1740,6 +1773,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ModelCard = null;
             }
             
+             // populate ModelLifeCycle
+            var requestModelLifeCycleIsNull = true;
+            request.ModelLifeCycle = new Amazon.SageMaker.Model.ModelLifeCycle();
+            System.String requestModelLifeCycle_modelLifeCycle_Stage = null;
+            if (cmdletContext.ModelLifeCycle_Stage != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_Stage = cmdletContext.ModelLifeCycle_Stage;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_Stage != null)
+            {
+                request.ModelLifeCycle.Stage = requestModelLifeCycle_modelLifeCycle_Stage;
+                requestModelLifeCycleIsNull = false;
+            }
+            System.String requestModelLifeCycle_modelLifeCycle_StageDescription = null;
+            if (cmdletContext.ModelLifeCycle_StageDescription != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_StageDescription = cmdletContext.ModelLifeCycle_StageDescription;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_StageDescription != null)
+            {
+                request.ModelLifeCycle.StageDescription = requestModelLifeCycle_modelLifeCycle_StageDescription;
+                requestModelLifeCycleIsNull = false;
+            }
+            System.String requestModelLifeCycle_modelLifeCycle_StageStatus = null;
+            if (cmdletContext.ModelLifeCycle_StageStatus != null)
+            {
+                requestModelLifeCycle_modelLifeCycle_StageStatus = cmdletContext.ModelLifeCycle_StageStatus;
+            }
+            if (requestModelLifeCycle_modelLifeCycle_StageStatus != null)
+            {
+                request.ModelLifeCycle.StageStatus = requestModelLifeCycle_modelLifeCycle_StageStatus;
+                requestModelLifeCycleIsNull = false;
+            }
+             // determine if request.ModelLifeCycle should be set to null
+            if (requestModelLifeCycleIsNull)
+            {
+                request.ModelLifeCycle = null;
+            }
+            
              // populate ModelMetrics
             var requestModelMetricsIsNull = true;
             request.ModelMetrics = new Amazon.SageMaker.Model.ModelMetrics();
@@ -2372,6 +2444,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
             public System.String ModelCard_ModelCardContent { get; set; }
             public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
+            public System.String ModelLifeCycle_Stage { get; set; }
+            public System.String ModelLifeCycle_StageDescription { get; set; }
+            public System.String ModelLifeCycle_StageStatus { get; set; }
             public System.String PostTrainingReport_ContentDigest { get; set; }
             public System.String PostTrainingReport_ContentType { get; set; }
             public System.String PostTrainingReport_S3Uri { get; set; }

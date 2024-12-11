@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// List all subscribers for the specific Amazon Security Lake account ID. You can retrieve
+    /// Lists all subscribers for the specific Amazon Security Lake account ID. You can retrieve
     /// a list of subscriptions associated with a specific organization or Amazon Web Services
     /// account.
     /// </summary>
@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake ListSubscribers API operation.", Operation = new[] {"ListSubscribers"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.ListSubscribersResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.SubscriberResource or Amazon.SecurityLake.Model.ListSubscribersResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.SubscriberResource objects.",
-        "The service call response (type Amazon.SecurityLake.Model.ListSubscribersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.ListSubscribersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSLKSubscriberListCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

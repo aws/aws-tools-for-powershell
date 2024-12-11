@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline UpdateActionType API operation.", Operation = new[] {"UpdateActionType"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.UpdateActionTypeResponse))]
     [AWSCmdletOutput("None or Amazon.CodePipeline.Model.UpdateActionTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodePipeline.Model.UpdateActionTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.UpdateActionTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

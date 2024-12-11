@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service DeleteAssistant API operation.", Operation = new[] {"DeleteAssistant"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.DeleteAssistantResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectWisdomService.Model.DeleteAssistantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectWisdomService.Model.DeleteAssistantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectWisdomService.Model.DeleteAssistantResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSDMAssistantCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [OutputType("Amazon.ConfigService.Model.StartRemediationExecutionResponse")]
     [AWSCmdlet("Calls the AWS Config StartRemediationExecution API operation.", Operation = new[] {"StartRemediationExecution"}, SelectReturnType = typeof(Amazon.ConfigService.Model.StartRemediationExecutionResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.StartRemediationExecutionResponse",
-        "This cmdlet returns an Amazon.ConfigService.Model.StartRemediationExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConfigService.Model.StartRemediationExecutionResponse object containing multiple properties."
     )]
     public partial class StartCFGRemediationExecutionCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

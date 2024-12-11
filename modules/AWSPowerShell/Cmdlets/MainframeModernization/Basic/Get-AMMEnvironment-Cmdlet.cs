@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [OutputType("Amazon.MainframeModernization.Model.GetEnvironmentResponse")]
     [AWSCmdlet("Calls the M2 GetEnvironment API operation.", Operation = new[] {"GetEnvironment"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.GetEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.GetEnvironmentResponse",
-        "This cmdlet returns an Amazon.MainframeModernization.Model.GetEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MainframeModernization.Model.GetEnvironmentResponse object containing multiple properties."
     )]
     public partial class GetAMMEnvironmentCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

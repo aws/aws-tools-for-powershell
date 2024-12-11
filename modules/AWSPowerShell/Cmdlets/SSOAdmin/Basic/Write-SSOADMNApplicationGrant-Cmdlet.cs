@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin PutApplicationGrant API operation.", Operation = new[] {"PutApplicationGrant"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.PutApplicationGrantResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.PutApplicationGrantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.PutApplicationGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.PutApplicationGrantResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSSOADMNApplicationGrantCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

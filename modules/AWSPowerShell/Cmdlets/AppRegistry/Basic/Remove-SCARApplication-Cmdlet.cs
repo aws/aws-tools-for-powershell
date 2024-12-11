@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.ApplicationSummary or Amazon.AppRegistry.Model.DeleteApplicationResponse",
         "This cmdlet returns an Amazon.AppRegistry.Model.ApplicationSummary object.",
-        "The service call response (type Amazon.AppRegistry.Model.DeleteApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.DeleteApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCARApplicationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

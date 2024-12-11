@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize CreateSolutionVersion API operation.", Operation = new[] {"CreateSolutionVersion"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateSolutionVersionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateSolutionVersionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.CreateSolutionVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.CreateSolutionVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPERSSolutionVersionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

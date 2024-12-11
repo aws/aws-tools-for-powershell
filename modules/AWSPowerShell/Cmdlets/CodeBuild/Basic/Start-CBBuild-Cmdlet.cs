@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild StartBuild API operation.", Operation = new[] {"StartBuild"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.StartBuildResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Build or Amazon.CodeBuild.Model.StartBuildResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Build object.",
-        "The service call response (type Amazon.CodeBuild.Model.StartBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.StartBuildResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCBBuildCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ArtifactsOverride_ArtifactIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter AutoRetryLimitOverride
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of additional automatic retries after a failed build. For example,
+        /// if the auto-retry limit is set to 2, CodeBuild will call the <c>RetryBuild</c> API
+        /// to automatically retry your build for up to 2 additional times.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AutoRetryLimitOverride { get; set; }
         #endregion
         
         #region Parameter ArtifactsOverride_BucketOwnerAccess
@@ -775,6 +787,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ArtifactsOverride_Packaging = this.ArtifactsOverride_Packaging;
             context.ArtifactsOverride_Path = this.ArtifactsOverride_Path;
             context.ArtifactsOverride_Type = this.ArtifactsOverride_Type;
+            context.AutoRetryLimitOverride = this.AutoRetryLimitOverride;
             context.BuildspecOverride = this.BuildspecOverride;
             context.BuildStatusConfigOverride_Context = this.BuildStatusConfigOverride_Context;
             context.BuildStatusConfigOverride_TargetUrl = this.BuildStatusConfigOverride_TargetUrl;
@@ -962,6 +975,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifactsOverrideIsNull)
             {
                 request.ArtifactsOverride = null;
+            }
+            if (cmdletContext.AutoRetryLimitOverride != null)
+            {
+                request.AutoRetryLimitOverride = cmdletContext.AutoRetryLimitOverride.Value;
             }
             if (cmdletContext.BuildspecOverride != null)
             {
@@ -1403,6 +1420,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ArtifactPackaging ArtifactsOverride_Packaging { get; set; }
             public System.String ArtifactsOverride_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
+            public System.Int32? AutoRetryLimitOverride { get; set; }
             public System.String BuildspecOverride { get; set; }
             public System.String BuildStatusConfigOverride_Context { get; set; }
             public System.String BuildStatusConfigOverride_TargetUrl { get; set; }

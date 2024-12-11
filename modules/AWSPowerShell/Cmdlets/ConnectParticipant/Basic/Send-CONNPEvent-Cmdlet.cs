@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [OutputType("Amazon.ConnectParticipant.Model.SendEventResponse")]
     [AWSCmdlet("Calls the Amazon Connect Participant Service SendEvent API operation.", Operation = new[] {"SendEvent"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.SendEventResponse))]
     [AWSCmdletOutput("Amazon.ConnectParticipant.Model.SendEventResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.SendEventResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectParticipant.Model.SendEventResponse object containing multiple properties."
     )]
     public partial class SendCONNPEventCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

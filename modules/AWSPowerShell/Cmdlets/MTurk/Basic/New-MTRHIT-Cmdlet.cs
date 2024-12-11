@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service CreateHIT API operation.", Operation = new[] {"CreateHIT"}, SelectReturnType = typeof(Amazon.MTurk.Model.CreateHITResponse))]
     [AWSCmdletOutput("Amazon.MTurk.Model.HIT or Amazon.MTurk.Model.CreateHITResponse",
         "This cmdlet returns an Amazon.MTurk.Model.HIT object.",
-        "The service call response (type Amazon.MTurk.Model.CreateHITResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MTurk.Model.CreateHITResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMTRHITCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

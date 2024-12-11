@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [OutputType("Amazon.DataSync.Model.DescribeStorageSystemResponse")]
     [AWSCmdlet("Calls the AWS DataSync DescribeStorageSystem API operation.", Operation = new[] {"DescribeStorageSystem"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeStorageSystemResponse))]
     [AWSCmdletOutput("Amazon.DataSync.Model.DescribeStorageSystemResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeStorageSystemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeStorageSystemResponse object containing multiple properties."
     )]
     public partial class GetDSYNStorageSystemCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

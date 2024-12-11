@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service RestoreFromSnapshot API operation.", Operation = new[] {"RestoreFromSnapshot"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.RestoreFromSnapshotResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.RestoreFromSnapshotResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.RestoreFromSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.RestoreFromSnapshotResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestoreDSFromSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail DeleteEventDataStore API operation.", Operation = new[] {"DeleteEventDataStore"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DeleteEventDataStoreResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.DeleteEventDataStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.DeleteEventDataStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.DeleteEventDataStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCTEventDataStoreCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

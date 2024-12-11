@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ListDevices API operation.", Operation = new[] {"ListDevices"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ListDevicesResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.DeviceType or Amazon.CognitoIdentityProvider.Model.ListDevicesResponse",
         "This cmdlet returns a collection of Amazon.CognitoIdentityProvider.Model.DeviceType objects.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListDevicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPDeviceListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PaginationToken $null' for the first call and '-PaginationToken $AWSHistory.LastServiceResponse.PaginationToken' for subsequent calls.
+        /// <br/>'PaginationToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PaginationToken' to null for the first call then set the 'PaginationToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

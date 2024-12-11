@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [OutputType("Amazon.ConnectCases.Model.CreateDomainResponse")]
     [AWSCmdlet("Calls the Amazon Connect Cases CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.CreateDomainResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.CreateDomainResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.CreateDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectCases.Model.CreateDomainResponse object containing multiple properties."
     )]
     public partial class NewCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

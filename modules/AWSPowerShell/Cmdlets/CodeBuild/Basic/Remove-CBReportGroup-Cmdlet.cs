@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild DeleteReportGroup API operation.", Operation = new[] {"DeleteReportGroup"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteReportGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CodeBuild.Model.DeleteReportGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeBuild.Model.DeleteReportGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeBuild.Model.DeleteReportGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCBReportGroupCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

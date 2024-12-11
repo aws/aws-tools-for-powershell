@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListDelegatedAdminAccounts API operation.", Operation = new[] {"ListDelegatedAdminAccounts"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListDelegatedAdminAccountsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.DelegatedAdminAccount or Amazon.Inspector2.Model.ListDelegatedAdminAccountsResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.DelegatedAdminAccount objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListDelegatedAdminAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListDelegatedAdminAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2DelegatedAdminAccountListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

@@ -44,22 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ReportInstanceStatus API operation.", Operation = new[] {"ReportInstanceStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.ReportInstanceStatusResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.ReportInstanceStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.ReportInstanceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReportInstanceStatusResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>Descriptive text about the health state of your instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter UtcEndTime
         /// <summary>
@@ -137,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ReportStatusType Status { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Descriptive text about the health state of your instance.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This member has been deprecated")]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -181,6 +185,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Instance parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Instance' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Instance' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -207,12 +221,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ReportInstanceStatusResponse, SendEC2InstanceStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Instance;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.UtcEndTime = this.UtcEndTime;
             if (this.Instance != null)
             {
@@ -264,10 +290,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ReportInstanceStatusRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.UtcEndTime != null)
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
@@ -369,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.String Description { get; set; }
             public System.DateTime? UtcEndTime { get; set; }
             public List<System.String> Instance { get; set; }

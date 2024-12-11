@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the AWS Auto Scaling Plans CreateScalingPlan API operation.", Operation = new[] {"CreateScalingPlan"}, SelectReturnType = typeof(Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse",
-        "This cmdlet returns a collection of System.Int64 objects.",
-        "The service call response (type Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int64 object.",
+        "The service call response (type Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASPScalingPlanCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
     {
@@ -111,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         public string Select { get; set; } = "ScalingPlanVersion";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ScalingPlanName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ScalingPlanName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScalingPlanName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -137,11 +147,21 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse, NewASPScalingPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ScalingPlanName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplicationSource_CloudFormationStackARN = this.ApplicationSource_CloudFormationStackARN;
             if (this.ApplicationSource_TagFilter != null)
             {

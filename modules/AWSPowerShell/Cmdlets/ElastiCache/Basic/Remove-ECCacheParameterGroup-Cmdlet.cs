@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteCacheParameterGroup API operation.", Operation = new[] {"DeleteCacheParameterGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteCacheParameterGroupResponse))]
     [AWSCmdletOutput("None or Amazon.ElastiCache.Model.DeleteCacheParameterGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElastiCache.Model.DeleteCacheParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElastiCache.Model.DeleteCacheParameterGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

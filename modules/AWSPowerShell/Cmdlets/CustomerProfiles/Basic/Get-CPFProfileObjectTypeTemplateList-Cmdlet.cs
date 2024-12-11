@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListProfileObjectTypeTemplates API operation.", Operation = new[] {"ListProfileObjectTypeTemplates"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplatesResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplateItem or Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplatesResponse",
         "This cmdlet returns a collection of Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplateItem objects.",
-        "The service call response (type Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CustomerProfiles.Model.ListProfileObjectTypeTemplatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCPFProfileObjectTypeTemplateListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

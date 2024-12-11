@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog DescribeCopyProductStatus API operation.", Operation = new[] {"DescribeCopyProductStatus"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse object containing multiple properties."
     )]
     public partial class GetSCCopyProductStatusCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

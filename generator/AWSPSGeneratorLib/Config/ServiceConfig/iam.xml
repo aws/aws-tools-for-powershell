@@ -228,7 +228,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableOrganizationsRootCredentialsManagement" OutputProperty="*" Verb="Disable" Noun="OrganizationsRootCredentialsManagement" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableOrganizationsRootSessions" OutputProperty="*" Verb="Disable" Noun="OrganizationsRootSession" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableMFADevice" Verb="Enable" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableOrganizationsRootCredentialsManagement" OutputProperty="*" Verb="Enable" Noun="OrganizationsRootCredentialsManagement" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableOrganizationsRootSessions" OutputProperty="*" Verb="Enable" Noun="OrganizationsRootSession" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -409,6 +425,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOpenIDConnectProviderTags" OutputProperty="Tags" Verb="Get" Noun="OpenIDConnectProviderTagList" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOrganizationsFeatures" OutputProperty="*" Verb="Get" Noun="OrganizationsFeature" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

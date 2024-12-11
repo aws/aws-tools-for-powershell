@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListAccountPermissions API operation.", Operation = new[] {"ListAccountPermissions"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListAccountPermissionsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.Permission or Amazon.Inspector2.Model.ListAccountPermissionsResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.Permission objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListAccountPermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListAccountPermissionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2AccountPermissionListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

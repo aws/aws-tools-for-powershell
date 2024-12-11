@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.CreateDBShardGroupResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBShardGroup API operation.", Operation = new[] {"CreateDBShardGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBShardGroupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.CreateDBShardGroupResponse",
-        "This cmdlet returns an Amazon.RDS.Model.CreateDBShardGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.CreateDBShardGroupResponse object containing multiple properties."
     )]
     public partial class NewRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -209,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #endif
             context.MinACU = this.MinACU;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -248,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -316,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Double? MaxACU { get; set; }
             public System.Double? MinACU { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBShardGroupResponse, NewRDSDBShardGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

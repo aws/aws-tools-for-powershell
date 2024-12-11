@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.CreateJobResponse))]
     [AWSCmdletOutput("Amazon.MediaConvert.Model.Job or Amazon.MediaConvert.Model.CreateJobResponse",
         "This cmdlet returns an Amazon.MediaConvert.Model.Job object.",
-        "The service call response (type Amazon.MediaConvert.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConvert.Model.CreateJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMCJobCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

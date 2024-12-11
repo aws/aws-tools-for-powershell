@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch CancelElasticsearchServiceSoftwareUpdate API operation.", Operation = new[] {"CancelElasticsearchServiceSoftwareUpdate"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CancelElasticsearchServiceSoftwareUpdateResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ServiceSoftwareOptions or Amazon.Elasticsearch.Model.CancelElasticsearchServiceSoftwareUpdateResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ServiceSoftwareOptions object.",
-        "The service call response (type Amazon.Elasticsearch.Model.CancelElasticsearchServiceSoftwareUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.CancelElasticsearchServiceSoftwareUpdateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopESElasticsearchServiceSoftwareUpdateCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

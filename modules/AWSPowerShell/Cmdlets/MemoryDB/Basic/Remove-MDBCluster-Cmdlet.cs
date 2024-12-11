@@ -29,17 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
     /// Deletes a cluster. It also deletes all associated nodes and node endpoints
-    /// 
-    ///  <note><para><c>CreateSnapshot</c> permission is required to create a final snapshot. Without
-    /// this permission, the API call will fail with an <c>Access Denied</c> exception.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "MDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.MemoryDB.Model.Cluster")]
     [AWSCmdlet("Calls the Amazon MemoryDB DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Cluster or Amazon.MemoryDB.Model.DeleteClusterResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.Cluster object.",
-        "The service call response (type Amazon.MemoryDB.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DeleteClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBClusterCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

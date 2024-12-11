@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower ListControlOperations API operation.", Operation = new[] {"ListControlOperations"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListControlOperationsResponse))]
     [AWSCmdletOutput("Amazon.ControlTower.Model.ControlOperationSummary or Amazon.ControlTower.Model.ListControlOperationsResponse",
         "This cmdlet returns a collection of Amazon.ControlTower.Model.ControlOperationSummary objects.",
-        "The service call response (type Amazon.ControlTower.Model.ListControlOperationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ControlTower.Model.ListControlOperationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACTControlOperationListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

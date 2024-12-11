@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
-    /// engine software, either Memcached or Redis OSS.
+    /// engine software, either Memcached, Valkey or Redis OSS.
     /// 
     ///  
     /// <para>
-    /// This operation is not supported for Redis OSS (cluster mode enabled) clusters.
+    /// This operation is not supported for Valkey or Redis OSS (cluster mode enabled) clusters.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache CreateCacheCluster API operation.", Operation = new[] {"CreateCacheCluster"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateCacheClusterResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster or Amazon.ElastiCache.Model.CreateCacheClusterResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.CacheCluster object.",
-        "The service call response (type Amazon.ElastiCache.Model.CreateCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes
-        /// if you want to opt-in to the next auto minor version upgrade campaign. This parameter
-        /// is disabled for previous versions.  </para>
+        /// <para> If you are running Valkey 7.2 and above or Redis OSS engine version 6.0 and above,
+        /// set this parameter to yes to opt-in to the next auto minor version upgrade campaign.
+        /// This parameter is disabled for previous versions.  </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <c>cache.r5.4xlarge</c>, <c>cache.r5.12xlarge</c>, <c>cache.r5.24xlarge</c></para><para><b>R4 node types:</b><c>cache.r4.large</c>, <c>cache.r4.xlarge</c>, <c>cache.r4.2xlarge</c>,
         /// <c>cache.r4.4xlarge</c>, <c>cache.r4.8xlarge</c>, <c>cache.r4.16xlarge</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><c>cache.m2.xlarge</c>, <c>cache.m2.2xlarge</c>, <c>cache.m2.4xlarge</c></para><para><b>R3 node types:</b><c>cache.r3.large</c>, <c>cache.r3.xlarge</c>, <c>cache.r3.2xlarge</c>,
-        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis OSS configuration variables <c>appendonly</c> and <c>appendfsync</c> are not
-        /// supported on Redis OSS version 2.8.22 and later.</para></li></ul>
+        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Valkey or Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Valkey or Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>The configuration variables <c>appendonly</c> and <c>appendfsync</c> are not supported
+        /// on Valkey, or on Redis OSS version 2.8.22 and later.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,9 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
-        /// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached
-        /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
-        /// system</a>.</para>
+        /// IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version
+        /// 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on
+        /// the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,9 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
-        /// workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6
-        /// on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.
-        /// </para>
+        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached
+        /// engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheNode
         /// <summary>
         /// <para>
-        /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Redis OSS, this value must be 1. For clusters running Memcached,
-        /// this value must be between 1 and 40.</para><para>If you need more than 40 nodes for your Memcached cluster, please fill out the ElastiCache
+        /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Valkey or Redis OSS, this value must be 1. For clusters running
+        /// Memcached, this value must be between 1 and 40.</para><para>If you need more than 40 nodes for your Memcached cluster, please fill out the ElastiCache
         /// Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</para>
         /// </para>
         /// </summary>
@@ -373,9 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
-        /// identifies a Redis OSS RDB snapshot file stored in Amazon S3. The snapshot file is
-        /// used to populate the node group (shard). The Amazon S3 object name in the ARN cannot
-        /// contain any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
+        /// identifies a Valkey or Redis OSS RDB snapshot file stored in Amazon S3. The snapshot
+        /// file is used to populate the node group (shard). The Amazon S3 object name in the
+        /// ARN cannot contain any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,9 +386,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of a Redis OSS snapshot from which to restore data into the new node group
-        /// (shard). The snapshot status changes to <c>restoring</c> while the new node group
-        /// (shard) is being created.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
+        /// <para>The name of a Valkey or Redis OSS snapshot from which to restore data into the new
+        /// node group (shard). The snapshot status changes to <c>restoring</c> while the new
+        /// node group (shard) is being created.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeVpcPeeringAuthorizations API operation.", Operation = new[] {"DescribeVpcPeeringAuthorizations"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.VpcPeeringAuthorization or Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.VpcPeeringAuthorization objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLVpcPeeringAuthorizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

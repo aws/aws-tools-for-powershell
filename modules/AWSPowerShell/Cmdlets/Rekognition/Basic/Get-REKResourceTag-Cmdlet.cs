@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Rekognition.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Rekognition.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Rekognition.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetREKResourceTagCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

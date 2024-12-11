@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor DeleteCustomLineItem API operation.", Operation = new[] {"DeleteCustomLineItem"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.DeleteCustomLineItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.BillingConductor.Model.DeleteCustomLineItemResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BillingConductor.Model.DeleteCustomLineItemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BillingConductor.Model.DeleteCustomLineItemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveABCCustomLineItemCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

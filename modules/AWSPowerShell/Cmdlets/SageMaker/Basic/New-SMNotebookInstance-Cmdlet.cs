@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateNotebookInstance API operation.", Operation = new[] {"CreateNotebookInstance"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateNotebookInstanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateNotebookInstanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateNotebookInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateNotebookInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
@@ -82,10 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>A list of Elastic Inference (EI) instance types to associate with this notebook instance.
-        /// Currently, only one instance type can be associated with a notebook instance. For
-        /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using
-        /// Elastic Inference in Amazon SageMaker</a>.</para>
+        /// <para>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</para><para>This parameter was used to specify a list of EI instance types to associate with this
+        /// notebook instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

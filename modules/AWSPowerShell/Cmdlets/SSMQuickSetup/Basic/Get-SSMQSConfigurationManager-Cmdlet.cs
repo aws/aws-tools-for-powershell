@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [OutputType("Amazon.SSMQuickSetup.Model.GetConfigurationManagerResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup GetConfigurationManager API operation.", Operation = new[] {"GetConfigurationManager"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.GetConfigurationManagerResponse))]
     [AWSCmdletOutput("Amazon.SSMQuickSetup.Model.GetConfigurationManagerResponse",
-        "This cmdlet returns an Amazon.SSMQuickSetup.Model.GetConfigurationManagerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSMQuickSetup.Model.GetConfigurationManagerResponse object containing multiple properties."
     )]
     public partial class GetSSMQSConfigurationManagerCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

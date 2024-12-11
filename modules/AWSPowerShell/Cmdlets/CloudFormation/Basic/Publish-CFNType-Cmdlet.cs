@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Publishes the specified extension to the CloudFormation registry as a public extension
     /// in this Region. Public extensions are available for use by all CloudFormation users.
     /// For more information about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
-    /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
-    /// User Guide</i>.
+    /// extensions to make them available for public use</a> in the <i>CloudFormation Command
+    /// Line Interface (CLI) User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation PublishType API operation.", Operation = new[] {"PublishType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.PublishTypeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.PublishTypeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.PublishTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.PublishTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class PublishCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

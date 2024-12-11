@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.CreateWorkflowResponse")]
     [AWSCmdlet("Calls the Amazon Omics CreateWorkflow API operation.", Operation = new[] {"CreateWorkflow"}, SelectReturnType = typeof(Amazon.Omics.Model.CreateWorkflowResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.CreateWorkflowResponse",
-        "This cmdlet returns an Amazon.Omics.Model.CreateWorkflowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.CreateWorkflowResponse object containing multiple properties."
     )]
     public partial class NewOMICSWorkflowCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

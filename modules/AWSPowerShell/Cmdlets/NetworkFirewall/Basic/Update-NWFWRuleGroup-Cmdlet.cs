@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [OutputType("Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall UpdateRuleGroup API operation.", Operation = new[] {"UpdateRuleGroup"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.UpdateRuleGroupResponse object containing multiple properties."
     )]
     public partial class UpdateNWFWRuleGroupCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.BatchStopJobRunResponse")]
     [AWSCmdlet("Calls the AWS Glue BatchStopJobRun API operation.", Operation = new[] {"BatchStopJobRun"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchStopJobRunResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchStopJobRunResponse",
-        "This cmdlet returns an Amazon.Glue.Model.BatchStopJobRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.BatchStopJobRunResponse object containing multiple properties."
     )]
     public partial class StopGLUEJobRunBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateResolverRule API operation.", Operation = new[] {"CreateResolverRule"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateResolverRuleResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverRule or Amazon.Route53Resolver.Model.CreateResolverRuleResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverRule object.",
-        "The service call response (type Amazon.Route53Resolver.Model.CreateResolverRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.CreateResolverRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewR53RResolverRuleCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

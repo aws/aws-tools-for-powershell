@@ -44,19 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more information,
     /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect
     /// to Amazon SageMaker Studio Through an Interface VPC Endpoint</a> .
-    /// </para><note><para>
+    /// </para><note><ul><li><para>
     /// The URL that you get from a call to <c>CreatePresignedDomainUrl</c> has a default
     /// timeout of 5 minutes. You can configure this value using <c>ExpiresInSeconds</c>.
     /// If you try to use the URL after the timeout limit expires, you are directed to the
     /// Amazon Web Services console sign-in page.
-    /// </para></note>
+    /// </para></li><li><para>
+    /// The JupyterLab session default expiration time is 12 hours. You can configure this
+    /// value using SessionExpirationDurationInSeconds.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "SMPresignedDomainUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon SageMaker Service CreatePresignedDomainUrl API operation.", Operation = new[] {"CreatePresignedDomainUrl"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMPresignedDomainUrlCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

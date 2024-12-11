@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteCoreNetworkPolicyVersion API operation.", Operation = new[] {"DeleteCoreNetworkPolicyVersion"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteCoreNetworkPolicyVersionResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.CoreNetworkPolicy or Amazon.NetworkManager.Model.DeleteCoreNetworkPolicyVersionResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.CoreNetworkPolicy object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteCoreNetworkPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteCoreNetworkPolicyVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRCoreNetworkPolicyVersionCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

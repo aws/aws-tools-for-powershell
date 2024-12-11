@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     [AWSCmdlet("Calls the AWSBillingAndCostManagementDataExports DeleteExport API operation.", Operation = new[] {"DeleteExport"}, SelectReturnType = typeof(Amazon.BCMDataExports.Model.DeleteExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.BCMDataExports.Model.DeleteExportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BCMDataExports.Model.DeleteExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BCMDataExports.Model.DeleteExportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveBCMDEExportCmdlet : AmazonBCMDataExportsClientCmdlet, IExecutor
     {

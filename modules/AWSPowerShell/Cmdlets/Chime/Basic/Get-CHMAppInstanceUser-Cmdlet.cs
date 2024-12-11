@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DescribeAppInstanceUser API operation.", Operation = new[] {"DescribeAppInstanceUser"}, SelectReturnType = typeof(Amazon.Chime.Model.DescribeAppInstanceUserResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.AppInstanceUser or Amazon.Chime.Model.DescribeAppInstanceUserResponse",
         "This cmdlet returns an Amazon.Chime.Model.AppInstanceUser object.",
-        "The service call response (type Amazon.Chime.Model.DescribeAppInstanceUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.DescribeAppInstanceUserResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DescribeAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
     public partial class GetCHMAppInstanceUserCmdlet : AmazonChimeClientCmdlet, IExecutor

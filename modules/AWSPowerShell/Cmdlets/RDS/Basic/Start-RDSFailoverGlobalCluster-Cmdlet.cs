@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service FailoverGlobalCluster API operation.", Operation = new[] {"FailoverGlobalCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.FailoverGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.GlobalCluster or Amazon.RDS.Model.FailoverGlobalClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.GlobalCluster object.",
-        "The service call response (type Amazon.RDS.Model.FailoverGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.FailoverGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartRDSFailoverGlobalClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

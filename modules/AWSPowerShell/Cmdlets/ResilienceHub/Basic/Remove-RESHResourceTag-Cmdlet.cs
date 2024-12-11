@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ResilienceHub.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResilienceHub.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResilienceHub.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRESHResourceTagCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

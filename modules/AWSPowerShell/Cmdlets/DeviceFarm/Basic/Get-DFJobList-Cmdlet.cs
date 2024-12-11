@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm ListJobs API operation.", Operation = new[] {"ListJobs"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.ListJobsResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job or Amazon.DeviceFarm.Model.ListJobsResponse",
         "This cmdlet returns a collection of Amazon.DeviceFarm.Model.Job objects.",
-        "The service call response (type Amazon.DeviceFarm.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.ListJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFJobListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

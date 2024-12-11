@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service ReloadReplicationTables API operation.", Operation = new[] {"ReloadReplicationTables"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.ReloadReplicationTablesResponse))]
     [AWSCmdletOutput("System.String or Amazon.DatabaseMigrationService.Model.ReloadReplicationTablesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.ReloadReplicationTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ReloadReplicationTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreDMSReplicationTableCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

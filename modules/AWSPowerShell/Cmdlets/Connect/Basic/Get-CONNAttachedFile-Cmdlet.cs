@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.GetAttachedFileResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service GetAttachedFile API operation.", Operation = new[] {"GetAttachedFile"}, SelectReturnType = typeof(Amazon.Connect.Model.GetAttachedFileResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.GetAttachedFileResponse",
-        "This cmdlet returns an Amazon.Connect.Model.GetAttachedFileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.GetAttachedFileResponse object containing multiple properties."
     )]
     public partial class GetCONNAttachedFileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

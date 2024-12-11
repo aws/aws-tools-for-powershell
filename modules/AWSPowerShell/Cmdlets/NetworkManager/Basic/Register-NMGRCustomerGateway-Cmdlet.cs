@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager AssociateCustomerGateway API operation.", Operation = new[] {"AssociateCustomerGateway"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.AssociateCustomerGatewayResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.CustomerGatewayAssociation or Amazon.NetworkManager.Model.AssociateCustomerGatewayResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.CustomerGatewayAssociation object.",
-        "The service call response (type Amazon.NetworkManager.Model.AssociateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.AssociateCustomerGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterNMGRCustomerGatewayCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management RemoveRoleFromInstanceProfile API operation.", Operation = new[] {"RemoveRoleFromInstanceProfile"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMRoleFromInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [OutputType("Amazon.Detective.Model.BatchGetGraphMemberDatasourcesResponse")]
     [AWSCmdlet("Calls the Amazon Detective BatchGetGraphMemberDatasources API operation.", Operation = new[] {"BatchGetGraphMemberDatasources"}, SelectReturnType = typeof(Amazon.Detective.Model.BatchGetGraphMemberDatasourcesResponse))]
     [AWSCmdletOutput("Amazon.Detective.Model.BatchGetGraphMemberDatasourcesResponse",
-        "This cmdlet returns an Amazon.Detective.Model.BatchGetGraphMemberDatasourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Detective.Model.BatchGetGraphMemberDatasourcesResponse object containing multiple properties."
     )]
     public partial class GetDTCTGraphMemberDatasourceCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

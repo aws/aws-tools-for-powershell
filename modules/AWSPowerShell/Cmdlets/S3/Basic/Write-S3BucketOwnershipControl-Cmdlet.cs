@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutBucketOwnershipControls API operation.", Operation = new[] {"PutBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketOwnershipControlsResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutBucketOwnershipControlsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.PutBucketOwnershipControlsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketOwnershipControlsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteS3BucketOwnershipControlCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

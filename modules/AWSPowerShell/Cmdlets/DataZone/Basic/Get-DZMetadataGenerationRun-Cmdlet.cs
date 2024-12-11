@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.GetMetadataGenerationRunResponse")]
     [AWSCmdlet("Calls the Amazon DataZone GetMetadataGenerationRun API operation.", Operation = new[] {"GetMetadataGenerationRun"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetMetadataGenerationRunResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.GetMetadataGenerationRunResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetMetadataGenerationRunResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.GetMetadataGenerationRunResponse object containing multiple properties."
     )]
     public partial class GetDZMetadataGenerationRunCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

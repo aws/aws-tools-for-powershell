@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service CreateDatasetGroup API operation.", Operation = new[] {"CreateDatasetGroup"}, SelectReturnType = typeof(Amazon.ForecastService.Model.CreateDatasetGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.ForecastService.Model.CreateDatasetGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ForecastService.Model.CreateDatasetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ForecastService.Model.CreateDatasetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

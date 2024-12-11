@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteNotebookInstanceLifecycleConfig API operation.", Operation = new[] {"DeleteNotebookInstanceLifecycleConfig"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteNotebookInstanceLifecycleConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMNotebookInstanceLifecycleConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

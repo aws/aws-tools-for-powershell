@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [OutputType("Amazon.LookoutMetrics.Model.GetSampleDataResponse")]
     [AWSCmdlet("Calls the Amazon Lookout for Metrics GetSampleData API operation.", Operation = new[] {"GetSampleData"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.GetSampleDataResponse))]
     [AWSCmdletOutput("Amazon.LookoutMetrics.Model.GetSampleDataResponse",
-        "This cmdlet returns an Amazon.LookoutMetrics.Model.GetSampleDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LookoutMetrics.Model.GetSampleDataResponse object containing multiple properties."
     )]
     public partial class GetLOMSampleDataCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

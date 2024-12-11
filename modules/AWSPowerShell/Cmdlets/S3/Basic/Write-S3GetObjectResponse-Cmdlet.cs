@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) WriteGetObjectResponse API operation.", Operation = new[] {"WriteGetObjectResponse"}, SelectReturnType = typeof(Amazon.S3.Model.WriteGetObjectResponseResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.WriteGetObjectResponseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.WriteGetObjectResponseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.WriteGetObjectResponseResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteS3GetObjectResponseCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

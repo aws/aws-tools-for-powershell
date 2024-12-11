@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// This API creates a copy of an entire ServerlessCache at a specific moment in time.
-    /// Available for Redis OSS and Serverless Memcached only.
+    /// Available for Valkey, Redis OSS and Serverless Memcached only.
     /// </summary>
     [Cmdlet("New", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
     [AWSCmdlet("Calls the Amazon ElastiCache CreateServerlessCacheSnapshot API operation.", Operation = new[] {"CreateServerlessCacheSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateServerlessCacheSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCacheSnapshot or Amazon.ElastiCache.Model.CreateServerlessCacheSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCacheSnapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.CreateServerlessCacheSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateServerlessCacheSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECServerlessCacheSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the KMS key used to encrypt the snapshot. Available for Redis OSS and Serverless
-        /// Memcached only. Default: NULL</para>
+        /// <para>The ID of the KMS key used to encrypt the snapshot. Available for Valkey, Redis OSS
+        /// and Serverless Memcached only. Default: NULL</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of an existing serverless cache. The snapshot is created from this cache.
-        /// Available for Redis OSS and Serverless Memcached only.</para>
+        /// Available for Valkey, Redis OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name for the snapshot being created. Must be unique for the customer account.
-        /// Available for Redis OSS and Serverless Memcached only. Must be between 1 and 255 characters.</para>
+        /// Available for Valkey, Redis OSS and Serverless Memcached only. Must be between 1 and
+        /// 255 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of tags to be added to the snapshot resource. A tag is a key-value pair. Available
-        /// for Redis OSS and Serverless Memcached only.</para>
+        /// for Valkey, Redis OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

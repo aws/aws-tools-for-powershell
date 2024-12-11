@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.SetAccountDefaultProtectConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 SetAccountDefaultProtectConfiguration API operation.", Operation = new[] {"SetAccountDefaultProtectConfiguration"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.SetAccountDefaultProtectConfigurationResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.SetAccountDefaultProtectConfigurationResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.SetAccountDefaultProtectConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.SetAccountDefaultProtectConfigurationResponse object containing multiple properties."
     )]
     public partial class SetSMSVAccountDefaultProtectConfigurationCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation API operation.", Operation = new[] {"DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation or Amazon.EC2.Model.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRouteTableVirtualInterfaceGroupAssociation object.",
-        "The service call response (type Amazon.EC2.Model.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2LocalGatewayRouteTableVirtualInterfaceGroupAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections GetSyncBlockerSummary API operation.", Operation = new[] {"GetSyncBlockerSummary"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.GetSyncBlockerSummaryResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.SyncBlockerSummary or Amazon.CodeStarconnections.Model.GetSyncBlockerSummaryResponse",
         "This cmdlet returns an Amazon.CodeStarconnections.Model.SyncBlockerSummary object.",
-        "The service call response (type Amazon.CodeStarconnections.Model.GetSyncBlockerSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarconnections.Model.GetSyncBlockerSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSTCSyncBlockerSummaryCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

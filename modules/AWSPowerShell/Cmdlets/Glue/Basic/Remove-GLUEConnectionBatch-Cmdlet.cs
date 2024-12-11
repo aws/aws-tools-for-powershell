@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.BatchDeleteConnectionResponse")]
     [AWSCmdlet("Calls the AWS Glue BatchDeleteConnection API operation.", Operation = new[] {"BatchDeleteConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchDeleteConnectionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchDeleteConnectionResponse",
-        "This cmdlet returns an Amazon.Glue.Model.BatchDeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.BatchDeleteConnectionResponse object containing multiple properties."
     )]
     public partial class RemoveGLUEConnectionBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

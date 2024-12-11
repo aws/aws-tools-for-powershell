@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud ListSteps API operation.", Operation = new[] {"ListSteps"}, SelectReturnType = typeof(Amazon.Deadline.Model.ListStepsResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.StepSummary or Amazon.Deadline.Model.ListStepsResponse",
         "This cmdlet returns a collection of Amazon.Deadline.Model.StepSummary objects.",
-        "The service call response (type Amazon.Deadline.Model.ListStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.ListStepsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADCStepListCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

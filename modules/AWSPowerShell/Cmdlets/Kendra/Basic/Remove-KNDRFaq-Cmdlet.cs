@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeleteFaq API operation.", Operation = new[] {"DeleteFaq"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteFaqResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteFaqResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteFaqResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteFaqResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRFaqCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

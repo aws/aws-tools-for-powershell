@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service DeleteKnowledgeBase API operation.", Operation = new[] {"DeleteKnowledgeBase"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.DeleteKnowledgeBaseResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectWisdomService.Model.DeleteKnowledgeBaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectWisdomService.Model.DeleteKnowledgeBaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectWisdomService.Model.DeleteKnowledgeBaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSDMKnowledgeBaseCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

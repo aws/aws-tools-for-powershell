@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless UpdateFuotaTask API operation.", Operation = new[] {"UpdateFuotaTask"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.UpdateFuotaTaskResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.UpdateFuotaTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.UpdateFuotaTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.UpdateFuotaTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTWFuotaTaskCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Descriptor
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Descriptor { get; set; }
         #endregion
         
         #region Parameter FirmwareUpdateImage
@@ -183,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.Descriptor = this.Descriptor;
             context.FirmwareUpdateImage = this.FirmwareUpdateImage;
             context.FirmwareUpdateRole = this.FirmwareUpdateRole;
             context.FragmentIntervalMS = this.FragmentIntervalMS;
@@ -216,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Descriptor != null)
+            {
+                request.Descriptor = cmdletContext.Descriptor;
             }
             if (cmdletContext.FirmwareUpdateImage != null)
             {
@@ -326,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String Descriptor { get; set; }
             public System.String FirmwareUpdateImage { get; set; }
             public System.String FirmwareUpdateRole { get; set; }
             public System.Int32? FragmentIntervalMS { get; set; }

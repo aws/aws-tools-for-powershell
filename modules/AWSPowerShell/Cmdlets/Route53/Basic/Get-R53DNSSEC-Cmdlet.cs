@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.GetDNSSECResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 GetDNSSEC API operation.", Operation = new[] {"GetDNSSEC"}, SelectReturnType = typeof(Amazon.Route53.Model.GetDNSSECResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.GetDNSSECResponse",
-        "This cmdlet returns an Amazon.Route53.Model.GetDNSSECResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.GetDNSSECResponse object containing multiple properties."
     )]
     public partial class GetR53DNSSECCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

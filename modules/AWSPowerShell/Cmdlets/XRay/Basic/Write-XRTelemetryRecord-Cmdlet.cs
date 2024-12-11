@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray PutTelemetryRecords API operation.", Operation = new[] {"PutTelemetryRecords"}, SelectReturnType = typeof(Amazon.XRay.Model.PutTelemetryRecordsResponse))]
     [AWSCmdletOutput("None or Amazon.XRay.Model.PutTelemetryRecordsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.XRay.Model.PutTelemetryRecordsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.XRay.Model.PutTelemetryRecordsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteXRTelemetryRecordCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

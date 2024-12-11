@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceDiscovery.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceDiscovery.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceDiscovery.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSDResourceTagCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

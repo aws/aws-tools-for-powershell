@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.DAX.Model.TagResourceResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.Tag or Amazon.DAX.Model.TagResourceResponse",
         "This cmdlet returns a collection of Amazon.DAX.Model.Tag objects.",
-        "The service call response (type Amazon.DAX.Model.TagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.TagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddDAXResourceTagCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

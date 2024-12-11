@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional GetChangeToken API operation.", Operation = new[] {"GetChangeToken"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.GetChangeTokenResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.GetChangeTokenResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.GetChangeTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.GetChangeTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRChangeTokenCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

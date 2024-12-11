@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 DescribeBuckets API operation.", Operation = new[] {"DescribeBuckets"}, SelectReturnType = typeof(Amazon.Macie2.Model.DescribeBucketsResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.BucketMetadata or Amazon.Macie2.Model.DescribeBucketsResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.BucketMetadata objects.",
-        "The service call response (type Amazon.Macie2.Model.DescribeBucketsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.DescribeBucketsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2BucketCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

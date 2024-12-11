@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events PutPermission API operation.", Operation = new[] {"PutPermission"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.PutPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.PutPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.PutPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.PutPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWEPermissionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

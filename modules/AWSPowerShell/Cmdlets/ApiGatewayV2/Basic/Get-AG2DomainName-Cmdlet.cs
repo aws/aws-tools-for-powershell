@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [OutputType("Amazon.ApiGatewayV2.Model.GetDomainNameResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway V2 GetDomainName API operation.", Operation = new[] {"GetDomainName"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.GetDomainNameResponse))]
     [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.GetDomainNameResponse",
-        "This cmdlet returns an Amazon.ApiGatewayV2.Model.GetDomainNameResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApiGatewayV2.Model.GetDomainNameResponse object containing multiple properties."
     )]
     public partial class GetAG2DomainNameCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

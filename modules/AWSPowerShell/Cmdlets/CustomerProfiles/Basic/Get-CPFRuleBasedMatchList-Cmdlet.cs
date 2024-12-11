@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles ListRuleBasedMatches API operation.", Operation = new[] {"ListRuleBasedMatches"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CustomerProfiles.Model.ListRuleBasedMatchesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCPFRuleBasedMatchListCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield GetSubscriptionState API operation.", Operation = new[] {"GetSubscriptionState"}, SelectReturnType = typeof(Amazon.Shield.Model.GetSubscriptionStateResponse))]
     [AWSCmdletOutput("Amazon.Shield.SubscriptionState or Amazon.Shield.Model.GetSubscriptionStateResponse",
         "This cmdlet returns an Amazon.Shield.SubscriptionState object.",
-        "The service call response (type Amazon.Shield.Model.GetSubscriptionStateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Shield.Model.GetSubscriptionStateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSHLDSubscriptionStateCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

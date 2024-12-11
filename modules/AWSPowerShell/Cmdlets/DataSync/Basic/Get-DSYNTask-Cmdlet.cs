@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [OutputType("Amazon.DataSync.Model.DescribeTaskResponse")]
     [AWSCmdlet("Calls the AWS DataSync DescribeTask API operation.", Operation = new[] {"DescribeTask"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeTaskResponse))]
     [AWSCmdletOutput("Amazon.DataSync.Model.DescribeTaskResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeTaskResponse object containing multiple properties."
     )]
     public partial class GetDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

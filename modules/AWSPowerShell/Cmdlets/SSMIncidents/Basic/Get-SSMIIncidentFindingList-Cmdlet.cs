@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager ListIncidentFindings API operation.", Operation = new[] {"ListIncidentFindings"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.ListIncidentFindingsResponse))]
     [AWSCmdletOutput("Amazon.SSMIncidents.Model.FindingSummary or Amazon.SSMIncidents.Model.ListIncidentFindingsResponse",
         "This cmdlet returns a collection of Amazon.SSMIncidents.Model.FindingSummary objects.",
-        "The service call response (type Amazon.SSMIncidents.Model.ListIncidentFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMIncidents.Model.ListIncidentFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMIIncidentFindingListCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

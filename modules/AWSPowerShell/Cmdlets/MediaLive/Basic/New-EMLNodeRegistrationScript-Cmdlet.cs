@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreateNodeRegistrationScript API operation.", Operation = new[] {"CreateNodeRegistrationScript"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreateNodeRegistrationScriptResponse))]
     [AWSCmdletOutput("System.String or Amazon.MediaLive.Model.CreateNodeRegistrationScriptResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MediaLive.Model.CreateNodeRegistrationScriptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.CreateNodeRegistrationScriptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMLNodeRegistrationScriptCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

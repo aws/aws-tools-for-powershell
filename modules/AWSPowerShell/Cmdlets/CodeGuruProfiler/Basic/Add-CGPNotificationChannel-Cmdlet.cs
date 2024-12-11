@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler AddNotificationChannels API operation.", Operation = new[] {"AddNotificationChannels"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.AddNotificationChannelsResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.NotificationConfiguration or Amazon.CodeGuruProfiler.Model.AddNotificationChannelsResponse",
         "This cmdlet returns an Amazon.CodeGuruProfiler.Model.NotificationConfiguration object.",
-        "The service call response (type Amazon.CodeGuruProfiler.Model.AddNotificationChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruProfiler.Model.AddNotificationChannelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddCGPNotificationChannelCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

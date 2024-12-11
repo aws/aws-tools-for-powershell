@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD ListPackagingConfigurations API operation.", Operation = new[] {"ListPackagingConfigurations"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.ListPackagingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageVod.Model.PackagingConfiguration or Amazon.MediaPackageVod.Model.ListPackagingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.MediaPackageVod.Model.PackagingConfiguration objects.",
-        "The service call response (type Amazon.MediaPackageVod.Model.ListPackagingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaPackageVod.Model.ListPackagingConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMPVPackagingConfigurationListCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

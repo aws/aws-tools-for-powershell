@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot
-    /// unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
+    /// unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit
     /// secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.
     /// 
     ///  
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnassignPrivateNatGatewayAddress API operation.", Operation = new[] {"UnassignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.UnassignPrivateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class UnregisterEC2PrivateNatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

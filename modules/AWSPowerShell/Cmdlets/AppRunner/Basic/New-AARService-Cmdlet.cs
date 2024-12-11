@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [OutputType("Amazon.AppRunner.Model.CreateServiceResponse")]
     [AWSCmdlet("Calls the AWS App Runner CreateService API operation.", Operation = new[] {"CreateService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.CreateServiceResponse",
-        "This cmdlet returns an Amazon.AppRunner.Model.CreateServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRunner.Model.CreateServiceResponse object containing multiple properties."
     )]
     public partial class NewAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

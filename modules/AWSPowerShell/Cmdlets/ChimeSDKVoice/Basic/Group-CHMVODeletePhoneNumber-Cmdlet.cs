@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice BatchDeletePhoneNumber API operation.", Operation = new[] {"BatchDeletePhoneNumber"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.BatchDeletePhoneNumberResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.PhoneNumberError or Amazon.ChimeSDKVoice.Model.BatchDeletePhoneNumberResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKVoice.Model.PhoneNumberError objects.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.BatchDeletePhoneNumberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.BatchDeletePhoneNumberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GroupCHMVODeletePhoneNumberCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

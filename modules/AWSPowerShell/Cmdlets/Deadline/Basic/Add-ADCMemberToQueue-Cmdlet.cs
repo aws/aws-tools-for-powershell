@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud AssociateMemberToQueue API operation.", Operation = new[] {"AssociateMemberToQueue"}, SelectReturnType = typeof(Amazon.Deadline.Model.AssociateMemberToQueueResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.AssociateMemberToQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.AssociateMemberToQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.AssociateMemberToQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddADCMemberToQueueCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

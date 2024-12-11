@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig DeleteExtensionAssociation API operation.", Operation = new[] {"DeleteExtensionAssociation"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteExtensionAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteExtensionAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteExtensionAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppConfig.Model.DeleteExtensionAssociationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPPCExtensionAssociationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

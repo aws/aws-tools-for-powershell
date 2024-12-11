@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator ListActions API operation.", Operation = new[] {"ListActions"}, SelectReturnType = typeof(Amazon.FIS.Model.ListActionsResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.ActionSummary or Amazon.FIS.Model.ListActionsResponse",
         "This cmdlet returns a collection of Amazon.FIS.Model.ActionSummary objects.",
-        "The service call response (type Amazon.FIS.Model.ListActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.ListActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFISActionListCmdlet : AmazonFISClientCmdlet, IExecutor
     {

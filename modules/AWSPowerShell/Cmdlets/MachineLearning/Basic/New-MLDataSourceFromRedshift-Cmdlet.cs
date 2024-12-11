@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning CreateDataSourceFromRedshift API operation.", Operation = new[] {"CreateDataSourceFromRedshift"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse))]
     [AWSCmdletOutput("System.String or Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMLDataSourceFromRedshiftCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

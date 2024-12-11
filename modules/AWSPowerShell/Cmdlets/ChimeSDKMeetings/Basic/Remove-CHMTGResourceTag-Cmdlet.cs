@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMeetings.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMeetings.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMeetings.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMTGResourceTagCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

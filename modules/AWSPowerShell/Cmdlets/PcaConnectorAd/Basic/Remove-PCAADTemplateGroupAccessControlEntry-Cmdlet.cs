@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad DeleteTemplateGroupAccessControlEntry API operation.", Operation = new[] {"DeleteTemplateGroupAccessControlEntry"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.DeleteTemplateGroupAccessControlEntryResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.DeleteTemplateGroupAccessControlEntryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.DeleteTemplateGroupAccessControlEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.DeleteTemplateGroupAccessControlEntryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAADTemplateGroupAccessControlEntryCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

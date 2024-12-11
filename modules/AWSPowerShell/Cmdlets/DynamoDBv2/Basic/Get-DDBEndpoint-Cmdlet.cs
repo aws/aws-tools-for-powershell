@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeEndpoints API operation.", Operation = new[] {"DescribeEndpoints"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeEndpointsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.Endpoint or Amazon.DynamoDBv2.Model.DescribeEndpointsResponse",
         "This cmdlet returns a collection of Amazon.DynamoDBv2.Model.Endpoint objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBEndpointCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

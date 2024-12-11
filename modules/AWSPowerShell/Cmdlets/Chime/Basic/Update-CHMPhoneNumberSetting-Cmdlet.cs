@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime UpdatePhoneNumberSettings API operation.", Operation = new[] {"UpdatePhoneNumberSettings"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdatePhoneNumberSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.UpdatePhoneNumberSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.UpdatePhoneNumberSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.UpdatePhoneNumberSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMPhoneNumberSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

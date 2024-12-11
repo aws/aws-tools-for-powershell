@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service AddDataSource API operation.", Operation = new[] {"AddDataSource"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.AddDataSourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.AddDataSourceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpenSearchService.Model.AddDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.AddDataSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddOSDataSourceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

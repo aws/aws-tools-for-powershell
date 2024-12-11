@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LookoutMetrics.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LookoutMetrics.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LookoutMetrics.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddLOMResourceTagCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

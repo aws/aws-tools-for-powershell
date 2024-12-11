@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     [AWSCmdlet("Calls the Amazon CodeGuru Reviewer CreateCodeReview API operation.", Operation = new[] {"CreateCodeReview"}, SelectReturnType = typeof(Amazon.CodeGuruReviewer.Model.CreateCodeReviewResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruReviewer.Model.CodeReview or Amazon.CodeGuruReviewer.Model.CreateCodeReviewResponse",
         "This cmdlet returns an Amazon.CodeGuruReviewer.Model.CodeReview object.",
-        "The service call response (type Amazon.CodeGuruReviewer.Model.CreateCodeReviewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruReviewer.Model.CreateCodeReviewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCGRCodeReviewCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {

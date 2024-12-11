@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [OutputType("Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse")]
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor CreateSuiteDefinition API operation.", Operation = new[] {"CreateSuiteDefinition"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse))]
     [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse",
-        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse object containing multiple properties."
     )]
     public partial class NewIOTDASuiteDefinitionCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
@@ -157,6 +157,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The client token for the test suite definition creation. This token is used for tracking
+        /// test suite definition creation using retries and obtaining its status. This parameter
+        /// is optional.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -199,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
                 context.Select = CreateSelectDelegate<Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionResponse, NewIOTDASuiteDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.SuiteDefinitionConfiguration_DevicePermissionRoleArn = this.SuiteDefinitionConfiguration_DevicePermissionRoleArn;
             #if MODULAR
             if (this.SuiteDefinitionConfiguration_DevicePermissionRoleArn == null && ParameterWasBound(nameof(this.SuiteDefinitionConfiguration_DevicePermissionRoleArn)))
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             // create request
             var request = new Amazon.IoTDeviceAdvisor.Model.CreateSuiteDefinitionRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             
              // populate SuiteDefinitionConfiguration
             var requestSuiteDefinitionConfigurationIsNull = true;
@@ -395,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String SuiteDefinitionConfiguration_DevicePermissionRoleArn { get; set; }
             public List<Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest> SuiteDefinitionConfiguration_Device { get; set; }
             public System.Boolean? SuiteDefinitionConfiguration_IntendedForQualification { get; set; }

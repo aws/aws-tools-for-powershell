@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedView" OutputProperty="ManagedView" Verb="Get" Noun="ManagedView" PipelineParameter="ManagedViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="ViewArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -69,6 +73,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIndexesForMembers" OutputProperty="Indexes" Verb="Get" Noun="IndexesForMemberList" PipelineParameter="AccountIdList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedViews" OutputProperty="ManagedViews" Verb="Get" Noun="ManagedViewList" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

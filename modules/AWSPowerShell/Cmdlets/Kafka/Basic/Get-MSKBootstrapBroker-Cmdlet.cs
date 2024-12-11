@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetBootstrapBrokers API operation.", Operation = new[] {"GetBootstrapBrokers"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetBootstrapBrokersResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kafka.Model.GetBootstrapBrokersResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kafka.Model.GetBootstrapBrokersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kafka.Model.GetBootstrapBrokersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMSKBootstrapBrokerCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

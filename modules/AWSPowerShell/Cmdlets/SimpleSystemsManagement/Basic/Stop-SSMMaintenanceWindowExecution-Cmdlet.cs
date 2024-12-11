@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager CancelMaintenanceWindowExecution API operation.", Operation = new[] {"CancelMaintenanceWindowExecution"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.CancelMaintenanceWindowExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.CancelMaintenanceWindowExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.CancelMaintenanceWindowExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CancelMaintenanceWindowExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSSMMaintenanceWindowExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

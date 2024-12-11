@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListQueuedMessages API operation.", Operation = new[] {"ListQueuedMessages"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListQueuedMessagesResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.DownlinkQueueMessage or Amazon.IoTWireless.Model.ListQueuedMessagesResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.DownlinkQueueMessage objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListQueuedMessagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListQueuedMessagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWQueuedMessageListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

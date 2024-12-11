@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend BatchDetectKeyPhrases API operation.", Operation = new[] {"BatchDetectKeyPhrases"}, SelectReturnType = typeof(Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse object containing multiple properties."
     )]
     public partial class FindCOMPKeyPhrasesBatchCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

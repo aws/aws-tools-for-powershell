@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Calls the Amazon Cognito Identity MergeDeveloperIdentities API operation.", Operation = new[] {"MergeDeveloperIdentities"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.MergeDeveloperIdentitiesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CognitoIdentity.Model.MergeDeveloperIdentitiesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CognitoIdentity.Model.MergeDeveloperIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentity.Model.MergeDeveloperIdentitiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MergeCGIDeveloperIdentityCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

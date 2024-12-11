@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

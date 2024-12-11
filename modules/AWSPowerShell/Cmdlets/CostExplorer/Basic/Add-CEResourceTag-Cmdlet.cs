@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CostExplorer.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CostExplorer.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostExplorer.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCEResourceTagCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     [OutputType("Amazon.Pipes.Model.CreatePipeResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Pipes CreatePipe API operation.", Operation = new[] {"CreatePipe"}, SelectReturnType = typeof(Amazon.Pipes.Model.CreatePipeResponse))]
     [AWSCmdletOutput("Amazon.Pipes.Model.CreatePipeResponse",
-        "This cmdlet returns an Amazon.Pipes.Model.CreatePipeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Pipes.Model.CreatePipeResponse object containing multiple properties."
     )]
     public partial class NewPIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
@@ -824,9 +824,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Discard records older than the specified age. The default value is
-        /// -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge
-        /// never discards old records. </para>
+        /// <para>Discard records older than the specified age. The default value is -1, which sets
+        /// the maximum age to infinite. When the value is set to infinite, EventBridge never
+        /// discards old records. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -837,9 +837,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Discard records older than the specified age. The default value is
-        /// -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge
-        /// never discards old records. </para>
+        /// <para>Discard records older than the specified age. The default value is -1, which sets
+        /// the maximum age to infinite. When the value is set to infinite, EventBridge never
+        /// discards old records. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -850,10 +850,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Discard records after the specified number of retries. The default
-        /// value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts
-        /// is infinite, EventBridge retries failed records until the record expires in the event
-        /// source.</para>
+        /// <para>Discard records after the specified number of retries. The default value is -1, which
+        /// sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite,
+        /// EventBridge retries failed records until the record expires in the event source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -864,10 +863,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Discard records after the specified number of retries. The default
-        /// value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts
-        /// is infinite, EventBridge retries failed records until the record expires in the event
-        /// source.</para>
+        /// <para>Discard records after the specified number of retries. The default value is -1, which
+        /// sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite,
+        /// EventBridge retries failed records until the record expires in the event source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -940,9 +938,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_OnPartialBatchItemFailure
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Define how to handle item process failures. <c>AUTOMATIC_BISECT</c>
-        /// halves each batch and retry each half until all the records are processed or there
-        /// is one failed message left in the batch.</para>
+        /// <para>Define how to handle item process failures. <c>AUTOMATIC_BISECT</c> halves each batch
+        /// and retry each half until all the records are processed or there is one failed message
+        /// left in the batch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -954,9 +952,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_OnPartialBatchItemFailure
         /// <summary>
         /// <para>
-        /// <para>(Streams only) Define how to handle item process failures. <c>AUTOMATIC_BISECT</c>
-        /// halves each batch and retry each half until all the records are processed or there
-        /// is one failed message left in the batch.</para>
+        /// <para>Define how to handle item process failures. <c>AUTOMATIC_BISECT</c> halves each batch
+        /// and retry each half until all the records are processed or there is one failed message
+        /// left in the batch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -980,8 +978,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_ParallelizationFactor
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The number of batches to process concurrently from each shard. The
-        /// default value is 1.</para>
+        /// <para>The number of batches to process concurrently from each shard. The default value is
+        /// 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -992,8 +990,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_ParallelizationFactor
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The number of batches to process concurrently from each shard. The
-        /// default value is 1.</para>
+        /// <para>The number of batches to process concurrently from each shard. The default value is
+        /// 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1393,7 +1391,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter DynamoDBStreamParameters_StartingPosition
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The position in a stream from which to start reading.</para>
+        /// <para>The position in a stream from which to start reading.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1405,7 +1403,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter KinesisStreamParameters_StartingPosition
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The position in a stream from which to start reading.</para>
+        /// <para>The position in a stream from which to start reading.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1417,7 +1415,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter ManagedStreamingKafkaParameters_StartingPosition
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The position in a stream from which to start reading.</para>
+        /// <para>The position in a stream from which to start reading.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1429,7 +1427,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter SelfManagedKafkaParameters_StartingPosition
         /// <summary>
         /// <para>
-        /// <para>(Streams only) The position in a stream from which to start reading.</para>
+        /// <para>The position in a stream from which to start reading.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1604,7 +1602,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter TimestreamParameters_TimestampFormat
         /// <summary>
         /// <para>
-        /// <para>How to format the timestamps. For example, <c>YYYY-MM-DDThh:mm:ss.sssTZD</c>.</para><para>Required if <c>TimeFieldType</c> is specified as <c>TIMESTAMP_FORMAT</c>.</para>
+        /// <para>How to format the timestamps. For example, <c>yyyy-MM-dd'T'HH:mm:ss'Z'</c>.</para><para>Required if <c>TimeFieldType</c> is specified as <c>TIMESTAMP_FORMAT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

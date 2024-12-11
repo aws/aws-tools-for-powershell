@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetContainerServicePowers API operation.", Operation = new[] {"GetContainerServicePowers"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetContainerServicePowersResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.ContainerServicePower or Amazon.Lightsail.Model.GetContainerServicePowersResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.ContainerServicePower objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetContainerServicePowersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetContainerServicePowersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSContainerServicePowerCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

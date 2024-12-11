@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit CreateRepository API operation.", Operation = new[] {"CreateRepository"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.CreateRepositoryResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryMetadata or Amazon.CodeCommit.Model.CreateRepositoryResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.RepositoryMetadata object.",
-        "The service call response (type Amazon.CodeCommit.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.CreateRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

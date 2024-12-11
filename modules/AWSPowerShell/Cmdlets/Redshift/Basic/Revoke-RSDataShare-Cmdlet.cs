@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DeauthorizeDataShareResponse")]
     [AWSCmdlet("Calls the Amazon Redshift DeauthorizeDataShare API operation.", Operation = new[] {"DeauthorizeDataShare"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeauthorizeDataShareResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.DeauthorizeDataShareResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.DeauthorizeDataShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.DeauthorizeDataShareResponse object containing multiple properties."
     )]
     public partial class RevokeRSDataShareCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 ModifyBackupAttributes API operation.", Operation = new[] {"ModifyBackupAttributes"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.ModifyBackupAttributesResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Backup or Amazon.CloudHSMV2.Model.ModifyBackupAttributesResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.Backup object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.ModifyBackupAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.ModifyBackupAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditHSM2BackupAttributeCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

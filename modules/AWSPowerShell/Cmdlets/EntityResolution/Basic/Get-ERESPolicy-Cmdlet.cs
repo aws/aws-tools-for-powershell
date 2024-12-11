@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.GetPolicyResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution GetPolicy API operation.", Operation = new[] {"GetPolicy"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetPolicyResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.GetPolicyResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.GetPolicyResponse object containing multiple properties."
     )]
     public partial class GetERESPolicyCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

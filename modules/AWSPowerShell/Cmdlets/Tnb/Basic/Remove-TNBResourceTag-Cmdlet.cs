@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Tnb.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Tnb.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Tnb.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Tnb.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTNBResourceTagCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

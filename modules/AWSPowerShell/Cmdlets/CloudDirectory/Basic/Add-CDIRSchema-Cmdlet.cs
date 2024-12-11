@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [OutputType("Amazon.CloudDirectory.Model.ApplySchemaResponse")]
     [AWSCmdlet("Calls the Amazon Cloud Directory ApplySchema API operation.", Operation = new[] {"ApplySchema"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.ApplySchemaResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.ApplySchemaResponse",
-        "This cmdlet returns an Amazon.CloudDirectory.Model.ApplySchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudDirectory.Model.ApplySchemaResponse object containing multiple properties."
     )]
     public partial class AddCDIRSchemaCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor StopSuiteRun API operation.", Operation = new[] {"StopSuiteRun"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.StopSuiteRunResponse))]
     [AWSCmdletOutput("None or Amazon.IoTDeviceAdvisor.Model.StopSuiteRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTDeviceAdvisor.Model.StopSuiteRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTDeviceAdvisor.Model.StopSuiteRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopIOTDASuiteRunCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

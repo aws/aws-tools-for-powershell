@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeDBShardGroups API operation.", Operation = new[] {"DescribeDBShardGroups"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeDBShardGroupsResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBShardGroup or Amazon.RDS.Model.DescribeDBShardGroupsResponse",
         "This cmdlet returns a collection of Amazon.RDS.Model.DBShardGroup objects.",
-        "The service call response (type Amazon.RDS.Model.DescribeDBShardGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeDBShardGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBShardGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-supplied DB shard group identifier or the Amazon Resource Name (ARN) of the
-        /// DB shard group. If this parameter is specified, information for only the specific
-        /// DB shard group is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB shard group identifier.</para></li></ul>
+        /// <para>The user-supplied DB shard group identifier. If this parameter is specified, information
+        /// for only the specific DB shard group is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DB shard group identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

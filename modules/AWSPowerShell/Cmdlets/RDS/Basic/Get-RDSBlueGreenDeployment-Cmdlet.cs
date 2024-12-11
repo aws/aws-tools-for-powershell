@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeBlueGreenDeployments API operation.", Operation = new[] {"DescribeBlueGreenDeployments"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.BlueGreenDeployment or Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse",
         "This cmdlet returns a collection of Amazon.RDS.Model.BlueGreenDeployment objects.",
-        "The service call response (type Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSBlueGreenDeploymentCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DisassociateRecoveryPointFromParent API operation.", Operation = new[] {"DisassociateRecoveryPointFromParent"}, SelectReturnType = typeof(Amazon.Backup.Model.DisassociateRecoveryPointFromParentResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.DisassociateRecoveryPointFromParentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.DisassociateRecoveryPointFromParentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.DisassociateRecoveryPointFromParentResponse) be returned by specifying '-Select *'."
     )]
     public partial class MoveBAKRecoveryPointCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

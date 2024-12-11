@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteFleetAdvisorCollector API operation.", Operation = new[] {"DeleteFleetAdvisorCollector"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteFleetAdvisorCollectorResponse))]
     [AWSCmdletOutput("None or Amazon.DatabaseMigrationService.Model.DeleteFleetAdvisorCollectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DatabaseMigrationService.Model.DeleteFleetAdvisorCollectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DatabaseMigrationService.Model.DeleteFleetAdvisorCollectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSFleetAdvisorCollectorCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

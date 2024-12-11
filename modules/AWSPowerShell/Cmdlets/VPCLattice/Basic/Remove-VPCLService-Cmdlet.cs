@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.DeleteServiceResponse")]
     [AWSCmdlet("Calls the VPC Lattice DeleteService API operation.", Operation = new[] {"DeleteService"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteServiceResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteServiceResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.DeleteServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.DeleteServiceResponse object containing multiple properties."
     )]
     public partial class RemoveVPCLServiceCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

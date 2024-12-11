@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VPCLattice.Model.PutResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VPCLattice.Model.PutResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteVPCLResourcePolicyCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

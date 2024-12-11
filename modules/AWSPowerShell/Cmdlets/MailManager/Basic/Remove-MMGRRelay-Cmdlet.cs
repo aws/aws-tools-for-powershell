@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager DeleteRelay API operation.", Operation = new[] {"DeleteRelay"}, SelectReturnType = typeof(Amazon.MailManager.Model.DeleteRelayResponse))]
     [AWSCmdletOutput("None or Amazon.MailManager.Model.DeleteRelayResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MailManager.Model.DeleteRelayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MailManager.Model.DeleteRelayResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMMGRRelayCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

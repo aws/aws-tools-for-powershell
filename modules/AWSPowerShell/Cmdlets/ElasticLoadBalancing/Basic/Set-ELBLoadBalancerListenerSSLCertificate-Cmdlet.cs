@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing SetLoadBalancerListenerSSLCertificate API operation.", Operation = new[] {"SetLoadBalancerListenerSSLCertificate"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetELBLoadBalancerListenerSSLCertificateCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

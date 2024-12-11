@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DisassociateTagOptionFromResource API operation.", Operation = new[] {"DisassociateTagOptionFromResource"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DisassociateTagOptionFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DisassociateTagOptionFromResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DisassociateTagOptionFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DisassociateTagOptionFromResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCTagOptionFromResourceCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

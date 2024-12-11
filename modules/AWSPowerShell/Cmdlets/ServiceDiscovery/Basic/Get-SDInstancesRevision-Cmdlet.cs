@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the AWS Cloud Map DiscoverInstancesRevision API operation.", Operation = new[] {"DiscoverInstancesRevision"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse",
-        "This cmdlet returns a collection of System.Int64 objects.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int64 object.",
+        "The service call response (type Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDInstancesRevisionCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

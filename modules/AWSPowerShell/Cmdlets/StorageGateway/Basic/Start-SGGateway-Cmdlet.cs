@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway StartGateway API operation.", Operation = new[] {"StartGateway"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.StartGatewayResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.StartGatewayResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.StartGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.StartGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

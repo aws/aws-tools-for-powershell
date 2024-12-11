@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteLayerVersion API operation.", Operation = new[] {"DeleteLayerVersion"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteLayerVersionResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteLayerVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteLayerVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteLayerVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMLayerVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

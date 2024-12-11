@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DescribeFilter API operation.", Operation = new[] {"DescribeFilter"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeFilterResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.Filter or Amazon.Personalize.Model.DescribeFilterResponse",
         "This cmdlet returns an Amazon.Personalize.Model.Filter object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.DescribeFilterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSFilterCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service GetSagemakerServicecatalogPortfolioStatus API operation.", Operation = new[] {"GetSagemakerServicecatalogPortfolioStatus"}, SelectReturnType = typeof(Amazon.SageMaker.Model.GetSagemakerServicecatalogPortfolioStatusResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.SagemakerServicecatalogStatus or Amazon.SageMaker.Model.GetSagemakerServicecatalogPortfolioStatusResponse",
         "This cmdlet returns an Amazon.SageMaker.SagemakerServicecatalogStatus object.",
-        "The service call response (type Amazon.SageMaker.Model.GetSagemakerServicecatalogPortfolioStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.GetSagemakerServicecatalogPortfolioStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSagemakerServicecatalogPortfolioStatusCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

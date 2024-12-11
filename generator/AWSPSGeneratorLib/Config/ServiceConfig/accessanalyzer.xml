@@ -147,6 +147,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnalyzer" OutputProperty="*" Verb="Update" Noun="Analyzer" ShouldProcessTarget="AnalyzerName" PipelineParameter="AnalyzerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateArchiveRule" Verb="Update" Noun="ArchiveRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

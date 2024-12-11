@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DescribeDeliveryChannels API operation.", Operation = new[] {"DescribeDeliveryChannels"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse), LegacyAlias="Get-CFGDeliveryChannels")]
     [AWSCmdletOutput("Amazon.ConfigService.Model.DeliveryChannel or Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse",
         "This cmdlet returns a collection of Amazon.ConfigService.Model.DeliveryChannel objects.",
-        "The service call response (type Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

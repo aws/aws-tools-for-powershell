@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.PublishStateMachineVersionResponse")]
     [AWSCmdlet("Calls the AWS Step Functions PublishStateMachineVersion API operation.", Operation = new[] {"PublishStateMachineVersion"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.PublishStateMachineVersionResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.PublishStateMachineVersionResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.PublishStateMachineVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.PublishStateMachineVersionResponse object containing multiple properties."
     )]
     public partial class PublishSFNStateMachineVersionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

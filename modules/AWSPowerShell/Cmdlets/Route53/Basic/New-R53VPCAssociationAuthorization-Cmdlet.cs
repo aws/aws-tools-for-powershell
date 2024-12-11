@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 CreateVPCAssociationAuthorization API operation.", Operation = new[] {"CreateVPCAssociationAuthorization"}, SelectReturnType = typeof(Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse",
-        "This cmdlet returns an Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse object containing multiple properties."
     )]
     public partial class NewR53VPCAssociationAuthorizationCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

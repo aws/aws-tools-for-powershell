@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation UpdateTableStorageOptimizer API operation.", Operation = new[] {"UpdateTableStorageOptimizer"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.UpdateTableStorageOptimizerResponse))]
     [AWSCmdletOutput("System.String or Amazon.LakeFormation.Model.UpdateTableStorageOptimizerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LakeFormation.Model.UpdateTableStorageOptimizerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.UpdateTableStorageOptimizerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateLKFTableStorageOptimizerCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter StorageOptimizerConfig
         /// <summary>
         /// <para>
-        /// <para>Name of the table for which to enable the storage optimizer.</para>
+        /// <para>Name of the configuration for the storage optimizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

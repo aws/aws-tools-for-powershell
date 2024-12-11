@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     [AWSCmdlet("Calls the SageMaker Geospatial StopEarthObservationJob API operation.", Operation = new[] {"StopEarthObservationJob"}, SelectReturnType = typeof(Amazon.SageMakerGeospatial.Model.StopEarthObservationJobResponse))]
     [AWSCmdletOutput("None or Amazon.SageMakerGeospatial.Model.StopEarthObservationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMakerGeospatial.Model.StopEarthObservationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMakerGeospatial.Model.StopEarthObservationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSMGSEarthObservationJobCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {

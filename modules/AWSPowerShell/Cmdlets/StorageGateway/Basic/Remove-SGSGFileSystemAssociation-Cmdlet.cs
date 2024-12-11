@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DisassociateFileSystem API operation.", Operation = new[] {"DisassociateFileSystem"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DisassociateFileSystemResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.DisassociateFileSystemResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DisassociateFileSystemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DisassociateFileSystemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSGSGFileSystemAssociationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

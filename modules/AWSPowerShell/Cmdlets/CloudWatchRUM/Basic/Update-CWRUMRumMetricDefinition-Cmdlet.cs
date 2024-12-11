@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     [AWSCmdlet("Calls the CloudWatch RUM UpdateRumMetricDefinition API operation.", Operation = new[] {"UpdateRumMetricDefinition"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.UpdateRumMetricDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchRUM.Model.UpdateRumMetricDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchRUM.Model.UpdateRumMetricDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchRUM.Model.UpdateRumMetricDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWRUMRumMetricDefinitionCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {

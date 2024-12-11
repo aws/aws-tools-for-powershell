@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT CreateScheduledAudit API operation.", Operation = new[] {"CreateScheduledAudit"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateScheduledAuditResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoT.Model.CreateScheduledAuditResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoT.Model.CreateScheduledAuditResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.CreateScheduledAuditResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIOTScheduledAuditCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

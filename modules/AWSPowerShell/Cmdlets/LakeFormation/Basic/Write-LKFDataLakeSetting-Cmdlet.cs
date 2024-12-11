@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation PutDataLakeSettings API operation.", Operation = new[] {"PutDataLakeSettings"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.PutDataLakeSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.PutDataLakeSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.PutDataLakeSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.PutDataLakeSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteLKFDataLakeSettingCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

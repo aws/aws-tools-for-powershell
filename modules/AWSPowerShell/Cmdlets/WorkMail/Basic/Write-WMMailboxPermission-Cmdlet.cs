@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail PutMailboxPermissions API operation.", Operation = new[] {"PutMailboxPermissions"}, SelectReturnType = typeof(Amazon.WorkMail.Model.PutMailboxPermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.PutMailboxPermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.PutMailboxPermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.PutMailboxPermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteWMMailboxPermissionCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

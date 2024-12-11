@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB UpdateContributorInsights API operation.", Operation = new[] {"UpdateContributorInsights"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse object containing multiple properties."
     )]
     public partial class UpdateDDBContributorInsightCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

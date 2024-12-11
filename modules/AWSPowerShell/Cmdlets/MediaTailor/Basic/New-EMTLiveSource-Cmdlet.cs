@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [OutputType("Amazon.MediaTailor.Model.CreateLiveSourceResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaTailor CreateLiveSource API operation.", Operation = new[] {"CreateLiveSource"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.CreateLiveSourceResponse))]
     [AWSCmdletOutput("Amazon.MediaTailor.Model.CreateLiveSourceResponse",
-        "This cmdlet returns an Amazon.MediaTailor.Model.CreateLiveSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaTailor.Model.CreateLiveSourceResponse object containing multiple properties."
     )]
     public partial class NewEMTLiveSourceCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

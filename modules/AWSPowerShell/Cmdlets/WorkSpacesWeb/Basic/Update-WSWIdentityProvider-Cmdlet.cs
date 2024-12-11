@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web UpdateIdentityProvider API operation.", Operation = new[] {"UpdateIdentityProvider"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.UpdateIdentityProviderResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.IdentityProvider or Amazon.WorkSpacesWeb.Model.UpdateIdentityProviderResponse",
         "This cmdlet returns an Amazon.WorkSpacesWeb.Model.IdentityProvider object.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateIdentityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateIdentityProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWSWIdentityProviderCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCCASResourceTagCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone AddPolicyGrant API operation.", Operation = new[] {"AddPolicyGrant"}, SelectReturnType = typeof(Amazon.DataZone.Model.AddPolicyGrantResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.AddPolicyGrantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.AddPolicyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.AddPolicyGrantResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDZPolicyGrantCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

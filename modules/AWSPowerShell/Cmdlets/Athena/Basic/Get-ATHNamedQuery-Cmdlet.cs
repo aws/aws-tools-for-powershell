@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena GetNamedQuery API operation.", Operation = new[] {"GetNamedQuery"}, SelectReturnType = typeof(Amazon.Athena.Model.GetNamedQueryResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.NamedQuery or Amazon.Athena.Model.GetNamedQueryResponse",
         "This cmdlet returns an Amazon.Athena.Model.NamedQuery object.",
-        "The service call response (type Amazon.Athena.Model.GetNamedQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.GetNamedQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATHNamedQueryCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

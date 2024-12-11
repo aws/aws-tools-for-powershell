@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteHoursOfOperation API operation.", Operation = new[] {"DeleteHoursOfOperation"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteHoursOfOperationResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteHoursOfOperationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteHoursOfOperationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteHoursOfOperationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNHoursOfOperationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

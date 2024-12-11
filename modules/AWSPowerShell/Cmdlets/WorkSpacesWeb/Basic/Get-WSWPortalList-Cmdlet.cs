@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web ListPortals API operation.", Operation = new[] {"ListPortals"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.ListPortalsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.PortalSummary or Amazon.WorkSpacesWeb.Model.ListPortalsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpacesWeb.Model.PortalSummary objects.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.ListPortalsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.ListPortalsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWPortalListCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

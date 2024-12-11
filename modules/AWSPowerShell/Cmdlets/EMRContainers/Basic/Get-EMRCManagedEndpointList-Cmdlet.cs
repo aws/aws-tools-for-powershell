@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers ListManagedEndpoints API operation.", Operation = new[] {"ListManagedEndpoints"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.ListManagedEndpointsResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.Endpoint or Amazon.EMRContainers.Model.ListManagedEndpointsResponse",
         "This cmdlet returns a collection of Amazon.EMRContainers.Model.Endpoint objects.",
-        "The service call response (type Amazon.EMRContainers.Model.ListManagedEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRContainers.Model.ListManagedEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRCManagedEndpointListCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

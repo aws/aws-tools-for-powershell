@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteVirtualMFADevice API operation.", Operation = new[] {"DeleteVirtualMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMVirtualMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateClientVpnTargetNetwork API operation.", Operation = new[] {"AssociateClientVpnTargetNetwork"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse object containing multiple properties."
     )]
     public partial class RegisterEC2ClientVpnTargetNetworkCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

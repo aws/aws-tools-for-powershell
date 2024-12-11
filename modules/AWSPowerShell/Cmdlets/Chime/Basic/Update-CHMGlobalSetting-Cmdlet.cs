@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdateGlobalSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.UpdateGlobalSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.UpdateGlobalSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.UpdateGlobalSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMGlobalSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

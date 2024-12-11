@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [AWSCmdlet("Calls the Amazon HealthLake TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.HealthLake.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.HealthLake.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.HealthLake.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.HealthLake.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddAHLResourceTagCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

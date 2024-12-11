@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [OutputType("Amazon.Snowball.Model.DescribeJobResponse")]
     [AWSCmdlet("Calls the AWS Import/Export Snowball DescribeJob API operation.", Operation = new[] {"DescribeJob"}, SelectReturnType = typeof(Amazon.Snowball.Model.DescribeJobResponse))]
     [AWSCmdletOutput("Amazon.Snowball.Model.DescribeJobResponse",
-        "This cmdlet returns an Amazon.Snowball.Model.DescribeJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Snowball.Model.DescribeJobResponse object containing multiple properties."
     )]
     public partial class GetSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

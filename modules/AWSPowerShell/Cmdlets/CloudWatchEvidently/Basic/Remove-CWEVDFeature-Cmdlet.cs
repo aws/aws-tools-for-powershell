@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently DeleteFeature API operation.", Operation = new[] {"DeleteFeature"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.DeleteFeatureResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvidently.Model.DeleteFeatureResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvidently.Model.DeleteFeatureResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvidently.Model.DeleteFeatureResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEVDFeatureCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

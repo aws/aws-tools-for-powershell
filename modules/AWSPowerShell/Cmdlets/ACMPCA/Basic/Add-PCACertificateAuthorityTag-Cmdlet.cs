@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority TagCertificateAuthority API operation.", Operation = new[] {"TagCertificateAuthority"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.TagCertificateAuthorityResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.TagCertificateAuthorityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.TagCertificateAuthorityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.TagCertificateAuthorityResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPCACertificateAuthorityTagCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

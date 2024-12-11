@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig DeleteHostedConfigurationVersion API operation.", Operation = new[] {"DeleteHostedConfigurationVersion"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteHostedConfigurationVersionResponse))]
     [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteHostedConfigurationVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteHostedConfigurationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppConfig.Model.DeleteHostedConfigurationVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPPCHostedConfigurationVersionCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

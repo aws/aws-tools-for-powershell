@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness UpdateDataSource API operation.", Operation = new[] {"UpdateDataSource"}, SelectReturnType = typeof(Amazon.QBusiness.Model.UpdateDataSourceResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.UpdateDataSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.UpdateDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.UpdateDataSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateQBUSDataSourceCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

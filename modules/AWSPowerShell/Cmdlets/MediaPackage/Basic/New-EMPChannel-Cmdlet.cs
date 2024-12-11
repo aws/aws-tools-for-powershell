@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.CreateChannelResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage CreateChannel API operation.", Operation = new[] {"CreateChannel"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.CreateChannelResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.CreateChannelResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.CreateChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.CreateChannelResponse object containing multiple properties."
     )]
     public partial class NewEMPChannelCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

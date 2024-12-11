@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 DeleteKeySigningKey API operation.", Operation = new[] {"DeleteKeySigningKey"}, SelectReturnType = typeof(Amazon.Route53.Model.DeleteKeySigningKeyResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo or Amazon.Route53.Model.DeleteKeySigningKeyResponse",
         "This cmdlet returns an Amazon.Route53.Model.ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.DeleteKeySigningKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.DeleteKeySigningKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53KeySigningKeyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateRealtimeLogConfig API operation.", Operation = new[] {"UpdateRealtimeLogConfig"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateRealtimeLogConfigResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.RealtimeLogConfig or Amazon.CloudFront.Model.UpdateRealtimeLogConfigResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.RealtimeLogConfig object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateRealtimeLogConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateRealtimeLogConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFRealtimeLogConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

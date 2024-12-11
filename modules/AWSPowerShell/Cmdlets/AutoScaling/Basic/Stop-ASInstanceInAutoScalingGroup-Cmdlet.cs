@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling TerminateInstanceInAutoScalingGroup API operation.", Operation = new[] {"TerminateInstanceInAutoScalingGroup"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity or Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse",
         "This cmdlet returns an Amazon.AutoScaling.Model.Activity object.",
-        "The service call response (type Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopASInstanceInAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

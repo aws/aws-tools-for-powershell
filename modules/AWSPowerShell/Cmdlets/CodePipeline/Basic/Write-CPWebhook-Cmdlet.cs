@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline PutWebhook API operation.", Operation = new[] {"PutWebhook"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.PutWebhookResponse))]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ListWebhookItem or Amazon.CodePipeline.Model.PutWebhookResponse",
         "This cmdlet returns an Amazon.CodePipeline.Model.ListWebhookItem object.",
-        "The service call response (type Amazon.CodePipeline.Model.PutWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.PutWebhookResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCPWebhookCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

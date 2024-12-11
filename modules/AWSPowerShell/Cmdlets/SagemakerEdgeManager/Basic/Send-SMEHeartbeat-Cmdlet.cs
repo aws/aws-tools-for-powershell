@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SME
     [AWSCmdlet("Calls the Amazon Sagemaker Edge Manager SendHeartbeat API operation.", Operation = new[] {"SendHeartbeat"}, SelectReturnType = typeof(Amazon.SagemakerEdgeManager.Model.SendHeartbeatResponse))]
     [AWSCmdletOutput("None or Amazon.SagemakerEdgeManager.Model.SendHeartbeatResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SagemakerEdgeManager.Model.SendHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SagemakerEdgeManager.Model.SendHeartbeatResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendSMEHeartbeatCmdlet : AmazonSagemakerEdgeManagerClientCmdlet, IExecutor
     {

@@ -206,6 +206,7 @@ $CT_SelectMap = @{
                "Get-CTTrail",
                "Disable-CTFederation",
                "Enable-CTFederation",
+               "Invoke-CTGenerateQuery",
                "Get-CTChannel",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",

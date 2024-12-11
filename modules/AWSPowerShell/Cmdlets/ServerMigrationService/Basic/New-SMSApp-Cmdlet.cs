@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [OutputType("Amazon.ServerMigrationService.Model.CreateAppResponse")]
     [AWSCmdlet("Calls the AWS Server Migration Service CreateApp API operation.", Operation = new[] {"CreateApp"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.CreateAppResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.CreateAppResponse",
-        "This cmdlet returns an Amazon.ServerMigrationService.Model.CreateAppResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServerMigrationService.Model.CreateAppResponse object containing multiple properties."
     )]
     public partial class NewSMSAppCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

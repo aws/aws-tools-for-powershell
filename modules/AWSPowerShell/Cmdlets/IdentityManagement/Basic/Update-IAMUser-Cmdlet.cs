@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateUserResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UpdateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

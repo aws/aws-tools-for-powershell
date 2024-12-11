@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks RegisterRdsDbInstance API operation.", Operation = new[] {"RegisterRdsDbInstance"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

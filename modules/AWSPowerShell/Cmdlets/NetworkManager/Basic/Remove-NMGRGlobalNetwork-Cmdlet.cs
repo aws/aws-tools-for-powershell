@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteGlobalNetwork API operation.", Operation = new[] {"DeleteGlobalNetwork"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteGlobalNetworkResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.GlobalNetwork or Amazon.NetworkManager.Model.DeleteGlobalNetworkResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.GlobalNetwork object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteGlobalNetworkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteGlobalNetworkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRGlobalNetworkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

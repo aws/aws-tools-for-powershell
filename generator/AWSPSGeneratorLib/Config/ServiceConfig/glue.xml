@@ -121,6 +121,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateColumnStatisticsTaskSettings" Verb="New" Noun="ColumnStatisticsTaskSetting" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -220,6 +224,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteColumnStatisticsForTable" Verb="Remove" Noun="ColumnStatisticsForTable" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteColumnStatisticsTaskSettings" Verb="Remove" Noun="ColumnStatisticsTaskSetting" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -352,6 +360,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetColumnStatisticsTaskRuns" OutputProperty="ColumnStatisticsTaskRuns" Verb="Get" Noun="ColumnStatisticsTaskList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetColumnStatisticsTaskSettings" OutputProperty="ColumnStatisticsTaskSettings" Verb="Get" Noun="ColumnStatisticsTaskSetting" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -757,6 +769,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartColumnStatisticsTaskRunSchedule" Verb="Start" Noun="ColumnStatisticsTaskRunSchedule" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartCrawler" Verb="Start" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -805,6 +821,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopColumnStatisticsTaskRunSchedule" Verb="Stop" Noun="ColumnStatisticsTaskRunSchedule" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopCrawler" Verb="Stop" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -850,6 +870,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateColumnStatisticsForTable" OutputProperty="Errors" Verb="Update" Noun="ColumnStatisticsForTable" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateColumnStatisticsTaskSettings" Verb="Update" Noun="ColumnStatisticsTaskSetting" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

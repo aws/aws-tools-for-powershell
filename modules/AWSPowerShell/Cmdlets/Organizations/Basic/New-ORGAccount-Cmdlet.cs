@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations CreateAccount API operation.", Operation = new[] {"CreateAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.CreateAccountResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.CreateAccountStatus or Amazon.Organizations.Model.CreateAccountResponse",
         "This cmdlet returns an Amazon.Organizations.Model.CreateAccountStatus object.",
-        "The service call response (type Amazon.Organizations.Model.CreateAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.CreateAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

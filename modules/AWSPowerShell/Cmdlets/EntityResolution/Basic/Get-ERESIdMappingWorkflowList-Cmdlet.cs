@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution ListIdMappingWorkflows API operation.", Operation = new[] {"ListIdMappingWorkflows"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.IdMappingWorkflowSummary or Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse",
         "This cmdlet returns a collection of Amazon.EntityResolution.Model.IdMappingWorkflowSummary objects.",
-        "The service call response (type Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.ListIdMappingWorkflowsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetERESIdMappingWorkflowListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

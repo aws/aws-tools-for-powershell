@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [OutputType("Amazon.KafkaConnect.Model.UpdateConnectorResponse")]
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect UpdateConnector API operation.", Operation = new[] {"UpdateConnector"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.UpdateConnectorResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.UpdateConnectorResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.UpdateConnectorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KafkaConnect.Model.UpdateConnectorResponse object containing multiple properties."
     )]
     public partial class UpdateMSKCConnectorCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

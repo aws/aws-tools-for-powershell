@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     [AWSCmdlet("Calls the Redshift Data API Service ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.RedshiftDataAPIService.Model.ListTablesResponse))]
     [AWSCmdletOutput("Amazon.RedshiftDataAPIService.Model.TableMember or Amazon.RedshiftDataAPIService.Model.ListTablesResponse",
         "This cmdlet returns a collection of Amazon.RedshiftDataAPIService.Model.TableMember objects.",
-        "The service call response (type Amazon.RedshiftDataAPIService.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftDataAPIService.Model.ListTablesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSDTableListCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {

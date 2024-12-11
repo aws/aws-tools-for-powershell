@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB ListDbInstances API operation.", Operation = new[] {"ListDbInstances"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.ListDbInstancesResponse))]
     [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.DbInstanceSummary or Amazon.TimestreamInfluxDB.Model.ListDbInstancesResponse",
         "This cmdlet returns a collection of Amazon.TimestreamInfluxDB.Model.DbInstanceSummary objects.",
-        "The service call response (type Amazon.TimestreamInfluxDB.Model.ListDbInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamInfluxDB.Model.ListDbInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTIDBDbInstanceListCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {

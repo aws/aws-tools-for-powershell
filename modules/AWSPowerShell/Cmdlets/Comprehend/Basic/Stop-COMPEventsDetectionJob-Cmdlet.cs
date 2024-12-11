@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.StopEventsDetectionJobResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend StopEventsDetectionJob API operation.", Operation = new[] {"StopEventsDetectionJob"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StopEventsDetectionJobResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.StopEventsDetectionJobResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.StopEventsDetectionJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.StopEventsDetectionJobResponse object containing multiple properties."
     )]
     public partial class StopCOMPEventsDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

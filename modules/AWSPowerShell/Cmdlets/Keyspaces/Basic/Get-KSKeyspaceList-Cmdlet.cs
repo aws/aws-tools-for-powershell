@@ -28,14 +28,14 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Returns a list of keyspaces.
+    /// The <c>ListKeyspaces</c> operation returns a list of keyspaces.
     /// </summary>
     [Cmdlet("Get", "KSKeyspaceList")]
     [OutputType("Amazon.Keyspaces.Model.KeyspaceSummary")]
     [AWSCmdlet("Calls the Amazon Keyspaces ListKeyspaces API operation.", Operation = new[] {"ListKeyspaces"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.ListKeyspacesResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.KeyspaceSummary or Amazon.Keyspaces.Model.ListKeyspacesResponse",
         "This cmdlet returns a collection of Amazon.Keyspaces.Model.KeyspaceSummary objects.",
-        "The service call response (type Amazon.Keyspaces.Model.ListKeyspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.ListKeyspacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKSKeyspaceListCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

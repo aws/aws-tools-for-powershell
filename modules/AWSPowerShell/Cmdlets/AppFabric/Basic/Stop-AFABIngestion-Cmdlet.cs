@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric StopIngestion API operation.", Operation = new[] {"StopIngestion"}, SelectReturnType = typeof(Amazon.AppFabric.Model.StopIngestionResponse))]
     [AWSCmdletOutput("None or Amazon.AppFabric.Model.StopIngestionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppFabric.Model.StopIngestionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppFabric.Model.StopIngestionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopAFABIngestionCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

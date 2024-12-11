@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail StartLogging API operation.", Operation = new[] {"StartLogging"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StartLoggingResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.StartLoggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.StartLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.StartLoggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

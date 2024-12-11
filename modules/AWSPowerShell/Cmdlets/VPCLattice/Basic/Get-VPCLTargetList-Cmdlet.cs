@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice ListTargets API operation.", Operation = new[] {"ListTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListTargetsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.TargetSummary or Amazon.VPCLattice.Model.ListTargetsResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.TargetSummary objects.",
-        "The service call response (type Amazon.VPCLattice.Model.ListTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VPCLattice.Model.ListTargetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVPCLTargetListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

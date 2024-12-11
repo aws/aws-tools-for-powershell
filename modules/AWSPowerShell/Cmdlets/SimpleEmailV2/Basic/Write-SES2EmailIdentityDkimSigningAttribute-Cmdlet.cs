@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutEmailIdentityDkimSigningAttributes API operation.", Operation = new[] {"PutEmailIdentityDkimSigningAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.PutEmailIdentityDkimSigningAttributesResponse object containing multiple properties."
     )]
     public partial class WriteSES2EmailIdentityDkimSigningAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

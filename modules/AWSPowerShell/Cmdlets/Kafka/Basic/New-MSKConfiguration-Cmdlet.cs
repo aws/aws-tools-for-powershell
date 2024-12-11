@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.CreateConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateConfiguration API operation.", Operation = new[] {"CreateConfiguration"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateConfigurationResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.CreateConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.CreateConfigurationResponse object containing multiple properties."
     )]
     public partial class NewMSKConfigurationCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DescribeCustomerMetadataResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect DescribeCustomerMetadata API operation.", Operation = new[] {"DescribeCustomerMetadata"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeCustomerMetadataResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DescribeCustomerMetadataResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.DescribeCustomerMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.DescribeCustomerMetadataResponse object containing multiple properties."
     )]
     public partial class GetDCCustomerMetadataCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

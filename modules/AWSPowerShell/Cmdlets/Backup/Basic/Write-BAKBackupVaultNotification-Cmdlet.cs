@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup PutBackupVaultNotifications API operation.", Operation = new[] {"PutBackupVaultNotifications"}, SelectReturnType = typeof(Amazon.Backup.Model.PutBackupVaultNotificationsResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.PutBackupVaultNotificationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.PutBackupVaultNotificationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.PutBackupVaultNotificationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteBAKBackupVaultNotificationCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

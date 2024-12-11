@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 GetHealthCheck API operation.", Operation = new[] {"GetHealthCheck"}, SelectReturnType = typeof(Amazon.Route53.Model.GetHealthCheckResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck or Amazon.Route53.Model.GetHealthCheckResponse",
         "This cmdlet returns an Amazon.Route53.Model.HealthCheck object.",
-        "The service call response (type Amazon.Route53.Model.GetHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetHealthCheckResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

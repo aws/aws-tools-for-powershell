@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service ListQueues API operation.", Operation = new[] {"ListQueues"}, SelectReturnType = typeof(Amazon.PCS.Model.ListQueuesResponse))]
     [AWSCmdletOutput("Amazon.PCS.Model.QueueSummary or Amazon.PCS.Model.ListQueuesResponse",
         "This cmdlet returns a collection of Amazon.PCS.Model.QueueSummary objects.",
-        "The service call response (type Amazon.PCS.Model.ListQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PCS.Model.ListQueuesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCSQueueListCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions UpdateMapRun API operation.", Operation = new[] {"UpdateMapRun"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.UpdateMapRunResponse))]
     [AWSCmdletOutput("None or Amazon.StepFunctions.Model.UpdateMapRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.StepFunctions.Model.UpdateMapRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StepFunctions.Model.UpdateMapRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSFNMapRunCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

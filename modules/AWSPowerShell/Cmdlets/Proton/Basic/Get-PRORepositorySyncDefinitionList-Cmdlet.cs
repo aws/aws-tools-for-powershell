@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListRepositorySyncDefinitions API operation.", Operation = new[] {"ListRepositorySyncDefinitions"}, SelectReturnType = typeof(Amazon.Proton.Model.ListRepositorySyncDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.RepositorySyncDefinition or Amazon.Proton.Model.ListRepositorySyncDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.RepositorySyncDefinition objects.",
-        "The service call response (type Amazon.Proton.Model.ListRepositorySyncDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListRepositorySyncDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPRORepositorySyncDefinitionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

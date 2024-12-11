@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API ListUsers API operation.", Operation = new[] {"ListUsers"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.ListUsersResponse))]
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.User or Amazon.FinSpaceData.Model.ListUsersResponse",
         "This cmdlet returns a collection of Amazon.FinSpaceData.Model.User objects.",
-        "The service call response (type Amazon.FinSpaceData.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.ListUsersResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPUserListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

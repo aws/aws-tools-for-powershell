@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control CreateMultiRegionAccessPoint API operation.", Operation = new[] {"CreateMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.CreateMultiRegionAccessPointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewS3CMultiRegionAccessPointCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies whether Amazon S3 should restrict public bucket policies for buckets in
         /// this account. Setting this element to <c>TRUE</c> restricts access to buckets with
-        /// public policies to only Amazon Web Servicesservice principals and authorized users
+        /// public policies to only Amazon Web Services service principals and authorized users
         /// within this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
         /// delegation to specific accounts, is blocked.</para><para>This property is not supported for Amazon S3 on Outposts.</para>

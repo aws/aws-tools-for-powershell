@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service StartDomainMaintenance API operation.", Operation = new[] {"StartDomainMaintenance"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.StartDomainMaintenanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartOSDomainMaintenanceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

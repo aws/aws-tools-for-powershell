@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF GetLoggingConfiguration API operation.", Operation = new[] {"GetLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAF.Model.GetLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.LoggingConfiguration or Amazon.WAF.Model.GetLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.WAF.Model.LoggingConfiguration object.",
-        "The service call response (type Amazon.WAF.Model.GetLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFLoggingConfigurationCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

@@ -14,11 +14,6 @@ iam_ListRoles:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMRoleList.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: This example code snippet retrieves a list of IAM roles in the &AWS; account and displays them three at a time, and waits for you to press Enter between each group. It passes the <code>Marker</code> value from the previous call to specify where the next group should begin.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/iam_Get-IAMRoleList.2.1.ps1
   services:
     iam:
       ListRoles:

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSpotDatafeedSubscription API operation.", Operation = new[] {"CreateSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription or Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse",
         "This cmdlet returns an Amazon.EC2.Model.SpotDatafeedSubscription object.",
-        "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
-        /// more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules
-        /// for bucket naming</a> in the <i>Amazon S3 Developer Guide</i>.</para>
+        /// more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket
+        /// naming rules</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

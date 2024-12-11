@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.DisableFederationResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail DisableFederation API operation.", Operation = new[] {"DisableFederation"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DisableFederationResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.DisableFederationResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.DisableFederationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.DisableFederationResponse object containing multiple properties."
     )]
     public partial class DisableCTFederationCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise BatchPutAssetPropertyValue API operation.", Operation = new[] {"BatchPutAssetPropertyValue"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.BatchPutAssetPropertyValueResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.BatchPutAssetPropertyErrorEntry or Amazon.IoTSiteWise.Model.BatchPutAssetPropertyValueResponse",
         "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.BatchPutAssetPropertyErrorEntry objects.",
-        "The service call response (type Amazon.IoTSiteWise.Model.BatchPutAssetPropertyValueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.BatchPutAssetPropertyValueResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportIOTSWPutAssetPropertyValueCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

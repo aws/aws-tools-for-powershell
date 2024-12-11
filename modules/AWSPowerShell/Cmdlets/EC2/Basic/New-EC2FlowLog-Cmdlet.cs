@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Flow log data for a monitored network interface is recorded as flow log records, which
     /// are log events consisting of fields that describe the traffic flow. For more information,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
+    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow
     /// log records</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><para>
     /// When publishing to CloudWatch Logs, flow log records are published to a log group,
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateFlowLogsResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateFlowLogs API operation.", Operation = new[] {"CreateFlowLogs"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFlowLogsResponse), LegacyAlias="New-EC2FlowLogs")]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFlowLogsResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties."
     )]
     public partial class NewEC2FlowLogCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The fields to include in the flow log record. List the fields in the order in which
         /// they should appear. If you omit this parameter, the flow log is created using the
         /// default format. If you specify this parameter, you must include at least one field.
-        /// For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
+        /// For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow
         /// log records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit
         /// Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</para><para>Specify the fields using the <c>${field-id}</c> format, separated by spaces.</para>
         /// </para>

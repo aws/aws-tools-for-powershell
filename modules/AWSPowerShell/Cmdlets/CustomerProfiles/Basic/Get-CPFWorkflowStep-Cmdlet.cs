@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetWorkflowStepsResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetWorkflowSteps API operation.", Operation = new[] {"GetWorkflowSteps"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetWorkflowStepsResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetWorkflowStepsResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetWorkflowStepsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetWorkflowStepsResponse object containing multiple properties."
     )]
     public partial class GetCPFWorkflowStepCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [AWSCmdlet("Calls the Amazon Connect Campaign Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCampaignService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCampaignService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCampaignService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCSResourceTagCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

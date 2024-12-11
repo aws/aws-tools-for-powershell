@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier GetVaultNotifications API operation.", Operation = new[] {"GetVaultNotifications"}, SelectReturnType = typeof(Amazon.Glacier.Model.GetVaultNotificationsResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.VaultNotificationConfig or Amazon.Glacier.Model.GetVaultNotificationsResponse",
         "This cmdlet returns an Amazon.Glacier.Model.VaultNotificationConfig object.",
-        "The service call response (type Amazon.Glacier.Model.GetVaultNotificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glacier.Model.GetVaultNotificationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLCVaultNotificationCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

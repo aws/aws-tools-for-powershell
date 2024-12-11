@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Schemas.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Schemas.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Schemas.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Schemas.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCHMResourcePolicyCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift CreateHsmClientCertificate API operation.", Operation = new[] {"CreateHsmClientCertificate"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateHsmClientCertificateResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmClientCertificate or Amazon.Redshift.Model.CreateHsmClientCertificateResponse",
         "This cmdlet returns an Amazon.Redshift.Model.HsmClientCertificate object.",
-        "The service call response (type Amazon.Redshift.Model.CreateHsmClientCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateHsmClientCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRSHsmClientCertificateCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

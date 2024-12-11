@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [OutputType("Amazon.SsmSap.Model.RegisterApplicationResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager for SAP RegisterApplication API operation.", Operation = new[] {"RegisterApplication"}, SelectReturnType = typeof(Amazon.SsmSap.Model.RegisterApplicationResponse))]
     [AWSCmdletOutput("Amazon.SsmSap.Model.RegisterApplicationResponse",
-        "This cmdlet returns an Amazon.SsmSap.Model.RegisterApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SsmSap.Model.RegisterApplicationResponse object containing multiple properties."
     )]
     public partial class RegisterSMSAPApplicationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer ListCostAllocationTagBackfillHistory API operation.", Operation = new[] {"ListCostAllocationTagBackfillHistory"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest or Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest objects.",
-        "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.ListCostAllocationTagBackfillHistoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCECostAllocationTagBackfillHistoryListCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

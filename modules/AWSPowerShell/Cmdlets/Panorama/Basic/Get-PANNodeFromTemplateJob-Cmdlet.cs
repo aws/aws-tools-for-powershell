@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [OutputType("Amazon.Panorama.Model.DescribeNodeFromTemplateJobResponse")]
     [AWSCmdlet("Calls the AWS Panorama DescribeNodeFromTemplateJob API operation.", Operation = new[] {"DescribeNodeFromTemplateJob"}, SelectReturnType = typeof(Amazon.Panorama.Model.DescribeNodeFromTemplateJobResponse))]
     [AWSCmdletOutput("Amazon.Panorama.Model.DescribeNodeFromTemplateJobResponse",
-        "This cmdlet returns an Amazon.Panorama.Model.DescribeNodeFromTemplateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Panorama.Model.DescribeNodeFromTemplateJobResponse object containing multiple properties."
     )]
     public partial class GetPANNodeFromTemplateJobCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

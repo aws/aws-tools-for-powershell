@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift CreateRedshiftIdcApplication API operation.", Operation = new[] {"CreateRedshiftIdcApplication"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.RedshiftIdcApplication or Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse",
         "This cmdlet returns an Amazon.Redshift.Model.RedshiftIdcApplication object.",
-        "The service call response (type Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateRedshiftIdcApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRSRedshiftIdcApplicationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

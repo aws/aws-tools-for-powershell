@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateMobileDeviceAccessRule API operation.", Operation = new[] {"UpdateMobileDeviceAccessRule"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateMobileDeviceAccessRuleResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateMobileDeviceAccessRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateMobileDeviceAccessRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateMobileDeviceAccessRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMMobileDeviceAccessRuleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

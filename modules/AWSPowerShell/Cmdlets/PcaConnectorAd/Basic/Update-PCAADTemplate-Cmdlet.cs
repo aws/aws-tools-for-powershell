@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad UpdateTemplate API operation.", Operation = new[] {"UpdateTemplate"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.UpdateTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.UpdateTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.UpdateTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.UpdateTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdatePCAADTemplateCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

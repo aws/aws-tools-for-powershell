@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [OutputType("Amazon.DirectoryServiceData.Model.DescribeGroupResponse")]
     [AWSCmdlet("Calls the AWS Directory Service Data DescribeGroup API operation.", Operation = new[] {"DescribeGroup"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.DescribeGroupResponse))]
     [AWSCmdletOutput("Amazon.DirectoryServiceData.Model.DescribeGroupResponse",
-        "This cmdlet returns an Amazon.DirectoryServiceData.Model.DescribeGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectoryServiceData.Model.DescribeGroupResponse object containing multiple properties."
     )]
     public partial class GetDSDGroupCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

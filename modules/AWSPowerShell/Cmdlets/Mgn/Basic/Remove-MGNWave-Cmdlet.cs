@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service DeleteWave API operation.", Operation = new[] {"DeleteWave"}, SelectReturnType = typeof(Amazon.Mgn.Model.DeleteWaveResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.DeleteWaveResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.DeleteWaveResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.DeleteWaveResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGNWaveCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

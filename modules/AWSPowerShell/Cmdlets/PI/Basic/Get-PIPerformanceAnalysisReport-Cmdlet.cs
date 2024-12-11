@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     [AWSCmdlet("Calls the AWS Performance Insights GetPerformanceAnalysisReport API operation.", Operation = new[] {"GetPerformanceAnalysisReport"}, SelectReturnType = typeof(Amazon.PI.Model.GetPerformanceAnalysisReportResponse))]
     [AWSCmdletOutput("Amazon.PI.Model.AnalysisReport or Amazon.PI.Model.GetPerformanceAnalysisReportResponse",
         "This cmdlet returns an Amazon.PI.Model.AnalysisReport object.",
-        "The service call response (type Amazon.PI.Model.GetPerformanceAnalysisReportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PI.Model.GetPerformanceAnalysisReportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPIPerformanceAnalysisReportCmdlet : AmazonPIClientCmdlet, IExecutor
     {

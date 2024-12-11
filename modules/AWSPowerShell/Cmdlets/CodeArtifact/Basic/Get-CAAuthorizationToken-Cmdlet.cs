@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.GetAuthorizationTokenResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact GetAuthorizationToken API operation.", Operation = new[] {"GetAuthorizationToken"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetAuthorizationTokenResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.GetAuthorizationTokenResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.GetAuthorizationTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.GetAuthorizationTokenResponse object containing multiple properties."
     )]
     public partial class GetCAAuthorizationTokenCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

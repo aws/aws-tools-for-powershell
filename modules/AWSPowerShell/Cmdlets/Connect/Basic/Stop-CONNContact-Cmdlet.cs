@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service StopContact API operation.", Operation = new[] {"StopContact"}, SelectReturnType = typeof(Amazon.Connect.Model.StopContactResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.StopContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.StopContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.StopContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

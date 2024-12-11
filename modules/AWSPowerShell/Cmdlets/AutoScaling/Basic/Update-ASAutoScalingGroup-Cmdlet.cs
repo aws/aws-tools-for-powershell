@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// and the new <c>MaxSize</c> is smaller than the current size of the group, this sets
     /// the group's <c>DesiredCapacity</c> to the new <c>MaxSize</c> value.
     /// </para></li></ul><para>
-    /// To see which properties have been set, call the <a>DescribeAutoScalingGroups</a> API.
-    /// To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a>
-    /// API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a>
+    /// To see which properties have been set, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a>
+    /// API. To view the scaling policies for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a>
+    /// API. If the group has scaling policies, you can update them by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a>
     /// API.
     /// </para>
     /// </summary>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling UpdateAutoScalingGroup API operation.", Operation = new[] {"UpdateAutoScalingGroup"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -107,6 +107,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneDistribution_CapacityDistributionStrategy
+        /// <summary>
+        /// <para>
+        /// <para> If launches fail in an Availability Zone, the following strategies are available.
+        /// The default is <c>balanced-best-effort</c>. </para><ul><li><para><c>balanced-only</c> - If launches fail in an Availability Zone, Auto Scaling will
+        /// continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.</para></li><li><para><c>balanced-best-effort</c> - If launches fail in an Availability Zone, Auto Scaling
+        /// will attempt to launch in another healthy Availability Zone instead.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.CapacityDistributionStrategy")]
+        public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
         #endregion
         
         #region Parameter CapacityRebalance
@@ -353,8 +367,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementGroup
         /// <summary>
         /// <para>
-        /// <para>The name of an existing placement group into which to launch your instances. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// <para>The name of an existing placement group into which to launch your instances. To remove
+        /// the placement group setting, pass an empty string for <c>placement-group</c>. For
+        /// more information about placement groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>A <i>cluster</i> placement group is a logical grouping of instances within a single
         /// Availability Zone. You cannot specify multiple Availability Zones and a cluster placement
         /// group. </para></note>
@@ -469,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AvailabilityZoneDistribution_CapacityDistributionStrategy = this.AvailabilityZoneDistribution_CapacityDistributionStrategy;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
@@ -518,6 +534,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            
+             // populate AvailabilityZoneDistribution
+            var requestAvailabilityZoneDistributionIsNull = true;
+            request.AvailabilityZoneDistribution = new Amazon.AutoScaling.Model.AvailabilityZoneDistribution();
+            Amazon.AutoScaling.CapacityDistributionStrategy requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy = null;
+            if (cmdletContext.AvailabilityZoneDistribution_CapacityDistributionStrategy != null)
+            {
+                requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy = cmdletContext.AvailabilityZoneDistribution_CapacityDistributionStrategy;
+            }
+            if (requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy != null)
+            {
+                request.AvailabilityZoneDistribution.CapacityDistributionStrategy = requestAvailabilityZoneDistribution_availabilityZoneDistribution_CapacityDistributionStrategy;
+                requestAvailabilityZoneDistributionIsNull = false;
+            }
+             // determine if request.AvailabilityZoneDistribution should be set to null
+            if (requestAvailabilityZoneDistributionIsNull)
+            {
+                request.AvailabilityZoneDistribution = null;
             }
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -725,6 +760,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
             public System.String Context { get; set; }

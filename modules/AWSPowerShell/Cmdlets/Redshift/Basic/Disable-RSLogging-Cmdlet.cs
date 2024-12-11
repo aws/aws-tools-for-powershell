@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DisableLoggingResponse")]
     [AWSCmdlet("Calls the Amazon Redshift DisableLogging API operation.", Operation = new[] {"DisableLogging"}, SelectReturnType = typeof(Amazon.Redshift.Model.DisableLoggingResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.DisableLoggingResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.DisableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.DisableLoggingResponse object containing multiple properties."
     )]
     public partial class DisableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

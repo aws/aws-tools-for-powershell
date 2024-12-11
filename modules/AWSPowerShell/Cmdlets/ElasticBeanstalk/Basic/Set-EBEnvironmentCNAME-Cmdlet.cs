@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk SwapEnvironmentCNAMEs API operation.", Operation = new[] {"SwapEnvironmentCNAMEs"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse), LegacyAlias="Set-EBEnvironmentCNAMEs")]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEBEnvironmentCNAMECmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

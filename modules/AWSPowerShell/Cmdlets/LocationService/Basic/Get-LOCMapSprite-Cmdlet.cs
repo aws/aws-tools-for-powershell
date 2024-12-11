@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.GetMapSpritesResponse")]
     [AWSCmdlet("Calls the Amazon Location Service GetMapSprites API operation.", Operation = new[] {"GetMapSprites"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapSpritesResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.GetMapSpritesResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapSpritesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.GetMapSpritesResponse object containing multiple properties."
     )]
     public partial class GetLOCMapSpriteCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

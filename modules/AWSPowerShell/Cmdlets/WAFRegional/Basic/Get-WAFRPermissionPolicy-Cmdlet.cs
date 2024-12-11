@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional GetPermissionPolicy API operation.", Operation = new[] {"GetPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.GetPermissionPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.GetPermissionPolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.GetPermissionPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.GetPermissionPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRPermissionPolicyCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

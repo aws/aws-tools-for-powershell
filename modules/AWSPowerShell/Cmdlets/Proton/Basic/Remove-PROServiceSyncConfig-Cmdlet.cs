@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton DeleteServiceSyncConfig API operation.", Operation = new[] {"DeleteServiceSyncConfig"}, SelectReturnType = typeof(Amazon.Proton.Model.DeleteServiceSyncConfigResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServiceSyncConfig or Amazon.Proton.Model.DeleteServiceSyncConfigResponse",
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncConfig object.",
-        "The service call response (type Amazon.Proton.Model.DeleteServiceSyncConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.DeleteServiceSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePROServiceSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

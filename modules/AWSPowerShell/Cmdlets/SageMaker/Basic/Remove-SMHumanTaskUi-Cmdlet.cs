@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHumanTaskUi API operation.", Operation = new[] {"DeleteHumanTaskUi"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHumanTaskUiResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHumanTaskUiResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteHumanTaskUiResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteHumanTaskUiResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMHumanTaskUiCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

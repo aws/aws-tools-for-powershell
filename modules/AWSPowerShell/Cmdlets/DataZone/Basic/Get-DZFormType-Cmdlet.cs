@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.GetFormTypeResponse")]
     [AWSCmdlet("Calls the Amazon DataZone GetFormType API operation.", Operation = new[] {"GetFormType"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetFormTypeResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.GetFormTypeResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetFormTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.GetFormTypeResponse object containing multiple properties."
     )]
     public partial class GetDZFormTypeCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

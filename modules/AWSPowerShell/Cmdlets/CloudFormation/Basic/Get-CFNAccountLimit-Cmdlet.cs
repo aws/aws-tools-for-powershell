@@ -30,15 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Retrieves your account's CloudFormation limits, such as the maximum number of stacks
     /// that you can create in your account. For more information about account limits, see
-    /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
-    /// Quotas</a> in the <i>CloudFormation User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">Understand
+    /// CloudFormation quotas</a> in the <i>CloudFormation User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNAccountLimit")]
     [OutputType("Amazon.CloudFormation.Model.AccountLimit")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeAccountLimits API operation.", Operation = new[] {"DescribeAccountLimits"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeAccountLimitsResponse), LegacyAlias="Get-CFNAccountLimits")]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.AccountLimit or Amazon.CloudFormation.Model.DescribeAccountLimitsResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.AccountLimit objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeAccountLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeAccountLimitsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNAccountLimitCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

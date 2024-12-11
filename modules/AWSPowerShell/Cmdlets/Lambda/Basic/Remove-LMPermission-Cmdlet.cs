@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda RemovePermission API operation.", Operation = new[] {"RemovePermission"}, SelectReturnType = typeof(Amazon.Lambda.Model.RemovePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.RemovePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.RemovePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

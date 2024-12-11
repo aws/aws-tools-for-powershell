@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [AWSCmdlet("Calls the Amazon QLDB ExportJournalToS3 API operation.", Operation = new[] {"ExportJournalToS3"}, SelectReturnType = typeof(Amazon.QLDB.Model.ExportJournalToS3Response))]
     [AWSCmdletOutput("System.String or Amazon.QLDB.Model.ExportJournalToS3Response",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QLDB.Model.ExportJournalToS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QLDB.Model.ExportJournalToS3Response) can be returned by specifying '-Select *'."
     )]
     public partial class ExportQLDBJournalToS3Cmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

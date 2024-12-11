@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBCluster API operation.", Operation = new[] {"CreateDBCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBClusterResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster or Amazon.RDS.Model.CreateDBClusterResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBCluster object.",
-        "The service call response (type Amazon.RDS.Model.CreateDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -149,6 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CharacterSetName { get; set; }
+        #endregion
+        
+        #region Parameter ClusterScalabilityType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the scalability mode of the Aurora DB cluster. When set to <c>limitless</c>,
+        /// the cluster operates as an Aurora Limitless Database. When set to <c>standard</c>
+        /// (the default), the cluster uses normal DB instance creation.</para><para>Valid for: Aurora DB clusters only</para><note><para>You can't modify this setting after you create the DB cluster.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ClusterScalabilityType")]
+        public Amazon.RDS.ClusterScalabilityType ClusterScalabilityType { get; set; }
         #endregion
         
         #region Parameter CopyTagsToSnapshot
@@ -321,7 +334,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
         /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">IAM
+        /// database authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon RDS
+        /// User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable Aurora Limitless Database. You must enable Aurora Limitless
-        /// Database to create a DB shard group.</para><para>Valid for: Aurora DB clusters only</para>
+        /// Database to create a DB shard group.</para><para>Valid for: Aurora DB clusters only</para><note><para>This setting is no longer used. Instead use the <c>ClusterScalabilityType</c> setting.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,7 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// end of standard support date.</para></note><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         /// With RDS Extended Support, you can run the selected major engine version on your DB
         /// cluster past the end of standard support for that engine version. For more information,
-        /// see the following sections:</para><ul><li><para>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
+        /// see the following sections:</para><ul><li><para>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
         /// </para>
@@ -935,6 +950,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CharacterSetName = this.CharacterSetName;
+            context.ClusterScalabilityType = this.ClusterScalabilityType;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
@@ -1058,6 +1074,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CharacterSetName != null)
             {
                 request.CharacterSetName = cmdletContext.CharacterSetName;
+            }
+            if (cmdletContext.ClusterScalabilityType != null)
+            {
+                request.ClusterScalabilityType = cmdletContext.ClusterScalabilityType;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -1441,6 +1461,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.String CharacterSetName { get; set; }
+            public Amazon.RDS.ClusterScalabilityType ClusterScalabilityType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }

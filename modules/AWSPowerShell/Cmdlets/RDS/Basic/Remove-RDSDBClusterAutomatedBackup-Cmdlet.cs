@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBClusterAutomatedBackup API operation.", Operation = new[] {"DeleteDBClusterAutomatedBackup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBClusterAutomatedBackupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterAutomatedBackup or Amazon.RDS.Model.DeleteDBClusterAutomatedBackupResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBClusterAutomatedBackup object.",
-        "The service call response (type Amazon.RDS.Model.DeleteDBClusterAutomatedBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBClusterAutomatedBackupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSDBClusterAutomatedBackupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

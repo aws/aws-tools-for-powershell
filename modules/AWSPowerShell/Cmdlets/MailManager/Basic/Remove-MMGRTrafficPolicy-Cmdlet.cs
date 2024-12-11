@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager DeleteTrafficPolicy API operation.", Operation = new[] {"DeleteTrafficPolicy"}, SelectReturnType = typeof(Amazon.MailManager.Model.DeleteTrafficPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MailManager.Model.DeleteTrafficPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MailManager.Model.DeleteTrafficPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MailManager.Model.DeleteTrafficPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMMGRTrafficPolicyCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

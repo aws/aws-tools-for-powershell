@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.GetProtectConfigurationCountryRuleSetResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 GetProtectConfigurationCountryRuleSet API operation.", Operation = new[] {"GetProtectConfigurationCountryRuleSet"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.GetProtectConfigurationCountryRuleSetResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.GetProtectConfigurationCountryRuleSetResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.GetProtectConfigurationCountryRuleSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.GetProtectConfigurationCountryRuleSetResponse object containing multiple properties."
     )]
     public partial class GetSMSVProtectConfigurationCountryRuleSetCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

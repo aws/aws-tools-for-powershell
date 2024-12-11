@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetLoggerDefinitionVersionResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetLoggerDefinitionVersion API operation.", Operation = new[] {"GetLoggerDefinitionVersion"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetLoggerDefinitionVersionResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetLoggerDefinitionVersionResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetLoggerDefinitionVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetLoggerDefinitionVersionResponse object containing multiple properties."
     )]
     public partial class GetGGLoggerDefinitionVersionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

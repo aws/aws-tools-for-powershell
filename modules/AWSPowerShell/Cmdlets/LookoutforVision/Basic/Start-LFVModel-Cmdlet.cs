@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision StartModel API operation.", Operation = new[] {"StartModel"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.StartModelResponse))]
     [AWSCmdletOutput("Amazon.LookoutforVision.ModelHostingStatus or Amazon.LookoutforVision.Model.StartModelResponse",
         "This cmdlet returns an Amazon.LookoutforVision.ModelHostingStatus object.",
-        "The service call response (type Amazon.LookoutforVision.Model.StartModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.StartModelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartLFVModelCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpcEndpointConnectionNotification API operation.", Operation = new[] {"CreateVpcEndpointConnectionNotification"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateVpcEndpointConnectionNotificationResponse object containing multiple properties."
     )]
     public partial class NewEC2VpcEndpointConnectionNotificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

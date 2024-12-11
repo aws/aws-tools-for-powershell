@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetConfigurationSetEventDestinations API operation.", Operation = new[] {"GetConfigurationSetEventDestinations"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetConfigurationSetEventDestinationsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.EventDestination or Amazon.SimpleEmailV2.Model.GetConfigurationSetEventDestinationsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.EventDestination objects.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.GetConfigurationSetEventDestinationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetConfigurationSetEventDestinationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2ConfigurationSetEventDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

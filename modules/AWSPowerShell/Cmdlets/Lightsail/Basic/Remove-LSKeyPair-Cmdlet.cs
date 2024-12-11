@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteKeyPair API operation.", Operation = new[] {"DeleteKeyPair"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteKeyPairResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteKeyPairResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteKeyPairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSKeyPairCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

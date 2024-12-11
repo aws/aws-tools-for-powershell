@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the AWS AppConfig CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.AppConfig.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewAPPCApplicationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

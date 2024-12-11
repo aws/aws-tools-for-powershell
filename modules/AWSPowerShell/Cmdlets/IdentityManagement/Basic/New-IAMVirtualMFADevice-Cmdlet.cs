@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management CreateVirtualMFADevice API operation.", Operation = new[] {"CreateVirtualMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.VirtualMFADevice or Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.VirtualMFADevice object.",
-        "The service call response (type Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIAMVirtualMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

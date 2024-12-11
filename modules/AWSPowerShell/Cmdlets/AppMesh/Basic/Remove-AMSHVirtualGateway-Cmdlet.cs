@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DeleteVirtualGateway API operation.", Operation = new[] {"DeleteVirtualGateway"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DeleteVirtualGatewayResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.VirtualGatewayData or Amazon.AppMesh.Model.DeleteVirtualGatewayResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.VirtualGatewayData object.",
-        "The service call response (type Amazon.AppMesh.Model.DeleteVirtualGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DeleteVirtualGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMSHVirtualGatewayCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

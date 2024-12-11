@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListGeoLocationsResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 ListGeoLocations API operation.", Operation = new[] {"ListGeoLocations"}, SelectReturnType = typeof(Amazon.Route53.Model.ListGeoLocationsResponse), LegacyAlias="Get-R53GeoLocations")]
     [AWSCmdletOutput("Amazon.Route53.Model.ListGeoLocationsResponse",
-        "This cmdlet returns an Amazon.Route53.Model.ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.ListGeoLocationsResponse object containing multiple properties."
     )]
     public partial class GetR53GeoLocationListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateLogPattern API operation.", Operation = new[] {"UpdateLogPattern"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateLogPatternResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.LogPattern or Amazon.ApplicationInsights.Model.UpdateLogPatternResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.LogPattern object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.UpdateLogPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.UpdateLogPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWAILogPatternCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// translates to a <c>750,000</c> rank. A <c>Medium</c> severity pattern translates to
         /// a <c>500,000</c> rank. And a <c>High</c> severity pattern translates to a <c>250,000</c>
         /// rank. Rank values less than <c>1</c> or greater than <c>1,000,000</c> are reserved
-        /// for AWS-provided patterns. </para>
+        /// for Amazon Web Services provided patterns. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [OutputType("Amazon.Batch.Model.UpdateJobQueueResponse")]
     [AWSCmdlet("Calls the AWS Batch UpdateJobQueue API operation.", Operation = new[] {"UpdateJobQueue"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateJobQueueResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.UpdateJobQueueResponse",
-        "This cmdlet returns an Amazon.Batch.Model.UpdateJobQueueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Batch.Model.UpdateJobQueueResponse object containing multiple properties."
     )]
     public partial class UpdateBATJobQueueCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The set of actions that Batch perform on jobs that remain at the head of the job queue
         /// in the specified state longer than specified times. Batch will perform each action
-        /// after <c>maxTimeSeconds</c> has passed.</para>
+        /// after <c>maxTimeSeconds</c> has passed. (<b>Note</b>: The minimum value for maxTimeSeconds
+        /// is 600 (10 minutes) and its maximum value is 86,400 (24 hours).)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

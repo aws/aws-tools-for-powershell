@@ -28,15 +28,15 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Creates a subscription permission for accounts that are already enabled in Amazon
-    /// Security Lake. You can create a subscriber with access to data in the current Amazon
-    /// Web Services Region.
+    /// Creates a subscriber for accounts that are already enabled in Amazon Security Lake.
+    /// You can create a subscriber with access to data in the current Amazon Web Services
+    /// Region.
     /// </summary>
     [Cmdlet("New", "SLKSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.CreateSubscriberResponse")]
     [AWSCmdlet("Calls the Amazon Security Lake CreateSubscriber API operation.", Operation = new[] {"CreateSubscriber"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateSubscriberResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.CreateSubscriberResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.CreateSubscriberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityLake.Model.CreateSubscriberResponse object containing multiple properties."
     )]
     public partial class NewSLKSubscriberCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberIdentity_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
+        /// <para>The external ID used to establish trust relationship with the Amazon Web Services
+        /// identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberIdentity_Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS identity principal.</para>
+        /// <para>The Amazon Web Services identity principal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The supported Amazon Web Services from which logs and events are collected. Security
-        /// Lake supports log and event collection for natively supported Amazon Web Services.</para>
+        /// <para>The supported Amazon Web Services services from which logs and events are collected.
+        /// Security Lake supports log and event collection for natively supported Amazon Web
+        /// Services services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

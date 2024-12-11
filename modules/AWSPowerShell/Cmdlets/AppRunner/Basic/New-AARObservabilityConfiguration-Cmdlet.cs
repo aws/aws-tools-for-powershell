@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner CreateObservabilityConfiguration API operation.", Operation = new[] {"CreateObservabilityConfiguration"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateObservabilityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.ObservabilityConfiguration or Amazon.AppRunner.Model.CreateObservabilityConfigurationResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.ObservabilityConfiguration object.",
-        "The service call response (type Amazon.AppRunner.Model.CreateObservabilityConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.CreateObservabilityConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAARObservabilityConfigurationCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

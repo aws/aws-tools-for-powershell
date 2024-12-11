@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateChannelClass API operation.", Operation = new[] {"UpdateChannelClass"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateChannelClassResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.Channel or Amazon.MediaLive.Model.UpdateChannelClassResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.Channel object.",
-        "The service call response (type Amazon.MediaLive.Model.UpdateChannelClassResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.UpdateChannelClassResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEMLChannelClassCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

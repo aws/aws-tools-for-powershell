@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [OutputType("Amazon.CodeConnections.Model.UpdateSyncBlockerResponse")]
     [AWSCmdlet("Calls the AWS CodeConnections UpdateSyncBlocker API operation.", Operation = new[] {"UpdateSyncBlocker"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.UpdateSyncBlockerResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.UpdateSyncBlockerResponse",
-        "This cmdlet returns an Amazon.CodeConnections.Model.UpdateSyncBlockerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeConnections.Model.UpdateSyncBlockerResponse object containing multiple properties."
     )]
     public partial class UpdateCCONSyncBlockerCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

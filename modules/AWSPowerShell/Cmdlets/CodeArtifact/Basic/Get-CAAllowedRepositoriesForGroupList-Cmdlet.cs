@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact ListAllowedRepositoriesForGroup API operation.", Operation = new[] {"ListAllowedRepositoriesForGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCAAllowedRepositoriesForGroupListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

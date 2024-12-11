@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DeleteAsset API operation.", Operation = new[] {"DeleteAsset"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteAssetResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AssetStatus or Amazon.IoTSiteWise.Model.DeleteAssetResponse",
         "This cmdlet returns an Amazon.IoTSiteWise.Model.AssetStatus object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.DeleteAssetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.DeleteAssetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWAssetCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

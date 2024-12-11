@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support DescribeServices API operation.", Operation = new[] {"DescribeServices"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeServicesResponse), LegacyAlias="Get-ASAServices")]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Service or Amazon.AWSSupport.Model.DescribeServicesResponse",
         "This cmdlet returns a collection of Amazon.AWSSupport.Model.Service objects.",
-        "The service call response (type Amazon.AWSSupport.Model.DescribeServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeServicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASAServiceCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     [OutputType("Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse")]
     [AWSCmdlet("Calls the AWS Health DescribeEventDetailsForOrganization API operation.", Operation = new[] {"DescribeEventDetailsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse",
-        "This cmdlet returns an Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AWSHealth.Model.DescribeEventDetailsForOrganizationResponse object containing multiple properties."
     )]
     public partial class GetHLTHEventDetailsForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetLayerVersionByArnResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetLayerVersionByArn API operation.", Operation = new[] {"GetLayerVersionByArn"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetLayerVersionByArnResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetLayerVersionByArnResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetLayerVersionByArnResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.GetLayerVersionByArnResponse object containing multiple properties."
     )]
     public partial class GetLMLayerVersionByArnCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

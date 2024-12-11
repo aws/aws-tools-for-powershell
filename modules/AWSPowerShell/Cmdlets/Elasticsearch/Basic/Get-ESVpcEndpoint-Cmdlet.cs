@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch DescribeVpcEndpoints API operation.", Operation = new[] {"DescribeVpcEndpoints"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.DescribeVpcEndpointsResponse object containing multiple properties."
     )]
     public partial class GetESVpcEndpointCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

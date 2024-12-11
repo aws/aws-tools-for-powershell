@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID UpdateWatchlist API operation.", Operation = new[] {"UpdateWatchlist"}, SelectReturnType = typeof(Amazon.VoiceID.Model.UpdateWatchlistResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.Watchlist or Amazon.VoiceID.Model.UpdateWatchlistResponse",
         "This cmdlet returns an Amazon.VoiceID.Model.Watchlist object.",
-        "The service call response (type Amazon.VoiceID.Model.UpdateWatchlistResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VoiceID.Model.UpdateWatchlistResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateVIDWatchlistCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

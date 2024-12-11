@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator DenyCustomRoutingTraffic API operation.", Operation = new[] {"DenyCustomRoutingTraffic"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.DenyCustomRoutingTrafficResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.DenyCustomRoutingTrafficResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.DenyCustomRoutingTrafficResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.DenyCustomRoutingTrafficResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableGACLCustomRoutingTrafficCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

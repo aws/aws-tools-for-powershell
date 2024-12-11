@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteInstanceProfile API operation.", Operation = new[] {"DeleteInstanceProfile"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteInstanceProfileResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteInstanceProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteInstanceProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

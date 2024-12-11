@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.EnableFastLaunchResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableFastLaunch API operation.", Operation = new[] {"EnableFastLaunch"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableFastLaunchResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.EnableFastLaunchResponse",
-        "This cmdlet returns an Amazon.EC2.Model.EnableFastLaunchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.EnableFastLaunchResponse object containing multiple properties."
     )]
     public partial class EnableEC2FastLaunchCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

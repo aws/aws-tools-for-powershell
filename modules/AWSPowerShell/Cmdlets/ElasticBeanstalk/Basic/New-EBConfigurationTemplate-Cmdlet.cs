@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk CreateConfigurationTemplate API operation.", Operation = new[] {"CreateConfigurationTemplate"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse object containing multiple properties."
     )]
     public partial class NewEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

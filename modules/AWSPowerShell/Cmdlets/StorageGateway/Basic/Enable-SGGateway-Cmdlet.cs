@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway ActivateGateway API operation.", Operation = new[] {"ActivateGateway"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.ActivateGatewayResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.ActivateGatewayResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ActivateGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -141,7 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <c>CACHED</c>.</para><para>Valid Values: <c>STORED</c> | <c>CACHED</c> | <c>VTL</c> | <c>FILE_S3</c> | <c>FILE_FSX_SMB</c></para>
+        /// default value is <c>CACHED</c>.</para><important><para>Amazon FSx File Gateway is no longer available to new customers. Existing customers
+        /// of FSx File Gateway can continue to use the service normally. For capabilities similar
+        /// to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this
+        /// blog post</a>.</para></important><para>Valid Values: <c>STORED</c> | <c>CACHED</c> | <c>VTL</c> | <c>FILE_S3</c> | <c>FILE_FSX_SMB</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

@@ -37,12 +37,23 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect UpdateSession API operation.", Operation = new[] {"UpdateSession"}, SelectReturnType = typeof(Amazon.QConnect.Model.UpdateSessionResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.SessionData or Amazon.QConnect.Model.UpdateSessionResponse",
         "This cmdlet returns an Amazon.QConnect.Model.SessionData object.",
-        "The service call response (type Amazon.QConnect.Model.UpdateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.UpdateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQCSessionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AiAgentConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+        /// should be used by Amazon Q in Connect for this Session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AiAgentConfiguration { get; set; }
+        #endregion
         
         #region Parameter TagFilter_AndCondition
         /// <summary>
@@ -145,6 +156,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public string Select { get; set; } = "Session";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SessionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -171,10 +192,28 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.QConnect.Model.UpdateSessionResponse, UpdateQCSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.SessionId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AiAgentConfiguration != null)
+            {
+                context.AiAgentConfiguration = new Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AiAgentConfiguration.Keys)
+                {
+                    context.AiAgentConfiguration.Add((String)hashKey, (Amazon.QConnect.Model.AIAgentConfigurationData)(this.AiAgentConfiguration[hashKey]));
+                }
             }
             context.AssistantId = this.AssistantId;
             #if MODULAR
@@ -217,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // create request
             var request = new Amazon.QConnect.Model.UpdateSessionRequest();
             
+            if (cmdletContext.AiAgentConfiguration != null)
+            {
+                request.AiAgentConfiguration = cmdletContext.AiAgentConfiguration;
+            }
             if (cmdletContext.AssistantId != null)
             {
                 request.AssistantId = cmdletContext.AssistantId;
@@ -354,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData> AiAgentConfiguration { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Description { get; set; }
             public System.String SessionId { get; set; }

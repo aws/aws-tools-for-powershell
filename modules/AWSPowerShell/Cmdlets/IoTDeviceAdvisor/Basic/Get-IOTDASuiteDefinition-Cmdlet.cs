@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [OutputType("Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse")]
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor GetSuiteDefinition API operation.", Operation = new[] {"GetSuiteDefinition"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse))]
     [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse",
-        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTDeviceAdvisor.Model.GetSuiteDefinitionResponse object containing multiple properties."
     )]
     public partial class GetIOTDASuiteDefinitionCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

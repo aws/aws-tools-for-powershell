@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service ListScrapers API operation.", Operation = new[] {"ListScrapers"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.ListScrapersResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.ScraperSummary or Amazon.PrometheusService.Model.ListScrapersResponse",
         "This cmdlet returns a collection of Amazon.PrometheusService.Model.ScraperSummary objects.",
-        "The service call response (type Amazon.PrometheusService.Model.ListScrapersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.ListScrapersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMScraperListCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

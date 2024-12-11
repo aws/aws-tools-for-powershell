@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [AWSCmdlet("Calls the Application Auto Scaling DeregisterScalableTarget API operation.", Operation = new[] {"DeregisterScalableTarget"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

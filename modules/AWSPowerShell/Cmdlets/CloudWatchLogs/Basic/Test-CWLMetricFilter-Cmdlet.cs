@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs TestMetricFilter API operation.", Operation = new[] {"TestMetricFilter"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.TestMetricFilterResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.MetricFilterMatchRecord or Amazon.CloudWatchLogs.Model.TestMetricFilterResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchLogs.Model.MetricFilterMatchRecord objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.TestMetricFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.TestMetricFilterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

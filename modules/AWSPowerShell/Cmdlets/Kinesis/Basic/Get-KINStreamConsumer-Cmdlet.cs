@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis DescribeStreamConsumer API operation.", Operation = new[] {"DescribeStreamConsumer"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DescribeStreamConsumerResponse))]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ConsumerDescription or Amazon.Kinesis.Model.DescribeStreamConsumerResponse",
         "This cmdlet returns an Amazon.Kinesis.Model.ConsumerDescription object.",
-        "The service call response (type Amazon.Kinesis.Model.DescribeStreamConsumerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kinesis.Model.DescribeStreamConsumerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINStreamConsumerCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

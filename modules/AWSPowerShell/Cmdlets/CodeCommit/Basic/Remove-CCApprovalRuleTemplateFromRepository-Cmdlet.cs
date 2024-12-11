@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit DisassociateApprovalRuleTemplateFromRepository API operation.", Operation = new[] {"DisassociateApprovalRuleTemplateFromRepository"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.DisassociateApprovalRuleTemplateFromRepositoryResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCommit.Model.DisassociateApprovalRuleTemplateFromRepositoryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCommit.Model.DisassociateApprovalRuleTemplateFromRepositoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.DisassociateApprovalRuleTemplateFromRepositoryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCApprovalRuleTemplateFromRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [AWSCmdlet("Calls the AWS Network Firewall UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkFirewall.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkFirewall.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkFirewall.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveNWFWResourceTagCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

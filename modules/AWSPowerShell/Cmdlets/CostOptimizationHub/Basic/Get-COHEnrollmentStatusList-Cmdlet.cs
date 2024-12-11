@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
     [AWSCmdlet("Calls the Cost Optimization Hub ListEnrollmentStatuses API operation.", Operation = new[] {"ListEnrollmentStatuses"}, SelectReturnType = typeof(Amazon.CostOptimizationHub.Model.ListEnrollmentStatusesResponse))]
     [AWSCmdletOutput("Amazon.CostOptimizationHub.Model.AccountEnrollmentStatus or Amazon.CostOptimizationHub.Model.ListEnrollmentStatusesResponse",
         "This cmdlet returns a collection of Amazon.CostOptimizationHub.Model.AccountEnrollmentStatus objects.",
-        "The service call response (type Amazon.CostOptimizationHub.Model.ListEnrollmentStatusesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostOptimizationHub.Model.ListEnrollmentStatusesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOHEnrollmentStatusListCmdlet : AmazonCostOptimizationHubClientCmdlet, IExecutor
     {

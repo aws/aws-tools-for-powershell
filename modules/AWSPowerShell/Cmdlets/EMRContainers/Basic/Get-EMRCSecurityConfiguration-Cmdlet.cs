@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers DescribeSecurityConfiguration API operation.", Operation = new[] {"DescribeSecurityConfiguration"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DescribeSecurityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.SecurityConfiguration or Amazon.EMRContainers.Model.DescribeSecurityConfigurationResponse",
         "This cmdlet returns an Amazon.EMRContainers.Model.SecurityConfiguration object.",
-        "The service call response (type Amazon.EMRContainers.Model.DescribeSecurityConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRContainers.Model.DescribeSecurityConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMRCSecurityConfigurationCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

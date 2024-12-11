@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateMLTransform API operation.", Operation = new[] {"UpdateMLTransform"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateMLTransformResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.UpdateMLTransformResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.UpdateMLTransformResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.UpdateMLTransformResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEMLTransformCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

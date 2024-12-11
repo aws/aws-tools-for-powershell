@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [OutputType("Amazon.CodeBuild.Model.BatchGetFleetsResponse")]
     [AWSCmdlet("Calls the AWS CodeBuild BatchGetFleets API operation.", Operation = new[] {"BatchGetFleets"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.BatchGetFleetsResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.BatchGetFleetsResponse",
-        "This cmdlet returns an Amazon.CodeBuild.Model.BatchGetFleetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeBuild.Model.BatchGetFleetsResponse object containing multiple properties."
     )]
     public partial class GetCBCBFleetBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

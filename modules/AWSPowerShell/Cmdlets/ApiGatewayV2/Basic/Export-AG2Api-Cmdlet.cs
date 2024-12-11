@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 ExportApi API operation.", Operation = new[] {"ExportApi"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.ExportApiResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.ApiGatewayV2.Model.ExportApiResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.ApiGatewayV2.Model.ExportApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApiGatewayV2.Model.ExportApiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportAG2ApiCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

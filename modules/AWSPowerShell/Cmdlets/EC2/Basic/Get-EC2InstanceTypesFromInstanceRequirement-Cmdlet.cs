@@ -38,12 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// specified parameters. If you specify multiple values for a parameter, you get instance
     /// types that satisfy any of the specified values.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview
-    /// instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based
-    /// instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based
-    /// instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements">Preview
+    /// instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Specify
+    /// attributes for instance type selection for EC2 Fleet or Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
     /// placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
-    /// an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon
+    /// mixed instance groups using attribute-based instance type selection</a> in the <i>Amazon
     /// EC2 Auto Scaling User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceTypesFromInstanceRequirements API operation.", Operation = new[] {"GetInstanceTypesFromInstanceRequirements"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTypeInfoFromInstanceRequirements or Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTypeInfoFromInstanceRequirements objects.",
-        "The service call response (type Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.GetInstanceTypesFromInstanceRequirementsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceTypesFromInstanceRequirementCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <c>gpu</c>.</para></li><li><para>To include instance types with FPGA hardware, specify <c>fpga</c>.</para></li><li><para>To include instance types with inference hardware, specify <c>inference</c>.</para></li></ul><para>Default: Any accelerator type</para>
+        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <c>gpu</c>.</para></li><li><para>To include instance types with FPGA hardware, specify <c>fpga</c>.</para></li></ul><para>Default: Any accelerator type</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,7 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager DeleteLicenseManagerReportGenerator API operation.", Operation = new[] {"DeleteLicenseManagerReportGenerator"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.DeleteLicenseManagerReportGeneratorResponse))]
     [AWSCmdletOutput("None or Amazon.LicenseManager.Model.DeleteLicenseManagerReportGeneratorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LicenseManager.Model.DeleteLicenseManagerReportGeneratorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LicenseManager.Model.DeleteLicenseManagerReportGeneratorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLICMLicenseManagerReportGeneratorCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

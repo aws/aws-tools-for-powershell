@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeUserProfiles API operation.", Operation = new[] {"DescribeUserProfiles"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeUserProfilesResponse), LegacyAlias="Get-OPSUserProfiles")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.UserProfile or Amazon.OpsWorks.Model.DescribeUserProfilesResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.UserProfile objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeUserProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeUserProfilesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

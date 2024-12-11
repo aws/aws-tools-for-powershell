@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service UpdateDomain API operation.", Operation = new[] {"UpdateDomain"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateDomainResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateDomainResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_AssumableRoleArns")]
         public System.String[] EmrSettings_AssumableRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter JupyterLabAppSettings_BuiltInLifecycleConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>The lifecycle configuration that runs before the default lifecycle configuration.
+        /// It can override changes made in the default lifecycle configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_BuiltInLifecycleConfigArn")]
+        public System.String JupyterLabAppSettings_BuiltInLifecycleConfigArn { get; set; }
         #endregion
         
         #region Parameter JupyterLabAppSettings_CodeRepository
@@ -743,6 +755,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.IdleSettings_LifecycleManagement = this.IdleSettings_LifecycleManagement;
             context.IdleSettings_MaxIdleTimeoutInMinute = this.IdleSettings_MaxIdleTimeoutInMinute;
             context.IdleSettings_MinIdleTimeoutInMinute = this.IdleSettings_MinIdleTimeoutInMinute;
+            context.JupyterLabAppSettings_BuiltInLifecycleConfigArn = this.JupyterLabAppSettings_BuiltInLifecycleConfigArn;
             if (this.JupyterLabAppSettings_CodeRepository != null)
             {
                 context.JupyterLabAppSettings_CodeRepository = new List<Amazon.SageMaker.Model.CodeRepository>(this.JupyterLabAppSettings_CodeRepository);
@@ -1181,6 +1194,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate JupyterLabAppSettings
             var requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = true;
             requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings = new Amazon.SageMaker.Model.JupyterLabAppSettings();
+            System.String requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_BuiltInLifecycleConfigArn = null;
+            if (cmdletContext.JupyterLabAppSettings_BuiltInLifecycleConfigArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_BuiltInLifecycleConfigArn = cmdletContext.JupyterLabAppSettings_BuiltInLifecycleConfigArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_BuiltInLifecycleConfigArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings.BuiltInLifecycleConfigArn = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_BuiltInLifecycleConfigArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = false;
+            }
             List<Amazon.SageMaker.Model.CodeRepository> requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_CodeRepository = null;
             if (cmdletContext.JupyterLabAppSettings_CodeRepository != null)
             {
@@ -1692,6 +1715,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.LifecycleManagement IdleSettings_LifecycleManagement { get; set; }
             public System.Int32? IdleSettings_MaxIdleTimeoutInMinute { get; set; }
             public System.Int32? IdleSettings_MinIdleTimeoutInMinute { get; set; }
+            public System.String JupyterLabAppSettings_BuiltInLifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.CodeRepository> JupyterLabAppSettings_CodeRepository { get; set; }
             public List<Amazon.SageMaker.Model.CustomImage> JupyterLabAppSettings_CustomImage { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType { get; set; }

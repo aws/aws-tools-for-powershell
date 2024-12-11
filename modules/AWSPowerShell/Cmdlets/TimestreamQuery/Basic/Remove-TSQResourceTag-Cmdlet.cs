@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.TimestreamQuery.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamQuery.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TimestreamQuery.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTSQResourceTagCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.GetBackupVaultAccessPolicyResponse")]
     [AWSCmdlet("Calls the AWS Backup GetBackupVaultAccessPolicy API operation.", Operation = new[] {"GetBackupVaultAccessPolicy"}, SelectReturnType = typeof(Amazon.Backup.Model.GetBackupVaultAccessPolicyResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.GetBackupVaultAccessPolicyResponse",
-        "This cmdlet returns an Amazon.Backup.Model.GetBackupVaultAccessPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.GetBackupVaultAccessPolicyResponse object containing multiple properties."
     )]
     public partial class GetBAKBackupVaultAccessPolicyCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

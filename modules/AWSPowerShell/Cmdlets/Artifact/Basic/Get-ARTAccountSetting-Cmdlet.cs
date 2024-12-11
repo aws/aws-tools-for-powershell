@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
     [AWSCmdlet("Calls the AWS Artifact GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.Artifact.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.Artifact.Model.AccountSettings or Amazon.Artifact.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.Artifact.Model.AccountSettings object.",
-        "The service call response (type Amazon.Artifact.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Artifact.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetARTAccountSettingCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {

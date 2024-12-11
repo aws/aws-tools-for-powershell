@@ -28,16 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Create a new Capacity Reservation by splitting the available capacity of the source
-    /// Capacity Reservation. The new Capacity Reservation will have the same attributes as
-    /// the source Capacity Reservation except for tags. The source Capacity Reservation must
-    /// be <c>active</c> and owned by your Amazon Web Services account.
+    /// Create a new Capacity Reservation by splitting the capacity of the source Capacity
+    /// Reservation. The new Capacity Reservation will have the same attributes as the source
+    /// Capacity Reservation except for tags. The source Capacity Reservation must be <c>active</c>
+    /// and owned by your Amazon Web Services account.
     /// </summary>
     [Cmdlet("New", "EC2CapacityReservationBySplitting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCapacityReservationBySplitting API operation.", Operation = new[] {"CreateCapacityReservationBySplitting"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateCapacityReservationBySplittingResponse object containing multiple properties."
     )]
     public partial class NewEC2CapacityReservationBySplittingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SourceCapacityReservationId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Capacity Reservation from which you want to split the available capacity.
-        /// </para>
+        /// <para> The ID of the Capacity Reservation from which you want to split the capacity. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

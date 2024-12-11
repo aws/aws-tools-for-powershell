@@ -32,12 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated
     /// with a registered location, for example an Amazon S3 bucket, with a scope down policy
     /// which restricts the access to a single prefix.
+    /// 
+    ///  
+    /// <para>
+    /// To call this API, the role that the service assumes must have <c>lakeformation:GetDataAccess</c>
+    /// permission on the resource.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LKFTemporaryGlueTableCredential")]
     [OutputType("Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation GetTemporaryGlueTableCredentials API operation.", Operation = new[] {"GetTemporaryGlueTableCredentials"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetTemporaryGlueTableCredentialsResponse object containing multiple properties."
     )]
     public partial class GetLKFTemporaryGlueTableCredentialCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

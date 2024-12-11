@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub EnableSecurityHub API operation.", Operation = new[] {"EnableSecurityHub"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.EnableSecurityHubResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.EnableSecurityHubResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.EnableSecurityHubResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.EnableSecurityHubResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableSHUBSecurityHubCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

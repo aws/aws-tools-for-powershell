@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCDResourceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

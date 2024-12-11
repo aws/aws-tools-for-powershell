@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetCredentialReportResponse")]
     [AWSCmdlet("Calls the AWS Identity and Access Management GetCredentialReport API operation.", Operation = new[] {"GetCredentialReport"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetCredentialReportResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetCredentialReportResponse",
-        "This cmdlet returns an Amazon.IdentityManagement.Model.GetCredentialReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetCredentialReportResponse object containing multiple properties."
     )]
     public partial class GetIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

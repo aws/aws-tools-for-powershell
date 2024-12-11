@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection or Amazon.DatabaseMigrationService.Model.DeleteConnectionResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.Connection object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSConnectionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

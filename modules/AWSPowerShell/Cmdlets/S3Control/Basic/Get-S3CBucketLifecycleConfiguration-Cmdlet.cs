@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control GetBucketLifecycleConfiguration API operation.", Operation = new[] {"GetBucketLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.LifecycleRule or Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.LifecycleRule objects.",
-        "The service call response (type Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.GetBucketLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CBucketLifecycleConfigurationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

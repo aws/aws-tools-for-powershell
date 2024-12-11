@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetTrackingOptions API operation.", Operation = new[] {"PutConfigurationSetTrackingOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSES2ConfigurationSetTrackingOptionCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

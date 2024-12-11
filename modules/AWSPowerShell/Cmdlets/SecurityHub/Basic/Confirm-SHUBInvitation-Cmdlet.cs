@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub AcceptInvitation API operation.", Operation = new[] {"AcceptInvitation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.AcceptInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.AcceptInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.AcceptInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.AcceptInvitationResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API has been deprecated, use AcceptAdministratorInvitation API instead.")]
     public partial class ConfirmSHUBInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup ListQuickSetupTypes API operation.", Operation = new[] {"ListQuickSetupTypes"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.ListQuickSetupTypesResponse))]
     [AWSCmdletOutput("Amazon.SSMQuickSetup.Model.QuickSetupTypeOutput or Amazon.SSMQuickSetup.Model.ListQuickSetupTypesResponse",
         "This cmdlet returns a collection of Amazon.SSMQuickSetup.Model.QuickSetupTypeOutput objects.",
-        "The service call response (type Amazon.SSMQuickSetup.Model.ListQuickSetupTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMQuickSetup.Model.ListQuickSetupTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMQSQuickSetupTypeListCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

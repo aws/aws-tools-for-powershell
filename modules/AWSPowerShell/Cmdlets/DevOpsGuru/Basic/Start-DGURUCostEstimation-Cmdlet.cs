@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru StartCostEstimation API operation.", Operation = new[] {"StartCostEstimation"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.StartCostEstimationResponse))]
     [AWSCmdletOutput("None or Amazon.DevOpsGuru.Model.StartCostEstimationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DevOpsGuru.Model.StartCostEstimationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DevOpsGuru.Model.StartCostEstimationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartDGURUCostEstimationCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

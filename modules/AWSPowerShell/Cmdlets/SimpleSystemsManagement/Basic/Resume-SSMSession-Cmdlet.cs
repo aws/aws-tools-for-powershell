@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager ResumeSession API operation.", Operation = new[] {"ResumeSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.ResumeSessionResponse object containing multiple properties."
     )]
     public partial class ResumeSSMSessionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

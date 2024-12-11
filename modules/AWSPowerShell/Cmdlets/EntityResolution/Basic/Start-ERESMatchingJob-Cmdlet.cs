@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution StartMatchingJob API operation.", Operation = new[] {"StartMatchingJob"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.StartMatchingJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.StartMatchingJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EntityResolution.Model.StartMatchingJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.StartMatchingJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartERESMatchingJobCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

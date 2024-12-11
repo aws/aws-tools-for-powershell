@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Use UntagResource.")]
     public partial class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [AWSCmdlet("Calls the Application Auto Scaling RegisterScalableTarget API operation.", Operation = new[] {"RegisterScalableTarget"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

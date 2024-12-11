@@ -80,6 +80,38 @@ $QC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QConnect.AIAgentType
+        {
+            ($_ -eq "Remove-QCAssistantAIAgent/AiAgentType") -Or
+            ($_ -eq "Update-QCAssistantAIAgent/AiAgentType") -Or
+            ($_ -eq "New-QCAIAgent/Type")
+        }
+        {
+            $v = "ANSWER_RECOMMENDATION","MANUAL_SEARCH"
+            break
+        }
+
+        # Amazon.QConnect.AIPromptAPIFormat
+        "New-QCAIPrompt/ApiFormat"
+        {
+            $v = "ANTHROPIC_CLAUDE_MESSAGES","ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
+            break
+        }
+
+        # Amazon.QConnect.AIPromptTemplateType
+        "New-QCAIPrompt/TemplateType"
+        {
+            $v = "TEXT"
+            break
+        }
+
+        # Amazon.QConnect.AIPromptType
+        "New-QCAIPrompt/Type"
+        {
+            $v = "ANSWER_GENERATION","INTENT_LABELING_GENERATION","QUERY_REFORMULATION"
+            break
+        }
+
         # Amazon.QConnect.AssistantType
         "New-QCAssistant/Type"
         {
@@ -91,6 +123,13 @@ $QC_Completers = {
         "New-QCAssistantAssociation/AssociationType"
         {
             $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.QConnect.ChunkingStrategy
+        "New-QCKnowledgeBase/ChunkingConfiguration_ChunkingStrategy"
+        {
+            $v = "FIXED_SIZE","HIERARCHICAL","NONE","SEMANTIC"
             break
         }
 
@@ -115,10 +154,17 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.KnowledgeBaseSearchType
+        "Search-QCAssistant/OverrideKnowledgeBaseSearchType"
+        {
+            $v = "HYBRID","SEMANTIC"
+            break
+        }
+
         # Amazon.QConnect.KnowledgeBaseType
         "New-QCKnowledgeBase/KnowledgeBaseType"
         {
-            $v = "CUSTOM","EXTERNAL","QUICK_RESPONSES"
+            $v = "CUSTOM","EXTERNAL","MANAGED","MESSAGE_TEMPLATES","QUICK_RESPONSES"
             break
         }
 
@@ -129,6 +175,25 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.Origin
+        {
+            ($_ -eq "Get-QCAIAgentList/Origin") -Or
+            ($_ -eq "Get-QCAIAgentVersionList/Origin") -Or
+            ($_ -eq "Get-QCAIPromptList/Origin") -Or
+            ($_ -eq "Get-QCAIPromptVersionList/Origin")
+        }
+        {
+            $v = "CUSTOMER","SYSTEM"
+            break
+        }
+
+        # Amazon.QConnect.ParsingStrategy
+        "New-QCKnowledgeBase/ParsingConfiguration_ParsingStrategy"
+        {
+            $v = "BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
         # Amazon.QConnect.Relevance
         "Write-QCFeedback/GenerativeContentFeedbackData_Relevance"
         {
@@ -136,10 +201,36 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.SessionDataNamespace
+        "Update-QCSessionData/Namespace"
+        {
+            $v = "Custom"
+            break
+        }
+
         # Amazon.QConnect.TargetType
         "Write-QCFeedback/TargetType"
         {
             $v = "RECOMMENDATION","RESULT"
+            break
+        }
+
+        # Amazon.QConnect.VisibilityStatus
+        {
+            ($_ -eq "New-QCAIAgent/VisibilityStatus") -Or
+            ($_ -eq "New-QCAIPrompt/VisibilityStatus") -Or
+            ($_ -eq "Update-QCAIAgent/VisibilityStatus") -Or
+            ($_ -eq "Update-QCAIPrompt/VisibilityStatus")
+        }
+        {
+            $v = "PUBLISHED","SAVED"
+            break
+        }
+
+        # Amazon.QConnect.WebScopeType
+        "New-QCKnowledgeBase/WebCrawlerConfiguration_Scope"
+        {
+            $v = "HOST_ONLY","SUBDOMAINS"
             break
         }
 
@@ -152,14 +243,24 @@ $QC_Completers = {
 }
 
 $QC_map = @{
+    "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
+    "ApiFormat"=@("New-QCAIPrompt")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
+    "ChunkingConfiguration_ChunkingStrategy"=@("New-QCKnowledgeBase")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
+    "Namespace"=@("Update-QCSessionData")
     "OrderOnField_Order"=@("Search-QCQuickResponse")
+    "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
+    "OverrideKnowledgeBaseSearchType"=@("Search-QCAssistant")
+    "ParsingConfiguration_ParsingStrategy"=@("New-QCKnowledgeBase")
     "TargetType"=@("Write-QCFeedback")
-    "Type"=@("New-QCAssistant")
+    "TemplateType"=@("New-QCAIPrompt")
+    "Type"=@("New-QCAIAgent","New-QCAIPrompt","New-QCAssistant")
+    "VisibilityStatus"=@("New-QCAIAgent","New-QCAIPrompt","Update-QCAIAgent","Update-QCAIPrompt")
+    "WebCrawlerConfiguration_Scope"=@("New-QCKnowledgeBase")
 }
 
 _awsArgumentCompleterRegistration $QC_Completers $QC_map
@@ -212,13 +313,21 @@ $QC_SelectCompleters = {
 }
 
 $QC_SelectMap = @{
-    "Select"=@("New-QCAssistant",
+    "Select"=@("New-QCAIAgent",
+               "New-QCAIAgentVersion",
+               "New-QCAIPrompt",
+               "New-QCAIPromptVersion",
+               "New-QCAssistant",
                "New-QCAssistantAssociation",
                "New-QCContent",
                "New-QCContentAssociation",
                "New-QCKnowledgeBase",
                "New-QCQuickResponse",
                "New-QCSession",
+               "Remove-QCAIAgent",
+               "Remove-QCAIAgentVersion",
+               "Remove-QCAIPrompt",
+               "Remove-QCAIPromptVersion",
                "Remove-QCAssistant",
                "Remove-QCAssistantAssociation",
                "Remove-QCContent",
@@ -226,6 +335,8 @@ $QC_SelectMap = @{
                "Remove-QCImportJob",
                "Remove-QCKnowledgeBase",
                "Remove-QCQuickResponse",
+               "Get-QCAIAgent",
+               "Get-QCAIPrompt",
                "Get-QCAssistant",
                "Get-QCAssistantAssociation",
                "Get-QCContent",
@@ -236,6 +347,10 @@ $QC_SelectMap = @{
                "Get-QCQuickResponse",
                "Get-QCRecommendation",
                "Get-QCSession",
+               "Get-QCAIAgentList",
+               "Get-QCAIAgentVersionList",
+               "Get-QCAIPromptList",
+               "Get-QCAIPromptVersionList",
                "Get-QCAssistantAssociationList",
                "Get-QCAssistantList",
                "Get-QCContentAssociationList",
@@ -247,6 +362,7 @@ $QC_SelectMap = @{
                "Remove-QCRecommendationsReceived",
                "Write-QCFeedback",
                "Search-QCAssistant",
+               "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
                "Search-QCContent",
                "Search-QCQuickResponse",
@@ -255,10 +371,14 @@ $QC_SelectMap = @{
                "Start-QCImportJob",
                "Add-QCResourceTag",
                "Remove-QCResourceTag",
+               "Update-QCAIAgent",
+               "Update-QCAIPrompt",
+               "Update-QCAssistantAIAgent",
                "Update-QCContent",
                "Update-QCKnowledgeBaseTemplateUri",
                "Update-QCQuickResponse",
-               "Update-QCSession")
+               "Update-QCSession",
+               "Update-QCSessionData")
 }
 
 _awsArgumentCompleterRegistration $QC_SelectCompleters $QC_SelectMap

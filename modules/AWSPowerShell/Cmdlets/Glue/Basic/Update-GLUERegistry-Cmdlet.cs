@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.UpdateRegistryResponse")]
     [AWSCmdlet("Calls the AWS Glue UpdateRegistry API operation.", Operation = new[] {"UpdateRegistry"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateRegistryResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.UpdateRegistryResponse",
-        "This cmdlet returns an Amazon.Glue.Model.UpdateRegistryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.UpdateRegistryResponse object containing multiple properties."
     )]
     public partial class UpdateGLUERegistryCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

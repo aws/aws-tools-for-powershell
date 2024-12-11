@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections UpdateSyncConfiguration API operation.", Operation = new[] {"UpdateSyncConfiguration"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.UpdateSyncConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.SyncConfiguration or Amazon.CodeConnections.Model.UpdateSyncConfigurationResponse",
         "This cmdlet returns an Amazon.CodeConnections.Model.SyncConfiguration object.",
-        "The service call response (type Amazon.CodeConnections.Model.UpdateSyncConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.UpdateSyncConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCONSyncConfigurationCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

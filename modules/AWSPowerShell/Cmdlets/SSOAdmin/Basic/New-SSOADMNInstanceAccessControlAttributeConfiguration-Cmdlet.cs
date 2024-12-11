@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin CreateInstanceAccessControlAttributeConfiguration API operation.", Operation = new[] {"CreateInstanceAccessControlAttributeConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.CreateInstanceAccessControlAttributeConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.CreateInstanceAccessControlAttributeConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.CreateInstanceAccessControlAttributeConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.CreateInstanceAccessControlAttributeConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSSOADMNInstanceAccessControlAttributeConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

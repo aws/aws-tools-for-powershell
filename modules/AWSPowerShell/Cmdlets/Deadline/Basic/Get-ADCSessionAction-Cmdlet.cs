@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.GetSessionActionResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud GetSessionAction API operation.", Operation = new[] {"GetSessionAction"}, SelectReturnType = typeof(Amazon.Deadline.Model.GetSessionActionResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.GetSessionActionResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.GetSessionActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.GetSessionActionResponse object containing multiple properties."
     )]
     public partial class GetADCSessionActionCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric DeleteAppBundle API operation.", Operation = new[] {"DeleteAppBundle"}, SelectReturnType = typeof(Amazon.AppFabric.Model.DeleteAppBundleResponse))]
     [AWSCmdletOutput("None or Amazon.AppFabric.Model.DeleteAppBundleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppFabric.Model.DeleteAppBundleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppFabric.Model.DeleteAppBundleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAFABAppBundleCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

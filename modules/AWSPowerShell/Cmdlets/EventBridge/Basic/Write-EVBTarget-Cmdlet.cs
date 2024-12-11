@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge PutTargets API operation.", Operation = new[] {"PutTargets"}, SelectReturnType = typeof(Amazon.EventBridge.Model.PutTargetsResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.PutTargetsResultEntry or Amazon.EventBridge.Model.PutTargetsResponse",
         "This cmdlet returns a collection of Amazon.EventBridge.Model.PutTargetsResultEntry objects.",
-        "The service call response (type Amazon.EventBridge.Model.PutTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.PutTargetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteEVBTargetCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

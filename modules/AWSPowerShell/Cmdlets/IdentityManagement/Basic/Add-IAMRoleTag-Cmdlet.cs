@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management TagRole API operation.", Operation = new[] {"TagRole"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.TagRoleResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.TagRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.TagRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.TagRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMRoleTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

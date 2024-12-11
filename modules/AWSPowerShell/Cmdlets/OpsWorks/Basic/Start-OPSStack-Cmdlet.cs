@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks StartStack API operation.", Operation = new[] {"StartStack"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.StartStackResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.StartStackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.StartStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.StartStackResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     [AWSCmdlet("Calls the Amazon SageMaker Feature Store Runtime DeleteRecord API operation.", Operation = new[] {"DeleteRecord"}, SelectReturnType = typeof(Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse))]
     [AWSCmdletOutput("None or Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {

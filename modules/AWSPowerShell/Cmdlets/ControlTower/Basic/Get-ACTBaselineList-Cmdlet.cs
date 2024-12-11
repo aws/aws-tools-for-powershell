@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower ListBaselines API operation.", Operation = new[] {"ListBaselines"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListBaselinesResponse))]
     [AWSCmdletOutput("Amazon.ControlTower.Model.BaselineSummary or Amazon.ControlTower.Model.ListBaselinesResponse",
         "This cmdlet returns a collection of Amazon.ControlTower.Model.BaselineSummary objects.",
-        "The service call response (type Amazon.ControlTower.Model.ListBaselinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ControlTower.Model.ListBaselinesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACTBaselineListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

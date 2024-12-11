@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.UpdateBucketResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail UpdateBucket API operation.", Operation = new[] {"UpdateBucket"}, SelectReturnType = typeof(Amazon.Lightsail.Model.UpdateBucketResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.UpdateBucketResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.UpdateBucketResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.UpdateBucketResponse object containing multiple properties."
     )]
     public partial class UpdateLSBucketCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

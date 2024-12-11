@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutInsightRule API operation.", Operation = new[] {"PutInsightRule"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutInsightRuleResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutInsightRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutInsightRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutInsightRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWInsightRuleCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

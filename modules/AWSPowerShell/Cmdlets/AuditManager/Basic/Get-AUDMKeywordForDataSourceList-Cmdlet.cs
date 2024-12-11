@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager ListKeywordsForDataSource API operation.", Operation = new[] {"ListKeywordsForDataSource"}, SelectReturnType = typeof(Amazon.AuditManager.Model.ListKeywordsForDataSourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.AuditManager.Model.ListKeywordsForDataSourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AuditManager.Model.ListKeywordsForDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.ListKeywordsForDataSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMKeywordForDataSourceListCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana UpdatePermissions API operation.", Operation = new[] {"UpdatePermissions"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.UpdatePermissionsResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.UpdateError or Amazon.ManagedGrafana.Model.UpdatePermissionsResponse",
         "This cmdlet returns a collection of Amazon.ManagedGrafana.Model.UpdateError objects.",
-        "The service call response (type Amazon.ManagedGrafana.Model.UpdatePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.UpdatePermissionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateMGRFPermissionCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

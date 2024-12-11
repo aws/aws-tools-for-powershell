@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [OutputType("Amazon.FraudDetector.Model.BatchGetVariableResponse")]
     [AWSCmdlet("Calls the Amazon Fraud Detector BatchGetVariable API operation.", Operation = new[] {"BatchGetVariable"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.BatchGetVariableResponse))]
     [AWSCmdletOutput("Amazon.FraudDetector.Model.BatchGetVariableResponse",
-        "This cmdlet returns an Amazon.FraudDetector.Model.BatchGetVariableResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FraudDetector.Model.BatchGetVariableResponse object containing multiple properties."
     )]
     public partial class GetFDVariableBatchCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

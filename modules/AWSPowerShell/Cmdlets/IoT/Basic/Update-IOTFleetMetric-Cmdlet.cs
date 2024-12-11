@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT UpdateFleetMetric API operation.", Operation = new[] {"UpdateFleetMetric"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateFleetMetricResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.UpdateFleetMetricResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.UpdateFleetMetricResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.UpdateFleetMetricResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTFleetMetricCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

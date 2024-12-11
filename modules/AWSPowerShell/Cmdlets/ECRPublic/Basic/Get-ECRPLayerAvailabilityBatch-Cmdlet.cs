@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [OutputType("Amazon.ECRPublic.Model.BatchCheckLayerAvailabilityResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public BatchCheckLayerAvailability API operation.", Operation = new[] {"BatchCheckLayerAvailability"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.BatchCheckLayerAvailabilityResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.BatchCheckLayerAvailabilityResponse",
-        "This cmdlet returns an Amazon.ECRPublic.Model.BatchCheckLayerAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECRPublic.Model.BatchCheckLayerAvailabilityResponse object containing multiple properties."
     )]
     public partial class GetECRPLayerAvailabilityBatchCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetGroupResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetGroup API operation.", Operation = new[] {"GetGroup"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetGroupResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetGroupResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetGroupResponse object containing multiple properties."
     )]
     public partial class GetGGGroupCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams DeleteSignalingChannel API operation.", Operation = new[] {"DeleteSignalingChannel"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.DeleteSignalingChannelResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.DeleteSignalingChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideo.Model.DeleteSignalingChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.DeleteSignalingChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKVSignalingChannelCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

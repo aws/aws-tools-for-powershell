@@ -28,19 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Removes a list of analytics datasets associated with a given Amazon Connect instance.
     /// You can disassociate multiple datasets in a single call.
-    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "CONNBatchAnalyticsDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service BatchDisassociateAnalyticsDataSet API operation.", Operation = new[] {"BatchDisassociateAnalyticsDataSet"}, SelectReturnType = typeof(Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse",
-        "This cmdlet returns an Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.BatchDisassociateAnalyticsDataSetResponse object containing multiple properties."
     )]
     public partial class UnregisterCONNBatchAnalyticsDataSetCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

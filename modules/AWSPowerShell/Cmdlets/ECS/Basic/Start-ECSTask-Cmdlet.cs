@@ -35,15 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// On March 21, 2024, a change was made to resolve the task definition revision before
     /// authorization. When a task definition revision is not specified, authorization will
     /// occur using the latest revision of a task definition.
+    /// </para></note><note><para>
+    /// Amazon Elastic Inference (EI) is no longer available to customers.
     /// </para></note><para>
-    /// Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-    /// Elastic Inference (EI), and will help current customers migrate their workloads to
-    /// options that offer better price and performance. After April 15, 2023, new customers
-    /// will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-    /// Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once
-    /// during the past 30-day period are considered current customers and will be able to
-    /// continue using the service. 
-    /// </para><para>
     /// Alternatively, you can use<c>RunTask</c> to place tasks for you. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
@@ -57,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.StartTaskResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service StartTask API operation.", Operation = new[] {"StartTask"}, SelectReturnType = typeof(Amazon.ECS.Model.StartTaskResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.StartTaskResponse",
-        "This cmdlet returns an Amazon.ECS.Model.StartTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.StartTaskResponse object containing multiple properties."
     )]
     public partial class StartECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -214,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ReferenceId
         /// <summary>
         /// <para>
-        /// <para>The reference ID to use for the task.</para>
+        /// <para>This parameter is only used by Amazon ECS. It is not intended for use by customers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

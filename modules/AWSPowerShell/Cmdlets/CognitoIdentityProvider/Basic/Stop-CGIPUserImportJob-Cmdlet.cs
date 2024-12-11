@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider StopUserImportJob API operation.", Operation = new[] {"StopUserImportJob"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.StopUserImportJobResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserImportJobType or Amazon.CognitoIdentityProvider.Model.StopUserImportJobResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.UserImportJobType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.StopUserImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.StopUserImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopCGIPUserImportJobCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

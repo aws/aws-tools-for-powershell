@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Cloud9.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Cloud9.Model.Tag or Amazon.Cloud9.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Cloud9.Model.Tag objects.",
-        "The service call response (type Amazon.Cloud9.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Cloud9.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetC9ResourceTagCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

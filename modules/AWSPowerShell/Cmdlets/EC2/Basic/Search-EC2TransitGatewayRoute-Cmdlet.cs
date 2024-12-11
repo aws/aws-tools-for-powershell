@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.SearchTransitGatewayRoutesResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SearchTransitGatewayRoutes API operation.", Operation = new[] {"SearchTransitGatewayRoutes"}, SelectReturnType = typeof(Amazon.EC2.Model.SearchTransitGatewayRoutesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SearchTransitGatewayRoutesResponse",
-        "This cmdlet returns an Amazon.EC2.Model.SearchTransitGatewayRoutesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.SearchTransitGatewayRoutesResponse object containing multiple properties."
     )]
     public partial class SearchEC2TransitGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

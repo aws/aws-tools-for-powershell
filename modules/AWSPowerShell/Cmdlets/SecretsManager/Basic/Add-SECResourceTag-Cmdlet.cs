@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [AWSCmdlet("Calls the AWS Secrets Manager TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SecretsManager.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecretsManager.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecretsManager.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSECResourceTagCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

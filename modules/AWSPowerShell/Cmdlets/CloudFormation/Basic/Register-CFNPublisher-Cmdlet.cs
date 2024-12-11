@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  
     /// <para>
     /// For information about requirements for registering as a public extension publisher,
-    /// see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering
-    /// your account to publish CloudFormation extensions</a> in the <i>CloudFormation CLI
-    /// User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite:
+    /// Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation
+    /// Command Line Interface (CLI) User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "CFNPublisher", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation RegisterPublisher API operation.", Operation = new[] {"RegisterPublisher"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.RegisterPublisherResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.RegisterPublisherResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.RegisterPublisherResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.RegisterPublisherResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterCFNPublisherCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>If you are using a Bitbucket or GitHub account for identity verification, the Amazon
-        /// Resource Name (ARN) for your connection to that account.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Registering
-        /// your account to publish CloudFormation extensions</a> in the <i>CloudFormation CLI
-        /// User Guide</i>.</para>
+        /// Resource Name (ARN) for your connection to that account.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs">Prerequisite:
+        /// Registering your account to publish CloudFormation extensions</a> in the <i>CloudFormation
+        /// Command Line Interface (CLI) User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

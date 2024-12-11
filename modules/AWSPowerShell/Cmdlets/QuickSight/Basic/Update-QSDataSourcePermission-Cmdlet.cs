@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateDataSourcePermissions API operation.", Operation = new[] {"UpdateDataSourcePermissions"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse object containing multiple properties."
     )]
     public partial class UpdateQSDataSourcePermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

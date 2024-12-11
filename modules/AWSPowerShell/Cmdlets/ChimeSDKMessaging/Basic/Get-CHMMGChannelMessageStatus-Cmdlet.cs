@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging GetChannelMessageStatus API operation.", Operation = new[] {"GetChannelMessageStatus"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.GetChannelMessageStatusResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ChannelMessageStatusStructure or Amazon.ChimeSDKMessaging.Model.GetChannelMessageStatusResponse",
         "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ChannelMessageStatusStructure object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.GetChannelMessageStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.GetChannelMessageStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMMGChannelMessageStatusCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

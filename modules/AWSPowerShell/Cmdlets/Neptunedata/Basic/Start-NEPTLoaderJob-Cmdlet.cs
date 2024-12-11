@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.StartLoaderJobResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData StartLoaderJob API operation.", Operation = new[] {"StartLoaderJob"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.StartLoaderJobResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.StartLoaderJobResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.StartLoaderJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.StartLoaderJobResponse object containing multiple properties."
     )]
     public partial class StartNEPTLoaderJobCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

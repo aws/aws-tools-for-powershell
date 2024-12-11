@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.GetAppsListResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetAppsList API operation.", Operation = new[] {"GetAppsList"}, SelectReturnType = typeof(Amazon.FMS.Model.GetAppsListResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.GetAppsListResponse",
-        "This cmdlet returns an Amazon.FMS.Model.GetAppsListResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.GetAppsListResponse object containing multiple properties."
     )]
     public partial class GetFMSAppListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

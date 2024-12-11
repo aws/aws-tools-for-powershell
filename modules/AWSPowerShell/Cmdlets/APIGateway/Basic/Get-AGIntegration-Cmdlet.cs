@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.GetIntegrationResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway GetIntegration API operation.", Operation = new[] {"GetIntegration"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetIntegrationResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetIntegrationResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.GetIntegrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.GetIntegrationResponse object containing multiple properties."
     )]
     public partial class GetAGIntegrationCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

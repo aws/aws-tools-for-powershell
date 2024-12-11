@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [OutputType("Amazon.SSOAdmin.Model.GetApplicationAccessScopeResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On Admin GetApplicationAccessScope API operation.", Operation = new[] {"GetApplicationAccessScope"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.GetApplicationAccessScopeResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.GetApplicationAccessScopeResponse",
-        "This cmdlet returns an Amazon.SSOAdmin.Model.GetApplicationAccessScopeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOAdmin.Model.GetApplicationAccessScopeResponse object containing multiple properties."
     )]
     public partial class GetSSOADMNApplicationAccessScopeCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

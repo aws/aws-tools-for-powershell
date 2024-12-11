@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     [AWSCmdlet("Calls the Amazon Data Lifecycle Manager UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.DLM.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DLM.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DLM.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DLM.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDLMResourceTagCmdlet : AmazonDLMClientCmdlet, IExecutor
     {

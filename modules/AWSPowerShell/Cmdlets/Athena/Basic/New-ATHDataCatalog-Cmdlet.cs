@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// created are visible to all users of the same Amazon Web Services account.
     /// </summary>
     [Cmdlet("New", "ATHDataCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Athena.Model.CreateDataCatalogResponse")]
+    [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Athena CreateDataCatalog API operation.", Operation = new[] {"CreateDataCatalog"}, SelectReturnType = typeof(Amazon.Athena.Model.CreateDataCatalogResponse))]
-    [AWSCmdletOutput("Amazon.Athena.Model.CreateDataCatalogResponse",
-        "This cmdlet returns an Amazon.Athena.Model.CreateDataCatalogResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("None or Amazon.Athena.Model.CreateDataCatalogResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Athena.Model.CreateDataCatalogResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewATHDataCatalogCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
@@ -83,11 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// actual data, use the following syntax. Both parameters are required.</para><para><c>metadata-function=<i>lambda_arn</i>, record-function=<i>lambda_arn</i></c></para></li><li><para> If you have a composite Lambda function that processes both metadata and data, use
         /// the following syntax to specify your Lambda function.</para><para><c>function=<i>lambda_arn</i></c></para></li></ul></li><li><para>The <c>GLUE</c> type takes a catalog ID parameter and is required. The <c><i>catalog_id</i></c> is the account ID of the Amazon Web Services account to which the Glue Data Catalog
         /// belongs.</para><para><c>catalog-id=<i>catalog_id</i></c></para><ul><li><para>The <c>GLUE</c> data catalog type also applies to the default <c>AwsDataCatalog</c>
-        /// that already exists in your account, of which you can have only one and cannot modify.</para></li></ul></li><li><para>The <c>FEDERATED</c> data catalog type uses one of the following parameters, but not
-        /// both. Use <c>connection-arn</c> for an existing Glue connection. Use <c>connection-type</c>
-        /// and <c>connection-properties</c> to specify the configuration setting for a new connection.</para><ul><li><para><c>connection-arn:<i>&lt;glue_connection_arn_to_reuse&gt;</i></c></para></li><li><para><c>lambda-role-arn</c> (optional): The execution role to use for the Lambda function.
-        /// If not provided, one is created.</para></li><li><para><c>connection-type:MYSQL|REDSHIFT|...., connection-properties:"<i>&lt;json_string&gt;</i>"</c></para><para>For <i><c>&lt;json_string&gt;</c></i>, use escaped JSON text, as in the following
-        /// example.</para><para><c>"{\"spill_bucket\":\"my_spill\",\"spill_prefix\":\"athena-spill\",\"host\":\"abc12345.snowflakecomputing.com\",\"port\":\"1234\",\"warehouse\":\"DEV_WH\",\"database\":\"TEST\",\"schema\":\"PUBLIC\",\"SecretArn\":\"arn:aws:secretsmanager:ap-south-1:111122223333:secret:snowflake-XHb67j\"}"</c></para></li></ul></li></ul>
+        /// that already exists in your account, of which you can have only one and cannot modify.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of data catalog to create: <c>LAMBDA</c> for a federated catalog, <c>GLUE</c>
-        /// for an Glue Data Catalog, and <c>HIVE</c> for an external Apache Hive metastore. <c>FEDERATED</c>
-        /// is a federated catalog for which Athena creates the connection and the Lambda function
-        /// for you based on the parameters that you pass.</para>
+        /// <para>The type of data catalog to create: <c>LAMBDA</c> for a federated catalog, <c>HIVE</c>
+        /// for an external hive metastore, or <c>GLUE</c> for an Glue Data Catalog.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,9 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.CreateDataCatalogResponse).
-        /// Specifying the name of a property of type Amazon.Athena.Model.CreateDataCatalogResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public List<Amazon.Athena.Model.Tag> Tag { get; set; }
             public Amazon.Athena.DataCatalogType Type { get; set; }
             public System.Func<Amazon.Athena.Model.CreateDataCatalogResponse, NewATHDataCatalogCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+                (response, cmdlet) => null;
         }
         
     }

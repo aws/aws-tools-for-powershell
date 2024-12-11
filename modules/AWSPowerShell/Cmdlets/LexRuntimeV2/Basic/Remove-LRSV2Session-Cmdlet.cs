@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     [OutputType("Amazon.LexRuntimeV2.Model.DeleteSessionResponse")]
     [AWSCmdlet("Calls the Amazon Lex Runtime V2 DeleteSession API operation.", Operation = new[] {"DeleteSession"}, SelectReturnType = typeof(Amazon.LexRuntimeV2.Model.DeleteSessionResponse))]
     [AWSCmdletOutput("Amazon.LexRuntimeV2.Model.DeleteSessionResponse",
-        "This cmdlet returns an Amazon.LexRuntimeV2.Model.DeleteSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexRuntimeV2.Model.DeleteSessionResponse object containing multiple properties."
     )]
     public partial class RemoveLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {

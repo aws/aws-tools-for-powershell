@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeGuruProfiler.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CodeGuruProfiler.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruProfiler.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGPResourceTagCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

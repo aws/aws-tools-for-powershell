@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.GetLoggingOptionsResponse")]
     [AWSCmdlet("Calls the AWS IoT GetLoggingOptions API operation.", Operation = new[] {"GetLoggingOptions"}, SelectReturnType = typeof(Amazon.IoT.Model.GetLoggingOptionsResponse), LegacyAlias="Get-IOTLoggingOptions")]
     [AWSCmdletOutput("Amazon.IoT.Model.GetLoggingOptionsResponse",
-        "This cmdlet returns an Amazon.IoT.Model.GetLoggingOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.GetLoggingOptionsResponse object containing multiple properties."
     )]
     public partial class GetIOTLoggingOptionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

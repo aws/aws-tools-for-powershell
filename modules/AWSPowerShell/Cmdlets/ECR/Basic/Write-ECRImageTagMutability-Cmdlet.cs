@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.PutImageTagMutabilityResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry PutImageTagMutability API operation.", Operation = new[] {"PutImageTagMutability"}, SelectReturnType = typeof(Amazon.ECR.Model.PutImageTagMutabilityResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.PutImageTagMutabilityResponse",
-        "This cmdlet returns an Amazon.ECR.Model.PutImageTagMutabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.PutImageTagMutabilityResponse object containing multiple properties."
     )]
     public partial class WriteECRImageTagMutabilityCmdlet : AmazonECRClientCmdlet, IExecutor
     {

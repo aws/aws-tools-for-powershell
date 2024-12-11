@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) VerifyEmailIdentity API operation.", Operation = new[] {"VerifyEmailIdentity"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.VerifyEmailIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.VerifyEmailIdentityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.VerifyEmailIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.VerifyEmailIdentityResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmSESEmailIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

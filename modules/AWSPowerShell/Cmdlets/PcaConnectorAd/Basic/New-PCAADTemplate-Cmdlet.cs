@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad CreateTemplate API operation.", Operation = new[] {"CreateTemplate"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.CreateTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.PcaConnectorAd.Model.CreateTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.PcaConnectorAd.Model.CreateTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorAd.Model.CreateTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPCAADTemplateCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribePolicies API operation.", Operation = new[] {"DescribePolicies"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribePoliciesResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ScalingPolicy or Amazon.AutoScaling.Model.DescribePoliciesResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.ScalingPolicy objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribePoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

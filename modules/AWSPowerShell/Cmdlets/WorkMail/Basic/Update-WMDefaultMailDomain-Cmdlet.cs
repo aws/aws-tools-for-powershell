@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateDefaultMailDomain API operation.", Operation = new[] {"UpdateDefaultMailDomain"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateDefaultMailDomainResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateDefaultMailDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateDefaultMailDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateDefaultMailDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMDefaultMailDomainCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

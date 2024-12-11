@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs CreateLabels API operation.", Operation = new[] {"CreateLabels"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.CreateLabelsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.CreateLabelsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.CreateLabelsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.CreateLabelsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewWDLabelCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

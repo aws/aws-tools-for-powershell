@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) UndeprecateActivityType API operation.", Operation = new[] {"UndeprecateActivityType"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.UndeprecateActivityTypeResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.UndeprecateActivityTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.UndeprecateActivityTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.UndeprecateActivityTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestoreSWFActivityTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ListPackages API operation.", Operation = new[] {"ListPackages"}, SelectReturnType = typeof(Amazon.IoT.Model.ListPackagesResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.PackageSummary or Amazon.IoT.Model.ListPackagesResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.PackageSummary objects.",
-        "The service call response (type Amazon.IoT.Model.ListPackagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListPackagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTPackageListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

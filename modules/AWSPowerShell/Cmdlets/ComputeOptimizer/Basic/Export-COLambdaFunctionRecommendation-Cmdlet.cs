@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.ExportLambdaFunctionRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer ExportLambdaFunctionRecommendations API operation.", Operation = new[] {"ExportLambdaFunctionRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportLambdaFunctionRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportLambdaFunctionRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportLambdaFunctionRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportLambdaFunctionRecommendationsResponse object containing multiple properties."
     )]
     public partial class ExportCOLambdaFunctionRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

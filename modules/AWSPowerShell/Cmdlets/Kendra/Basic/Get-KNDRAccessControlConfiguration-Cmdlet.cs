@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.DescribeAccessControlConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Kendra DescribeAccessControlConfiguration API operation.", Operation = new[] {"DescribeAccessControlConfiguration"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribeAccessControlConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.DescribeAccessControlConfigurationResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribeAccessControlConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.DescribeAccessControlConfigurationResponse object containing multiple properties."
     )]
     public partial class GetKNDRAccessControlConfigurationCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

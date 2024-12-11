@@ -94,6 +94,13 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.MessageFeedbackStatus
+        "Write-SMSVMessageFeedback/MessageFeedbackStatus"
+        {
+            $v = "FAILED","RECEIVED"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.MessageType
         {
             ($_ -eq "New-SMSVPhoneNumber/MessageType") -Or
@@ -125,6 +132,13 @@ $SMSV_Completers = {
         }
         {
             $v = "SELF","SHARED"
+            break
+        }
+
+        # Amazon.PinpointSMSVoiceV2.ProtectConfigurationRuleOverrideAction
+        "Write-SMSVProtectConfigurationRuleSetNumberOverride/Action"
+        {
+            $v = "ALLOW","BLOCK"
             break
         }
 
@@ -165,9 +179,11 @@ $SMSV_Completers = {
 }
 
 $SMSV_map = @{
+    "Action"=@("Write-SMSVProtectConfigurationRuleSetNumberOverride")
     "KeywordAction"=@("Set-SMSVKeyword")
     "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
+    "MessageFeedbackStatus"=@("Write-SMSVMessageFeedback")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
@@ -249,6 +265,7 @@ $SMSV_SelectMap = @{
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
                "Remove-SMSVProtectConfiguration",
+               "Remove-SMSVProtectConfigurationRuleSetNumberOverride",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -281,10 +298,13 @@ $SMSV_SelectMap = @{
                "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVResourcePolicy",
                "Get-SMSVPoolOriginationIdentityList",
+               "Get-SMSVProtectConfigurationRuleSetNumberOverrideList",
                "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
                "Set-SMSVKeyword",
+               "Write-SMSVMessageFeedback",
                "Set-SMSVOptedOutNumber",
+               "Write-SMSVProtectConfigurationRuleSetNumberOverride",
                "Set-SMSVRegistrationFieldValue",
                "Write-SMSVResourcePolicy",
                "Remove-SMSVPhoneNumber",
@@ -296,6 +316,7 @@ $SMSV_SelectMap = @{
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
                "Set-SMSVAccountDefaultProtectConfiguration",
+               "Set-SMSVDefaultMessageFeedbackEnabled",
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
                "Set-SMSVMediaMessageSpendLimitOverride",

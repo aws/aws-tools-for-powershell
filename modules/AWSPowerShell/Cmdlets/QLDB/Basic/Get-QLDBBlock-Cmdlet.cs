@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [OutputType("Amazon.QLDB.Model.GetBlockResponse")]
     [AWSCmdlet("Calls the Amazon QLDB GetBlock API operation.", Operation = new[] {"GetBlock"}, SelectReturnType = typeof(Amazon.QLDB.Model.GetBlockResponse))]
     [AWSCmdletOutput("Amazon.QLDB.Model.GetBlockResponse",
-        "This cmdlet returns an Amazon.QLDB.Model.GetBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QLDB.Model.GetBlockResponse object containing multiple properties."
     )]
     public partial class GetQLDBBlockCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

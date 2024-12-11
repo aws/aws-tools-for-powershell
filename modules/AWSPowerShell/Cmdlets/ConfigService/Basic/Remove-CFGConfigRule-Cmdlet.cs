@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteConfigRule API operation.", Operation = new[] {"DeleteConfigRule"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteConfigRuleResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteConfigRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

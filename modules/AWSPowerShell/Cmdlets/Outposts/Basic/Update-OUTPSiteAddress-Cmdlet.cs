@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [OutputType("Amazon.Outposts.Model.UpdateSiteAddressResponse")]
     [AWSCmdlet("Calls the AWS Outposts UpdateSiteAddress API operation.", Operation = new[] {"UpdateSiteAddress"}, SelectReturnType = typeof(Amazon.Outposts.Model.UpdateSiteAddressResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.UpdateSiteAddressResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.UpdateSiteAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Outposts.Model.UpdateSiteAddressResponse object containing multiple properties."
     )]
     public partial class UpdateOUTPSiteAddressCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

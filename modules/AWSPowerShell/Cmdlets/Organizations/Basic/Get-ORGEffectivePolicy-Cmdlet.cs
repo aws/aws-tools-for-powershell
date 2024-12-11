@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DescribeEffectivePolicy API operation.", Operation = new[] {"DescribeEffectivePolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.DescribeEffectivePolicyResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.EffectivePolicy or Amazon.Organizations.Model.DescribeEffectivePolicyResponse",
         "This cmdlet returns an Amazon.Organizations.Model.EffectivePolicy object.",
-        "The service call response (type Amazon.Organizations.Model.DescribeEffectivePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.DescribeEffectivePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetORGEffectivePolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

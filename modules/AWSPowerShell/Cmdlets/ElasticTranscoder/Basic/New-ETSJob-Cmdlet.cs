@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Calls the Amazon Elastic Transcoder CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.CreateJobResponse))]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Job or Amazon.ElasticTranscoder.Model.CreateJobResponse",
         "This cmdlet returns an Amazon.ElasticTranscoder.Model.Job object.",
-        "The service call response (type Amazon.ElasticTranscoder.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.CreateJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone ListProjectMemberships API operation.", Operation = new[] {"ListProjectMemberships"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListProjectMembershipsResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.ProjectMember or Amazon.DataZone.Model.ListProjectMembershipsResponse",
         "This cmdlet returns a collection of Amazon.DataZone.Model.ProjectMember objects.",
-        "The service call response (type Amazon.DataZone.Model.ListProjectMembershipsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataZone.Model.ListProjectMembershipsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDZProjectMembershipListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

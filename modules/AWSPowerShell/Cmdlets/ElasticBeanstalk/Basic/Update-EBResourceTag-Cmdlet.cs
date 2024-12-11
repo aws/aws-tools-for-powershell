@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateTagsForResource API operation.", Operation = new[] {"UpdateTagsForResource"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.UpdateTagsForResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.UpdateTagsForResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.UpdateTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.UpdateTagsForResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateEBResourceTagCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

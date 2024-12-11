@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteCustomEntityType API operation.", Operation = new[] {"DeleteCustomEntityType"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteCustomEntityTypeResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.DeleteCustomEntityTypeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.DeleteCustomEntityTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteCustomEntityTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUECustomEntityTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

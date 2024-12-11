@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [OutputType("Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog App Registry DisassociateAttributeGroup API operation.", Operation = new[] {"DisassociateAttributeGroup"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRegistry.Model.DisassociateAttributeGroupResponse object containing multiple properties."
     )]
     public partial class UnregisterSCARAttributeGroupCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

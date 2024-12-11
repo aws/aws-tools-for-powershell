@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RegisterTransitGatewayMulticastGroupMembers API operation.", Operation = new[] {"RegisterTransitGatewayMulticastGroupMembers"}, SelectReturnType = typeof(Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupMembersResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastRegisteredGroupMembers or Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupMembersResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastRegisteredGroupMembers object.",
-        "The service call response (type Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RegisterTransitGatewayMulticastGroupMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterEC2TransitGatewayMulticastGroupMemberCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

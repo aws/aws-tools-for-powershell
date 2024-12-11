@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty GetFindings API operation.", Operation = new[] {"GetFindings"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetFindingsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.Finding or Amazon.GuardDuty.Model.GetFindingsResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.Finding objects.",
-        "The service call response (type Amazon.GuardDuty.Model.GetFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.GetFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDFindingCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The ID of the detector that specifies the GuardDuty service whose findings you want
-        /// to retrieve.</para>
+        /// to retrieve.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MediaStore.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStore.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStore.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStore.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEMSResourceTagCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

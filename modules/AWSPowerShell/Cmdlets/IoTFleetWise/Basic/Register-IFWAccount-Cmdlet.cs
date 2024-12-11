@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [OutputType("Amazon.IoTFleetWise.Model.RegisterAccountResponse")]
     [AWSCmdlet("Calls the AWS IoT FleetWise RegisterAccount API operation.", Operation = new[] {"RegisterAccount"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.RegisterAccountResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.RegisterAccountResponse",
-        "This cmdlet returns an Amazon.IoTFleetWise.Model.RegisterAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTFleetWise.Model.RegisterAccountResponse object containing multiple properties."
     )]
     public partial class RegisterIFWAccountCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

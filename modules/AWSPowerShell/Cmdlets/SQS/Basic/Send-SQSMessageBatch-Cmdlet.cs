@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) SendMessageBatch API operation.", Operation = new[] {"SendMessageBatch"}, SelectReturnType = typeof(Amazon.SQS.Model.SendMessageBatchResponse))]
     [AWSCmdletOutput("Amazon.SQS.Model.SendMessageBatchResponse",
-        "This cmdlet returns an Amazon.SQS.Model.SendMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SQS.Model.SendMessageBatchResponse object containing multiple properties."
     )]
     public partial class SendSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

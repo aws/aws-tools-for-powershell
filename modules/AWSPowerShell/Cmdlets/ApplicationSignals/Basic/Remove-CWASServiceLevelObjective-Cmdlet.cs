@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals DeleteServiceLevelObjective API operation.", Operation = new[] {"DeleteServiceLevelObjective"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.DeleteServiceLevelObjectiveResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationSignals.Model.DeleteServiceLevelObjectiveResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationSignals.Model.DeleteServiceLevelObjectiveResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationSignals.Model.DeleteServiceLevelObjectiveResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWASServiceLevelObjectiveCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

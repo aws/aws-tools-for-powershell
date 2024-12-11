@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling PutNotificationConfiguration API operation.", Operation = new[] {"PutNotificationConfiguration"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutNotificationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.PutNotificationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.PutNotificationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutNotificationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteASNotificationConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The type of event that causes the notification to be sent. To query the notification
-        /// types supported by Amazon EC2 Auto Scaling, call the <a>DescribeAutoScalingNotificationTypes</a>
+        /// types supported by Amazon EC2 Auto Scaling, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingNotificationTypes.html">DescribeAutoScalingNotificationTypes</a>
         /// API.</para>
         /// </para>
         /// </summary>

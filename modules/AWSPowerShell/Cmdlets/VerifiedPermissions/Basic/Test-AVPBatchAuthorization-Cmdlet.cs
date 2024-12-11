@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [AWSCmdlet("Calls the Amazon Verified Permissions BatchIsAuthorized API operation.", Operation = new[] {"BatchIsAuthorized"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.BatchIsAuthorizedResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.BatchIsAuthorizedOutputItem or Amazon.VerifiedPermissions.Model.BatchIsAuthorizedResponse",
         "This cmdlet returns a collection of Amazon.VerifiedPermissions.Model.BatchIsAuthorizedOutputItem objects.",
-        "The service call response (type Amazon.VerifiedPermissions.Model.BatchIsAuthorizedResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VerifiedPermissions.Model.BatchIsAuthorizedResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestAVPBatchAuthorizationCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

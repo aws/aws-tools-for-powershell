@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [OutputType("Amazon.GreengrassV2.Model.GetConnectivityInfoResponse")]
     [AWSCmdlet("Calls the AWS GreengrassV2 GetConnectivityInfo API operation.", Operation = new[] {"GetConnectivityInfo"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.GetConnectivityInfoResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.GetConnectivityInfoResponse",
-        "This cmdlet returns an Amazon.GreengrassV2.Model.GetConnectivityInfoResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GreengrassV2.Model.GetConnectivityInfoResponse object containing multiple properties."
     )]
     public partial class GetGGV2ConnectivityInfoCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

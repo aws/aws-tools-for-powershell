@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddGACLResourceTagCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

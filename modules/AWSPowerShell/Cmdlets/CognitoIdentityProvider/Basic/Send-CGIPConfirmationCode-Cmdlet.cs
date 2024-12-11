@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ResendConfirmationCode API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ResendConfirmationCode"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType or Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendCGIPConfirmationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

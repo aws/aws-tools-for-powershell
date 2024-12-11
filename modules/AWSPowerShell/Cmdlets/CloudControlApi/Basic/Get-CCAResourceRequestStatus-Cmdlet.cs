@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     [AWSCmdlet("Calls the AWS Cloud Control API GetResourceRequestStatus API operation.", Operation = new[] {"GetResourceRequestStatus"}, SelectReturnType = typeof(Amazon.CloudControlApi.Model.GetResourceRequestStatusResponse))]
     [AWSCmdletOutput("Amazon.CloudControlApi.Model.ProgressEvent or Amazon.CloudControlApi.Model.GetResourceRequestStatusResponse",
         "This cmdlet returns an Amazon.CloudControlApi.Model.ProgressEvent object.",
-        "The service call response (type Amazon.CloudControlApi.Model.GetResourceRequestStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudControlApi.Model.GetResourceRequestStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCAResourceRequestStatusCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {

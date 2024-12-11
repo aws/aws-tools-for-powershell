@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield UpdateEmergencyContactSettings API operation.", Operation = new[] {"UpdateEmergencyContactSettings"}, SelectReturnType = typeof(Amazon.Shield.Model.UpdateEmergencyContactSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.UpdateEmergencyContactSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.UpdateEmergencyContactSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.UpdateEmergencyContactSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSHLDEmergencyContactSettingCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

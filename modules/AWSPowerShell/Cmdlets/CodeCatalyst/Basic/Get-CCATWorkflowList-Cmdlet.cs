@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListWorkflows API operation.", Operation = new[] {"ListWorkflows"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListWorkflowsResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.WorkflowSummary or Amazon.CodeCatalyst.Model.ListWorkflowsResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.WorkflowSummary objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListWorkflowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListWorkflowsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATWorkflowListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

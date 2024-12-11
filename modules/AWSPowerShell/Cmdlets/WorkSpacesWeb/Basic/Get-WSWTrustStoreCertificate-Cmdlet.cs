@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [OutputType("Amazon.WorkSpacesWeb.Model.GetTrustStoreCertificateResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces Web GetTrustStoreCertificate API operation.", Operation = new[] {"GetTrustStoreCertificate"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.GetTrustStoreCertificateResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.GetTrustStoreCertificateResponse",
-        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.GetTrustStoreCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.GetTrustStoreCertificateResponse object containing multiple properties."
     )]
     public partial class GetWSWTrustStoreCertificateCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

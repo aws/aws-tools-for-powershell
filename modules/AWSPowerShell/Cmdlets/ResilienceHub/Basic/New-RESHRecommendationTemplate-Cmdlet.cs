@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub CreateRecommendationTemplate API operation.", Operation = new[] {"CreateRecommendationTemplate"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.CreateRecommendationTemplateResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.RecommendationTemplate or Amazon.ResilienceHub.Model.CreateRecommendationTemplateResponse",
         "This cmdlet returns an Amazon.ResilienceHub.Model.RecommendationTemplate object.",
-        "The service call response (type Amazon.ResilienceHub.Model.CreateRecommendationTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.CreateRecommendationTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRESHRecommendationTemplateCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

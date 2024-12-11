@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management CreateAccountAlias API operation.", Operation = new[] {"CreateAccountAlias"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.CreateAccountAliasResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.CreateAccountAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.CreateAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.CreateAccountAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewIAMAccountAliasCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

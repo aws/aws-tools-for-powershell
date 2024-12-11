@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.Redshift.Model.DescribeTagsResponse), LegacyAlias="Get-RSTags")]
     [AWSCmdletOutput("Amazon.Redshift.Model.TaggedResource or Amazon.Redshift.Model.DescribeTagsResponse",
         "This cmdlet returns a collection of Amazon.Redshift.Model.TaggedResource objects.",
-        "The service call response (type Amazon.Redshift.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribeTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSResourceTagCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource with which you want to view tags. Valid resource types are: </para><ul><li><para>Cluster</para></li><li><para>CIDR/IP</para></li><li><para>EC2 security group</para></li><li><para>Snapshot</para></li><li><para>Cluster security group</para></li><li><para>Subnet group</para></li><li><para>HSM connection</para></li><li><para>HSM certificate</para></li><li><para>Parameter group</para></li><li><para>Snapshot copy grant</para></li></ul><para>For more information about Amazon Redshift resource types and constructing ARNs, go
+        /// <para>The type of resource with which you want to view tags. Valid resource types are: </para><ul><li><para>Cluster</para></li><li><para>CIDR/IP</para></li><li><para>EC2 security group</para></li><li><para>Snapshot</para></li><li><para>Cluster security group</para></li><li><para>Subnet group</para></li><li><para>HSM connection</para></li><li><para>HSM certificate</para></li><li><para>Parameter group</para></li><li><para>Snapshot copy grant</para></li><li><para>Integration (zero-ETL integration or S3 event integration)</para><note><para>To describe the tags associated with an <c>integration</c>, don't specify <c>ResourceType</c>,
+        /// instead specify the <c>ResourceName</c> of the integration.</para></note></li></ul><para>For more information about Amazon Redshift resource types and constructing ARNs, go
         /// to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying
         /// Policy Elements: Actions, Effects, Resources, and Principals</a> in the Amazon Redshift
         /// Cluster Management Guide. </para>
@@ -131,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

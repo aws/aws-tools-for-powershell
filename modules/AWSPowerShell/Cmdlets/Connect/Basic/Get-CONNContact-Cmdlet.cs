@@ -34,10 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// Describes the specified contact. 
     /// </para><important><para>
-    /// Contact information remains available in Amazon Connect for 24 months, and then it
-    /// is deleted.
-    /// </para><para>
-    /// Only data from November 12, 2021, and later is returned by this API.
+    /// Contact information remains available in Amazon Connect for 24 months from the InitiationTimestamp,
+    /// and then it is deleted. Only contact information that is available in Amazon Connect
+    /// is returned by this API
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeContact API operation.", Operation = new[] {"DescribeContact"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeContactResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.Contact or Amazon.Connect.Model.DescribeContactResponse",
         "This cmdlet returns an Amazon.Connect.Model.Contact object.",
-        "The service call response (type Amazon.Connect.Model.DescribeContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeContactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

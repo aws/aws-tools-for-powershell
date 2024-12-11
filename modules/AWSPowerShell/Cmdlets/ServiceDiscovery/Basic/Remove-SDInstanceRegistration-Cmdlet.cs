@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map DeregisterInstance API operation.", Operation = new[] {"DeregisterInstance"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DeregisterInstanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceDiscovery.Model.DeregisterInstanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.DeregisterInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.DeregisterInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSDInstanceRegistrationCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

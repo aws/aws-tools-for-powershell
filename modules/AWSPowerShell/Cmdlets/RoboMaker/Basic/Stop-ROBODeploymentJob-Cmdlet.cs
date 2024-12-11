@@ -28,19 +28,20 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// This API is no longer supported. For more information, see the May 2, 2022 update
+    /// in the <a href="https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022">Support
+    /// policy</a> page.
+    /// </para></important><para>
     /// Cancels the specified deployment job.
-    /// 
-    ///  <important><para>
-    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
-    /// that were created for Deployment Service.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "ROBODeploymentJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS RoboMaker CancelDeploymentJob API operation.", Operation = new[] {"CancelDeploymentJob"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CancelDeploymentJobResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.CancelDeploymentJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.CancelDeploymentJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.CancelDeploymentJobResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class StopROBODeploymentJobCmdlet : AmazonRoboMakerClientCmdlet, IExecutor

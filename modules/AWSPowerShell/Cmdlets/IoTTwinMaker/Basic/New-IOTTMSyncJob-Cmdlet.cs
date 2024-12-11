@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.CreateSyncJobResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker CreateSyncJob API operation.", Operation = new[] {"CreateSyncJob"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.CreateSyncJobResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.CreateSyncJobResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateSyncJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateSyncJobResponse object containing multiple properties."
     )]
     public partial class NewIOTTMSyncJobCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

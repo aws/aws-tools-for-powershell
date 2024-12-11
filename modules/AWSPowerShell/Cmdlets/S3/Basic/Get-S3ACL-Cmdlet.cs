@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetACL API operation.", Operation = new[] {"GetACL"}, SelectReturnType = typeof(Amazon.S3.Model.GetACLResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3AccessControlList or Amazon.S3.Model.GetACLResponse",
         "This cmdlet returns an Amazon.S3.Model.S3AccessControlList object.",
-        "The service call response (type Amazon.S3.Model.GetACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetACLResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.")]
     public partial class GetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor

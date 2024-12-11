@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeImageVersionResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeImageVersion API operation.", Operation = new[] {"DescribeImageVersion"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeImageVersionResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeImageVersionResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeImageVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeImageVersionResponse object containing multiple properties."
     )]
     public partial class GetSMImageVersionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit UpdateDefaultBranch API operation.", Operation = new[] {"UpdateDefaultBranch"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.UpdateDefaultBranchResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCommit.Model.UpdateDefaultBranchResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCommit.Model.UpdateDefaultBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.UpdateDefaultBranchResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCDefaultBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.BatchGetFreeTrialInfoResponse")]
     [AWSCmdlet("Calls the Inspector2 BatchGetFreeTrialInfo API operation.", Operation = new[] {"BatchGetFreeTrialInfo"}, SelectReturnType = typeof(Amazon.Inspector2.Model.BatchGetFreeTrialInfoResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.BatchGetFreeTrialInfoResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.BatchGetFreeTrialInfoResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.BatchGetFreeTrialInfoResponse object containing multiple properties."
     )]
     public partial class GetINS2GetFreeTrialInfoCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

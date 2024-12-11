@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteKxCluster API operation.", Operation = new[] {"DeleteKxCluster"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteKxClusterResponse))]
     [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteKxClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.DeleteKxClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.DeleteKxClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFINSPKxClusterCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

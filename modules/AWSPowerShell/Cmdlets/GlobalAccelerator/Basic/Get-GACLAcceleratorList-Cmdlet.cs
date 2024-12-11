@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator ListAccelerators API operation.", Operation = new[] {"ListAccelerators"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.ListAcceleratorsResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.Accelerator or Amazon.GlobalAccelerator.Model.ListAcceleratorsResponse",
         "This cmdlet returns a collection of Amazon.GlobalAccelerator.Model.Accelerator objects.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.ListAcceleratorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.ListAcceleratorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGACLAcceleratorListCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

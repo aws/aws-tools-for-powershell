@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless AssociateWirelessDeviceWithThing API operation.", Operation = new[] {"AssociateWirelessDeviceWithThing"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.AssociateWirelessDeviceWithThingResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.AssociateWirelessDeviceWithThingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.AssociateWirelessDeviceWithThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.AssociateWirelessDeviceWithThingResponse) be returned by specifying '-Select *'."
     )]
     public partial class JoinIOTWWirelessDeviceWithThingCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

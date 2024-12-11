@@ -174,6 +174,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.EventLogLevel
+        {
+            ($_ -eq "New-ASYNApi/LogConfig_LogLevel") -Or
+            ($_ -eq "Update-ASYNApi/LogConfig_LogLevel")
+        }
+        {
+            $v = "ALL","DEBUG","ERROR","INFO","NONE"
+            break
+        }
+
         # Amazon.AppSync.FieldLogLevel
         {
             ($_ -eq "New-ASYNGraphqlApi/LogConfig_FieldLogLevel") -Or
@@ -332,6 +342,7 @@ $ASYN_map = @{
     "IntrospectionConfig"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "LogConfig_LogLevel"=@("New-ASYNApi","Update-ASYNApi")
     "MetricsConfig"=@("New-ASYNDataSource","New-ASYNResolver","Update-ASYNDataSource","Update-ASYNResolver")
     "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
@@ -396,16 +407,20 @@ $ASYN_SelectMap = @{
     "Select"=@("Start-ASYNApiAssociation",
                "Start-ASYNMergedGraphqlApi",
                "Start-ASYNSourceGraphqlApi",
+               "New-ASYNApi",
                "New-ASYNApiCache",
                "New-ASYNApiKey",
+               "New-ASYNChannelNamespace",
                "New-ASYNDataSource",
                "New-ASYNDomainName",
                "New-ASYNFunction",
                "New-ASYNGraphqlApi",
                "New-ASYNResolver",
                "New-ASYNType",
+               "Remove-ASYNApi",
                "Remove-ASYNApiCache",
                "Remove-ASYNApiKey",
+               "Remove-ASYNChannelNamespace",
                "Remove-ASYNDataSource",
                "Remove-ASYNDomainName",
                "Remove-ASYNFunction",
@@ -418,8 +433,10 @@ $ASYN_SelectMap = @{
                "Test-ASYNCode",
                "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
+               "Get-ASYNApi",
                "Get-ASYNApiAssociation",
                "Get-ASYNApiCache",
+               "Get-ASYNChannelNamespace",
                "Get-ASYNDataSource",
                "Get-ASYNDataSourceIntrospection",
                "Get-ASYNDomainName",
@@ -432,6 +449,8 @@ $ASYN_SelectMap = @{
                "Get-ASYNSourceApiAssociation",
                "Get-ASYNType",
                "Get-ASYNApiKeyList",
+               "Get-ASYNApiList",
+               "Get-ASYNChannelNamespaceList",
                "Get-ASYNDataSourceList",
                "Get-ASYNDomainNameList",
                "Get-ASYNFunctionList",
@@ -448,8 +467,10 @@ $ASYN_SelectMap = @{
                "Start-ASYNSchemaMerge",
                "Add-ASYNResourceTag",
                "Remove-ASYNResourceTag",
+               "Update-ASYNApi",
                "Update-ASYNApiCache",
                "Update-ASYNApiKey",
+               "Update-ASYNChannelNamespace",
                "Update-ASYNDataSource",
                "Update-ASYNDomainName",
                "Update-ASYNFunction",

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
     [AWSCmdlet("Calls the AWS Mainframe Modernization Application Testing ListTestRuns API operation.", Operation = new[] {"ListTestRuns"}, SelectReturnType = typeof(Amazon.AppTest.Model.ListTestRunsResponse))]
     [AWSCmdletOutput("Amazon.AppTest.Model.TestRunSummary or Amazon.AppTest.Model.ListTestRunsResponse",
         "This cmdlet returns a collection of Amazon.AppTest.Model.TestRunSummary objects.",
-        "The service call response (type Amazon.AppTest.Model.ListTestRunsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppTest.Model.ListTestRunsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATTestRunListCmdlet : AmazonAppTestClientCmdlet, IExecutor
     {

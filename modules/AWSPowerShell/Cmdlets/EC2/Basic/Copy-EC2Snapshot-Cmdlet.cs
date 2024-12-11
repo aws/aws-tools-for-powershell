@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CopySnapshot API operation.", Operation = new[] {"CopySnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.CopySnapshotResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.CopySnapshotResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CopySnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

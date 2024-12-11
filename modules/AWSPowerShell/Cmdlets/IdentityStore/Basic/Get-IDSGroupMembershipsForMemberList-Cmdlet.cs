@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [AWSCmdlet("Calls the AWS Identity Store ListGroupMembershipsForMember API operation.", Operation = new[] {"ListGroupMembershipsForMember"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.ListGroupMembershipsForMemberResponse))]
     [AWSCmdletOutput("Amazon.IdentityStore.Model.GroupMembership or Amazon.IdentityStore.Model.ListGroupMembershipsForMemberResponse",
         "This cmdlet returns a collection of Amazon.IdentityStore.Model.GroupMembership objects.",
-        "The service call response (type Amazon.IdentityStore.Model.ListGroupMembershipsForMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityStore.Model.ListGroupMembershipsForMemberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIDSGroupMembershipsForMemberListCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

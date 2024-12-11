@@ -49,6 +49,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBrand" OutputProperty="*" Verb="New" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_PublicUrl" NewName="Primary_PublicUrl" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_S3Uri" NewName="Primary_S3Uri" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomPermissions" OutputProperty="Arn" Verb="New" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
@@ -61,7 +74,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFolder" OutputProperty="*" Verb="New" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
@@ -140,6 +162,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnalysis" OutputProperty="*" Verb="Remove" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrand" OutputProperty="*" Verb="Remove" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBrandAssignment" OutputProperty="*" Verb="Remove" Noun="BrandAssignment" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomPermissions" OutputProperty="Arn" Verb="Remove" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,6 +265,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserCustomPermission" OutputProperty="*" Verb="Remove" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteVPCConnection" OutputProperty="*" Verb="Remove" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -264,6 +302,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAssetBundleImportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleImportJob" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBrand" OutputProperty="*" Verb="Get" Noun="Brand" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBrandAssignment" OutputProperty="BrandArn" Verb="Get" Noun="BrandAssignment" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBrandPublishedVersion" OutputProperty="*" Verb="Get" Noun="BrandPublishedVersion" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomPermissions" OutputProperty="CustomPermissions" Verb="Get" Noun="CustomPermission" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -446,6 +500,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBrands" OutputProperty="Brands" Verb="Get" Noun="BrandList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomPermissions" OutputProperty="CustomPermissionsList" Verb="Get" Noun="CustomPermissionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -610,6 +672,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDashboardSnapshotJobSchedule" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJobSchedule" AnonymousShouldProcessTarget="true" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -634,6 +700,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnalysisPermissions" OutputProperty="*" Verb="Update" Noun="AnalysisPermission" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrand" OutputProperty="*" Verb="Update" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_PublicUrl" NewName="Primary_PublicUrl" />
+                <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Primary_Original_Source_S3Uri" NewName="Primary_S3Uri" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrandAssignment" OutputProperty="BrandArn" Verb="Update" Noun="BrandAssignment" ShouldProcessTarget="BrandArn" PipelineParameter="BrandArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBrandPublishedVersion" OutputProperty="VersionId" Verb="Update" Noun="BrandPublishedVersion" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomPermissions" OutputProperty="Arn" Verb="Update" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -665,7 +752,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_OAuthScope" />
+                <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_TokenProviderUrl" />
+                <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_TokenProviderUrl" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
@@ -763,6 +859,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUser" OutputProperty="User" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserCustomPermission" OutputProperty="*" Verb="Update" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

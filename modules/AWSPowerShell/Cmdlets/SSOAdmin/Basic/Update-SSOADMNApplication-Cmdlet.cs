@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.UpdateApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.UpdateApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSOADMNApplicationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

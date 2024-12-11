@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [OutputType("Amazon.CloudWatchEvents.Model.DeleteConnectionResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Events DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DeleteConnectionResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DeleteConnectionResponse object containing multiple properties."
     )]
     public partial class RemoveCWEConnectionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

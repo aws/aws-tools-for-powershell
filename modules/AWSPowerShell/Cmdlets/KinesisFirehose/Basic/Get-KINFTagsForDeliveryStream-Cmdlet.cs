@@ -28,14 +28,14 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Lists the tags for the specified delivery stream. This operation has a limit of five
+    /// Lists the tags for the specified Firehose stream. This operation has a limit of five
     /// transactions per second per account.
     /// </summary>
     [Cmdlet("Get", "KINFTagsForDeliveryStream")]
     [OutputType("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Firehose ListTagsForDeliveryStream API operation.", Operation = new[] {"ListTagsForDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse))]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse",
-        "This cmdlet returns an Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisFirehose.Model.ListTagsForDeliveryStreamResponse object containing multiple properties."
     )]
     public partial class GetKINFTagsForDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream whose tags you want to list.</para>
+        /// <para>The name of the Firehose stream whose tags you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The number of tags to return. If this number is less than the total number of tags
-        /// associated with the delivery stream, <c>HasMoreTags</c> is set to <c>true</c> in the
+        /// associated with the Firehose stream, <c>HasMoreTags</c> is set to <c>true</c> in the
         /// response. To list additional tags, set <c>ExclusiveStartTagKey</c> to the last key
         /// in the response. </para>
         /// </para>

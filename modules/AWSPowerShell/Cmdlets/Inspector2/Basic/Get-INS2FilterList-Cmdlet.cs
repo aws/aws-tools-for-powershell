@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListFilters API operation.", Operation = new[] {"ListFilters"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListFiltersResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.Filter or Amazon.Inspector2.Model.ListFiltersResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.Filter objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListFiltersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2FilterListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

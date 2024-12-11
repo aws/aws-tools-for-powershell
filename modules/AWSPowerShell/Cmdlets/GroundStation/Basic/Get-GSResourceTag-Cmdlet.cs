@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GroundStation.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGSResourceTagCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [OutputType("Amazon.XRay.Model.GetSamplingTargetsResponse")]
     [AWSCmdlet("Calls the AWS X-Ray GetSamplingTargets API operation.", Operation = new[] {"GetSamplingTargets"}, SelectReturnType = typeof(Amazon.XRay.Model.GetSamplingTargetsResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.GetSamplingTargetsResponse",
-        "This cmdlet returns an Amazon.XRay.Model.GetSamplingTargetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.XRay.Model.GetSamplingTargetsResponse object containing multiple properties."
     )]
     public partial class GetXRSamplingTargetCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

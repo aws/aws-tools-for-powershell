@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [OutputType("Amazon.CloudWatchEvents.Model.DescribeApiDestinationResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Events DescribeApiDestination API operation.", Operation = new[] {"DescribeApiDestination"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DescribeApiDestinationResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DescribeApiDestinationResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DescribeApiDestinationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DescribeApiDestinationResponse object containing multiple properties."
     )]
     public partial class GetCWEApiDestinationCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

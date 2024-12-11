@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteDhcpOptions API operation.", Operation = new[] {"DeleteDhcpOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteDhcpOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteDhcpOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteDhcpOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

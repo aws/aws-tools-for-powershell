@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeFleetLocationUtilization API operation.", Operation = new[] {"DescribeFleetLocationUtilization"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeFleetLocationUtilizationResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.FleetUtilization or Amazon.GameLift.Model.DescribeFleetLocationUtilizationResponse",
         "This cmdlet returns an Amazon.GameLift.Model.FleetUtilization object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetLocationUtilizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeFleetLocationUtilizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLFleetLocationUtilizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

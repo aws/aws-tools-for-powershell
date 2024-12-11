@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CancelDataQualityRulesetEvaluationRun API operation.", Operation = new[] {"CancelDataQualityRulesetEvaluationRun"}, SelectReturnType = typeof(Amazon.Glue.Model.CancelDataQualityRulesetEvaluationRunResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.CancelDataQualityRulesetEvaluationRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CancelDataQualityRulesetEvaluationRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.CancelDataQualityRulesetEvaluationRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGLUEDataQualityRulesetEvaluationRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

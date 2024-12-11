@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [OutputType("Amazon.Batch.Model.ListTagsForResourceResponse")]
     [AWSCmdlet("Calls the AWS Batch ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Batch.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.ListTagsForResourceResponse",
-        "This cmdlet returns an Amazon.Batch.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Batch.Model.ListTagsForResourceResponse object containing multiple properties."
     )]
     public partial class GetBATResourceTagCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

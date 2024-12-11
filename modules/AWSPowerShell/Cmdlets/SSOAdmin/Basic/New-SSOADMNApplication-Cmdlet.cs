@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("System.String or Amazon.SSOAdmin.Model.CreateApplicationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SSOAdmin.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSOAdmin.Model.CreateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSSOADMNApplicationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

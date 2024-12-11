@@ -115,6 +115,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.AnalyticsEngine
+        "New-CRSCollaboration/AnalyticsEngine"
+        {
+            $v = "CLEAN_ROOMS_SQL","SPARK"
+            break
+        }
+
         # Amazon.CleanRooms.CollaborationQueryLogStatus
         "New-CRSCollaboration/QueryLogStatus"
         {
@@ -238,6 +245,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.WorkerComputeType
+        "Start-CRSProtectedQuery/Worker_Type"
+        {
+            $v = "CR.1X","CR.4X"
+            break
+        }
+
 
     }
 
@@ -251,6 +265,7 @@ $CRS_map = @{
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
+    "AnalyticsEngine"=@("New-CRSCollaboration")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Format"=@("New-CRSAnalysisTemplate")
@@ -263,6 +278,7 @@ $CRS_map = @{
     "Status"=@("Get-CRSMembershipList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedQuery")
     "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedQuery")
+    "Worker_Type"=@("Start-CRSProtectedQuery")
 }
 
 _awsArgumentCompleterRegistration $CRS_Completers $CRS_map

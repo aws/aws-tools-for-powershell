@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph DeprecateSystemTemplate API operation.", Operation = new[] {"DeprecateSystemTemplate"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.DeprecateSystemTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.IoTThingsGraph.Model.DeprecateSystemTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTThingsGraph.Model.DeprecateSystemTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTThingsGraph.Model.DeprecateSystemTemplateResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SetIOTTGSystemTemplateDeprecationCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

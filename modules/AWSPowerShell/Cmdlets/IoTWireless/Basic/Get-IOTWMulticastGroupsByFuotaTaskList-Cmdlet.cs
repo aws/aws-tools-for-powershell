@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListMulticastGroupsByFuotaTask API operation.", Operation = new[] {"ListMulticastGroupsByFuotaTask"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListMulticastGroupsByFuotaTaskResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.MulticastGroupByFuotaTask or Amazon.IoTWireless.Model.ListMulticastGroupsByFuotaTaskResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.MulticastGroupByFuotaTask objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListMulticastGroupsByFuotaTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListMulticastGroupsByFuotaTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWMulticastGroupsByFuotaTaskListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

@@ -28,16 +28,16 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Writes multiple data records into a delivery stream in a single call, which can achieve
+    /// Writes multiple data records into a Firehose stream in a single call, which can achieve
     /// higher throughput per producer than when writing single records. To write single data
-    /// records into a delivery stream, use <a>PutRecord</a>. Applications using these operations
+    /// records into a Firehose stream, use <a>PutRecord</a>. Applications using these operations
     /// are referred to as producers.
     /// 
     ///  
     /// <para>
     /// Firehose accumulates and publishes a particular metric for a customer account in one
     /// minute intervals. It is possible that the bursts of incoming bytes/records ingested
-    /// to a delivery stream last only for a few seconds. Due to this, the actual spikes in
+    /// to a Firehose stream last only for a few seconds. Due to this, the actual spikes in
     /// the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.
     /// </para><para>
     /// For information about service quota, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
@@ -47,10 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// request can be as large as 1,000 KB (before base64 encoding), up to a limit of 4 MB
     /// for the entire request. These limits cannot be changed.
     /// </para><para>
-    /// You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>.
+    /// You must specify the name of the Firehose stream and the data record when using <a>PutRecord</a>.
     /// The data record consists of a data blob that can be up to 1,000 KB in size, and any
     /// kind of data. For example, it could be a segment from a log file, geographic location
     /// data, website clickstream data, and so on.
+    /// </para><para>
+    /// For multi record de-aggregation, you can not put more than 500 records even if the
+    /// data blob length is less than 1000 KiB. If you include more than 500 records, the
+    /// request succeeds but the record de-aggregation doesn't work as expected and transformation
+    /// lambda is invoked with the complete base64 encoded data blob instead of de-aggregated
+    /// base64 decoded records.
     /// </para><para>
     /// Firehose buffers records before delivering them to the destination. To disambiguate
     /// the data blobs at the destination, a common solution is to use delimiters in the data,
@@ -83,14 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// If <a>PutRecordBatch</a> throws <c>ServiceUnavailableException</c>, the API is automatically
     /// reinvoked (retried) 3 times. If the exception persists, it is possible that the throughput
-    /// limits have been exceeded for the delivery stream.
+    /// limits have been exceeded for the Firehose stream.
     /// </para><para>
     /// Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
     /// result in data duplicates. For larger data assets, allow for a longer time out before
     /// retrying Put API operations.
     /// </para><para>
     /// Data records sent to Firehose are stored for 24 hours from the time they are added
-    /// to a delivery stream as it attempts to send the records to the destination. If the
+    /// to a Firehose stream as it attempts to send the records to the destination. If the
     /// destination is unreachable for more than 24 hours, the data is no longer available.
     /// </para><important><para>
     /// Don't concatenate two or more base64 strings to form the data fields of your records.
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [OutputType("Amazon.KinesisFirehose.Model.PutRecordBatchResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Firehose PutRecordBatch API operation.", Operation = new[] {"PutRecordBatch"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.PutRecordBatchResponse))]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.PutRecordBatchResponse",
-        "This cmdlet returns an Amazon.KinesisFirehose.Model.PutRecordBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisFirehose.Model.PutRecordBatchResponse object containing multiple properties."
     )]
     public partial class WriteKINFRecordBatchCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream.</para>
+        /// <para>The name of the Firehose stream.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

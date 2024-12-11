@@ -166,6 +166,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.EndpointType
+        {
+            ($_ -eq "Start-CONNOutboundChatContact/DestinationEndpoint_Type") -Or
+            ($_ -eq "Start-CONNOutboundChatContact/SourceEndpoint_Type")
+        }
+        {
+            $v = "CONNECT_PHONENUMBER_ARN","CONTACT_FLOW","TELEPHONE_NUMBER","VOIP"
+            break
+        }
+
         # Amazon.Connect.EvaluationFormScoringMode
         {
             ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Mode") -Or
@@ -348,6 +358,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ScreenShareCapability
+        {
+            ($_ -eq "Start-CONNWebRTCContact/Agent_ScreenShare") -Or
+            ($_ -eq "Start-CONNWebRTCContact/Customer_ScreenShare")
+        }
+        {
+            $v = "SEND"
+            break
+        }
+
         # Amazon.Connect.SearchableQueueType
         "Search-CONNQueue/SearchCriteria_QueueTypeCondition"
         {
@@ -519,12 +539,15 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "Agent_ScreenShare"=@("Start-CONNWebRTCContact")
     "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
+    "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
@@ -555,6 +578,7 @@ $CONN_map = @{
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
     "Sort_Order"=@("Search-CONNContact")
+    "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
@@ -818,7 +842,9 @@ $CONN_SelectMap = @{
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
+               "Start-CONNOutboundChatContact",
                "Start-CONNOutboundVoiceContact",
+               "Start-CONNScreenSharing",
                "Start-CONNTaskContact",
                "Start-CONNWebRTCContact",
                "Stop-CONNContact",

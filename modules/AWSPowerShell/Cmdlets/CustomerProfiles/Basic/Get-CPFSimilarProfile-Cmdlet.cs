@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetSimilarProfiles API operation.", Operation = new[] {"GetSimilarProfiles"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetSimilarProfilesResponse object containing multiple properties."
     )]
     public partial class GetCPFSimilarProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

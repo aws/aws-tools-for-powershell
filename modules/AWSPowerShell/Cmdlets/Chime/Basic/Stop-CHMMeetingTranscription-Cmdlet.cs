@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime StopMeetingTranscription API operation.", Operation = new[] {"StopMeetingTranscription"}, SelectReturnType = typeof(Amazon.Chime.Model.StopMeetingTranscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.StopMeetingTranscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.StopMeetingTranscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.StopMeetingTranscriptionResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
     public partial class StopCHMMeetingTranscriptionCmdlet : AmazonChimeClientCmdlet, IExecutor

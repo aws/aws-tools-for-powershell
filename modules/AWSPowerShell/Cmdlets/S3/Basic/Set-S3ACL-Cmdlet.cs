@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutACL API operation.", Operation = new[] {"PutACL"}, SelectReturnType = typeof(Amazon.S3.Model.PutACLResponse))]
     [AWSCmdletOutput("None or Amazon.S3.Model.PutACLResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.PutACLResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutACLResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.")]
     public partial class SetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteCapacityProvider API operation.", Operation = new[] {"DeleteCapacityProvider"}, SelectReturnType = typeof(Amazon.ECS.Model.DeleteCapacityProviderResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.CapacityProvider or Amazon.ECS.Model.DeleteCapacityProviderResponse",
         "This cmdlet returns an Amazon.ECS.Model.CapacityProvider object.",
-        "The service call response (type Amazon.ECS.Model.DeleteCapacityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.DeleteCapacityProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECSCapacityProviderCmdlet : AmazonECSClientCmdlet, IExecutor
     {

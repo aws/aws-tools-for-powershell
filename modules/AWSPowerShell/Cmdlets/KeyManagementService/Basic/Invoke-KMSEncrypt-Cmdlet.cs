@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.EncryptResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service Encrypt API operation.", Operation = new[] {"Encrypt"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.EncryptResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.EncryptResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.EncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.EncryptResponse object containing multiple properties."
     )]
     public partial class InvokeKMSEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

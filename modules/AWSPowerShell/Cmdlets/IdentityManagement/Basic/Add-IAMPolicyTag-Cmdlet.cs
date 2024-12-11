@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management TagPolicy API operation.", Operation = new[] {"TagPolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.TagPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.TagPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.TagPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.TagPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMPolicyTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

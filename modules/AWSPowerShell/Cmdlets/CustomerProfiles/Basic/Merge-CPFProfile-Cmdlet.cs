@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles MergeProfiles API operation.", Operation = new[] {"MergeProfiles"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.MergeProfilesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.MergeProfilesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CustomerProfiles.Model.MergeProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CustomerProfiles.Model.MergeProfilesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MergeCPFProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

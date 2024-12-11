@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

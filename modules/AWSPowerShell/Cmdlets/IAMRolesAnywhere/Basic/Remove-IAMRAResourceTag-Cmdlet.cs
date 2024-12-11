@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IAMRolesAnywhere.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IAMRolesAnywhere.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IAMRolesAnywhere.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMRAResourceTagCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

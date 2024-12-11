@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue ListCustomEntityTypes API operation.", Operation = new[] {"ListCustomEntityTypes"}, SelectReturnType = typeof(Amazon.Glue.Model.ListCustomEntityTypesResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.CustomEntityType or Amazon.Glue.Model.ListCustomEntityTypesResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.CustomEntityType objects.",
-        "The service call response (type Amazon.Glue.Model.ListCustomEntityTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.ListCustomEntityTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUECustomEntityTypeListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

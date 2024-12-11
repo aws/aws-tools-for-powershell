@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift ListManagedResources API operation.", Operation = new[] {"ListManagedResources"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.ListManagedResourcesResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.Model.ManagedResourceSummary or Amazon.ARCZonalShift.Model.ListManagedResourcesResponse",
         "This cmdlet returns a collection of Amazon.ARCZonalShift.Model.ManagedResourceSummary objects.",
-        "The service call response (type Amazon.ARCZonalShift.Model.ListManagedResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ARCZonalShift.Model.ListManagedResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAZSManagedResourceListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

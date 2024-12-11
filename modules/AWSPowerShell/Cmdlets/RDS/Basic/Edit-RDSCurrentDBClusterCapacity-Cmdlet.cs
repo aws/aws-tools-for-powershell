@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyCurrentDBClusterCapacity API operation.", Operation = new[] {"ModifyCurrentDBClusterCapacity"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse",
-        "This cmdlet returns an Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse object containing multiple properties."
     )]
     public partial class EditRDSCurrentDBClusterCapacityCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

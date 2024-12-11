@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ RebootBroker API operation.", Operation = new[] {"RebootBroker"}, SelectReturnType = typeof(Amazon.MQ.Model.RebootBrokerResponse))]
     [AWSCmdletOutput("None or Amazon.MQ.Model.RebootBrokerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.RebootBrokerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MQ.Model.RebootBrokerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestartMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {

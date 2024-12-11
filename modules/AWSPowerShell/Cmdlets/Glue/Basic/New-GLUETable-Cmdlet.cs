@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CreateTable API operation.", Operation = new[] {"CreateTable"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateTableResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.CreateTableResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.CreateTableResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewGLUETableCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

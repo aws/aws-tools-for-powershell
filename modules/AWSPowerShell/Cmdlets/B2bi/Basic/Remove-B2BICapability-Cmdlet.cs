@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange DeleteCapability API operation.", Operation = new[] {"DeleteCapability"}, SelectReturnType = typeof(Amazon.B2bi.Model.DeleteCapabilityResponse))]
     [AWSCmdletOutput("None or Amazon.B2bi.Model.DeleteCapabilityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.B2bi.Model.DeleteCapabilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.B2bi.Model.DeleteCapabilityResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveB2BICapabilityCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

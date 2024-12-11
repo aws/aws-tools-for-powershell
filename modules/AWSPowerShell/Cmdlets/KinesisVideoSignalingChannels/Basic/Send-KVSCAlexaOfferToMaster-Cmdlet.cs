@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
     [AWSCmdlet("Calls the Amazon Kinesis Video Signaling Channels SendAlexaOfferToMaster API operation.", Operation = new[] {"SendAlexaOfferToMaster"}, SelectReturnType = typeof(Amazon.KinesisVideoSignalingChannels.Model.SendAlexaOfferToMasterResponse))]
     [AWSCmdletOutput("System.String or Amazon.KinesisVideoSignalingChannels.Model.SendAlexaOfferToMasterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KinesisVideoSignalingChannels.Model.SendAlexaOfferToMasterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisVideoSignalingChannels.Model.SendAlexaOfferToMasterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendKVSCAlexaOfferToMasterCmdlet : AmazonKinesisVideoSignalingChannelsClientCmdlet, IExecutor
     {

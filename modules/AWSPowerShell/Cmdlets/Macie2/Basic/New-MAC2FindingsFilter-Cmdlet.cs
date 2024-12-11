@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.CreateFindingsFilterResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 CreateFindingsFilter API operation.", Operation = new[] {"CreateFindingsFilter"}, SelectReturnType = typeof(Amazon.Macie2.Model.CreateFindingsFilterResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.CreateFindingsFilterResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.CreateFindingsFilterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.CreateFindingsFilterResponse object containing multiple properties."
     )]
     public partial class NewMAC2FindingsFilterCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

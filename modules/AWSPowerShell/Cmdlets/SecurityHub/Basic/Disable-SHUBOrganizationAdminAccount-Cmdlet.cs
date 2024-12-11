@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub DisableOrganizationAdminAccount API operation.", Operation = new[] {"DisableOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.DisableOrganizationAdminAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableSHUBOrganizationAdminAccountCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

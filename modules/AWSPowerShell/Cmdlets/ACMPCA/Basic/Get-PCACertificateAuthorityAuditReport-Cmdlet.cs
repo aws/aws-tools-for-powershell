@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [OutputType("Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse")]
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority DescribeCertificateAuthorityAuditReport API operation.", Operation = new[] {"DescribeCertificateAuthorityAuditReport"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse))]
     [AWSCmdletOutput("Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse",
-        "This cmdlet returns an Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ACMPCA.Model.DescribeCertificateAuthorityAuditReportResponse object containing multiple properties."
     )]
     public partial class GetPCACertificateAuthorityAuditReportCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

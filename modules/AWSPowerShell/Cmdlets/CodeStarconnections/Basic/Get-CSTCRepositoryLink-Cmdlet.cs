@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections GetRepositoryLink API operation.", Operation = new[] {"GetRepositoryLink"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.GetRepositoryLinkResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.RepositoryLinkInfo or Amazon.CodeStarconnections.Model.GetRepositoryLinkResponse",
         "This cmdlet returns an Amazon.CodeStarconnections.Model.RepositoryLinkInfo object.",
-        "The service call response (type Amazon.CodeStarconnections.Model.GetRepositoryLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarconnections.Model.GetRepositoryLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSTCRepositoryLinkCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

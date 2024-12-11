@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     [OutputType("Amazon.Lex.Model.PostContentResponse")]
     [AWSCmdlet("Calls the Amazon Lex PostContent API operation.", Operation = new[] {"PostContent"}, SelectReturnType = typeof(Amazon.Lex.Model.PostContentResponse))]
     [AWSCmdletOutput("Amazon.Lex.Model.PostContentResponse",
-        "This cmdlet returns an Amazon.Lex.Model.PostContentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lex.Model.PostContentResponse object containing multiple properties."
     )]
     public partial class SendLEXContentCmdlet : AmazonLexClientCmdlet, IExecutor
     {

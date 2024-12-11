@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) CreateConfigurationSet API operation.", Operation = new[] {"CreateConfigurationSet"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSES2ConfigurationSetCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
@@ -108,6 +108,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ReputationOptions_LastFreshStart { get; set; }
+        #endregion
+        
+        #region Parameter DeliveryOptions_MaxDeliverySecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery
+        /// of email. If specified, the value must greater than or equal to 300 seconds (5 minutes)
+        /// and less than or equal to 50400 seconds (840 minutes). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeliveryOptions_MaxDeliverySeconds")]
+        public System.Int64? DeliveryOptions_MaxDeliverySecond { get; set; }
         #endregion
         
         #region Parameter GuardianOptions_OptimizedSharedDelivery
@@ -245,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 WriteWarning("You are passing $null as a value for parameter ConfigurationSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeliveryOptions_MaxDeliverySecond = this.DeliveryOptions_MaxDeliverySecond;
             context.DeliveryOptions_SendingPoolName = this.DeliveryOptions_SendingPoolName;
             context.DeliveryOptions_TlsPolicy = this.DeliveryOptions_TlsPolicy;
             context.ReputationOptions_LastFreshStart = this.ReputationOptions_LastFreshStart;
@@ -286,6 +300,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
              // populate DeliveryOptions
             var requestDeliveryOptionsIsNull = true;
             request.DeliveryOptions = new Amazon.SimpleEmailV2.Model.DeliveryOptions();
+            System.Int64? requestDeliveryOptions_deliveryOptions_MaxDeliverySecond = null;
+            if (cmdletContext.DeliveryOptions_MaxDeliverySecond != null)
+            {
+                requestDeliveryOptions_deliveryOptions_MaxDeliverySecond = cmdletContext.DeliveryOptions_MaxDeliverySecond.Value;
+            }
+            if (requestDeliveryOptions_deliveryOptions_MaxDeliverySecond != null)
+            {
+                request.DeliveryOptions.MaxDeliverySeconds = requestDeliveryOptions_deliveryOptions_MaxDeliverySecond.Value;
+                requestDeliveryOptionsIsNull = false;
+            }
             System.String requestDeliveryOptions_deliveryOptions_SendingPoolName = null;
             if (cmdletContext.DeliveryOptions_SendingPoolName != null)
             {
@@ -532,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationSetName { get; set; }
+            public System.Int64? DeliveryOptions_MaxDeliverySecond { get; set; }
             public System.String DeliveryOptions_SendingPoolName { get; set; }
             public Amazon.SimpleEmailV2.TlsPolicy DeliveryOptions_TlsPolicy { get; set; }
             public System.DateTime? ReputationOptions_LastFreshStart { get; set; }

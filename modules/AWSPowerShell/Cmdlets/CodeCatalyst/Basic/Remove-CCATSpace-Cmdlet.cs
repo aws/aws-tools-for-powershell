@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.DeleteSpaceResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst DeleteSpace API operation.", Operation = new[] {"DeleteSpace"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.DeleteSpaceResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.DeleteSpaceResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteSpaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteSpaceResponse object containing multiple properties."
     )]
     public partial class RemoveCCATSpaceCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

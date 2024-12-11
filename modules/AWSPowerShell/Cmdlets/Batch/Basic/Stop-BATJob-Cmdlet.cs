@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch CancelJob API operation.", Operation = new[] {"CancelJob"}, SelectReturnType = typeof(Amazon.Batch.Model.CancelJobResponse))]
     [AWSCmdletOutput("None or Amazon.Batch.Model.CancelJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.CancelJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Batch.Model.CancelJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>A message to attach to the job that explains the reason for canceling it. This message
-        /// is returned by future <a>DescribeJobs</a> operations on the job. This message is also
-        /// recorded in the Batch activity logs.</para>
+        /// is returned by future <a>DescribeJobs</a> operations on the job. It is also recorded
+        /// in the Batch activity logs.</para><para>This parameter has as limit of 1024 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

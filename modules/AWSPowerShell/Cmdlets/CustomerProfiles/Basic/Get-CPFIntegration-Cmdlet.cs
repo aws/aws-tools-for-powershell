@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetIntegrationResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetIntegration API operation.", Operation = new[] {"GetIntegration"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetIntegrationResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetIntegrationResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetIntegrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetIntegrationResponse object containing multiple properties."
     )]
     public partial class GetCPFIntegrationCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract DeleteAdapter API operation.", Operation = new[] {"DeleteAdapter"}, SelectReturnType = typeof(Amazon.Textract.Model.DeleteAdapterResponse))]
     [AWSCmdletOutput("None or Amazon.Textract.Model.DeleteAdapterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Textract.Model.DeleteAdapterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Textract.Model.DeleteAdapterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTXTAdapterCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

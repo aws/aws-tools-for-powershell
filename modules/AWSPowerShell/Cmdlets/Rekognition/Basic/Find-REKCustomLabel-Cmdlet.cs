@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DetectCustomLabels API operation.", Operation = new[] {"DetectCustomLabels"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DetectCustomLabelsResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.CustomLabel or Amazon.Rekognition.Model.DetectCustomLabelsResponse",
         "This cmdlet returns a collection of Amazon.Rekognition.Model.CustomLabel objects.",
-        "The service call response (type Amazon.Rekognition.Model.DetectCustomLabelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.DetectCustomLabelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindREKCustomLabelCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

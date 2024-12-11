@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.CopySnapshotAndUpdateVolumeResponse")]
     [AWSCmdlet("Calls the Amazon FSx CopySnapshotAndUpdateVolume API operation.", Operation = new[] {"CopySnapshotAndUpdateVolume"}, SelectReturnType = typeof(Amazon.FSx.Model.CopySnapshotAndUpdateVolumeResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.CopySnapshotAndUpdateVolumeResponse",
-        "This cmdlet returns an Amazon.FSx.Model.CopySnapshotAndUpdateVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.CopySnapshotAndUpdateVolumeResponse object containing multiple properties."
     )]
     public partial class CopyFSXSnapshotAndUpdateVolumeCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

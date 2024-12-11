@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog ProvisionProduct API operation.", Operation = new[] {"ProvisionProduct"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.ProvisionProductResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail or Amazon.ServiceCatalog.Model.ProvisionProductResponse",
         "This cmdlet returns an Amazon.ServiceCatalog.Model.RecordDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ProvisionProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.ProvisionProductResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListSourceRepositoryBranches API operation.", Operation = new[] {"ListSourceRepositoryBranches"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesItem or Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesItem objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListSourceRepositoryBranchesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATSourceRepositoryBranchListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

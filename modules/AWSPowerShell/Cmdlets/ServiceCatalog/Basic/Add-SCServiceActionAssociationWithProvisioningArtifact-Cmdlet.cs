@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog AssociateServiceActionWithProvisioningArtifact API operation.", Operation = new[] {"AssociateServiceActionWithProvisioningArtifact"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.AssociateServiceActionWithProvisioningArtifactResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.AssociateServiceActionWithProvisioningArtifactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.AssociateServiceActionWithProvisioningArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.AssociateServiceActionWithProvisioningArtifactResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSCServiceActionAssociationWithProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

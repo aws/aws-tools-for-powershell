@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
     [OutputType("Amazon.CostOptimizationHub.Model.GetPreferencesResponse")]
     [AWSCmdlet("Calls the Cost Optimization Hub GetPreferences API operation.", Operation = new[] {"GetPreferences"}, SelectReturnType = typeof(Amazon.CostOptimizationHub.Model.GetPreferencesResponse))]
     [AWSCmdletOutput("Amazon.CostOptimizationHub.Model.GetPreferencesResponse",
-        "This cmdlet returns an Amazon.CostOptimizationHub.Model.GetPreferencesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostOptimizationHub.Model.GetPreferencesResponse object containing multiple properties."
     )]
     public partial class GetCOHPreferenceCmdlet : AmazonCostOptimizationHubClientCmdlet, IExecutor
     {

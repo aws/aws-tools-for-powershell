@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     [AWSCmdlet("Calls the AWS Cost and Usage Report UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CostAndUsageReport.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CostAndUsageReport.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CostAndUsageReport.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CostAndUsageReport.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCURResourceTagCmdlet : AmazonCostAndUsageReportClientCmdlet, IExecutor
     {

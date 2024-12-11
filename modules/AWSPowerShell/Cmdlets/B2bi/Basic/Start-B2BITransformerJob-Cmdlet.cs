@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Runs a job, using a transformer, to parse input EDI (electronic data interchange)
-    /// file into the output structures used by Amazon Web Services B2BI Data Interchange.
+    /// file into the output structures used by Amazon Web Services B2B Data Interchange.
     /// 
     ///  
     /// <para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange StartTransformerJob API operation.", Operation = new[] {"StartTransformerJob"}, SelectReturnType = typeof(Amazon.B2bi.Model.StartTransformerJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.B2bi.Model.StartTransformerJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.B2bi.Model.StartTransformerJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.StartTransformerJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartB2BITransformerJobCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

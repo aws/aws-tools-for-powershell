@@ -33,15 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// 
     ///  
     /// <para>
-    /// To read table metadata using <c>GetTable</c>, <c>Select</c> action permissions for
-    /// the table and system tables are required to complete the operation.
+    /// To read table metadata using <c>GetTable</c>, the IAM principal needs <c>Select</c>
+    /// action permissions for the table and the system keyspace.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KSTable")]
     [OutputType("Amazon.Keyspaces.Model.GetTableResponse")]
     [AWSCmdlet("Calls the Amazon Keyspaces GetTable API operation.", Operation = new[] {"GetTable"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.GetTableResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.GetTableResponse",
-        "This cmdlet returns an Amazon.Keyspaces.Model.GetTableResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Keyspaces.Model.GetTableResponse object containing multiple properties."
     )]
     public partial class GetKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

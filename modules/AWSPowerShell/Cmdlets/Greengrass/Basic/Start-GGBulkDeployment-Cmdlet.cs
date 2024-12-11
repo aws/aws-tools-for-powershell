@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.StartBulkDeploymentResponse")]
     [AWSCmdlet("Calls the AWS Greengrass StartBulkDeployment API operation.", Operation = new[] {"StartBulkDeployment"}, SelectReturnType = typeof(Amazon.Greengrass.Model.StartBulkDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.StartBulkDeploymentResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.StartBulkDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.StartBulkDeploymentResponse object containing multiple properties."
     )]
     public partial class StartGGBulkDeploymentCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

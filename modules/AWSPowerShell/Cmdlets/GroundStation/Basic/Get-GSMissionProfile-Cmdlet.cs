@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.GetMissionProfileResponse")]
     [AWSCmdlet("Calls the AWS Ground Station GetMissionProfile API operation.", Operation = new[] {"GetMissionProfile"}, SelectReturnType = typeof(Amazon.GroundStation.Model.GetMissionProfileResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.GetMissionProfileResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.GetMissionProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.GetMissionProfileResponse object containing multiple properties."
     )]
     public partial class GetGSMissionProfileCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

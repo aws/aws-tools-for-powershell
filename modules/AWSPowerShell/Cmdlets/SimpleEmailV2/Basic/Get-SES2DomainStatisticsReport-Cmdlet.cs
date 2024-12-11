@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDomainStatisticsReport API operation.", Operation = new[] {"GetDomainStatisticsReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDomainStatisticsReportResponse object containing multiple properties."
     )]
     public partial class GetSES2DomainStatisticsReportCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

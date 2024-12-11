@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless UpdateVpcEndpoint API operation.", Operation = new[] {"UpdateVpcEndpoint"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.UpdateVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.UpdateVpcEndpointDetail or Amazon.OpenSearchServerless.Model.UpdateVpcEndpointResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.UpdateVpcEndpointDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateVpcEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateVpcEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSSVpcEndpointCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.GetConsolidatedReportResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool GetConsolidatedReport API operation.", Operation = new[] {"GetConsolidatedReport"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.GetConsolidatedReportResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.GetConsolidatedReportResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.GetConsolidatedReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.GetConsolidatedReportResponse object containing multiple properties."
     )]
     public partial class GetWATConsolidatedReportCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

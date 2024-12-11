@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub CreateActionTarget API operation.", Operation = new[] {"CreateActionTarget"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateActionTargetResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.CreateActionTargetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityHub.Model.CreateActionTargetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.CreateActionTargetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSHUBActionTargetCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

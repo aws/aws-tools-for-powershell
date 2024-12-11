@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DeleteRecoveryPoint API operation.", Operation = new[] {"DeleteRecoveryPoint"}, SelectReturnType = typeof(Amazon.Backup.Model.DeleteRecoveryPointResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.DeleteRecoveryPointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.DeleteRecoveryPointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.DeleteRecoveryPointResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBAKRecoveryPointCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

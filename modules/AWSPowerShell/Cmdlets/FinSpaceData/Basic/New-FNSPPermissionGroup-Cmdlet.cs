@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API CreatePermissionGroup API operation.", Operation = new[] {"CreatePermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.CreatePermissionGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.FinSpaceData.Model.CreatePermissionGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.FinSpaceData.Model.CreatePermissionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.CreatePermissionGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

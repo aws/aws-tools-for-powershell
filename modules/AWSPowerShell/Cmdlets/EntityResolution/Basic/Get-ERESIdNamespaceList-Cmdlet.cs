@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution ListIdNamespaces API operation.", Operation = new[] {"ListIdNamespaces"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListIdNamespacesResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.IdNamespaceSummary or Amazon.EntityResolution.Model.ListIdNamespacesResponse",
         "This cmdlet returns a collection of Amazon.EntityResolution.Model.IdNamespaceSummary objects.",
-        "The service call response (type Amazon.EntityResolution.Model.ListIdNamespacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.ListIdNamespacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetERESIdNamespaceListCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

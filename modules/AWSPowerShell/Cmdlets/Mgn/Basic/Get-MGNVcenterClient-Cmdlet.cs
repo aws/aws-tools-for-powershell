@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service DescribeVcenterClients API operation.", Operation = new[] {"DescribeVcenterClients"}, SelectReturnType = typeof(Amazon.Mgn.Model.DescribeVcenterClientsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.VcenterClient or Amazon.Mgn.Model.DescribeVcenterClientsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.VcenterClient objects.",
-        "The service call response (type Amazon.Mgn.Model.DescribeVcenterClientsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.DescribeVcenterClientsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNVcenterClientCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

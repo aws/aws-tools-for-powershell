@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [AWSCmdlet("Calls the AWS Identity Store ListUsers API operation.", Operation = new[] {"ListUsers"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.ListUsersResponse))]
     [AWSCmdletOutput("Amazon.IdentityStore.Model.User or Amazon.IdentityStore.Model.ListUsersResponse",
         "This cmdlet returns a collection of Amazon.IdentityStore.Model.User objects.",
-        "The service call response (type Amazon.IdentityStore.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityStore.Model.ListUsersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindIDSUserListCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

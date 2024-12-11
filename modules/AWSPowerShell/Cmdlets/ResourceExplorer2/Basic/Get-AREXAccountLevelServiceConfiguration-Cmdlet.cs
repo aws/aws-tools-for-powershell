@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer GetAccountLevelServiceConfiguration API operation.", Operation = new[] {"GetAccountLevelServiceConfiguration"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.OrgConfiguration or Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse",
         "This cmdlet returns an Amazon.ResourceExplorer2.Model.OrgConfiguration object.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.GetAccountLevelServiceConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAREXAccountLevelServiceConfigurationCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

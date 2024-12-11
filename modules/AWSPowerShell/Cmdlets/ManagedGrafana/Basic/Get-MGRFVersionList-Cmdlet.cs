@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana ListVersions API operation.", Operation = new[] {"ListVersions"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.ListVersionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ManagedGrafana.Model.ListVersionsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ManagedGrafana.Model.ListVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.ListVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGRFVersionListCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

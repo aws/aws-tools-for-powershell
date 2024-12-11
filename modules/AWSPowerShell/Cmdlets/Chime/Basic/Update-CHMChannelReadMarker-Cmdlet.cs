@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime UpdateChannelReadMarker API operation.", Operation = new[] {"UpdateChannelReadMarker"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdateChannelReadMarkerResponse))]
     [AWSCmdletOutput("System.String or Amazon.Chime.Model.UpdateChannelReadMarkerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Chime.Model.UpdateChannelReadMarkerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.UpdateChannelReadMarkerResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace")]
     public partial class UpdateCHMChannelReadMarkerCmdlet : AmazonChimeClientCmdlet, IExecutor

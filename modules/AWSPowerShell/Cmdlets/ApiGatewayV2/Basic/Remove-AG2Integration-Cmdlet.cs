@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 DeleteIntegration API operation.", Operation = new[] {"DeleteIntegration"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.DeleteIntegrationResponse))]
     [AWSCmdletOutput("None or Amazon.ApiGatewayV2.Model.DeleteIntegrationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayV2.Model.DeleteIntegrationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApiGatewayV2.Model.DeleteIntegrationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAG2IntegrationCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks CreateInstance API operation.", Operation = new[] {"CreateInstance"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.CreateInstanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpsWorks.Model.CreateInstanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpsWorks.Model.CreateInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

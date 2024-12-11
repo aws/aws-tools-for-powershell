@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DeleteEventTracker API operation.", Operation = new[] {"DeleteEventTracker"}, SelectReturnType = typeof(Amazon.Personalize.Model.DeleteEventTrackerResponse))]
     [AWSCmdletOutput("None or Amazon.Personalize.Model.DeleteEventTrackerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.DeleteEventTrackerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Personalize.Model.DeleteEventTrackerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePERSEventTrackerCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

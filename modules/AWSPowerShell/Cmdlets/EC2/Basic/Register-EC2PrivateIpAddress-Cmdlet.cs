@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssignPrivateIpAddresses API operation.", Operation = new[] {"AssignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateIpAddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignedPrivateIpAddress or Amazon.EC2.Model.AssignPrivateIpAddressesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AssignedPrivateIpAddress objects.",
-        "The service call response (type Amazon.EC2.Model.AssignPrivateIpAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AssignPrivateIpAddressesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

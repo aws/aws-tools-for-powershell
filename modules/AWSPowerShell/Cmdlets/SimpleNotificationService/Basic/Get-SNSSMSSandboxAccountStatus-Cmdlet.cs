@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) GetSMSSandboxAccountStatus API operation.", Operation = new[] {"GetSMSSandboxAccountStatus"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.GetSMSSandboxAccountStatusResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.SimpleNotificationService.Model.GetSMSSandboxAccountStatusResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetSMSSandboxAccountStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetSMSSandboxAccountStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNSSMSSandboxAccountStatusCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

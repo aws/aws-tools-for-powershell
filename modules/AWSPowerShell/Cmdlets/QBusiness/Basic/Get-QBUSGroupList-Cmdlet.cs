@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness ListGroups API operation.", Operation = new[] {"ListGroups"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ListGroupsResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.GroupSummary or Amazon.QBusiness.Model.ListGroupsResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.GroupSummary objects.",
-        "The service call response (type Amazon.QBusiness.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.ListGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSGroupListCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

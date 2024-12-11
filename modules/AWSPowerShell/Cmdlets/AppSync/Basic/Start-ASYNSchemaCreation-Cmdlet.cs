@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync StartSchemaCreation API operation.", Operation = new[] {"StartSchemaCreation"}, SelectReturnType = typeof(Amazon.AppSync.Model.StartSchemaCreationResponse))]
     [AWSCmdletOutput("Amazon.AppSync.SchemaStatus or Amazon.AppSync.Model.StartSchemaCreationResponse",
         "This cmdlet returns an Amazon.AppSync.SchemaStatus object.",
-        "The service call response (type Amazon.AppSync.Model.StartSchemaCreationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.StartSchemaCreationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartASYNSchemaCreationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

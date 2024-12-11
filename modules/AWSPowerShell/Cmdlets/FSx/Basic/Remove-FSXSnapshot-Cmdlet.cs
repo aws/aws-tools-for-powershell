@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteSnapshotResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteSnapshotResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteSnapshotResponse object containing multiple properties."
     )]
     public partial class RemoveFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

@@ -82,11 +82,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-TSASupplementalTaxRegistrationList', 
         'Get-TSATaxRegistration', 
         'Get-TSATaxRegistrationDocument', 
         'Get-TSATaxRegistrationList', 
+        'Remove-TSASupplementalTaxRegistration', 
         'Remove-TSATaxRegistration', 
         'Remove-TSATaxRegistrationBatch', 
+        'Write-TSASupplementalTaxRegistration', 
         'Write-TSATaxRegistration', 
         'Write-TSATaxRegistrationBatch')
 

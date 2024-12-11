@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver DeleteFirewallRule API operation.", Operation = new[] {"DeleteFirewallRule"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallRule or Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.FirewallRule object.",
-        "The service call response (type Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RFirewallRuleCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
@@ -48,14 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>The ID of the domain list that's used in the rule. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FirewallDomainListId { get; set; }
         #endregion
         
@@ -75,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FirewallRuleGroupId { get; set; }
+        #endregion
+        
+        #region Parameter FirewallThreatProtectionId
+        /// <summary>
+        /// <para>
+        /// <para> The ID that is created for a DNS Firewall Advanced rule. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallThreatProtectionId { get; set; }
         #endregion
         
         #region Parameter Qtype
@@ -134,12 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.FirewallDomainListId = this.FirewallDomainListId;
-            #if MODULAR
-            if (this.FirewallDomainListId == null && ParameterWasBound(nameof(this.FirewallDomainListId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FirewallDomainListId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.FirewallRuleGroupId = this.FirewallRuleGroupId;
             #if MODULAR
             if (this.FirewallRuleGroupId == null && ParameterWasBound(nameof(this.FirewallRuleGroupId)))
@@ -147,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter FirewallRuleGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirewallThreatProtectionId = this.FirewallThreatProtectionId;
             context.Qtype = this.Qtype;
             
             // allow further manipulation of loaded context prior to processing
@@ -171,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.FirewallRuleGroupId != null)
             {
                 request.FirewallRuleGroupId = cmdletContext.FirewallRuleGroupId;
+            }
+            if (cmdletContext.FirewallThreatProtectionId != null)
+            {
+                request.FirewallThreatProtectionId = cmdletContext.FirewallThreatProtectionId;
             }
             if (cmdletContext.Qtype != null)
             {
@@ -239,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             public System.String FirewallDomainListId { get; set; }
             public System.String FirewallRuleGroupId { get; set; }
+            public System.String FirewallThreatProtectionId { get; set; }
             public System.String Qtype { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.DeleteFirewallRuleResponse, RemoveR53RFirewallRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FirewallRule;

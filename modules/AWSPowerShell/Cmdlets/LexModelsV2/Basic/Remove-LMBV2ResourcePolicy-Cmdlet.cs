@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.DeleteResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.DeleteResourcePolicyResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteResourcePolicyResponse object containing multiple properties."
     )]
     public partial class RemoveLMBV2ResourcePolicyCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

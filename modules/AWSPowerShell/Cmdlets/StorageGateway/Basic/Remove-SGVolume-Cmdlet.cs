@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DeleteVolume API operation.", Operation = new[] {"DeleteVolume"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DeleteVolumeResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.DeleteVolumeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DeleteVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DeleteVolumeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSGVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

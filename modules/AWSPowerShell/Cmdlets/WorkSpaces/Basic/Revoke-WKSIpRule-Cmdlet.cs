@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces RevokeIpRules API operation.", Operation = new[] {"RevokeIpRules"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.RevokeIpRulesResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.RevokeIpRulesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.RevokeIpRulesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.RevokeIpRulesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeWKSIpRuleCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

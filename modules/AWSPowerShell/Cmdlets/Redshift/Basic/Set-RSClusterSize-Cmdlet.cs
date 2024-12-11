@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para></li><li><para>
     /// dc2.8xlarge
     /// </para></li><li><para>
+    /// ra3.large
+    /// </para></li><li><para>
     /// ra3.xlplus
     /// </para></li><li><para>
     /// ra3.4xlarge
@@ -57,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ResizeCluster API operation.", Operation = new[] {"ResizeCluster"}, SelectReturnType = typeof(Amazon.Redshift.Model.ResizeClusterResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.ResizeClusterResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.ResizeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ResizeClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetRSClusterSizeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

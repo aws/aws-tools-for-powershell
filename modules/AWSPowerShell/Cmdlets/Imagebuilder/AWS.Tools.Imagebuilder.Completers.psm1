@@ -176,7 +176,7 @@ $EC2IB_Completers = {
             ($_ -eq "New-EC2IBContainerRecipe/PlatformOverride")
         }
         {
-            $v = "Linux","Windows"
+            $v = "Linux","macOS","Windows"
             break
         }
 
@@ -184,6 +184,16 @@ $EC2IB_Completers = {
         "Start-EC2IBResourceStateUpdate/State_Status"
         {
             $v = "AVAILABLE","DELETED","DEPRECATED","DISABLED"
+            break
+        }
+
+        # Amazon.Imagebuilder.TenancyType
+        {
+            ($_ -eq "New-EC2IBInfrastructureConfiguration/Placement_Tenancy") -Or
+            ($_ -eq "Update-EC2IBInfrastructureConfiguration/Placement_Tenancy")
+        }
+        {
+            $v = "dedicated","default","host"
             break
         }
 
@@ -215,6 +225,7 @@ $EC2IB_map = @{
     "Format"=@("Import-EC2IBComponent")
     "LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
+    "Placement_Tenancy"=@("New-EC2IBInfrastructureConfiguration","Update-EC2IBInfrastructureConfiguration")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
     "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service StartMatchBackfill API operation.", Operation = new[] {"StartMatchBackfill"}, SelectReturnType = typeof(Amazon.GameLift.Model.StartMatchBackfillResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingTicket or Amazon.GameLift.Model.StartMatchBackfillResponse",
         "This cmdlet returns an Amazon.GameLift.Model.MatchmakingTicket object.",
-        "The service call response (type Amazon.GameLift.Model.StartMatchBackfillResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.StartMatchBackfillResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartGMLMatchBackfillCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

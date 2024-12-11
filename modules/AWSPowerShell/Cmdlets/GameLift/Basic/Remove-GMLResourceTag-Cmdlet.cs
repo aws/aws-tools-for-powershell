@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.GameLift.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGMLResourceTagCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue StartDataQualityRuleRecommendationRun API operation.", Operation = new[] {"StartDataQualityRuleRecommendationRun"}, SelectReturnType = typeof(Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.StartDataQualityRuleRecommendationRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartGLUEDataQualityRuleRecommendationRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

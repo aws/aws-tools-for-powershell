@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service AssociateSourceServers API operation.", Operation = new[] {"AssociateSourceServers"}, SelectReturnType = typeof(Amazon.Mgn.Model.AssociateSourceServersResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.AssociateSourceServersResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.AssociateSourceServersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.AssociateSourceServersResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMGNSourceServersToApplicationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

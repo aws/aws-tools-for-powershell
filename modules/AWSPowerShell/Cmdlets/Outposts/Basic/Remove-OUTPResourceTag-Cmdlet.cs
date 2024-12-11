@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Outposts.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Outposts.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Outposts.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Outposts.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOUTPResourceTagCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

@@ -39,14 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// out numbers or filters, the output includes information for all opted out destination
     /// numbers in your opt-out list.
     /// </para><para>
-    /// If you specify an opted out number that isn't valid, an error is returned.
+    /// If you specify an opted out number that isn't valid, an exception is returned.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVOptedOutNumber")]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DescribeOptedOutNumbers API operation.", Operation = new[] {"DescribeOptedOutNumbers"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DescribeOptedOutNumbersResponse object containing multiple properties."
     )]
     public partial class GetSMSVOptedOutNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter OptedOutNumber
         /// <summary>
         /// <para>
-        /// <para>An array of phone numbers to search for in the OptOutList.</para>
+        /// <para>An array of phone numbers to search for in the OptOutList.</para><para>If you specify an opted out number that isn't valid, an exception is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

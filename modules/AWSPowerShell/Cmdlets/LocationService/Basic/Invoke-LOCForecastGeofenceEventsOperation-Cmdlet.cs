@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.ForecastGeofenceEventsResponse")]
     [AWSCmdlet("Calls the Amazon Location Service ForecastGeofenceEvents API operation.", Operation = new[] {"ForecastGeofenceEvents"}, SelectReturnType = typeof(Amazon.LocationService.Model.ForecastGeofenceEventsResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.ForecastGeofenceEventsResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.ForecastGeofenceEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.ForecastGeofenceEventsResponse object containing multiple properties."
     )]
     public partial class InvokeLOCForecastGeofenceEventsOperationCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

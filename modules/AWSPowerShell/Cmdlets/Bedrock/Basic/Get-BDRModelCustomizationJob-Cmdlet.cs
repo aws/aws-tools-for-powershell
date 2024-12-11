@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock GetModelCustomizationJob API operation.", Operation = new[] {"GetModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetModelCustomizationJobResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.GetModelCustomizationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties."
     )]
     public partial class GetBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx DisassociateFileSystemAliases API operation.", Operation = new[] {"DisassociateFileSystemAliases"}, SelectReturnType = typeof(Amazon.FSx.Model.DisassociateFileSystemAliasesResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.Alias or Amazon.FSx.Model.DisassociateFileSystemAliasesResponse",
         "This cmdlet returns a collection of Amazon.FSx.Model.Alias objects.",
-        "The service call response (type Amazon.FSx.Model.DisassociateFileSystemAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.DisassociateFileSystemAliasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterFSXFileSystemAliasCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway NotifyWhenUploaded API operation.", Operation = new[] {"NotifyWhenUploaded"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.NotifyWhenUploadedResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.NotifyWhenUploadedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.NotifyWhenUploadedResponse object containing multiple properties."
     )]
     public partial class SendSGUploadedNotificationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

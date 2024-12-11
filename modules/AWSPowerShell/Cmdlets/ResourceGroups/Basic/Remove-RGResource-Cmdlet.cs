@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.UngroupResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups UngroupResources API operation.", Operation = new[] {"UngroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UngroupResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.UngroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties."
     )]
     public partial class RemoveRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group from which to remove the resources.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group from which to remove
+        /// the resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the resources to be removed from the group.</para>
+        /// <para>The Amazon resource names (ARNs) of the resources to be removed from the group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

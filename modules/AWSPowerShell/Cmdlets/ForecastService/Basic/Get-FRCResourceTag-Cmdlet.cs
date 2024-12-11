@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ForecastService.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ForecastService.Model.Tag or Amazon.ForecastService.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ForecastService.Model.Tag objects.",
-        "The service call response (type Amazon.ForecastService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ForecastService.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFRCResourceTagCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

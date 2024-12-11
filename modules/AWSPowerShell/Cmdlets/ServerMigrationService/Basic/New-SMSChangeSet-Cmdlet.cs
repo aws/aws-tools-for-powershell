@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service GenerateChangeSet API operation.", Operation = new[] {"GenerateChangeSet"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.GenerateChangeSetResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.S3Location or Amazon.ServerMigrationService.Model.GenerateChangeSetResponse",
         "This cmdlet returns an Amazon.ServerMigrationService.Model.S3Location object.",
-        "The service call response (type Amazon.ServerMigrationService.Model.GenerateChangeSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerMigrationService.Model.GenerateChangeSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMSChangeSetCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

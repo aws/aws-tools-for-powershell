@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [OutputType("Amazon.ElastiCache.Model.BatchStopUpdateActionResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache BatchStopUpdateAction API operation.", Operation = new[] {"BatchStopUpdateAction"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.BatchStopUpdateActionResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.BatchStopUpdateActionResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.BatchStopUpdateActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.BatchStopUpdateActionResponse object containing multiple properties."
     )]
     public partial class StopECUpdateActionBatchCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

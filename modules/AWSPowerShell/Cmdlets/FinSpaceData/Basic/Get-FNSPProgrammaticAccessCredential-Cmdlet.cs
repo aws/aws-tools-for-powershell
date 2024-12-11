@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [OutputType("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse")]
     [AWSCmdlet("Calls the FinSpace Public API GetProgrammaticAccessCredentials API operation.", Operation = new[] {"GetProgrammaticAccessCredentials"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse))]
     [AWSCmdletOutput("Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse",
-        "This cmdlet returns an Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FinSpaceData.Model.GetProgrammaticAccessCredentialsResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class GetFNSPProgrammaticAccessCredentialCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

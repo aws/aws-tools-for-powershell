@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.GetMacieSessionResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 GetMacieSession API operation.", Operation = new[] {"GetMacieSession"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetMacieSessionResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GetMacieSessionResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.GetMacieSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.GetMacieSessionResponse object containing multiple properties."
     )]
     public partial class GetMAC2MacieSessionCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

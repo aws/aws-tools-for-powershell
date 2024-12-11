@@ -90,6 +90,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ApplicationProtocol
+        {
+            ($_ -eq "New-IOTDomainConfiguration/ApplicationProtocol") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/ApplicationProtocol")
+        }
+        {
+            $v = "DEFAULT","HTTPS","MQTT_WSS","SECURE_MQTT"
+            break
+        }
+
         # Amazon.IoT.AuditFrequency
         {
             ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
@@ -125,6 +135,16 @@ $IOT_Completers = {
         "Get-IOTTaskList/TaskType"
         {
             $v = "ON_DEMAND_AUDIT_TASK","SCHEDULED_AUDIT_TASK"
+            break
+        }
+
+        # Amazon.IoT.AuthenticationType
+        {
+            ($_ -eq "New-IOTDomainConfiguration/AuthenticationType") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/AuthenticationType")
+        }
+        {
+            $v = "AWS_SIGV4","AWS_X509","CUSTOM_AUTH","CUSTOM_AUTH_X509","DEFAULT"
             break
         }
 
@@ -451,6 +471,17 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ThingPrincipalType
+        {
+            ($_ -eq "Add-IOTThingPrincipal/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTPrincipalThingsV2List/ThingPrincipalType") -Or
+            ($_ -eq "Get-IOTThingPrincipalsV2List/ThingPrincipalType")
+        }
+        {
+            $v = "EXCLUSIVE_THING","NON_EXCLUSIVE_THING"
+            break
+        }
+
         # Amazon.IoT.TopicRuleDestinationStatus
         "Update-IOTTopicRuleDestination/Status"
         {
@@ -482,6 +513,8 @@ $IOT_map = @{
     "ActionStatus"=@("Get-IOTAuditMitigationActionsExecutionList")
     "ActionType"=@("Get-IOTMitigationActionList")
     "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
+    "ApplicationProtocol"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
+    "AuthenticationType"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
@@ -515,6 +548,7 @@ $IOT_map = @{
     "ThingIndexingConfiguration_NamedShadowIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingConnectivityIndexingMode"=@("Update-IOTIndexingConfiguration")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "ThingPrincipalType"=@("Add-IOTThingPrincipal","Get-IOTPrincipalThingsV2List","Get-IOTThingPrincipalsV2List")
     "Type"=@("New-IOTDimension","New-IOTProvisioningTemplate")
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
@@ -752,6 +786,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersionList",
                "Get-IOTPrincipalPolicyList",
                "Get-IOTPrincipalThingList",
+               "Get-IOTPrincipalThingsV2List",
                "Get-IOTProvisioningTemplateList",
                "Get-IOTProvisioningTemplateVersionList",
                "Get-IOTRelatedResourcesForAuditFindingList",
@@ -767,6 +802,7 @@ $IOT_SelectMap = @{
                "Get-IOTThingGroupList",
                "Get-IOTThingGroupsForThingList",
                "Get-IOTThingPrincipalList",
+               "Get-IOTThingPrincipalsV2List",
                "Get-IOTThingRegistrationTaskReportList",
                "Get-IOTThingRegistrationTaskList",
                "Get-IOTThingList",
@@ -829,6 +865,7 @@ $IOT_SelectMap = @{
                "Update-IOTThing",
                "Update-IOTThingGroup",
                "Update-IOTThingGroupsForThing",
+               "Update-IOTThingType",
                "Update-IOTTopicRuleDestination",
                "Test-IOTValidSecurityProfileBehavior")
 }

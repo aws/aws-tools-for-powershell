@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow DescribeFlowExecutionRecords API operation.", Operation = new[] {"DescribeFlowExecutionRecords"}, SelectReturnType = typeof(Amazon.Appflow.Model.DescribeFlowExecutionRecordsResponse))]
     [AWSCmdletOutput("Amazon.Appflow.Model.ExecutionRecord or Amazon.Appflow.Model.DescribeFlowExecutionRecordsResponse",
         "This cmdlet returns a collection of Amazon.Appflow.Model.ExecutionRecord objects.",
-        "The service call response (type Amazon.Appflow.Model.DescribeFlowExecutionRecordsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Appflow.Model.DescribeFlowExecutionRecordsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFFlowExecutionRecordCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

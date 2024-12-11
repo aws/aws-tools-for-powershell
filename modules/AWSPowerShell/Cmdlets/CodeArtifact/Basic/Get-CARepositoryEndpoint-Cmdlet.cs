@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact GetRepositoryEndpoint API operation.", Operation = new[] {"GetRepositoryEndpoint"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCARepositoryEndpointCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainOwner { get; set; }
+        #endregion
+        
+        #region Parameter EndpointType
+        /// <summary>
+        /// <para>
+        /// <para>A string that specifies the type of endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeArtifact.EndpointType")]
+        public Amazon.CodeArtifact.EndpointType EndpointType { get; set; }
         #endregion
         
         #region Parameter Format
@@ -142,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.DomainOwner = this.DomainOwner;
+            context.EndpointType = this.EndpointType;
             context.Format = this.Format;
             #if MODULAR
             if (this.Format == null && ParameterWasBound(nameof(this.Format)))
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
             if (cmdletContext.DomainOwner != null)
             {
                 request.DomainOwner = cmdletContext.DomainOwner;
+            }
+            if (cmdletContext.EndpointType != null)
+            {
+                request.EndpointType = cmdletContext.EndpointType;
             }
             if (cmdletContext.Format != null)
             {
@@ -251,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             public System.String Domain { get; set; }
             public System.String DomainOwner { get; set; }
+            public Amazon.CodeArtifact.EndpointType EndpointType { get; set; }
             public Amazon.CodeArtifact.PackageFormat Format { get; set; }
             public System.String Repository { get; set; }
             public System.Func<Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse, GetCARepositoryEndpointCmdlet, object> Select { get; set; } =

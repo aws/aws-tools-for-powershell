@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeDomainResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeDomain API operation.", Operation = new[] {"DescribeDomain"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeDomainResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeDomainResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeDomainResponse object containing multiple properties."
     )]
     public partial class GetSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

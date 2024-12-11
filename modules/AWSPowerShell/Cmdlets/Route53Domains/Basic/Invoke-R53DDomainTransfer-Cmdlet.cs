@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains TransferDomain API operation.", Operation = new[] {"TransferDomain"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.TransferDomainResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53Domains.Model.TransferDomainResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53Domains.Model.TransferDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.TransferDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeR53DDomainTransferCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

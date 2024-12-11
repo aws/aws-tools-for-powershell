@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceEventStartTime API operation.", Operation = new[] {"ModifyInstanceEventStartTime"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceEventStartTimeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStatusEvent or Amazon.EC2.Model.ModifyInstanceEventStartTimeResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceStatusEvent object.",
-        "The service call response (type Amazon.EC2.Model.ModifyInstanceEventStartTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyInstanceEventStartTimeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditEC2InstanceEventStartTimeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

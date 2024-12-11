@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [OutputType("Amazon.ConfigService.Model.GetResourceEvaluationSummaryResponse")]
     [AWSCmdlet("Calls the AWS Config GetResourceEvaluationSummary API operation.", Operation = new[] {"GetResourceEvaluationSummary"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetResourceEvaluationSummaryResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.GetResourceEvaluationSummaryResponse",
-        "This cmdlet returns an Amazon.ConfigService.Model.GetResourceEvaluationSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConfigService.Model.GetResourceEvaluationSummaryResponse object containing multiple properties."
     )]
     public partial class GetCFGResourceEvaluationSummaryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

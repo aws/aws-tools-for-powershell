@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [OutputType("Amazon.Personalize.Model.GetSolutionMetricsResponse")]
     [AWSCmdlet("Calls the AWS Personalize GetSolutionMetrics API operation.", Operation = new[] {"GetSolutionMetrics"}, SelectReturnType = typeof(Amazon.Personalize.Model.GetSolutionMetricsResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.GetSolutionMetricsResponse",
-        "This cmdlet returns an Amazon.Personalize.Model.GetSolutionMetricsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Personalize.Model.GetSolutionMetricsResponse object containing multiple properties."
     )]
     public partial class GetPERSSolutionMetricCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

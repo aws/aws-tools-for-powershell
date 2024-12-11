@@ -97,6 +97,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.AWSServicePrincipal
+        {
+            ($_ -eq "Approve-OSVpcEndpointAccess/Service") -Or
+            ($_ -eq "Revoke-OSVpcEndpointAccess/Service")
+        }
+        {
+            $v = "application.opensearchservice.amazonaws.com"
+            break
+        }
+
         # Amazon.OpenSearchService.ConnectionMode
         "New-OSOutboundConnection/ConnectionMode"
         {
@@ -185,10 +195,39 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.PackageScopeOperationEnum
+        "Update-OSOSPackageScope/Operation"
+        {
+            $v = "ADD","OVERRIDE","REMOVE"
+            break
+        }
+
         # Amazon.OpenSearchService.PackageType
         "New-OSPackage/PackageType"
         {
-            $v = "TXT-DICTIONARY","ZIP-PLUGIN"
+            $v = "PACKAGE-CONFIG","PACKAGE-LICENSE","TXT-DICTIONARY","ZIP-PLUGIN"
+            break
+        }
+
+        # Amazon.OpenSearchService.RequirementLevel
+        {
+            ($_ -eq "New-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_ConfigurationRequirement") -Or
+            ($_ -eq "New-OSPackage/PackageConfiguration_LicenseRequirement") -Or
+            ($_ -eq "Update-OSPackage/PackageConfiguration_LicenseRequirement")
+        }
+        {
+            $v = "NONE","OPTIONAL","REQUIRED"
+            break
+        }
+
+        # Amazon.OpenSearchService.RolesKeyIdCOption
+        {
+            ($_ -eq "New-OSDomain/IdentityCenterOptions_RolesKey") -Or
+            ($_ -eq "Update-OSDomainConfig/IdentityCenterOptions_RolesKey")
+        }
+        {
+            $v = "GroupId","GroupName"
             break
         }
 
@@ -213,6 +252,16 @@ $OS_Completers = {
         "New-OSOutboundConnection/CrossClusterSearch_SkipUnavailable"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.OpenSearchService.SubjectKeyIdCOption
+        {
+            ($_ -eq "New-OSDomain/IdentityCenterOptions_SubjectKey") -Or
+            ($_ -eq "Update-OSDomainConfig/IdentityCenterOptions_SubjectKey")
+        }
+        {
+            $v = "Email","UserId","UserName"
             break
         }
 
@@ -258,11 +307,17 @@ $OS_map = @{
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
+    "IdentityCenterOptions_RolesKey"=@("New-OSDomain","Update-OSDomainConfig")
+    "IdentityCenterOptions_SubjectKey"=@("New-OSDomain","Update-OSDomainConfig")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
+    "Operation"=@("Update-OSOSPackageScope")
+    "PackageConfiguration_ConfigurationRequirement"=@("New-OSPackage","Update-OSPackage")
+    "PackageConfiguration_LicenseRequirement"=@("New-OSPackage","Update-OSPackage")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
+    "Service"=@("Approve-OSVpcEndpointAccess","Revoke-OSVpcEndpointAccess")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
@@ -320,13 +375,16 @@ $OS_SelectMap = @{
                "Add-OSDataSource",
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
+               "Start-OSOSAssociatePackageList",
                "Approve-OSVpcEndpointAccess",
                "Stop-OSDomainConfigChange",
                "Stop-OSServiceSoftwareUpdate",
+               "New-OSApplication",
                "New-OSDomain",
                "New-OSOutboundConnection",
                "New-OSPackage",
                "New-OSVpcEndpoint",
+               "Remove-OSApplication",
                "Remove-OSDataSource",
                "Remove-OSDomain",
                "Remove-OSInboundConnection",
@@ -349,12 +407,15 @@ $OS_SelectMap = @{
                "Get-OSReservedInstanceList",
                "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
+               "Start-OSOSDissociatePackageList",
+               "Get-OSApplication",
                "Get-OSCompatibleVersion",
                "Get-OSDataSource",
                "Get-OSDomainMaintenanceStatus",
                "Get-OSPackageVersionHistory",
                "Get-OSUpgradeHistory",
                "Get-OSUpgradeStatus",
+               "Get-OSApplicationList",
                "Get-OSDataSourceList",
                "Get-OSDomainMaintenanceList",
                "Get-OSDomainNameList",
@@ -373,9 +434,11 @@ $OS_SelectMap = @{
                "Revoke-OSVpcEndpointAccess",
                "Start-OSDomainMaintenance",
                "Start-OSServiceSoftwareUpdate",
+               "Update-OSApplication",
                "Update-OSDataSource",
                "Update-OSDomainConfig",
                "Update-OSPackage",
+               "Update-OSOSPackageScope",
                "Update-OSScheduledAction",
                "Update-OSVpcEndpoint",
                "Update-OSDomain")

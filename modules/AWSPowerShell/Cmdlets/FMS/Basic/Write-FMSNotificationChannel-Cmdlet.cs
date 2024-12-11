@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service PutNotificationChannel API operation.", Operation = new[] {"PutNotificationChannel"}, SelectReturnType = typeof(Amazon.FMS.Model.PutNotificationChannelResponse))]
     [AWSCmdletOutput("None or Amazon.FMS.Model.PutNotificationChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.PutNotificationChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FMS.Model.PutNotificationChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteFMSNotificationChannelCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

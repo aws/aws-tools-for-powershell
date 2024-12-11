@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst DeleteSourceRepository API operation.", Operation = new[] {"DeleteSourceRepository"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse object containing multiple properties."
     )]
     public partial class RemoveCCATSourceRepositoryCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

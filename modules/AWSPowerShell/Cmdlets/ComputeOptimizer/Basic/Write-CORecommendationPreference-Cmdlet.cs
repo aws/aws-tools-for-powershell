@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [AWSCmdlet("Calls the AWS Compute Optimizer PutRecommendationPreferences API operation.", Operation = new[] {"PutRecommendationPreferences"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.PutRecommendationPreferencesResponse))]
     [AWSCmdletOutput("None or Amazon.ComputeOptimizer.Model.PutRecommendationPreferencesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ComputeOptimizer.Model.PutRecommendationPreferencesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ComputeOptimizer.Model.PutRecommendationPreferencesResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCORecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

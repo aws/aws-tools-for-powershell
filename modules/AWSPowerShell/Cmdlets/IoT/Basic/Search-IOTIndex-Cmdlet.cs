@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.SearchIndexResponse")]
     [AWSCmdlet("Calls the AWS IoT SearchIndex API operation.", Operation = new[] {"SearchIndex"}, SelectReturnType = typeof(Amazon.IoT.Model.SearchIndexResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.SearchIndexResponse",
-        "This cmdlet returns an Amazon.IoT.Model.SearchIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.SearchIndexResponse object containing multiple properties."
     )]
     public partial class SearchIOTIndexCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

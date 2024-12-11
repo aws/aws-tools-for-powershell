@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.StartSessionResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager StartSession API operation.", Operation = new[] {"StartSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartSessionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.StartSessionResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.StartSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.StartSessionResponse object containing multiple properties."
     )]
     public partial class StartSSMSessionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

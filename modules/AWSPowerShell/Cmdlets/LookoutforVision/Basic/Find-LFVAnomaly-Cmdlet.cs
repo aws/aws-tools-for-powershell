@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision DetectAnomalies API operation.", Operation = new[] {"DetectAnomalies"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.DetectAnomaliesResponse))]
     [AWSCmdletOutput("Amazon.LookoutforVision.Model.DetectAnomalyResult or Amazon.LookoutforVision.Model.DetectAnomaliesResponse",
         "This cmdlet returns an Amazon.LookoutforVision.Model.DetectAnomalyResult object.",
-        "The service call response (type Amazon.LookoutforVision.Model.DetectAnomaliesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.DetectAnomaliesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindLFVAnomalyCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

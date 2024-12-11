@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DisassociateEntitiesFromExperience API operation.", Operation = new[] {"DisassociateEntitiesFromExperience"}, SelectReturnType = typeof(Amazon.Kendra.Model.DisassociateEntitiesFromExperienceResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.FailedEntity or Amazon.Kendra.Model.DisassociateEntitiesFromExperienceResponse",
         "This cmdlet returns a collection of Amazon.Kendra.Model.FailedEntity objects.",
-        "The service call response (type Amazon.Kendra.Model.DisassociateEntitiesFromExperienceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.DisassociateEntitiesFromExperienceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDREntitiesFromExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

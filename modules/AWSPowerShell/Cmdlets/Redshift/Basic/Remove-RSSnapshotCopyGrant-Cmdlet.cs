@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DeleteSnapshotCopyGrant API operation.", Operation = new[] {"DeleteSnapshotCopyGrant"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse))]
     [AWSCmdletOutput("None or Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

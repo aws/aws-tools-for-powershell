@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric GetAppAuthorization API operation.", Operation = new[] {"GetAppAuthorization"}, SelectReturnType = typeof(Amazon.AppFabric.Model.GetAppAuthorizationResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.AppAuthorization or Amazon.AppFabric.Model.GetAppAuthorizationResponse",
         "This cmdlet returns an Amazon.AppFabric.Model.AppAuthorization object.",
-        "The service call response (type Amazon.AppFabric.Model.GetAppAuthorizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.GetAppAuthorizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFABAppAuthorizationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

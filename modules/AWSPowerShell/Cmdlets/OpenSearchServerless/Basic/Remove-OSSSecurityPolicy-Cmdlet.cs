@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless DeleteSecurityPolicy API operation.", Operation = new[] {"DeleteSecurityPolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.DeleteSecurityPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.OpenSearchServerless.Model.DeleteSecurityPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpenSearchServerless.Model.DeleteSecurityPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpenSearchServerless.Model.DeleteSecurityPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSSSecurityPolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

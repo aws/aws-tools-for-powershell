@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager RemoveRegionsFromReplication API operation.", Operation = new[] {"RemoveRegionsFromReplication"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.RemoveRegionsFromReplicationResponse object containing multiple properties."
     )]
     public partial class RemoveSECRegionsFromReplicationCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

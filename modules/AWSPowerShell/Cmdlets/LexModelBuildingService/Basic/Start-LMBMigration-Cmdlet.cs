@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.StartMigrationResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service StartMigration API operation.", Operation = new[] {"StartMigration"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.StartMigrationResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.StartMigrationResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.StartMigrationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.StartMigrationResponse object containing multiple properties."
     )]
     public partial class StartLMBMigrationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

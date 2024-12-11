@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [OutputType("Amazon.Inspector.Model.DescribeRulesPackagesResponse")]
     [AWSCmdlet("Calls the Amazon Inspector DescribeRulesPackages API operation.", Operation = new[] {"DescribeRulesPackages"}, SelectReturnType = typeof(Amazon.Inspector.Model.DescribeRulesPackagesResponse))]
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeRulesPackagesResponse",
-        "This cmdlet returns an Amazon.Inspector.Model.DescribeRulesPackagesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector.Model.DescribeRulesPackagesResponse object containing multiple properties."
     )]
     public partial class GetINSRulesPackageCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

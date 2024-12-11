@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry ListAssociatedAttributeGroups API operation.", Operation = new[] {"ListAssociatedAttributeGroups"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.ListAssociatedAttributeGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.AppRegistry.Model.ListAssociatedAttributeGroupsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AppRegistry.Model.ListAssociatedAttributeGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.ListAssociatedAttributeGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCARAssociatedAttributeGroupListCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

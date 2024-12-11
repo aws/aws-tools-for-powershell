@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteJobTagging API operation.", Operation = new[] {"DeleteJobTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteJobTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteJobTaggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteJobTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DeleteJobTaggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CJobTaggingCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

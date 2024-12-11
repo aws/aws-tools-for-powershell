@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Shield.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHLDResourceTagCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

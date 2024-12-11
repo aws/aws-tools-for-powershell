@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains DisableDomainAutoRenew API operation.", Operation = new[] {"DisableDomainAutoRenew"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse))]
     [AWSCmdletOutput("None or Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableR53DDomainAutoRenewCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

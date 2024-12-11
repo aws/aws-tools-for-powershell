@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Drs.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Drs.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Drs.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEDRSResourceTagCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

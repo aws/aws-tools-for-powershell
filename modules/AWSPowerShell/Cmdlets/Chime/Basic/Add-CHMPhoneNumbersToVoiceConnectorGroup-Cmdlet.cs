@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime AssociatePhoneNumbersWithVoiceConnectorGroup API operation.", Operation = new[] {"AssociatePhoneNumbersWithVoiceConnectorGroup"}, SelectReturnType = typeof(Amazon.Chime.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.PhoneNumberError or Amazon.Chime.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.PhoneNumberError objects.",
-        "The service call response (type Amazon.Chime.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
     public partial class AddCHMPhoneNumbersToVoiceConnectorGroupCmdlet : AmazonChimeClientCmdlet, IExecutor

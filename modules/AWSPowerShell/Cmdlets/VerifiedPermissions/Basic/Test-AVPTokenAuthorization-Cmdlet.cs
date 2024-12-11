@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// 
     ///  
     /// <para>
-    /// At this time, Verified Permissions accepts tokens from only Amazon Cognito.
-    /// </para><para>
     /// Verified Permissions validates each token that is specified in a request by checking
     /// its expiration date and its signature.
     /// </para><important><para>
@@ -53,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions IsAuthorizedWithToken API operation.", Operation = new[] {"IsAuthorizedWithToken"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse object containing multiple properties."
     )]
     public partial class TestAVPTokenAuthorizationCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

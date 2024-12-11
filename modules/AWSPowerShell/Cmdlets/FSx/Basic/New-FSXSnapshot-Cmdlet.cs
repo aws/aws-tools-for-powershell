@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.FSx.Model.CreateSnapshotResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.Snapshot or Amazon.FSx.Model.CreateSnapshotResponse",
         "This cmdlet returns an Amazon.FSx.Model.Snapshot object.",
-        "The service call response (type Amazon.FSx.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CreateSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFSXSnapshotCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

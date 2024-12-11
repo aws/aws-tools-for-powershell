@@ -118,6 +118,26 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.ConfidenceThreshold
+        {
+            ($_ -eq "Edit-R53RFirewallRule/ConfidenceThreshold") -Or
+            ($_ -eq "New-R53RFirewallRule/ConfidenceThreshold")
+        }
+        {
+            $v = "HIGH","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.Route53Resolver.DnsThreatProtection
+        {
+            ($_ -eq "Edit-R53RFirewallRule/DnsThreatProtection") -Or
+            ($_ -eq "New-R53RFirewallRule/DnsThreatProtection")
+        }
+        {
+            $v = "DGA","DNS_TUNNELING"
+            break
+        }
+
         # Amazon.Route53Resolver.FirewallDomainImportOperation
         "Import-R53RFirewallDomainList/Operation"
         {
@@ -220,7 +240,9 @@ $R53R_map = @{
     "AutodefinedReverseFlag"=@("Update-R53RResolverConfig")
     "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
+    "ConfidenceThreshold"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
+    "DnsThreatProtection"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DescribeSuggesters API operation.", Operation = new[] {"DescribeSuggesters"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DescribeSuggestersResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.SuggesterStatus or Amazon.CloudSearch.Model.DescribeSuggestersResponse",
         "This cmdlet returns a collection of Amazon.CloudSearch.Model.SuggesterStatus objects.",
-        "The service call response (type Amazon.CloudSearch.Model.DescribeSuggestersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeSuggestersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

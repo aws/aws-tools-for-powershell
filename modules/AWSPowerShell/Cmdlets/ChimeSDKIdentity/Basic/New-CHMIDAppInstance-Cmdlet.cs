@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [AWSCmdlet("Calls the Amazon Chime SDK Identity CreateAppInstance API operation.", Operation = new[] {"CreateAppInstance"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.CreateAppInstanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ChimeSDKIdentity.Model.CreateAppInstanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ChimeSDKIdentity.Model.CreateAppInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKIdentity.Model.CreateAppInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCHMIDAppInstanceCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

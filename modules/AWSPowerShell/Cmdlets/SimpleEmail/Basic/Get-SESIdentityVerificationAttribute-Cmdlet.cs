@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetIdentityVerificationAttributes API operation.", Operation = new[] {"GetIdentityVerificationAttributes"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESIdentityVerificationAttributeCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

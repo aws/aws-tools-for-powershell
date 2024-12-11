@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager DeleteAddonInstance API operation.", Operation = new[] {"DeleteAddonInstance"}, SelectReturnType = typeof(Amazon.MailManager.Model.DeleteAddonInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.MailManager.Model.DeleteAddonInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MailManager.Model.DeleteAddonInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MailManager.Model.DeleteAddonInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMMGRAddonInstanceCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectVpcPeeringConnection API operation.", Operation = new[] {"RejectVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectVpcPeeringConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.RejectVpcPeeringConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.RejectVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.RejectVpcPeeringConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

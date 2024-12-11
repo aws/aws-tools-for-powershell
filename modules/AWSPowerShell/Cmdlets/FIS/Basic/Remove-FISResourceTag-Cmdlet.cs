@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.FIS.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.FIS.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FIS.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FIS.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFISResourceTagCmdlet : AmazonFISClientCmdlet, IExecutor
     {

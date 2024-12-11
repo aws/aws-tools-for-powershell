@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DeleteEndpointAccessResponse")]
     [AWSCmdlet("Calls the Amazon Redshift DeleteEndpointAccess API operation.", Operation = new[] {"DeleteEndpointAccess"}, SelectReturnType = typeof(Amazon.Redshift.Model.DeleteEndpointAccessResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.DeleteEndpointAccessResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.DeleteEndpointAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.DeleteEndpointAccessResponse object containing multiple properties."
     )]
     public partial class RemoveRSEndpointAccessCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

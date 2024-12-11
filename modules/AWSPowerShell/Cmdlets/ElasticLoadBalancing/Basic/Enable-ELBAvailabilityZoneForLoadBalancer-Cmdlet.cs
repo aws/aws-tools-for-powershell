@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing EnableAvailabilityZonesForLoadBalancer API operation.", Operation = new[] {"EnableAvailabilityZonesForLoadBalancer"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableELBAvailabilityZoneForLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     [OutputType("Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse")]
     [AWSCmdlet("Calls the AWS Serverless Application Repository CreateCloudFormationChangeSet API operation.", Operation = new[] {"CreateCloudFormationChangeSet"}, SelectReturnType = typeof(Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse))]
     [AWSCmdletOutput("Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse",
-        "This cmdlet returns an Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServerlessApplicationRepository.Model.CreateCloudFormationChangeSetResponse object containing multiple properties."
     )]
     public partial class NewSARCloudFormationChangeSetCmdlet : AmazonServerlessApplicationRepositoryClientCmdlet, IExecutor
     {

@@ -1,0 +1,1 @@
+Send-SES2Email -FromEmailAddress "sender@example.com" -Destination_ToAddress "recipient@example.com" -Subject_Data "Email Subject" -Text_Data "Email Body"

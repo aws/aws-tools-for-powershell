@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin PutInlinePolicyToPermissionSet API operation.", Operation = new[] {"PutInlinePolicyToPermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.PutInlinePolicyToPermissionSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.PutInlinePolicyToPermissionSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.PutInlinePolicyToPermissionSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.PutInlinePolicyToPermissionSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSSOADMNInlinePolicyToPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

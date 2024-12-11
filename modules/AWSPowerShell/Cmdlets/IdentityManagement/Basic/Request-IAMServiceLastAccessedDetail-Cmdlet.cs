@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GenerateServiceLastAccessedDetails API operation.", Operation = new[] {"GenerateServiceLastAccessedDetails"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GenerateServiceLastAccessedDetailsResponse))]
     [AWSCmdletOutput("System.String or Amazon.IdentityManagement.Model.GenerateServiceLastAccessedDetailsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GenerateServiceLastAccessedDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GenerateServiceLastAccessedDetailsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestIAMServiceLastAccessedDetailCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize CreateDatasetExportJob API operation.", Operation = new[] {"CreateDatasetExportJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateDatasetExportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateDatasetExportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.CreateDatasetExportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.CreateDatasetExportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPERSDatasetExportJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

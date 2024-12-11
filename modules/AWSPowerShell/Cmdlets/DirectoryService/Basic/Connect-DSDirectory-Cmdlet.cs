@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service ConnectDirectory API operation.", Operation = new[] {"ConnectDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ConnectDirectoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.ConnectDirectoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.ConnectDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.ConnectDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

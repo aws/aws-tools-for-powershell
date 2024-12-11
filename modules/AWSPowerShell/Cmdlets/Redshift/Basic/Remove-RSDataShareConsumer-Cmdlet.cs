@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DisassociateDataShareConsumerResponse")]
     [AWSCmdlet("Calls the Amazon Redshift DisassociateDataShareConsumer API operation.", Operation = new[] {"DisassociateDataShareConsumer"}, SelectReturnType = typeof(Amazon.Redshift.Model.DisassociateDataShareConsumerResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.DisassociateDataShareConsumerResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.DisassociateDataShareConsumerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.DisassociateDataShareConsumerResponse object containing multiple properties."
     )]
     public partial class RemoveRSDataShareConsumerCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [OutputType("Amazon.OAM.Model.UpdateLinkResponse")]
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager UpdateLink API operation.", Operation = new[] {"UpdateLink"}, SelectReturnType = typeof(Amazon.OAM.Model.UpdateLinkResponse))]
     [AWSCmdletOutput("Amazon.OAM.Model.UpdateLinkResponse",
-        "This cmdlet returns an Amazon.OAM.Model.UpdateLinkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OAM.Model.UpdateLinkResponse object containing multiple properties."
     )]
     public partial class UpdateCWOAMLinkCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

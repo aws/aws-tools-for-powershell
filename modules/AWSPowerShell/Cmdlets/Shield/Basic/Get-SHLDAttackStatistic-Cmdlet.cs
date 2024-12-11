@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [OutputType("Amazon.Shield.Model.DescribeAttackStatisticsResponse")]
     [AWSCmdlet("Calls the AWS Shield DescribeAttackStatistics API operation.", Operation = new[] {"DescribeAttackStatistics"}, SelectReturnType = typeof(Amazon.Shield.Model.DescribeAttackStatisticsResponse))]
     [AWSCmdletOutput("Amazon.Shield.Model.DescribeAttackStatisticsResponse",
-        "This cmdlet returns an Amazon.Shield.Model.DescribeAttackStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Shield.Model.DescribeAttackStatisticsResponse object containing multiple properties."
     )]
     public partial class GetSHLDAttackStatisticCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

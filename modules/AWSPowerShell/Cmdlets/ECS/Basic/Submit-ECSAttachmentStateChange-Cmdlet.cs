@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service SubmitAttachmentStateChanges API operation.", Operation = new[] {"SubmitAttachmentStateChanges"}, SelectReturnType = typeof(Amazon.ECS.Model.SubmitAttachmentStateChangesResponse))]
     [AWSCmdletOutput("System.String or Amazon.ECS.Model.SubmitAttachmentStateChangesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ECS.Model.SubmitAttachmentStateChangesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.SubmitAttachmentStateChangesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SubmitECSAttachmentStateChangeCmdlet : AmazonECSClientCmdlet, IExecutor
     {

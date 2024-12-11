@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton GetTemplateSyncConfig API operation.", Operation = new[] {"GetTemplateSyncConfig"}, SelectReturnType = typeof(Amazon.Proton.Model.GetTemplateSyncConfigResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.TemplateSyncConfig or Amazon.Proton.Model.GetTemplateSyncConfigResponse",
         "This cmdlet returns an Amazon.Proton.Model.TemplateSyncConfig object.",
-        "The service call response (type Amazon.Proton.Model.GetTemplateSyncConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.GetTemplateSyncConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROTemplateSyncConfigCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

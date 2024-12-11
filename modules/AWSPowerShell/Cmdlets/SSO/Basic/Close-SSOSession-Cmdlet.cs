@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SSO
     [AWSCmdlet("Calls the AWS Single Sign-On Logout API operation.", Operation = new[] {"Logout"}, SelectReturnType = typeof(Amazon.SSO.Model.LogoutResponse))]
     [AWSCmdletOutput("None or Amazon.SSO.Model.LogoutResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSO.Model.LogoutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSO.Model.LogoutResponse) be returned by specifying '-Select *'."
     )]
     public partial class CloseSSOSessionCmdlet : AmazonSSOClientCmdlet, IExecutor
     {

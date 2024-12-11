@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline EnableStageTransition API operation.", Operation = new[] {"EnableStageTransition"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.EnableStageTransitionResponse))]
     [AWSCmdletOutput("None or Amazon.CodePipeline.Model.EnableStageTransitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodePipeline.Model.EnableStageTransitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.EnableStageTransitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableCPStageTransitionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

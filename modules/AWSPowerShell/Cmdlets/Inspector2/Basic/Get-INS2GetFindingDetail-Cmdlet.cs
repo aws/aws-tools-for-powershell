@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.BatchGetFindingDetailsResponse")]
     [AWSCmdlet("Calls the Inspector2 BatchGetFindingDetails API operation.", Operation = new[] {"BatchGetFindingDetails"}, SelectReturnType = typeof(Amazon.Inspector2.Model.BatchGetFindingDetailsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.BatchGetFindingDetailsResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.BatchGetFindingDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.BatchGetFindingDetailsResponse object containing multiple properties."
     )]
     public partial class GetINS2GetFindingDetailCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

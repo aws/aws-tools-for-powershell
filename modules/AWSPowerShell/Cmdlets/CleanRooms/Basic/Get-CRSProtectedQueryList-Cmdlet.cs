@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service ListProtectedQueries API operation.", Operation = new[] {"ListProtectedQueries"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListProtectedQueriesResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.ProtectedQuerySummary or Amazon.CleanRooms.Model.ListProtectedQueriesResponse",
         "This cmdlet returns a collection of Amazon.CleanRooms.Model.ProtectedQuerySummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListProtectedQueriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.ListProtectedQueriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSProtectedQueryListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the results that is returned per call. Service chooses a default
-        /// if it has not been set. Service can return a nextToken even if the maximum results
-        /// has not been met. </para>
+        /// <para>The maximum number of results that are returned for an API request call. The service
+        /// chooses a default number if you don't set one. The service might return a `nextToken`
+        /// even if the `maxResults` value has not been met. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token value retrieved from a previous call to access the next page of results.</para>
+        /// <para>The pagination token that's used to fetch the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

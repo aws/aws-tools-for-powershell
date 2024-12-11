@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para>
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
     /// in a wait state.
-    /// </para></li><li><para><b>If you finish before the timeout period ends, send a callback by using the <a>CompleteLifecycleAction</a>
+    /// </para></li><li><para><b>If you finish before the timeout period ends, send a callback by using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CompleteLifecycleAction.html">CompleteLifecycleAction</a>
     /// API call.</b></para></li></ol><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/completing-lifecycle-hooks.html">Complete
     /// a lifecycle action</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling CompleteLifecycleAction API operation.", Operation = new[] {"CompleteLifecycleAction"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CompleteLifecycleActionResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.CompleteLifecycleActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.CompleteLifecycleActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CompleteLifecycleActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class CompleteASLifecycleActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

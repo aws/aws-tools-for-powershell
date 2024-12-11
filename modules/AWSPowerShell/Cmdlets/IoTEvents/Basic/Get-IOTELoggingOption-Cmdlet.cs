@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events DescribeLoggingOptions API operation.", Operation = new[] {"DescribeLoggingOptions"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.DescribeLoggingOptionsResponse))]
     [AWSCmdletOutput("Amazon.IoTEvents.Model.LoggingOptions or Amazon.IoTEvents.Model.DescribeLoggingOptionsResponse",
         "This cmdlet returns an Amazon.IoTEvents.Model.LoggingOptions object.",
-        "The service call response (type Amazon.IoTEvents.Model.DescribeLoggingOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEvents.Model.DescribeLoggingOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTELoggingOptionCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

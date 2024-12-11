@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DisassociateConnectionAlias API operation.", Operation = new[] {"DisassociateConnectionAlias"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DisassociateConnectionAliasResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DisassociateConnectionAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DisassociateConnectionAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DisassociateConnectionAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWKSConnectionAliasCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

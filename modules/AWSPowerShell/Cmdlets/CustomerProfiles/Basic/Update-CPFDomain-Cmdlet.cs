@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.UpdateDomainResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles UpdateDomain API operation.", Operation = new[] {"UpdateDomain"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.UpdateDomainResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.UpdateDomainResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.UpdateDomainResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.UpdateDomainResponse object containing multiple properties."
     )]
     public partial class UpdateCPFDomainCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

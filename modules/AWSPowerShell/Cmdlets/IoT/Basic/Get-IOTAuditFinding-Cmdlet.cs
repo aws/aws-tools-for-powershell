@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DescribeAuditFinding API operation.", Operation = new[] {"DescribeAuditFinding"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeAuditFindingResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.AuditFinding or Amazon.IoT.Model.DescribeAuditFindingResponse",
         "This cmdlet returns an Amazon.IoT.Model.AuditFinding object.",
-        "The service call response (type Amazon.IoT.Model.DescribeAuditFindingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeAuditFindingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTAuditFindingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

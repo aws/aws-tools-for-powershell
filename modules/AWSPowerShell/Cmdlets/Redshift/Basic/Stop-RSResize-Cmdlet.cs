@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.CancelResizeResponse")]
     [AWSCmdlet("Calls the Amazon Redshift CancelResize API operation.", Operation = new[] {"CancelResize"}, SelectReturnType = typeof(Amazon.Redshift.Model.CancelResizeResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.CancelResizeResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.CancelResizeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.CancelResizeResponse object containing multiple properties."
     )]
     public partial class StopRSResizeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

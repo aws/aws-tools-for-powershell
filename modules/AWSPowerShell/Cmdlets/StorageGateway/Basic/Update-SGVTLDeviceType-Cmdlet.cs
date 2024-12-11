@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateVTLDeviceType API operation.", Operation = new[] {"UpdateVTLDeviceType"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse object containing multiple properties."
     )]
     public partial class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

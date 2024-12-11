@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.TestInvokeAuthorizerResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway TestInvokeAuthorizer API operation.", Operation = new[] {"TestInvokeAuthorizer"}, SelectReturnType = typeof(Amazon.APIGateway.Model.TestInvokeAuthorizerResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.TestInvokeAuthorizerResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.TestInvokeAuthorizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.TestInvokeAuthorizerResponse object containing multiple properties."
     )]
     public partial class TestAGInvokeAuthorizerCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

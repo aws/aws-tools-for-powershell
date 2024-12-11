@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateUserProficiencies API operation.", Operation = new[] {"AssociateUserProficiencies"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateUserProficienciesResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateUserProficienciesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateUserProficienciesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateUserProficienciesResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNUserProficiencyCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

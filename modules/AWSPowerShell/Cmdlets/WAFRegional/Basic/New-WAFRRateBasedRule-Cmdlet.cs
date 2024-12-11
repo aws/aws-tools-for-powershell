@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateRateBasedRuleResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateRateBasedRule API operation.", Operation = new[] {"CreateRateBasedRule"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateRateBasedRuleResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateRateBasedRuleResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateRateBasedRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateRateBasedRuleResponse object containing multiple properties."
     )]
     public partial class NewWAFRRateBasedRuleCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

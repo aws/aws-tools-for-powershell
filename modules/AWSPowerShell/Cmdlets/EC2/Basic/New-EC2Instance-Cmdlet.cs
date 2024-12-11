@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RunInstances API operation.", Operation = new[] {"RunInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.RunInstancesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Reservation or Amazon.EC2.Model.RunInstancesResponse",
         "This cmdlet returns an Amazon.EC2.Model.Reservation object.",
-        "The service call response (type Amazon.EC2.Model.RunInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RunInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -285,9 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticInferenceAccelerator
         /// <summary>
         /// <para>
-        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference (EI) is no longer available to new customers. For more information,
-        /// see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon
-        /// Elastic Inference FAQs</a>.</para></note>
+        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

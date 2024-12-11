@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DeleteDataSource API operation.", Operation = new[] {"DeleteDataSource"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DeleteDataSourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.DeleteDataSourceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpenSearchService.Model.DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DeleteDataSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSDataSourceCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

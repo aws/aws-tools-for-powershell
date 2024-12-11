@@ -14,11 +14,6 @@ cloudformation_DescribeStackEvents:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStackEvent.1.1.ps1
-        - description: '<emphasis role="bold">Example 2: Returns all stack related events for the specified stack using manual paging starting at the specified token. The starting token for the next page is retrieved after every call with $null indicating no more events remain to be retrieved.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/cloudformation_Get-CFNStackEvent.2.1.ps1
   services:
     cloudformation:
       DescribeStackEvents:

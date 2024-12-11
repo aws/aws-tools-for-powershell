@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud CreateStorageProfile API operation.", Operation = new[] {"CreateStorageProfile"}, SelectReturnType = typeof(Amazon.Deadline.Model.CreateStorageProfileResponse))]
     [AWSCmdletOutput("System.String or Amazon.Deadline.Model.CreateStorageProfileResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Deadline.Model.CreateStorageProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.CreateStorageProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewADCStorageProfileCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

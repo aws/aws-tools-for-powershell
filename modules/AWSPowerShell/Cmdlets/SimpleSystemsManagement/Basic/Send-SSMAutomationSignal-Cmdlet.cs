@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager SendAutomationSignal API operation.", Operation = new[] {"SendAutomationSignal"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendSSMAutomationSignalCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

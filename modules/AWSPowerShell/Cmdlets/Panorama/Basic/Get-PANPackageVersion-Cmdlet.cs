@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [OutputType("Amazon.Panorama.Model.DescribePackageVersionResponse")]
     [AWSCmdlet("Calls the AWS Panorama DescribePackageVersion API operation.", Operation = new[] {"DescribePackageVersion"}, SelectReturnType = typeof(Amazon.Panorama.Model.DescribePackageVersionResponse))]
     [AWSCmdletOutput("Amazon.Panorama.Model.DescribePackageVersionResponse",
-        "This cmdlet returns an Amazon.Panorama.Model.DescribePackageVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Panorama.Model.DescribePackageVersionResponse object containing multiple properties."
     )]
     public partial class GetPANPackageVersionCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

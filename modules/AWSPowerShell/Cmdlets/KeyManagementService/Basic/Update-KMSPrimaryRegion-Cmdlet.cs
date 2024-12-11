@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service UpdatePrimaryRegion API operation.", Operation = new[] {"UpdatePrimaryRegion"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.UpdatePrimaryRegionResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.UpdatePrimaryRegionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.UpdatePrimaryRegionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.UpdatePrimaryRegionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateKMSPrimaryRegionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

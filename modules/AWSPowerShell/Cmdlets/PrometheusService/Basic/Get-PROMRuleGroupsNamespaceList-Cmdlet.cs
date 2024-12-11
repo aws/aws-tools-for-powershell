@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service ListRuleGroupsNamespaces API operation.", Operation = new[] {"ListRuleGroupsNamespaces"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.ListRuleGroupsNamespacesResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.RuleGroupsNamespaceSummary or Amazon.PrometheusService.Model.ListRuleGroupsNamespacesResponse",
         "This cmdlet returns a collection of Amazon.PrometheusService.Model.RuleGroupsNamespaceSummary objects.",
-        "The service call response (type Amazon.PrometheusService.Model.ListRuleGroupsNamespacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.ListRuleGroupsNamespacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMRuleGroupsNamespaceListCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

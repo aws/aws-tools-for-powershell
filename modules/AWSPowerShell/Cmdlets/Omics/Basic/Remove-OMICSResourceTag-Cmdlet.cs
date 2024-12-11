@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Omics.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSResourceTagCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

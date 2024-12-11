@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DeleteWorker API operation.", Operation = new[] {"DeleteWorker"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteWorkerResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteWorkerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteWorkerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DeleteWorkerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCWorkerCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

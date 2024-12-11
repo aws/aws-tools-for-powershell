@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     [AWSCmdlet("Calls the Amazon EventBridge Scheduler DeleteScheduleGroup API operation.", Operation = new[] {"DeleteScheduleGroup"}, SelectReturnType = typeof(Amazon.Scheduler.Model.DeleteScheduleGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Scheduler.Model.DeleteScheduleGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Scheduler.Model.DeleteScheduleGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Scheduler.Model.DeleteScheduleGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCHScheduleGroupCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {

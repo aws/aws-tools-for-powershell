@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.CreateSubscriptionDefinitionVersionResponse")]
     [AWSCmdlet("Calls the AWS Greengrass CreateSubscriptionDefinitionVersion API operation.", Operation = new[] {"CreateSubscriptionDefinitionVersion"}, SelectReturnType = typeof(Amazon.Greengrass.Model.CreateSubscriptionDefinitionVersionResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.CreateSubscriptionDefinitionVersionResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.CreateSubscriptionDefinitionVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.CreateSubscriptionDefinitionVersionResponse object containing multiple properties."
     )]
     public partial class NewGGSubscriptionDefinitionVersionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

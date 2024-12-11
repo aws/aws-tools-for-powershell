@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock PutModelInvocationLoggingConfiguration API operation.", Operation = new[] {"PutModelInvocationLoggingConfiguration"}, SelectReturnType = typeof(Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteBDRModelInvocationLoggingConfigurationCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

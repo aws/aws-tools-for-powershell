@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit UpdatePullRequestDescription API operation.", Operation = new[] {"UpdatePullRequestDescription"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.UpdatePullRequestDescriptionResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PullRequest or Amazon.CodeCommit.Model.UpdatePullRequestDescriptionResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.PullRequest object.",
-        "The service call response (type Amazon.CodeCommit.Model.UpdatePullRequestDescriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.UpdatePullRequestDescriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCPullRequestDescriptionCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

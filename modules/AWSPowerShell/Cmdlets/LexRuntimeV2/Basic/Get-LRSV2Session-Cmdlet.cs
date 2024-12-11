@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     [OutputType("Amazon.LexRuntimeV2.Model.GetSessionResponse")]
     [AWSCmdlet("Calls the Amazon Lex Runtime V2 GetSession API operation.", Operation = new[] {"GetSession"}, SelectReturnType = typeof(Amazon.LexRuntimeV2.Model.GetSessionResponse))]
     [AWSCmdletOutput("Amazon.LexRuntimeV2.Model.GetSessionResponse",
-        "This cmdlet returns an Amazon.LexRuntimeV2.Model.GetSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexRuntimeV2.Model.GetSessionResponse object containing multiple properties."
     )]
     public partial class GetLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {

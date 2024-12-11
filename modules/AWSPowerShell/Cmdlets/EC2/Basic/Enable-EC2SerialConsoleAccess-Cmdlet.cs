@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableSerialConsoleAccess API operation.", Operation = new[] {"EnableSerialConsoleAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableSerialConsoleAccessResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableSerialConsoleAccessResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.EC2.Model.EnableSerialConsoleAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.EC2.Model.EnableSerialConsoleAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2SerialConsoleAccessCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

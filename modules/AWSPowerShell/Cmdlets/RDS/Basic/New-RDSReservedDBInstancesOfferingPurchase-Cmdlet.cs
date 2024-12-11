@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service PurchaseReservedDBInstancesOffering API operation.", Operation = new[] {"PurchaseReservedDBInstancesOffering"}, SelectReturnType = typeof(Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse), LegacyAlias="Get-RDSReservedDBInstancesOffering")]
     [AWSCmdletOutput("Amazon.RDS.Model.ReservedDBInstance or Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse",
         "This cmdlet returns an Amazon.RDS.Model.ReservedDBInstance object.",
-        "The service call response (type Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSReservedDBInstancesOfferingPurchaseCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IoTEvents.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTEvents.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTEvents.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTEResourceTagCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

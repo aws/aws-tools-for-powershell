@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkInterface API operation.", Operation = new[] {"CreateNetworkInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkInterfaceResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface or Amazon.EC2.Model.CreateNetworkInterfaceResponse",
         "This cmdlet returns an Amazon.EC2.Model.NetworkInterface object.",
-        "The service call response (type Amazon.EC2.Model.CreateNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateNetworkInterfaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InterfaceType
         /// <summary>
         /// <para>
-        /// <para>The type of network interface. The default is <c>interface</c>.</para><para>The only supported values are <c>interface</c>, <c>efa</c>, and <c>trunk</c>.</para>
+        /// <para>The type of network interface. The default is <c>interface</c>.</para><para>If you specify <c>efa-only</c>, do not assign any IP addresses to the network interface.
+        /// EFA-only network interfaces do not support IP addresses.</para><para>The only supported values are <c>interface</c>, <c>efa</c>, <c>efa-only</c>, and <c>trunk</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

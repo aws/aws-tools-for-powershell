@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DeleteIdentityProvider API operation.", Operation = new[] {"DeleteIdentityProvider"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DeleteIdentityProviderResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DeleteIdentityProviderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteIdentityProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteIdentityProviderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSWIdentityProviderCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DisableHttpEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DisableHttpEndpoint API operation.", Operation = new[] {"DisableHttpEndpoint"}, SelectReturnType = typeof(Amazon.RDS.Model.DisableHttpEndpointResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DisableHttpEndpointResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DisableHttpEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.DisableHttpEndpointResponse object containing multiple properties."
     )]
     public partial class DisableRDSHttpEndpointCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

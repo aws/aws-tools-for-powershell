@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier GetDataRetrievalPolicy API operation.", Operation = new[] {"GetDataRetrievalPolicy"}, SelectReturnType = typeof(Amazon.Glacier.Model.GetDataRetrievalPolicyResponse))]
     [AWSCmdletOutput("Amazon.Glacier.Model.DataRetrievalPolicy or Amazon.Glacier.Model.GetDataRetrievalPolicyResponse",
         "This cmdlet returns an Amazon.Glacier.Model.DataRetrievalPolicy object.",
-        "The service call response (type Amazon.Glacier.Model.GetDataRetrievalPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glacier.Model.GetDataRetrievalPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLCDataRetrievalPolicyCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

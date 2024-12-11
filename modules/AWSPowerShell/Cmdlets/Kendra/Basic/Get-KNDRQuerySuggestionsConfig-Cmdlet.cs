@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.DescribeQuerySuggestionsConfigResponse")]
     [AWSCmdlet("Calls the Amazon Kendra DescribeQuerySuggestionsConfig API operation.", Operation = new[] {"DescribeQuerySuggestionsConfig"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribeQuerySuggestionsConfigResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.DescribeQuerySuggestionsConfigResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribeQuerySuggestionsConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.DescribeQuerySuggestionsConfigResponse object containing multiple properties."
     )]
     public partial class GetKNDRQuerySuggestionsConfigCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

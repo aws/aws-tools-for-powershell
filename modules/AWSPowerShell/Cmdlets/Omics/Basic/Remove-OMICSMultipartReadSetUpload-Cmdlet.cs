@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics AbortMultipartReadSetUpload API operation.", Operation = new[] {"AbortMultipartReadSetUpload"}, SelectReturnType = typeof(Amazon.Omics.Model.AbortMultipartReadSetUploadResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.AbortMultipartReadSetUploadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.AbortMultipartReadSetUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.AbortMultipartReadSetUploadResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOMICSMultipartReadSetUploadCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

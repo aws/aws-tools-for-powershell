@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless ListWorkgroups API operation.", Operation = new[] {"ListWorkgroups"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListWorkgroupsResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Workgroup or Amazon.RedshiftServerless.Model.ListWorkgroupsResponse",
         "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.Workgroup objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListWorkgroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.ListWorkgroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSWorkgroupListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

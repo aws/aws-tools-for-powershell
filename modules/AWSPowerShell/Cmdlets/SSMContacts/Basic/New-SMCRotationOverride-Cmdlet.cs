@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts CreateRotationOverride API operation.", Operation = new[] {"CreateRotationOverride"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.CreateRotationOverrideResponse))]
     [AWSCmdletOutput("System.String or Amazon.SSMContacts.Model.CreateRotationOverrideResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SSMContacts.Model.CreateRotationOverrideResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMContacts.Model.CreateRotationOverrideResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMCRotationOverrideCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice PutVoiceConnectorTerminationCredentials API operation.", Operation = new[] {"PutVoiceConnectorTerminationCredentials"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.PutVoiceConnectorTerminationCredentialsResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKVoice.Model.PutVoiceConnectorTerminationCredentialsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorTerminationCredentialsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorTerminationCredentialsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCHMVOVoiceConnectorTerminationCredentialCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

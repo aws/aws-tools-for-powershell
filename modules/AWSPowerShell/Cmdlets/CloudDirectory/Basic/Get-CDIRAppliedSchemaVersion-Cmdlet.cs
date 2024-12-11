@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory GetAppliedSchemaVersion API operation.", Operation = new[] {"GetAppliedSchemaVersion"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCDIRAppliedSchemaVersionCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

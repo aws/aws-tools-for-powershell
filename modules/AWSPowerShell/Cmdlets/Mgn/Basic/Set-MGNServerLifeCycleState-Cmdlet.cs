@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse")]
     [AWSCmdlet("Calls the Application Migration Service ChangeServerLifeCycleState API operation.", Operation = new[] {"ChangeServerLifeCycleState"}, SelectReturnType = typeof(Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.ChangeServerLifeCycleStateResponse object containing multiple properties."
     )]
     public partial class SetMGNServerLifeCycleStateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

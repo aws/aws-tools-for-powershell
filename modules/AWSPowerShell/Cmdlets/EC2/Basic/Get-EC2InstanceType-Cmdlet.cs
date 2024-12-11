@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceTypes API operation.", Operation = new[] {"DescribeInstanceTypes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceTypesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTypeInfo or Amazon.EC2.Model.DescribeInstanceTypesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTypeInfo objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceTypeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Gigabit").</para></li><li><para><c>nitro-enclaves-support</c> - Indicates whether Nitro Enclaves is supported (<c>supported</c>
         /// | <c>unsupported</c>).</para></li><li><para><c>nitro-tpm-support</c> - Indicates whether NitroTPM is supported (<c>supported</c>
         /// | <c>unsupported</c>).</para></li><li><para><c>nitro-tpm-info.supported-versions</c> - The supported NitroTPM version (<c>2.0</c>).</para></li><li><para><c>processor-info.supported-architecture</c> - The CPU architecture (<c>arm64</c>
-        /// | <c>i386</c> | <c>x86_64</c>).</para></li><li><para><c>processor-info.sustained-clock-speed-in-ghz</c> - The CPU clock speed, in GHz.</para></li><li><para><c>processor-info.supported-features</c> - The supported CPU features (<c>amd-sev-snp</c>).</para></li><li><para><c>supported-boot-mode</c> - The boot mode (<c>legacy-bios</c> | <c>uefi</c>).</para></li><li><para><c>supported-root-device-type</c> - The root device type (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>supported-usage-class</c> - The usage class (<c>on-demand</c> | <c>spot</c>).</para></li><li><para><c>supported-virtualization-type</c> - The virtualization type (<c>hvm</c> | <c>paravirtual</c>).</para></li><li><para><c>vcpu-info.default-cores</c> - The default number of cores for the instance type.</para></li><li><para><c>vcpu-info.default-threads-per-core</c> - The default number of threads per core
+        /// | <c>i386</c> | <c>x86_64</c>).</para></li><li><para><c>processor-info.sustained-clock-speed-in-ghz</c> - The CPU clock speed, in GHz.</para></li><li><para><c>processor-info.supported-features</c> - The supported CPU features (<c>amd-sev-snp</c>).</para></li><li><para><c>supported-boot-mode</c> - The boot mode (<c>legacy-bios</c> | <c>uefi</c>).</para></li><li><para><c>supported-root-device-type</c> - The root device type (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>supported-usage-class</c> - The usage class (<c>on-demand</c> | <c>spot</c> |
+        /// <c>capacity-block</c>).</para></li><li><para><c>supported-virtualization-type</c> - The virtualization type (<c>hvm</c> | <c>paravirtual</c>).</para></li><li><para><c>vcpu-info.default-cores</c> - The default number of cores for the instance type.</para></li><li><para><c>vcpu-info.default-threads-per-core</c> - The default number of threads per core
         /// for the instance type.</para></li><li><para><c>vcpu-info.default-vcpus</c> - The default number of vCPUs for the instance type.</para></li><li><para><c>vcpu-info.valid-cores</c> - The number of cores that can be configured for the
         /// instance type.</para></li><li><para><c>vcpu-info.valid-threads-per-core</c> - The number of threads per core that can
         /// be configured for the instance type. For example, "1" or "1,2".</para></li></ul>
@@ -129,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

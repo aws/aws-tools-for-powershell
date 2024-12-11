@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DeleteIndexField API operation.", Operation = new[] {"DeleteIndexField"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DeleteIndexFieldResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.IndexFieldStatus or Amazon.CloudSearch.Model.DeleteIndexFieldResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.IndexFieldStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DeleteIndexFieldResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteIndexFieldResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

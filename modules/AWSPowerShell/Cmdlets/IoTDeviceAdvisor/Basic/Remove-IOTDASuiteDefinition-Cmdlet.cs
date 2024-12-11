@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor DeleteSuiteDefinition API operation.", Operation = new[] {"DeleteSuiteDefinition"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.DeleteSuiteDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.IoTDeviceAdvisor.Model.DeleteSuiteDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTDeviceAdvisor.Model.DeleteSuiteDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTDeviceAdvisor.Model.DeleteSuiteDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTDASuiteDefinitionCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

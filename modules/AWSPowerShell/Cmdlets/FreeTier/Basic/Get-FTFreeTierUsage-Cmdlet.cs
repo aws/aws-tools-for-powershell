@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FT
     [AWSCmdlet("Calls the AWS Free Tier GetFreeTierUsage API operation.", Operation = new[] {"GetFreeTierUsage"}, SelectReturnType = typeof(Amazon.FreeTier.Model.GetFreeTierUsageResponse))]
     [AWSCmdletOutput("Amazon.FreeTier.Model.FreeTierUsage or Amazon.FreeTier.Model.GetFreeTierUsageResponse",
         "This cmdlet returns a collection of Amazon.FreeTier.Model.FreeTierUsage objects.",
-        "The service call response (type Amazon.FreeTier.Model.GetFreeTierUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FreeTier.Model.GetFreeTierUsageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFTFreeTierUsageCmdlet : AmazonFreeTierClientCmdlet, IExecutor
     {

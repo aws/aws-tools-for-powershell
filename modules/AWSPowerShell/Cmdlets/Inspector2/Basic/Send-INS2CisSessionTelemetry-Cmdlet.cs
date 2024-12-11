@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 SendCisSessionTelemetry API operation.", Operation = new[] {"SendCisSessionTelemetry"}, SelectReturnType = typeof(Amazon.Inspector2.Model.SendCisSessionTelemetryResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector2.Model.SendCisSessionTelemetryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector2.Model.SendCisSessionTelemetryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector2.Model.SendCisSessionTelemetryResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendINS2CisSessionTelemetryCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

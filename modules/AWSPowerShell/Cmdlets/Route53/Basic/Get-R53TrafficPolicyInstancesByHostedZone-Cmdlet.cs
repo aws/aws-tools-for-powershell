@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 ListTrafficPolicyInstancesByHostedZone API operation.", Operation = new[] {"ListTrafficPolicyInstancesByHostedZone"}, SelectReturnType = typeof(Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse",
-        "This cmdlet returns an Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse object containing multiple properties."
     )]
     public partial class GetR53TrafficPolicyInstancesByHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

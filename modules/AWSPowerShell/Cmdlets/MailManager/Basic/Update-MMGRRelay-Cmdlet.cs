@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager UpdateRelay API operation.", Operation = new[] {"UpdateRelay"}, SelectReturnType = typeof(Amazon.MailManager.Model.UpdateRelayResponse))]
     [AWSCmdletOutput("None or Amazon.MailManager.Model.UpdateRelayResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MailManager.Model.UpdateRelayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MailManager.Model.UpdateRelayResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateMMGRRelayCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListAccessTokens API operation.", Operation = new[] {"ListAccessTokens"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListAccessTokensResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.AccessTokenSummary or Amazon.CodeCatalyst.Model.ListAccessTokensResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.AccessTokenSummary objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListAccessTokensResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListAccessTokensResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATAccessTokenListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

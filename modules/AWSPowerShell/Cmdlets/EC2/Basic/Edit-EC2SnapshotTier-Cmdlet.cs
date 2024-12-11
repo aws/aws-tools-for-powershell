@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ModifySnapshotTierResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifySnapshotTier API operation.", Operation = new[] {"ModifySnapshotTier"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifySnapshotTierResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifySnapshotTierResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ModifySnapshotTierResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ModifySnapshotTierResponse object containing multiple properties."
     )]
     public partial class EditEC2SnapshotTierCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

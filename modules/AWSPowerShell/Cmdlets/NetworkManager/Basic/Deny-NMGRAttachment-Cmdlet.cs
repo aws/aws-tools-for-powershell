@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager RejectAttachment API operation.", Operation = new[] {"RejectAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.RejectAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Attachment or Amazon.NetworkManager.Model.RejectAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Attachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.RejectAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.RejectAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyNMGRAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

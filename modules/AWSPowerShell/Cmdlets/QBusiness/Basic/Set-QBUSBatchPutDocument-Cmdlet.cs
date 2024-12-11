@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness BatchPutDocument API operation.", Operation = new[] {"BatchPutDocument"}, SelectReturnType = typeof(Amazon.QBusiness.Model.BatchPutDocumentResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.FailedDocument or Amazon.QBusiness.Model.BatchPutDocumentResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.FailedDocument objects.",
-        "The service call response (type Amazon.QBusiness.Model.BatchPutDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.BatchPutDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetQBUSBatchPutDocumentCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

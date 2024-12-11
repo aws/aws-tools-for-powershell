@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DisassociateAssets API operation.", Operation = new[] {"DisassociateAssets"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DisassociateAssetsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.DisassociateAssetsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.DisassociateAssetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.DisassociateAssetsResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectIOTSWAssetCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

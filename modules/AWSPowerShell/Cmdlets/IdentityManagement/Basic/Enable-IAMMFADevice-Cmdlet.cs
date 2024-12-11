@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management EnableMFADevice API operation.", Operation = new[] {"EnableMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.EnableMFADeviceResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.EnableMFADeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.EnableMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.EnableMFADeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableIAMMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

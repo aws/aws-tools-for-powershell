@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetInvalidation API operation.", Operation = new[] {"GetInvalidation"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetInvalidationResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Invalidation or Amazon.CloudFront.Model.GetInvalidationResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.Invalidation object.",
-        "The service call response (type Amazon.CloudFront.Model.GetInvalidationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetInvalidationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFInvalidationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

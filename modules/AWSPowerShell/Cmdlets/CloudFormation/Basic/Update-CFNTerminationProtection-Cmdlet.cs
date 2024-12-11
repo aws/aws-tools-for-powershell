@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Updates termination protection for the specified stack. If a user attempts to delete
     /// a stack with termination protection enabled, the operation fails and the stack remains
-    /// unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting
-    /// a Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>.
+    /// unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protect
+    /// a CloudFormation stack from being deleted</a> in the <i>CloudFormation User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation UpdateTerminationProtection API operation.", Operation = new[] {"UpdateTerminationProtection"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFNTerminationProtectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

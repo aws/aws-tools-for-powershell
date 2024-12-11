@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse")]
     [AWSCmdlet("Calls the VPC Lattice CreateAccessLogSubscription API operation.", Operation = new[] {"CreateAccessLogSubscription"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse object containing multiple properties."
     )]
     public partial class NewVPCLAccessLogSubscriptionCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

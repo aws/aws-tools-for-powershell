@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.CreateCollectionResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition CreateCollection API operation.", Operation = new[] {"CreateCollection"}, SelectReturnType = typeof(Amazon.Rekognition.Model.CreateCollectionResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.CreateCollectionResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.CreateCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.CreateCollectionResponse object containing multiple properties."
     )]
     public partial class NewREKCollectionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

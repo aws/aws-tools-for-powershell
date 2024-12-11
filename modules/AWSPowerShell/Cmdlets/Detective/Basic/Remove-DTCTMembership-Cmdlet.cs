@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective DisassociateMembership API operation.", Operation = new[] {"DisassociateMembership"}, SelectReturnType = typeof(Amazon.Detective.Model.DisassociateMembershipResponse))]
     [AWSCmdletOutput("None or Amazon.Detective.Model.DisassociateMembershipResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Detective.Model.DisassociateMembershipResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Detective.Model.DisassociateMembershipResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDTCTMembershipCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

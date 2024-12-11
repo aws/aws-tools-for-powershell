@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups ListGroups API operation.", Operation = new[] {"ListGroups"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.ListGroupsResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GroupIdentifier or Amazon.ResourceGroups.Model.ListGroupsResponse",
         "This cmdlet returns a collection of Amazon.ResourceGroups.Model.GroupIdentifier objects.",
-        "The service call response (type Amazon.ResourceGroups.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.ListGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRGGroupListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// have the specified resource type in their <c>ResourceTypeFilter</c>. For example,
         /// <c>AWS::EC2::Instance</c> would return any resource group with a <c>ResourceTypeFilter</c>
         /// that includes <c>AWS::EC2::Instance</c>.</para></li><li><para><c>configuration-type</c> - Filter the results to include only those groups that
-        /// have the specified configuration types attached. The current supported values are:</para><ul><li><para><c>AWS::AppRegistry::Application</c></para></li><li><para><c>AWS::AppRegistry::ApplicationResourceGroups</c></para></li><li><para><c>AWS::CloudFormation::Stack</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::NetworkFirewall::RuleGroup</c></para></li></ul></li></ul>
+        /// have the specified configuration types attached. The current supported values are:</para><ul><li><para><c>AWS::ResourceGroups::ApplicationGroup</c></para></li><li><para><c>AWS::AppRegistry::Application</c></para></li><li><para><c>AWS::AppRegistry::ApplicationResourceGroups</c></para></li><li><para><c>AWS::CloudFormation::Stack</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::NetworkFirewall::RuleGroup</c></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

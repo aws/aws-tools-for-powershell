@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteAttachment API operation.", Operation = new[] {"DeleteAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Attachment or Amazon.NetworkManager.Model.DeleteAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Attachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

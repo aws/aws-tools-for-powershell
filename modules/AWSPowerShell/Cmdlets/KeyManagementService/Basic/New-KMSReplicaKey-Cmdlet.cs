@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.ReplicateKeyResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service ReplicateKey API operation.", Operation = new[] {"ReplicateKey"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.ReplicateKeyResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReplicateKeyResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.ReplicateKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.ReplicateKeyResponse object containing multiple properties."
     )]
     public partial class NewKMSReplicaKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

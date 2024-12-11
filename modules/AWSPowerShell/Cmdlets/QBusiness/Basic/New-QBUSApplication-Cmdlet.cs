@@ -35,14 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// are also available in Amazon Q Business Lite. For information on what's included in
     /// Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers">Amazon
     /// Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription
-    /// tiers to users.
-    /// </para></note>
+    /// tiers to users. 
+    /// </para><para>
+    ///  A Amazon Q Apps service linked role will be created if it's absent in the Amazon
+    /// Web Services account when the QAppsConfiguration is enabled in the request. For more
+    /// information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles-qapps.html">
+    /// Using service-linked roles for Q Apps </a></para></note>
     /// </summary>
     [Cmdlet("New", "QBUSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewQBUSApplicationCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
@@ -169,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon
-        /// CloudWatch logs and metrics.</para>
+        /// CloudWatch logs and metrics. If this property is not specified, Amazon Q Business
+        /// will create a <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions">service
+        /// linked role (SLR)</a> and use it as the application's role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

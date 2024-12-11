@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass DeleteCoreDefinition API operation.", Operation = new[] {"DeleteCoreDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.DeleteCoreDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.DeleteCoreDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.DeleteCoreDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.DeleteCoreDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGCoreDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

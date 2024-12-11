@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama DeregisterPackageVersion API operation.", Operation = new[] {"DeregisterPackageVersion"}, SelectReturnType = typeof(Amazon.Panorama.Model.DeregisterPackageVersionResponse))]
     [AWSCmdletOutput("None or Amazon.Panorama.Model.DeregisterPackageVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Panorama.Model.DeregisterPackageVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Panorama.Model.DeregisterPackageVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterPANPackageVersionCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

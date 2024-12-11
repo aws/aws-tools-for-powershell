@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service ListKxVolumes API operation.", Operation = new[] {"ListKxVolumes"}, SelectReturnType = typeof(Amazon.Finspace.Model.ListKxVolumesResponse))]
     [AWSCmdletOutput("Amazon.Finspace.Model.KxVolume or Amazon.Finspace.Model.ListKxVolumesResponse",
         "This cmdlet returns a collection of Amazon.Finspace.Model.KxVolume objects.",
-        "The service call response (type Amazon.Finspace.Model.ListKxVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Finspace.Model.ListKxVolumesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFINSPKxVolumeListCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

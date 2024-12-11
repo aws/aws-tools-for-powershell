@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteView API operation.", Operation = new[] {"DeleteView"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteViewResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteViewResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteViewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteViewResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNViewCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

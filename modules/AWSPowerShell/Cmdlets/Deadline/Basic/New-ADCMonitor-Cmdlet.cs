@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.CreateMonitorResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud CreateMonitor API operation.", Operation = new[] {"CreateMonitor"}, SelectReturnType = typeof(Amazon.Deadline.Model.CreateMonitorResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.CreateMonitorResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.CreateMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.CreateMonitorResponse object containing multiple properties."
     )]
     public partial class NewADCMonitorCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

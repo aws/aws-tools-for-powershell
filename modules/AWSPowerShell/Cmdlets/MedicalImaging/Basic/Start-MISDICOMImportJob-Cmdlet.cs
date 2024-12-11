@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [OutputType("Amazon.MedicalImaging.Model.StartDICOMImportJobResponse")]
     [AWSCmdlet("Calls the Amazon Medical Imaging Service StartDICOMImportJob API operation.", Operation = new[] {"StartDICOMImportJob"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.StartDICOMImportJobResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.StartDICOMImportJobResponse",
-        "This cmdlet returns an Amazon.MedicalImaging.Model.StartDICOMImportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MedicalImaging.Model.StartDICOMImportJobResponse object containing multiple properties."
     )]
     public partial class StartMISDICOMImportJobCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

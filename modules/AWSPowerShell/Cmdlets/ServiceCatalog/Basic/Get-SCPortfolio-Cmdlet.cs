@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.DescribePortfolioResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog DescribePortfolio API operation.", Operation = new[] {"DescribePortfolio"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribePortfolioResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribePortfolioResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribePortfolioResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribePortfolioResponse object containing multiple properties."
     )]
     public partial class GetSCPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

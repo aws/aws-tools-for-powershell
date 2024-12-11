@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     [OutputType("Amazon.PaymentCryptographyData.Model.GenerateMacResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Data GenerateMac API operation.", Operation = new[] {"GenerateMac"}, SelectReturnType = typeof(Amazon.PaymentCryptographyData.Model.GenerateMacResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptographyData.Model.GenerateMacResponse",
-        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.GenerateMacResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptographyData.Model.GenerateMacResponse object containing multiple properties."
     )]
     public partial class NewPAYCDMacCmdlet : AmazonPaymentCryptographyDataClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeletePatchBaseline API operation.", Operation = new[] {"DeletePatchBaseline"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

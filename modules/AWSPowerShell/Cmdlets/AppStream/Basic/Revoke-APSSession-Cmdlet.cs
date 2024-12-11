@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream ExpireSession API operation.", Operation = new[] {"ExpireSession"}, SelectReturnType = typeof(Amazon.AppStream.Model.ExpireSessionResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.ExpireSessionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.ExpireSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.ExpireSessionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokeAPSSessionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

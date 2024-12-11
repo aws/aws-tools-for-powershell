@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton UpdateServicePipeline API operation.", Operation = new[] {"UpdateServicePipeline"}, SelectReturnType = typeof(Amazon.Proton.Model.UpdateServicePipelineResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServicePipeline or Amazon.Proton.Model.UpdateServicePipelineResponse",
         "This cmdlet returns an Amazon.Proton.Model.ServicePipeline object.",
-        "The service call response (type Amazon.Proton.Model.UpdateServicePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.UpdateServicePipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePROServicePipelineCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

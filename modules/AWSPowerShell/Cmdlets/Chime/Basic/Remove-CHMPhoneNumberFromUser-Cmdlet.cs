@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DisassociatePhoneNumberFromUser API operation.", Operation = new[] {"DisassociatePhoneNumberFromUser"}, SelectReturnType = typeof(Amazon.Chime.Model.DisassociatePhoneNumberFromUserResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DisassociatePhoneNumberFromUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DisassociatePhoneNumberFromUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DisassociatePhoneNumberFromUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMPhoneNumberFromUserCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

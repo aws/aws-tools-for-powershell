@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeGeneratedTemplateResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeGeneratedTemplate API operation.", Operation = new[] {"DescribeGeneratedTemplate"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeGeneratedTemplateResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeGeneratedTemplateResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeGeneratedTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeGeneratedTemplateResponse object containing multiple properties."
     )]
     public partial class GetCFNGeneratedTemplateInformationCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ResetDBClusterParameterGroup API operation.", Operation = new[] {"ResetDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.ResetDBClusterParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.RDS.Model.ResetDBClusterParameterGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.RDS.Model.ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ResetDBClusterParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

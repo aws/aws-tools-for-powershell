@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.StartReplicationResponse")]
     [AWSCmdlet("Calls the Application Migration Service StartReplication API operation.", Operation = new[] {"StartReplication"}, SelectReturnType = typeof(Amazon.Mgn.Model.StartReplicationResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.StartReplicationResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.StartReplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.StartReplicationResponse object containing multiple properties."
     )]
     public partial class StartMGNReplicationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

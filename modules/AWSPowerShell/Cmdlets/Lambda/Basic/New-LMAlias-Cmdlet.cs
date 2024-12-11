@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.CreateAliasResponse")]
     [AWSCmdlet("Calls the AWS Lambda CreateAlias API operation.", Operation = new[] {"CreateAlias"}, SelectReturnType = typeof(Amazon.Lambda.Model.CreateAliasResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateAliasResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.CreateAliasResponse object containing multiple properties."
     )]
     public partial class NewLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

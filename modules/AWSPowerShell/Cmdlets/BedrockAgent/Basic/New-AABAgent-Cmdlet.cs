@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock CreateAgent API operation.", Operation = new[] {"CreateAgent"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.CreateAgentResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.Agent or Amazon.BedrockAgent.Model.CreateAgentResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.Agent object.",
-        "The service call response (type Amazon.BedrockAgent.Model.CreateAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.CreateAgentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAABAgentCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
@@ -133,8 +133,20 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FoundationModel
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the foundation model to be used for orchestration
-        /// by the agent you create.</para>
+        /// <para>The identifier for the model that you want to be used for orchestration by the agent
+        /// you create.</para><para>The <c>modelId</c> to provide depends on the type of model or throughput that you
+        /// use:</para><ul><li><para>If you use a base model, specify the model ID or its ARN. For a list of model IDs
+        /// for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon
+        /// Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use an inference profile, specify the inference profile ID or its ARN. For
+        /// a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported
+        /// Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For
+        /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run
+        /// inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a custom model, first purchase Provisioned Throughput for it. Then specify
+        /// the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use
+        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
+        /// model</a>, specify the ARN of the imported model. You can get the model ARN from a
+        /// successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a>
+        /// or from the Imported models page in the Amazon Bedrock console.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

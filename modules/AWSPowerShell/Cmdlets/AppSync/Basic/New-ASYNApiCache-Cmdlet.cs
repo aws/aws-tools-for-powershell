@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync CreateApiCache API operation.", Operation = new[] {"CreateApiCache"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateApiCacheResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.ApiCache or Amazon.AppSync.Model.CreateApiCacheResponse",
         "This cmdlet returns an Amazon.AppSync.Model.ApiCache object.",
-        "The service call response (type Amazon.AppSync.Model.CreateApiCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.CreateApiCacheResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASYNApiCacheCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

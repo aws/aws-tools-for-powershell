@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime BatchUnsuspendUser API operation.", Operation = new[] {"BatchUnsuspendUser"}, SelectReturnType = typeof(Amazon.Chime.Model.BatchUnsuspendUserResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.UserError or Amazon.Chime.Model.BatchUnsuspendUserResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.UserError objects.",
-        "The service call response (type Amazon.Chime.Model.BatchUnsuspendUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.BatchUnsuspendUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisableCHMUserSuspensionBatchCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

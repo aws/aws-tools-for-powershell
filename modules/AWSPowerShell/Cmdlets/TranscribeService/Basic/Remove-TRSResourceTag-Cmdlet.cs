@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.TranscribeService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TranscribeService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TranscribeService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTRSResourceTagCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

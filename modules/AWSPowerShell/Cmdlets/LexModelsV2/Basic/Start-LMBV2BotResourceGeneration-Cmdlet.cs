@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.StartBotResourceGenerationResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 StartBotResourceGeneration API operation.", Operation = new[] {"StartBotResourceGeneration"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.StartBotResourceGenerationResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.StartBotResourceGenerationResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.StartBotResourceGenerationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.StartBotResourceGenerationResponse object containing multiple properties."
     )]
     public partial class StartLMBV2BotResourceGenerationCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

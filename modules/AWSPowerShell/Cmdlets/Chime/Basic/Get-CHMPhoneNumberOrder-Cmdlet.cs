@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetPhoneNumberOrder API operation.", Operation = new[] {"GetPhoneNumberOrder"}, SelectReturnType = typeof(Amazon.Chime.Model.GetPhoneNumberOrderResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.PhoneNumberOrder or Amazon.Chime.Model.GetPhoneNumberOrderResponse",
         "This cmdlet returns an Amazon.Chime.Model.PhoneNumberOrder object.",
-        "The service call response (type Amazon.Chime.Model.GetPhoneNumberOrderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetPhoneNumberOrderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMPhoneNumberOrderCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

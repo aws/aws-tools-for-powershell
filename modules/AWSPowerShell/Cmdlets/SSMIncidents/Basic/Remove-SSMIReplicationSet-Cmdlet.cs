@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager DeleteReplicationSet API operation.", Operation = new[] {"DeleteReplicationSet"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.DeleteReplicationSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSMIncidents.Model.DeleteReplicationSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMIncidents.Model.DeleteReplicationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMIncidents.Model.DeleteReplicationSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMIReplicationSetCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

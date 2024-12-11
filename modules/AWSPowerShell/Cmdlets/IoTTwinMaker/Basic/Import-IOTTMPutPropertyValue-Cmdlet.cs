@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker BatchPutPropertyValues API operation.", Operation = new[] {"BatchPutPropertyValues"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.BatchPutPropertyValuesResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.BatchPutPropertyErrorEntry or Amazon.IoTTwinMaker.Model.BatchPutPropertyValuesResponse",
         "This cmdlet returns a collection of Amazon.IoTTwinMaker.Model.BatchPutPropertyErrorEntry objects.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.BatchPutPropertyValuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTTwinMaker.Model.BatchPutPropertyValuesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportIOTTMPutPropertyValueCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control GetStorageLensConfigurationTagging API operation.", Operation = new[] {"GetStorageLensConfigurationTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetStorageLensConfigurationTaggingResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.StorageLensTag or Amazon.S3Control.Model.GetStorageLensConfigurationTaggingResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.StorageLensTag objects.",
-        "The service call response (type Amazon.S3Control.Model.GetStorageLensConfigurationTaggingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.GetStorageLensConfigurationTaggingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CStorageLensConfigurationTaggingCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

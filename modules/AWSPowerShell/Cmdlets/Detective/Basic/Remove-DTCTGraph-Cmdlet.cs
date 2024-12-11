@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective DeleteGraph API operation.", Operation = new[] {"DeleteGraph"}, SelectReturnType = typeof(Amazon.Detective.Model.DeleteGraphResponse))]
     [AWSCmdletOutput("None or Amazon.Detective.Model.DeleteGraphResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Detective.Model.DeleteGraphResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Detective.Model.DeleteGraphResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDTCTGraphCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

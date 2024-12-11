@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DeleteGateway API operation.", Operation = new[] {"DeleteGateway"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteGatewayResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.DeleteGatewayResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.DeleteGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.DeleteGatewayResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWGatewayCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup CancelLegalHold API operation.", Operation = new[] {"CancelLegalHold"}, SelectReturnType = typeof(Amazon.Backup.Model.CancelLegalHoldResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.CancelLegalHoldResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.CancelLegalHoldResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.CancelLegalHoldResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopBAKLegalHoldCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 AddListenerCertificates API operation.", Operation = new[] {"AddListenerCertificates"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Certificate or Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Certificate objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.AddListenerCertificatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddELB2ListenerCertificateCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

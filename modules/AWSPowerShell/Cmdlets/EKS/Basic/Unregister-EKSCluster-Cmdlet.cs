@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeregisterCluster API operation.", Operation = new[] {"DeregisterCluster"}, SelectReturnType = typeof(Amazon.EKS.Model.DeregisterClusterResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Cluster or Amazon.EKS.Model.DeregisterClusterResponse",
         "This cmdlet returns an Amazon.EKS.Model.Cluster object.",
-        "The service call response (type Amazon.EKS.Model.DeregisterClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DeregisterClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEKSClusterCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

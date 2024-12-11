@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.GetDistributionLatestCacheResetResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail GetDistributionLatestCacheReset API operation.", Operation = new[] {"GetDistributionLatestCacheReset"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetDistributionLatestCacheResetResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.GetDistributionLatestCacheResetResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.GetDistributionLatestCacheResetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.GetDistributionLatestCacheResetResponse object containing multiple properties."
     )]
     public partial class GetLSDistributionLatestCacheResetCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

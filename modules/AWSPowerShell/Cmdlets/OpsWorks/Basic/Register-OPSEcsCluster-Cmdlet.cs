@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks RegisterEcsCluster API operation.", Operation = new[] {"RegisterEcsCluster"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.RegisterEcsClusterResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpsWorks.Model.RegisterEcsClusterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.OpsWorks.Model.RegisterEcsClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.RegisterEcsClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

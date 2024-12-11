@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph ExecuteQuery API operation.", Operation = new[] {"ExecuteQuery"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.ExecuteQueryResponse))]
     [AWSCmdletOutput("System.IO.Stream or Amazon.NeptuneGraph.Model.ExecuteQueryResponse",
         "This cmdlet returns a System.IO.Stream object.",
-        "The service call response (type Amazon.NeptuneGraph.Model.ExecuteQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NeptuneGraph.Model.ExecuteQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeNEPTGQueryCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

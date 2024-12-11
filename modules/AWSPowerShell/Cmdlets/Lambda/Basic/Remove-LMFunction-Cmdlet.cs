@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteFunction API operation.", Operation = new[] {"DeleteFunction"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteFunctionResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteFunctionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

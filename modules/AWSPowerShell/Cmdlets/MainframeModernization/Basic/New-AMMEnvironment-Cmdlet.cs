@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 CreateEnvironment API operation.", Operation = new[] {"CreateEnvironment"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CreateEnvironmentResponse))]
     [AWSCmdletOutput("System.String or Amazon.MainframeModernization.Model.CreateEnvironmentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MainframeModernization.Model.CreateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.CreateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMMEnvironmentCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

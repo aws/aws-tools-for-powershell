@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.DeletePackageVersionsResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact DeletePackageVersions API operation.", Operation = new[] {"DeletePackageVersions"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DeletePackageVersionsResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.DeletePackageVersionsResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.DeletePackageVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.DeletePackageVersionsResponse object containing multiple properties."
     )]
     public partial class RemoveCAPackageVersionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

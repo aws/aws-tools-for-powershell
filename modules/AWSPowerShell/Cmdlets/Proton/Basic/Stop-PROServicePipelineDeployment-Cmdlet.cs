@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton CancelServicePipelineDeployment API operation.", Operation = new[] {"CancelServicePipelineDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.CancelServicePipelineDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServicePipeline or Amazon.Proton.Model.CancelServicePipelineDeploymentResponse",
         "This cmdlet returns an Amazon.Proton.Model.ServicePipeline object.",
-        "The service call response (type Amazon.Proton.Model.CancelServicePipelineDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.CancelServicePipelineDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopPROServicePipelineDeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

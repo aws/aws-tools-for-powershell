@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteRouteTable API operation.", Operation = new[] {"DeleteRouteTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteRouteTableResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteRouteTableResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteRouteTableResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

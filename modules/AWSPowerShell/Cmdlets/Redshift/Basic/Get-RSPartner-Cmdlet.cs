@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DescribePartners API operation.", Operation = new[] {"DescribePartners"}, SelectReturnType = typeof(Amazon.Redshift.Model.DescribePartnersResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.PartnerIntegrationInfo or Amazon.Redshift.Model.DescribePartnersResponse",
         "This cmdlet returns a collection of Amazon.Redshift.Model.PartnerIntegrationInfo objects.",
-        "The service call response (type Amazon.Redshift.Model.DescribePartnersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribePartnersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSPartnerCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

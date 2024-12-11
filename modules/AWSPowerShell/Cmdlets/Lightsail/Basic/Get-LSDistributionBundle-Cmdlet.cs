@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetDistributionBundles API operation.", Operation = new[] {"GetDistributionBundles"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetDistributionBundlesResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.DistributionBundle or Amazon.Lightsail.Model.GetDistributionBundlesResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.DistributionBundle objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetDistributionBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetDistributionBundlesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSDistributionBundleCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

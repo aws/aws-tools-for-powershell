@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeleteTagsResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeleteTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

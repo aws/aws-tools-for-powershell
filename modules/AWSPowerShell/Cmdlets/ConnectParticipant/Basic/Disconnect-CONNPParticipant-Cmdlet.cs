@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [AWSCmdlet("Calls the Amazon Connect Participant Service DisconnectParticipant API operation.", Operation = new[] {"DisconnectParticipant"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DisconnectParticipantResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectParticipant.Model.DisconnectParticipantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectParticipant.Model.DisconnectParticipantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectParticipant.Model.DisconnectParticipantResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectCONNPParticipantCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

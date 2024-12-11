@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DeleteQueueFleetAssociation API operation.", Operation = new[] {"DeleteQueueFleetAssociation"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteQueueFleetAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteQueueFleetAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteQueueFleetAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DeleteQueueFleetAssociationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCQueueFleetAssociationCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

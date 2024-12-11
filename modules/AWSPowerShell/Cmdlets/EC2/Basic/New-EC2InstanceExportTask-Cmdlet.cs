@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateInstanceExportTask API operation.", Operation = new[] {"CreateInstanceExportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateInstanceExportTaskResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportTask or Amazon.EC2.Model.CreateInstanceExportTaskResponse",
         "This cmdlet returns an Amazon.EC2.Model.ExportTask object.",
-        "The service call response (type Amazon.EC2.Model.CreateInstanceExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateInstanceExportTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

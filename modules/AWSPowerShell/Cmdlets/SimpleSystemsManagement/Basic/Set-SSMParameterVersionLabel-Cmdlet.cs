@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager LabelParameterVersion API operation.", Operation = new[] {"LabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.LabelParameterVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetSSMParameterVersionLabelCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

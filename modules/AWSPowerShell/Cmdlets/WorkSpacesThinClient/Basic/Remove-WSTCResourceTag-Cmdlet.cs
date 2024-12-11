@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesThinClient.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesThinClient.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesThinClient.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSTCResourceTagCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

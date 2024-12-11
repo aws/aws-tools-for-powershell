@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) DeleteClusterPolicy API operation.", Operation = new[] {"DeleteClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.DeleteClusterPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.DeleteClusterPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kafka.Model.DeleteClusterPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kafka.Model.DeleteClusterPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMSKClusterPolicyCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings CreateAttendee API operation.", Operation = new[] {"CreateAttendee"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMeetings.Model.Attendee or Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse",
         "This cmdlet returns an Amazon.ChimeSDKMeetings.Model.Attendee object.",
-        "The service call response (type Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMeetings.Model.CreateAttendeeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCHMTGAttendeeCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync GenerateRecommendations API operation.", Operation = new[] {"GenerateRecommendations"}, SelectReturnType = typeof(Amazon.DataSync.Model.GenerateRecommendationsResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.GenerateRecommendationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.GenerateRecommendationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.GenerateRecommendationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNRecommendationCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

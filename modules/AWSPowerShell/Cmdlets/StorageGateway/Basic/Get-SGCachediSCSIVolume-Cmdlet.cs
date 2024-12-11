@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeCachediSCSIVolumes API operation.", Operation = new[] {"DescribeCachediSCSIVolumes"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CachediSCSIVolume or Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse",
         "This cmdlet returns a collection of Amazon.StorageGateway.Model.CachediSCSIVolume objects.",
-        "The service call response (type Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

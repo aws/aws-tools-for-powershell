@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
     [AWSCmdlet("Calls the AWS IoT Jobs Data Plane DescribeJobExecution API operation.", Operation = new[] {"DescribeJobExecution"}, SelectReturnType = typeof(Amazon.IoTJobsDataPlane.Model.DescribeJobExecutionResponse))]
     [AWSCmdletOutput("Amazon.IoTJobsDataPlane.Model.JobExecution or Amazon.IoTJobsDataPlane.Model.DescribeJobExecutionResponse",
         "This cmdlet returns an Amazon.IoTJobsDataPlane.Model.JobExecution object.",
-        "The service call response (type Amazon.IoTJobsDataPlane.Model.DescribeJobExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTJobsDataPlane.Model.DescribeJobExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTJJobExecutionCmdlet : AmazonIoTJobsDataPlaneClientCmdlet, IExecutor
     {

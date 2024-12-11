@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [AWSCmdlet("Calls the AWS Elemental MediaConnect DescribeFlowSourceThumbnail API operation.", Operation = new[] {"DescribeFlowSourceThumbnail"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.DescribeFlowSourceThumbnailResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.ThumbnailDetails or Amazon.MediaConnect.Model.DescribeFlowSourceThumbnailResponse",
         "This cmdlet returns an Amazon.MediaConnect.Model.ThumbnailDetails object.",
-        "The service call response (type Amazon.MediaConnect.Model.DescribeFlowSourceThumbnailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConnect.Model.DescribeFlowSourceThumbnailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMCNFlowSourceThumbnailCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

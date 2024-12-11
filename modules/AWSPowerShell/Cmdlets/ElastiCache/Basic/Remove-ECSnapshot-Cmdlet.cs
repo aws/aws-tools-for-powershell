@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// this operation.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey or Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot or Amazon.ElastiCache.Model.DeleteSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.Snapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs ListTagsLogGroup API operation.", Operation = new[] {"ListTagsLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Please use the generic tagging API ListTagsForResource")]
     public partial class GetCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor

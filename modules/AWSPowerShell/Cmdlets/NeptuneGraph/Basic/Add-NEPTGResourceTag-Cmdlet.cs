@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NeptuneGraph.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NeptuneGraph.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NeptuneGraph.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddNEPTGResourceTagCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

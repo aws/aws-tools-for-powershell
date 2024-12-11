@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector AddAttributesToFindings API operation.", Operation = new[] {"AddAttributesToFindings"}, SelectReturnType = typeof(Amazon.Inspector.Model.AddAttributesToFindingsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector.Model.AddAttributesToFindingsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Inspector.Model.AddAttributesToFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.AddAttributesToFindingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

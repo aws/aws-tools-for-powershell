@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteDynamicThingGroup API operation.", Operation = new[] {"DeleteDynamicThingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteDynamicThingGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteDynamicThingGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteDynamicThingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteDynamicThingGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTDynamicThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

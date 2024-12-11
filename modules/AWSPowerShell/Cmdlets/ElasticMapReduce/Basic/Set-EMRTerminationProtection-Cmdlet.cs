@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce SetTerminationProtection API operation.", Operation = new[] {"SetTerminationProtection"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.SetTerminationProtectionResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.SetTerminationProtectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.SetTerminationProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetTerminationProtectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEMRTerminationProtectionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

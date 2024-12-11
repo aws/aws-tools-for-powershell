@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DeleteVpcPeeringAuthorization API operation.", Operation = new[] {"DeleteVpcPeeringAuthorization"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteVpcPeeringAuthorizationResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteVpcPeeringAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeleteVpcPeeringAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.DeleteVpcPeeringAuthorizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGMLVpcPeeringAuthorizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

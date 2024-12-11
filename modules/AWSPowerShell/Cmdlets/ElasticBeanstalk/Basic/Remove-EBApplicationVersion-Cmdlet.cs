@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DeleteApplicationVersion API operation.", Operation = new[] {"DeleteApplicationVersion"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

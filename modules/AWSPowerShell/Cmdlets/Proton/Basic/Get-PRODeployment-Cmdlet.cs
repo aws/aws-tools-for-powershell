@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton GetDeployment API operation.", Operation = new[] {"GetDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.GetDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Deployment or Amazon.Proton.Model.GetDeploymentResponse",
         "This cmdlet returns an Amazon.Proton.Model.Deployment object.",
-        "The service call response (type Amazon.Proton.Model.GetDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.GetDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPRODeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

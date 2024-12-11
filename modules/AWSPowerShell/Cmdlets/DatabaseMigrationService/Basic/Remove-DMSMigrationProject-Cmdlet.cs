@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteMigrationProject API operation.", Operation = new[] {"DeleteMigrationProject"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteMigrationProjectResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.MigrationProject or Amazon.DatabaseMigrationService.Model.DeleteMigrationProjectResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.MigrationProject object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteMigrationProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteMigrationProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSMigrationProjectCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

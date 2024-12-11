@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service AcceptSharedDirectory API operation.", Operation = new[] {"AcceptSharedDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.AcceptSharedDirectoryResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.SharedDirectory or Amazon.DirectoryService.Model.AcceptSharedDirectoryResponse",
         "This cmdlet returns an Amazon.DirectoryService.Model.SharedDirectory object.",
-        "The service call response (type Amazon.DirectoryService.Model.AcceptSharedDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.AcceptSharedDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmDSSharedDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

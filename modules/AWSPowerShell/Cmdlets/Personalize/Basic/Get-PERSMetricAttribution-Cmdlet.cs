@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize DescribeMetricAttribution API operation.", Operation = new[] {"DescribeMetricAttribution"}, SelectReturnType = typeof(Amazon.Personalize.Model.DescribeMetricAttributionResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.MetricAttribution or Amazon.Personalize.Model.DescribeMetricAttributionResponse",
         "This cmdlet returns an Amazon.Personalize.Model.MetricAttribution object.",
-        "The service call response (type Amazon.Personalize.Model.DescribeMetricAttributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.DescribeMetricAttributionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPERSMetricAttributionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

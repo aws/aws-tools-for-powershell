@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [OutputType("Amazon.GlueDataBrew.Model.StartProjectSessionResponse")]
     [AWSCmdlet("Calls the AWS Glue DataBrew StartProjectSession API operation.", Operation = new[] {"StartProjectSession"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.StartProjectSessionResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.StartProjectSessionResponse",
-        "This cmdlet returns an Amazon.GlueDataBrew.Model.StartProjectSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlueDataBrew.Model.StartProjectSessionResponse object containing multiple properties."
     )]
     public partial class StartGDBProjectSessionCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

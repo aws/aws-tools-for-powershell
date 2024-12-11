@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeExport API operation.", Operation = new[] {"DescribeExport"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeExportResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ExportDescription or Amazon.DynamoDBv2.Model.DescribeExportResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.ExportDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeExportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBExportCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Use TagResource.")]
     public partial class NewEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor

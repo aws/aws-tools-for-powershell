@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [OutputType("Amazon.Route53Resolver.Model.ImportFirewallDomainsResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 Resolver ImportFirewallDomains API operation.", Operation = new[] {"ImportFirewallDomains"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.ImportFirewallDomainsResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ImportFirewallDomainsResponse",
-        "This cmdlet returns an Amazon.Route53Resolver.Model.ImportFirewallDomainsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53Resolver.Model.ImportFirewallDomainsResponse object containing multiple properties."
     )]
     public partial class ImportR53RFirewallDomainListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

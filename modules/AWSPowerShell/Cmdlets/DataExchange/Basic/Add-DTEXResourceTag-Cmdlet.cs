@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.DataExchange.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DataExchange.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataExchange.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDTEXResourceTagCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RRC
     [AWSCmdlet("Calls the Route53 Recovery Cluster ListRoutingControls API operation.", Operation = new[] {"ListRoutingControls"}, SelectReturnType = typeof(Amazon.Route53RecoveryCluster.Model.ListRoutingControlsResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryCluster.Model.RoutingControl or Amazon.Route53RecoveryCluster.Model.ListRoutingControlsResponse",
         "This cmdlet returns a collection of Amazon.Route53RecoveryCluster.Model.RoutingControl objects.",
-        "The service call response (type Amazon.Route53RecoveryCluster.Model.ListRoutingControlsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryCluster.Model.ListRoutingControlsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRRCRoutingControlListCmdlet : AmazonRoute53RecoveryClusterClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     [OutputType("Amazon.EMRServerless.Model.CreateApplicationResponse")]
     [AWSCmdlet("Calls the EMR Serverless CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.EMRServerless.Model.CreateApplicationResponse",
-        "This cmdlet returns an Amazon.EMRServerless.Model.CreateApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRServerless.Model.CreateApplicationResponse object containing multiple properties."
     )]
     public partial class NewEMRServerlessApplicationCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {

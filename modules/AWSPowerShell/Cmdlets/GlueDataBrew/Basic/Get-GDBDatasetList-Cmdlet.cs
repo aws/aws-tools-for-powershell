@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew ListDatasets API operation.", Operation = new[] {"ListDatasets"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.ListDatasetsResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.Dataset or Amazon.GlueDataBrew.Model.ListDatasetsResponse",
         "This cmdlet returns a collection of Amazon.GlueDataBrew.Model.Dataset objects.",
-        "The service call response (type Amazon.GlueDataBrew.Model.ListDatasetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.ListDatasetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDBDatasetListCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

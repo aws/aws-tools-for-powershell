@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>billing</C2jFilename>
+    <AssemblyName>Billing</AssemblyName>
+    <ServiceNounPrefix>AWSB</ServiceNounPrefix>
+    <ServiceName>AWS Billing</ServiceName>
+    <ServiceClientInterface>IAmazonBilling</ServiceClientInterface>
+    <ServiceClient>AmazonBillingClient</ServiceClient>
+    <ServiceModuleGuid>9511edde-ba3f-47a8-96ff-797071d8a89e</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ListBillingViews" OutputProperty="BillingViews" Verb="Get" Noun="BillingViewList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

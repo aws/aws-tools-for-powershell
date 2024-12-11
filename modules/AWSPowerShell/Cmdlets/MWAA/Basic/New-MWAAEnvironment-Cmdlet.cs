@@ -28,14 +28,14 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+    /// Creates an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.
     /// </summary>
     [Cmdlet("New", "MWAAEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the AmazonMWAA CreateEnvironment API operation.", Operation = new[] {"CreateEnvironment"}, SelectReturnType = typeof(Amazon.MWAA.Model.CreateEnvironmentResponse))]
     [AWSCmdletOutput("System.String or Amazon.MWAA.Model.CreateEnvironmentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MWAA.Model.CreateEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MWAA.Model.CreateEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The Apache Airflow version for your environment. If no value is specified, it defaults
         /// to the latest version. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache
-        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</para><para>Valid values: <c>1.10.12</c>, <c>2.0.2</c>, <c>2.2.2</c>, <c>2.4.3</c>, <c>2.5.1</c>,
-        /// <c>2.6.3</c>, <c>2.7.2</c><c>2.8.1</c></para>
+        /// Airflow versions on Amazon Managed Workflows for Apache Airflow (Amazon MWAA)</a>.</para><para>Valid values: <c>1.10.12</c>, <c>2.0.2</c>, <c>2.2.2</c>, <c>2.4.3</c>, <c>2.5.1</c>,
+        /// <c>2.6.3</c>, <c>2.7.2</c>, <c>2.8.1</c>, <c>2.9.2</c>, and <c>2.10.1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

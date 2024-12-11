@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub ListApps API operation.", Operation = new[] {"ListApps"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListAppsResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.AppSummary or Amazon.ResilienceHub.Model.ListAppsResponse",
         "This cmdlet returns a collection of Amazon.ResilienceHub.Model.AppSummary objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.ListAppsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRESHAppListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
@@ -61,6 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter AwsApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry
+        /// application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsApplicationArn { get; set; }
         #endregion
         
         #region Parameter FromLastAssessmentTime
@@ -127,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AppArn = this.AppArn;
+            context.AwsApplicationArn = this.AwsApplicationArn;
             context.FromLastAssessmentTime = this.FromLastAssessmentTime;
             context.MaxResult = this.MaxResult;
             context.Name = this.Name;
@@ -198,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.AwsApplicationArn != null)
+            {
+                request.AwsApplicationArn = cmdletContext.AwsApplicationArn;
             }
             if (cmdletContext.FromLastAssessmentTime != null)
             {
@@ -305,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public System.String AwsApplicationArn { get; set; }
             public System.DateTime? FromLastAssessmentTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String Name { get; set; }

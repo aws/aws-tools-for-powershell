@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DeleteUserSettings API operation.", Operation = new[] {"DeleteUserSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DeleteUserSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DeleteUserSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteUserSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteUserSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSWUserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream EnableUser API operation.", Operation = new[] {"EnableUser"}, SelectReturnType = typeof(Amazon.AppStream.Model.EnableUserResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.EnableUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.EnableUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.EnableUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableAPSUserCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

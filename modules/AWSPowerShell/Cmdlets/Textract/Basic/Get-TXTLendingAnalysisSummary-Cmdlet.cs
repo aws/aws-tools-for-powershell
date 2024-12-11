@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [OutputType("Amazon.Textract.Model.GetLendingAnalysisSummaryResponse")]
     [AWSCmdlet("Calls the Amazon Textract GetLendingAnalysisSummary API operation.", Operation = new[] {"GetLendingAnalysisSummary"}, SelectReturnType = typeof(Amazon.Textract.Model.GetLendingAnalysisSummaryResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.GetLendingAnalysisSummaryResponse",
-        "This cmdlet returns an Amazon.Textract.Model.GetLendingAnalysisSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Textract.Model.GetLendingAnalysisSummaryResponse object containing multiple properties."
     )]
     public partial class GetTXTLendingAnalysisSummaryCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

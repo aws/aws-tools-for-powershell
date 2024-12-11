@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [OutputType("Amazon.OpenSearchServerless.Model.GetPoliciesStatsResponse")]
     [AWSCmdlet("Calls the OpenSearch Serverless GetPoliciesStats API operation.", Operation = new[] {"GetPoliciesStats"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.GetPoliciesStatsResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.GetPoliciesStatsResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.GetPoliciesStatsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.GetPoliciesStatsResponse object containing multiple properties."
     )]
     public partial class GetOSSPoliciesStatCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

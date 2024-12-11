@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Kendra.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.Tag or Amazon.Kendra.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Kendra.Model.Tag objects.",
-        "The service call response (type Amazon.Kendra.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKNDRResourceTagCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetVdmOptions API operation.", Operation = new[] {"PutConfigurationSetVdmOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetVdmOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetVdmOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetVdmOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetVdmOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSES2ConfigurationSetVdmOptionCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

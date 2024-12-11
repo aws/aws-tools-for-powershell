@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteDocumentationVersion API operation.", Operation = new[] {"DeleteDocumentationVersion"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteDocumentationVersionResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteDocumentationVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteDocumentationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteDocumentationVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGDocumentationVersionCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases DeleteLayout API operation.", Operation = new[] {"DeleteLayout"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteLayoutResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteLayoutResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.DeleteLayoutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.DeleteLayoutResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCASLayoutCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

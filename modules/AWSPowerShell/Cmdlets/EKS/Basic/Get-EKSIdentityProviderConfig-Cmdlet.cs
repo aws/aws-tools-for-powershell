@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeIdentityProviderConfig API operation.", Operation = new[] {"DescribeIdentityProviderConfig"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeIdentityProviderConfigResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.IdentityProviderConfigResponse or Amazon.EKS.Model.DescribeIdentityProviderConfigResponse",
         "This cmdlet returns an Amazon.EKS.Model.IdentityProviderConfigResponse object.",
-        "The service call response (type Amazon.EKS.Model.DescribeIdentityProviderConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DescribeIdentityProviderConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEKSIdentityProviderConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

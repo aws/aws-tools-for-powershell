@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteAlias API operation.", Operation = new[] {"DeleteAlias"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteAliasResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

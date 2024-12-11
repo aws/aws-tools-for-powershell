@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles DeleteEventStream API operation.", Operation = new[] {"DeleteEventStream"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.DeleteEventStreamResponse))]
     [AWSCmdletOutput("None or Amazon.CustomerProfiles.Model.DeleteEventStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CustomerProfiles.Model.DeleteEventStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CustomerProfiles.Model.DeleteEventStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCPFEventStreamCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

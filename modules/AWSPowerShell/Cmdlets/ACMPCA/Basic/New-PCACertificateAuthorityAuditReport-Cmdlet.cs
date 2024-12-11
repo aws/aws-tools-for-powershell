@@ -28,18 +28,18 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Creates an audit report that lists every time that your CA private key is used. The
-    /// report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a>
+    /// Creates an audit report that lists every time that your CA private key is used to
+    /// issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a>
     /// and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a>
-    /// actions use the private key. 
+    /// actions use the private key.
     /// 
-    ///  <note><para>
-    /// Both Amazon Web Services Private CA and the IAM principal must have permission to
-    /// write to the S3 bucket that you specify. If the IAM principal making the call does
-    /// not have permission to write to the bucket, then an exception is thrown. For more
-    /// information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access
-    /// policies for CRLs in Amazon S3</a>.
-    /// </para></note><para>
+    ///  
+    /// <para>
+    /// To save the audit report to your designated Amazon S3 bucket, you must create a bucket
+    /// policy that grants Amazon Web Services Private CA permission to access and write to
+    /// it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare
+    /// an Amazon S3 bucket for audit reports</a>.
+    /// </para><para>
     /// Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected
     /// with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting
     /// Your Audit Reports</a>.
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [OutputType("Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse")]
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority CreateCertificateAuthorityAuditReport API operation.", Operation = new[] {"CreateCertificateAuthorityAuditReport"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse))]
     [AWSCmdletOutput("Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse",
-        "This cmdlet returns an Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse object containing multiple properties."
     )]
     public partial class NewPCACertificateAuthorityAuditReportCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.IoTEvents.Model.Tag or Amazon.IoTEvents.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.IoTEvents.Model.Tag objects.",
-        "The service call response (type Amazon.IoTEvents.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEvents.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTEResourceTagCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

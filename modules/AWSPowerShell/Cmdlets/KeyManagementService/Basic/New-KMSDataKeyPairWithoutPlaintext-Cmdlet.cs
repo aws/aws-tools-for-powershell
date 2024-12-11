@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyPairWithoutPlaintextResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service GenerateDataKeyPairWithoutPlaintext API operation.", Operation = new[] {"GenerateDataKeyPairWithoutPlaintext"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.GenerateDataKeyPairWithoutPlaintextResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyPairWithoutPlaintextResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.GenerateDataKeyPairWithoutPlaintextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.GenerateDataKeyPairWithoutPlaintextResponse object containing multiple properties."
     )]
     public partial class NewKMSDataKeyPairWithoutPlaintextCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

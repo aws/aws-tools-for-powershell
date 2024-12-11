@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVSRealTime.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIVSRTResourceTagCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

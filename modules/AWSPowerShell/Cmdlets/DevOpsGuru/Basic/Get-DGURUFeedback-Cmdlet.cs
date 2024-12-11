@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru DescribeFeedback API operation.", Operation = new[] {"DescribeFeedback"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DescribeFeedbackResponse))]
     [AWSCmdletOutput("Amazon.DevOpsGuru.Model.InsightFeedback or Amazon.DevOpsGuru.Model.DescribeFeedbackResponse",
         "This cmdlet returns an Amazon.DevOpsGuru.Model.InsightFeedback object.",
-        "The service call response (type Amazon.DevOpsGuru.Model.DescribeFeedbackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DevOpsGuru.Model.DescribeFeedbackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDGURUFeedbackCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

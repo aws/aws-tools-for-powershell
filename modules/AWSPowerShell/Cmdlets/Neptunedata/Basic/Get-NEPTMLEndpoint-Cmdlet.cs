@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.GetMLEndpointResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData GetMLEndpoint API operation.", Operation = new[] {"GetMLEndpoint"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.GetMLEndpointResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.GetMLEndpointResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.GetMLEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.GetMLEndpointResponse object containing multiple properties."
     )]
     public partial class GetNEPTMLEndpointCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

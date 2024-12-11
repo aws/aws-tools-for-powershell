@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor StopQuery API operation.", Operation = new[] {"StopQuery"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.StopQueryResponse))]
     [AWSCmdletOutput("None or Amazon.InternetMonitor.Model.StopQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.InternetMonitor.Model.StopQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.InternetMonitor.Model.StopQueryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCWIMQueryCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {

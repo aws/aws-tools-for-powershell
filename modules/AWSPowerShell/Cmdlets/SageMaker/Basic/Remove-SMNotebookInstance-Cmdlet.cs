@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteNotebookInstance API operation.", Operation = new[] {"DeleteNotebookInstance"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteNotebookInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteNotebookInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteNotebookInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteNotebookInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

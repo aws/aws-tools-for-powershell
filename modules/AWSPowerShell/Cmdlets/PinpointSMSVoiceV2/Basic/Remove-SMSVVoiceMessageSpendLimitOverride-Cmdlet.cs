@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DeleteVoiceMessageSpendLimitOverride API operation.", Operation = new[] {"DeleteVoiceMessageSpendLimitOverride"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeleteVoiceMessageSpendLimitOverrideResponse object containing multiple properties."
     )]
     public partial class RemoveSMSVVoiceMessageSpendLimitOverrideCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [OutputType("Amazon.LocationService.Model.BatchDeleteDevicePositionHistoryResponse")]
     [AWSCmdlet("Calls the Amazon Location Service BatchDeleteDevicePositionHistory API operation.", Operation = new[] {"BatchDeleteDevicePositionHistory"}, SelectReturnType = typeof(Amazon.LocationService.Model.BatchDeleteDevicePositionHistoryResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.BatchDeleteDevicePositionHistoryResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.BatchDeleteDevicePositionHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LocationService.Model.BatchDeleteDevicePositionHistoryResponse object containing multiple properties."
     )]
     public partial class RemoveLOCDevicePositionHistoryBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

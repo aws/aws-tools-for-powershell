@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder DeleteSolFunctionPackage API operation.", Operation = new[] {"DeleteSolFunctionPackage"}, SelectReturnType = typeof(Amazon.Tnb.Model.DeleteSolFunctionPackageResponse))]
     [AWSCmdletOutput("None or Amazon.Tnb.Model.DeleteSolFunctionPackageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Tnb.Model.DeleteSolFunctionPackageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Tnb.Model.DeleteSolFunctionPackageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTNBSolFunctionPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

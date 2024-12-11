@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [OutputType("Amazon.DirectoryService.Model.UpdateTrustResponse")]
     [AWSCmdlet("Calls the AWS Directory Service UpdateTrust API operation.", Operation = new[] {"UpdateTrust"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.UpdateTrustResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.UpdateTrustResponse",
-        "This cmdlet returns an Amazon.DirectoryService.Model.UpdateTrustResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectoryService.Model.UpdateTrustResponse object containing multiple properties."
     )]
     public partial class UpdateDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

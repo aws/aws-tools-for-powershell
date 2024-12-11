@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service UpdatePackage API operation.", Operation = new[] {"UpdatePackage"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.UpdatePackageResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.PackageDetails or Amazon.OpenSearchService.Model.UpdatePackageResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.PackageDetails object.",
-        "The service call response (type Amazon.OpenSearchService.Model.UpdatePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.UpdatePackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSPackageCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
@@ -52,6 +52,58 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CommitMessage { get; set; }
+        #endregion
+        
+        #region Parameter PackageConfiguration_ConfigurationRequirement
+        /// <summary>
+        /// <para>
+        /// <para>The configuration requirements for the package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.RequirementLevel")]
+        public Amazon.OpenSearchService.RequirementLevel PackageConfiguration_ConfigurationRequirement { get; set; }
+        #endregion
+        
+        #region Parameter PackageEncryptionOptions_EncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>This indicates whether encryption is enabled for the package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PackageEncryptionOptions_EncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter PackageEncryptionOptions_KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> KMS key ID for encrypting the package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PackageEncryptionOptions_KmsKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter PackageConfiguration_LicenseFilepath
+        /// <summary>
+        /// <para>
+        /// <para>The relative file path for the license associated with the package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PackageConfiguration_LicenseFilepath { get; set; }
+        #endregion
+        
+        #region Parameter PackageConfiguration_LicenseRequirement
+        /// <summary>
+        /// <para>
+        /// <para>The license requirements for the package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.RequirementLevel")]
+        public Amazon.OpenSearchService.RequirementLevel PackageConfiguration_LicenseRequirement { get; set; }
         #endregion
         
         #region Parameter PackageDescription
@@ -79,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PackageID { get; set; }
+        #endregion
+        
+        #region Parameter PackageConfiguration_RequiresRestartForConfigurationUpdate
+        /// <summary>
+        /// <para>
+        /// <para>This indicates whether a B/G deployment is required for updating the configuration
+        /// that the plugin is prerequisite for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PackageConfiguration_RequiresRestartForConfigurationUpdate { get; set; }
         #endregion
         
         #region Parameter PackageSource_S3BucketName
@@ -144,7 +207,13 @@ namespace Amazon.PowerShell.Cmdlets.OS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CommitMessage = this.CommitMessage;
+            context.PackageConfiguration_ConfigurationRequirement = this.PackageConfiguration_ConfigurationRequirement;
+            context.PackageConfiguration_LicenseFilepath = this.PackageConfiguration_LicenseFilepath;
+            context.PackageConfiguration_LicenseRequirement = this.PackageConfiguration_LicenseRequirement;
+            context.PackageConfiguration_RequiresRestartForConfigurationUpdate = this.PackageConfiguration_RequiresRestartForConfigurationUpdate;
             context.PackageDescription = this.PackageDescription;
+            context.PackageEncryptionOptions_EncryptionEnabled = this.PackageEncryptionOptions_EncryptionEnabled;
+            context.PackageEncryptionOptions_KmsKeyIdentifier = this.PackageEncryptionOptions_KmsKeyIdentifier;
             context.PackageID = this.PackageID;
             #if MODULAR
             if (this.PackageID == null && ParameterWasBound(nameof(this.PackageID)))
@@ -174,9 +243,87 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.CommitMessage = cmdletContext.CommitMessage;
             }
+            
+             // populate PackageConfiguration
+            var requestPackageConfigurationIsNull = true;
+            request.PackageConfiguration = new Amazon.OpenSearchService.Model.PackageConfiguration();
+            Amazon.OpenSearchService.RequirementLevel requestPackageConfiguration_packageConfiguration_ConfigurationRequirement = null;
+            if (cmdletContext.PackageConfiguration_ConfigurationRequirement != null)
+            {
+                requestPackageConfiguration_packageConfiguration_ConfigurationRequirement = cmdletContext.PackageConfiguration_ConfigurationRequirement;
+            }
+            if (requestPackageConfiguration_packageConfiguration_ConfigurationRequirement != null)
+            {
+                request.PackageConfiguration.ConfigurationRequirement = requestPackageConfiguration_packageConfiguration_ConfigurationRequirement;
+                requestPackageConfigurationIsNull = false;
+            }
+            System.String requestPackageConfiguration_packageConfiguration_LicenseFilepath = null;
+            if (cmdletContext.PackageConfiguration_LicenseFilepath != null)
+            {
+                requestPackageConfiguration_packageConfiguration_LicenseFilepath = cmdletContext.PackageConfiguration_LicenseFilepath;
+            }
+            if (requestPackageConfiguration_packageConfiguration_LicenseFilepath != null)
+            {
+                request.PackageConfiguration.LicenseFilepath = requestPackageConfiguration_packageConfiguration_LicenseFilepath;
+                requestPackageConfigurationIsNull = false;
+            }
+            Amazon.OpenSearchService.RequirementLevel requestPackageConfiguration_packageConfiguration_LicenseRequirement = null;
+            if (cmdletContext.PackageConfiguration_LicenseRequirement != null)
+            {
+                requestPackageConfiguration_packageConfiguration_LicenseRequirement = cmdletContext.PackageConfiguration_LicenseRequirement;
+            }
+            if (requestPackageConfiguration_packageConfiguration_LicenseRequirement != null)
+            {
+                request.PackageConfiguration.LicenseRequirement = requestPackageConfiguration_packageConfiguration_LicenseRequirement;
+                requestPackageConfigurationIsNull = false;
+            }
+            System.Boolean? requestPackageConfiguration_packageConfiguration_RequiresRestartForConfigurationUpdate = null;
+            if (cmdletContext.PackageConfiguration_RequiresRestartForConfigurationUpdate != null)
+            {
+                requestPackageConfiguration_packageConfiguration_RequiresRestartForConfigurationUpdate = cmdletContext.PackageConfiguration_RequiresRestartForConfigurationUpdate.Value;
+            }
+            if (requestPackageConfiguration_packageConfiguration_RequiresRestartForConfigurationUpdate != null)
+            {
+                request.PackageConfiguration.RequiresRestartForConfigurationUpdate = requestPackageConfiguration_packageConfiguration_RequiresRestartForConfigurationUpdate.Value;
+                requestPackageConfigurationIsNull = false;
+            }
+             // determine if request.PackageConfiguration should be set to null
+            if (requestPackageConfigurationIsNull)
+            {
+                request.PackageConfiguration = null;
+            }
             if (cmdletContext.PackageDescription != null)
             {
                 request.PackageDescription = cmdletContext.PackageDescription;
+            }
+            
+             // populate PackageEncryptionOptions
+            var requestPackageEncryptionOptionsIsNull = true;
+            request.PackageEncryptionOptions = new Amazon.OpenSearchService.Model.PackageEncryptionOptions();
+            System.Boolean? requestPackageEncryptionOptions_packageEncryptionOptions_EncryptionEnabled = null;
+            if (cmdletContext.PackageEncryptionOptions_EncryptionEnabled != null)
+            {
+                requestPackageEncryptionOptions_packageEncryptionOptions_EncryptionEnabled = cmdletContext.PackageEncryptionOptions_EncryptionEnabled.Value;
+            }
+            if (requestPackageEncryptionOptions_packageEncryptionOptions_EncryptionEnabled != null)
+            {
+                request.PackageEncryptionOptions.EncryptionEnabled = requestPackageEncryptionOptions_packageEncryptionOptions_EncryptionEnabled.Value;
+                requestPackageEncryptionOptionsIsNull = false;
+            }
+            System.String requestPackageEncryptionOptions_packageEncryptionOptions_KmsKeyIdentifier = null;
+            if (cmdletContext.PackageEncryptionOptions_KmsKeyIdentifier != null)
+            {
+                requestPackageEncryptionOptions_packageEncryptionOptions_KmsKeyIdentifier = cmdletContext.PackageEncryptionOptions_KmsKeyIdentifier;
+            }
+            if (requestPackageEncryptionOptions_packageEncryptionOptions_KmsKeyIdentifier != null)
+            {
+                request.PackageEncryptionOptions.KmsKeyIdentifier = requestPackageEncryptionOptions_packageEncryptionOptions_KmsKeyIdentifier;
+                requestPackageEncryptionOptionsIsNull = false;
+            }
+             // determine if request.PackageEncryptionOptions should be set to null
+            if (requestPackageEncryptionOptionsIsNull)
+            {
+                request.PackageEncryptionOptions = null;
             }
             if (cmdletContext.PackageID != null)
             {
@@ -273,7 +420,13 @@ namespace Amazon.PowerShell.Cmdlets.OS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CommitMessage { get; set; }
+            public Amazon.OpenSearchService.RequirementLevel PackageConfiguration_ConfigurationRequirement { get; set; }
+            public System.String PackageConfiguration_LicenseFilepath { get; set; }
+            public Amazon.OpenSearchService.RequirementLevel PackageConfiguration_LicenseRequirement { get; set; }
+            public System.Boolean? PackageConfiguration_RequiresRestartForConfigurationUpdate { get; set; }
             public System.String PackageDescription { get; set; }
+            public System.Boolean? PackageEncryptionOptions_EncryptionEnabled { get; set; }
+            public System.String PackageEncryptionOptions_KmsKeyIdentifier { get; set; }
             public System.String PackageID { get; set; }
             public System.String PackageSource_S3BucketName { get; set; }
             public System.String PackageSource_S3Key { get; set; }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.CreateUploadUrlResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 CreateUploadUrl API operation.", Operation = new[] {"CreateUploadUrl"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.CreateUploadUrlResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.CreateUploadUrlResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateUploadUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateUploadUrlResponse object containing multiple properties."
     )]
     public partial class NewLMBV2UploadUrlCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

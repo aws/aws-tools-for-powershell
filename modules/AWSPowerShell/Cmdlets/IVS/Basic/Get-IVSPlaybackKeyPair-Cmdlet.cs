@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service GetPlaybackKeyPair API operation.", Operation = new[] {"GetPlaybackKeyPair"}, SelectReturnType = typeof(Amazon.IVS.Model.GetPlaybackKeyPairResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.PlaybackKeyPair or Amazon.IVS.Model.GetPlaybackKeyPairResponse",
         "This cmdlet returns an Amazon.IVS.Model.PlaybackKeyPair object.",
-        "The service call response (type Amazon.IVS.Model.GetPlaybackKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.GetPlaybackKeyPairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSPlaybackKeyPairCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

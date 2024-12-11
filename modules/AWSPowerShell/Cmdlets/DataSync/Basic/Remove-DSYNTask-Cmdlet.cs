@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync DeleteTask API operation.", Operation = new[] {"DeleteTask"}, SelectReturnType = typeof(Amazon.DataSync.Model.DeleteTaskResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.DeleteTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.DeleteTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.DeleteTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs DeleteLabels API operation.", Operation = new[] {"DeleteLabels"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DeleteLabelsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.DeleteLabelsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.DeleteLabelsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.DeleteLabelsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWDLabelCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

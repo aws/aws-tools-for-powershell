@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.AuthorizeEndpointAccessResponse")]
     [AWSCmdlet("Calls the Amazon Redshift AuthorizeEndpointAccess API operation.", Operation = new[] {"AuthorizeEndpointAccess"}, SelectReturnType = typeof(Amazon.Redshift.Model.AuthorizeEndpointAccessResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.AuthorizeEndpointAccessResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.AuthorizeEndpointAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.AuthorizeEndpointAccessResponse object containing multiple properties."
     )]
     public partial class ApproveRSEndpointAccessCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

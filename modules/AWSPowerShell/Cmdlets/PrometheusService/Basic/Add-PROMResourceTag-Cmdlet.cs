@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
     /// The <c>TagResource</c> operation associates tags with an Amazon Managed Service for
-    /// Prometheus resource. The only resources that can be tagged are workspaces and rule
-    /// groups namespaces. 
+    /// Prometheus resource. The only resources that can be tagged are rule groups namespaces,
+    /// scrapers, and workspaces.
     /// 
     ///  
     /// <para>
     /// If you specify a new tag key for the resource, this tag is appended to the list of
     /// tags associated with the resource. If you specify a tag key that is already associated
     /// with the resource, the new tag value that you specify replaces the previous value
-    /// for that tag.
+    /// for that tag. To remove a tag, use <c>UntagResource</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "PROMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPROMResourceTagCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the workspace or rule groups namespace to apply tags to.</para>
+        /// <para>The ARN of the resource to apply tags to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys and values to associate with the resource.</para><para>Keys may not begin with <c>aws:</c>.</para>
+        /// <para>The list of tag keys and values to associate with the resource.</para><para>Keys must not begin with <c>aws:</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <c>DescribeReplicationGroups</c> returns information about all replication groups.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey or Redis OSS only.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECReplicationGroup")]
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DescribeReplicationGroups API operation.", Operation = new[] {"DescribeReplicationGroups"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse), LegacyAlias="Get-ECReplicationGroups")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup or Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse",
         "This cmdlet returns a collection of Amazon.ElastiCache.Model.ReplicationGroup objects.",
-        "The service call response (type Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

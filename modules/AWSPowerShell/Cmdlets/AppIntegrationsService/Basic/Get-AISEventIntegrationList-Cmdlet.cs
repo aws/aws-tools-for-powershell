@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     [AWSCmdlet("Calls the Amazon AppIntegrations Service ListEventIntegrations API operation.", Operation = new[] {"ListEventIntegrations"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.ListEventIntegrationsResponse))]
     [AWSCmdletOutput("Amazon.AppIntegrationsService.Model.EventIntegration or Amazon.AppIntegrationsService.Model.ListEventIntegrationsResponse",
         "This cmdlet returns a collection of Amazon.AppIntegrationsService.Model.EventIntegration objects.",
-        "The service call response (type Amazon.AppIntegrationsService.Model.ListEventIntegrationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppIntegrationsService.Model.ListEventIntegrationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAISEventIntegrationListCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {

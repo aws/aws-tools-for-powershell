@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations MoveAccount API operation.", Operation = new[] {"MoveAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.MoveAccountResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.MoveAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.MoveAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.MoveAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class MoveORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

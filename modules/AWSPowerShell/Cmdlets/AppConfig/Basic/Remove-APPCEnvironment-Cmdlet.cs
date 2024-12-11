@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteEnvironmentResponse))]
     [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteEnvironmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppConfig.Model.DeleteEnvironmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPPCEnvironmentCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

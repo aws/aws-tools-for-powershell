@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.ListIntentsResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 ListIntents API operation.", Operation = new[] {"ListIntents"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.ListIntentsResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.ListIntentsResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.ListIntentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.ListIntentsResponse object containing multiple properties."
     )]
     public partial class GetLMBV2IntentListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

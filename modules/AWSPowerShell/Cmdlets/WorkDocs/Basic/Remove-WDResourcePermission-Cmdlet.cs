@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs RemoveResourcePermission API operation.", Operation = new[] {"RemoveResourcePermission"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.RemoveResourcePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.RemoveResourcePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.RemoveResourcePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.RemoveResourcePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWDResourcePermissionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

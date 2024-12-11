@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WAF.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WAF.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAF.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAF.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFResourceTagCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

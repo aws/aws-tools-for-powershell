@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeletePartitionIndex API operation.", Operation = new[] {"DeletePartitionIndex"}, SelectReturnType = typeof(Amazon.Glue.Model.DeletePartitionIndexResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeletePartitionIndexResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeletePartitionIndexResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeletePartitionIndexResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEPartitionIndexCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

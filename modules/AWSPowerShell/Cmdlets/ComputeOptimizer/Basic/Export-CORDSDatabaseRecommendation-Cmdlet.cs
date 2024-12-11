@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [OutputType("Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse")]
     [AWSCmdlet("Calls the AWS Compute Optimizer ExportRDSDatabaseRecommendations API operation.", Operation = new[] {"ExportRDSDatabaseRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse object containing multiple properties."
     )]
     public partial class ExportCORDSDatabaseRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

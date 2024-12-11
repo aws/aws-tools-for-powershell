@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DescribeEngineDefaultClusterParameters API operation.", Operation = new[] {"DescribeEngineDefaultClusterParameters"}, SelectReturnType = typeof(Amazon.Neptune.Model.DescribeEngineDefaultClusterParametersResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.EngineDefaults or Amazon.Neptune.Model.DescribeEngineDefaultClusterParametersResponse",
         "This cmdlet returns an Amazon.Neptune.Model.EngineDefaults object.",
-        "The service call response (type Amazon.Neptune.Model.DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.DescribeEngineDefaultClusterParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNPTEngineDefaultClusterParameterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

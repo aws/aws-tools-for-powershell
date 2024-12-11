@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     [AWSCmdlet("Calls the Amazon ApplicationCostProfiler UpdateReportDefinition API operation.", Operation = new[] {"UpdateReportDefinition"}, SelectReturnType = typeof(Amazon.ApplicationCostProfiler.Model.UpdateReportDefinitionResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationCostProfiler.Model.UpdateReportDefinitionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationCostProfiler.Model.UpdateReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationCostProfiler.Model.UpdateReportDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateACPReportDefinitionCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {

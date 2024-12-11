@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [OutputType("Amazon.OpenSearchServerless.Model.BatchGetLifecyclePolicyResponse")]
     [AWSCmdlet("Calls the OpenSearch Serverless BatchGetLifecyclePolicy API operation.", Operation = new[] {"BatchGetLifecyclePolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.BatchGetLifecyclePolicyResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.BatchGetLifecyclePolicyResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetLifecyclePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetLifecyclePolicyResponse object containing multiple properties."
     )]
     public partial class GetOSSGetLifecyclePolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

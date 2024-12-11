@@ -80,6 +80,16 @@ $RESP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Repostspace.Role
+        {
+            ($_ -eq "Add-RESPBatchRole/Role") -Or
+            ($_ -eq "Remove-RESPBatchRole/Role")
+        }
+        {
+            $v = "ADMINISTRATOR","EXPERT","MODERATOR","SUPPORTREQUESTOR"
+            break
+        }
+
         # Amazon.Repostspace.TierLevel
         {
             ($_ -eq "New-RESPSpace/Tier") -Or
@@ -99,6 +109,7 @@ $RESP_Completers = {
 }
 
 $RESP_map = @{
+    "Role"=@("Add-RESPBatchRole","Remove-RESPBatchRole")
     "Tier"=@("New-RESPSpace","Update-RESPSpace")
 }
 
@@ -152,7 +163,9 @@ $RESP_SelectCompleters = {
 }
 
 $RESP_SelectMap = @{
-    "Select"=@("New-RESPSpace",
+    "Select"=@("Add-RESPBatchRole",
+               "Remove-RESPBatchRole",
+               "New-RESPSpace",
                "Remove-RESPSpace",
                "Unregister-RESPAdmin",
                "Get-RESPSpace",

@@ -30,10 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// <note><para>
     /// This operation is not supported by directory buckets.
-    /// </para></note><important><para>
-    /// The SelectObjectContent operation is no longer available to new customers. Existing
-    /// customers of Amazon S3 Select can continue to use the operation as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn
-    /// more</a></para></important><para>
+    /// </para></note><para>
     /// This action filters the contents of an Amazon S3 object based on a simple structured
     /// query language (SQL) statement. In the request, along with the SQL expression, you
     /// must also specify a data serialization format (JSON, CSV, or Apache Parquet) of the
@@ -104,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) SelectObjectContent API operation.", Operation = new[] {"SelectObjectContent"}, SelectReturnType = typeof(Amazon.S3.Model.SelectObjectContentResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.ISelectObjectContentEventStream or Amazon.S3.Model.SelectObjectContentResponse",
         "This cmdlet returns an Amazon.S3.Model.ISelectObjectContentEventStream object.",
-        "The service call response (type Amazon.S3.Model.SelectObjectContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.SelectObjectContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SelectS3ObjectContentCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

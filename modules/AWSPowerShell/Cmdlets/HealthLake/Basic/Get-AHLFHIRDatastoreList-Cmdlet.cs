@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [AWSCmdlet("Calls the Amazon HealthLake ListFHIRDatastores API operation.", Operation = new[] {"ListFHIRDatastores"}, SelectReturnType = typeof(Amazon.HealthLake.Model.ListFHIRDatastoresResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.DatastoreProperties or Amazon.HealthLake.Model.ListFHIRDatastoresResponse",
         "This cmdlet returns a collection of Amazon.HealthLake.Model.DatastoreProperties objects.",
-        "The service call response (type Amazon.HealthLake.Model.ListFHIRDatastoresResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.HealthLake.Model.ListFHIRDatastoresResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAHLFHIRDatastoreListCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

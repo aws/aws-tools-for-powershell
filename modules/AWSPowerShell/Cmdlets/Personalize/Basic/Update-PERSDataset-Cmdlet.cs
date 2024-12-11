@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize UpdateDataset API operation.", Operation = new[] {"UpdateDataset"}, SelectReturnType = typeof(Amazon.Personalize.Model.UpdateDatasetResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.UpdateDatasetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.UpdateDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.UpdateDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdatePERSDatasetCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

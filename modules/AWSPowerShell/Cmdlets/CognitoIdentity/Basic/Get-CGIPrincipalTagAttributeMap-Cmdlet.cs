@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.GetPrincipalTagAttributeMapResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity GetPrincipalTagAttributeMap API operation.", Operation = new[] {"GetPrincipalTagAttributeMap"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.GetPrincipalTagAttributeMapResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetPrincipalTagAttributeMapResponse",
-        "This cmdlet returns an Amazon.CognitoIdentity.Model.GetPrincipalTagAttributeMapResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentity.Model.GetPrincipalTagAttributeMapResponse object containing multiple properties."
     )]
     public partial class GetCGIPrincipalTagAttributeMapCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

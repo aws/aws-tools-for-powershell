@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service CreateKnowledgeBase API operation.", Operation = new[] {"CreateKnowledgeBase"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.CreateKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.KnowledgeBaseData or Amazon.ConnectWisdomService.Model.CreateKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.ConnectWisdomService.Model.KnowledgeBaseData object.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.CreateKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.CreateKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWSDMKnowledgeBaseCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

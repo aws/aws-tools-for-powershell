@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime CreateEncoderConfiguration API operation.", Operation = new[] {"CreateEncoderConfiguration"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.CreateEncoderConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.EncoderConfiguration or Amazon.IVSRealTime.Model.CreateEncoderConfigurationResponse",
         "This cmdlet returns an Amazon.IVSRealTime.Model.EncoderConfiguration object.",
-        "The service call response (type Amazon.IVSRealTime.Model.CreateEncoderConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.CreateEncoderConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIVSRTEncoderConfigurationCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Video_Height
         /// <summary>
         /// <para>
-        /// <para>Video-resolution height. Note that the maximum value is determined by <c>width</c>
-        /// times <c>height</c>, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920).
-        /// Default: 720.</para>
+        /// <para>Video-resolution height. This must be an even number. Note that the maximum value
+        /// is determined by <c>width</c> times <c>height</c>, such that the maximum total pixels
+        /// is 2073600 (1920x1080 or 1080x1920). Default: 720.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Video_Width
         /// <summary>
         /// <para>
-        /// <para>Video-resolution width. Note that the maximum value is determined by <c>width</c>
-        /// times <c>height</c>, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920).
-        /// Default: 1280.</para>
+        /// <para>Video-resolution width. This must be an even number. Note that the maximum value is
+        /// determined by <c>width</c> times <c>height</c>, such that the maximum total pixels
+        /// is 2073600 (1920x1080 or 1080x1920). Default: 1280.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System UpdateFileSystemProtection API operation.", Operation = new[] {"UpdateFileSystemProtection"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.UpdateFileSystemProtectionResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.ReplicationOverwriteProtection or Amazon.ElasticFileSystem.Model.UpdateFileSystemProtectionResponse",
         "This cmdlet returns an Amazon.ElasticFileSystem.ReplicationOverwriteProtection object.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.UpdateFileSystemProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.UpdateFileSystemProtectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEFSFileSystemProtectionCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

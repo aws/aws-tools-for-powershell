@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.GetNotificationChannelResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetNotificationChannel API operation.", Operation = new[] {"GetNotificationChannel"}, SelectReturnType = typeof(Amazon.FMS.Model.GetNotificationChannelResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.GetNotificationChannelResponse",
-        "This cmdlet returns an Amazon.FMS.Model.GetNotificationChannelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.GetNotificationChannelResponse object containing multiple properties."
     )]
     public partial class GetFMSNotificationChannelCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

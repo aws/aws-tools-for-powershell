@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain GetAccessor API operation.", Operation = new[] {"GetAccessor"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.GetAccessorResponse))]
     [AWSCmdletOutput("Amazon.ManagedBlockchain.Model.Accessor or Amazon.ManagedBlockchain.Model.GetAccessorResponse",
         "This cmdlet returns an Amazon.ManagedBlockchain.Model.Accessor object.",
-        "The service call response (type Amazon.ManagedBlockchain.Model.GetAccessorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedBlockchain.Model.GetAccessorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMBCAccessorCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB Scan API operation.", Operation = new[] {"Scan"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.ScanResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> or Amazon.DynamoDBv2.Model.ScanResponse",
         "This cmdlet returns a collection of Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue> objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.ScanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.ScanResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeDDBScanCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-ExclusiveStartKey $null' for the first call and '-ExclusiveStartKey $AWSHistory.LastServiceResponse.LastEvaluatedKey' for subsequent calls.
+        /// <br/>'ExclusiveStartKey' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-ExclusiveStartKey' to null for the first call then set the 'ExclusiveStartKey' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

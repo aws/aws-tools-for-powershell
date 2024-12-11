@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53RecoveryControlConfig.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RCResourcePolicyCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

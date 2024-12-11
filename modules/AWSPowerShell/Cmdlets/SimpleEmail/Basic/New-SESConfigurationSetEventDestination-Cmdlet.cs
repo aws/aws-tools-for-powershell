@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) CreateConfigurationSetEventDestination API operation.", Operation = new[] {"CreateConfigurationSetEventDestination"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSESConfigurationSetEventDestinationCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

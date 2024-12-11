@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteSipMediaApplication API operation.", Operation = new[] {"DeleteSipMediaApplication"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteSipMediaApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteSipMediaApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteSipMediaApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteSipMediaApplicationResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
     public partial class RemoveCHMSipMediaApplicationCmdlet : AmazonChimeClientCmdlet, IExecutor

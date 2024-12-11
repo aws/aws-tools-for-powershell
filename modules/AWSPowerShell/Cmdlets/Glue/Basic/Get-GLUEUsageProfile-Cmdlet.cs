@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetUsageProfileResponse")]
     [AWSCmdlet("Calls the AWS Glue GetUsageProfile API operation.", Operation = new[] {"GetUsageProfile"}, SelectReturnType = typeof(Amazon.Glue.Model.GetUsageProfileResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetUsageProfileResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetUsageProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetUsageProfileResponse object containing multiple properties."
     )]
     public partial class GetGLUEUsageProfileCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

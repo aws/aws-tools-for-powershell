@@ -28,10 +28,16 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Removes the specified tags from the specified AWS RoboMaker resource.
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
     /// 
-    ///  
-    /// <para>
+    /// </para></important><para>
+    /// Removes the specified tags from the specified AWS RoboMaker resource.
+    /// </para><para>
     /// To remove a tag, specify the tag key. To change the tag value of an existing tag key,
     /// use <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html"><c>TagResource</c></a>. 
     /// </para>
@@ -41,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     [AWSCmdlet("Calls the AWS RoboMaker UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveROBOResourceTagCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

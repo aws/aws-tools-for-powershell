@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.CreateMultipartReadSetUploadResponse")]
     [AWSCmdlet("Calls the Amazon Omics CreateMultipartReadSetUpload API operation.", Operation = new[] {"CreateMultipartReadSetUpload"}, SelectReturnType = typeof(Amazon.Omics.Model.CreateMultipartReadSetUploadResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.CreateMultipartReadSetUploadResponse",
-        "This cmdlet returns an Amazon.Omics.Model.CreateMultipartReadSetUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.CreateMultipartReadSetUploadResponse object containing multiple properties."
     )]
     public partial class NewOMICSMultipartReadSetUploadCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis AddTagsToStream API operation.", Operation = new[] {"AddTagsToStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.AddTagsToStreamResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.AddTagsToStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

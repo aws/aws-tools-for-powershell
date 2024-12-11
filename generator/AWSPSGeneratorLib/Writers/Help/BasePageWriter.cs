@@ -294,12 +294,9 @@ namespace AWSPowerShellGenerator.Writers.Help
             }
             if (inMonolithic)
             {
-                text.Append(inModular ? ", " : " and ");
+                text.Append(inModular ? ", " : string.Empty);
                 text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/\" target=\"_blank\" rel=\"noopener noreferrer\">AWSPowerShell.NetCore</a>");
-                if (inModular)
-                {
-                    text.Append(" and ");
-                }
+                text.Append(" and ");
                 text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell/\" target=\"_blank\" rel=\"noopener noreferrer\">AWSPowerShell</a>");
             }
             return text.ToString();

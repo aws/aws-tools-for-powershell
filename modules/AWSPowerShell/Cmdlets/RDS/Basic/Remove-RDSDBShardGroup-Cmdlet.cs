@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DeleteDBShardGroupResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBShardGroup API operation.", Operation = new[] {"DeleteDBShardGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBShardGroupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DeleteDBShardGroupResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteDBShardGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.DeleteDBShardGroupResponse object containing multiple properties."
     )]
     public partial class RemoveRDSDBShardGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBShardGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>Teh name of the DB shard group to delete.</para>
+        /// <para>The name of the DB shard group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 ListChannelGroups API operation.", Operation = new[] {"ListChannelGroups"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.ListChannelGroupsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.ChannelGroupListConfiguration or Amazon.MediaPackageV2.Model.ListChannelGroupsResponse",
         "This cmdlet returns a collection of Amazon.MediaPackageV2.Model.ChannelGroupListConfiguration objects.",
-        "The service call response (type Amazon.MediaPackageV2.Model.ListChannelGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaPackageV2.Model.ListChannelGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMPV2ChannelGroupListCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

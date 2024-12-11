@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account DisableRegion API operation.", Operation = new[] {"DisableRegion"}, SelectReturnType = typeof(Amazon.Account.Model.DisableRegionResponse))]
     [AWSCmdletOutput("None or Amazon.Account.Model.DisableRegionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.DisableRegionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Account.Model.DisableRegionResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableACCTRegionCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

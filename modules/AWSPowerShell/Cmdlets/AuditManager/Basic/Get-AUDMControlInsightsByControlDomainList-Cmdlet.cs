@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager ListControlInsightsByControlDomain API operation.", Operation = new[] {"ListControlInsightsByControlDomain"}, SelectReturnType = typeof(Amazon.AuditManager.Model.ListControlInsightsByControlDomainResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.ControlInsightsMetadataItem or Amazon.AuditManager.Model.ListControlInsightsByControlDomainResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.ControlInsightsMetadataItem objects.",
-        "The service call response (type Amazon.AuditManager.Model.ListControlInsightsByControlDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.ListControlInsightsByControlDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMControlInsightsByControlDomainListCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

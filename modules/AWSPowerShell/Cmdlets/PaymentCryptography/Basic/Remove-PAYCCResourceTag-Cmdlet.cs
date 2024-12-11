@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PaymentCryptography.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PaymentCryptography.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PaymentCryptography.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePAYCCResourceTagCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

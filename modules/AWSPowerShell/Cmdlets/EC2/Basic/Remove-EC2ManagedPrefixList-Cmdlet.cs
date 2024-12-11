@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteManagedPrefixList API operation.", Operation = new[] {"DeleteManagedPrefixList"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteManagedPrefixListResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ManagedPrefixList or Amazon.EC2.Model.DeleteManagedPrefixListResponse",
         "This cmdlet returns an Amazon.EC2.Model.ManagedPrefixList object.",
-        "The service call response (type Amazon.EC2.Model.DeleteManagedPrefixListResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteManagedPrefixListResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2ManagedPrefixListCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

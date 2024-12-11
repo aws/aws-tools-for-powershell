@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateIamInstanceProfile API operation.", Operation = new[] {"AssociateIamInstanceProfile"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateIamInstanceProfileResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.IamInstanceProfileAssociation or Amazon.EC2.Model.AssociateIamInstanceProfileResponse",
         "This cmdlet returns an Amazon.EC2.Model.IamInstanceProfileAssociation object.",
-        "The service call response (type Amazon.EC2.Model.AssociateIamInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AssociateIamInstanceProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterEC2IamInstanceProfileCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

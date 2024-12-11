@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     [OutputType("Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse")]
     [AWSCmdlet("Calls the Redshift Data API Service BatchExecuteStatement API operation.", Operation = new[] {"BatchExecuteStatement"}, SelectReturnType = typeof(Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse))]
     [AWSCmdletOutput("Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse",
-        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse object containing multiple properties."
     )]
     public partial class PushRSDBatchStatementCmdlet : AmazonRedshiftDataAPIServiceClientCmdlet, IExecutor
     {
@@ -105,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DbUser { get; set; }
+        #endregion
+        
+        #region Parameter ResultFormat
+        /// <summary>
+        /// <para>
+        /// <para>The data format of the result of the SQL statement. If no format is specified, the
+        /// default is JSON.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftDataAPIService.ResultFormatString")]
+        public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
         #endregion
         
         #region Parameter SecretArn
@@ -250,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
             context.DbUser = this.DbUser;
+            context.ResultFormat = this.ResultFormat;
             context.SecretArn = this.SecretArn;
             context.SessionId = this.SessionId;
             context.SessionKeepAliveSecond = this.SessionKeepAliveSecond;
@@ -297,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.DbUser != null)
             {
                 request.DbUser = cmdletContext.DbUser;
+            }
+            if (cmdletContext.ResultFormat != null)
+            {
+                request.ResultFormat = cmdletContext.ResultFormat;
             }
             if (cmdletContext.SecretArn != null)
             {
@@ -391,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }
+            public Amazon.RedshiftDataAPIService.ResultFormatString ResultFormat { get; set; }
             public System.String SecretArn { get; set; }
             public System.String SessionId { get; set; }
             public System.Int32? SessionKeepAliveSecond { get; set; }

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service StartExportTask API operation.", Operation = new[] {"StartExportTask"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartADSExportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

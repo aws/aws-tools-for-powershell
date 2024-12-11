@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager UpdateResponsePlan API operation.", Operation = new[] {"UpdateResponsePlan"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.UpdateResponsePlanResponse))]
     [AWSCmdletOutput("None or Amazon.SSMIncidents.Model.UpdateResponsePlanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMIncidents.Model.UpdateResponsePlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMIncidents.Model.UpdateResponsePlanResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMIResponsePlanCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

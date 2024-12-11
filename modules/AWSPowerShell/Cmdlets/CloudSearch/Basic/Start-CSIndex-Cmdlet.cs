@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch IndexDocuments API operation.", Operation = new[] {"IndexDocuments"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.IndexDocumentsResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudSearch.Model.IndexDocumentsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudSearch.Model.IndexDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.IndexDocumentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCSIndexCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

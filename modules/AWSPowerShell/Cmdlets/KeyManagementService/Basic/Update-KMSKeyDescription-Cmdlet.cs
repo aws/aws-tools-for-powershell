@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service UpdateKeyDescription API operation.", Operation = new[] {"UpdateKeyDescription"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateKMSKeyDescriptionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

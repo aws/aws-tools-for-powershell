@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.GetEventBridgeRuleTemplateGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive GetEventBridgeRuleTemplateGroup API operation.", Operation = new[] {"GetEventBridgeRuleTemplateGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.GetEventBridgeRuleTemplateGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.GetEventBridgeRuleTemplateGroupResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.GetEventBridgeRuleTemplateGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.GetEventBridgeRuleTemplateGroupResponse object containing multiple properties."
     )]
     public partial class GetEMLEventBridgeRuleTemplateGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

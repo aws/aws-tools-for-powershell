@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     [AWSCmdlet("Calls the Amazon CodeGuru Security GetMetricsSummary API operation.", Operation = new[] {"GetMetricsSummary"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.MetricsSummary or Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse",
         "This cmdlet returns an Amazon.CodeGuruSecurity.Model.MetricsSummary object.",
-        "The service call response (type Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGSMetricsSummaryCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {

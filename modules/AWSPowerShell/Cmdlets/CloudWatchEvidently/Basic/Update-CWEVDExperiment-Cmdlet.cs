@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently UpdateExperiment API operation.", Operation = new[] {"UpdateExperiment"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.Experiment or Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse",
         "This cmdlet returns an Amazon.CloudWatchEvidently.Model.Experiment object.",
-        "The service call response (type Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvidently.Model.UpdateExperimentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWEVDExperimentCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

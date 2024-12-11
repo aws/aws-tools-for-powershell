@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk TerminateEnvironment API operation.", Operation = new[] {"TerminateEnvironment"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse object containing multiple properties."
     )]
     public partial class StopEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

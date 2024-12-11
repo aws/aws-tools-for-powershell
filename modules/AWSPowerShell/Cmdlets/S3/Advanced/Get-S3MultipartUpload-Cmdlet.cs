@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) ListMultipartUploads API operation.", Operation = new[] { "ListMultipartUploads" }, SelectReturnType = typeof(Amazon.S3.Model.ListMultipartUploadsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.MultipartUpload or Amazon.S3.Model.ListMultipartUploadsResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.MultipartUpload objects.",
-        "The service call response (type Amazon.S3.Model.ListMultipartUploadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.ListMultipartUploadsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMultipartUploadCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

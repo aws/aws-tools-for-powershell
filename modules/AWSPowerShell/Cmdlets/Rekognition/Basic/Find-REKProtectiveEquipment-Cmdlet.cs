@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.DetectProtectiveEquipmentResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition DetectProtectiveEquipment API operation.", Operation = new[] {"DetectProtectiveEquipment"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DetectProtectiveEquipmentResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.DetectProtectiveEquipmentResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.DetectProtectiveEquipmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.DetectProtectiveEquipmentResponse object containing multiple properties."
     )]
     public partial class FindREKProtectiveEquipmentCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

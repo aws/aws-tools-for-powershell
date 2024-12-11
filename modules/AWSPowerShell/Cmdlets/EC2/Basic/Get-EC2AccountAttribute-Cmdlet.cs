@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAccountAttributesResponse), LegacyAlias="Get-EC2AccountAttributes")]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountAttribute or Amazon.EC2.Model.DescribeAccountAttributesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AccountAttribute objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeAccountAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2AccountAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

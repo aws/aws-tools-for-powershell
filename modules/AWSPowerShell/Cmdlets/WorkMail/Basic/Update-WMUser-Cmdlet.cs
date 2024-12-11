@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.WorkMail.Model.UpdateUserResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.UpdateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.UpdateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWMUserCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
@@ -112,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
+        #region Parameter IdentityProviderUserId
+        /// <summary>
+        /// <para>
+        /// <para>User ID from the IAM Identity Center. If this parameter is empty it will be updated
+        /// automatically when the user logs in for the first time to the mailbox associated with
+        /// WorkMail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderUserId { get; set; }
         #endregion
         
         #region Parameter Initial
@@ -224,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ZipCode
         /// <summary>
         /// <para>
-        /// <para>Updates the user's zipcode.</para>
+        /// <para>Updates the user's zip code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             context.DisplayName = this.DisplayName;
             context.FirstName = this.FirstName;
             context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
+            context.IdentityProviderUserId = this.IdentityProviderUserId;
             context.Initial = this.Initial;
             context.JobTitle = this.JobTitle;
             context.LastName = this.LastName;
@@ -344,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.HiddenFromGlobalAddressList != null)
             {
                 request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
+            if (cmdletContext.IdentityProviderUserId != null)
+            {
+                request.IdentityProviderUserId = cmdletContext.IdentityProviderUserId;
             }
             if (cmdletContext.Initial != null)
             {
@@ -453,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             public System.String DisplayName { get; set; }
             public System.String FirstName { get; set; }
             public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+            public System.String IdentityProviderUserId { get; set; }
             public System.String Initial { get; set; }
             public System.String JobTitle { get; set; }
             public System.String LastName { get; set; }

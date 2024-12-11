@@ -28,18 +28,30 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Starts the specified capacity task. You can have one active capacity task for an order.
+    /// Starts the specified capacity task. You can have one active capacity task per order
+    /// or Outpost.
     /// </summary>
     [Cmdlet("Start", "OUTPCapacityTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Outposts.Model.StartCapacityTaskResponse")]
     [AWSCmdlet("Calls the AWS Outposts StartCapacityTask API operation.", Operation = new[] {"StartCapacityTask"}, SelectReturnType = typeof(Amazon.Outposts.Model.StartCapacityTaskResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.StartCapacityTaskResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.StartCapacityTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Outposts.Model.StartCapacityTaskResponse object containing multiple properties."
     )]
     public partial class StartOUTPCapacityTaskCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter InstancesToExclude_AccountId
+        /// <summary>
+        /// <para>
+        /// <para>IDs of the accounts that own each instance that must not be stopped.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstancesToExclude_AccountIds")]
+        public System.String[] InstancesToExclude_AccountId { get; set; }
+        #endregion
         
         #region Parameter DryRun
         /// <summary>
@@ -71,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public Amazon.Outposts.Model.InstanceTypeCapacity[] InstancePool { get; set; }
         #endregion
         
+        #region Parameter InstancesToExclude_Instance
+        /// <summary>
+        /// <para>
+        /// <para>List of user-specified instances that must not be stopped.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstancesToExclude_Instances")]
+        public System.String[] InstancesToExclude_Instance { get; set; }
+        #endregion
+        
         #region Parameter OrderId
         /// <summary>
         /// <para>
@@ -78,14 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// task.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OrderId { get; set; }
         #endregion
         
@@ -104,6 +120,32 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutpostIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter InstancesToExclude_Service
+        /// <summary>
+        /// <para>
+        /// <para>Names of the services that own each instance that must not be stopped in order to
+        /// free up the capacity needed to run the capacity task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstancesToExclude_Services")]
+        public System.String[] InstancesToExclude_Service { get; set; }
+        #endregion
+        
+        #region Parameter TaskActionOnBlockingInstance
+        /// <summary>
+        /// <para>
+        /// <para>Specify one of the following options in case an instance is blocking the capacity
+        /// task from running.</para><ul><li><para><c>WAIT_FOR_EVACUATION</c> - Checks every 10 minutes over 48 hours to determine if
+        /// instances have stopped and capacity is available to complete the task.</para></li><li><para><c>FAIL_TASK</c> - The capacity task fails.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaskActionOnBlockingInstances")]
+        [AWSConstantClassSource("Amazon.Outposts.TaskActionOnBlockingInstances")]
+        public Amazon.Outposts.TaskActionOnBlockingInstances TaskActionOnBlockingInstance { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,13 +201,19 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter InstancePool which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OrderId = this.OrderId;
-            #if MODULAR
-            if (this.OrderId == null && ParameterWasBound(nameof(this.OrderId)))
+            if (this.InstancesToExclude_AccountId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter OrderId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.InstancesToExclude_AccountId = new List<System.String>(this.InstancesToExclude_AccountId);
             }
-            #endif
+            if (this.InstancesToExclude_Instance != null)
+            {
+                context.InstancesToExclude_Instance = new List<System.String>(this.InstancesToExclude_Instance);
+            }
+            if (this.InstancesToExclude_Service != null)
+            {
+                context.InstancesToExclude_Service = new List<System.String>(this.InstancesToExclude_Service);
+            }
+            context.OrderId = this.OrderId;
             context.OutpostIdentifier = this.OutpostIdentifier;
             #if MODULAR
             if (this.OutpostIdentifier == null && ParameterWasBound(nameof(this.OutpostIdentifier)))
@@ -173,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter OutpostIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TaskActionOnBlockingInstance = this.TaskActionOnBlockingInstance;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +246,45 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             {
                 request.InstancePools = cmdletContext.InstancePool;
             }
+            
+             // populate InstancesToExclude
+            var requestInstancesToExcludeIsNull = true;
+            request.InstancesToExclude = new Amazon.Outposts.Model.InstancesToExclude();
+            List<System.String> requestInstancesToExclude_instancesToExclude_AccountId = null;
+            if (cmdletContext.InstancesToExclude_AccountId != null)
+            {
+                requestInstancesToExclude_instancesToExclude_AccountId = cmdletContext.InstancesToExclude_AccountId;
+            }
+            if (requestInstancesToExclude_instancesToExclude_AccountId != null)
+            {
+                request.InstancesToExclude.AccountIds = requestInstancesToExclude_instancesToExclude_AccountId;
+                requestInstancesToExcludeIsNull = false;
+            }
+            List<System.String> requestInstancesToExclude_instancesToExclude_Instance = null;
+            if (cmdletContext.InstancesToExclude_Instance != null)
+            {
+                requestInstancesToExclude_instancesToExclude_Instance = cmdletContext.InstancesToExclude_Instance;
+            }
+            if (requestInstancesToExclude_instancesToExclude_Instance != null)
+            {
+                request.InstancesToExclude.Instances = requestInstancesToExclude_instancesToExclude_Instance;
+                requestInstancesToExcludeIsNull = false;
+            }
+            List<System.String> requestInstancesToExclude_instancesToExclude_Service = null;
+            if (cmdletContext.InstancesToExclude_Service != null)
+            {
+                requestInstancesToExclude_instancesToExclude_Service = cmdletContext.InstancesToExclude_Service;
+            }
+            if (requestInstancesToExclude_instancesToExclude_Service != null)
+            {
+                request.InstancesToExclude.Services = requestInstancesToExclude_instancesToExclude_Service;
+                requestInstancesToExcludeIsNull = false;
+            }
+             // determine if request.InstancesToExclude should be set to null
+            if (requestInstancesToExcludeIsNull)
+            {
+                request.InstancesToExclude = null;
+            }
             if (cmdletContext.OrderId != null)
             {
                 request.OrderId = cmdletContext.OrderId;
@@ -204,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.OutpostIdentifier != null)
             {
                 request.OutpostIdentifier = cmdletContext.OutpostIdentifier;
+            }
+            if (cmdletContext.TaskActionOnBlockingInstance != null)
+            {
+                request.TaskActionOnBlockingInstances = cmdletContext.TaskActionOnBlockingInstance;
             }
             
             CmdletOutput output;
@@ -268,8 +360,12 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         {
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.Outposts.Model.InstanceTypeCapacity> InstancePool { get; set; }
+            public List<System.String> InstancesToExclude_AccountId { get; set; }
+            public List<System.String> InstancesToExclude_Instance { get; set; }
+            public List<System.String> InstancesToExclude_Service { get; set; }
             public System.String OrderId { get; set; }
             public System.String OutpostIdentifier { get; set; }
+            public Amazon.Outposts.TaskActionOnBlockingInstances TaskActionOnBlockingInstance { get; set; }
             public System.Func<Amazon.Outposts.Model.StartCapacityTaskResponse, StartOUTPCapacityTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

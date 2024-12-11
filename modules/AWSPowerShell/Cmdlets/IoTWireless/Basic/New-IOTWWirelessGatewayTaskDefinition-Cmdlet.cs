@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless CreateWirelessGatewayTaskDefinition API operation.", Operation = new[] {"CreateWirelessGatewayTaskDefinition"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.CreateWirelessGatewayTaskDefinitionResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTWireless.Model.CreateWirelessGatewayTaskDefinitionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTWireless.Model.CreateWirelessGatewayTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.CreateWirelessGatewayTaskDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIOTWWirelessGatewayTaskDefinitionCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

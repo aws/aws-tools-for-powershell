@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections DeleteSyncConfiguration API operation.", Operation = new[] {"DeleteSyncConfiguration"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.DeleteSyncConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.DeleteSyncConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.DeleteSyncConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.DeleteSyncConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCONSyncConfigurationCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

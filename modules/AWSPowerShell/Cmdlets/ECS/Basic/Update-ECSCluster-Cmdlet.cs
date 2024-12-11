@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.ECS.Model.UpdateClusterResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster or Amazon.ECS.Model.UpdateClusterResponse",
         "This cmdlet returns an Amazon.ECS.Model.Cluster object.",
-        "The service call response (type Amazon.ECS.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -108,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para>
+        /// <para>Specify a Amazon Web Services Key Management Service key ID to encrypt the managed
+        /// storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

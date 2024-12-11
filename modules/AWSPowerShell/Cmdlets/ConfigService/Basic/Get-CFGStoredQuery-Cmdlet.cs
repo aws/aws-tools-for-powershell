@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config GetStoredQuery API operation.", Operation = new[] {"GetStoredQuery"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetStoredQueryResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.StoredQuery or Amazon.ConfigService.Model.GetStoredQueryResponse",
         "This cmdlet returns an Amazon.ConfigService.Model.StoredQuery object.",
-        "The service call response (type Amazon.ConfigService.Model.GetStoredQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetStoredQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGStoredQueryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

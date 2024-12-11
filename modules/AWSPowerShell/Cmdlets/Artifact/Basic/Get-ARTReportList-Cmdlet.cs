@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
     [AWSCmdlet("Calls the AWS Artifact ListReports API operation.", Operation = new[] {"ListReports"}, SelectReturnType = typeof(Amazon.Artifact.Model.ListReportsResponse))]
     [AWSCmdletOutput("Amazon.Artifact.Model.ReportSummary or Amazon.Artifact.Model.ListReportsResponse",
         "This cmdlet returns a collection of Amazon.Artifact.Model.ReportSummary objects.",
-        "The service call response (type Amazon.Artifact.Model.ListReportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Artifact.Model.ListReportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetARTReportListCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {

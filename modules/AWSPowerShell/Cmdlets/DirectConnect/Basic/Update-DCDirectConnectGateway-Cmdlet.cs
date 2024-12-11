@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect UpdateDirectConnectGateway API operation.", Operation = new[] {"UpdateDirectConnectGateway"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.UpdateDirectConnectGatewayResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DirectConnectGateway or Amazon.DirectConnect.Model.UpdateDirectConnectGatewayResponse",
         "This cmdlet returns an Amazon.DirectConnect.Model.DirectConnectGateway object.",
-        "The service call response (type Amazon.DirectConnect.Model.UpdateDirectConnectGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.UpdateDirectConnectGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDCDirectConnectGatewayCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

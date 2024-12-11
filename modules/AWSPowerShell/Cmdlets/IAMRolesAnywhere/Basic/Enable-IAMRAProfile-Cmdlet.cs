@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere EnableProfile API operation.", Operation = new[] {"EnableProfile"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.EnableProfileResponse))]
     [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.ProfileDetail or Amazon.IAMRolesAnywhere.Model.EnableProfileResponse",
         "This cmdlet returns an Amazon.IAMRolesAnywhere.Model.ProfileDetail object.",
-        "The service call response (type Amazon.IAMRolesAnywhere.Model.EnableProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.EnableProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableIAMRAProfileCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

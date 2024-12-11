@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteQueryDefinition API operation.", Operation = new[] {"DeleteQueryDefinition"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DeleteQueryDefinitionResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.CloudWatchLogs.Model.DeleteQueryDefinitionResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.DeleteQueryDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.CloudWatchLogs.Model.DeleteQueryDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWLQueryDefinitionCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -80,6 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public string Select { get; set; } = "Success";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the QueryDefinitionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^QueryDefinitionId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryDefinitionId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,11 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DeleteQueryDefinitionResponse, RemoveCWLQueryDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.QueryDefinitionId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.QueryDefinitionId = this.QueryDefinitionId;
             #if MODULAR
             if (this.QueryDefinitionId == null && ParameterWasBound(nameof(this.QueryDefinitionId)))

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.MediaTailor.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.MediaTailor.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaTailor.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMTResourceTagCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

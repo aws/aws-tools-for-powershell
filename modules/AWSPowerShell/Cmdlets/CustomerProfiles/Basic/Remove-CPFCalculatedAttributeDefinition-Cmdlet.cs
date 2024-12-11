@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles DeleteCalculatedAttributeDefinition API operation.", Operation = new[] {"DeleteCalculatedAttributeDefinition"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.DeleteCalculatedAttributeDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.CustomerProfiles.Model.DeleteCalculatedAttributeDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CustomerProfiles.Model.DeleteCalculatedAttributeDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CustomerProfiles.Model.DeleteCalculatedAttributeDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCPFCalculatedAttributeDefinitionCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

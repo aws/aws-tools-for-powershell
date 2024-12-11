@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail ResetPassword API operation.", Operation = new[] {"ResetPassword"}, SelectReturnType = typeof(Amazon.WorkMail.Model.ResetPasswordResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.ResetPasswordResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.ResetPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.ResetPasswordResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetWMPasswordCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

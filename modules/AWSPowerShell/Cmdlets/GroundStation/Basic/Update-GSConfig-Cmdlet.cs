@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.UpdateConfigResponse")]
     [AWSCmdlet("Calls the AWS Ground Station UpdateConfig API operation.", Operation = new[] {"UpdateConfig"}, SelectReturnType = typeof(Amazon.GroundStation.Model.UpdateConfigResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.UpdateConfigResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.UpdateConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.UpdateConfigResponse object containing multiple properties."
     )]
     public partial class UpdateGSConfigCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

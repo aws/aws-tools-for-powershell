@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G AcknowledgeOrderReceipt API operation.", Operation = new[] {"AcknowledgeOrderReceipt"}, SelectReturnType = typeof(Amazon.Private5G.Model.AcknowledgeOrderReceiptResponse))]
     [AWSCmdletOutput("Amazon.Private5G.Model.Order or Amazon.Private5G.Model.AcknowledgeOrderReceiptResponse",
         "This cmdlet returns an Amazon.Private5G.Model.Order object.",
-        "The service call response (type Amazon.Private5G.Model.AcknowledgeOrderReceiptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Private5G.Model.AcknowledgeOrderReceiptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmPV5GOrderReceiptCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

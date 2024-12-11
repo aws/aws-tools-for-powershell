@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool ListProfileShares API operation.", Operation = new[] {"ListProfileShares"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListProfileSharesResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.ProfileShareSummary or Amazon.WellArchitected.Model.ListProfileSharesResponse",
         "This cmdlet returns a collection of Amazon.WellArchitected.Model.ProfileShareSummary objects.",
-        "The service call response (type Amazon.WellArchitected.Model.ListProfileSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.ListProfileSharesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWATProfileShareListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

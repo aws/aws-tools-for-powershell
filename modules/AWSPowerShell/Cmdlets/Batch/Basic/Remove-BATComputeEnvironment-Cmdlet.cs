@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch DeleteComputeEnvironment API operation.", Operation = new[] {"DeleteComputeEnvironment"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteComputeEnvironmentResponse))]
     [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteComputeEnvironmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Batch.Model.DeleteComputeEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Batch.Model.DeleteComputeEnvironmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBATComputeEnvironmentCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

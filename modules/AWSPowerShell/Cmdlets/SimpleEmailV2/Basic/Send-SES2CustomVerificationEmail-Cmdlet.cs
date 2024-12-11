@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) SendCustomVerificationEmail API operation.", Operation = new[] {"SendCustomVerificationEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.SendCustomVerificationEmailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSES2CustomVerificationEmailCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// If you attempt to delete a security group that is associated with an instance or network
-    /// interface or is referenced by another security group in the same VPC, the operation
-    /// fails with <c>DependencyViolation</c>.
+    /// interface, is referenced by another security group in the same VPC, or has a VPC association,
+    /// the operation fails with <c>DependencyViolation</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSecurityGroup API operation.", Operation = new[] {"DeleteSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecurityGroupResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSecurityGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteSecurityGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

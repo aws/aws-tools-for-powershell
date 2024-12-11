@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs CreateNotificationSubscription API operation.", Operation = new[] {"CreateNotificationSubscription"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.CreateNotificationSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.Subscription or Amazon.WorkDocs.Model.CreateNotificationSubscriptionResponse",
         "This cmdlet returns an Amazon.WorkDocs.Model.Subscription object.",
-        "The service call response (type Amazon.WorkDocs.Model.CreateNotificationSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.CreateNotificationSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWDNotificationSubscriptionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

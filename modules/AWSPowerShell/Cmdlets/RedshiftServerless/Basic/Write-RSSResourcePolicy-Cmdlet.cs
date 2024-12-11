@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.ResourcePolicy or Amazon.RedshiftServerless.Model.PutResourcePolicyResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.ResourcePolicy object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteRSSResourcePolicyCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

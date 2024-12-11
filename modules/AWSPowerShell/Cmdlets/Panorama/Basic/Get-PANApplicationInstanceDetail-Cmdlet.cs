@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [OutputType("Amazon.Panorama.Model.DescribeApplicationInstanceDetailsResponse")]
     [AWSCmdlet("Calls the AWS Panorama DescribeApplicationInstanceDetails API operation.", Operation = new[] {"DescribeApplicationInstanceDetails"}, SelectReturnType = typeof(Amazon.Panorama.Model.DescribeApplicationInstanceDetailsResponse))]
     [AWSCmdletOutput("Amazon.Panorama.Model.DescribeApplicationInstanceDetailsResponse",
-        "This cmdlet returns an Amazon.Panorama.Model.DescribeApplicationInstanceDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Panorama.Model.DescribeApplicationInstanceDetailsResponse object containing multiple properties."
     )]
     public partial class GetPANApplicationInstanceDetailCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

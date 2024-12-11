@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.AccountSettings or Amazon.DeviceFarm.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.AccountSettings object.",
-        "The service call response (type Amazon.DeviceFarm.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDFAccountSettingListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

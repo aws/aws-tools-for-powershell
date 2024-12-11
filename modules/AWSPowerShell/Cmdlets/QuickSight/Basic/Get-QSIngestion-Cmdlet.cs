@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeIngestion API operation.", Operation = new[] {"DescribeIngestion"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeIngestionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.Ingestion or Amazon.QuickSight.Model.DescribeIngestionResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.Ingestion object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeIngestionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeIngestionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSIngestionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

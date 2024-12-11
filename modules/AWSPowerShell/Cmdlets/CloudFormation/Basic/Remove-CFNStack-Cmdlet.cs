@@ -31,13 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Deletes a specified stack. Once the call completes successfully, stack deletion starts.
     /// Deleted stacks don't show up in the <a>DescribeStacks</a> operation if the deletion
     /// has been completed successfully.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about deleting a stack, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html">Delete
+    /// a stack from the CloudFormation console</a> in the <i>CloudFormation User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFNStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS CloudFormation DeleteStack API operation.", Operation = new[] {"DeleteStack"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeleteStackResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeleteStackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeleteStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeleteStackResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -94,9 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
-        /// CloudFormation assumes to delete the stack. CloudFormation uses the role's credentials
-        /// to make calls on your behalf.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to delete
+        /// the stack. CloudFormation uses the role's credentials to make calls on your behalf.</para><para>If you don't specify a value, CloudFormation uses the role that was previously associated
         /// with the stack. If no role is available, CloudFormation uses a temporary session that's
         /// generated from your user credentials.</para>
         /// </para>

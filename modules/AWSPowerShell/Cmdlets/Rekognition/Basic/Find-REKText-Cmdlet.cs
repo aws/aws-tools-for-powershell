@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DetectText API operation.", Operation = new[] {"DetectText"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DetectTextResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.TextDetection or Amazon.Rekognition.Model.DetectTextResponse",
         "This cmdlet returns a collection of Amazon.Rekognition.Model.TextDetection objects.",
-        "The service call response (type Amazon.Rekognition.Model.DetectTextResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.DetectTextResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindREKTextCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

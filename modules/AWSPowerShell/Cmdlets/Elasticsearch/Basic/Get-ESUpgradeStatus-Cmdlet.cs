@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [OutputType("Amazon.Elasticsearch.Model.GetUpgradeStatusResponse")]
     [AWSCmdlet("Calls the Amazon Elasticsearch GetUpgradeStatus API operation.", Operation = new[] {"GetUpgradeStatus"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.GetUpgradeStatusResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.GetUpgradeStatusResponse",
-        "This cmdlet returns an Amazon.Elasticsearch.Model.GetUpgradeStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Elasticsearch.Model.GetUpgradeStatusResponse object containing multiple properties."
     )]
     public partial class GetESUpgradeStatusCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

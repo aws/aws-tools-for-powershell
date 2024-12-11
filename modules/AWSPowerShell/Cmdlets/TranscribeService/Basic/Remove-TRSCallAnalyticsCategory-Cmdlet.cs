@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     [AWSCmdlet("Calls the Amazon Transcribe Service DeleteCallAnalyticsCategory API operation.", Operation = new[] {"DeleteCallAnalyticsCategory"}, SelectReturnType = typeof(Amazon.TranscribeService.Model.DeleteCallAnalyticsCategoryResponse))]
     [AWSCmdletOutput("None or Amazon.TranscribeService.Model.DeleteCallAnalyticsCategoryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TranscribeService.Model.DeleteCallAnalyticsCategoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.TranscribeService.Model.DeleteCallAnalyticsCategoryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTRSCallAnalyticsCategoryCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {

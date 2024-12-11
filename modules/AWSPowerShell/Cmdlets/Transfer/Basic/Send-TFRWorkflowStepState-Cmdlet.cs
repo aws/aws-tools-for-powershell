@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP SendWorkflowStepState API operation.", Operation = new[] {"SendWorkflowStepState"}, SelectReturnType = typeof(Amazon.Transfer.Model.SendWorkflowStepStateResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.SendWorkflowStepStateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.SendWorkflowStepStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.SendWorkflowStepStateResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendTFRWorkflowStepStateCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

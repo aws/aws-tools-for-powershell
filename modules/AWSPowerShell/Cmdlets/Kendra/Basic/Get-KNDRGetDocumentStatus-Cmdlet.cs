@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.BatchGetDocumentStatusResponse")]
     [AWSCmdlet("Calls the Amazon Kendra BatchGetDocumentStatus API operation.", Operation = new[] {"BatchGetDocumentStatus"}, SelectReturnType = typeof(Amazon.Kendra.Model.BatchGetDocumentStatusResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.BatchGetDocumentStatusResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.BatchGetDocumentStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.BatchGetDocumentStatusResponse object containing multiple properties."
     )]
     public partial class GetKNDRGetDocumentStatusCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [AWSCmdlet("Calls the AmazonMWAA UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MWAA.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MWAA.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MWAA.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMWAAResourceTagCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {

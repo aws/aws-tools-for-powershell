@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     [AWSCmdlet("Calls the Amazon EventBridge Pipes UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Pipes.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Pipes.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Pipes.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Pipes.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePIPESResourceTagCmdlet : AmazonPipesClientCmdlet, IExecutor
     {

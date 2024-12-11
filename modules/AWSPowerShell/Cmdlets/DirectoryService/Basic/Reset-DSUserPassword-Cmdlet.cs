@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service ResetUserPassword API operation.", Operation = new[] {"ResetUserPassword"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ResetUserPasswordResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.ResetUserPasswordResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.ResetUserPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.ResetUserPasswordResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetDSUserPasswordCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

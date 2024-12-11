@@ -34,11 +34,6 @@ support_DescribeCases:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Get-ASACase.5.1.ps1
-        - description: '<emphasis role="bold">Example 6: Returns all support cases using manual paging. The cases are retrieved in batches of 20.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/support_Get-ASACase.6.1.ps1
   services:
     support:
       DescribeCases:

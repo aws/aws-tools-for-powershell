@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [OutputType("Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse")]
     [AWSCmdlet("Calls the AWS Audit Manager GetEvidenceFileUploadUrl API operation.", Operation = new[] {"GetEvidenceFileUploadUrl"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse",
-        "This cmdlet returns an Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AuditManager.Model.GetEvidenceFileUploadUrlResponse object containing multiple properties."
     )]
     public partial class GetAUDMEvidenceFileUploadUrlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

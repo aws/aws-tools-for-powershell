@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [OutputType("Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse")]
     [AWSCmdlet("Calls the AWS CodeDeploy BatchGetDeploymentInstances API operation.", Operation = new[] {"BatchGetDeploymentInstances"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse",
-        "This cmdlet returns an Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use BatchGetDeploymentTargets instead.")]
     public partial class GetCDDeploymentInstanceBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor

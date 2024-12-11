@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DescribeDashboardSnapshotJobResult API operation.", Operation = new[] {"DescribeDashboardSnapshotJobResult"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DescribeDashboardSnapshotJobResultResponse object containing multiple properties."
     )]
     public partial class GetQSDashboardSnapshotJobResultCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

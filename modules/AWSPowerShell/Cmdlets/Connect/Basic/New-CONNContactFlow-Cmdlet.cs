@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateContactFlowResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateContactFlow API operation.", Operation = new[] {"CreateContactFlow"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateContactFlowResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateContactFlowResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateContactFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateContactFlowResponse object containing multiple properties."
     )]
     public partial class NewCONNContactFlowCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

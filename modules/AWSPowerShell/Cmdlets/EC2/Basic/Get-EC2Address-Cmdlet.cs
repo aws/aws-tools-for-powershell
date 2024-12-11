@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAddresses API operation.", Operation = new[] {"DescribeAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAddressesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Address or Amazon.EC2.Model.DescribeAddressesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Address objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeAddressesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

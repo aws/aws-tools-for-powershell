@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateUserHierarchyGroupResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateUserHierarchyGroup API operation.", Operation = new[] {"CreateUserHierarchyGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateUserHierarchyGroupResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateUserHierarchyGroupResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateUserHierarchyGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateUserHierarchyGroupResponse object containing multiple properties."
     )]
     public partial class NewCONNUserHierarchyGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

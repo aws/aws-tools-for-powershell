@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service CreateEndpoint API operation.", Operation = new[] {"CreateEndpoint"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.CreateEndpointResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Endpoint or Amazon.DatabaseMigrationService.Model.CreateEndpointResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.Endpoint object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
@@ -1204,7 +1204,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <c>"aurora"</c>, <c>"aurora-postgresql"</c>, <c>"opensearch"</c>, <c>"redshift"</c>,
         /// <c>"s3"</c>, <c>"db2"</c>, <c>"db2-zos"</c>, <c>"azuredb"</c>, <c>"sybase"</c>, <c>"dynamodb"</c>,
         /// <c>"mongodb"</c>, <c>"kinesis"</c>, <c>"kafka"</c>, <c>"elasticsearch"</c>, <c>"docdb"</c>,
-        /// <c>"sqlserver"</c>, <c>"neptune"</c>, and <c>"babelfish"</c>.</para>
+        /// <c>"sqlserver"</c>, <c>"neptune"</c>, <c>"babelfish"</c>, <c>redshift-serverless</c>,
+        /// <c>aurora-serverless</c>, <c>aurora-postgresql-serverless</c>, <c>gcp-mysql</c>, <c>azure-sql-managed-instance</c>,
+        /// <c>redis</c>, <c>dms-transfer</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

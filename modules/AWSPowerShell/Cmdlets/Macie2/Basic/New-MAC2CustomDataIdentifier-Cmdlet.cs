@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 CreateCustomDataIdentifier API operation.", Operation = new[] {"CreateCustomDataIdentifier"}, SelectReturnType = typeof(Amazon.Macie2.Model.CreateCustomDataIdentifierResponse))]
     [AWSCmdletOutput("System.String or Amazon.Macie2.Model.CreateCustomDataIdentifierResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Macie2.Model.CreateCustomDataIdentifierResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.CreateCustomDataIdentifierResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMAC2CustomDataIdentifierCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

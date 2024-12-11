@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes UpdateClusterVersion API operation.", Operation = new[] {"UpdateClusterVersion"}, SelectReturnType = typeof(Amazon.EKS.Model.UpdateClusterVersionResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Update or Amazon.EKS.Model.UpdateClusterVersionResponse",
         "This cmdlet returns an Amazon.EKS.Model.Update object.",
-        "The service call response (type Amazon.EKS.Model.UpdateClusterVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.UpdateClusterVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEKSClusterVersionCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

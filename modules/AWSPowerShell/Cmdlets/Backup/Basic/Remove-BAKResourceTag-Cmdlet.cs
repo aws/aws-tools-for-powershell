@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Backup.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBAKResourceTagCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

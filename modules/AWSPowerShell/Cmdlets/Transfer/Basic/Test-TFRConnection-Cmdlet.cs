@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [OutputType("Amazon.Transfer.Model.TestConnectionResponse")]
     [AWSCmdlet("Calls the AWS Transfer for SFTP TestConnection API operation.", Operation = new[] {"TestConnection"}, SelectReturnType = typeof(Amazon.Transfer.Model.TestConnectionResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.TestConnectionResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.TestConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Transfer.Model.TestConnectionResponse object containing multiple properties."
     )]
     public partial class TestTFRConnectionCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

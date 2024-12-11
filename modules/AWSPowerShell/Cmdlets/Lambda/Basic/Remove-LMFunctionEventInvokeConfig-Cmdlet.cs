@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteFunctionEventInvokeConfig API operation.", Operation = new[] {"DeleteFunctionEventInvokeConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteFunctionEventInvokeConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteFunctionEventInvokeConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteFunctionEventInvokeConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteFunctionEventInvokeConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMFunctionEventInvokeConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

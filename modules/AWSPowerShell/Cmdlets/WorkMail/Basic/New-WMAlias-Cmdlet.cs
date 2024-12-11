@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail CreateAlias API operation.", Operation = new[] {"CreateAlias"}, SelectReturnType = typeof(Amazon.WorkMail.Model.CreateAliasResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.CreateAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.CreateAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewWMAliasCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

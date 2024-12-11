@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently BatchEvaluateFeature API operation.", Operation = new[] {"BatchEvaluateFeature"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.BatchEvaluateFeatureResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.EvaluationResult or Amazon.CloudWatchEvidently.Model.BatchEvaluateFeatureResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchEvidently.Model.EvaluationResult objects.",
-        "The service call response (type Amazon.CloudWatchEvidently.Model.BatchEvaluateFeatureResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchEvidently.Model.BatchEvaluateFeatureResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWEVDFeatureEvaluationBatchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

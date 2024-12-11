@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifyCertificateBasedAuthProperties API operation.", Operation = new[] {"ModifyCertificateBasedAuthProperties"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifyCertificateBasedAuthPropertiesResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifyCertificateBasedAuthPropertiesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifyCertificateBasedAuthPropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.ModifyCertificateBasedAuthPropertiesResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditWKSCertificateBasedAuthPropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListDevEnvironments API operation.", Operation = new[] {"ListDevEnvironments"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListDevEnvironmentsResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.DevEnvironmentSummary or Amazon.CodeCatalyst.Model.ListDevEnvironmentsResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.DevEnvironmentSummary objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListDevEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListDevEnvironmentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATDevEnvironmentListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

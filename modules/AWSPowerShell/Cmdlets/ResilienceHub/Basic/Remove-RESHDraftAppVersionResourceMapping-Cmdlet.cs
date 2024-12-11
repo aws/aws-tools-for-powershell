@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub RemoveDraftAppVersionResourceMappings API operation.", Operation = new[] {"RemoveDraftAppVersionResourceMappings"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.RemoveDraftAppVersionResourceMappingsResponse object containing multiple properties."
     )]
     public partial class RemoveRESHDraftAppVersionResourceMappingCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

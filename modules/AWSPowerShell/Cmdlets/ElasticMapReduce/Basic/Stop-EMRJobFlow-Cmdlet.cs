@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce TerminateJobFlows API operation.", Operation = new[] {"TerminateJobFlows"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

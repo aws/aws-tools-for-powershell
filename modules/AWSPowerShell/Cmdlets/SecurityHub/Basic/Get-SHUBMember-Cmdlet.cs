@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.GetMembersResponse")]
     [AWSCmdlet("Calls the AWS Security Hub GetMembers API operation.", Operation = new[] {"GetMembers"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetMembersResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.GetMembersResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.GetMembersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.GetMembersResponse object containing multiple properties."
     )]
     public partial class GetSHUBMemberCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

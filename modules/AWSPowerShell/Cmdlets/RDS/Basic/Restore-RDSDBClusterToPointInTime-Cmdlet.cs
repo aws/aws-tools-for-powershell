@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service RestoreDBClusterToPointInTime API operation.", Operation = new[] {"RestoreDBClusterToPointInTime"}, SelectReturnType = typeof(Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster or Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBCluster object.",
-        "The service call response (type Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -201,11 +201,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether to enable mapping of Amazon Web Services Identity and Access Management
         /// (IAM) accounts to database accounts. By default, mapping isn't enabled.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
-        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// IAM Database Authentication</a> in the <i>Amazon Aurora User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+        /// IAM database authentication for MariaDB, MySQL, and PostgreSQL</a> in the <i>Amazon
+        /// RDS User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to turn on Performance Insights for the DB cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean? EnablePerformanceInsight { get; set; }
         #endregion
         
         #region Parameter EngineLifecycleSupport
@@ -218,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// version, if the major engine version is past its end of standard support date.</para></note><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         /// With RDS Extended Support, you can run the selected major engine version on your DB
         /// cluster past the end of standard support for that engine version. For more information,
-        /// see the following sections:</para><ul><li><para>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
+        /// see the following sections:</para><ul><li><para>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
         /// </para>
@@ -330,6 +343,30 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
         #endregion
         
+        #region Parameter MonitoringInterval
+        /// <summary>
+        /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify <c>0</c>.</para><para>If <c>MonitoringRoleArn</c> is specified, also set <c>MonitoringInterval</c> to a
+        /// value other than <c>0</c>.</para><para>Valid Values: <c>0 | 1 | 5 | 10 | 15 | 30 | 60</c></para><para>Default: <c>0</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MonitoringInterval { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced
+        /// Monitoring metrics to Amazon CloudWatch Logs. An example is <c>arn:aws:iam:123456789012:role/emaccess</c>.</para><para>If <c>MonitoringInterval</c> is set to a value other than <c>0</c>, supply a <c>MonitoringRoleArn</c>
+        /// value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
         #region Parameter NetworkType
         /// <summary>
         /// <para>
@@ -351,6 +388,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier for encryption of Performance Insights
+        /// data.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key.</para><para>If you don't specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon RDS
+        /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
+        /// account. Your Amazon Web Services account has a different default KMS key for each
+        /// Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to retain Performance Insights data.</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <c>93</c> (3 months * 31), <c>341</c> (11 months * 31), <c>589</c> (19 months * 31)</para></li><li><para><c>731</c></para></li></ul><para>Default: <c>7</c> days</para><para>If you specify a retention period that isn't valid, such as <c>94</c>, Amazon RDS
+        /// issues an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
         #endregion
         
         #region Parameter Port
@@ -611,12 +675,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.NetworkType = this.NetworkType;
             context.OptionGroupName = this.OptionGroupName;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
+            context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
             context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.RdsCustomClusterConfiguration_InterconnectSubnetId = this.RdsCustomClusterConfiguration_InterconnectSubnetId;
@@ -707,6 +776,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnablePerformanceInsight != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
             if (cmdletContext.EngineLifecycleSupport != null)
             {
                 request.EngineLifecycleSupport = cmdletContext.EngineLifecycleSupport;
@@ -723,6 +796,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
+            }
             if (cmdletContext.NetworkType != null)
             {
                 request.NetworkType = cmdletContext.NetworkType;
@@ -730,6 +811,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
+            }
+            if (cmdletContext.PerformanceInsightsRetentionPeriod != null)
+            {
+                request.PerformanceInsightsRetentionPeriod = cmdletContext.PerformanceInsightsRetentionPeriod.Value;
             }
             if (cmdletContext.Port != null)
             {
@@ -990,12 +1079,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
             public System.String NetworkType { get; set; }
             public System.String OptionGroupName { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
+            public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String RdsCustomClusterConfiguration_InterconnectSubnetId { get; set; }

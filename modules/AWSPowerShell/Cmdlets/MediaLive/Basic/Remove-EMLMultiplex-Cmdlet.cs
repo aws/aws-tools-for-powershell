@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DeleteMultiplexResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteMultiplex API operation.", Operation = new[] {"DeleteMultiplex"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteMultiplexResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DeleteMultiplexResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DeleteMultiplexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DeleteMultiplexResponse object containing multiple properties."
     )]
     public partial class RemoveEMLMultiplexCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

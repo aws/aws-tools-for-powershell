@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.B2bi.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.B2bi.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.B2bi.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.B2bi.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddB2BIResourceTagCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

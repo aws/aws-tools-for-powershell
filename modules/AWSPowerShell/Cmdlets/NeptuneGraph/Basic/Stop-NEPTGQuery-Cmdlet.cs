@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.CancelQueryResponse))]
     [AWSCmdletOutput("None or Amazon.NeptuneGraph.Model.CancelQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NeptuneGraph.Model.CancelQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NeptuneGraph.Model.CancelQueryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopNEPTGQueryCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

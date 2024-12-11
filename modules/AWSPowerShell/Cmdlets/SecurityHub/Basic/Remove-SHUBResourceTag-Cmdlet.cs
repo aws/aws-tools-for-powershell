@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSHUBResourceTagCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

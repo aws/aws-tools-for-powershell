@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteRolePermissionsBoundary API operation.", Operation = new[] {"DeleteRolePermissionsBoundary"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteRolePermissionsBoundaryResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteRolePermissionsBoundaryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteRolePermissionsBoundaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteRolePermissionsBoundaryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMRolePermissionsBoundaryCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

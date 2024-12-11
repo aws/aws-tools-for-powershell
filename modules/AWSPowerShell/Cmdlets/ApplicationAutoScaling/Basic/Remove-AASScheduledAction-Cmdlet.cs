@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [AWSCmdlet("Calls the Application Auto Scaling DeleteScheduledAction API operation.", Operation = new[] {"DeleteScheduledAction"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.DeleteScheduledActionResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.DeleteScheduledActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationAutoScaling.Model.DeleteScheduledActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationAutoScaling.Model.DeleteScheduledActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAASScheduledActionCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

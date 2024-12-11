@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DescribeReportJob API operation.", Operation = new[] {"DescribeReportJob"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeReportJobResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.ReportJob or Amazon.Backup.Model.DescribeReportJobResponse",
         "This cmdlet returns an Amazon.Backup.Model.ReportJob object.",
-        "The service call response (type Amazon.Backup.Model.DescribeReportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Backup.Model.DescribeReportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBAKReportJobCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

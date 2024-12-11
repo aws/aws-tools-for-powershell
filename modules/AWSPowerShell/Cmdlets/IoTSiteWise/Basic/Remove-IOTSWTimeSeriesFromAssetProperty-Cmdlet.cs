@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DisassociateTimeSeriesFromAssetProperty API operation.", Operation = new[] {"DisassociateTimeSeriesFromAssetProperty"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.DisassociateTimeSeriesFromAssetPropertyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWTimeSeriesFromAssetPropertyCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

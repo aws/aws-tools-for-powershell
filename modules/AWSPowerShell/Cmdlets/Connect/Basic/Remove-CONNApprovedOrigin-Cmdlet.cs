@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateApprovedOrigin API operation.", Operation = new[] {"DisassociateApprovedOrigin"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateApprovedOriginResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateApprovedOriginResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateApprovedOriginResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateApprovedOriginResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNApprovedOriginCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

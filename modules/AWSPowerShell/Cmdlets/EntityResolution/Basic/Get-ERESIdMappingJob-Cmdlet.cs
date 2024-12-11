@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.GetIdMappingJobResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution GetIdMappingJob API operation.", Operation = new[] {"GetIdMappingJob"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetIdMappingJobResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.GetIdMappingJobResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.GetIdMappingJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.GetIdMappingJobResponse object containing multiple properties."
     )]
     public partial class GetERESIdMappingJobCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

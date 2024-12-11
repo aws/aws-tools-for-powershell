@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager DeregisterAccount API operation.", Operation = new[] {"DeregisterAccount"}, SelectReturnType = typeof(Amazon.AuditManager.Model.DeregisterAccountResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.AccountStatus or Amazon.AuditManager.Model.DeregisterAccountResponse",
         "This cmdlet returns an Amazon.AuditManager.AccountStatus object.",
-        "The service call response (type Amazon.AuditManager.Model.DeregisterAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.DeregisterAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAUDMAccountCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

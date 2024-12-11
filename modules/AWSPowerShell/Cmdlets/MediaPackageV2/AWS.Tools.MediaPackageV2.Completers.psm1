@@ -100,6 +100,13 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.HarvestJobStatus
+        "Get-MPV2HarvestJobList/Status"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
         # Amazon.MediaPackageV2.InputType
         "New-MPV2Channel/InputType"
         {
@@ -152,6 +159,7 @@ $MPV2_map = @{
     "EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "InputType"=@("New-MPV2Channel")
+    "Status"=@("Get-MPV2HarvestJobList")
 }
 
 _awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map
@@ -204,8 +212,10 @@ $MPV2_SelectCompleters = {
 }
 
 $MPV2_SelectMap = @{
-    "Select"=@("New-MPV2Channel",
+    "Select"=@("Stop-MPV2HarvestJob",
+               "New-MPV2Channel",
                "New-MPV2ChannelGroup",
+               "New-MPV2HarvestJob",
                "New-MPV2OriginEndpoint",
                "Remove-MPV2Channel",
                "Remove-MPV2ChannelGroup",
@@ -215,10 +225,12 @@ $MPV2_SelectMap = @{
                "Get-MPV2Channel",
                "Get-MPV2ChannelGroup",
                "Get-MPV2ChannelPolicy",
+               "Get-MPV2HarvestJob",
                "Get-MPV2OriginEndpoint",
                "Get-MPV2OriginEndpointPolicy",
                "Get-MPV2ChannelGroupList",
                "Get-MPV2ChannelList",
+               "Get-MPV2HarvestJobList",
                "Get-MPV2OriginEndpointList",
                "Get-MPV2ResourceTag",
                "Write-MPV2ChannelPolicy",

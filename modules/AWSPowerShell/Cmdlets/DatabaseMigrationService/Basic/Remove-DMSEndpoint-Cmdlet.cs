@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Endpoint or Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.Endpoint object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

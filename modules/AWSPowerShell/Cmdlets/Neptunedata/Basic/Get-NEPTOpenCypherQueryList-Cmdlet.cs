@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData ListOpenCypherQueries API operation.", Operation = new[] {"ListOpenCypherQueries"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.ListOpenCypherQueriesResponse object containing multiple properties."
     )]
     public partial class GetNEPTOpenCypherQueryListCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

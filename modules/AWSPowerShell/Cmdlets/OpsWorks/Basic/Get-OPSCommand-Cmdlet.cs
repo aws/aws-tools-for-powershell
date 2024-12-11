@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeCommands API operation.", Operation = new[] {"DescribeCommands"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeCommandsResponse), LegacyAlias="Get-OPSCommands")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Command or Amazon.OpsWorks.Model.DescribeCommandsResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.Command objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeCommandsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeCommandsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSCommandCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

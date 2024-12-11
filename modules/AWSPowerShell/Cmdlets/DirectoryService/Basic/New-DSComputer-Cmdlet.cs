@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service CreateComputer API operation.", Operation = new[] {"CreateComputer"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.CreateComputerResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Computer or Amazon.DirectoryService.Model.CreateComputerResponse",
         "This cmdlet returns an Amazon.DirectoryService.Model.Computer object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateComputerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateComputerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSComputerCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveFromGlobalCluster API operation.", Operation = new[] {"RemoveFromGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveFromGlobalClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.GlobalCluster or Amazon.DocDB.Model.RemoveFromGlobalClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.GlobalCluster object.",
-        "The service call response (type Amazon.DocDB.Model.RemoveFromGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.RemoveFromGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCFromGlobalClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

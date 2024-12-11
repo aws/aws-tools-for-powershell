@@ -55,6 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// the VPC requirements, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html</a>
     /// in the <i><i>Amazon EKS User Guide</i></i>.
     /// </para><para>
+    /// You can also use this API operation to enable or disable ARC zonal shift. If zonal
+    /// shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.
+    /// </para><para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
     /// an update, the cluster status moves to <c>UPDATING</c> (this status transition is
     /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
@@ -66,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes UpdateClusterConfig API operation.", Operation = new[] {"UpdateClusterConfig"}, SelectReturnType = typeof(Amazon.EKS.Model.UpdateClusterConfigResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Update or Amazon.EKS.Model.UpdateClusterConfigResponse",
         "This cmdlet returns an Amazon.EKS.Model.Update object.",
-        "The service call response (type Amazon.EKS.Model.UpdateClusterConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.UpdateClusterConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEKSClusterConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
@@ -103,6 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
+        #endregion
+        
+        #region Parameter ZonalShiftConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the
+        /// cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
         #endregion
         
         #region Parameter Name
@@ -203,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #endif
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             context.UpgradePolicy_SupportType = this.UpgradePolicy_SupportType;
+            context.ZonalShiftConfig_Enabled = this.ZonalShiftConfig_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -289,6 +304,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.UpgradePolicy = null;
             }
             
+             // populate ZonalShiftConfig
+            var requestZonalShiftConfigIsNull = true;
+            request.ZonalShiftConfig = new Amazon.EKS.Model.ZonalShiftConfigRequest();
+            System.Boolean? requestZonalShiftConfig_zonalShiftConfig_Enabled = null;
+            if (cmdletContext.ZonalShiftConfig_Enabled != null)
+            {
+                requestZonalShiftConfig_zonalShiftConfig_Enabled = cmdletContext.ZonalShiftConfig_Enabled.Value;
+            }
+            if (requestZonalShiftConfig_zonalShiftConfig_Enabled != null)
+            {
+                request.ZonalShiftConfig.Enabled = requestZonalShiftConfig_zonalShiftConfig_Enabled.Value;
+                requestZonalShiftConfigIsNull = false;
+            }
+             // determine if request.ZonalShiftConfig should be set to null
+            if (requestZonalShiftConfigIsNull)
+            {
+                request.ZonalShiftConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -355,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
+            public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateClusterConfigResponse, UpdateEKSClusterConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;
         }

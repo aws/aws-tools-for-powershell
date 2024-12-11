@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [OutputType("Amazon.ServerMigrationService.Model.GetAppValidationConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Server Migration Service GetAppValidationConfiguration API operation.", Operation = new[] {"GetAppValidationConfiguration"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.GetAppValidationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.GetAppValidationConfigurationResponse",
-        "This cmdlet returns an Amazon.ServerMigrationService.Model.GetAppValidationConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServerMigrationService.Model.GetAppValidationConfigurationResponse object containing multiple properties."
     )]
     public partial class GetSMSAppValidationConfigurationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

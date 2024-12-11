@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [AWSCmdlet("Calls the AWS OpsWorksCM DeleteBackup API operation.", Operation = new[] {"DeleteBackup"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.DeleteBackupResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.DeleteBackupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.DeleteBackupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorksCM.Model.DeleteBackupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOWCMBackupCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [AWSCmdlet("Calls the AWS Batch DescribeSchedulingPolicies API operation.", Operation = new[] {"DescribeSchedulingPolicies"}, SelectReturnType = typeof(Amazon.Batch.Model.DescribeSchedulingPoliciesResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.SchedulingPolicyDetail or Amazon.Batch.Model.DescribeSchedulingPoliciesResponse",
         "This cmdlet returns a collection of Amazon.Batch.Model.SchedulingPolicyDetail objects.",
-        "The service call response (type Amazon.Batch.Model.DescribeSchedulingPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Batch.Model.DescribeSchedulingPoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBATSchedulingPolicyCmdlet : AmazonBatchClientCmdlet, IExecutor
     {

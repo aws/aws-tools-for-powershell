@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge PutPermission API operation.", Operation = new[] {"PutPermission"}, SelectReturnType = typeof(Amazon.EventBridge.Model.PutPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.EventBridge.Model.PutPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EventBridge.Model.PutPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EventBridge.Model.PutPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteEVBPermissionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

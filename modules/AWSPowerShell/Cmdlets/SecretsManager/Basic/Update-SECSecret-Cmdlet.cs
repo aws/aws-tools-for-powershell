@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.UpdateSecretResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager UpdateSecret API operation.", Operation = new[] {"UpdateSecret"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.UpdateSecretResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.UpdateSecretResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.UpdateSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.UpdateSecretResponse object containing multiple properties."
     )]
     public partial class UpdateSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateWebACLMigrationStackResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateWebACLMigrationStack API operation.", Operation = new[] {"CreateWebACLMigrationStack"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateWebACLMigrationStackResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateWebACLMigrationStackResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateWebACLMigrationStackResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateWebACLMigrationStackResponse object containing multiple properties."
     )]
     public partial class NewWAFRWebACLMigrationStackCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

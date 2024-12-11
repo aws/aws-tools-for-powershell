@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics StartCanary API operation.", Operation = new[] {"StartCanary"}, SelectReturnType = typeof(Amazon.Synthetics.Model.StartCanaryResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.StartCanaryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.StartCanaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.StartCanaryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

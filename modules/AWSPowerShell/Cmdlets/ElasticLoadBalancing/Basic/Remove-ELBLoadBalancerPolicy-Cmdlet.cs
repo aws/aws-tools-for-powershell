@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing DeleteLoadBalancerPolicy API operation.", Operation = new[] {"DeleteLoadBalancerPolicy"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

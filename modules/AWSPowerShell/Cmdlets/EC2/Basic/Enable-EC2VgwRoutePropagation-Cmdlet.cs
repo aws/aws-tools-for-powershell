@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableVgwRoutePropagation API operation.", Operation = new[] {"EnableVgwRoutePropagation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableVgwRoutePropagationResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.EnableVgwRoutePropagationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.EnableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.EnableVgwRoutePropagationResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2VgwRoutePropagationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

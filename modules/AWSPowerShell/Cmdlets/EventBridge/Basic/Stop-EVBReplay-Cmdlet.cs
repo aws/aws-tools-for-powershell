@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.CancelReplayResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge CancelReplay API operation.", Operation = new[] {"CancelReplay"}, SelectReturnType = typeof(Amazon.EventBridge.Model.CancelReplayResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.CancelReplayResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.CancelReplayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.CancelReplayResponse object containing multiple properties."
     )]
     public partial class StopEVBReplayCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

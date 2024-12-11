@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteTrustStore API operation.", Operation = new[] {"DeleteTrustStore"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteTrustStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveELB2TrustStoreCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

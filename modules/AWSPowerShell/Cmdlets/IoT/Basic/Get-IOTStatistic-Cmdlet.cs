@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT GetStatistics API operation.", Operation = new[] {"GetStatistics"}, SelectReturnType = typeof(Amazon.IoT.Model.GetStatisticsResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.Statistics or Amazon.IoT.Model.GetStatisticsResponse",
         "This cmdlet returns an Amazon.IoT.Model.Statistics object.",
-        "The service call response (type Amazon.IoT.Model.GetStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetStatisticsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTStatisticCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

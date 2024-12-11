@@ -28,17 +28,21 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the stale security group rules for security groups in a specified VPC. Rules
-    /// are stale when they reference a deleted security group in a peered VPC. Rules can
-    /// also be stale if they reference a security group in a peer VPC for which the VPC peering
-    /// connection has been deleted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the stale security group rules for security groups referenced across a VPC
+    /// peering connection, transit gateway connection, or with a security group VPC association.
+    /// Rules are stale when they reference a deleted security group. Rules can also be stale
+    /// if they reference a security group in a peer VPC for which the VPC peering connection
+    /// has been deleted, across a transit gateway where the transit gateway has been deleted
+    /// (or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">the
+    /// transit gateway security group referencing feature</a> has been disabled), or if a
+    /// security group VPC association has been disassociated.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2StaleSecurityGroup")]
     [OutputType("Amazon.EC2.Model.StaleSecurityGroup")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeStaleSecurityGroups API operation.", Operation = new[] {"DescribeStaleSecurityGroups"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeStaleSecurityGroupsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.StaleSecurityGroup or Amazon.EC2.Model.DescribeStaleSecurityGroupsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.StaleSecurityGroup objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeStaleSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeStaleSecurityGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2StaleSecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

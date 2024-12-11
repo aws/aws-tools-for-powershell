@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.GetMobileDeviceAccessOverrideResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail GetMobileDeviceAccessOverride API operation.", Operation = new[] {"GetMobileDeviceAccessOverride"}, SelectReturnType = typeof(Amazon.WorkMail.Model.GetMobileDeviceAccessOverrideResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.GetMobileDeviceAccessOverrideResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.GetMobileDeviceAccessOverrideResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.GetMobileDeviceAccessOverrideResponse object containing multiple properties."
     )]
     public partial class GetWMMobileDeviceAccessOverrideCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

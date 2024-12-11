@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [OutputType("Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse")]
     [AWSCmdlet("Calls the AWS Audit Manager BatchCreateDelegationByAssessment API operation.", Operation = new[] {"BatchCreateDelegationByAssessment"}, SelectReturnType = typeof(Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse",
-        "This cmdlet returns an Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AuditManager.Model.BatchCreateDelegationByAssessmentResponse object containing multiple properties."
     )]
     public partial class NewAUDMCreateDelegationByAssessmentCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

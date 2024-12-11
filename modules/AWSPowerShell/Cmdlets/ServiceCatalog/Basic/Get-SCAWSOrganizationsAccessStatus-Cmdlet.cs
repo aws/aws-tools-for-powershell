@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog GetAWSOrganizationsAccessStatus API operation.", Operation = new[] {"GetAWSOrganizationsAccessStatus"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.GetAWSOrganizationsAccessStatusResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.AccessStatus or Amazon.ServiceCatalog.Model.GetAWSOrganizationsAccessStatusResponse",
         "This cmdlet returns an Amazon.ServiceCatalog.AccessStatus object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.GetAWSOrganizationsAccessStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.GetAWSOrganizationsAccessStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCAWSOrganizationsAccessStatusCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

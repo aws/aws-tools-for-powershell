@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeleteLifecycleHook API operation.", Operation = new[] {"DeleteLifecycleHook"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeleteLifecycleHookResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeleteLifecycleHookResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeleteLifecycleHookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteLifecycleHookResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASLifecycleHookCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

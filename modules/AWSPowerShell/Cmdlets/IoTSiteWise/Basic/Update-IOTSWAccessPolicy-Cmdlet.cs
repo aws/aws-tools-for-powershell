@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise UpdateAccessPolicy API operation.", Operation = new[] {"UpdateAccessPolicy"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.UpdateAccessPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.UpdateAccessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.UpdateAccessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.UpdateAccessPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTSWAccessPolicyCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

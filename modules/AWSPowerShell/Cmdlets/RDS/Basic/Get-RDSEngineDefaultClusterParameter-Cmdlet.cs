@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeEngineDefaultClusterParameters API operation.", Operation = new[] {"DescribeEngineDefaultClusterParameters"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.EngineDefaults or Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse",
         "This cmdlet returns an Amazon.RDS.Model.EngineDefaults object.",
-        "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSEngineDefaultClusterParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

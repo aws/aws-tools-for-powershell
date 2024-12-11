@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.DescribeGlobalTableSettingsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeGlobalTableSettings API operation.", Operation = new[] {"DescribeGlobalTableSettings"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeGlobalTableSettingsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DescribeGlobalTableSettingsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeGlobalTableSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeGlobalTableSettingsResponse object containing multiple properties."
     )]
     public partial class GetDDBGlobalTableSettingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetMemberDetectorsResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetMemberDetectors API operation.", Operation = new[] {"GetMemberDetectors"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetMemberDetectorsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetMemberDetectorsResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetMemberDetectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetMemberDetectorsResponse object containing multiple properties."
     )]
     public partial class GetGDMemberDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The detector ID for the administrator account.</para>
+        /// <para>The detector ID for the administrator account.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

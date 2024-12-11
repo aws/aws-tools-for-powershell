@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline PutThirdPartyJobSuccessResult API operation.", Operation = new[] {"PutThirdPartyJobSuccessResult"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse))]
     [AWSCmdletOutput("None or Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCPThirdPartyJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

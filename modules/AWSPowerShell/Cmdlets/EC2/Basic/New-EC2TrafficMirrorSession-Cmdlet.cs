@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway.
     /// 
     /// </para><para>
-    /// By default, no traffic is mirrored. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.htm">CreateTrafficMirrorFilter</a>
+    /// By default, no traffic is mirrored. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilter.html">CreateTrafficMirrorFilter</a>
     /// to create filter rules that specify the traffic to mirror.
     /// </para>
     /// </summary>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTrafficMirrorSession API operation.", Operation = new[] {"CreateTrafficMirrorSession"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTrafficMirrorSessionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TrafficMirrorSession or Amazon.EC2.Model.CreateTrafficMirrorSessionResponse",
         "This cmdlet returns an Amazon.EC2.Model.TrafficMirrorSession object.",
-        "The service call response (type Amazon.EC2.Model.CreateTrafficMirrorSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateTrafficMirrorSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2TrafficMirrorSessionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

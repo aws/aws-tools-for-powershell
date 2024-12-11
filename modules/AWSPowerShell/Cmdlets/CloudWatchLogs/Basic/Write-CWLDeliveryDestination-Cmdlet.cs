@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs PutDeliveryDestination API operation.", Operation = new[] {"PutDeliveryDestination"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.PutDeliveryDestinationResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.DeliveryDestination or Amazon.CloudWatchLogs.Model.PutDeliveryDestinationResponse",
         "This cmdlet returns an Amazon.CloudWatchLogs.Model.DeliveryDestination object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.PutDeliveryDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutDeliveryDestinationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCWLDeliveryDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

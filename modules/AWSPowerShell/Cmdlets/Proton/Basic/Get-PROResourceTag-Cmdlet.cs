@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Proton.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Tag or Amazon.Proton.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.Tag objects.",
-        "The service call response (type Amazon.Proton.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROResourceTagCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

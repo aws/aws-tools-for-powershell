@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeTableReplicaAutoScaling API operation.", Operation = new[] {"DescribeTableReplicaAutoScaling"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeTableReplicaAutoScalingResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableAutoScalingDescription or Amazon.DynamoDBv2.Model.DescribeTableReplicaAutoScalingResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.TableAutoScalingDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableReplicaAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableReplicaAutoScalingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBTableReplicaAutoScalingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

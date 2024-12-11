@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateQueueStatus API operation.", Operation = new[] {"UpdateQueueStatus"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateQueueStatusResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateQueueStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateQueueStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateQueueStatusResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNQueueStatusCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

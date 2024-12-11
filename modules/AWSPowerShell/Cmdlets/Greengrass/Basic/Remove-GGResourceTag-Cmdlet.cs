@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Greengrass.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGResourceTagCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

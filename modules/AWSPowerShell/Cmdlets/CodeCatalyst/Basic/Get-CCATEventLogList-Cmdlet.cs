@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListEventLogs API operation.", Operation = new[] {"ListEventLogs"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListEventLogsResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.EventLogEntry or Amazon.CodeCatalyst.Model.ListEventLogsResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.EventLogEntry objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListEventLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListEventLogsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATEventLogListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

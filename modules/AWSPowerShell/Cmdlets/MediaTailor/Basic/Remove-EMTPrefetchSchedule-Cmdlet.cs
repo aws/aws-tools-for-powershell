@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor DeletePrefetchSchedule API operation.", Operation = new[] {"DeletePrefetchSchedule"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.DeletePrefetchScheduleResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.DeletePrefetchScheduleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.DeletePrefetchScheduleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.DeletePrefetchScheduleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMTPrefetchScheduleCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

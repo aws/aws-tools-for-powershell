@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateLocationNfs API operation.", Operation = new[] {"CreateLocationNfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationNfsResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationNfsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateLocationNfsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateLocationNfsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNLocationNfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the agents connecting to a transfer location.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS
+        /// file server.</para><para>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using
+        /// multiple DataSync agents</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

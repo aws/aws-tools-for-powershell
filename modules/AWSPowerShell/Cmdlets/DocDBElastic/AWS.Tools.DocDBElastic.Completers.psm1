@@ -90,6 +90,13 @@ $DOCE_Completers = {
             break
         }
 
+        # Amazon.DocDBElastic.OptInType
+        "Set-DOCEPendingMaintenanceAction/OptInType"
+        {
+            $v = "APPLY_ON","IMMEDIATE","NEXT_MAINTENANCE","UNDO_OPT_IN"
+            break
+        }
+
 
     }
 
@@ -100,6 +107,7 @@ $DOCE_Completers = {
 
 $DOCE_map = @{
     "AuthType"=@("New-DOCECluster","Update-DOCECluster")
+    "OptInType"=@("Set-DOCEPendingMaintenanceAction")
 }
 
 _awsArgumentCompleterRegistration $DOCE_Completers $DOCE_map
@@ -152,15 +160,18 @@ $DOCE_SelectCompleters = {
 }
 
 $DOCE_SelectMap = @{
-    "Select"=@("Copy-DOCEClusterSnapshot",
+    "Select"=@("Set-DOCEPendingMaintenanceAction",
+               "Copy-DOCEClusterSnapshot",
                "New-DOCECluster",
                "New-DOCEClusterSnapshot",
                "Remove-DOCECluster",
                "Remove-DOCEClusterSnapshot",
                "Get-DOCECluster",
                "Get-DOCEClusterSnapshot",
+               "Get-DOCEPendingMaintenanceAction",
                "Get-DOCEClusterList",
                "Get-DOCEClusterSnapshotList",
+               "Get-DOCEPendingMaintenanceActionList",
                "Get-DOCEResourceTag",
                "Restore-DOCEClusterFromSnapshot",
                "Start-DOCECluster",

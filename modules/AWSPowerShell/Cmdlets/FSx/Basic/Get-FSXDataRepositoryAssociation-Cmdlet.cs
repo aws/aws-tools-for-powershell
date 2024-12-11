@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx DescribeDataRepositoryAssociations API operation.", Operation = new[] {"DescribeDataRepositoryAssociations"}, SelectReturnType = typeof(Amazon.FSx.Model.DescribeDataRepositoryAssociationsResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DataRepositoryAssociation or Amazon.FSx.Model.DescribeDataRepositoryAssociationsResponse",
         "This cmdlet returns a collection of Amazon.FSx.Model.DataRepositoryAssociation objects.",
-        "The service call response (type Amazon.FSx.Model.DescribeDataRepositoryAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.DescribeDataRepositoryAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFSXDataRepositoryAssociationCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect UpdateGatewayInstance API operation.", Operation = new[] {"UpdateGatewayInstance"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse object containing multiple properties."
     )]
     public partial class UpdateEMCNGatewayInstanceCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

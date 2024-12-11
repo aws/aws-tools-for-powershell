@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DeleteAnalysisScheme API operation.", Operation = new[] {"DeleteAnalysisScheme"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus or Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.AnalysisSchemeStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

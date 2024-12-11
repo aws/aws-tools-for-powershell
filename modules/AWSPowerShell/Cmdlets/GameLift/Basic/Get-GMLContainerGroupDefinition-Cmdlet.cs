@@ -28,13 +28,19 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift containers feature, which is currently
-    /// in public preview. </b><para>
     /// Retrieves the properties of a container group definition, including all container
     /// definitions in the group. 
-    /// </para><para>
-    /// To retrieve a container group definition, provide a resource identifier. If successful,
-    /// this operation returns the complete properties of the container group definition.
+    /// 
+    ///  
+    /// <para><b>Request options:</b></para><ul><li><para>
+    /// Retrieve the latest version of a container group definition. Specify the container
+    /// group definition name only, or use an ARN value without a version number.
+    /// </para></li><li><para>
+    /// Retrieve a particular version. Specify the container group definition name and a version
+    /// number, or use an ARN value that includes the version number.
+    /// </para></li></ul><para><b>Results:</b></para><para>
+    /// If successful, this operation returns the complete properties of a container group
+    /// definition version.
     /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
     /// a container group definition</a></para></li></ul>
     /// </summary>
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeContainerGroupDefinition API operation.", Operation = new[] {"DescribeContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.ContainerGroupDefinition or Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse",
         "This cmdlet returns an Amazon.GameLift.Model.ContainerGroupDefinition object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -66,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter VersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The specific version to retrieve.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VersionNumber { get; set; }
         #endregion
         
         #region Parameter Select
@@ -101,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VersionNumber = this.VersionNumber;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.VersionNumber != null)
+            {
+                request.VersionNumber = cmdletContext.VersionNumber.Value;
             }
             
             CmdletOutput output;
@@ -183,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.Int32? VersionNumber { get; set; }
             public System.Func<Amazon.GameLift.Model.DescribeContainerGroupDefinitionResponse, GetGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContainerGroupDefinition;
         }

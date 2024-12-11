@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.Synthetics.Model.CreateGroupResponse))]
     [AWSCmdletOutput("Amazon.Synthetics.Model.Group or Amazon.Synthetics.Model.CreateGroupResponse",
         "This cmdlet returns an Amazon.Synthetics.Model.Group object.",
-        "The service call response (type Amazon.Synthetics.Model.CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Synthetics.Model.CreateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWSYNGroupCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

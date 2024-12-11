@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner ListServices API operation.", Operation = new[] {"ListServices"}, SelectReturnType = typeof(Amazon.AppRunner.Model.ListServicesResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.ServiceSummary or Amazon.AppRunner.Model.ListServicesResponse",
         "This cmdlet returns a collection of Amazon.AppRunner.Model.ServiceSummary objects.",
-        "The service call response (type Amazon.AppRunner.Model.ListServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.ListServicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAARServiceListCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

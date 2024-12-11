@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [OutputType("Amazon.MainframeModernization.Model.GetDataSetImportTaskResponse")]
     [AWSCmdlet("Calls the M2 GetDataSetImportTask API operation.", Operation = new[] {"GetDataSetImportTask"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.GetDataSetImportTaskResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.GetDataSetImportTaskResponse",
-        "This cmdlet returns an Amazon.MainframeModernization.Model.GetDataSetImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MainframeModernization.Model.GetDataSetImportTaskResponse object containing multiple properties."
     )]
     public partial class GetAMMDataSetImportTaskCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

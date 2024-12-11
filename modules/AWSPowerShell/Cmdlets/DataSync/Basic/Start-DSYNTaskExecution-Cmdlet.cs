@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// 
     ///  
     /// <para>
-    /// There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task
+    /// There are several steps to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task
     /// execution statuses</a>.
     /// </para><important><para>
     /// If you're planning to transfer data to or from an Amazon S3 location, review <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">how
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync StartTaskExecution API operation.", Operation = new[] {"StartTaskExecution"}, SelectReturnType = typeof(Amazon.DataSync.Model.StartTaskExecutionResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.StartTaskExecutionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.StartTaskExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.StartTaskExecutionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

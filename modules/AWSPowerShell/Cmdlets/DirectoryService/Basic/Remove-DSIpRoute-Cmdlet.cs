@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service RemoveIpRoutes API operation.", Operation = new[] {"RemoveIpRoutes"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.RemoveIpRoutesResponse), LegacyAlias="Remove-DSIpRoutes")]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.RemoveIpRoutesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.RemoveIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.RemoveIpRoutesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSIpRouteCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

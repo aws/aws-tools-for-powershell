@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.UpdateGlobalSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKVoice.Model.UpdateGlobalSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKVoice.Model.UpdateGlobalSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKVoice.Model.UpdateGlobalSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMVOGlobalSettingCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

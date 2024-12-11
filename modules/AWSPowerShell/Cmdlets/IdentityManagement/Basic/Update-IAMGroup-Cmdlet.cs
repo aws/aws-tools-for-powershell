@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UpdateGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

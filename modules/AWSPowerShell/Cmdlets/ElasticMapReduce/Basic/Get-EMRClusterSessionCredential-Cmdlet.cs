@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce GetClusterSessionCredentials API operation.", Operation = new[] {"GetClusterSessionCredentials"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse object containing multiple properties."
     )]
     public partial class GetEMRClusterSessionCredentialCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [OutputType("Amazon.BedrockAgent.Model.DeleteFlowAliasResponse")]
     [AWSCmdlet("Calls the Agents for Amazon Bedrock DeleteFlowAlias API operation.", Operation = new[] {"DeleteFlowAlias"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.DeleteFlowAliasResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.DeleteFlowAliasResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteFlowAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockAgent.Model.DeleteFlowAliasResponse object containing multiple properties."
     )]
     public partial class RemoveAABFlowAliasCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

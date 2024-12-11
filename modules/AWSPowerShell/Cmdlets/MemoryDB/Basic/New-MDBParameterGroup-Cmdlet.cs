@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB CreateParameterGroup API operation.", Operation = new[] {"CreateParameterGroup"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.CreateParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ParameterGroup or Amazon.MemoryDB.Model.CreateParameterGroupResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.ParameterGroup object.",
-        "The service call response (type Amazon.MemoryDB.Model.CreateParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.CreateParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMDBParameterGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations GetLatestAssessmentId API operation.", Operation = new[] {"GetLatestAssessmentId"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.GetLatestAssessmentIdResponse))]
     [AWSCmdletOutput("System.String or Amazon.MigrationHubStrategyRecommendations.Model.GetLatestAssessmentIdResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.GetLatestAssessmentIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.GetLatestAssessmentIdResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHSLatestAssessmentIdCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

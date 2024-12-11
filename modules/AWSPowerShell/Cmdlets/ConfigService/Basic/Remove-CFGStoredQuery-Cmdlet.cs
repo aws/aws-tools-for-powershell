@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteStoredQuery API operation.", Operation = new[] {"DeleteStoredQuery"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteStoredQueryResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteStoredQueryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteStoredQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteStoredQueryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGStoredQueryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

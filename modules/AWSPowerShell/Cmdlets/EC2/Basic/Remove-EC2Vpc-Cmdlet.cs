@@ -32,15 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// are associated with the VPC before you can delete it. For example, you must terminate
     /// all instances running in the VPC, delete all security groups associated with the VPC
     /// (except the default one), delete all route tables associated with the VPC (except
-    /// the default one), and so on. When you delete the VPC, it deletes the VPC's default
-    /// security group, network ACL, and route table.
+    /// the default one), and so on. When you delete the VPC, it deletes the default security
+    /// group, network ACL, and route table for the VPC.
+    /// 
+    ///  
+    /// <para>
+    /// If you created a flow log for the VPC that you are deleting, note that flow logs for
+    /// deleted VPCs are eventually automatically removed.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Vpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpc API operation.", Operation = new[] {"DeleteVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteVpcResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteVpcResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteVpcResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

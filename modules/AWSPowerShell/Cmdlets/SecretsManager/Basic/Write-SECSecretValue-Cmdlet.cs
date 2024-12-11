@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [OutputType("Amazon.SecretsManager.Model.PutSecretValueResponse")]
     [AWSCmdlet("Calls the AWS Secrets Manager PutSecretValue API operation.", Operation = new[] {"PutSecretValue"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.PutSecretValueResponse))]
     [AWSCmdletOutput("Amazon.SecretsManager.Model.PutSecretValueResponse",
-        "This cmdlet returns an Amazon.SecretsManager.Model.PutSecretValueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecretsManager.Model.PutSecretValueResponse object containing multiple properties."
     )]
     public partial class WriteSECSecretValueCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

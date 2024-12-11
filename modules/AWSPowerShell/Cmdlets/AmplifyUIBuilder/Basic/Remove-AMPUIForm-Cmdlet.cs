@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder DeleteForm API operation.", Operation = new[] {"DeleteForm"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.DeleteFormResponse))]
     [AWSCmdletOutput("None or Amazon.AmplifyUIBuilder.Model.DeleteFormResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AmplifyUIBuilder.Model.DeleteFormResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AmplifyUIBuilder.Model.DeleteFormResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPUIFormCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

@@ -29,13 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
     /// Provides information about an execution of your DataSync task. You can use this operation
-    /// to help monitor the progress of an ongoing transfer or check the results of the transfer.
+    /// to help monitor the progress of an ongoing data transfer or check the results of the
+    /// transfer.
+    /// 
+    ///  <note><para>
+    /// Some <c>DescribeTaskExecution</c> response elements are only relevant to a specific
+    /// task mode. For information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding
+    /// task mode differences</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html">Understanding
+    /// data transfer performance counters</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DSYNTaskExecution")]
     [OutputType("Amazon.DataSync.Model.DescribeTaskExecutionResponse")]
     [AWSCmdlet("Calls the AWS DataSync DescribeTaskExecution API operation.", Operation = new[] {"DescribeTaskExecution"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeTaskExecutionResponse))]
     [AWSCmdletOutput("Amazon.DataSync.Model.DescribeTaskExecutionResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeTaskExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeTaskExecutionResponse object containing multiple properties."
     )]
     public partial class GetDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

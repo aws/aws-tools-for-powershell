@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
     [AWSCmdlet("Calls the AWS Launch Wizard ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.LaunchWizard.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.LaunchWizard.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LaunchWizard.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLWIZResourceTagCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {

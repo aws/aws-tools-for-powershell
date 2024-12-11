@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetCustomEntityTypeResponse")]
     [AWSCmdlet("Calls the AWS Glue GetCustomEntityType API operation.", Operation = new[] {"GetCustomEntityType"}, SelectReturnType = typeof(Amazon.Glue.Model.GetCustomEntityTypeResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetCustomEntityTypeResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetCustomEntityTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetCustomEntityTypeResponse object containing multiple properties."
     )]
     public partial class GetGLUECustomEntityTypeCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.UpdateMitigationActionResponse")]
     [AWSCmdlet("Calls the AWS IoT UpdateMitigationAction API operation.", Operation = new[] {"UpdateMitigationAction"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateMitigationActionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.UpdateMitigationActionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.UpdateMitigationActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.UpdateMitigationActionResponse object containing multiple properties."
     )]
     public partial class UpdateIOTMitigationActionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

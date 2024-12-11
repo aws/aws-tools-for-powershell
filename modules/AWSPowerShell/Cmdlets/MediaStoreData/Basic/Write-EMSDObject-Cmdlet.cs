@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     [OutputType("Amazon.MediaStoreData.Model.PutObjectResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaStore Data Plane PutObject API operation.", Operation = new[] {"PutObject"}, SelectReturnType = typeof(Amazon.MediaStoreData.Model.PutObjectResponse))]
     [AWSCmdletOutput("Amazon.MediaStoreData.Model.PutObjectResponse",
-        "This cmdlet returns an Amazon.MediaStoreData.Model.PutObjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaStoreData.Model.PutObjectResponse object containing multiple properties."
     )]
     public partial class WriteEMSDObjectCmdlet : AmazonMediaStoreDataClientCmdlet, IExecutor
     {

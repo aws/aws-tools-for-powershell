@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk ValidateConfigurationSettings API operation.", Operation = new[] {"ValidateConfigurationSettings"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse), LegacyAlias="Test-EBConfigurationSettings")]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ValidationMessage or Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse",
         "This cmdlet returns a collection of Amazon.ElasticBeanstalk.Model.ValidationMessage objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestEBConfigurationSettingCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control ListRegionalBuckets API operation.", Operation = new[] {"ListRegionalBuckets"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListRegionalBucketsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.RegionalBucket or Amazon.S3Control.Model.ListRegionalBucketsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.RegionalBucket objects.",
-        "The service call response (type Amazon.S3Control.Model.ListRegionalBucketsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.ListRegionalBucketsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CRegionalBucketListCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

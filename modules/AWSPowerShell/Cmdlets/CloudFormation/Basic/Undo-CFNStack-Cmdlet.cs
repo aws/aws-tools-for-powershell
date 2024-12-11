@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation RollbackStack API operation.", Operation = new[] {"RollbackStack"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.RollbackStackResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.RollbackStackResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.RollbackStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.RollbackStackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UndoCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management role that CloudFormation
-        /// assumes to rollback the stack.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to rollback
+        /// the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

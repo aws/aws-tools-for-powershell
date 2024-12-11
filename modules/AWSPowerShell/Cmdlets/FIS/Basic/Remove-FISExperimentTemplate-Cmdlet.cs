@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator DeleteExperimentTemplate API operation.", Operation = new[] {"DeleteExperimentTemplate"}, SelectReturnType = typeof(Amazon.FIS.Model.DeleteExperimentTemplateResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.ExperimentTemplate or Amazon.FIS.Model.DeleteExperimentTemplateResponse",
         "This cmdlet returns an Amazon.FIS.Model.ExperimentTemplate object.",
-        "The service call response (type Amazon.FIS.Model.DeleteExperimentTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.DeleteExperimentTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveFISExperimentTemplateCmdlet : AmazonFISClientCmdlet, IExecutor
     {

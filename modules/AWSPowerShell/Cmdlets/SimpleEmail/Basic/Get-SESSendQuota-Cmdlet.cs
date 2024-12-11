@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [OutputType("Amazon.SimpleEmail.Model.GetSendQuotaResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetSendQuota API operation.", Operation = new[] {"GetSendQuota"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetSendQuotaResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.GetSendQuotaResponse",
-        "This cmdlet returns an Amazon.SimpleEmail.Model.GetSendQuotaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmail.Model.GetSendQuotaResponse object containing multiple properties."
     )]
     public partial class GetSESSendQuotaCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

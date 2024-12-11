@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups UpdateAccountSettings API operation.", Operation = new[] {"UpdateAccountSettings"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.AccountSettings or Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.AccountSettings object.",
-        "The service call response (type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRGAccountSettingCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <summary>
         /// <para>
         /// <para>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group
-        /// lifecycle events</a> on or off.</para>
+        /// lifecycle events</a> on or off.</para><para>You can't turn on group lifecycle events if your resource groups quota is greater
+        /// than 2,000. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

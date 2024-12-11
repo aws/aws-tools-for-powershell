@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Tag or Amazon.RedshiftServerless.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.Tag objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSSResourceTagCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

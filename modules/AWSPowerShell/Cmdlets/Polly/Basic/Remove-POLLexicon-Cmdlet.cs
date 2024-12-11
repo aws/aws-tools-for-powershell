@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     [AWSCmdlet("Calls the Amazon Polly DeleteLexicon API operation.", Operation = new[] {"DeleteLexicon"}, SelectReturnType = typeof(Amazon.Polly.Model.DeleteLexiconResponse))]
     [AWSCmdletOutput("None or Amazon.Polly.Model.DeleteLexiconResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Polly.Model.DeleteLexiconResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Polly.Model.DeleteLexiconResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePOLLexiconCmdlet : AmazonPollyClientCmdlet, IExecutor
     {

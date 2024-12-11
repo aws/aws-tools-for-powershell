@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeAggregateIdFormatResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeAggregateIdFormat API operation.", Operation = new[] {"DescribeAggregateIdFormat"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeAggregateIdFormatResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeAggregateIdFormatResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DescribeAggregateIdFormatResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DescribeAggregateIdFormatResponse object containing multiple properties."
     )]
     public partial class GetEC2AggregateIdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Kafka.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kafka.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kafka.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMSKResourceTagCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

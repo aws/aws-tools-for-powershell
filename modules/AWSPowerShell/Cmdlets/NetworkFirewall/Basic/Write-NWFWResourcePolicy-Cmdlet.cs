@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [AWSCmdlet("Calls the AWS Network Firewall PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkFirewall.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkFirewall.Model.PutResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkFirewall.Model.PutResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteNWFWResourcePolicyCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

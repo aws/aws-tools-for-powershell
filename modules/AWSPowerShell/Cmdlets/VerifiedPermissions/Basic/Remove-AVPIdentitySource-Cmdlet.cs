@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [AWSCmdlet("Calls the Amazon Verified Permissions DeleteIdentitySource API operation.", Operation = new[] {"DeleteIdentitySource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.DeleteIdentitySourceResponse))]
     [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.DeleteIdentitySourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VerifiedPermissions.Model.DeleteIdentitySourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VerifiedPermissions.Model.DeleteIdentitySourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

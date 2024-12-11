@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
     [AWSCmdlet("Calls the AWS Lambda UpdateFunctionCode API operation.", Operation = new[] {"UpdateFunctionCode"}, SelectReturnType = typeof(Amazon.Lambda.Model.UpdateFunctionCodeResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionCodeResponse object containing multiple properties."
     )]
     public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -168,6 +168,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String S3ObjectVersion { get; set; }
         #endregion
         
+        #region Parameter SourceKMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt
+        /// your function's .zip deployment package. If you don't provide a customer managed key,
+        /// Lambda uses an Amazon Web Services managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceKMSKeyArn { get; set; }
+        #endregion
+        
         #region Parameter ZipFile
         /// <summary>
         /// <para>
@@ -243,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.S3Bucket = this.S3Bucket;
             context.S3Key = this.S3Key;
             context.S3ObjectVersion = this.S3ObjectVersion;
+            context.SourceKMSKeyArn = this.SourceKMSKeyArn;
             context.ZipFile = this.ZipFile;
             
             // allow further manipulation of loaded context prior to processing
@@ -299,6 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (cmdletContext.S3ObjectVersion != null)
                 {
                     request.S3ObjectVersion = cmdletContext.S3ObjectVersion;
+                }
+                if (cmdletContext.SourceKMSKeyArn != null)
+                {
+                    request.SourceKMSKeyArn = cmdletContext.SourceKMSKeyArn;
                 }
                 if (cmdletContext.ZipFile != null)
                 {
@@ -383,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String S3Bucket { get; set; }
             public System.String S3Key { get; set; }
             public System.String S3ObjectVersion { get; set; }
+            public System.String SourceKMSKeyArn { get; set; }
             public byte[] ZipFile { get; set; }
             public System.Func<Amazon.Lambda.Model.UpdateFunctionCodeResponse, UpdateLMFunctionCodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

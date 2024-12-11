@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless UpdateWorkgroup API operation.", Operation = new[] {"UpdateWorkgroup"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.UpdateWorkgroupResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Workgroup or Amazon.RedshiftServerless.Model.UpdateWorkgroupResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.Workgroup object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.UpdateWorkgroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.UpdateWorkgroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRSSWorkgroupCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String IpAddressType { get; set; }
         #endregion
         
+        #region Parameter PricePerformanceTarget_Level
+        /// <summary>
+        /// <para>
+        /// <para>The target price performance level for the workgroup. Valid values include 1, 25,
+        /// 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL,
+        /// BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PricePerformanceTarget_Level { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -133,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SecurityGroupIds")]
         public System.String[] SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter PricePerformanceTarget_Status
+        /// <summary>
+        /// <para>
+        /// <para>Whether the price performance target is enabled for the workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RedshiftServerless.PerformanceTargetStatus")]
+        public Amazon.RedshiftServerless.PerformanceTargetStatus PricePerformanceTarget_Status { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -215,6 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             context.IpAddressType = this.IpAddressType;
             context.MaxCapacity = this.MaxCapacity;
             context.Port = this.Port;
+            context.PricePerformanceTarget_Level = this.PricePerformanceTarget_Level;
+            context.PricePerformanceTarget_Status = this.PricePerformanceTarget_Status;
             context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.SecurityGroupId != null)
             {
@@ -270,6 +295,35 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
+            }
+            
+             // populate PricePerformanceTarget
+            var requestPricePerformanceTargetIsNull = true;
+            request.PricePerformanceTarget = new Amazon.RedshiftServerless.Model.PerformanceTarget();
+            System.Int32? requestPricePerformanceTarget_pricePerformanceTarget_Level = null;
+            if (cmdletContext.PricePerformanceTarget_Level != null)
+            {
+                requestPricePerformanceTarget_pricePerformanceTarget_Level = cmdletContext.PricePerformanceTarget_Level.Value;
+            }
+            if (requestPricePerformanceTarget_pricePerformanceTarget_Level != null)
+            {
+                request.PricePerformanceTarget.Level = requestPricePerformanceTarget_pricePerformanceTarget_Level.Value;
+                requestPricePerformanceTargetIsNull = false;
+            }
+            Amazon.RedshiftServerless.PerformanceTargetStatus requestPricePerformanceTarget_pricePerformanceTarget_Status = null;
+            if (cmdletContext.PricePerformanceTarget_Status != null)
+            {
+                requestPricePerformanceTarget_pricePerformanceTarget_Status = cmdletContext.PricePerformanceTarget_Status;
+            }
+            if (requestPricePerformanceTarget_pricePerformanceTarget_Status != null)
+            {
+                request.PricePerformanceTarget.Status = requestPricePerformanceTarget_pricePerformanceTarget_Status;
+                requestPricePerformanceTargetIsNull = false;
+            }
+             // determine if request.PricePerformanceTarget should be set to null
+            if (requestPricePerformanceTargetIsNull)
+            {
+                request.PricePerformanceTarget = null;
             }
             if (cmdletContext.PubliclyAccessible != null)
             {
@@ -354,6 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.String IpAddressType { get; set; }
             public System.Int32? MaxCapacity { get; set; }
             public System.Int32? Port { get; set; }
+            public System.Int32? PricePerformanceTarget_Level { get; set; }
+            public Amazon.RedshiftServerless.PerformanceTargetStatus PricePerformanceTarget_Status { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }

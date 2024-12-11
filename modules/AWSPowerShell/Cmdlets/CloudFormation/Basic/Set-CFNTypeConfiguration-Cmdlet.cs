@@ -35,13 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <para>
     /// To view the current configuration data for an extension, refer to the <c>ConfigurationSchema</c>
     /// element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring
-    /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit
+    /// configuration data for extensions in your account</a> in the <i>CloudFormation User
+    /// Guide</i>.
     /// </para><important><para>
     /// It's strongly recommended that you use dynamic references to restrict sensitive configuration
     /// definitions, such as third-party credentials. For more details on dynamic references,
-    /// see <a href="https://docs.aws.amazon.com/">Using dynamic references to specify template
-    /// values</a> in the <i>CloudFormation User Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html">Specify
+    /// values stored in other services using dynamic references</a> in the <i>CloudFormation
+    /// User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Set", "CFNTypeConfiguration")]
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation SetTypeConfiguration API operation.", Operation = new[] {"SetTypeConfiguration"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.SetTypeConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.SetTypeConfigurationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.SetTypeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.SetTypeConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetCFNTypeConfigurationCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -62,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The configuration data for the extension, in this account and Region.</para><para>The configuration data must be formatted as JSON, and validate against the schema
         /// returned in the <c>ConfigurationSchema</c> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
         /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
-        /// account-level configuration data for an extension</a> in the <i>CloudFormation CLI
-        /// User Guide</i>.</para>
+        /// the account-level configuration of an extension</a> in the <i>CloudFormation Command
+        /// Line Interface (CLI) User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

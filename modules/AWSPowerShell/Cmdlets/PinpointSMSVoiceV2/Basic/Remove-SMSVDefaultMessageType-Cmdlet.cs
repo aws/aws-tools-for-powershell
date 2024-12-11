@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DeleteDefaultMessageTypeResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DeleteDefaultMessageType API operation.", Operation = new[] {"DeleteDefaultMessageType"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DeleteDefaultMessageTypeResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DeleteDefaultMessageTypeResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeleteDefaultMessageTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeleteDefaultMessageTypeResponse object containing multiple properties."
     )]
     public partial class RemoveSMSVDefaultMessageTypeCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

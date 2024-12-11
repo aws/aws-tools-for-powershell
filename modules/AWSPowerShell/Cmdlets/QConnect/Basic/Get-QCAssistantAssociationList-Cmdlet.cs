@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect ListAssistantAssociations API operation.", Operation = new[] {"ListAssistantAssociations"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListAssistantAssociationsResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.AssistantAssociationSummary or Amazon.QConnect.Model.ListAssistantAssociationsResponse",
         "This cmdlet returns a collection of Amazon.QConnect.Model.AssistantAssociationSummary objects.",
-        "The service call response (type Amazon.QConnect.Model.ListAssistantAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.ListAssistantAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQCAssistantAssociationListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

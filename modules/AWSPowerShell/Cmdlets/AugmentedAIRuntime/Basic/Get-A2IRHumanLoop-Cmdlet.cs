@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     [OutputType("Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse")]
     [AWSCmdlet("Calls the Amazon Augmented AI (A2I) Runtime DescribeHumanLoop API operation.", Operation = new[] {"DescribeHumanLoop"}, SelectReturnType = typeof(Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse))]
     [AWSCmdletOutput("Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse",
-        "This cmdlet returns an Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AugmentedAIRuntime.Model.DescribeHumanLoopResponse object containing multiple properties."
     )]
     public partial class GetA2IRHumanLoopCmdlet : AmazonAugmentedAIRuntimeClientCmdlet, IExecutor
     {

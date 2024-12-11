@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DeleteIpAccessSettings API operation.", Operation = new[] {"DeleteIpAccessSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DeleteIpAccessSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DeleteIpAccessSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteIpAccessSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DeleteIpAccessSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWSWIpAccessSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

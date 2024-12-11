@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.AddTagsResponse), LegacyAlias="Add-ESTag")]
     [AWSCmdletOutput("None or Amazon.OpenSearchService.Model.AddTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpenSearchService.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpenSearchService.Model.AddTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddOSResourceTagCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

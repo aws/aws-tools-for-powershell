@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [OutputType("Amazon.ConnectParticipant.Model.GetAttachmentResponse")]
     [AWSCmdlet("Calls the Amazon Connect Participant Service GetAttachment API operation.", Operation = new[] {"GetAttachment"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.GetAttachmentResponse))]
     [AWSCmdletOutput("Amazon.ConnectParticipant.Model.GetAttachmentResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.GetAttachmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectParticipant.Model.GetAttachmentResponse object containing multiple properties."
     )]
     public partial class GetCONNPAttachmentCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

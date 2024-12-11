@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs UpdateDeliveryConfiguration API operation.", Operation = new[] {"UpdateDeliveryConfiguration"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWLDeliveryConfigurationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RecordField
         /// <summary>
         /// <para>
-        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery’s
+        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery's
         /// log source has mandatory fields, they must be included in this list.</para>
         /// </para>
         /// </summary>

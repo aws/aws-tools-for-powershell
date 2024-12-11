@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     [OutputType("Amazon.EBS.Model.GetSnapshotBlockResponse")]
     [AWSCmdlet("Calls the Amazon EBS GetSnapshotBlock API operation.", Operation = new[] {"GetSnapshotBlock"}, SelectReturnType = typeof(Amazon.EBS.Model.GetSnapshotBlockResponse))]
     [AWSCmdletOutput("Amazon.EBS.Model.GetSnapshotBlockResponse",
-        "This cmdlet returns an Amazon.EBS.Model.GetSnapshotBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EBS.Model.GetSnapshotBlockResponse object containing multiple properties."
     )]
     public partial class GetEBSSnapshotBlockCmdlet : AmazonEBSClientCmdlet, IExecutor
     {

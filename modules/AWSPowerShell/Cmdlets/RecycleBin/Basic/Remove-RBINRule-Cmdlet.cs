@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     [AWSCmdlet("Calls the Amazon Recycle Bin DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.DeleteRuleResponse))]
     [AWSCmdletOutput("None or Amazon.RecycleBin.Model.DeleteRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RecycleBin.Model.DeleteRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RecycleBin.Model.DeleteRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {

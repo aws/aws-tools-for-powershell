@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions SendTaskSuccess API operation.", Operation = new[] {"SendTaskSuccess"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.SendTaskSuccessResponse))]
     [AWSCmdletOutput("None or Amazon.StepFunctions.Model.SendTaskSuccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.StepFunctions.Model.SendTaskSuccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StepFunctions.Model.SendTaskSuccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendSFNTaskSuccessCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

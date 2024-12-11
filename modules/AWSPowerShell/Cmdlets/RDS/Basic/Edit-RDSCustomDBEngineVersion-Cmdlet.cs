@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.ModifyCustomDBEngineVersionResponse")]
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyCustomDBEngineVersion API operation.", Operation = new[] {"ModifyCustomDBEngineVersion"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyCustomDBEngineVersionResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ModifyCustomDBEngineVersionResponse",
-        "This cmdlet returns an Amazon.RDS.Model.ModifyCustomDBEngineVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDS.Model.ModifyCustomDBEngineVersionResponse object containing multiple properties."
     )]
     public partial class EditRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

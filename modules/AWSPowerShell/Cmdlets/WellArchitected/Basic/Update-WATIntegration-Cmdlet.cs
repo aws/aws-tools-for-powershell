@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool UpdateIntegration API operation.", Operation = new[] {"UpdateIntegration"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UpdateIntegrationResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.UpdateIntegrationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.UpdateIntegrationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.UpdateIntegrationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWATIntegrationCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

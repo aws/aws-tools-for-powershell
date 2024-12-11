@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminLinkProviderForUser API operation.", Operation = new[] {"AdminLinkProviderForUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminLinkProviderForUserResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminLinkProviderForUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminLinkProviderForUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminLinkProviderForUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConnectCGIPProviderForUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

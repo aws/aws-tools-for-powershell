@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [OutputType("Amazon.QApps.Model.UpdateQAppSessionResponse")]
     [AWSCmdlet("Calls the Amazon Q Apps UpdateQAppSession API operation.", Operation = new[] {"UpdateQAppSession"}, SelectReturnType = typeof(Amazon.QApps.Model.UpdateQAppSessionResponse))]
     [AWSCmdletOutput("Amazon.QApps.Model.UpdateQAppSessionResponse",
-        "This cmdlet returns an Amazon.QApps.Model.UpdateQAppSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QApps.Model.UpdateQAppSessionResponse object containing multiple properties."
     )]
     public partial class UpdateqappsQAppSessionCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service GetViolationDetails API operation.", Operation = new[] {"GetViolationDetails"}, SelectReturnType = typeof(Amazon.FMS.Model.GetViolationDetailsResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.ViolationDetail or Amazon.FMS.Model.GetViolationDetailsResponse",
         "This cmdlet returns an Amazon.FMS.Model.ViolationDetail object.",
-        "The service call response (type Amazon.FMS.Model.GetViolationDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.GetViolationDetailsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSViolationDetailCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The ID of the Firewall Manager policy that you want the details for. You can get violation
-        /// details for the following policy types:</para><ul><li><para>DNS Firewall</para></li><li><para>Imported Network Firewall</para></li><li><para>Network Firewall</para></li><li><para>Security group content audit</para></li><li><para>Network ACL</para></li><li><para>Third-party firewall</para></li></ul>
+        /// details for the following policy types:</para><ul><li><para>WAF</para></li><li><para>DNS Firewall</para></li><li><para>Imported Network Firewall</para></li><li><para>Network Firewall</para></li><li><para>Security group content audit</para></li><li><para>Network ACL</para></li><li><para>Third-party firewall</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <summary>
         /// <para>
         /// <para>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon
-        /// Web Services Resource Types Reference</a>. Supported resource types are: <c>AWS::EC2::Instance</c>,
-        /// <c>AWS::EC2::NetworkInterface</c>, <c>AWS::EC2::SecurityGroup</c>, <c>AWS::NetworkFirewall::FirewallPolicy</c>,
-        /// and <c>AWS::EC2::Subnet</c>. </para>
+        /// Web Services Resource Types Reference</a>. Supported resource types are: <c>AWS::WAFv2::WebACL</c>,
+        /// <c>AWS::EC2::Instance</c>, <c>AWS::EC2::NetworkInterface</c>, <c>AWS::EC2::SecurityGroup</c>,
+        /// <c>AWS::NetworkFirewall::FirewallPolicy</c>, and <c>AWS::EC2::Subnet</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

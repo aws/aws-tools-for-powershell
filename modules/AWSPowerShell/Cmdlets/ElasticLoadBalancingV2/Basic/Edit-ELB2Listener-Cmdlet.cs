@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyListener API operation.", Operation = new[] {"ModifyListener"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Listener or Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.Listener objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port for connections from clients to the load balancer. You cannot specify a port
+        /// <para>The port for connections from clients to the load balancer. You can't specify a port
         /// for a Gateway Load Balancer.</para>
         /// </para>
         /// </summary>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The protocol for connections from clients to the load balancer. Application Load Balancers
         /// support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS,
         /// UDP, and TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack
-        /// mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.</para>
+        /// mode is enabled. You can't specify a protocol for a Gateway Load Balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

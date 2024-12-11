@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation CreateDataCellsFilter API operation.", Operation = new[] {"CreateDataCellsFilter"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.CreateDataCellsFilterResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.CreateDataCellsFilterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.CreateDataCellsFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.CreateDataCellsFilterResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewLKFDataCellsFilterCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

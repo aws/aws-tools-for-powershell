@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteFileCacheResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteFileCache API operation.", Operation = new[] {"DeleteFileCache"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteFileCacheResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteFileCacheResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteFileCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteFileCacheResponse object containing multiple properties."
     )]
     public partial class RemoveFSXFileCacheCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

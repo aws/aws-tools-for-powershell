@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteMultiRegionAccessPoint API operation.", Operation = new[] {"DeleteMultiRegionAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse))]
     [AWSCmdletOutput("System.String or Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.DeleteMultiRegionAccessPointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CMultiRegionAccessPointCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

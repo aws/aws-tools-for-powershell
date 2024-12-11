@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail AssociateDelegateToResource API operation.", Operation = new[] {"AssociateDelegateToResource"}, SelectReturnType = typeof(Amazon.WorkMail.Model.AssociateDelegateToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.AssociateDelegateToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.AssociateDelegateToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.AssociateDelegateToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWMDelegateToResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

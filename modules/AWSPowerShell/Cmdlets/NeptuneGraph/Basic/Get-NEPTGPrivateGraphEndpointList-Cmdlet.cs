@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph ListPrivateGraphEndpoints API operation.", Operation = new[] {"ListPrivateGraphEndpoints"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.ListPrivateGraphEndpointsResponse))]
     [AWSCmdletOutput("Amazon.NeptuneGraph.Model.PrivateGraphEndpointSummary or Amazon.NeptuneGraph.Model.ListPrivateGraphEndpointsResponse",
         "This cmdlet returns a collection of Amazon.NeptuneGraph.Model.PrivateGraphEndpointSummary objects.",
-        "The service call response (type Amazon.NeptuneGraph.Model.ListPrivateGraphEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NeptuneGraph.Model.ListPrivateGraphEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNEPTGPrivateGraphEndpointListCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

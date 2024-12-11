@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateColumnStatisticsForPartition API operation.", Operation = new[] {"UpdateColumnStatisticsForPartition"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateColumnStatisticsForPartitionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.ColumnStatisticsError or Amazon.Glue.Model.UpdateColumnStatisticsForPartitionResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.ColumnStatisticsError objects.",
-        "The service call response (type Amazon.Glue.Model.UpdateColumnStatisticsForPartitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.UpdateColumnStatisticsForPartitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEColumnStatisticsForPartitionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

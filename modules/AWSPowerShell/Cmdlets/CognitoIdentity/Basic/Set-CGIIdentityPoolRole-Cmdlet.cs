@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Calls the Amazon Cognito Identity SetIdentityPoolRoles API operation.", Operation = new[] {"SetIdentityPoolRoles"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

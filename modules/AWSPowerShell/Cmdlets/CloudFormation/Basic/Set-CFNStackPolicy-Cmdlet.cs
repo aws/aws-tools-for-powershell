@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation SetStackPolicy API operation.", Operation = new[] {"SetStackPolicy"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.SetStackPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.SetStackPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.SetStackPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.SetStackPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
-        /// <para>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-        /// Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>. You
-        /// can specify either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c> parameter,
-        /// but not both.</para>
+        /// <para>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent
+        /// updates to stack resources</a> in the <i>CloudFormation User Guide</i>. You can specify
+        /// either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c> parameter, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

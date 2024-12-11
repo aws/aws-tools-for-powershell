@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [AWSCmdlet("Calls the AWS Budgets CreateBudget API operation.", Operation = new[] {"CreateBudget"}, SelectReturnType = typeof(Amazon.Budgets.Model.CreateBudgetResponse))]
     [AWSCmdletOutput("None or Amazon.Budgets.Model.CreateBudgetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Budgets.Model.CreateBudgetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Budgets.Model.CreateBudgetResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewBGTBudgetCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

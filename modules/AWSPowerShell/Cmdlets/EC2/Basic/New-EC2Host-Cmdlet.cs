@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AllocateHosts API operation.", Operation = new[] {"AllocateHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.AllocateHostsResponse), LegacyAlias="New-EC2Hosts")]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.AllocateHostsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.EC2.Model.AllocateHostsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AllocateHostsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2HostCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

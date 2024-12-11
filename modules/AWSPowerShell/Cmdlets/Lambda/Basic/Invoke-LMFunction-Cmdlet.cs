@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.InvokeResponse")]
     [AWSCmdlet("Calls the AWS Lambda Invoke API operation.", Operation = new[] {"Invoke"}, SelectReturnType = typeof(Amazon.Lambda.Model.InvokeResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.InvokeResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.InvokeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.InvokeResponse object containing multiple properties."
     )]
     public partial class InvokeLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

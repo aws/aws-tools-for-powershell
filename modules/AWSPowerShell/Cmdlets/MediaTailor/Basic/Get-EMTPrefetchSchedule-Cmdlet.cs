@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [OutputType("Amazon.MediaTailor.Model.GetPrefetchScheduleResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaTailor GetPrefetchSchedule API operation.", Operation = new[] {"GetPrefetchSchedule"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.GetPrefetchScheduleResponse))]
     [AWSCmdletOutput("Amazon.MediaTailor.Model.GetPrefetchScheduleResponse",
-        "This cmdlet returns an Amazon.MediaTailor.Model.GetPrefetchScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaTailor.Model.GetPrefetchScheduleResponse object containing multiple properties."
     )]
     public partial class GetEMTPrefetchScheduleCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

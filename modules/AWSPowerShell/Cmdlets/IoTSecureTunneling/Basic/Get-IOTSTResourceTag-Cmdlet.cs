@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     [AWSCmdlet("Calls the AWS IoT Secure Tunneling ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.IoTSecureTunneling.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.IoTSecureTunneling.Model.Tag or Amazon.IoTSecureTunneling.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.IoTSecureTunneling.Model.Tag objects.",
-        "The service call response (type Amazon.IoTSecureTunneling.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSecureTunneling.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTSTResourceTagCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {

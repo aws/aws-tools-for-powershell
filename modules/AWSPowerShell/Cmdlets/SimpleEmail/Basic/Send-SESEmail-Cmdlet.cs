@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) SendEmail API operation.", Operation = new[] {"SendEmail"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.SendEmailResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleEmail.Model.SendEmailResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleEmail.Model.SendEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.SendEmailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSESEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

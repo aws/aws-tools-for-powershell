@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Use this operation to <i>suppress</i> anomaly detection for a specified anomaly or
-    /// pattern. If you suppress an anomaly, CloudWatch Logs won’t report new occurrences
+    /// pattern. If you suppress an anomaly, CloudWatch Logs won't report new occurrences
     /// of that anomaly and won't update that anomaly with new data. If you suppress a pattern,
-    /// CloudWatch Logs won’t report any anomalies related to that pattern.
+    /// CloudWatch Logs won't report any anomalies related to that pattern.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs UpdateAnomaly API operation.", Operation = new[] {"UpdateAnomaly"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UpdateAnomalyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UpdateAnomalyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UpdateAnomalyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.UpdateAnomalyResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWLAnomalyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -83,6 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AnomalyId { get; set; }
+        #endregion
+        
+        #region Parameter Baseline
+        /// <summary>
+        /// <para>
+        /// <para>Set this to <c>true</c> to prevent CloudWatch Logs from displaying this behavior as
+        /// an anomaly in the future. The behavior is then treated as baseline behavior. However,
+        /// if similar but more severe occurrences of this behavior occur in the future, those
+        /// will still be reported as anomalies. </para><para>The default is <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Baseline { get; set; }
         #endregion
         
         #region Parameter PatternId
@@ -181,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.AnomalyId = this.AnomalyId;
+            context.Baseline = this.Baseline;
             context.PatternId = this.PatternId;
             context.SuppressionPeriod_SuppressionUnit = this.SuppressionPeriod_SuppressionUnit;
             context.SuppressionPeriod_Value = this.SuppressionPeriod_Value;
@@ -208,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.AnomalyId != null)
             {
                 request.AnomalyId = cmdletContext.AnomalyId;
+            }
+            if (cmdletContext.Baseline != null)
+            {
+                request.Baseline = cmdletContext.Baseline.Value;
             }
             if (cmdletContext.PatternId != null)
             {
@@ -309,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.String AnomalyDetectorArn { get; set; }
             public System.String AnomalyId { get; set; }
+            public System.Boolean? Baseline { get; set; }
             public System.String PatternId { get; set; }
             public Amazon.CloudWatchLogs.SuppressionUnit SuppressionPeriod_SuppressionUnit { get; set; }
             public System.Int32? SuppressionPeriod_Value { get; set; }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock DeleteAgentActionGroup API operation.", Operation = new[] {"DeleteAgentActionGroup"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.DeleteAgentActionGroupResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgent.Model.DeleteAgentActionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgent.Model.DeleteAgentActionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BedrockAgent.Model.DeleteAgentActionGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAABAgentActionGroupCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

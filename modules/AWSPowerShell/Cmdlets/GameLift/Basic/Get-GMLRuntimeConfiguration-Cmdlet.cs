@@ -29,11 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves a fleet's runtime configuration settings. The runtime configuration determines
-    /// which server processes run, and how, on computes in the fleet. For managed EC2 fleets,
-    /// the runtime configuration describes server processes that run on each fleet instance.
-    /// For container fleets, the runtime configuration describes server processes that run
-    /// in each replica container group. You can update a fleet's runtime configuration at
-    /// any time using <a>UpdateRuntimeConfiguration</a>.
+    /// which server processes run, and how they run, and how many run concurrently on computes
+    /// in managed EC2 and Anywhere fleets. You can update a fleet's runtime configuration
+    /// at any time using <a>UpdateRuntimeConfiguration</a>.
     /// 
     ///  
     /// <para>
@@ -50,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeRuntimeConfiguration API operation.", Operation = new[] {"DescribeRuntimeConfiguration"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.RuntimeConfiguration or Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse",
         "This cmdlet returns an Amazon.GameLift.Model.RuntimeConfiguration object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLRuntimeConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

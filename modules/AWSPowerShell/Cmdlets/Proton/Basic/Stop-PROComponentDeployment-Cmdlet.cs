@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton CancelComponentDeployment API operation.", Operation = new[] {"CancelComponentDeployment"}, SelectReturnType = typeof(Amazon.Proton.Model.CancelComponentDeploymentResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Component or Amazon.Proton.Model.CancelComponentDeploymentResponse",
         "This cmdlet returns an Amazon.Proton.Model.Component object.",
-        "The service call response (type Amazon.Proton.Model.CancelComponentDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.CancelComponentDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopPROComponentDeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

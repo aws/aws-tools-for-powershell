@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.TagResourceResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Tag or Amazon.MemoryDB.Model.TagResourceResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.Tag objects.",
-        "The service call response (type Amazon.MemoryDB.Model.TagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.TagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddMDBResourceTagCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

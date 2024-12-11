@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra BatchDeleteDocument API operation.", Operation = new[] {"BatchDeleteDocument"}, SelectReturnType = typeof(Amazon.Kendra.Model.BatchDeleteDocumentResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.BatchDeleteDocumentResponseFailedDocument or Amazon.Kendra.Model.BatchDeleteDocumentResponse",
         "This cmdlet returns a collection of Amazon.Kendra.Model.BatchDeleteDocumentResponseFailedDocument objects.",
-        "The service call response (type Amazon.Kendra.Model.BatchDeleteDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.BatchDeleteDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

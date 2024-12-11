@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     [OutputType("Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse")]
     [AWSCmdlet("Calls the SageMaker Geospatial ExportEarthObservationJob API operation.", Operation = new[] {"ExportEarthObservationJob"}, SelectReturnType = typeof(Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse))]
     [AWSCmdletOutput("Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse",
-        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse object containing multiple properties."
     )]
     public partial class ExportSMGSEarthObservationJobCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DeleteVpcEndpoint API operation.", Operation = new[] {"DeleteVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.VpcEndpointSummary or Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.VpcEndpointSummary object.",
-        "The service call response (type Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DeleteVpcEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveESVpcEndpointCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

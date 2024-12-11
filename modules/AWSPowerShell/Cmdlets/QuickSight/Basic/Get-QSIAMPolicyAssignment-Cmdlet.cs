@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeIAMPolicyAssignment API operation.", Operation = new[] {"DescribeIAMPolicyAssignment"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeIAMPolicyAssignmentResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.IAMPolicyAssignment or Amazon.QuickSight.Model.DescribeIAMPolicyAssignmentResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.IAMPolicyAssignment object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeIAMPolicyAssignmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeIAMPolicyAssignmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSIAMPolicyAssignmentCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

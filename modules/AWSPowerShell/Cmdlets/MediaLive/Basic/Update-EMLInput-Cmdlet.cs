@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateInput API operation.", Operation = new[] {"UpdateInput"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateInputResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.Input or Amazon.MediaLive.Model.UpdateInputResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.Input object.",
-        "The service call response (type Amazon.MediaLive.Model.UpdateInputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.UpdateInputResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEMLInputCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

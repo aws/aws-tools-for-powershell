@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.NetworkManager.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NetworkManager.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.NetworkManager.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRResourceTagCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

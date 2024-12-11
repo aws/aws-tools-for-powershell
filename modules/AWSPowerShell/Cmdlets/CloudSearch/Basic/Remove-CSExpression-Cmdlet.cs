@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DeleteExpression API operation.", Operation = new[] {"DeleteExpression"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DeleteExpressionResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus or Amazon.CloudSearch.Model.DeleteExpressionResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.ExpressionStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteExpressionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

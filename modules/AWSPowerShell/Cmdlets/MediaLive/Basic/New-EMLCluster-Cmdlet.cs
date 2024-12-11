@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.CreateClusterResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreateClusterResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.CreateClusterResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.CreateClusterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.CreateClusterResponse object containing multiple properties."
     )]
     public partial class NewEMLClusterCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     [AWSCmdlet("Calls the Amazon WorkMail Message Flow GetRawMessageContent API operation.", Operation = new[] {"GetRawMessageContent"}, SelectReturnType = typeof(Amazon.WorkMailMessageFlow.Model.GetRawMessageContentResponse))]
     [AWSCmdletOutput("System.IO.Stream or Amazon.WorkMailMessageFlow.Model.GetRawMessageContentResponse",
         "This cmdlet returns a System.IO.Stream object.",
-        "The service call response (type Amazon.WorkMailMessageFlow.Model.GetRawMessageContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMailMessageFlow.Model.GetRawMessageContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWMMFRawMessageContentCmdlet : AmazonWorkMailMessageFlowClientCmdlet, IExecutor
     {

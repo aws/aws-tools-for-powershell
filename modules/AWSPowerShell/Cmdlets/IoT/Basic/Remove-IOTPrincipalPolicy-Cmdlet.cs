@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DetachPrincipalPolicy API operation.", Operation = new[] {"DetachPrincipalPolicy"}, SelectReturnType = typeof(Amazon.IoT.Model.DetachPrincipalPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DetachPrincipalPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DetachPrincipalPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DetachPrincipalPolicyResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Deprecated in favor of DetachPolicy.")]
     public partial class RemoveIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor

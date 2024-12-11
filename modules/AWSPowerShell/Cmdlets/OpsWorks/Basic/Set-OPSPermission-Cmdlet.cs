@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks SetPermission API operation.", Operation = new[] {"SetPermission"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.SetPermissionResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.SetPermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.SetPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.SetPermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetOPSPermissionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

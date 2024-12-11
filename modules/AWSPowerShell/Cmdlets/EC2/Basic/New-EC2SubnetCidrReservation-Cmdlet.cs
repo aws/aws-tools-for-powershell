@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates a subnet CIDR reservation. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/subnet-cidr-reservation.html">Subnet
-    /// CIDR reservations</a> in the <i>Amazon VPC User Guide</i> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">Assign
-    /// prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.
+    /// CIDR reservations</a> in the <i>Amazon VPC User Guide</i> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-prefixes.html">Manage
+    /// prefixes for your network interfaces</a> in the <i>Amazon EC2 User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2SubnetCidrReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SubnetCidrReservation")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateSubnetCidrReservation API operation.", Operation = new[] {"CreateSubnetCidrReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateSubnetCidrReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SubnetCidrReservation or Amazon.EC2.Model.CreateSubnetCidrReservationResponse",
         "This cmdlet returns an Amazon.EC2.Model.SubnetCidrReservation object.",
-        "The service call response (type Amazon.EC2.Model.CreateSubnetCidrReservationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSubnetCidrReservationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2SubnetCidrReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

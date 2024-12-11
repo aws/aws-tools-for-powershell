@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters DeleteClusterSnapshot API operation.", Operation = new[] {"DeleteClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.DeleteClusterSnapshotResponse))]
     [AWSCmdletOutput("Amazon.DocDBElastic.Model.ClusterSnapshot or Amazon.DocDBElastic.Model.DeleteClusterSnapshotResponse",
         "This cmdlet returns an Amazon.DocDBElastic.Model.ClusterSnapshot object.",
-        "The service call response (type Amazon.DocDBElastic.Model.DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDBElastic.Model.DeleteClusterSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCEClusterSnapshotCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {

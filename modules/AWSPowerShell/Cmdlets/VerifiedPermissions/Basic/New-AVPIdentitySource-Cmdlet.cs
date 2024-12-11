@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Amazon Cognito user pool: <c>Namespace::[Entity type]::[User pool ID]|[user principal
     /// attribute]</c>, for example <c>MyCorp::User::us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.
     /// </para></li><li><para>
-    /// OpenID Connect (OIDC) provider: <c>Namespace::[Entity type]::[principalIdClaim]|[user
+    /// OpenID Connect (OIDC) provider: <c>Namespace::[Entity type]::[entityIdPrefix]|[user
     /// principal attribute]</c>, for example <c>MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c>.
     /// </para></li></ul></note><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.CreateIdentitySourceResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions CreateIdentitySource API operation.", Operation = new[] {"CreateIdentitySource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.CreateIdentitySourceResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.CreateIdentitySourceResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.CreateIdentitySourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.CreateIdentitySourceResponse object containing multiple properties."
     )]
     public partial class NewAVPIdentitySourceCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

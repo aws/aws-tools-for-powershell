@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics ListSequenceStores API operation.", Operation = new[] {"ListSequenceStores"}, SelectReturnType = typeof(Amazon.Omics.Model.ListSequenceStoresResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.SequenceStoreDetail or Amazon.Omics.Model.ListSequenceStoresResponse",
         "This cmdlet returns a collection of Amazon.Omics.Model.SequenceStoreDetail objects.",
-        "The service call response (type Amazon.Omics.Model.ListSequenceStoresResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.ListSequenceStoresResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOMICSSequenceStoreListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

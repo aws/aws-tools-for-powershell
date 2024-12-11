@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging DeleteChannelMessage API operation.", Operation = new[] {"DeleteChannelMessage"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.DeleteChannelMessageResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMessaging.Model.DeleteChannelMessageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMessaging.Model.DeleteChannelMessageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMessaging.Model.DeleteChannelMessageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMMGChannelMessageCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

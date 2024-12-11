@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     [AWSCmdlet("Calls the AWS Health DescribeEventsForOrganization API operation.", Operation = new[] {"DescribeEventsForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.OrganizationEvent or Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.OrganizationEvent objects.",
-        "The service call response (type Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSHealth.Model.DescribeEventsForOrganizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetHLTHEventsForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

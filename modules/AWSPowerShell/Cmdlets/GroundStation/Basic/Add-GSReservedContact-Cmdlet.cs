@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station ReserveContact API operation.", Operation = new[] {"ReserveContact"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ReserveContactResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.ReserveContactResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.ReserveContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.ReserveContactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddGSReservedContactCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline SetTaskStatus API operation.", Operation = new[] {"SetTaskStatus"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.SetTaskStatusResponse))]
     [AWSCmdletOutput("None or Amazon.DataPipeline.Model.SetTaskStatusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataPipeline.Model.SetTaskStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.SetTaskStatusResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetDPTaskStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

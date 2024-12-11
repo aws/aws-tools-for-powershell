@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
     public partial class GetSMSVResourcePolicyCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager PutInventory API operation.", Operation = new[] {"PutInventory"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.PutInventoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.PutInventoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

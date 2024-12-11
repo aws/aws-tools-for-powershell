@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway SetSMBGuestPassword API operation.", Operation = new[] {"SetSMBGuestPassword"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.SetSMBGuestPasswordResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.SetSMBGuestPasswordResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.SetSMBGuestPasswordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.SetSMBGuestPasswordResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetSGSMBGuestPasswordCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

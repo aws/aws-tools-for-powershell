@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager GetCalendarState API operation.", Operation = new[] {"GetCalendarState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse object containing multiple properties."
     )]
     public partial class GetSSMCalendarStateCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

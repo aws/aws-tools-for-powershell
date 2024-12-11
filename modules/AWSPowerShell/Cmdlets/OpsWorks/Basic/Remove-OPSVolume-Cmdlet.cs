@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks UnassignVolume API operation.", Operation = new[] {"UnassignVolume"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.UnassignVolumeResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.UnassignVolumeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.UnassignVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UnassignVolumeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

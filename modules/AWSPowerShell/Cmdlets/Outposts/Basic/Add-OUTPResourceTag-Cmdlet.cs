@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Outposts.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Outposts.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Outposts.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Outposts.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddOUTPResourceTagCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

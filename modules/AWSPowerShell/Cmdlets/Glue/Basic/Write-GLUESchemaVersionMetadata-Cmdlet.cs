@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.PutSchemaVersionMetadataResponse")]
     [AWSCmdlet("Calls the AWS Glue PutSchemaVersionMetadata API operation.", Operation = new[] {"PutSchemaVersionMetadata"}, SelectReturnType = typeof(Amazon.Glue.Model.PutSchemaVersionMetadataResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.PutSchemaVersionMetadataResponse",
-        "This cmdlet returns an Amazon.Glue.Model.PutSchemaVersionMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.PutSchemaVersionMetadataResponse object containing multiple properties."
     )]
     public partial class WriteGLUESchemaVersionMetadataCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless DisassociateWirelessGatewayFromCertificate API operation.", Operation = new[] {"DisassociateWirelessGatewayFromCertificate"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.DisassociateWirelessGatewayFromCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.DisassociateWirelessGatewayFromCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.DisassociateWirelessGatewayFromCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.DisassociateWirelessGatewayFromCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class SplitIOTWWirelessGatewayFromCertificateCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

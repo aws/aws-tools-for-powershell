@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management GetUser API operation.", Operation = new[] {"GetUser"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.GetUserResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.User or Amazon.IdentityManagement.Model.GetUserResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.User object.",
-        "The service call response (type Amazon.IdentityManagement.Model.GetUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

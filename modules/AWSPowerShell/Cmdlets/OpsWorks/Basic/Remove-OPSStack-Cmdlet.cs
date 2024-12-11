@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeleteStack API operation.", Operation = new[] {"DeleteStack"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeleteStackResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeleteStackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeleteStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteStackResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

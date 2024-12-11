@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.Proton.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.AccountSettings or Amazon.Proton.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.Proton.Model.AccountSettings object.",
-        "The service call response (type Amazon.Proton.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROAccountSettingCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

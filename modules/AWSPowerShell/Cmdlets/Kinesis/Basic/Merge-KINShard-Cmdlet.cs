@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis MergeShards API operation.", Operation = new[] {"MergeShards"}, SelectReturnType = typeof(Amazon.Kinesis.Model.MergeShardsResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.MergeShardsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) be returned by specifying '-Select *'."
     )]
     public partial class MergeKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

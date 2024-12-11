@@ -28,15 +28,15 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a user.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.
     /// </summary>
     [Cmdlet("New", "ECUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CreateUserResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateUserResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CreateUserResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.CreateUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.CreateUserResponse object containing multiple properties."
     )]
     public partial class NewECUserCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

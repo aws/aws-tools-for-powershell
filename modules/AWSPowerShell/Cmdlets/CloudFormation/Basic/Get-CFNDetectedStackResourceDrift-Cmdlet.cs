@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// For a given stack, there will be one <c>StackResourceDrift</c> for each stack resource
     /// that has been checked for drift. Resources that haven't yet been checked for drift
     /// aren't included. Resources that don't currently support drift detection aren't checked,
-    /// and so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
-    /// that Support Drift Detection</a>.
+    /// and so not included. For a list of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
+    /// type support for imports and drift detection</a>.
     /// </para><para>
     /// Use <a>DetectStackResourceDrift</a> to detect drift on individual resources, or <a>DetectStackDrift</a>
     /// to detect drift on all supported resources for a given stack.
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackResourceDrifts API operation.", Operation = new[] {"DescribeStackResourceDrifts"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceDrift or Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackResourceDrift objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceDriftsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNDetectedStackResourceDriftCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

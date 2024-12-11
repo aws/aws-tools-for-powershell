@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning CreateEvaluation API operation.", Operation = new[] {"CreateEvaluation"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.CreateEvaluationResponse))]
     [AWSCmdletOutput("System.String or Amazon.MachineLearning.Model.CreateEvaluationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MachineLearning.Model.CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateEvaluationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service CreateVpcPeeringConnection API operation.", Operation = new[] {"CreateVpcPeeringConnection"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateVpcPeeringConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.CreateVpcPeeringConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.CreateVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.CreateVpcPeeringConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewGMLVpcPeeringConnectionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

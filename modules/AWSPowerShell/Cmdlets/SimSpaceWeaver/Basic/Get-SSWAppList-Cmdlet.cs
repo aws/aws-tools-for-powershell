@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [AWSCmdlet("Calls the AWS SimSpace Weaver ListApps API operation.", Operation = new[] {"ListApps"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.ListAppsResponse))]
     [AWSCmdletOutput("Amazon.SimSpaceWeaver.Model.SimulationAppMetadata or Amazon.SimSpaceWeaver.Model.ListAppsResponse",
         "This cmdlet returns a collection of Amazon.SimSpaceWeaver.Model.SimulationAppMetadata objects.",
-        "The service call response (type Amazon.SimSpaceWeaver.Model.ListAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimSpaceWeaver.Model.ListAppsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSWAppListCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

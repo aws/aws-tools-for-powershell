@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateUpdatedWorkspaceImage API operation.", Operation = new[] {"CreateUpdatedWorkspaceImage"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateUpdatedWorkspaceImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpaces.Model.CreateUpdatedWorkspaceImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpaces.Model.CreateUpdatedWorkspaceImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.CreateUpdatedWorkspaceImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWKSUpdatedWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

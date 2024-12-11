@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 CreateDataSetImportTask API operation.", Operation = new[] {"CreateDataSetImportTask"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CreateDataSetImportTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.MainframeModernization.Model.CreateDataSetImportTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MainframeModernization.Model.CreateDataSetImportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.CreateDataSetImportTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMMDataSetImportTaskCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

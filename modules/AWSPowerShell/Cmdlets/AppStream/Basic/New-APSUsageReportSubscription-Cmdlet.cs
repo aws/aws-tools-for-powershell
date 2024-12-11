@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [OutputType("Amazon.AppStream.Model.CreateUsageReportSubscriptionResponse")]
     [AWSCmdlet("Calls the Amazon AppStream CreateUsageReportSubscription API operation.", Operation = new[] {"CreateUsageReportSubscription"}, SelectReturnType = typeof(Amazon.AppStream.Model.CreateUsageReportSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.CreateUsageReportSubscriptionResponse",
-        "This cmdlet returns an Amazon.AppStream.Model.CreateUsageReportSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppStream.Model.CreateUsageReportSubscriptionResponse object containing multiple properties."
     )]
     public partial class NewAPSUsageReportSubscriptionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

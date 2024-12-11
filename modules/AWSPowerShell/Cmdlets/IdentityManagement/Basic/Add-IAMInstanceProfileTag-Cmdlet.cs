@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management TagInstanceProfile API operation.", Operation = new[] {"TagInstanceProfile"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.TagInstanceProfileResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.TagInstanceProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.TagInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.TagInstanceProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMInstanceProfileTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [OutputType("Amazon.Bedrock.Model.GetImportedModelResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock GetImportedModel API operation.", Operation = new[] {"GetImportedModel"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetImportedModelResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.GetImportedModelResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetImportedModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.GetImportedModelResponse object containing multiple properties."
     )]
     public partial class GetBDRImportedModelCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

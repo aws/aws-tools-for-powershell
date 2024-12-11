@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone RemoveEntityOwner API operation.", Operation = new[] {"RemoveEntityOwner"}, SelectReturnType = typeof(Amazon.DataZone.Model.RemoveEntityOwnerResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.RemoveEntityOwnerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.RemoveEntityOwnerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.RemoveEntityOwnerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZEntityOwnerCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisionedProduct API operation.", Operation = new[] {"DescribeProvisionedProduct"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse object containing multiple properties."
     )]
     public partial class GetSCProvisionedProductDetailCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

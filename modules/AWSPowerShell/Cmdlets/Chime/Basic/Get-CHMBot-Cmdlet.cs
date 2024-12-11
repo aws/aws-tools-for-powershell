@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetBot API operation.", Operation = new[] {"GetBot"}, SelectReturnType = typeof(Amazon.Chime.Model.GetBotResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.Bot or Amazon.Chime.Model.GetBotResponse",
         "This cmdlet returns an Amazon.Chime.Model.Bot object.",
-        "The service call response (type Amazon.Chime.Model.GetBotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetBotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMBotCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

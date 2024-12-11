@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs DeactivateUser API operation.", Operation = new[] {"DeactivateUser"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DeactivateUserResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.DeactivateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.DeactivateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.DeactivateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableWDUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

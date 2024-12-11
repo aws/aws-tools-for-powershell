@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [OutputType("Amazon.ResourceExplorer2.Model.CreateIndexResponse")]
     [AWSCmdlet("Calls the AWS Resource Explorer CreateIndex API operation.", Operation = new[] {"CreateIndex"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.CreateIndexResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.CreateIndexResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.CreateIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.CreateIndexResponse object containing multiple properties."
     )]
     public partial class NewAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

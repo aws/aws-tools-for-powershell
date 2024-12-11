@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 DeleteAuthorizer API operation.", Operation = new[] {"DeleteAuthorizer"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.DeleteAuthorizerResponse))]
     [AWSCmdletOutput("None or Amazon.ApiGatewayV2.Model.DeleteAuthorizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayV2.Model.DeleteAuthorizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApiGatewayV2.Model.DeleteAuthorizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAG2AuthorizerCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty CreateThreatIntelSet API operation.", Operation = new[] {"CreateThreatIntelSet"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.CreateThreatIntelSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.GuardDuty.Model.CreateThreatIntelSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GuardDuty.Model.CreateThreatIntelSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.CreateThreatIntelSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGDThreatIntelSetCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The unique ID of the detector of the GuardDuty account for which you want to create
-        /// a <c>ThreatIntelSet</c>.</para>
+        /// a <c>ThreatIntelSet</c>.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

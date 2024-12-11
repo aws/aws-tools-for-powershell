@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [OutputType("Amazon.Textract.Model.CreateAdapterVersionResponse")]
     [AWSCmdlet("Calls the Amazon Textract CreateAdapterVersion API operation.", Operation = new[] {"CreateAdapterVersion"}, SelectReturnType = typeof(Amazon.Textract.Model.CreateAdapterVersionResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.CreateAdapterVersionResponse",
-        "This cmdlet returns an Amazon.Textract.Model.CreateAdapterVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Textract.Model.CreateAdapterVersionResponse object containing multiple properties."
     )]
     public partial class NewTXTAdapterVersionCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

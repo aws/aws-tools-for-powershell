@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.DeleteTagsResponse")]
     [AWSCmdlet("Calls the Amazon Machine Learning DeleteTags API operation.", Operation = new[] {"DeleteTags"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.DeleteTagsResponse), LegacyAlias="Remove-MLTag")]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.DeleteTagsResponse",
-        "This cmdlet returns an Amazon.MachineLearning.Model.DeleteTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MachineLearning.Model.DeleteTagsResponse object containing multiple properties."
     )]
     public partial class RemoveMLResourceTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

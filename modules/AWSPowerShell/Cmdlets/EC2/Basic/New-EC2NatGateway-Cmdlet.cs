@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// fail to launch. You can see the network border group for the subnet's AZ by viewing
     /// the details of the subnet. Similarly, you can view the network border group of an
     /// EIP by viewing the details of the EIP address. For more information about network
-    /// border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip">Allocate
+    /// border groups and EIPs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithEIPs.html">Allocate
     /// an Elastic IP address</a> in the <i>Amazon VPC User Guide</i>. 
     /// </para></important>
     /// </summary>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateNatGatewayResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNatGateway API operation.", Operation = new[] {"CreateNatGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNatGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateNatGatewayResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateNatGatewayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateNatGatewayResponse object containing multiple properties."
     )]
     public partial class NewEC2NatGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecondaryAllocationId
         /// <summary>
         /// <para>
-        /// <para>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// <para>Secondary EIP allocation IDs. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create
         /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>[Private NAT gateway only] The number of secondary private IPv4 addresses you want
         /// to assign to the NAT gateway. For more information about secondary addresses, see
-        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create
         /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Secondary private IPv4 addresses. For more information about secondary addresses,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Create
         /// a NAT gateway</a> in the <i>Amazon VPC User Guide</i>.</para>
         /// </para>
         /// </summary>

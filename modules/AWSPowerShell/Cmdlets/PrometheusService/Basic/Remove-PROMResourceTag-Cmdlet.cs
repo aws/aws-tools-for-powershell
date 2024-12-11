@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
     /// Removes the specified tags from an Amazon Managed Service for Prometheus resource.
-    /// The only resources that can be tagged are workspaces and rule groups namespaces.
+    /// The only resources that can be tagged are rule groups namespaces, scrapers, and workspaces.
     /// </summary>
     [Cmdlet("Remove", "PROMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Prometheus Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePROMResourceTagCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the workspace or rule groups namespace.</para>
+        /// <para>The ARN of the resource from which to remove a tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

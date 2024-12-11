@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena ImportNotebook API operation.", Operation = new[] {"ImportNotebook"}, SelectReturnType = typeof(Amazon.Athena.Model.ImportNotebookResponse))]
     [AWSCmdletOutput("System.String or Amazon.Athena.Model.ImportNotebookResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Athena.Model.ImportNotebookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.ImportNotebookResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

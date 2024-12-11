@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeregisterEcsCluster API operation.", Operation = new[] {"DeregisterEcsCluster"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeregisterEcsClusterResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeregisterEcsClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterEcsClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterEcsClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

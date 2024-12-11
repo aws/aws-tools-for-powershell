@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution DeleteIdNamespace API operation.", Operation = new[] {"DeleteIdNamespace"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.DeleteIdNamespaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.DeleteIdNamespaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EntityResolution.Model.DeleteIdNamespaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.DeleteIdNamespaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveERESIdNamespaceCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

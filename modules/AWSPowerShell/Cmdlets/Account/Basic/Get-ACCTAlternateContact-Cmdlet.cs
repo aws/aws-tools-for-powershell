@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account GetAlternateContact API operation.", Operation = new[] {"GetAlternateContact"}, SelectReturnType = typeof(Amazon.Account.Model.GetAlternateContactResponse))]
     [AWSCmdletOutput("Amazon.Account.Model.AlternateContact or Amazon.Account.Model.GetAlternateContactResponse",
         "This cmdlet returns an Amazon.Account.Model.AlternateContact object.",
-        "The service call response (type Amazon.Account.Model.GetAlternateContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Account.Model.GetAlternateContactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACCTAlternateContactCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

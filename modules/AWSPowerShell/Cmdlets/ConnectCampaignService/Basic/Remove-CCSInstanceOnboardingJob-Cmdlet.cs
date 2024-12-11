@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [AWSCmdlet("Calls the Amazon Connect Campaign Service DeleteInstanceOnboardingJob API operation.", Operation = new[] {"DeleteInstanceOnboardingJob"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.DeleteInstanceOnboardingJobResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCampaignService.Model.DeleteInstanceOnboardingJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCampaignService.Model.DeleteInstanceOnboardingJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCampaignService.Model.DeleteInstanceOnboardingJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCSInstanceOnboardingJobCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

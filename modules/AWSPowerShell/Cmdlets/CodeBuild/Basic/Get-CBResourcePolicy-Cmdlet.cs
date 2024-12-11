@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.GetResourcePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeBuild.Model.GetResourcePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeBuild.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.GetResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCBResourcePolicyCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory DetachPolicy API operation.", Operation = new[] {"DetachPolicy"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.DetachPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudDirectory.Model.DetachPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudDirectory.Model.DetachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.DetachPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountCDIRPolicyFromObjectCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

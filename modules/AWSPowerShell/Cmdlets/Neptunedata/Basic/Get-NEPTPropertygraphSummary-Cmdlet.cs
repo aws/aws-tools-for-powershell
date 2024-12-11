@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.GetPropertygraphSummaryResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData GetPropertygraphSummary API operation.", Operation = new[] {"GetPropertygraphSummary"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.GetPropertygraphSummaryResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.GetPropertygraphSummaryResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.GetPropertygraphSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.GetPropertygraphSummaryResponse object containing multiple properties."
     )]
     public partial class GetNEPTPropertygraphSummaryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst VerifySession API operation.", Operation = new[] {"VerifySession"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.VerifySessionResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeCatalyst.Model.VerifySessionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeCatalyst.Model.VerifySessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.VerifySessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmCCATSessionCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

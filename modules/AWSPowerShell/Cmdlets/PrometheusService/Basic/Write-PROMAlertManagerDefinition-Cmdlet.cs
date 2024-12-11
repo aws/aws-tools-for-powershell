@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service PutAlertManagerDefinition API operation.", Operation = new[] {"PutAlertManagerDefinition"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.PutAlertManagerDefinitionResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.AlertManagerDefinitionStatus or Amazon.PrometheusService.Model.PutAlertManagerDefinitionResponse",
         "This cmdlet returns an Amazon.PrometheusService.Model.AlertManagerDefinitionStatus object.",
-        "The service call response (type Amazon.PrometheusService.Model.PutAlertManagerDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.PutAlertManagerDefinitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WritePROMAlertManagerDefinitionCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

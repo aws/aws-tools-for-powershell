@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice ListPhoneNumberOrders API operation.", Operation = new[] {"ListPhoneNumberOrders"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.ListPhoneNumberOrdersResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.PhoneNumberOrder or Amazon.ChimeSDKVoice.Model.ListPhoneNumberOrdersResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKVoice.Model.PhoneNumberOrder objects.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.ListPhoneNumberOrdersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.ListPhoneNumberOrdersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMVOPhoneNumberOrderListCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

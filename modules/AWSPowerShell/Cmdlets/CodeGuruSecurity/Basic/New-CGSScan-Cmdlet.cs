@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
     [OutputType("Amazon.CodeGuruSecurity.Model.CreateScanResponse")]
     [AWSCmdlet("Calls the Amazon CodeGuru Security CreateScan API operation.", Operation = new[] {"CreateScan"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.CreateScanResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.CreateScanResponse",
-        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.CreateScanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.CreateScanResponse object containing multiple properties."
     )]
     public partial class NewCGSScanCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
     {

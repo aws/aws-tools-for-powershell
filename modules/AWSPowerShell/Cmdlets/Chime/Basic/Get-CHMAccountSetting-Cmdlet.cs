@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.Chime.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.AccountSettings or Amazon.Chime.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.Chime.Model.AccountSettings object.",
-        "The service call response (type Amazon.Chime.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMAccountSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

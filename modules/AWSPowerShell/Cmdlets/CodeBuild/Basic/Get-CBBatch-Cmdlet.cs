@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [OutputType("Amazon.CodeBuild.Model.BatchGetBuildBatchesResponse")]
     [AWSCmdlet("Calls the AWS CodeBuild BatchGetBuildBatches API operation.", Operation = new[] {"BatchGetBuildBatches"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.BatchGetBuildBatchesResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.BatchGetBuildBatchesResponse",
-        "This cmdlet returns an Amazon.CodeBuild.Model.BatchGetBuildBatchesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeBuild.Model.BatchGetBuildBatchesResponse object containing multiple properties."
     )]
     public partial class GetCBBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

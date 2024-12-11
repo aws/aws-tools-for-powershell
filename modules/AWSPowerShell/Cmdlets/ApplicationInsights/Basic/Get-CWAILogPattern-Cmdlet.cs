@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeLogPattern API operation.", Operation = new[] {"DescribeLogPattern"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeLogPatternResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.LogPattern or Amazon.ApplicationInsights.Model.DescribeLogPatternResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.LogPattern object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeLogPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.DescribeLogPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWAILogPatternCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the resource group owner.</para>
+        /// <para>The Amazon Web Services account ID for the resource group owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

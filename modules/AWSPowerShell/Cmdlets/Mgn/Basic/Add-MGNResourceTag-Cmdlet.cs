@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Mgn.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMGNResourceTagCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

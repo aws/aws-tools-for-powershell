@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager UpdateCertificateOptions API operation.", Operation = new[] {"UpdateCertificateOptions"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.UpdateCertificateOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateACMCertificateOptionCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

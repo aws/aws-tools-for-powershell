@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLaunchTemplate API operation.", Operation = new[] {"DeleteLaunchTemplate"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLaunchTemplateResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LaunchTemplate or Amazon.EC2.Model.DeleteLaunchTemplateResponse",
         "This cmdlet returns an Amazon.EC2.Model.LaunchTemplate object.",
-        "The service call response (type Amazon.EC2.Model.DeleteLaunchTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteLaunchTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2LaunchTemplateCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

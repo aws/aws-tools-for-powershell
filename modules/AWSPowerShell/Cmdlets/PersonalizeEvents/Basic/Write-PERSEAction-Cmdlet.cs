@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
     [AWSCmdlet("Calls the Amazon Personalize Events PutActions API operation.", Operation = new[] {"PutActions"}, SelectReturnType = typeof(Amazon.PersonalizeEvents.Model.PutActionsResponse))]
     [AWSCmdletOutput("None or Amazon.PersonalizeEvents.Model.PutActionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PersonalizeEvents.Model.PutActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PersonalizeEvents.Model.PutActionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WritePERSEActionCmdlet : AmazonPersonalizeEventsClientCmdlet, IExecutor
     {

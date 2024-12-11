@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [OutputType("Amazon.GroundStation.Model.GetAgentConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Ground Station GetAgentConfiguration API operation.", Operation = new[] {"GetAgentConfiguration"}, SelectReturnType = typeof(Amazon.GroundStation.Model.GetAgentConfigurationResponse))]
     [AWSCmdletOutput("Amazon.GroundStation.Model.GetAgentConfigurationResponse",
-        "This cmdlet returns an Amazon.GroundStation.Model.GetAgentConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GroundStation.Model.GetAgentConfigurationResponse object containing multiple properties."
     )]
     public partial class GetGSAgentConfigurationCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

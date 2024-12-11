@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.DeleteQueueResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.DeleteQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.DeleteQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMCQueueCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

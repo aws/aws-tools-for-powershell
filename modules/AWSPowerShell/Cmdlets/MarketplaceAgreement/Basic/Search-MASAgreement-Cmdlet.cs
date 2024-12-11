@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.MAS
     [OutputType("Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Agreement Service SearchAgreements API operation.", Operation = new[] {"SearchAgreements"}, SelectReturnType = typeof(Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse))]
     [AWSCmdletOutput("Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse",
-        "This cmdlet returns an Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MarketplaceAgreement.Model.SearchAgreementsResponse object containing multiple properties."
     )]
     public partial class SearchMASAgreementCmdlet : AmazonMarketplaceAgreementClientCmdlet, IExecutor
     {

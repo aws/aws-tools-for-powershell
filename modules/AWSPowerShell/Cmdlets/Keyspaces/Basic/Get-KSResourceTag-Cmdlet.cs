@@ -29,13 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
     /// Returns a list of all tags associated with the specified Amazon Keyspaces resource.
+    /// 
+    ///  
+    /// <para>
+    /// To read keyspace metadata using <c>ListTagsForResource</c>, the IAM principal needs
+    /// <c>Select</c> action permissions for the specified resource and the system keyspace.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KSResourceTag")]
     [OutputType("Amazon.Keyspaces.Model.Tag")]
     [AWSCmdlet("Calls the Amazon Keyspaces ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Keyspaces.Model.Tag or Amazon.Keyspaces.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Keyspaces.Model.Tag objects.",
-        "The service call response (type Amazon.Keyspaces.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKSResourceTagCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

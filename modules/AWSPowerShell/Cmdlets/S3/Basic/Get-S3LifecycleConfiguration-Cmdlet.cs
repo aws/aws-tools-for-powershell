@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetLifecycleConfiguration API operation.", Operation = new[] {"GetLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.GetLifecycleConfigurationResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.LifecycleConfiguration or Amazon.S3.Model.GetLifecycleConfigurationResponse",
         "This cmdlet returns an Amazon.S3.Model.LifecycleConfiguration object.",
-        "The service call response (type Amazon.S3.Model.GetLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetLifecycleConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

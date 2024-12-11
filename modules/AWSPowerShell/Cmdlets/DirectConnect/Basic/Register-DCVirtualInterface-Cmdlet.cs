@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect AssociateVirtualInterface API operation.", Operation = new[] {"AssociateVirtualInterface"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse object containing multiple properties."
     )]
     public partial class RegisterDCVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

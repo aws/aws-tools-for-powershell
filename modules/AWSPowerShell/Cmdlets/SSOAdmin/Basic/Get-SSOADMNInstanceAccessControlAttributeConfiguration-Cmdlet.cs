@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [OutputType("Amazon.SSOAdmin.Model.DescribeInstanceAccessControlAttributeConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DescribeInstanceAccessControlAttributeConfiguration API operation.", Operation = new[] {"DescribeInstanceAccessControlAttributeConfiguration"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DescribeInstanceAccessControlAttributeConfigurationResponse))]
     [AWSCmdletOutput("Amazon.SSOAdmin.Model.DescribeInstanceAccessControlAttributeConfigurationResponse",
-        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeInstanceAccessControlAttributeConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSOAdmin.Model.DescribeInstanceAccessControlAttributeConfigurationResponse object containing multiple properties."
     )]
     public partial class GetSSOADMNInstanceAccessControlAttributeConfigurationCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service GetGameSessionLogUrl API operation.", Operation = new[] {"GetGameSessionLogUrl"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetGameSessionLogUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.GameLift.Model.GetGameSessionLogUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

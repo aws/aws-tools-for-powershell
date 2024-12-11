@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime ListStages API operation.", Operation = new[] {"ListStages"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.ListStagesResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.StageSummary or Amazon.IVSRealTime.Model.ListStagesResponse",
         "This cmdlet returns a collection of Amazon.IVSRealTime.Model.StageSummary objects.",
-        "The service call response (type Amazon.IVSRealTime.Model.ListStagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.ListStagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSRTStageListCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

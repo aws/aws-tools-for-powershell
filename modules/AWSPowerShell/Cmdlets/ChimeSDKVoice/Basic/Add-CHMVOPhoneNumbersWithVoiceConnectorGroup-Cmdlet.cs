@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice AssociatePhoneNumbersWithVoiceConnectorGroup API operation.", Operation = new[] {"AssociatePhoneNumbersWithVoiceConnectorGroup"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.PhoneNumberError or Amazon.ChimeSDKVoice.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKVoice.Model.PhoneNumberError objects.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.AssociatePhoneNumbersWithVoiceConnectorGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddCHMVOPhoneNumbersWithVoiceConnectorGroupCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

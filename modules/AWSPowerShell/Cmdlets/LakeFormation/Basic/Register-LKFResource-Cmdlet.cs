@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// </para><para>
     /// The following request registers a new location and gives Lake Formation permission
     /// to use the service-linked role to access that location.
-    /// </para><para><c>ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true</c></para><para>
+    /// </para><para><c>ResourceArn = arn:aws:s3:::my-bucket/ UseServiceLinkedRole = true</c></para><para>
     /// If <c>UseServiceLinkedRole</c> is not set to true, you must provide or set the <c>RoleArn</c>:
     /// </para><para><c>arn:aws:iam::12345:role/my-data-access-role</c></para>
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation RegisterResource API operation.", Operation = new[] {"RegisterResource"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.RegisterResourceResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.RegisterResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.RegisterResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.RegisterResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

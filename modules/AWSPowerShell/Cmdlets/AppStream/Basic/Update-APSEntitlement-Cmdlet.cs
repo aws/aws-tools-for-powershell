@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream UpdateEntitlement API operation.", Operation = new[] {"UpdateEntitlement"}, SelectReturnType = typeof(Amazon.AppStream.Model.UpdateEntitlementResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.Entitlement or Amazon.AppStream.Model.UpdateEntitlementResponse",
         "This cmdlet returns an Amazon.AppStream.Model.Entitlement object.",
-        "The service call response (type Amazon.AppStream.Model.UpdateEntitlementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.UpdateEntitlementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAPSEntitlementCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

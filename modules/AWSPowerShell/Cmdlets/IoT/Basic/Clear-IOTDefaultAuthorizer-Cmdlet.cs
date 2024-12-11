@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ClearDefaultAuthorizer API operation.", Operation = new[] {"ClearDefaultAuthorizer"}, SelectReturnType = typeof(Amazon.IoT.Model.ClearDefaultAuthorizerResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.ClearDefaultAuthorizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.ClearDefaultAuthorizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.ClearDefaultAuthorizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class ClearIOTDefaultAuthorizerCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

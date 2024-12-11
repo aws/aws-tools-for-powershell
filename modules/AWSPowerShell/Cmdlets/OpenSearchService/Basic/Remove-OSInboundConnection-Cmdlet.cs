@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DeleteInboundConnection API operation.", Operation = new[] {"DeleteInboundConnection"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DeleteInboundConnectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.InboundConnection or Amazon.OpenSearchService.Model.DeleteInboundConnectionResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.InboundConnection object.",
-        "The service call response (type Amazon.OpenSearchService.Model.DeleteInboundConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DeleteInboundConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSInboundConnectionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

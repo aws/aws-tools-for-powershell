@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelExportTask API operation.", Operation = new[] {"CancelExportTask"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelExportTaskResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.CancelExportTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.CancelExportTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CancelExportTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEC2ExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetSpotPlacementScores API operation.", Operation = new[] {"GetSpotPlacementScores"}, SelectReturnType = typeof(Amazon.EC2.Model.GetSpotPlacementScoresResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotPlacementScore or Amazon.EC2.Model.GetSpotPlacementScoresResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.SpotPlacementScore objects.",
-        "The service call response (type Amazon.EC2.Model.GetSpotPlacementScoresResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.GetSpotPlacementScoresResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2SpotPlacementScoreCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorType
         /// <summary>
         /// <para>
-        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <c>gpu</c>.</para></li><li><para>To include instance types with FPGA hardware, specify <c>fpga</c>.</para></li><li><para>To include instance types with inference hardware, specify <c>inference</c>.</para></li></ul><para>Default: Any accelerator type</para>
+        /// <para>The accelerator types that must be on the instance type.</para><ul><li><para>To include instance types with GPU hardware, specify <c>gpu</c>.</para></li><li><para>To include instance types with FPGA hardware, specify <c>fpga</c>.</para></li></ul><para>Default: Any accelerator type</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -591,7 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     [AWSCmdlet("Calls the AWS RDS DataService ExecuteSql API operation.", Operation = new[] {"ExecuteSql"}, SelectReturnType = typeof(Amazon.RDSDataService.Model.ExecuteSqlResponse))]
     [AWSCmdletOutput("Amazon.RDSDataService.Model.SqlStatementResult or Amazon.RDSDataService.Model.ExecuteSqlResponse",
         "This cmdlet returns a collection of Amazon.RDSDataService.Model.SqlStatementResult objects.",
-        "The service call response (type Amazon.RDSDataService.Model.ExecuteSqlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDSDataService.Model.ExecuteSqlResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("ExecuteSql has been deprecated.  Please use ExecuteStatement or BatchExecuteStatement instead.")]
     public partial class InvokeRDSDSqlStatementCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor

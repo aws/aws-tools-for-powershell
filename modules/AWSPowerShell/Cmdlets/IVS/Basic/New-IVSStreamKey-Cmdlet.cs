@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service CreateStreamKey API operation.", Operation = new[] {"CreateStreamKey"}, SelectReturnType = typeof(Amazon.IVS.Model.CreateStreamKeyResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.StreamKey or Amazon.IVS.Model.CreateStreamKeyResponse",
         "This cmdlet returns an Amazon.IVS.Model.StreamKey object.",
-        "The service call response (type Amazon.IVS.Model.CreateStreamKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.CreateStreamKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIVSStreamKeyCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

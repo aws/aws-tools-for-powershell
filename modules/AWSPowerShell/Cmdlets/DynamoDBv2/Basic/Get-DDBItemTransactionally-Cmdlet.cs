@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.TransactGetItemsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB TransactGetItems API operation.", Operation = new[] {"TransactGetItems"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.TransactGetItemsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TransactGetItemsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.TransactGetItemsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.TransactGetItemsResponse object containing multiple properties."
     )]
     public partial class GetDDBItemTransactionallyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

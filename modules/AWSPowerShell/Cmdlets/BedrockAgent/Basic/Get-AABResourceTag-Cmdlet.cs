@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.BedrockAgent.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.BedrockAgent.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAABResourceTagCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

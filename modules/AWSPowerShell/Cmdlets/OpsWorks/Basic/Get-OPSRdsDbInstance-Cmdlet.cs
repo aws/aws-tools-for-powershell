@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeRdsDbInstances API operation.", Operation = new[] {"DescribeRdsDbInstances"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse), LegacyAlias="Get-OPSRdsDbInstances")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.RdsDbInstance or Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.RdsDbInstance objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

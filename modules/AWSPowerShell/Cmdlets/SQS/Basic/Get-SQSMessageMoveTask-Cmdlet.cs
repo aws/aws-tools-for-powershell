@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) ListMessageMoveTasks API operation.", Operation = new[] {"ListMessageMoveTasks"}, SelectReturnType = typeof(Amazon.SQS.Model.ListMessageMoveTasksResponse))]
     [AWSCmdletOutput("Amazon.SQS.Model.ListMessageMoveTasksResultEntry or Amazon.SQS.Model.ListMessageMoveTasksResponse",
         "This cmdlet returns a collection of Amazon.SQS.Model.ListMessageMoveTasksResultEntry objects.",
-        "The service call response (type Amazon.SQS.Model.ListMessageMoveTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ListMessageMoveTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSQSMessageMoveTaskCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

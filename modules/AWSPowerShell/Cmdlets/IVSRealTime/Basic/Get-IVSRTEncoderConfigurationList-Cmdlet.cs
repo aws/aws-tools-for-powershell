@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime ListEncoderConfigurations API operation.", Operation = new[] {"ListEncoderConfigurations"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.ListEncoderConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.EncoderConfigurationSummary or Amazon.IVSRealTime.Model.ListEncoderConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.IVSRealTime.Model.EncoderConfigurationSummary objects.",
-        "The service call response (type Amazon.IVSRealTime.Model.ListEncoderConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.ListEncoderConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSRTEncoderConfigurationListCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

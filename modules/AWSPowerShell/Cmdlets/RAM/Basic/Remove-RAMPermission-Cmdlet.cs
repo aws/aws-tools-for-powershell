@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [OutputType("Amazon.RAM.Model.DeletePermissionResponse")]
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) DeletePermission API operation.", Operation = new[] {"DeletePermission"}, SelectReturnType = typeof(Amazon.RAM.Model.DeletePermissionResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.DeletePermissionResponse",
-        "This cmdlet returns an Amazon.RAM.Model.DeletePermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RAM.Model.DeletePermissionResponse object containing multiple properties."
     )]
     public partial class RemoveRAMPermissionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

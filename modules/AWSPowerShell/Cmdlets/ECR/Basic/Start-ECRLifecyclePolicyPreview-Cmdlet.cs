@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry StartLifecyclePolicyPreview API operation.", Operation = new[] {"StartLifecyclePolicyPreview"}, SelectReturnType = typeof(Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse",
-        "This cmdlet returns an Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse object containing multiple properties."
     )]
     public partial class StartECRLifecyclePolicyPreviewCmdlet : AmazonECRClientCmdlet, IExecutor
     {

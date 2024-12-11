@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.CreateArchiveResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge CreateArchive API operation.", Operation = new[] {"CreateArchive"}, SelectReturnType = typeof(Amazon.EventBridge.Model.CreateArchiveResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.CreateArchiveResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.CreateArchiveResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.CreateArchiveResponse object containing multiple properties."
     )]
     public partial class NewEVBArchiveCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

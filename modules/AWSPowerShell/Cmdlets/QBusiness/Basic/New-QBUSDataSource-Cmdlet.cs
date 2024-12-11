@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.CreateDataSourceResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness CreateDataSource API operation.", Operation = new[] {"CreateDataSource"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateDataSourceResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.CreateDataSourceResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.CreateDataSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.CreateDataSourceResponse object containing multiple properties."
     )]
     public partial class NewQBUSDataSourceCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

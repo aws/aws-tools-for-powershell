@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [AWSCmdlet("Calls the Amazon MTurk Service RejectAssignment API operation.", Operation = new[] {"RejectAssignment"}, SelectReturnType = typeof(Amazon.MTurk.Model.RejectAssignmentResponse))]
     [AWSCmdletOutput("None or Amazon.MTurk.Model.RejectAssignmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MTurk.Model.RejectAssignmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MTurk.Model.RejectAssignmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyMTRAssignmentCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

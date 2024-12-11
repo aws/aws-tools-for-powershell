@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [OutputType("Amazon.Panorama.Model.ProvisionDeviceResponse")]
     [AWSCmdlet("Calls the AWS Panorama ProvisionDevice API operation.", Operation = new[] {"ProvisionDevice"}, SelectReturnType = typeof(Amazon.Panorama.Model.ProvisionDeviceResponse))]
     [AWSCmdletOutput("Amazon.Panorama.Model.ProvisionDeviceResponse",
-        "This cmdlet returns an Amazon.Panorama.Model.ProvisionDeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Panorama.Model.ProvisionDeviceResponse object containing multiple properties."
     )]
     public partial class RegisterPANDeviceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

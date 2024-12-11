@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MHC
     [AWSCmdlet("Calls the AWS Migration Hub Config GetHomeRegion API operation.", Operation = new[] {"GetHomeRegion"}, SelectReturnType = typeof(Amazon.MigrationHubConfig.Model.GetHomeRegionResponse))]
     [AWSCmdletOutput("System.String or Amazon.MigrationHubConfig.Model.GetHomeRegionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MigrationHubConfig.Model.GetHomeRegionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubConfig.Model.GetHomeRegionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHCHomeRegionCmdlet : AmazonMigrationHubConfigClientCmdlet, IExecutor
     {

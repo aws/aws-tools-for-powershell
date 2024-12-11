@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeGameServer API operation.", Operation = new[] {"DescribeGameServer"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeGameServerResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.GameServer or Amazon.GameLift.Model.DescribeGameServerResponse",
         "This cmdlet returns an Amazon.GameLift.Model.GameServer object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeGameServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeGameServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLGameServerCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

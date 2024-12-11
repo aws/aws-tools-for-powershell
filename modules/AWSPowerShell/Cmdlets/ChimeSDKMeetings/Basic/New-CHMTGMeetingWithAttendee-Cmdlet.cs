@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     [OutputType("Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Meetings CreateMeetingWithAttendees API operation.", Operation = new[] {"CreateMeetingWithAttendees"}, SelectReturnType = typeof(Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKMeetings.Model.CreateMeetingWithAttendeesResponse object containing multiple properties."
     )]
     public partial class NewCHMTGMeetingWithAttendeeCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {

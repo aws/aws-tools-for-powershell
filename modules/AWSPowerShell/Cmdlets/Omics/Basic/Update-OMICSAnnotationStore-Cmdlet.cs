@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.UpdateAnnotationStoreResponse")]
     [AWSCmdlet("Calls the Amazon Omics UpdateAnnotationStore API operation.", Operation = new[] {"UpdateAnnotationStore"}, SelectReturnType = typeof(Amazon.Omics.Model.UpdateAnnotationStoreResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.UpdateAnnotationStoreResponse",
-        "This cmdlet returns an Amazon.Omics.Model.UpdateAnnotationStoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.UpdateAnnotationStoreResponse object containing multiple properties."
     )]
     public partial class UpdateOMICSAnnotationStoreCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

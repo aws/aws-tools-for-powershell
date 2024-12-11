@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station UpdateAgentStatus API operation.", Operation = new[] {"UpdateAgentStatus"}, SelectReturnType = typeof(Amazon.GroundStation.Model.UpdateAgentStatusResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.UpdateAgentStatusResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.UpdateAgentStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.UpdateAgentStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGSAgentStatusCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

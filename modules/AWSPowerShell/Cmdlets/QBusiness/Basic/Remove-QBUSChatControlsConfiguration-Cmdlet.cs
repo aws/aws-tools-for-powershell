@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness DeleteChatControlsConfiguration API operation.", Operation = new[] {"DeleteChatControlsConfiguration"}, SelectReturnType = typeof(Amazon.QBusiness.Model.DeleteChatControlsConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.DeleteChatControlsConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.DeleteChatControlsConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.DeleteChatControlsConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQBUSChatControlsConfigurationCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

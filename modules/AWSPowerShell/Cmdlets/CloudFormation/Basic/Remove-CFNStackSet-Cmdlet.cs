@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeleteStackSet API operation.", Operation = new[] {"DeleteStackSet"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeleteStackSetResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeleteStackSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeleteStackSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeleteStackSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFNStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

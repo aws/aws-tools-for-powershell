@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeleteThesaurus API operation.", Operation = new[] {"DeleteThesaurus"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteThesaurusResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteThesaurusResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteThesaurusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteThesaurusResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRThesaurusCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

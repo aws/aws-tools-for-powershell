@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetDomain API operation.", Operation = new[] {"GetDomain"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetDomainResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Domain or Amazon.Lightsail.Model.GetDomainResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Domain object.",
-        "The service call response (type Amazon.Lightsail.Model.GetDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSDomainCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

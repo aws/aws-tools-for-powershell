@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [OutputType("Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse")]
     [AWSCmdlet("Calls the Amazon Cloud Directory UpgradeAppliedSchema API operation.", Operation = new[] {"UpgradeAppliedSchema"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse",
-        "This cmdlet returns an Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudDirectory.Model.UpgradeAppliedSchemaResponse object containing multiple properties."
     )]
     public partial class UpdateCDIRAppliedSchemaCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

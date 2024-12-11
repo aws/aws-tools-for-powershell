@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateDocumentDefaultVersion API operation.", Operation = new[] {"UpdateDocumentDefaultVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription or Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.DocumentDefaultVersionDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMDocumentDefaultVersionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

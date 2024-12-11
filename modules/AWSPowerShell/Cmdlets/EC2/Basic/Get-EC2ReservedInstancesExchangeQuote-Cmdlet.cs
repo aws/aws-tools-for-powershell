@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetReservedInstancesExchangeQuote API operation.", Operation = new[] {"GetReservedInstancesExchangeQuote"}, SelectReturnType = typeof(Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns an Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties."
     )]
     public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

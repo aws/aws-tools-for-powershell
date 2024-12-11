@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgent.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgent.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BedrockAgent.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddAABResourceTagCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

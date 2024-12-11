@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteThemeAliasResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteThemeAlias API operation.", Operation = new[] {"DeleteThemeAlias"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteThemeAliasResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteThemeAliasResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteThemeAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteThemeAliasResponse object containing multiple properties."
     )]
     public partial class RemoveQSThemeAliasCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Calls the Amazon Cognito Identity UnlinkIdentity API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"UnlinkIdentity"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.UnlinkIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentity.Model.UnlinkIdentityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentity.Model.UnlinkIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.UnlinkIdentityResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountCGIIdentityCmdlet : AnonymousAmazonCognitoIdentityClientCmdlet, IExecutor
     {

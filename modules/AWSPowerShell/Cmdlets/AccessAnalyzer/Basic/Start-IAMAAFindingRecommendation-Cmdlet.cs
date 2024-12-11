@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GenerateFindingRecommendation API operation.", Operation = new[] {"GenerateFindingRecommendation"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GenerateFindingRecommendationResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.GenerateFindingRecommendationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.GenerateFindingRecommendationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.GenerateFindingRecommendationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartIAMAAFindingRecommendationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

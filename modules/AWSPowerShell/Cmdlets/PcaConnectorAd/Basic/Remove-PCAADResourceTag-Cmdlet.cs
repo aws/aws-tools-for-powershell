@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAADResourceTagCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

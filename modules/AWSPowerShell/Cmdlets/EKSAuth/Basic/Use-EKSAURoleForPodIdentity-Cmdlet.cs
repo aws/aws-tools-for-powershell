@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
     [OutputType("Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse")]
     [AWSCmdlet("Calls the Amazon EKS Auth AssumeRoleForPodIdentity API operation.", Operation = new[] {"AssumeRoleForPodIdentity"}, SelectReturnType = typeof(Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse))]
     [AWSCmdletOutput("Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse",
-        "This cmdlet returns an Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EKSAuth.Model.AssumeRoleForPodIdentityResponse object containing multiple properties."
     )]
     public partial class UseEKSAURoleForPodIdentityCmdlet : AmazonEKSAuthClientCmdlet, IExecutor
     {

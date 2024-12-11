@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.DescribeConstraintResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog DescribeConstraint API operation.", Operation = new[] {"DescribeConstraint"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribeConstraintResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeConstraintResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeConstraintResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.DescribeConstraintResponse object containing multiple properties."
     )]
     public partial class GetSCConstraintCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

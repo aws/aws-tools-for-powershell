@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline CreatePipeline API operation.", Operation = new[] {"CreatePipeline"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.CreatePipelineResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataPipeline.Model.CreatePipelineResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataPipeline.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.CreatePipelineResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

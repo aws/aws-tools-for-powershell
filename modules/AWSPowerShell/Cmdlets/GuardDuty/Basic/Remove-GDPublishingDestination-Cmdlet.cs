@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty DeletePublishingDestination API operation.", Operation = new[] {"DeletePublishingDestination"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DeletePublishingDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DeletePublishingDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DeletePublishingDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.DeletePublishingDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDPublishingDestinationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector associated with the publishing destination to delete.</para>
+        /// <para>The unique ID of the detector associated with the publishing destination to delete.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

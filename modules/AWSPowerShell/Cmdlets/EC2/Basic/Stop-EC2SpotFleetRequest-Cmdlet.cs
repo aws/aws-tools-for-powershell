@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CancelSpotFleetRequestsResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CancelSpotFleetRequests API operation.", Operation = new[] {"CancelSpotFleetRequests"}, SelectReturnType = typeof(Amazon.EC2.Model.CancelSpotFleetRequestsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelSpotFleetRequestsResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CancelSpotFleetRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CancelSpotFleetRequestsResponse object containing multiple properties."
     )]
     public partial class StopEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

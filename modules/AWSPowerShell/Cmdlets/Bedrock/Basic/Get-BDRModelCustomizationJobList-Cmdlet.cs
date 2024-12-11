@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock ListModelCustomizationJobs API operation.", Operation = new[] {"ListModelCustomizationJobs"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListModelCustomizationJobsResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.ModelCustomizationJobSummary or Amazon.Bedrock.Model.ListModelCustomizationJobsResponse",
         "This cmdlet returns a collection of Amazon.Bedrock.Model.ModelCustomizationJobSummary objects.",
-        "The service call response (type Amazon.Bedrock.Model.ListModelCustomizationJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Bedrock.Model.ListModelCustomizationJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBDRModelCustomizationJobListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

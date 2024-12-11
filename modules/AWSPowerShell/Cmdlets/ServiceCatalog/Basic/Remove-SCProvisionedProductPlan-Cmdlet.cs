@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DeleteProvisionedProductPlan API operation.", Operation = new[] {"DeleteProvisionedProductPlan"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

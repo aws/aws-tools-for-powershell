@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteProfile API operation.", Operation = new[] {"DeleteProfile"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteProfileResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATProfileCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

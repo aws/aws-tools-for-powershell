@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateAccountCustomizationResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateAccountCustomization API operation.", Operation = new[] {"UpdateAccountCustomization"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateAccountCustomizationResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateAccountCustomizationResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateAccountCustomizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateAccountCustomizationResponse object containing multiple properties."
     )]
     public partial class UpdateQSAccountCustomizationCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

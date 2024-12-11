@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime CreateRoomMembership API operation.", Operation = new[] {"CreateRoomMembership"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateRoomMembershipResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.RoomMembership or Amazon.Chime.Model.CreateRoomMembershipResponse",
         "This cmdlet returns an Amazon.Chime.Model.RoomMembership object.",
-        "The service call response (type Amazon.Chime.Model.CreateRoomMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.CreateRoomMembershipResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCHMRoomMembershipCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

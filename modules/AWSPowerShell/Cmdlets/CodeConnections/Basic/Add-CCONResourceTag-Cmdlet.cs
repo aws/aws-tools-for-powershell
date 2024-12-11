@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCCONResourceTagCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutAggregationAuthorization API operation.", Operation = new[] {"PutAggregationAuthorization"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutAggregationAuthorizationResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.AggregationAuthorization or Amazon.ConfigService.Model.PutAggregationAuthorizationResponse",
         "This cmdlet returns an Amazon.ConfigService.Model.AggregationAuthorization object.",
-        "The service call response (type Amazon.ConfigService.Model.PutAggregationAuthorizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutAggregationAuthorizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGAggregationAuthorizationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

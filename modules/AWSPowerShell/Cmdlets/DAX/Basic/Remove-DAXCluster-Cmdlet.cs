@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.DAX.Model.DeleteClusterResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster or Amazon.DAX.Model.DeleteClusterResponse",
         "This cmdlet returns an Amazon.DAX.Model.Cluster object.",
-        "The service call response (type Amazon.DAX.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.DeleteClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDAXClusterCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

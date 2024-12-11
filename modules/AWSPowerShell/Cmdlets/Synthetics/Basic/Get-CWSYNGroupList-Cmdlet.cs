@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics ListGroups API operation.", Operation = new[] {"ListGroups"}, SelectReturnType = typeof(Amazon.Synthetics.Model.ListGroupsResponse))]
     [AWSCmdletOutput("Amazon.Synthetics.Model.GroupSummary or Amazon.Synthetics.Model.ListGroupsResponse",
         "This cmdlet returns a collection of Amazon.Synthetics.Model.GroupSummary objects.",
-        "The service call response (type Amazon.Synthetics.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Synthetics.Model.ListGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWSYNGroupListCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

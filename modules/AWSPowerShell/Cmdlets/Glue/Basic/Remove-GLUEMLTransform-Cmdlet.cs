@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteMLTransform API operation.", Operation = new[] {"DeleteMLTransform"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteMLTransformResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.DeleteMLTransformResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.DeleteMLTransformResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteMLTransformResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEMLTransformCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

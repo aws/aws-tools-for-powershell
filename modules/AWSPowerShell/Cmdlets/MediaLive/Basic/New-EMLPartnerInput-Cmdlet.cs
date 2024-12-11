@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreatePartnerInput API operation.", Operation = new[] {"CreatePartnerInput"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreatePartnerInputResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.Input or Amazon.MediaLive.Model.CreatePartnerInputResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.Input object.",
-        "The service call response (type Amazon.MediaLive.Model.CreatePartnerInputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.CreatePartnerInputResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMLPartnerInputCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

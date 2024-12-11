@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) SendDiagnosticInterrupt API operation.", Operation = new[] {"SendDiagnosticInterrupt"}, SelectReturnType = typeof(Amazon.EC2.Model.SendDiagnosticInterruptResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.SendDiagnosticInterruptResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.SendDiagnosticInterruptResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.SendDiagnosticInterruptResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendEC2DiagnosticInterruptCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

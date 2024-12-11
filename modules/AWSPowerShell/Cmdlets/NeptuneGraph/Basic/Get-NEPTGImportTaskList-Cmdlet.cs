@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [AWSCmdlet("Calls the Amazon Neptune Graph ListImportTasks API operation.", Operation = new[] {"ListImportTasks"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.ListImportTasksResponse))]
     [AWSCmdletOutput("Amazon.NeptuneGraph.Model.ImportTaskSummary or Amazon.NeptuneGraph.Model.ListImportTasksResponse",
         "This cmdlet returns a collection of Amazon.NeptuneGraph.Model.ImportTaskSummary objects.",
-        "The service call response (type Amazon.NeptuneGraph.Model.ListImportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NeptuneGraph.Model.ListImportTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNEPTGImportTaskListCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

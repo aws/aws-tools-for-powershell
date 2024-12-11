@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment CreateLabel API operation.", Operation = new[] {"CreateLabel"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.CreateLabelResponse))]
     [AWSCmdletOutput("System.String or Amazon.LookoutEquipment.Model.CreateLabelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LookoutEquipment.Model.CreateLabelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutEquipment.Model.CreateLabelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewL4ELabelCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

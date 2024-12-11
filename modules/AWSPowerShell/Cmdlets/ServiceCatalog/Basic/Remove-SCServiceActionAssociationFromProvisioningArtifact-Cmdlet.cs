@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DisassociateServiceActionFromProvisioningArtifact API operation.", Operation = new[] {"DisassociateServiceActionFromProvisioningArtifact"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DisassociateServiceActionFromProvisioningArtifactResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DisassociateServiceActionFromProvisioningArtifactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DisassociateServiceActionFromProvisioningArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DisassociateServiceActionFromProvisioningArtifactResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCServiceActionAssociationFromProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

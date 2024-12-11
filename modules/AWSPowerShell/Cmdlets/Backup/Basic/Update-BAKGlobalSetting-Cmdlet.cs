@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.Backup.Model.UpdateGlobalSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.Backup.Model.UpdateGlobalSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.UpdateGlobalSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Backup.Model.UpdateGlobalSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateBAKGlobalSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

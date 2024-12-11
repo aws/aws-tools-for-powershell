@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateRoutingProfileDefaultOutboundQueue API operation.", Operation = new[] {"UpdateRoutingProfileDefaultOutboundQueue"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateRoutingProfileDefaultOutboundQueueResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateRoutingProfileDefaultOutboundQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateRoutingProfileDefaultOutboundQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateRoutingProfileDefaultOutboundQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNRoutingProfileDefaultOutboundQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

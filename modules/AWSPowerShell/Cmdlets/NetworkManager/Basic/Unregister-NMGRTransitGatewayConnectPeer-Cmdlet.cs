@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DisassociateTransitGatewayConnectPeer API operation.", Operation = new[] {"DisassociateTransitGatewayConnectPeer"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DisassociateTransitGatewayConnectPeerResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.TransitGatewayConnectPeerAssociation or Amazon.NetworkManager.Model.DisassociateTransitGatewayConnectPeerResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.TransitGatewayConnectPeerAssociation object.",
-        "The service call response (type Amazon.NetworkManager.Model.DisassociateTransitGatewayConnectPeerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DisassociateTransitGatewayConnectPeerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterNMGRTransitGatewayConnectPeerCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

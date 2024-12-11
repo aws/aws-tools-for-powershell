@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda DeleteProvisionedConcurrencyConfig API operation.", Operation = new[] {"DeleteProvisionedConcurrencyConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteProvisionedConcurrencyConfigResponse))]
     [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteProvisionedConcurrencyConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteProvisionedConcurrencyConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteProvisionedConcurrencyConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMProvisionedConcurrencyConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

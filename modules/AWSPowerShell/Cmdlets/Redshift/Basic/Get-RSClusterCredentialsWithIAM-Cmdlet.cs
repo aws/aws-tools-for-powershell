@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse")]
     [AWSCmdlet("Calls the Amazon Redshift GetClusterCredentialsWithIAM API operation.", Operation = new[] {"GetClusterCredentialsWithIAM"}, SelectReturnType = typeof(Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.GetClusterCredentialsWithIAMResponse object containing multiple properties."
     )]
     public partial class GetRSClusterCredentialsWithIAMCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

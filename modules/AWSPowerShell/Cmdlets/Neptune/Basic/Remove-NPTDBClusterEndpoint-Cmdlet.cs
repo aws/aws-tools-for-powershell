@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [OutputType("Amazon.Neptune.Model.DeleteDBClusterEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Neptune DeleteDBClusterEndpoint API operation.", Operation = new[] {"DeleteDBClusterEndpoint"}, SelectReturnType = typeof(Amazon.Neptune.Model.DeleteDBClusterEndpointResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DeleteDBClusterEndpointResponse",
-        "This cmdlet returns an Amazon.Neptune.Model.DeleteDBClusterEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptune.Model.DeleteDBClusterEndpointResponse object containing multiple properties."
     )]
     public partial class RemoveNPTDBClusterEndpointCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

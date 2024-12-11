@@ -72,14 +72,9 @@ auto-scaling_DescribeAutoScalingGroups:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.5.1.ps1
           description:
         - snippet_files: []
-          description: '<emphasis role="bold">Example 6: This example describes all your Auto Scaling groups, in batches of 10.</emphasis>'
+          description: '<emphasis role="bold">Example 6: This example describes LaunchTemplate for the specified Auto Scaling group. This example assumes that the "Instance purchase options" is set to "Adhere to launch template". In case this option is set to "Combine purchase options and instance types", LaunchTemplate could be accessed using "MixedInstancesPolicy.LaunchTemplate" property.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.6.1.ps1
-          description:
-        - snippet_files: []
-          description: '<emphasis role="bold">Example 7: This example describes LaunchTemplate for the specified Auto Scaling group. This example assumes that the "Instance purchase options" is set to "Adhere to launch template". In case this option is set to "Combine purchase options and instance types", LaunchTemplate could be accessed using "MixedInstancesPolicy.LaunchTemplate" property.</emphasis>'
-        - snippet_files:
-          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.7.1.ps1
           description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>

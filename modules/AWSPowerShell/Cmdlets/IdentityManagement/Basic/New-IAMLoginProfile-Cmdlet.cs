@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management CreateLoginProfile API operation.", Operation = new[] {"CreateLoginProfile"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.CreateLoginProfileResponse))]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.LoginProfile or Amazon.IdentityManagement.Model.CreateLoginProfileResponse",
         "This cmdlet returns an Amazon.IdentityManagement.Model.LoginProfile object.",
-        "The service call response (type Amazon.IdentityManagement.Model.CreateLoginProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateLoginProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIAMLoginProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The new password for the user.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
+        /// <para>The new password for the user.</para><para>This parameter must be omitted when you make the request with an <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html">AssumeRoot</a>
+        /// session. It is required in all other cases.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
         /// this parameter is a string of characters. That string can include almost any printable
         /// ASCII character from the space (<c>\u0020</c>) through the end of the ASCII character
         /// range (<c>\u00FF</c>). You can also include the tab (<c>\u0009</c>), line feed (<c>\u000A</c>),
@@ -67,14 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// within that tool.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Password { get; set; }
         #endregion
         
@@ -91,19 +85,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user to create a password for. The user must already exist.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// <para>The name of the IAM user to create a password for. The user must already exist.</para><para>This parameter is optional. If no user name is included, it defaults to the principal
+        /// making the request. When you make this request with root user credentials, you must
+        /// use an <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html">AssumeRoot</a>
+        /// session to omit the user name.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserName { get; set; }
         #endregion
         
@@ -150,20 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Password = this.Password;
-            #if MODULAR
-            if (this.Password == null && ParameterWasBound(nameof(this.Password)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PasswordResetRequired = this.PasswordResetRequired;
             context.UserName = this.UserName;
-            #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

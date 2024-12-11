@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceEventNotificationAttributes API operation.", Operation = new[] {"DescribeInstanceEventNotificationAttributes"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceEventNotificationAttributesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTagNotificationAttribute or Amazon.EC2.Model.DescribeInstanceEventNotificationAttributesResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceTagNotificationAttribute object.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceEventNotificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceEventNotificationAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceEventNotificationAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

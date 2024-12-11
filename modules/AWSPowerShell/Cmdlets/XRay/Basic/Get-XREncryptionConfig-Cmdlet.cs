@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray GetEncryptionConfig API operation.", Operation = new[] {"GetEncryptionConfig"}, SelectReturnType = typeof(Amazon.XRay.Model.GetEncryptionConfigResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.EncryptionConfig or Amazon.XRay.Model.GetEncryptionConfigResponse",
         "This cmdlet returns an Amazon.XRay.Model.EncryptionConfig object.",
-        "The service call response (type Amazon.XRay.Model.GetEncryptionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.XRay.Model.GetEncryptionConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetXREncryptionConfigCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

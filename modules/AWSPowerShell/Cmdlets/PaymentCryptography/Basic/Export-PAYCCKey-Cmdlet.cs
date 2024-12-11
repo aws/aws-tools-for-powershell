@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane ExportKey API operation.", Operation = new[] {"ExportKey"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.ExportKeyResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.WrappedKey or Amazon.PaymentCryptography.Model.ExportKeyResponse",
         "This cmdlet returns an Amazon.PaymentCryptography.Model.WrappedKey object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.ExportKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.ExportKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

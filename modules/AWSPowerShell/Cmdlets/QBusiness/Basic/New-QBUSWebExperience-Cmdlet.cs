@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.CreateWebExperienceResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness CreateWebExperience API operation.", Operation = new[] {"CreateWebExperience"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateWebExperienceResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.CreateWebExperienceResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.CreateWebExperienceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.CreateWebExperienceResponse object containing multiple properties."
     )]
     public partial class NewQBUSWebExperienceCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IdentityProviderConfiguration_SamlConfiguration_AuthenticationUrl")]
         public System.String SamlConfiguration_AuthenticationUrl { get; set; }
+        #endregion
+        
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// Amazon.QBusiness.Model.CreateWebExperienceRequest.Origins
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Origins")]
+        public System.String[] Origin { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
             context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
             context.SamlConfiguration_AuthenticationUrl = this.SamlConfiguration_AuthenticationUrl;
+            if (this.Origin != null)
+            {
+                context.Origin = new List<System.String>(this.Origin);
+            }
             context.RoleArn = this.RoleArn;
             context.SamplePromptsControlMode = this.SamplePromptsControlMode;
             context.Subtitle = this.Subtitle;
@@ -326,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.IdentityProviderConfiguration = null;
             }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origins = cmdletContext.Origin;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -416,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
             public System.String SamlConfiguration_AuthenticationUrl { get; set; }
+            public List<System.String> Origin { get; set; }
             public System.String RoleArn { get; set; }
             public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
             public System.String Subtitle { get; set; }

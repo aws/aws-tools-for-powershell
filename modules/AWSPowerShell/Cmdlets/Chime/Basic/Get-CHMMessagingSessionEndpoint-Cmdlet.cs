@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime GetMessagingSessionEndpoint API operation.", Operation = new[] {"GetMessagingSessionEndpoint"}, SelectReturnType = typeof(Amazon.Chime.Model.GetMessagingSessionEndpointResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.MessagingSessionEndpoint or Amazon.Chime.Model.GetMessagingSessionEndpointResponse",
         "This cmdlet returns an Amazon.Chime.Model.MessagingSessionEndpoint object.",
-        "The service call response (type Amazon.Chime.Model.GetMessagingSessionEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.GetMessagingSessionEndpointResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace")]
     public partial class GetCHMMessagingSessionEndpointCmdlet : AmazonChimeClientCmdlet, IExecutor

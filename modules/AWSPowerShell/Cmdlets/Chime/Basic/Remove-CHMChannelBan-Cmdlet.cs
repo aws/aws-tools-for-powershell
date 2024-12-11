@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteChannelBan API operation.", Operation = new[] {"DeleteChannelBan"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteChannelBanResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteChannelBanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteChannelBanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteChannelBanResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace")]
     public partial class RemoveCHMChannelBanCmdlet : AmazonChimeClientCmdlet, IExecutor

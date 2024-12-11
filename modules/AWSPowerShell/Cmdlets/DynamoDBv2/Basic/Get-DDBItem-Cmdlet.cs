@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB GetItem API operation.", Operation = new[] {"GetItem"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.GetItemResponse))]
     [AWSCmdletOutput("System.String or Amazon.DynamoDBv2.Model.GetItemResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.DynamoDBv2.Model.GetItemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.GetItemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBItemCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

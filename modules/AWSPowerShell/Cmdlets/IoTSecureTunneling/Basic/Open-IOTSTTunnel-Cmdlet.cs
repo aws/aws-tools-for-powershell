@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     [OutputType("Amazon.IoTSecureTunneling.Model.OpenTunnelResponse")]
     [AWSCmdlet("Calls the AWS IoT Secure Tunneling OpenTunnel API operation.", Operation = new[] {"OpenTunnel"}, SelectReturnType = typeof(Amazon.IoTSecureTunneling.Model.OpenTunnelResponse))]
     [AWSCmdletOutput("Amazon.IoTSecureTunneling.Model.OpenTunnelResponse",
-        "This cmdlet returns an Amazon.IoTSecureTunneling.Model.OpenTunnelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSecureTunneling.Model.OpenTunnelResponse object containing multiple properties."
     )]
     public partial class OpenIOTSTTunnelCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {

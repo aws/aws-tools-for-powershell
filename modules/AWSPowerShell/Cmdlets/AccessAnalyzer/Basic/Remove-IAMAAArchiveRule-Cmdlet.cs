@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer DeleteArchiveRule API operation.", Operation = new[] {"DeleteArchiveRule"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.DeleteArchiveRuleResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.DeleteArchiveRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.DeleteArchiveRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.DeleteArchiveRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMAAArchiveRuleCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

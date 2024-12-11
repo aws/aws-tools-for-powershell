@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.DeleteChannelResponse))]
     [AWSCmdletOutput("None or Amazon.MediaPackageV2.Model.DeleteChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaPackageV2.Model.DeleteChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackageV2.Model.DeleteChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMPV2ChannelCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

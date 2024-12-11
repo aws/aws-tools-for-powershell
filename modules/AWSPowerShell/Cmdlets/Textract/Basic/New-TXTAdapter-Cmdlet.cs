@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract CreateAdapter API operation.", Operation = new[] {"CreateAdapter"}, SelectReturnType = typeof(Amazon.Textract.Model.CreateAdapterResponse))]
     [AWSCmdletOutput("System.String or Amazon.Textract.Model.CreateAdapterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Textract.Model.CreateAdapterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.CreateAdapterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewTXTAdapterCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

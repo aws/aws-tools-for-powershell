@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DeleteAssociationResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteAssociation API operation.", Operation = new[] {"DeleteAssociation"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteAssociationResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DeleteAssociationResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DeleteAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DeleteAssociationResponse object containing multiple properties."
     )]
     public partial class RemoveSMAssociationCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

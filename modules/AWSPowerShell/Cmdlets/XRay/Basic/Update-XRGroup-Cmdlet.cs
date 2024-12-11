@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.XRay.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.Group or Amazon.XRay.Model.UpdateGroupResponse",
         "This cmdlet returns an Amazon.XRay.Model.Group object.",
-        "The service call response (type Amazon.XRay.Model.UpdateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.XRay.Model.UpdateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateXRGroupCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift CreateClusterParameterGroup API operation.", Operation = new[] {"CreateClusterParameterGroup"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateClusterParameterGroupResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterParameterGroup or Amazon.Redshift.Model.CreateClusterParameterGroupResponse",
         "This cmdlet returns an Amazon.Redshift.Model.ClusterParameterGroup object.",
-        "The service call response (type Amazon.Redshift.Model.CreateClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

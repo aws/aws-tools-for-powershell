@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue BatchPutDataQualityStatisticAnnotation API operation.", Operation = new[] {"BatchPutDataQualityStatisticAnnotation"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchPutDataQualityStatisticAnnotationResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.AnnotationError or Amazon.Glue.Model.BatchPutDataQualityStatisticAnnotationResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.AnnotationError objects.",
-        "The service call response (type Amazon.Glue.Model.BatchPutDataQualityStatisticAnnotationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.BatchPutDataQualityStatisticAnnotationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetGLUEBatchDataQualityStatisticAnnotationCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

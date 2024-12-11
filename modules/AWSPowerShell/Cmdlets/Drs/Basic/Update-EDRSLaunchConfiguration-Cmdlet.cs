@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [OutputType("Amazon.Drs.Model.UpdateLaunchConfigurationResponse")]
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service UpdateLaunchConfiguration API operation.", Operation = new[] {"UpdateLaunchConfiguration"}, SelectReturnType = typeof(Amazon.Drs.Model.UpdateLaunchConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.UpdateLaunchConfigurationResponse",
-        "This cmdlet returns an Amazon.Drs.Model.UpdateLaunchConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Drs.Model.UpdateLaunchConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateEDRSLaunchConfigurationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

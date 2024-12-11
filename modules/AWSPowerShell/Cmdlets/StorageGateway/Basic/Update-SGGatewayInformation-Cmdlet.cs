@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateGatewayInformation API operation.", Operation = new[] {"UpdateGatewayInformation"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateGatewayInformationResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.UpdateGatewayInformationResponse object containing multiple properties."
     )]
     public partial class UpdateSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

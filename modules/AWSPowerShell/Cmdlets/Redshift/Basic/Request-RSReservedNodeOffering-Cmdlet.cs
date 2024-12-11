@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift PurchaseReservedNodeOffering API operation.", Operation = new[] {"PurchaseReservedNodeOffering"}, SelectReturnType = typeof(Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode or Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse",
         "This cmdlet returns an Amazon.Redshift.Model.ReservedNode object.",
-        "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

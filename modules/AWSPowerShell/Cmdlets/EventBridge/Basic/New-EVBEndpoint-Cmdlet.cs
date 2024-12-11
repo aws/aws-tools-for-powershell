@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.CreateEndpointResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge CreateEndpoint API operation.", Operation = new[] {"CreateEndpoint"}, SelectReturnType = typeof(Amazon.EventBridge.Model.CreateEndpointResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.CreateEndpointResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.CreateEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.CreateEndpointResponse object containing multiple properties."
     )]
     public partial class NewEVBEndpointCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

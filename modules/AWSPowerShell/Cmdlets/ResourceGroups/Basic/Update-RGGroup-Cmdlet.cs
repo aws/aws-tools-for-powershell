@@ -41,12 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.Group or Amazon.ResourceGroups.Model.UpdateGroupResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.Group object.",
-        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Criticality
+        /// <summary>
+        /// <para>
+        /// <para>The critical rank of the application group on a scale of 1 to 10, with a rank of 1
+        /// being the most critical, and a rank of 10 being least critical.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Criticality { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -59,10 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the application group, which you can change at any time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
+        #endregion
+        
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to modify.</para>
+        /// <para>The name or the ARN of the resource group to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.String GroupName { get; set; }
         #endregion
         
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>A name, email address or other identifier for the person or group who is considered
+        /// as the owner of this application group within your organization. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Owner { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Group'.
@@ -91,6 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Group";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Description parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Description' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Description' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -119,16 +161,29 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.UpdateGroupResponse, UpdateRGGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Description;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Criticality = this.Criticality;
             context.Description = this.Description;
+            context.DisplayName = this.DisplayName;
             context.Group = this.Group;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Owner = this.Owner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,9 +200,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // create request
             var request = new Amazon.ResourceGroups.Model.UpdateGroupRequest();
             
+            if (cmdletContext.Criticality != null)
+            {
+                request.Criticality = cmdletContext.Criticality.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
             }
             if (cmdletContext.Group != null)
             {
@@ -159,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 request.GroupName = cmdletContext.GroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
+            }
             
             CmdletOutput output;
             
@@ -220,10 +287,13 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? Criticality { get; set; }
             public System.String Description { get; set; }
+            public System.String DisplayName { get; set; }
             public System.String Group { get; set; }
             [System.ObsoleteAttribute]
             public System.String GroupName { get; set; }
+            public System.String Owner { get; set; }
             public System.Func<Amazon.ResourceGroups.Model.UpdateGroupResponse, UpdateRGGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Group;
         }

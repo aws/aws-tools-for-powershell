@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     [OutputType("Amazon.KafkaConnect.Model.CreateCustomPluginResponse")]
     [AWSCmdlet("Calls the Managed Streaming for Kafka Connect CreateCustomPlugin API operation.", Operation = new[] {"CreateCustomPlugin"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.CreateCustomPluginResponse))]
     [AWSCmdletOutput("Amazon.KafkaConnect.Model.CreateCustomPluginResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.CreateCustomPluginResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KafkaConnect.Model.CreateCustomPluginResponse object containing multiple properties."
     )]
     public partial class NewMSKCCustomPluginCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {

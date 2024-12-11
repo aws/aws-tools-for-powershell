@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector DeleteDetectorVersion API operation.", Operation = new[] {"DeleteDetectorVersion"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.DeleteDetectorVersionResponse))]
     [AWSCmdletOutput("None or Amazon.FraudDetector.Model.DeleteDetectorVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.DeleteDetectorVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.DeleteDetectorVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFDDetectorVersionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

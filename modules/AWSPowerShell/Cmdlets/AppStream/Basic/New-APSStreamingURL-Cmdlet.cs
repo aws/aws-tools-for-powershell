@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
     [AWSCmdlet("Calls the Amazon AppStream CreateStreamingURL API operation.", Operation = new[] {"CreateStreamingURL"}, SelectReturnType = typeof(Amazon.AppStream.Model.CreateStreamingURLResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.CreateStreamingURLResponse",
-        "This cmdlet returns an Amazon.AppStream.Model.CreateStreamingURLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppStream.Model.CreateStreamingURLResponse object containing multiple properties."
     )]
     public partial class NewAPSStreamingURLCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

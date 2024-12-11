@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [OutputType("Amazon.ResourceExplorer2.Model.DeleteIndexResponse")]
     [AWSCmdlet("Calls the AWS Resource Explorer DeleteIndex API operation.", Operation = new[] {"DeleteIndex"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.DeleteIndexResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.DeleteIndexResponse",
-        "This cmdlet returns an Amazon.ResourceExplorer2.Model.DeleteIndexResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceExplorer2.Model.DeleteIndexResponse object containing multiple properties."
     )]
     public partial class RemoveAREXIndexCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

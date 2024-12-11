@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation ValidateTemplate API operation.", Operation = new[] {"ValidateTemplate"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ValidateTemplateResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.ValidateTemplateResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.ValidateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.ValidateTemplateResponse object containing multiple properties."
     )]
     public partial class TestCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
-        /// length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// length of 51,200 bytes.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
@@ -61,9 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
         /// size: 460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document.
-        /// For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>. The location for an Amazon S3
-        /// bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// The location for an Amazon S3 bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>

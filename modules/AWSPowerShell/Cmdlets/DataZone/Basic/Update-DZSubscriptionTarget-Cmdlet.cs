@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.UpdateSubscriptionTargetResponse")]
     [AWSCmdlet("Calls the Amazon DataZone UpdateSubscriptionTarget API operation.", Operation = new[] {"UpdateSubscriptionTarget"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateSubscriptionTargetResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.UpdateSubscriptionTargetResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.UpdateSubscriptionTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.UpdateSubscriptionTargetResponse object containing multiple properties."
     )]
     public partial class UpdateDZSubscriptionTargetCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     [AWSCmdlet("Calls the AWS Telco Network Builder UpdateSolNetworkPackage API operation.", Operation = new[] {"UpdateSolNetworkPackage"}, SelectReturnType = typeof(Amazon.Tnb.Model.UpdateSolNetworkPackageResponse))]
     [AWSCmdletOutput("Amazon.Tnb.NsdOperationalState or Amazon.Tnb.Model.UpdateSolNetworkPackageResponse",
         "This cmdlet returns an Amazon.Tnb.NsdOperationalState object.",
-        "The service call response (type Amazon.Tnb.Model.UpdateSolNetworkPackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Tnb.Model.UpdateSolNetworkPackageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTNBSolNetworkPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {

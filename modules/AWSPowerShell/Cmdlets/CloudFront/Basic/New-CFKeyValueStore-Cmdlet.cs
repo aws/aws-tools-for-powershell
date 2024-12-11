@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateKeyValueStoreResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateKeyValueStore API operation.", Operation = new[] {"CreateKeyValueStore"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateKeyValueStoreResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateKeyValueStoreResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateKeyValueStoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateKeyValueStoreResponse object containing multiple properties."
     )]
     public partial class NewCFKeyValueStoreCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

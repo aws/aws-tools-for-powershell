@@ -42,13 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Update the distribution configuration that was returned in the response. Note the
     /// following important requirements and restrictions:
     /// </para><ul><li><para>
-    /// You must rename the <c>ETag</c> field to <c>IfMatch</c>, leaving the value unchanged.
-    /// (Set the value of <c>IfMatch</c> to the value of <c>ETag</c>, then remove the <c>ETag</c>
-    /// field.)
+    /// You must copy the <c>ETag</c> field value from the response. (You'll use it for the
+    /// <c>IfMatch</c> parameter in your request.) Then, remove the <c>ETag</c> field from
+    /// the distribution configuration.
     /// </para></li><li><para>
     /// You can't change the value of <c>CallerReference</c>.
     /// </para></li></ul></li><li><para>
-    /// Submit an <c>UpdateDistribution</c> request, providing the distribution configuration.
+    /// Submit an <c>UpdateDistribution</c> request, providing the updated distribution configuration.
     /// The new configuration replaces the existing configuration. The values that you specify
     /// in an <c>UpdateDistribution</c> request are not merged into your existing configuration.
     /// Make sure to include all fields: the ones that you modified and also the ones that
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateDistribution API operation.", Operation = new[] {"UpdateDistribution"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateDistributionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Distribution or Amazon.CloudFront.Model.UpdateDistributionResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.Distribution object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateDistributionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

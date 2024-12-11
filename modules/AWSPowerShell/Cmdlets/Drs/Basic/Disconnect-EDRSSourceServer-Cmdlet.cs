@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [OutputType("Amazon.Drs.Model.DisconnectSourceServerResponse")]
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service DisconnectSourceServer API operation.", Operation = new[] {"DisconnectSourceServer"}, SelectReturnType = typeof(Amazon.Drs.Model.DisconnectSourceServerResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.DisconnectSourceServerResponse",
-        "This cmdlet returns an Amazon.Drs.Model.DisconnectSourceServerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Drs.Model.DisconnectSourceServerResponse object containing multiple properties."
     )]
     public partial class DisconnectEDRSSourceServerCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

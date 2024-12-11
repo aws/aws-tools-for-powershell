@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service CreateOutboundConnection API operation.", Operation = new[] {"CreateOutboundConnection"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse object containing multiple properties."
     )]
     public partial class NewOSOutboundConnectionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

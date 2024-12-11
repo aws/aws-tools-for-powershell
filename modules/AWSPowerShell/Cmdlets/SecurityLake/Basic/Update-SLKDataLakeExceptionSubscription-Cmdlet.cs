@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake UpdateDataLakeExceptionSubscription API operation.", Operation = new[] {"UpdateDataLakeExceptionSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateDataLakeExceptionSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityLake.Model.UpdateDataLakeExceptionSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.UpdateDataLakeExceptionSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.UpdateDataLakeExceptionSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ExceptionTimeToLive
         /// <summary>
         /// <para>
-        /// <para>The time-to-live (TTL) for the exception message to remain.</para>
+        /// <para>The time-to-live (TTL) for the exception message to remain. It is the duration of
+        /// time until which the exception message remains. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

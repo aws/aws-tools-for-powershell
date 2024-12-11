@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) RejectClientVpcConnection API operation.", Operation = new[] {"RejectClientVpcConnection"}, SelectReturnType = typeof(Amazon.Kafka.Model.RejectClientVpcConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.Kafka.Model.RejectClientVpcConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kafka.Model.RejectClientVpcConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kafka.Model.RejectClientVpcConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyMSKClientVpcConnectionCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

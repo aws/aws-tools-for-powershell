@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreateInputSecurityGroup API operation.", Operation = new[] {"CreateInputSecurityGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreateInputSecurityGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.InputSecurityGroup or Amazon.MediaLive.Model.CreateInputSecurityGroupResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.InputSecurityGroup object.",
-        "The service call response (type Amazon.MediaLive.Model.CreateInputSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.CreateInputSecurityGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEMLInputSecurityGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

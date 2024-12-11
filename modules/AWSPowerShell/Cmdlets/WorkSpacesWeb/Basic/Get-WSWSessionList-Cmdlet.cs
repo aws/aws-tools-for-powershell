@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web ListSessions API operation.", Operation = new[] {"ListSessions"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.ListSessionsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.SessionSummary or Amazon.WorkSpacesWeb.Model.ListSessionsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpacesWeb.Model.SessionSummary objects.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.ListSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.ListSessionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSWSessionListCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

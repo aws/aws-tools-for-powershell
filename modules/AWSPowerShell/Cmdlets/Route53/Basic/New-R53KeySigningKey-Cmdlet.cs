@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateKeySigningKeyResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 CreateKeySigningKey API operation.", Operation = new[] {"CreateKeySigningKey"}, SelectReturnType = typeof(Amazon.Route53.Model.CreateKeySigningKeyResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateKeySigningKeyResponse",
-        "This cmdlet returns an Amazon.Route53.Model.CreateKeySigningKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.CreateKeySigningKeyResponse object containing multiple properties."
     )]
     public partial class NewR53KeySigningKeyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

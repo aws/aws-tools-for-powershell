@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) AcceptResourceShareInvitation API operation.", Operation = new[] {"AcceptResourceShareInvitation"}, SelectReturnType = typeof(Amazon.RAM.Model.AcceptResourceShareInvitationResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceShareInvitation or Amazon.RAM.Model.AcceptResourceShareInvitationResponse",
         "This cmdlet returns an Amazon.RAM.Model.ResourceShareInvitation object.",
-        "The service call response (type Amazon.RAM.Model.AcceptResourceShareInvitationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.AcceptResourceShareInvitationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmRAMResourceShareInvitationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline DeletePipeline API operation.", Operation = new[] {"DeletePipeline"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.DeletePipelineResponse))]
     [AWSCmdletOutput("None or Amazon.DataPipeline.Model.DeletePipelineResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataPipeline.Model.DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.DeletePipelineResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

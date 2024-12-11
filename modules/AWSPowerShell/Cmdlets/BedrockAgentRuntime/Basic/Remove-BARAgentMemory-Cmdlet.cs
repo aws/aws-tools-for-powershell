@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     [AWSCmdlet("Calls the Amazon Bedrock Agent Runtime DeleteAgentMemory API operation.", Operation = new[] {"DeleteAgentMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentRuntime.Model.DeleteAgentMemoryResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgentRuntime.Model.DeleteAgentMemoryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgentRuntime.Model.DeleteAgentMemoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BedrockAgentRuntime.Model.DeleteAgentMemoryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBARAgentMemoryCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {

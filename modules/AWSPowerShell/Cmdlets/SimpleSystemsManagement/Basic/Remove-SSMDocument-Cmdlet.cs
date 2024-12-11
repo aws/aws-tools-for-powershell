@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeleteDocument API operation.", Operation = new[] {"DeleteDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

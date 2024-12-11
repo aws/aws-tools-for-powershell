@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DeleteLicenseEndpoint API operation.", Operation = new[] {"DeleteLicenseEndpoint"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteLicenseEndpointResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteLicenseEndpointResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteLicenseEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DeleteLicenseEndpointResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCLicenseEndpointCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

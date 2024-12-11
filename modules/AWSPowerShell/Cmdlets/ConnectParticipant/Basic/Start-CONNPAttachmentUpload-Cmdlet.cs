@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [OutputType("Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse")]
     [AWSCmdlet("Calls the Amazon Connect Participant Service StartAttachmentUpload API operation.", Operation = new[] {"StartAttachmentUpload"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse))]
     [AWSCmdletOutput("Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectParticipant.Model.StartAttachmentUploadResponse object containing multiple properties."
     )]
     public partial class StartCONNPAttachmentUploadCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

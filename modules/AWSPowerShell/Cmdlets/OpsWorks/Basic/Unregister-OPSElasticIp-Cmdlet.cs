@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeregisterElasticIp API operation.", Operation = new[] {"DeregisterElasticIp"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeregisterElasticIpResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeregisterElasticIpResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterElasticIpResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

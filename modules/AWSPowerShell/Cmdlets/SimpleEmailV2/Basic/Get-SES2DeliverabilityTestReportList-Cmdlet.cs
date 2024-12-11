@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) ListDeliverabilityTestReports API operation.", Operation = new[] {"ListDeliverabilityTestReports"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DeliverabilityTestReport or Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.DeliverabilityTestReport objects.",
-        "The service call response (type Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmailV2.Model.ListDeliverabilityTestReportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSES2DeliverabilityTestReportListCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

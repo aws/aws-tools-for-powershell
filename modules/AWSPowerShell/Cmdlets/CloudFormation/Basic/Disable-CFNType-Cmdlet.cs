@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeactivateType API operation.", Operation = new[] {"DeactivateType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeactivateTypeResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeactivateTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeactivateTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeactivateTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

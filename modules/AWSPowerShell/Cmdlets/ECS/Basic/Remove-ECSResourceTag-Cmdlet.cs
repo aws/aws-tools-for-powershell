@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Calls the Amazon EC2 Container Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ECS.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ECS.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ECS.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ECS.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveECSResourceTagCmdlet : AmazonECSClientCmdlet, IExecutor
     {

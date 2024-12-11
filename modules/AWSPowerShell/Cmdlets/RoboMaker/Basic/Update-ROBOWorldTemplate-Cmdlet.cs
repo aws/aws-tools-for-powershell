@@ -28,13 +28,22 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
     /// Updates a world template.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "ROBOWorldTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.UpdateWorldTemplateResponse")]
     [AWSCmdlet("Calls the AWS RoboMaker UpdateWorldTemplate API operation.", Operation = new[] {"UpdateWorldTemplate"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.UpdateWorldTemplateResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.UpdateWorldTemplateResponse",
-        "This cmdlet returns an Amazon.RoboMaker.Model.UpdateWorldTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RoboMaker.Model.UpdateWorldTemplateResponse object containing multiple properties."
     )]
     public partial class UpdateROBOWorldTemplateCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [OutputType("Amazon.QLDB.Model.UpdateLedgerResponse")]
     [AWSCmdlet("Calls the Amazon QLDB UpdateLedger API operation.", Operation = new[] {"UpdateLedger"}, SelectReturnType = typeof(Amazon.QLDB.Model.UpdateLedgerResponse))]
     [AWSCmdletOutput("Amazon.QLDB.Model.UpdateLedgerResponse",
-        "This cmdlet returns an Amazon.QLDB.Model.UpdateLedgerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QLDB.Model.UpdateLedgerResponse object containing multiple properties."
     )]
     public partial class UpdateQLDBLedgerCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

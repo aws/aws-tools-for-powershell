@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private DeleteSpace API operation.", Operation = new[] {"DeleteSpace"}, SelectReturnType = typeof(Amazon.Repostspace.Model.DeleteSpaceResponse))]
     [AWSCmdletOutput("None or Amazon.Repostspace.Model.DeleteSpaceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Repostspace.Model.DeleteSpaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Repostspace.Model.DeleteSpaceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRESPSpaceCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

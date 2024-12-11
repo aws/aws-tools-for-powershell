@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision UpdateDatasetEntries API operation.", Operation = new[] {"UpdateDatasetEntries"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.UpdateDatasetEntriesResponse))]
     [AWSCmdletOutput("Amazon.LookoutforVision.DatasetStatus or Amazon.LookoutforVision.Model.UpdateDatasetEntriesResponse",
         "This cmdlet returns an Amazon.LookoutforVision.DatasetStatus object.",
-        "The service call response (type Amazon.LookoutforVision.Model.UpdateDatasetEntriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.UpdateDatasetEntriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateLFVDatasetEntryCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

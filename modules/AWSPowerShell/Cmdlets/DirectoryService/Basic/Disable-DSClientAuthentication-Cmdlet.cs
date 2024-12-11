@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DisableClientAuthentication API operation.", Operation = new[] {"DisableClientAuthentication"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DisableClientAuthenticationResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DisableClientAuthenticationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DisableClientAuthenticationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DisableClientAuthenticationResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableDSClientAuthenticationCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

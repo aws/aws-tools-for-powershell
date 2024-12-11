@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric UpdateIngestionDestination API operation.", Operation = new[] {"UpdateIngestionDestination"}, SelectReturnType = typeof(Amazon.AppFabric.Model.UpdateIngestionDestinationResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.IngestionDestination or Amazon.AppFabric.Model.UpdateIngestionDestinationResponse",
         "This cmdlet returns an Amazon.AppFabric.Model.IngestionDestination object.",
-        "The service call response (type Amazon.AppFabric.Model.UpdateIngestionDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.UpdateIngestionDestinationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAFABIngestionDestinationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

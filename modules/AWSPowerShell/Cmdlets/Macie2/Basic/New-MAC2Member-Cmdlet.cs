@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 CreateMember API operation.", Operation = new[] {"CreateMember"}, SelectReturnType = typeof(Amazon.Macie2.Model.CreateMemberResponse))]
     [AWSCmdletOutput("System.String or Amazon.Macie2.Model.CreateMemberResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Macie2.Model.CreateMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.CreateMemberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMAC2MemberCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

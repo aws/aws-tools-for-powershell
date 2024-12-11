@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListRepositories API operation.", Operation = new[] {"ListRepositories"}, SelectReturnType = typeof(Amazon.Proton.Model.ListRepositoriesResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.RepositorySummary or Amazon.Proton.Model.ListRepositoriesResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.RepositorySummary objects.",
-        "The service call response (type Amazon.Proton.Model.ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListRepositoriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPRORepositoryListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

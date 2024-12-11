@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeleteApplicationAccessScope API operation.", Operation = new[] {"DeleteApplicationAccessScope"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeleteApplicationAccessScopeResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DeleteApplicationAccessScopeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DeleteApplicationAccessScopeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DeleteApplicationAccessScopeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNApplicationAccessScopeCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

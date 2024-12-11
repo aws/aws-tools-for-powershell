@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DeleteFaces API operation.", Operation = new[] {"DeleteFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteFacesResponse))]
     [AWSCmdletOutput("System.String or Amazon.Rekognition.Model.DeleteFacesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Rekognition.Model.DeleteFacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.DeleteFacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveREKFaceCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

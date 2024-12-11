@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing DescribeInstanceHealth API operation.", Operation = new[] {"DescribeInstanceHealth"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.InstanceState or Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancing.Model.InstanceState objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetELBInstanceHealthCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

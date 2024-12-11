@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat ListRooms API operation.", Operation = new[] {"ListRooms"}, SelectReturnType = typeof(Amazon.Ivschat.Model.ListRoomsResponse))]
     [AWSCmdletOutput("Amazon.Ivschat.Model.RoomSummary or Amazon.Ivschat.Model.ListRoomsResponse",
         "This cmdlet returns a collection of Amazon.Ivschat.Model.RoomSummary objects.",
-        "The service call response (type Amazon.Ivschat.Model.ListRoomsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Ivschat.Model.ListRoomsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSCRoomListCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

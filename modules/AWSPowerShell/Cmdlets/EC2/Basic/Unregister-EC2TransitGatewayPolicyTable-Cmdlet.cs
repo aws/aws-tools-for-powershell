@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateTransitGatewayPolicyTable API operation.", Operation = new[] {"DisassociateTransitGatewayPolicyTable"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateTransitGatewayPolicyTableResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayPolicyTableAssociation or Amazon.EC2.Model.DisassociateTransitGatewayPolicyTableResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayPolicyTableAssociation object.",
-        "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayPolicyTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisassociateTransitGatewayPolicyTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEC2TransitGatewayPolicyTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

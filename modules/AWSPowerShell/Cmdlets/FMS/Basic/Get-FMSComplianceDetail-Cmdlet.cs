@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service GetComplianceDetail API operation.", Operation = new[] {"GetComplianceDetail"}, SelectReturnType = typeof(Amazon.FMS.Model.GetComplianceDetailResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.PolicyComplianceDetail or Amazon.FMS.Model.GetComplianceDetailResponse",
         "This cmdlet returns an Amazon.FMS.Model.PolicyComplianceDetail object.",
-        "The service call response (type Amazon.FMS.Model.GetComplianceDetailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.GetComplianceDetailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSComplianceDetailCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

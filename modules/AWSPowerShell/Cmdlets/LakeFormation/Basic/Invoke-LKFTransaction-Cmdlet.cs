@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation ExtendTransaction API operation.", Operation = new[] {"ExtendTransaction"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.ExtendTransactionResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.ExtendTransactionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.ExtendTransactionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.ExtendTransactionResponse) be returned by specifying '-Select *'."
     )]
     public partial class InvokeLKFTransactionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

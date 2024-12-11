@@ -28,24 +28,27 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Gets information about an inference profile. For more information, see the Amazon
-    /// Bedrock User Guide.
+    /// Gets information about an inference profile. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">Increase
+    /// throughput and resilience with cross-region inference in Amazon Bedrock</a>. in the
+    /// Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "BDRInferenceProfile")]
     [OutputType("Amazon.Bedrock.Model.GetInferenceProfileResponse")]
     [AWSCmdlet("Calls the Amazon Bedrock GetInferenceProfile API operation.", Operation = new[] {"GetInferenceProfile"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetInferenceProfileResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.GetInferenceProfileResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetInferenceProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Bedrock.Model.GetInferenceProfileResponse object containing multiple properties."
     )]
     public partial class GetBDRInferenceProfileCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter InferenceProfileIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the inference profile.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the inference profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

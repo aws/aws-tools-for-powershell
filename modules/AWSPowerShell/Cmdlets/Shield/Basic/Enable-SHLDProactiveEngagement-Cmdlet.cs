@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield EnableProactiveEngagement API operation.", Operation = new[] {"EnableProactiveEngagement"}, SelectReturnType = typeof(Amazon.Shield.Model.EnableProactiveEngagementResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.EnableProactiveEngagementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.EnableProactiveEngagementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.EnableProactiveEngagementResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableSHLDProactiveEngagementCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

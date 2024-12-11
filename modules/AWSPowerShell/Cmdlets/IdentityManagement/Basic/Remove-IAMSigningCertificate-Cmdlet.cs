@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteSigningCertificate API operation.", Operation = new[] {"DeleteSigningCertificate"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMSigningCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

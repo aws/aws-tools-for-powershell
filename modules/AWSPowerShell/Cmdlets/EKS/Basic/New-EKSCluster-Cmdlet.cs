@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.EKS.Model.CreateClusterResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Cluster or Amazon.EKS.Model.CreateClusterResponse",
         "This cmdlet returns an Amazon.EKS.Model.Cluster object.",
-        "The service call response (type Amazon.EKS.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.CreateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEKSClusterCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
@@ -158,6 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
         #endregion
         
+        #region Parameter ZonalShiftConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the
+        /// cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfig
         /// <summary>
         /// <para>
@@ -206,7 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The unique name to give to your cluster.</para>
+        /// <para>The unique name to give to your cluster. The name can contain only alphanumeric characters
+        /// (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character
+        /// and can't be longer than 100 characters. The name must be unique within the Amazon
+        /// Web Services Region and Amazon Web Services account that you're creating the cluster
+        /// in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -422,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             context.UpgradePolicy_SupportType = this.UpgradePolicy_SupportType;
             context.Version = this.Version;
+            context.ZonalShiftConfig_Enabled = this.ZonalShiftConfig_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -621,6 +637,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.Version = cmdletContext.Version;
             }
             
+             // populate ZonalShiftConfig
+            var requestZonalShiftConfigIsNull = true;
+            request.ZonalShiftConfig = new Amazon.EKS.Model.ZonalShiftConfigRequest();
+            System.Boolean? requestZonalShiftConfig_zonalShiftConfig_Enabled = null;
+            if (cmdletContext.ZonalShiftConfig_Enabled != null)
+            {
+                requestZonalShiftConfig_zonalShiftConfig_Enabled = cmdletContext.ZonalShiftConfig_Enabled.Value;
+            }
+            if (requestZonalShiftConfig_zonalShiftConfig_Enabled != null)
+            {
+                request.ZonalShiftConfig.Enabled = requestZonalShiftConfig_zonalShiftConfig_Enabled.Value;
+                requestZonalShiftConfigIsNull = false;
+            }
+             // determine if request.ZonalShiftConfig should be set to null
+            if (requestZonalShiftConfigIsNull)
+            {
+                request.ZonalShiftConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -698,6 +733,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
             public System.String Version { get; set; }
+            public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
             public System.Func<Amazon.EKS.Model.CreateClusterResponse, NewEKSClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

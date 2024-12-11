@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves the resource capacity settings for a fleet location. The data returned includes
     /// the current capacity (number of EC2 instances) and some scaling settings for the requested
-    /// fleet location. For a container fleet, this operation also returns counts for replica
-    /// container groups.
+    /// fleet location. For a managed container fleet, this operation also returns counts
+    /// for game server container groups.
     /// 
     ///  
     /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeFleetLocationCapacity API operation.", Operation = new[] {"DescribeFleetLocationCapacity"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeFleetLocationCapacityResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.FleetCapacity or Amazon.GameLift.Model.DescribeFleetLocationCapacityResponse",
         "This cmdlet returns an Amazon.GameLift.Model.FleetCapacity object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetLocationCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeFleetLocationCapacityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLFleetLocationCapacityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

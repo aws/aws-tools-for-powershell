@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service EnableLDAPS API operation.", Operation = new[] {"EnableLDAPS"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.EnableLDAPSResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.EnableLDAPSResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.EnableLDAPSResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.EnableLDAPSResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableDSLDAPSCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

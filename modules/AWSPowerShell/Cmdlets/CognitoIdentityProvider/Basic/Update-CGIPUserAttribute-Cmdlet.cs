@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider UpdateUserAttributes API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"UpdateUserAttributes"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.UpdateUserAttributesResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType or Amazon.CognitoIdentityProvider.Model.UpdateUserAttributesResponse",
         "This cmdlet returns a collection of Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType objects.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateUserAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateUserAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCGIPUserAttributeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

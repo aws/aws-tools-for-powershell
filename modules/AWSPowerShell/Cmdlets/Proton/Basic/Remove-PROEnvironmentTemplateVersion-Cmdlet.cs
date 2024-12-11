@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton DeleteEnvironmentTemplateVersion API operation.", Operation = new[] {"DeleteEnvironmentTemplateVersion"}, SelectReturnType = typeof(Amazon.Proton.Model.DeleteEnvironmentTemplateVersionResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.EnvironmentTemplateVersion or Amazon.Proton.Model.DeleteEnvironmentTemplateVersionResponse",
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentTemplateVersion object.",
-        "The service call response (type Amazon.Proton.Model.DeleteEnvironmentTemplateVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.DeleteEnvironmentTemplateVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePROEnvironmentTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

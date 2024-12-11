@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service GetInstanceAccess API operation.", Operation = new[] {"GetInstanceAccess"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetInstanceAccessResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.InstanceAccess or Amazon.GameLift.Model.GetInstanceAccessResponse",
         "This cmdlet returns an Amazon.GameLift.Model.InstanceAccess object.",
-        "The service call response (type Amazon.GameLift.Model.GetInstanceAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.GetInstanceAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLInstanceAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

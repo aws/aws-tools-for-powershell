@@ -28,14 +28,15 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Lists the knowledge bases in an account and information about each of them.
+    /// Lists the knowledge bases in an account. The list also includesinformation about each
+    /// knowledge base.
     /// </summary>
     [Cmdlet("Get", "AABKnowledgeBasisList")]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBaseSummary")]
     [AWSCmdlet("Calls the Agents for Amazon Bedrock ListKnowledgeBases API operation.", Operation = new[] {"ListKnowledgeBases"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.ListKnowledgeBasesResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.KnowledgeBaseSummary or Amazon.BedrockAgent.Model.ListKnowledgeBasesResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgent.Model.KnowledgeBaseSummary objects.",
-        "The service call response (type Amazon.BedrockAgent.Model.ListKnowledgeBasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.ListKnowledgeBasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAABKnowledgeBasisListCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

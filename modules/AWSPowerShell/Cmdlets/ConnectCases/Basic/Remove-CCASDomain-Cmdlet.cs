@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.DeleteDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.DeleteDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

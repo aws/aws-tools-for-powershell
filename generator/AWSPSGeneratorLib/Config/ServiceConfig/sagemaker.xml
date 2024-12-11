@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteClusterNodes" OutputProperty="*" Verb="Set" Noun="DeleteClusterNode" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDescribeModelPackage" OutputProperty="*" Verb="Get" Noun="DescribeModelPackage" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

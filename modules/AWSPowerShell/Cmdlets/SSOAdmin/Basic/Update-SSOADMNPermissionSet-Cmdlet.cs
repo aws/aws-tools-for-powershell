@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin UpdatePermissionSet API operation.", Operation = new[] {"UpdatePermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.UpdatePermissionSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.UpdatePermissionSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.UpdatePermissionSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.UpdatePermissionSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSOADMNPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

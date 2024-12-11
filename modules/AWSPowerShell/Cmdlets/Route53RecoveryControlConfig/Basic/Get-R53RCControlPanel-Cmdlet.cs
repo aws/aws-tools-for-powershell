@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config DescribeControlPanel API operation.", Operation = new[] {"DescribeControlPanel"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.DescribeControlPanelResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.ControlPanel or Amazon.Route53RecoveryControlConfig.Model.DescribeControlPanelResponse",
         "This cmdlet returns an Amazon.Route53RecoveryControlConfig.Model.ControlPanel object.",
-        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.DescribeControlPanelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.DescribeControlPanelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RCControlPanelCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

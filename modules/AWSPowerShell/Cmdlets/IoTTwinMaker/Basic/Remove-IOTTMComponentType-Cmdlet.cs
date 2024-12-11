@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [AWSCmdlet("Calls the AWS IoT TwinMaker DeleteComponentType API operation.", Operation = new[] {"DeleteComponentType"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.DeleteComponentTypeResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.State or Amazon.IoTTwinMaker.Model.DeleteComponentTypeResponse",
         "This cmdlet returns an Amazon.IoTTwinMaker.State object.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteComponentTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteComponentTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTTMComponentTypeCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

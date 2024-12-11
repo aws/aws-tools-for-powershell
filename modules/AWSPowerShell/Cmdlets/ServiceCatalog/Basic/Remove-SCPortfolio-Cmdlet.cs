@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DeletePortfolio API operation.", Operation = new[] {"DeletePortfolio"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DeletePortfolioResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DeletePortfolioResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DeletePortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DeletePortfolioResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     [OutputType("Amazon.AWSMarketplaceMetering.Model.RegisterUsageResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Metering RegisterUsage API operation.", Operation = new[] {"RegisterUsage"}, SelectReturnType = typeof(Amazon.AWSMarketplaceMetering.Model.RegisterUsageResponse))]
     [AWSCmdletOutput("Amazon.AWSMarketplaceMetering.Model.RegisterUsageResponse",
-        "This cmdlet returns an Amazon.AWSMarketplaceMetering.Model.RegisterUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AWSMarketplaceMetering.Model.RegisterUsageResponse object containing multiple properties."
     )]
     public partial class RegisterMMUsageCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {

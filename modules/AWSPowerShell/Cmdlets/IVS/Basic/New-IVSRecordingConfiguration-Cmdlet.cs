@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service CreateRecordingConfiguration API operation.", Operation = new[] {"CreateRecordingConfiguration"}, SelectReturnType = typeof(Amazon.IVS.Model.CreateRecordingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.RecordingConfiguration or Amazon.IVS.Model.CreateRecordingConfigurationResponse",
         "This cmdlet returns an Amazon.IVS.Model.RecordingConfiguration object.",
-        "The service call response (type Amazon.IVS.Model.CreateRecordingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.CreateRecordingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIVSRecordingConfigurationCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         /// <summary>
         /// <para>
         /// <para>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
-        /// only if <c>recordingMode</c> is <c>INTERVAL</c>. Default: 60.</para><para><b>Important:</b> For the <c>BASIC</c> channel type, setting a value for <c>targetIntervalSeconds</c>
-        /// does not guarantee that thumbnails are generated at the specified interval. For thumbnails
+        /// only if <c>recordingMode</c> is <c>INTERVAL</c>. Default: 60.</para><para><b>Important:</b> For the <c>BASIC</c> channel type, or the <c>STANDARD</c> channel
+        /// type with multitrack input, setting a value for <c>targetIntervalSeconds</c> does
+        /// not guarantee that thumbnails are generated at the specified interval. For thumbnails
         /// to be generated at the <c>targetIntervalSeconds</c> interval, the <c>IDR/Keyframe</c>
         /// value for the input video must be less than the <c>targetIntervalSeconds</c> value.
         /// See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html">

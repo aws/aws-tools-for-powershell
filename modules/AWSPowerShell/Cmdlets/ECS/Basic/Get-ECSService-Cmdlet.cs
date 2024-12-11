@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DescribeServicesResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service DescribeServices API operation.", Operation = new[] {"DescribeServices"}, SelectReturnType = typeof(Amazon.ECS.Model.DescribeServicesResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResponse",
-        "This cmdlet returns an Amazon.ECS.Model.DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.DescribeServicesResponse object containing multiple properties."
     )]
     public partial class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {

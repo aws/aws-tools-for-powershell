@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProtectConfigurationRuleSetNumberOverride" OutputProperty="*" Verb="Remove" Noun="ProtectConfigurationRuleSetNumberOverride" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRegistration" OutputProperty="*" Verb="Remove" Noun="Registration" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -239,6 +243,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectConfigurationRuleSetNumberOverrides" OutputProperty="*" Verb="Get" Noun="ProtectConfigurationRuleSetNumberOverrideList" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRegistrationAssociations" OutputProperty="*" Verb="Get" Noun="RegistrationAssociationList" PipelineParameter="RegistrationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -251,7 +259,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutMessageFeedback" OutputProperty="*" Verb="Write" Noun="MessageFeedback" ShouldProcessTarget="MessageId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutOptedOutNumber" OutputProperty="*" Verb="Set" Noun="OptedOutNumber" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProtectConfigurationRuleSetNumberOverride" OutputProperty="*" Verb="Write" Noun="ProtectConfigurationRuleSetNumberOverride" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -296,6 +312,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetAccountDefaultProtectConfiguration" OutputProperty="*" Verb="Set" Noun="AccountDefaultProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDefaultMessageFeedbackEnabled" OutputProperty="*" Verb="Set" Noun="DefaultMessageFeedbackEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

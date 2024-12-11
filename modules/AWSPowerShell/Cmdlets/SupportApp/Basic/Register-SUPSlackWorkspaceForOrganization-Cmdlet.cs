@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     [OutputType("Amazon.SupportApp.Model.RegisterSlackWorkspaceForOrganizationResponse")]
     [AWSCmdlet("Calls the AWS Support App RegisterSlackWorkspaceForOrganization API operation.", Operation = new[] {"RegisterSlackWorkspaceForOrganization"}, SelectReturnType = typeof(Amazon.SupportApp.Model.RegisterSlackWorkspaceForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.SupportApp.Model.RegisterSlackWorkspaceForOrganizationResponse",
-        "This cmdlet returns an Amazon.SupportApp.Model.RegisterSlackWorkspaceForOrganizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SupportApp.Model.RegisterSlackWorkspaceForOrganizationResponse object containing multiple properties."
     )]
     public partial class RegisterSUPSlackWorkspaceForOrganizationCmdlet : AmazonSupportAppClientCmdlet, IExecutor
     {

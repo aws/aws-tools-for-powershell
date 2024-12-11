@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UpdateIAMPolicyAssignment API operation.", Operation = new[] {"UpdateIAMPolicyAssignment"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse object containing multiple properties."
     )]
     public partial class UpdateQSIAMPolicyAssignmentCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

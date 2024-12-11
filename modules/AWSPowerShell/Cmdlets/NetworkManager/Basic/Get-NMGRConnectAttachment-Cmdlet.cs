@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager GetConnectAttachment API operation.", Operation = new[] {"GetConnectAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetConnectAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.ConnectAttachment or Amazon.NetworkManager.Model.GetConnectAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.ConnectAttachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetConnectAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.GetConnectAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNMGRConnectAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

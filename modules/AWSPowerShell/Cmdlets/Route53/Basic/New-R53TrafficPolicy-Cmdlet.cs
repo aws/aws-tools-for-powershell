@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateTrafficPolicyResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 CreateTrafficPolicy API operation.", Operation = new[] {"CreateTrafficPolicy"}, SelectReturnType = typeof(Amazon.Route53.Model.CreateTrafficPolicyResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateTrafficPolicyResponse",
-        "This cmdlet returns an Amazon.Route53.Model.CreateTrafficPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.CreateTrafficPolicyResponse object containing multiple properties."
     )]
     public partial class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

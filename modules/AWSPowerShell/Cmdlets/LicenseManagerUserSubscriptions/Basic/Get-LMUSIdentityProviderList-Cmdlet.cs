@@ -28,24 +28,35 @@ using Amazon.LicenseManagerUserSubscriptions.Model;
 namespace Amazon.PowerShell.Cmdlets.LMUS
 {
     /// <summary>
-    /// Lists the identity providers for user-based subscriptions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Active Directory identity providers for user-based subscriptions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMUSIdentityProviderList")]
     [OutputType("Amazon.LicenseManagerUserSubscriptions.Model.IdentityProviderSummary")]
     [AWSCmdlet("Calls the AWS License Manager User Subscription ListIdentityProviders API operation.", Operation = new[] {"ListIdentityProviders"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.IdentityProviderSummary or Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse",
         "This cmdlet returns a collection of Amazon.LicenseManagerUserSubscriptions.Model.IdentityProviderSummary objects.",
-        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMUSIdentityProviderListCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>You can use the following filters to streamline results:</para><ul><li><para>Product</para></li><li><para>DirectoryId</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.LicenseManagerUserSubscriptions.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call.</para>
+        /// <para>The maximum number of results to return from a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,11 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for the next set of results.</para>
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
                 context.Select = CreateSelectDelegate<Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse, GetLMUSIdentityProviderListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.LicenseManagerUserSubscriptions.Model.Filter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -123,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             // create request and set iteration invariants
             var request = new Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -212,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.LicenseManagerUserSubscriptions.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.LicenseManagerUserSubscriptions.Model.ListIdentityProvidersResponse, GetLMUSIdentityProviderListCmdlet, object> Select { get; set; } =

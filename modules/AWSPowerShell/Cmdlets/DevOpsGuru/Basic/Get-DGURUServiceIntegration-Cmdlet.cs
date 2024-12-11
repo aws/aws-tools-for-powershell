@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     [AWSCmdlet("Calls the Amazon DevOps Guru DescribeServiceIntegration API operation.", Operation = new[] {"DescribeServiceIntegration"}, SelectReturnType = typeof(Amazon.DevOpsGuru.Model.DescribeServiceIntegrationResponse))]
     [AWSCmdletOutput("Amazon.DevOpsGuru.Model.ServiceIntegrationConfig or Amazon.DevOpsGuru.Model.DescribeServiceIntegrationResponse",
         "This cmdlet returns an Amazon.DevOpsGuru.Model.ServiceIntegrationConfig object.",
-        "The service call response (type Amazon.DevOpsGuru.Model.DescribeServiceIntegrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DevOpsGuru.Model.DescribeServiceIntegrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDGURUServiceIntegrationCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {

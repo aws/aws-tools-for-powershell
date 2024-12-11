@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeHoursOfOperation API operation.", Operation = new[] {"DescribeHoursOfOperation"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeHoursOfOperationResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.HoursOfOperation or Amazon.Connect.Model.DescribeHoursOfOperationResponse",
         "This cmdlet returns an Amazon.Connect.Model.HoursOfOperation object.",
-        "The service call response (type Amazon.Connect.Model.DescribeHoursOfOperationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeHoursOfOperationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNHoursOfOperationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

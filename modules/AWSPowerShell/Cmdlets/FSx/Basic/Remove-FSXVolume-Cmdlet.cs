@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteVolumeResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteVolume API operation.", Operation = new[] {"DeleteVolume"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteVolumeResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteVolumeResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteVolumeResponse object containing multiple properties."
     )]
     public partial class RemoveFSXVolumeCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

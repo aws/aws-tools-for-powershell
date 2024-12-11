@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubOrchestrator.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubOrchestrator.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubOrchestrator.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHOResourceTagCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

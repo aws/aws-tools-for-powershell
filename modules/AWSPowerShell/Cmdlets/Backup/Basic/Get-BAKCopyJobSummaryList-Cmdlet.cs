@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.ListCopyJobSummariesResponse")]
     [AWSCmdlet("Calls the AWS Backup ListCopyJobSummaries API operation.", Operation = new[] {"ListCopyJobSummaries"}, SelectReturnType = typeof(Amazon.Backup.Model.ListCopyJobSummariesResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.ListCopyJobSummariesResponse",
-        "This cmdlet returns an Amazon.Backup.Model.ListCopyJobSummariesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.ListCopyJobSummariesResponse object containing multiple properties."
     )]
     public partial class GetBAKCopyJobSummaryListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog RejectPortfolioShare API operation.", Operation = new[] {"RejectPortfolioShare"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenySCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

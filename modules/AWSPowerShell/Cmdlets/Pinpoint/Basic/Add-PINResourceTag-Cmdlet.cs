@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Pinpoint.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Pinpoint.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Pinpoint.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPINResourceTagCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

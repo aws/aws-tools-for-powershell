@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.RemoveTagsResponse), LegacyAlias="Remove-EMRTag")]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMRResourceTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

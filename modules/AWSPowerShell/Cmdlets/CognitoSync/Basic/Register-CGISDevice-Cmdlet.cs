@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync RegisterDevice API operation.", Operation = new[] {"RegisterDevice"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.RegisterDeviceResponse))]
     [AWSCmdletOutput("System.String or Amazon.CognitoSync.Model.RegisterDeviceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CognitoSync.Model.RegisterDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.RegisterDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterCGISDeviceCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

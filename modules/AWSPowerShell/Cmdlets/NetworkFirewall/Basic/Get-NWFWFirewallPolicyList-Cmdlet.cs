@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [AWSCmdlet("Calls the AWS Network Firewall ListFirewallPolicies API operation.", Operation = new[] {"ListFirewallPolicies"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListFirewallPoliciesResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.FirewallPolicyMetadata or Amazon.NetworkFirewall.Model.ListFirewallPoliciesResponse",
         "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.FirewallPolicyMetadata objects.",
-        "The service call response (type Amazon.NetworkFirewall.Model.ListFirewallPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkFirewall.Model.ListFirewallPoliciesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNWFWFirewallPolicyListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

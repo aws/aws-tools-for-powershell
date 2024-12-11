@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless GetMulticastGroupSession API operation.", Operation = new[] {"GetMulticastGroupSession"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.GetMulticastGroupSessionResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.LoRaWANMulticastSession or Amazon.IoTWireless.Model.GetMulticastGroupSessionResponse",
         "This cmdlet returns an Amazon.IoTWireless.Model.LoRaWANMulticastSession object.",
-        "The service call response (type Amazon.IoTWireless.Model.GetMulticastGroupSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.GetMulticastGroupSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWMulticastGroupSessionCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

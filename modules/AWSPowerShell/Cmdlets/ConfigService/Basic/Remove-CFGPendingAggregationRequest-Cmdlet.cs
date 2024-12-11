@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeletePendingAggregationRequest API operation.", Operation = new[] {"DeletePendingAggregationRequest"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeletePendingAggregationRequestResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeletePendingAggregationRequestResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeletePendingAggregationRequestResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeletePendingAggregationRequestResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGPendingAggregationRequestCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

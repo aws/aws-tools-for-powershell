@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeAccountAttributesResponse), LegacyAlias="Get-RDSAccountAttributes")]
     [AWSCmdletOutput("Amazon.RDS.Model.AccountQuota or Amazon.RDS.Model.DescribeAccountAttributesResponse",
         "This cmdlet returns a collection of Amazon.RDS.Model.AccountQuota objects.",
-        "The service call response (type Amazon.RDS.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeAccountAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSAccountAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

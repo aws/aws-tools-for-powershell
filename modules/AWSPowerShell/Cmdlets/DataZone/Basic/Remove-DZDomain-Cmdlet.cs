@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("Amazon.DataZone.DomainStatus or Amazon.DataZone.Model.DeleteDomainResponse",
         "This cmdlet returns an Amazon.DataZone.DomainStatus object.",
-        "The service call response (type Amazon.DataZone.Model.DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataZone.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZDomainCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.CreateCommitResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit CreateCommit API operation.", Operation = new[] {"CreateCommit"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.CreateCommitResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.CreateCommitResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.CreateCommitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.CreateCommitResponse object containing multiple properties."
     )]
     public partial class NewCCCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

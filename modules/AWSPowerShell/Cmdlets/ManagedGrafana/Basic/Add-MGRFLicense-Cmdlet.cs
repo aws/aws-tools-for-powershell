@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana AssociateLicense API operation.", Operation = new[] {"AssociateLicense"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.AssociateLicenseResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.WorkspaceDescription or Amazon.ManagedGrafana.Model.AssociateLicenseResponse",
         "This cmdlet returns an Amazon.ManagedGrafana.Model.WorkspaceDescription object.",
-        "The service call response (type Amazon.ManagedGrafana.Model.AssociateLicenseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.AssociateLicenseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddMGRFLicenseCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

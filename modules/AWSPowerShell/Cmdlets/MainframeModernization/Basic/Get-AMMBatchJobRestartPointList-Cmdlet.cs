@@ -28,7 +28,7 @@ using Amazon.MainframeModernization.Model;
 namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
-    /// Lists all the job steps for JCL files to restart a batch job. This is only applicable
+    /// Lists all the job steps for a JCL file to restart a batch job. This is only applicable
     /// for Micro Focus engine with versions 8.0.6 and above.
     /// </summary>
     [Cmdlet("Get", "AMMBatchJobRestartPointList")]
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListBatchJobRestartPoints API operation.", Operation = new[] {"ListBatchJobRestartPoints"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListBatchJobRestartPointsResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.JobStep or Amazon.MainframeModernization.Model.ListBatchJobRestartPointsResponse",
         "This cmdlet returns a collection of Amazon.MainframeModernization.Model.JobStep objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListBatchJobRestartPointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListBatchJobRestartPointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMBatchJobRestartPointListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
@@ -60,10 +60,21 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter AuthSecretsManagerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Secrets Manager containing user's credentials for authentication
+        /// and authorization for List Batch Job Restart Points operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthSecretsManagerArn { get; set; }
+        #endregion
+        
         #region Parameter ExecutionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of each batch job execution.</para>
+        /// <para>The unique identifier of the batch job execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthSecretsManagerArn = this.AuthSecretsManagerArn;
             context.ExecutionId = this.ExecutionId;
             #if MODULAR
             if (this.ExecutionId == null && ParameterWasBound(nameof(this.ExecutionId)))
@@ -136,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.AuthSecretsManagerArn != null)
+            {
+                request.AuthSecretsManagerArn = cmdletContext.AuthSecretsManagerArn;
             }
             if (cmdletContext.ExecutionId != null)
             {
@@ -203,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String AuthSecretsManagerArn { get; set; }
             public System.String ExecutionId { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.ListBatchJobRestartPointsResponse, GetAMMBatchJobRestartPointListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BatchJobSteps;

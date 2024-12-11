@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP StopApplication API operation.", Operation = new[] {"StopApplication"}, SelectReturnType = typeof(Amazon.SsmSap.Model.StopApplicationResponse))]
     [AWSCmdletOutput("System.String or Amazon.SsmSap.Model.StopApplicationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SsmSap.Model.StopApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.StopApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSMSAPApplicationCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

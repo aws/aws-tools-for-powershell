@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [OutputType("Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse")]
     [AWSCmdlet("Calls the AWSBillingConductor ListResourcesAssociatedToCustomLineItem API operation.", Operation = new[] {"ListResourcesAssociatedToCustomLineItem"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse))]
     [AWSCmdletOutput("Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse",
-        "This cmdlet returns an Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse object containing multiple properties."
     )]
     public partial class GetABCResourcesAssociatedToCustomLineItemListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

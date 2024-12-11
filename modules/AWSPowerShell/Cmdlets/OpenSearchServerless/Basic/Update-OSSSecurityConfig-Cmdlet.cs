@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless UpdateSecurityConfig API operation.", Operation = new[] {"UpdateSecurityConfig"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.UpdateSecurityConfigResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.SecurityConfigDetail or Amazon.OpenSearchServerless.Model.UpdateSecurityConfigResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.SecurityConfigDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateSecurityConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateSecurityConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSSSecurityConfigCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {
@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptionsUpdates_GroupAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The group attribute for this IAM Identity Center integration. Defaults to <c>GroupId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute")]
+        public Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute IamIdentityCenterOptionsUpdates_GroupAttribute { get; set; }
         #endregion
         
         #region Parameter SamlOptions_GroupAttribute
@@ -118,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? SamlOptions_SessionTimeout { get; set; }
+        #endregion
+        
+        #region Parameter IamIdentityCenterOptionsUpdates_UserAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The user attribute for this IAM Identity Center integration. Defaults to <c>UserId</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute")]
+        public Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute IamIdentityCenterOptionsUpdates_UserAttribute { get; set; }
         #endregion
         
         #region Parameter SamlOptions_UserAttribute
@@ -191,6 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             }
             #endif
             context.Description = this.Description;
+            context.IamIdentityCenterOptionsUpdates_GroupAttribute = this.IamIdentityCenterOptionsUpdates_GroupAttribute;
+            context.IamIdentityCenterOptionsUpdates_UserAttribute = this.IamIdentityCenterOptionsUpdates_UserAttribute;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -229,6 +253,35 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IamIdentityCenterOptionsUpdates
+            var requestIamIdentityCenterOptionsUpdatesIsNull = true;
+            request.IamIdentityCenterOptionsUpdates = new Amazon.OpenSearchServerless.Model.UpdateIamIdentityCenterConfigOptions();
+            Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_GroupAttribute = null;
+            if (cmdletContext.IamIdentityCenterOptionsUpdates_GroupAttribute != null)
+            {
+                requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_GroupAttribute = cmdletContext.IamIdentityCenterOptionsUpdates_GroupAttribute;
+            }
+            if (requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_GroupAttribute != null)
+            {
+                request.IamIdentityCenterOptionsUpdates.GroupAttribute = requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_GroupAttribute;
+                requestIamIdentityCenterOptionsUpdatesIsNull = false;
+            }
+            Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_UserAttribute = null;
+            if (cmdletContext.IamIdentityCenterOptionsUpdates_UserAttribute != null)
+            {
+                requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_UserAttribute = cmdletContext.IamIdentityCenterOptionsUpdates_UserAttribute;
+            }
+            if (requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_UserAttribute != null)
+            {
+                request.IamIdentityCenterOptionsUpdates.UserAttribute = requestIamIdentityCenterOptionsUpdates_iamIdentityCenterOptionsUpdates_UserAttribute;
+                requestIamIdentityCenterOptionsUpdatesIsNull = false;
+            }
+             // determine if request.IamIdentityCenterOptionsUpdates should be set to null
+            if (requestIamIdentityCenterOptionsUpdatesIsNull)
+            {
+                request.IamIdentityCenterOptionsUpdates = null;
             }
             if (cmdletContext.Id != null)
             {
@@ -347,6 +400,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.String ClientToken { get; set; }
             public System.String ConfigVersion { get; set; }
             public System.String Description { get; set; }
+            public Amazon.OpenSearchServerless.IamIdentityCenterGroupAttribute IamIdentityCenterOptionsUpdates_GroupAttribute { get; set; }
+            public Amazon.OpenSearchServerless.IamIdentityCenterUserAttribute IamIdentityCenterOptionsUpdates_UserAttribute { get; set; }
             public System.String Id { get; set; }
             public System.String SamlOptions_GroupAttribute { get; set; }
             public System.String SamlOptions_Metadata { get; set; }

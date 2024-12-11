@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway AddWorkingStorage API operation.", Operation = new[] {"AddWorkingStorage"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.AddWorkingStorageResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.AddWorkingStorageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.AddWorkingStorageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AddWorkingStorageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

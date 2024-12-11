@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging PutMessagingStreamingConfigurations API operation.", Operation = new[] {"PutMessagingStreamingConfigurations"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.PutMessagingStreamingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.StreamingConfiguration or Amazon.ChimeSDKMessaging.Model.PutMessagingStreamingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKMessaging.Model.StreamingConfiguration objects.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.PutMessagingStreamingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.PutMessagingStreamingConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCHMMGMessagingStreamingConfigurationCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeleteClientBranding API operation.", Operation = new[] {"DeleteClientBranding"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeleteClientBrandingResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DeleteClientBrandingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteClientBrandingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DeleteClientBrandingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSClientBrandingCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DisassociateDelegateFromResource API operation.", Operation = new[] {"DisassociateDelegateFromResource"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DisassociateDelegateFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DisassociateDelegateFromResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DisassociateDelegateFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DisassociateDelegateFromResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMDelegateFromResourceCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

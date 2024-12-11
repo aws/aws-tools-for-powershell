@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless DeleteCustomDomainAssociation API operation.", Operation = new[] {"DeleteCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RedshiftServerless.Model.DeleteCustomDomainAssociationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSCustomDomainAssociationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch CreateVpcEndpoint API operation.", Operation = new[] {"CreateVpcEndpoint"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.CreateVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.VpcEndpoint or Amazon.Elasticsearch.Model.CreateVpcEndpointResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.VpcEndpoint object.",
-        "The service call response (type Amazon.Elasticsearch.Model.CreateVpcEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.CreateVpcEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewESVpcEndpointCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

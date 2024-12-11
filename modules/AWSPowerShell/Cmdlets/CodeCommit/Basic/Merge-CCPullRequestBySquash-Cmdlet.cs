@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit MergePullRequestBySquash API operation.", Operation = new[] {"MergePullRequestBySquash"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergePullRequestBySquashResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.PullRequest or Amazon.CodeCommit.Model.MergePullRequestBySquashResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.PullRequest object.",
-        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestBySquashResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.MergePullRequestBySquashResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MergeCCPullRequestBySquashCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

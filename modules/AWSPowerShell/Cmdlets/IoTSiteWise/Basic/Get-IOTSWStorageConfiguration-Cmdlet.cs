@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.DescribeStorageConfigurationResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise DescribeStorageConfiguration API operation.", Operation = new[] {"DescribeStorageConfiguration"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribeStorageConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribeStorageConfigurationResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeStorageConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribeStorageConfigurationResponse object containing multiple properties."
     )]
     public partial class GetIOTSWStorageConfigurationCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DeleteApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DeleteApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSApplicationCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.UpdateDiscovererResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry UpdateDiscoverer API operation.", Operation = new[] {"UpdateDiscoverer"}, SelectReturnType = typeof(Amazon.Schemas.Model.UpdateDiscovererResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.UpdateDiscovererResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.UpdateDiscovererResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.UpdateDiscovererResponse object containing multiple properties."
     )]
     public partial class UpdateSCHMDiscovererCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

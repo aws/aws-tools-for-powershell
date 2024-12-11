@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager GetGrant API operation.", Operation = new[] {"GetGrant"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.GetGrantResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.Grant or Amazon.LicenseManager.Model.GetGrantResponse",
         "This cmdlet returns an Amazon.LicenseManager.Model.Grant object.",
-        "The service call response (type Amazon.LicenseManager.Model.GetGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManager.Model.GetGrantResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLICMGrantCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

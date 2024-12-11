@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.UpdateWorkloadShareResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool UpdateWorkloadShare API operation.", Operation = new[] {"UpdateWorkloadShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UpdateWorkloadShareResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.UpdateWorkloadShareResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.UpdateWorkloadShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.UpdateWorkloadShareResponse object containing multiple properties."
     )]
     public partial class UpdateWATWorkloadShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner CreateVpcConnector API operation.", Operation = new[] {"CreateVpcConnector"}, SelectReturnType = typeof(Amazon.AppRunner.Model.CreateVpcConnectorResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.VpcConnector or Amazon.AppRunner.Model.CreateVpcConnectorResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.VpcConnector object.",
-        "The service call response (type Amazon.AppRunner.Model.CreateVpcConnectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.CreateVpcConnectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAARVpcConnectorCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

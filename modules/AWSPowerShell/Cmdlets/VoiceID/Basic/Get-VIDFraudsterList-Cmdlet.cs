@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID ListFraudsters API operation.", Operation = new[] {"ListFraudsters"}, SelectReturnType = typeof(Amazon.VoiceID.Model.ListFraudstersResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.FraudsterSummary or Amazon.VoiceID.Model.ListFraudstersResponse",
         "This cmdlet returns a collection of Amazon.VoiceID.Model.FraudsterSummary objects.",
-        "The service call response (type Amazon.VoiceID.Model.ListFraudstersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VoiceID.Model.ListFraudstersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVIDFraudsterListCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

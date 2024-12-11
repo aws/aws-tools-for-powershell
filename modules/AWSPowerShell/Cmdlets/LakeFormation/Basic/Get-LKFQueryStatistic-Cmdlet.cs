@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [OutputType("Amazon.LakeFormation.Model.GetQueryStatisticsResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation GetQueryStatistics API operation.", Operation = new[] {"GetQueryStatistics"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetQueryStatisticsResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.GetQueryStatisticsResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.GetQueryStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetQueryStatisticsResponse object containing multiple properties."
     )]
     public partial class GetLKFQueryStatisticCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

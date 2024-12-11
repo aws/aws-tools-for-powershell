@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>AttachTrafficSources</a>, which can attach
-    /// multiple traffic sources types. We recommend using <c>AttachTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>AttachLoadBalancers</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html</a>,
+    /// which can attach multiple traffic sources types. We recommend using <c>AttachTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>AttachLoadBalancers</c>.
     /// You can use both the original <c>AttachLoadBalancers</c> API operation and <c>AttachTrafficSources</c>
     /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon
     /// EC2 Auto Scaling registers the running instances with these Classic Load Balancers.
     /// </para><para>
-    /// To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a>
-    /// API. To detach a load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a>
+    /// To describe the load balancers for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+    /// API. To detach a load balancer from the Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancers.html">DetachLoadBalancers</a>
     /// API.
     /// </para><para>
     /// This operation is additive and does not detach existing Classic Load Balancers or
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachLoadBalancers API operation.", Operation = new[] {"AttachLoadBalancers"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachLoadBalancersResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachLoadBalancersResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancersResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

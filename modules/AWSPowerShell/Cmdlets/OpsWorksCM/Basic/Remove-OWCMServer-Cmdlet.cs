@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [AWSCmdlet("Calls the AWS OpsWorksCM DeleteServer API operation.", Operation = new[] {"DeleteServer"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.DeleteServerResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.DeleteServerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.DeleteServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorksCM.Model.DeleteServerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

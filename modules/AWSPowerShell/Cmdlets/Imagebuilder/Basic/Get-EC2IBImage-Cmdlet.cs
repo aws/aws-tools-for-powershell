@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder GetImage API operation.", Operation = new[] {"GetImage"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.GetImageResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.Image or Amazon.Imagebuilder.Model.GetImageResponse",
         "This cmdlet returns an Amazon.Imagebuilder.Model.Image object.",
-        "The service call response (type Amazon.Imagebuilder.Model.GetImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.GetImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2IBImageCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

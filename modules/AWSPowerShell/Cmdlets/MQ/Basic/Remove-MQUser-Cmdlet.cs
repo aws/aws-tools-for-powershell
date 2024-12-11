@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.MQ.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.MQ.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MQ.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMQUserCmdlet : AmazonMQClientCmdlet, IExecutor
     {

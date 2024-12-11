@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.StartContentUploadResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect StartContentUpload API operation.", Operation = new[] {"StartContentUpload"}, SelectReturnType = typeof(Amazon.QConnect.Model.StartContentUploadResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.StartContentUploadResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.StartContentUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.StartContentUploadResponse object containing multiple properties."
     )]
     public partial class StartQCContentUploadCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

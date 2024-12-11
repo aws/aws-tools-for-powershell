@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [OutputType("Amazon.WorkSpacesWeb.Model.GetPortalServiceProviderMetadataResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces Web GetPortalServiceProviderMetadata API operation.", Operation = new[] {"GetPortalServiceProviderMetadata"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.GetPortalServiceProviderMetadataResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.GetPortalServiceProviderMetadataResponse",
-        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.GetPortalServiceProviderMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.GetPortalServiceProviderMetadataResponse object containing multiple properties."
     )]
     public partial class GetWSWPortalServiceProviderMetadataCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

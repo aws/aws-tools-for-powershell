@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify CreateBackendEnvironment API operation.", Operation = new[] {"CreateBackendEnvironment"}, SelectReturnType = typeof(Amazon.Amplify.Model.CreateBackendEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.BackendEnvironment or Amazon.Amplify.Model.CreateBackendEnvironmentResponse",
         "This cmdlet returns an Amazon.Amplify.Model.BackendEnvironment object.",
-        "The service call response (type Amazon.Amplify.Model.CreateBackendEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.CreateBackendEnvironmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMPBackendEnvironmentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

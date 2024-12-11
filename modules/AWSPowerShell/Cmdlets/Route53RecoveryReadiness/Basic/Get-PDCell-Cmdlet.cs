@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [OutputType("Amazon.Route53RecoveryReadiness.Model.GetCellResponse")]
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness GetCell API operation.", Operation = new[] {"GetCell"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.GetCellResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryReadiness.Model.GetCellResponse",
-        "This cmdlet returns an Amazon.Route53RecoveryReadiness.Model.GetCellResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53RecoveryReadiness.Model.GetCellResponse object containing multiple properties."
     )]
     public partial class GetPDCellCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [OutputType("Amazon.MigrationHubRefactorSpaces.Model.GetEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces GetEnvironment API operation.", Operation = new[] {"GetEnvironment"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.GetEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubRefactorSpaces.Model.GetEnvironmentResponse",
-        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.GetEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubRefactorSpaces.Model.GetEnvironmentResponse object containing multiple properties."
     )]
     public partial class GetMHRSEnvironmentCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

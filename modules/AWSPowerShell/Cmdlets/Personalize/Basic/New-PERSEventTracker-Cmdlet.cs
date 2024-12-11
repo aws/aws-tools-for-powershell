@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [OutputType("Amazon.Personalize.Model.CreateEventTrackerResponse")]
     [AWSCmdlet("Calls the AWS Personalize CreateEventTracker API operation.", Operation = new[] {"CreateEventTracker"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateEventTrackerResponse))]
     [AWSCmdletOutput("Amazon.Personalize.Model.CreateEventTrackerResponse",
-        "This cmdlet returns an Amazon.Personalize.Model.CreateEventTrackerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Personalize.Model.CreateEventTrackerResponse object containing multiple properties."
     )]
     public partial class NewPERSEventTrackerCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

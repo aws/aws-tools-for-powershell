@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.GetScalingConfigurationRecommendationResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service GetScalingConfigurationRecommendation API operation.", Operation = new[] {"GetScalingConfigurationRecommendation"}, SelectReturnType = typeof(Amazon.SageMaker.Model.GetScalingConfigurationRecommendationResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.GetScalingConfigurationRecommendationResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.GetScalingConfigurationRecommendationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.GetScalingConfigurationRecommendationResponse object containing multiple properties."
     )]
     public partial class GetSMScalingConfigurationRecommendationCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager StartArchiveExport API operation.", Operation = new[] {"StartArchiveExport"}, SelectReturnType = typeof(Amazon.MailManager.Model.StartArchiveExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.MailManager.Model.StartArchiveExportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MailManager.Model.StartArchiveExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.StartArchiveExportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMMGRArchiveExportCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {
@@ -83,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.MailManager.Model.ArchiveFilterCondition[] Filters_Include { get; set; }
+        #endregion
+        
+        #region Parameter IncludeMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Whether to include message metadata as JSON files in the export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeMetadata { get; set; }
         #endregion
         
         #region Parameter S3_S3Location
@@ -198,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                 WriteWarning("You are passing $null as a value for parameter FromTimestamp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeMetadata = this.IncludeMetadata;
             context.MaxResult = this.MaxResult;
             context.ToTimestamp = this.ToTimestamp;
             #if MODULAR
@@ -293,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             {
                 request.FromTimestamp = cmdletContext.FromTimestamp.Value;
             }
+            if (cmdletContext.IncludeMetadata != null)
+            {
+                request.IncludeMetadata = cmdletContext.IncludeMetadata.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -367,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             public List<Amazon.MailManager.Model.ArchiveFilterCondition> Filters_Include { get; set; }
             public List<Amazon.MailManager.Model.ArchiveFilterCondition> Filters_Unless { get; set; }
             public System.DateTime? FromTimestamp { get; set; }
+            public System.Boolean? IncludeMetadata { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.DateTime? ToTimestamp { get; set; }
             public System.Func<Amazon.MailManager.Model.StartArchiveExportResponse, StartMMGRArchiveExportCmdlet, object> Select { get; set; } =

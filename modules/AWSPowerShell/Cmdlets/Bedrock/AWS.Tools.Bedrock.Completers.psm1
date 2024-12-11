@@ -108,6 +108,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.InferenceProfileType
+        "Get-BDRInferenceProfileList/TypeEqual"
+        {
+            $v = "APPLICATION","SYSTEM_DEFINED"
+            break
+        }
+
         # Amazon.Bedrock.InferenceType
         "Get-BDRFoundationModelList/ByInferenceType"
         {
@@ -228,6 +235,7 @@ $BDR_map = @{
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "TypeEqual"=@("Get-BDRInferenceProfileList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -284,6 +292,7 @@ $BDR_SelectMap = @{
                "New-BDREvaluationJob",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
+               "New-BDRInferenceProfile",
                "New-BDRModelCopyJob",
                "New-BDRModelCustomizationJob",
                "New-BDRModelImportJob",
@@ -292,6 +301,7 @@ $BDR_SelectMap = @{
                "Remove-BDRCustomModel",
                "Remove-BDRGuardrail",
                "Remove-BDRImportedModel",
+               "Remove-BDRInferenceProfile",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
                "Get-BDRCustomModel",

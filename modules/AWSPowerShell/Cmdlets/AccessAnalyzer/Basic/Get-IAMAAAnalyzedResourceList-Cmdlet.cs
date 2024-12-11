@@ -29,15 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Retrieves a list of resources of the specified type that have been analyzed by the
-    /// specified external access analyzer. This action is not supported for unused access
-    /// analyzers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// specified analyzer.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAAAnalyzedResourceList")]
     [OutputType("Amazon.AccessAnalyzer.Model.AnalyzedResourceSummary")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer ListAnalyzedResources API operation.", Operation = new[] {"ListAnalyzedResources"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.ListAnalyzedResourcesResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.AnalyzedResourceSummary or Amazon.AccessAnalyzer.Model.ListAnalyzedResourcesResponse",
         "This cmdlet returns a collection of Amazon.AccessAnalyzer.Model.AnalyzedResourceSummary objects.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.ListAnalyzedResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.ListAnalyzedResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAAAnalyzedResourceListCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

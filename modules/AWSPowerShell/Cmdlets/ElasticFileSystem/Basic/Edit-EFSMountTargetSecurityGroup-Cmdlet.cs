@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System ModifyMountTargetSecurityGroups API operation.", Operation = new[] {"ModifyMountTargetSecurityGroups"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

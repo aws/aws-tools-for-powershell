@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager TerminateSession API operation.", Operation = new[] {"TerminateSession"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.TerminateSessionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSSMSessionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

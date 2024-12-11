@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteSchedule API operation.", Operation = new[] {"DeleteSchedule"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteScheduleResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.DeleteScheduleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.DeleteScheduleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.DeleteScheduleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMLScheduleCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

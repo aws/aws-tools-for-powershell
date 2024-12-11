@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 AcceptInvitation API operation.", Operation = new[] {"AcceptInvitation"}, SelectReturnType = typeof(Amazon.Macie2.Model.AcceptInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.AcceptInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.AcceptInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.AcceptInvitationResponse) be returned by specifying '-Select *'."
     )]
     public partial class ApproveMAC2InvitationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     [AWSCmdlet("Calls the Amazon Braket CreateQuantumTask API operation.", Operation = new[] {"CreateQuantumTask"}, SelectReturnType = typeof(Amazon.Braket.Model.CreateQuantumTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.Braket.Model.CreateQuantumTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Braket.Model.CreateQuantumTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Braket.Model.CreateQuantumTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewBRKTQuantumTaskCmdlet : AmazonBraketClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     [AWSCmdlet("Calls the AWS Resource Groups Tagging API GetComplianceSummary API operation.", Operation = new[] {"GetComplianceSummary"}, SelectReturnType = typeof(Amazon.ResourceGroupsTaggingAPI.Model.GetComplianceSummaryResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroupsTaggingAPI.Model.Summary or Amazon.ResourceGroupsTaggingAPI.Model.GetComplianceSummaryResponse",
         "This cmdlet returns a collection of Amazon.ResourceGroupsTaggingAPI.Model.Summary objects.",
-        "The service call response (type Amazon.ResourceGroupsTaggingAPI.Model.GetComplianceSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroupsTaggingAPI.Model.GetComplianceSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRGTComplianceSummaryCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PaginationToken $null' for the first call and '-PaginationToken $AWSHistory.LastServiceResponse.PaginationToken' for subsequent calls.
+        /// <br/>'PaginationToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PaginationToken' to null for the first call then set the 'PaginationToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

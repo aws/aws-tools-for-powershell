@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutMetricAlarm API operation.", Operation = new[] {"PutMetricAlarm"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutMetricAlarmResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutMetricAlarmResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutMetricAlarmResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWMetricAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -349,7 +349,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para><para>If you are using this operation to update an existing alarm, any tags you specify
         /// in this parameter are ignored. To change the tags of an existing alarm, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
-        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para>
+        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para><para>To use this field to set tags for an alarm when you create it, you must be signed
+        /// on with both the <c>cloudwatch:PutMetricAlarm</c> and <c>cloudwatch:TagResource</c>
+        /// permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [OutputType("Amazon.ConnectWisdomService.Model.StartContentUploadResponse")]
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service StartContentUpload API operation.", Operation = new[] {"StartContentUpload"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.StartContentUploadResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.StartContentUploadResponse",
-        "This cmdlet returns an Amazon.ConnectWisdomService.Model.StartContentUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConnectWisdomService.Model.StartContentUploadResponse object containing multiple properties."
     )]
     public partial class StartWSDMContentUploadCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

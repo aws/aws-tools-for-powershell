@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline PollForThirdPartyJobs API operation.", Operation = new[] {"PollForThirdPartyJobs"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse), LegacyAlias="Get-CPActionableThirdPartyJobs")]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ThirdPartyJob or Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse",
         "This cmdlet returns a collection of Amazon.CodePipeline.Model.ThirdPartyJob objects.",
-        "The service call response (type Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCPActionableThirdPartyJobListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

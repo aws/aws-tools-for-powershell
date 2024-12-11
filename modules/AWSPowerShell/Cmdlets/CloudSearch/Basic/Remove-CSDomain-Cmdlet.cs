@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DeleteDomainResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainStatus or Amazon.CloudSearch.Model.DeleteDomainResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.DomainStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

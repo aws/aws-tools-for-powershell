@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     [AWSCmdlet("Calls the Amazon EventBridge Pipes TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Pipes.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Pipes.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Pipes.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Pipes.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddPIPESResourceTagCmdlet : AmazonPipesClientCmdlet, IExecutor
     {

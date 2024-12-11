@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing DeregisterInstancesFromLoadBalancer API operation.", Operation = new[] {"DeregisterInstancesFromLoadBalancer"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.Instance or Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancing.Model.Instance objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveELBInstanceFromLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

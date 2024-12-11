@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteDomainConfiguration API operation.", Operation = new[] {"DeleteDomainConfiguration"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteDomainConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteDomainConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteDomainConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteDomainConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTDomainConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

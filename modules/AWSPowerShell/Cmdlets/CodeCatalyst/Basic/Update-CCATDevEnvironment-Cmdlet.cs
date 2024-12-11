@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.UpdateDevEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst UpdateDevEnvironment API operation.", Operation = new[] {"UpdateDevEnvironment"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.UpdateDevEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.UpdateDevEnvironmentResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.UpdateDevEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.UpdateDevEnvironmentResponse object containing multiple properties."
     )]
     public partial class UpdateCCATDevEnvironmentCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

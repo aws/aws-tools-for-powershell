@@ -28,14 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
-    /// Registers a compute resource in an Amazon GameLift fleet. Register computes with an
-    /// Amazon GameLift Anywhere fleet or a container fleet. 
-    /// </para><para>
-    /// For an Anywhere fleet or a container fleet that's running the Amazon GameLift Agent,
-    /// the Agent handles all compute registry tasks for you. For an Anywhere fleet that doesn't
-    /// use the Agent, call this operation to register fleet computes.
+    /// Registers a compute resource in an Amazon GameLift Anywhere fleet. 
+    /// 
+    ///  
+    /// <para>
+    /// For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent handles
+    /// all compute registry tasks for you. For an Anywhere fleet that doesn't use the Agent,
+    /// call this operation to register fleet computes.
     /// </para><para>
     /// To register a compute, give the compute a name (must be unique within the fleet) and
     /// specify the compute resource's DNS name or IP address. Provide a fleet ID and a fleet
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service RegisterCompute API operation.", Operation = new[] {"RegisterCompute"}, SelectReturnType = typeof(Amazon.GameLift.Model.RegisterComputeResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Compute or Amazon.GameLift.Model.RegisterComputeResponse",
         "This cmdlet returns an Amazon.GameLift.Model.Compute object.",
-        "The service call response (type Amazon.GameLift.Model.RegisterComputeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.RegisterComputeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterGMLComputeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

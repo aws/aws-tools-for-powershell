@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>geo-routes</C2jFilename>
+    <AssemblyName>GeoRoutes</AssemblyName>
+    <ServiceNounPrefix>GEOR</ServiceNounPrefix>
+    <ServiceName>Amazon Location Service Routes V2</ServiceName>
+    <ServiceClientInterface>IAmazonGeoRoutes</ServiceClientInterface>
+    <ServiceClient>AmazonGeoRoutesClient</ServiceClient>
+    <ServiceModuleGuid>8BA7F34A-C7BF-4043-8E37-AC8822CEAB48</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CalculateIsolines" OutputProperty="*" Verb="Get" Noun="Isoline" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="DestinationOptions_Matching_NameHint" NewName="DestinationOptions_Matching_NameHint" />
+                <Param Name="OriginOptions_Matching_NameHint" NewName="OriginOptions_Matching_NameHint" />
+                <Param Name="DestinationOptions_Matching_OnRoadThreshold" NewName="DestinationOptions_Matching_OnRoadThreshold" />
+                <Param Name="OriginOptions_Matching_OnRoadThreshold" NewName="OriginOptions_Matching_OnRoadThreshold" />
+                <Param Name="DestinationOptions_Matching_Radius" NewName="DestinationOptions_Matching_Radius" />
+                <Param Name="OriginOptions_Matching_Radius" NewName="OriginOptions_Matching_Radius" />
+                <Param Name="DestinationOptions_Matching_Strategy" NewName="DestinationOptions_Matching_Strategy" />
+                <Param Name="OriginOptions_Matching_Strategy" NewName="OriginOptions_Matching_Strategy" />
+                <Param Name="DestinationOptions_SideOfStreet_Position" NewName="DestinationOptions_SideOfStreet_Position" />
+                <Param Name="OriginOptions_SideOfStreet_Position" NewName="OriginOptions_SideOfStreet_Position" />
+                <Param Name="DestinationOptions_SideOfStreet_UseWith" NewName="DestinationOptions_SideOfStreet_UseWith" />
+                <Param Name="OriginOptions_SideOfStreet_UseWith" NewName="OriginOptions_SideOfStreet_UseWith" />
+                <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CalculateRoutes" OutputProperty="*" Verb="Get" Noun="Route" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="DestinationOptions_Matching_NameHint" NewName="DestinationOptions_Matching_NameHint" />
+                <Param Name="OriginOptions_Matching_NameHint" NewName="OriginOptions_Matching_NameHint" />
+                <Param Name="DestinationOptions_Matching_OnRoadThreshold" NewName="DestinationOptions_Matching_OnRoadThreshold" />
+                <Param Name="OriginOptions_Matching_OnRoadThreshold" NewName="OriginOptions_Matching_OnRoadThreshold" />
+                <Param Name="DestinationOptions_Matching_Radius" NewName="DestinationOptions_Matching_Radius" />
+                <Param Name="OriginOptions_Matching_Radius" NewName="OriginOptions_Matching_Radius" />
+                <Param Name="DestinationOptions_Matching_Strategy" NewName="DestinationOptions_Matching_Strategy" />
+                <Param Name="OriginOptions_Matching_Strategy" NewName="OriginOptions_Matching_Strategy" />
+                <Param Name="DestinationOptions_SideOfStreet_Position" NewName="DestinationOptions_SideOfStreet_Position" />
+                <Param Name="OriginOptions_SideOfStreet_Position" NewName="OriginOptions_SideOfStreet_Position" />
+                <Param Name="DestinationOptions_SideOfStreet_UseWith" NewName="DestinationOptions_SideOfStreet_UseWith" />
+                <Param Name="OriginOptions_SideOfStreet_UseWith" NewName="OriginOptions_SideOfStreet_UseWith" />
+                <Param Name="TravelModeOptions_Car_LicensePlate_LastCharacter" NewName="TravelModeOptions_Car_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Scooter_LicensePlate_LastCharacter" NewName="TravelModeOptions_Scooter_LicensePlate_LastCharacter" />
+                <Param Name="TravelModeOptions_Truck_LicensePlate_LastCharacter" NewName="TravelModeOptions_Truck_LicensePlate_LastCharacter" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OptimizeWaypoints" OutputProperty="*" Verb="Get" Noun="OptimizedWaypoint" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SnapToRoads" OutputProperty="*" Verb="Get" Noun="SnappedRoad" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

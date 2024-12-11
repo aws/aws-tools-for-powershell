@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 CreateTrustStore API operation.", Operation = new[] {"CreateTrustStore"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.CreateTrustStoreResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TrustStore or Amazon.ElasticLoadBalancingV2.Model.CreateTrustStoreResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.TrustStore objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.CreateTrustStoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.CreateTrustStoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewELB2TrustStoreCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the trust store.</para><para>This name must be unique per region and cannot be changed after creation.</para>
+        /// <para>The name of the trust store.</para><para>This name must be unique per region and can't be changed after creation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

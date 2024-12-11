@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateRoutingProfileQueues API operation.", Operation = new[] {"DisassociateRoutingProfileQueues"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateRoutingProfileQueuesResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectCONNRoutingProfileQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

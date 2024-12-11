@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis DeregisterStreamConsumer API operation.", Operation = new[] {"DeregisterStreamConsumer"}, SelectReturnType = typeof(Amazon.Kinesis.Model.DeregisterStreamConsumerResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.DeregisterStreamConsumerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.DeregisterStreamConsumerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.DeregisterStreamConsumerResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterKINStreamConsumerCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) CreatePlatformEndpoint API operation.", Operation = new[] {"CreatePlatformEndpoint"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSNSPlatformEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

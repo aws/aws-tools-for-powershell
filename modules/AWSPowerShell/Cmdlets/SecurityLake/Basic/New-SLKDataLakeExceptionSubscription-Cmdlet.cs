@@ -29,14 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
     /// Creates the specified notification subscription in Amazon Security Lake for the organization
-    /// you specify.
+    /// you specify. The notification subscription is created for exceptions that cannot be
+    /// resolved by Security Lake automatically.
     /// </summary>
     [Cmdlet("New", "SLKDataLakeExceptionSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Security Lake CreateDataLakeExceptionSubscription API operation.", Operation = new[] {"CreateDataLakeExceptionSubscription"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateDataLakeExceptionSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityLake.Model.CreateDataLakeExceptionSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.CreateDataLakeExceptionSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.CreateDataLakeExceptionSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewSLKDataLakeExceptionSubscriptionCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -46,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ExceptionTimeToLive
         /// <summary>
         /// <para>
-        /// <para>The expiration period and time-to-live (TTL).</para>
+        /// <para>The expiration period and time-to-live (TTL). It is the duration of time until which
+        /// the exception message remains.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

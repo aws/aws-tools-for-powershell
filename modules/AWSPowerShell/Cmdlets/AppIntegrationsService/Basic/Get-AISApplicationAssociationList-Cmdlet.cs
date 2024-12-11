@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     [AWSCmdlet("Calls the Amazon AppIntegrations Service ListApplicationAssociations API operation.", Operation = new[] {"ListApplicationAssociations"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.ListApplicationAssociationsResponse))]
     [AWSCmdletOutput("Amazon.AppIntegrationsService.Model.ApplicationAssociationSummary or Amazon.AppIntegrationsService.Model.ListApplicationAssociationsResponse",
         "This cmdlet returns a collection of Amazon.AppIntegrationsService.Model.ApplicationAssociationSummary objects.",
-        "The service call response (type Amazon.AppIntegrationsService.Model.ListApplicationAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppIntegrationsService.Model.ListApplicationAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAISApplicationAssociationListCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {

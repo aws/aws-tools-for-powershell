@@ -87,6 +87,13 @@ $DTEX_Completers = {
             break
         }
 
+        # Amazon.DataExchange.GrantDistributionScope
+        "New-DTEXDataGrant/GrantDistributionScope"
+        {
+            $v = "AWS_ORGANIZATION","NONE"
+            break
+        }
+
         # Amazon.DataExchange.NotificationType
         "Send-DTEXDataSetNotification/Type"
         {
@@ -132,6 +139,7 @@ $DTEX_map = @{
     "AssetType"=@("New-DTEXDataSet")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
     "Encryption_Type"=@("New-DTEXEventAction","New-DTEXJob","Update-DTEXEventAction")
+    "GrantDistributionScope"=@("New-DTEXDataGrant")
     "ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
     "Type"=@("New-DTEXJob","Send-DTEXDataSetNotification")
 }
@@ -186,24 +194,31 @@ $DTEX_SelectCompleters = {
 }
 
 $DTEX_SelectMap = @{
-    "Select"=@("Stop-DTEXJob",
+    "Select"=@("Receive-DTEXDataGrant",
+               "Stop-DTEXJob",
+               "New-DTEXDataGrant",
                "New-DTEXDataSet",
                "New-DTEXEventAction",
                "New-DTEXJob",
                "New-DTEXRevision",
                "Remove-DTEXAsset",
+               "Remove-DTEXDataGrant",
                "Remove-DTEXDataSet",
                "Remove-DTEXEventAction",
                "Remove-DTEXRevision",
                "Get-DTEXAsset",
+               "Get-DTEXDataGrant",
                "Get-DTEXDataSet",
                "Get-DTEXEventAction",
                "Get-DTEXJob",
+               "Get-DTEXReceivedDataGrant",
                "Get-DTEXRevision",
+               "Get-DTEXDataGrantList",
                "Get-DTEXDataSetRevisionList",
                "Get-DTEXDataSetList",
                "Get-DTEXEventActionList",
                "Get-DTEXJobList",
+               "Get-DTEXReceivedDataGrantList",
                "Get-DTEXRevisionAssetList",
                "Get-DTEXResourceTag",
                "Revoke-DTEXRevision",

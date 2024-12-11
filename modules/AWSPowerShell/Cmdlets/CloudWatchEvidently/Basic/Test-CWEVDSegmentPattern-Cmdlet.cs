@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently TestSegmentPattern API operation.", Operation = new[] {"TestSegmentPattern"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCWEVDSegmentPatternCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         public string Select { get; set; } = "Match";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Pattern parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Pattern' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Pattern' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -98,11 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchEvidently.Model.TestSegmentPatternResponse, TestCWEVDSegmentPatternCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Pattern;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Pattern = this.Pattern;
             #if MODULAR
             if (this.Pattern == null && ParameterWasBound(nameof(this.Pattern)))
