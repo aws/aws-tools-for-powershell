@@ -46,7 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
     /// Guide</i>.
     /// </para></note><para>
-    /// Creates a new Amazon Cognito user pool and sets the password policy for the pool.
+    /// Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
+    /// options. You can create a user pool in the Amazon Cognito console to your preferences
+    /// and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>
+    /// to generate requests from that baseline.
     /// </para><important><para>
     /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
     /// value.
@@ -87,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>,
-        /// <b>email</b>, or <b>preferred_username</b>.</para>
+        /// <b>email</b>, or <b>preferred_username</b>. For more information about alias attributes,
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
+        /// sign-in attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AutoVerifiedAttribute
         /// <summary>
         /// <para>
-        /// <para>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</para>
+        /// <para>The attributes that you want your user pool to automatically verify. Possible values:
+        /// <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying
+        /// contact information at sign-up</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -550,7 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>Specifies MFA configuration details.</para>
+        /// <para>Sets multi-factor authentication (MFA) to be on, off, or optional. When <c>ON</c>,
+        /// all users must set up MFA before they can sign in. When <c>OPTIONAL</c>, your application
+        /// must make a client-side determination of whether a user wants to register an MFA device.
+        /// For user pools with adaptive authentication with threat protection, choose <c>OPTIONAL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -589,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PoolName
         /// <summary>
         /// <para>
-        /// <para>A string used to name the user pool.</para>
+        /// <para>A friendlhy name for your user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -740,8 +750,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Schema
         /// <summary>
         /// <para>
-        /// <para>An array of schema attributes for the new user pool. These attributes can be standard
-        /// or custom attributes.</para>
+        /// <para>An array of attributes for the new user pool. You can add custom attributes and modify
+        /// the properties of default attributes. The specifications in this parameter set the
+        /// required attributes in your user pool. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html">Working
+        /// with user attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -888,7 +900,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Specifies whether a user can use an email address or phone number as a username when
-        /// they sign up.</para>
+        /// they sign up. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
+        /// sign-in attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

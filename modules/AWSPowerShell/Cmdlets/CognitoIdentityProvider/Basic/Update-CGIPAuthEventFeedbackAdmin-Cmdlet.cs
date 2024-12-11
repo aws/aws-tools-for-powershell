@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Provides feedback for an authentication event indicating if it was from a valid user.
     /// This feedback is used for improving the risk evaluation decision for the user pool
-    /// as part of Amazon Cognito advanced security.
+    /// as part of Amazon Cognito threat protection. To train the threat-protection model
+    /// to recognize trusted and untrusted sign-in characteristics, configure threat protection
+    /// in audit-only mode and provide a mechanism for users or administrators to submit feedback.
+    /// Your feedback can tell Amazon Cognito that a risk rating was assigned at a level you
+    /// don't agree with.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -57,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The authentication event ID.</para>
+        /// <para>The authentication event ID. To query authentication events for a user, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminListUserAuthEvents.html">AdminListUserAuthEvents</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to submit authentication-event feedback.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

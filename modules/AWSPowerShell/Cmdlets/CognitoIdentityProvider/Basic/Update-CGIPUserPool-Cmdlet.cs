@@ -842,7 +842,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool you want to update.</para>
+        /// <para>The ID of the user pool you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

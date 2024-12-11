@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool on which the search should be performed.</para>
+        /// <para>The ID of the user pool on which the search should be performed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

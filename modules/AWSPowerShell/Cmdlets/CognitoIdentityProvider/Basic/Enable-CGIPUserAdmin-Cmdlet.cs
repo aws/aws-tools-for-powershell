@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Enables the specified user as an administrator. Works on any user.
+    /// Activate sign-in for a user profile that previously had sign-in access disabled.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to enable the user.</para>
+        /// <para>The ID of the user pool where you want to activate sign-in for the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// When given the ID of a user pool app client, returns detailed information about the
-    /// style assigned to the app client.
+    /// Given the ID of a user pool app client, returns detailed information about the style
+    /// assigned to the app client.
     /// </summary>
     [Cmdlet("Get", "CGIPManagedLoginBrandingByClient")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ManagedLoginBrandingType")]

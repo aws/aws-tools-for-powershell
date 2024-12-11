@@ -28,9 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deactivates a user and revokes all access tokens for the user. A deactivated user
-    /// can't sign in, but still appears in the responses to <c>GetUser</c> and <c>ListUsers</c>
-    /// API requests.
+    /// Deactivates a user profile and revokes all access tokens for the user. A deactivated
+    /// user can't sign in, but still appears in the responses to <c>ListUsers</c> API requests.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to disable the user.</para>
+        /// <para>The ID of the user pool where you want to disable the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

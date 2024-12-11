@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Invalidates the identity, access, and refresh tokens that Amazon Cognito issued to
     /// a user. Call this operation with your administrative credentials when your user signs
-    /// out of your app. This results in the following behavior. 
+    /// out of your app. This results in the following behavior.
     /// 
     ///  <ul><li><para>
     /// Amazon Cognito no longer accepts <i>token-authorized</i> user operations that you
@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </para></li><li><para>
     /// Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.
     /// </para></li></ul><para>
-    /// Other requests might be valid until your user's token expires.
+    /// Other requests might be valid until your user's token expires. This operation doesn't
+    /// clear the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+    /// login</a> session cookie. To clear the session for a user who signed in with managed
+    /// login or the classic hosted UI, direct their browser session to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">logout
+    /// endpoint</a>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -93,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to sign out a user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

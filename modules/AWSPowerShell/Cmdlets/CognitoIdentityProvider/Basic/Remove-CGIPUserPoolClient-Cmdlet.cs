@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows the developer to delete the user pool client.
+    /// Deletes a user pool app client. After you delete an app client, users can no longer
+    /// sign in to the associated application.
     /// </summary>
     [Cmdlet("Remove", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID of the app associated with the user pool.</para>
+        /// <para>The ID of the user pool app client that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to delete the client.</para>
+        /// <para>The ID of the user pool where you want to delete the client.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

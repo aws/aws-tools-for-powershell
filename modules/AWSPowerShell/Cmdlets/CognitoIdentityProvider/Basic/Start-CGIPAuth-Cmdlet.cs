@@ -87,15 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AuthFlow
         /// <summary>
         /// <para>
-        /// <para>The authentication flow that you want to initiate. The <c>AuthParameters</c> that
-        /// you must submit are linked to the flow that you submit. For example:</para><ul><li><para><c>USER_AUTH</c>: Request a preferred authentication type or review available authentication
+        /// <para>The authentication flow that you want to initiate. Each <c>AuthFlow</c> has linked
+        /// <c>AuthParameters</c> that you must submit. The following are some example flows and
+        /// their parameters.</para><ul><li><para><c>USER_AUTH</c>: Request a preferred authentication type or review available authentication
         /// types. From the offered authentication types, select one in a challenge response and
         /// then authenticate with that method in an additional challenge response.</para></li><li><para><c>REFRESH_TOKEN_AUTH</c>: Receive new ID and access tokens when you pass a <c>REFRESH_TOKEN</c>
         /// parameter with a valid refresh token as the value.</para></li><li><para><c>USER_SRP_AUTH</c>: Receive secure remote password (SRP) variables for the next
         /// challenge, <c>PASSWORD_VERIFIER</c>, when you pass <c>USERNAME</c> and <c>SRP_A</c>
         /// parameters.</para></li><li><para><c>USER_PASSWORD_AUTH</c>: Receive new tokens or the next challenge, for example
-        /// <c>SOFTWARE_TOKEN_MFA</c>, when you pass <c>USERNAME</c> and <c>PASSWORD</c> parameters.</para></li></ul><para>Valid values include the following:</para><dl><dt>USER_AUTH</dt><dd><para>The entry point for sign-in with passwords, one-time passwords, biometric devices,
-        /// and security keys.</para></dd><dt>USER_SRP_AUTH</dt><dd><para>Username-password authentication with the Secure Remote Password (SRP) protocol. For
+        /// <c>SOFTWARE_TOKEN_MFA</c>, when you pass <c>USERNAME</c> and <c>PASSWORD</c> parameters.</para></li></ul><para><i>All flows</i></para><dl><dt>USER_AUTH</dt><dd><para>The entry point for sign-in with passwords, one-time passwords, and WebAuthN authenticators.</para></dd><dt>USER_SRP_AUTH</dt><dd><para>Username-password authentication with the Secure Remote Password (SRP) protocol. For
         /// more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Using-SRP-password-verification-in-custom-authentication-flow">Use
         /// SRP password verification in custom authentication flow</a>.</para></dd><dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt><dd><para>Provide a valid refresh token and receive new ID and access tokens. For more information,
         /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html">Using
@@ -172,10 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <c>validationData</c> value to enhance your workflow for your specific needs.</para><para>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions
         /// for the following triggers, but it doesn't provide the ClientMetadata value as input:</para><ul><li><para>Post authentication</para></li><li><para>Custom message</para></li><li><para>Pre token generation</para></li><li><para>Create auth challenge</para></li><li><para>Define auth challenge</para></li><li><para>Custom email sender</para></li><li><para>Custom SMS sender</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
-        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
-        /// are assigned to a user pool to support custom workflows. If your user pool configuration
-        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
+        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
+        /// that are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
+        /// parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

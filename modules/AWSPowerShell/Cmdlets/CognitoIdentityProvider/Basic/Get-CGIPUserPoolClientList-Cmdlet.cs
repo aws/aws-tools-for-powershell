@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to list user pool clients.</para>
+        /// <para>The ID of the user pool where you want to list user pool clients.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

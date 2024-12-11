@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Returns the configuration information and metadata of the specified user pool.
+    /// Given a user pool ID, returns configuration information. This operation is useful
+    /// when you want to inspect an existing user pool and programmatically replicate the
+    /// configuration to another user pool.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool you want to describe.</para>
+        /// <para>The ID of the user pool you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

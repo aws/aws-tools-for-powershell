@@ -97,15 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the AdminCreateUser API action, Amazon Cognito invokes the function that is
         /// assigned to the <i>pre sign-up</i> trigger. When Amazon Cognito invokes this function,
         /// it passes a JSON payload, which the function receives as input. This payload contains
-        /// a <c>clientMetadata</c> attribute, which provides the data that you assigned to the
+        /// a <c>ClientMetadata</c> attribute, which provides the data that you assigned to the
         /// ClientMetadata parameter in your AdminCreateUser request. In your function code in
         /// Lambda, you can process the <c>clientMetadata</c> value to enhance your workflow for
         /// your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
-        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
-        /// are assigned to a user pool to support custom workflows. If your user pool configuration
-        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
+        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
+        /// that are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
+        /// parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DesiredDeliveryMedium
         /// <summary>
         /// <para>
-        /// <para>Specify <c>"EMAIL"</c> if email will be used to send the welcome message. Specify
-        /// <c>"SMS"</c> if the phone number will be used. The default value is <c>"SMS"</c>.
-        /// You can specify more than one value.</para>
+        /// <para>Specify <c>EMAIL</c> if email will be used to send the welcome message. Specify <c>SMS</c>
+        /// if the phone number will be used. The default value is <c>SMS</c>. You can specify
+        /// more than one value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>This parameter is used only if the <c>phone_number_verified</c> or <c>email_verified</c>
         /// attribute is set to <c>True</c>. Otherwise, it is ignored.</para><para>If this parameter is set to <c>True</c> and the phone number or email address specified
-        /// in the UserAttributes parameter already exists as an alias with a different user,
-        /// the API call will migrate the alias from the previous user to the newly created user.
-        /// The previous user will no longer be able to log in using that alias.</para><para>If this parameter is set to <c>False</c>, the API throws an <c>AliasExistsException</c>
+        /// in the <c>UserAttributes</c> parameter already exists as an alias with a different
+        /// user, this request migrates the alias from the previous user to the newly-created
+        /// user. The previous user will no longer be able to log in using that alias.</para><para>If this parameter is set to <c>False</c>, the API throws an <c>AliasExistsException</c>
         /// error if the alias already exists. The default value is <c>False</c>.</para>
         /// </para>
         /// </summary>
@@ -143,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MessageAction
         /// <summary>
         /// <para>
-        /// <para>Set to <c>RESEND</c> to resend the invitation message to a user that already exists
-        /// and reset the expiration limit on the user's account. Set to <c>SUPPRESS</c> to suppress
-        /// sending the message. You can specify only one value.</para>
+        /// <para>Set to <c>RESEND</c> to resend the invitation message to a user that already exists,
+        /// and to reset the temporary-password duration with a new temporary password. Set to
+        /// <c>SUPPRESS</c> to suppress sending the message. You can specify only one value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where the user will be created.</para>
+        /// <para>The ID of the user pool where you want to create a user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

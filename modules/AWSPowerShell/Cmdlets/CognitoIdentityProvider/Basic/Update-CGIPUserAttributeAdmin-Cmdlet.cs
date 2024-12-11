@@ -46,15 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
     /// Guide</i>.
     /// </para></note><para>
-    /// Updates the specified user's attributes, including developer attributes, as an administrator.
-    /// Works on any user. To delete an attribute from your user, submit the attribute in
-    /// your API request with a blank value.
+    /// Updates the specified user's attributes. To delete an attribute from your user, submit
+    /// the attribute in your API request with a blank value.
     /// </para><para>
     /// For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
     /// name.
     /// </para><para>
-    /// In addition to updating user attributes, this API can also be used to mark phone and
-    /// email as verified.
+    /// This operation can set a user's email address or phone number as verified and permit
+    /// immediate sign-in in user pools that require verification of these attributes. To
+    /// do this, set the <c>email_verified</c> or <c>phone_number_verified</c> attribute to
+    /// <c>true</c>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -90,10 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// In your function code in Lambda, you can process the <c>clientMetadata</c> value to
         /// enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
-        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
-        /// are assigned to a user pool to support custom workflows. If your user pool configuration
-        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
+        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
+        /// that are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
+        /// parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to update user attributes.</para>
+        /// <para>The ID of the user pool where you want to update user attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Describes the risk configuration.
+    /// Given an app client or user pool ID where threat protection is configured, describes
+    /// the risk configuration. This operation returns details about adaptive authentication,
+    /// compromised credentials, and IP-address allow- and denylists. For more information
+    /// about threat protection, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">Threat
+    /// protection</a>.
     /// </summary>
     [Cmdlet("Get", "CGIPRiskConfiguration")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.RiskConfigurationType")]
@@ -49,7 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID.</para>
+        /// <para>The ID of the app client with the risk configuration that you want to inspect. You
+        /// can apply default risk configuration at the user pool level and further customize
+        /// it from user pool defaults at the app-client level. Specify <c>ClientId</c> to inspect
+        /// client-level configuration, or <c>UserPoolId</c> to inspect pool-level configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool with the risk configuration that you want to inspect. You
+        /// can apply default risk configuration at the user pool level and further customize
+        /// it from user pool defaults at the app-client level. Specify <c>ClientId</c> to inspect
+        /// client-level configuration, or <c>UserPoolId</c> to inspect pool-level configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,13 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the device status as an administrator.
+    /// Updates the status of a user's device so that it is marked as remembered or not remembered
+    /// for the purpose of device authentication. Device authentication is a "remember me"
+    /// mechanism that silently completes sign-in from trusted devices with a device key instead
+    /// of a user-provided MFA code. This operation changes the status of a device without
+    /// deleting it, so you can enable it again later. For more information about device authentication,
+    /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+    /// with devices</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceKey
         /// <summary>
         /// <para>
-        /// <para>The device key.</para>
+        /// <para>The unique identifier, or device key, of the device that you want to update the status
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceRememberedStatus
         /// <summary>
         /// <para>
-        /// <para>The status indicating whether a device has been remembered or not.</para>
+        /// <para>To enable device authentication with the specified device, set to <c>remembered</c>.To
+        /// disable, set to <c>not_remembered</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to change a user's device status.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

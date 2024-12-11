@@ -28,12 +28,15 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates the user pool client.
+    /// Creates an app client in a user pool. This operation sets basic and advanced configuration
+    /// options. You can create an app client in the Amazon Cognito console to your preferences
+    /// and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>
+    /// to generate requests from that baseline.
     /// 
     ///  
     /// <para>
-    /// When you create a new user pool client, token revocation is automatically activated.
-    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
+    /// New app clients activate token revocation by default. For more information about revoking
+    /// tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
     /// </para><important><para>
     /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
     /// value.
@@ -122,10 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthScope
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are <c>phone</c>, <c>email</c>,
-        /// <c>openid</c>, and <c>profile</c>. Possible values provided by Amazon Web Services
-        /// are <c>aws.cognito.signin.user.admin</c>. Custom scopes created in Resource Servers
-        /// are also supported.</para>
+        /// <para>The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes
+        /// govern access control to user pool self-service API operations, user data from the
+        /// <c>userInfo</c> endpoint, and third-party APIs. Possible values provided by OAuth
+        /// are <c>phone</c>, <c>email</c>, <c>openid</c>, and <c>profile</c>. Possible values
+        /// provided by Amazon Web Services are <c>aws.cognito.signin.user.admin</c>. Custom scopes
+        /// created in Resource Servers are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server. Amazon Cognito doesn't accept authorization
+        /// requests with <c>redirect_uri</c> values that aren't in the list of <c>CallbackURLs</c>
+        /// that you provide in this parameter.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
         /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
         /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
         /// </para>
@@ -185,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientName
         /// <summary>
         /// <para>
-        /// <para>The client name for the user pool client you would like to create.</para>
+        /// <para>A friendly name for the app client that you want to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -203,9 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The default redirect URI. In app clients with one assigned IdP, replaces <c>redirect_uri</c>
-        /// in authentication requests. Must be in the <c>CallbackURLs</c> list.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about">Default
-        /// redirect URI</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
-        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
+        /// in authentication requests. Must be in the <c>CallbackURLs</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,8 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GenerateSecret
         /// <summary>
         /// <para>
-        /// <para>Boolean to specify whether you want to generate a secret for the user pool client
-        /// being created.</para>
+        /// <para>When <c>true</c>, generates a client secret for the app client. Client secrets are
+        /// used with server-side and machine-to-machine applications. For more information, see
+        /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types">App
+        /// client types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed logout URLs for the IdPs.</para>
+        /// <para>A list of allowed logout URLs for managed login authentication. For more information,
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout
+        /// endpoint</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,11 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// client. The following are supported: <c>COGNITO</c>, <c>Facebook</c>, <c>Google</c>,
         /// <c>SignInWithApple</c>, and <c>LoginWithAmazon</c>. You can also specify the names
         /// that you configured for the SAML and OIDC IdPs in your user pool, for example <c>MySAMLIdP</c>
-        /// or <c>MyOIDCIdP</c>.</para><para>This setting applies to providers that you can access with the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html">hosted
-        /// UI and OAuth 2.0 authorization server</a>. The removal of <c>COGNITO</c> from this
-        /// list doesn't prevent authentication operations for local users with the user pools
-        /// API in an Amazon Web Services SDK. The only way to prevent API-based authentication
-        /// is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
+        /// or <c>MyOIDCIdP</c>.</para><para>This setting applies to providers that you can access with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+        /// login</a>. The removal of <c>COGNITO</c> from this list doesn't prevent authentication
+        /// operations for local users with the user pools API in an Amazon Web Services SDK.
+        /// The only way to prevent API-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
         /// rule</a>.</para>
         /// </para>
         /// </summary>
@@ -447,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to create a user pool client.</para>
+        /// <para>The ID of the user pool where you want to create an app client.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

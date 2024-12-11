@@ -1,4 +1,25 @@
-﻿### 4.1.715 (2024-12-10 22:25Z)
+﻿### 4.1.716 (2024-12-11 22:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.944.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Artifact
+    * Added cmdlet Get-ARTCustomerAgreementList leveraging the ListCustomerAgreements service API.
+  * Amazon EMR Serverless
+    * Modified cmdlet Get-EMRServerlessDashboardForJobRun: added parameter AccessSystemProfileLog.
+  * Amazon Migration Hub
+    * Added cmdlet Add-MHSourceResource leveraging the AssociateSourceResource service API.
+    * Added cmdlet Get-MHMigrationTaskUpdateList leveraging the ListMigrationTaskUpdates service API.
+    * Added cmdlet Get-MHSourceResourceList leveraging the ListSourceResources service API.
+    * Added cmdlet Remove-MHSourceResource leveraging the DisassociateSourceResource service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2MultiRegionEndpoint leveraging the GetMultiRegionEndpoint service API.
+    * Added cmdlet Get-SES2MultiRegionEndpointList leveraging the ListMultiRegionEndpoints service API.
+    * Added cmdlet New-SES2MultiRegionEndpoint leveraging the CreateMultiRegionEndpoint service API.
+    * Added cmdlet Remove-SES2MultiRegionEndpoint leveraging the DeleteMultiRegionEndpoint service API.
+    * Modified cmdlet Send-SES2BulkEmail: added parameter EndpointId.
+    * Modified cmdlet Send-SES2Email: added parameter EndpointId.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbInstance: added parameter NetworkType.
+
+### 4.1.715 (2024-12-10 22:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.943.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet New-CONNPushNotificationRegistration leveraging the CreatePushNotificationRegistration service API.

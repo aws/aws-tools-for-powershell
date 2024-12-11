@@ -130,6 +130,13 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.NetworkType
+        "New-TIDBDbInstance/NetworkType"
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.TracingType
         "New-TIDBDbParameterGroup/InfluxDBv2_TracingType"
         {
@@ -155,6 +162,7 @@ $TIDB_map = @{
     "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+    "NetworkType"=@("New-TIDBDbInstance")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")

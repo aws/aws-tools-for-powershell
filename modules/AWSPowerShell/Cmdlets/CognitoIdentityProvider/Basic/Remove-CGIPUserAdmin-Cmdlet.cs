@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes a user as an administrator. Works on any user.
+    /// Deletes a user profile in your user pool.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to delete the user.</para>
+        /// <para>The ID of the user pool where you want to delete the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

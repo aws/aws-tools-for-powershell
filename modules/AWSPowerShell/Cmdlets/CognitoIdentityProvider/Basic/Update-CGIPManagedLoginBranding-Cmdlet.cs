@@ -42,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// existing style settings that you don't specify. If your request is larger than 2MB,
     /// separate it into multiple requests, each with a size smaller than the limit. 
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API
-    /// and SDK operations for managed login branding</a>.
-    /// </para><note><para>
+    /// As a best practice, modify the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html">DescribeManagedLoginBrandingByClient</a>
+    /// into the request parameters for this operation. To get all settings, set <c>ReturnMergedResources</c>
+    /// to <c>true</c>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API
+    /// and SDK operations for managed login branding</a></para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.

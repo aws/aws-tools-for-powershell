@@ -34,7 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// activated. If multiple options are activated and no preference is set, a challenge
     /// to choose an MFA option will be returned during sign-in.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// This operation doesn't reset an existing TOTP MFA for a user. To register a new TOTP
+    /// factor for a user, make an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>
+    /// request. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html">TOTP
+    /// software token MFA</a>.
+    /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.

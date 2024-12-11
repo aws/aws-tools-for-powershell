@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomerAgreements" OutputProperty="CustomerAgreements" Verb="Get" Noun="CustomerAgreementList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListReports" OutputProperty="Reports" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -22,40 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.SimpleEmailV2;
+using Amazon.SimpleEmailV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Given a user pool domain name, returns information about the domain configuration.
+    /// Displays the multi-region endpoint (global-endpoint) configuration.
     /// 
-    ///  <note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    ///  
+    /// <para>
+    /// Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
+    /// where operation is executed can be displayed.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CGIPUserPoolDomain")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.DomainDescriptionType")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider DescribeUserPoolDomain API operation.", Operation = new[] {"DescribeUserPoolDomain"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.DomainDescriptionType or Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.DomainDescriptionType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SES2MultiRegionEndpoint")]
+    [OutputType("Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse")]
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetMultiRegionEndpoint API operation.", Operation = new[] {"GetMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse))]
+    [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse",
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse object containing multiple properties."
     )]
-    public partial class GetCGIPUserPoolDomainCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetSES2MultiRegionEndpointCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Domain
+        #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The domain that you want to describe. For custom domains, this is the fully-qualified
-        /// domain name, such as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this
-        /// is the prefix alone, such as <c>auth</c>.</para>
+        /// <para>The name of the multi-region endpoint (global-endpoint).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +61,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Domain { get; set; }
+        public System.String EndpointName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainDescription'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse).
+        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DomainDescription";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Domain parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EndpointName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EndpointName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EndpointName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -103,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse, GetCGIPUserPoolDomainCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse, GetSES2MultiRegionEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -112,14 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Domain;
+                context.Select = (response, cmdlet) => this.EndpointName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Domain = this.Domain;
+            context.EndpointName = this.EndpointName;
             #if MODULAR
-            if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
+            if (this.EndpointName == null && ParameterWasBound(nameof(this.EndpointName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,11 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainRequest();
+            var request = new Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointRequest();
             
-            if (cmdletContext.Domain != null)
+            if (cmdletContext.EndpointName != null)
             {
-                request.Domain = cmdletContext.Domain;
+                request.EndpointName = cmdletContext.EndpointName;
             }
             
             CmdletOutput output;
@@ -175,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainRequest request)
+        private Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DescribeUserPoolDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetMultiRegionEndpoint");
             try
             {
                 #if DESKTOP
-                return client.DescribeUserPoolDomain(request);
+                return client.GetMultiRegionEndpoint(request);
                 #elif CORECLR
-                return client.DescribeUserPoolDomainAsync(request).GetAwaiter().GetResult();
+                return client.GetMultiRegionEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -203,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Domain { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.DescribeUserPoolDomainResponse, GetCGIPUserPoolDomainCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DomainDescription;
+            public System.String EndpointName { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.GetMultiRegionEndpointResponse, GetSES2MultiRegionEndpointCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessSystemProfileLog
+        /// <summary>
+        /// <para>
+        /// <para>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessSystemProfileLogs")]
+        public System.Boolean? AccessSystemProfileLog { get; set; }
+        #endregion
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.Select = (response, cmdlet) => this.JobRunId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessSystemProfileLog = this.AccessSystemProfileLog;
             context.ApplicationId = this.ApplicationId;
             #if MODULAR
             if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
@@ -175,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             // create request
             var request = new Amazon.EMRServerless.Model.GetDashboardForJobRunRequest();
             
+            if (cmdletContext.AccessSystemProfileLog != null)
+            {
+                request.AccessSystemProfileLogs = cmdletContext.AccessSystemProfileLog.Value;
+            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
@@ -248,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccessSystemProfileLog { get; set; }
             public System.String ApplicationId { get; set; }
             public System.Int32? Attempt { get; set; }
             public System.String JobRunId { get; set; }

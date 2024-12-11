@@ -22,42 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.SimpleEmailV2;
+using Amazon.SimpleEmailV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Deletes a group from the specified user pool. When you delete a group, that group
-    /// no longer contributes to users' <c>cognito:preferred_group</c> or <c>cognito:groups</c>
-    /// claims, and no longer influence access-control decision that are based on group membership.
-    /// For more information about user pool groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
-    /// groups to a user pool</a>.
+    /// Deletes a multi-region endpoint (global-endpoint).
     /// 
-    ///  <note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    ///  
+    /// <para>
+    /// Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
+    /// where operation is executed can be deleted.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CGIPGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "SES2MultiRegionEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.SimpleEmailV2.Status")]
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteMultiRegionEndpoint API operation.", Operation = new[] {"DeleteMultiRegionEndpoint"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse))]
+    [AWSCmdletOutput("Amazon.SimpleEmailV2.Status or Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse",
+        "This cmdlet returns an Amazon.SimpleEmailV2.Status object.",
+        "The service call response (type Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCGIPGroupCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RemoveSES2MultiRegionEndpointCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GroupName
+        #region Parameter EndpointName
         /// <summary>
         /// <para>
-        /// <para>The name of the group that you want to delete.</para>
+        /// <para>The name of the multi-region endpoint (global-endpoint) to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,42 +62,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroupName { get; set; }
-        #endregion
-        
-        #region Parameter UserPoolId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the user pool where you want to delete the group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserPoolId { get; set; }
+        public System.String EndpointName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse).
+        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EndpointName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EndpointName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EndpointName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIPGroup (DeleteGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EndpointName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SES2MultiRegionEndpoint (DeleteMultiRegionEndpoint)"))
             {
                 return;
             }
@@ -137,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse, RemoveCGIPGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse, RemoveSES2MultiRegionEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,21 +124,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupName;
+                context.Select = (response, cmdlet) => this.EndpointName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupName = this.GroupName;
+            context.EndpointName = this.EndpointName;
             #if MODULAR
-            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
+            if (this.EndpointName == null && ParameterWasBound(nameof(this.EndpointName)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserPoolId = this.UserPoolId;
-            #if MODULAR
-            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,15 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.DeleteGroupRequest();
+            var request = new Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointRequest();
             
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.EndpointName != null)
             {
-                request.GroupName = cmdletContext.GroupName;
-            }
-            if (cmdletContext.UserPoolId != null)
-            {
-                request.UserPoolId = cmdletContext.UserPoolId;
+                request.EndpointName = cmdletContext.EndpointName;
             }
             
             CmdletOutput output;
@@ -220,15 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DeleteGroupRequest request)
+        private Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DeleteGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteMultiRegionEndpoint");
             try
             {
                 #if DESKTOP
-                return client.DeleteGroup(request);
+                return client.DeleteMultiRegionEndpoint(request);
                 #elif CORECLR
-                return client.DeleteGroupAsync(request).GetAwaiter().GetResult();
+                return client.DeleteMultiRegionEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupName { get; set; }
-            public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.DeleteGroupResponse, RemoveCGIPGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String EndpointName { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.DeleteMultiRegionEndpointResponse, RemoveSES2MultiRegionEndpointCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

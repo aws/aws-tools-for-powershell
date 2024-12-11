@@ -1542,6 +1542,9 @@ Set-Alias -Name ART-GetAccountSettings -Value Get-ARTAccountSetting
 Set-Alias -Name ART-GetReport -Value Get-ARTReport
 Set-Alias -Name ART-GetReportMetadata -Value Get-ARTReportMetadata
 Set-Alias -Name ART-GetTermForReport -Value Get-ARTTermForReport
+Set-Alias -Name List-ARTCustomerAgreements -Value Get-ARTCustomerAgreementList
+Set-Alias -Name List-ARTCustomerAgreementList -Value Get-ARTCustomerAgreementList
+Set-Alias -Name ART-ListCustomerAgreements -Value Get-ARTCustomerAgreementList
 Set-Alias -Name List-ARTReports -Value Get-ARTReportList
 Set-Alias -Name List-ARTReportList -Value Get-ARTReportList
 Set-Alias -Name ART-ListReports -Value Get-ARTReportList
@@ -1960,6 +1963,8 @@ Set-Alias -Name Associate-MHCreatedArtifact -Value Add-MHCreatedArtifact
 Set-Alias -Name MH-AssociateCreatedArtifact -Value Add-MHCreatedArtifact
 Set-Alias -Name Associate-MHDiscoveredResource -Value Add-MHDiscoveredResource
 Set-Alias -Name MH-AssociateDiscoveredResource -Value Add-MHDiscoveredResource
+Set-Alias -Name Associate-MHSourceResource -Value Add-MHSourceResource
+Set-Alias -Name MH-AssociateSourceResource -Value Add-MHSourceResource
 Set-Alias -Name Create-MHProgressUpdateStream -Value New-MHProgressUpdateStream
 Set-Alias -Name MH-CreateProgressUpdateStream -Value New-MHProgressUpdateStream
 Set-Alias -Name Delete-MHProgressUpdateStream -Value Remove-MHProgressUpdateStream
@@ -1972,6 +1977,8 @@ Set-Alias -Name Disassociate-MHCreatedArtifact -Value Remove-MHCreatedArtifact
 Set-Alias -Name MH-DisassociateCreatedArtifact -Value Remove-MHCreatedArtifact
 Set-Alias -Name Disassociate-MHDiscoveredResource -Value Remove-MHDiscoveredResource
 Set-Alias -Name MH-DisassociateDiscoveredResource -Value Remove-MHDiscoveredResource
+Set-Alias -Name Disassociate-MHSourceResource -Value Remove-MHSourceResource
+Set-Alias -Name MH-DisassociateSourceResource -Value Remove-MHSourceResource
 Set-Alias -Name MH-ImportMigrationTask -Value Import-MHMigrationTask
 Set-Alias -Name List-MHApplicationStates -Value Get-MHApplicationStateList
 Set-Alias -Name List-MHApplicationStateList -Value Get-MHApplicationStateList
@@ -1985,9 +1992,15 @@ Set-Alias -Name MH-ListDiscoveredResources -Value Get-MHDiscoveredResourceList
 Set-Alias -Name List-MHMigrationTasks -Value Get-MHMigrationTaskList
 Set-Alias -Name List-MHMigrationTaskList -Value Get-MHMigrationTaskList
 Set-Alias -Name MH-ListMigrationTasks -Value Get-MHMigrationTaskList
+Set-Alias -Name List-MHMigrationTaskUpdates -Value Get-MHMigrationTaskUpdateList
+Set-Alias -Name List-MHMigrationTaskUpdateList -Value Get-MHMigrationTaskUpdateList
+Set-Alias -Name MH-ListMigrationTaskUpdates -Value Get-MHMigrationTaskUpdateList
 Set-Alias -Name List-MHProgressUpdateStreams -Value Get-MHProgressUpdateStream
 Set-Alias -Name List-MHProgressUpdateStream -Value Get-MHProgressUpdateStream
 Set-Alias -Name MH-ListProgressUpdateStreams -Value Get-MHProgressUpdateStream
+Set-Alias -Name List-MHSourceResources -Value Get-MHSourceResourceList
+Set-Alias -Name List-MHSourceResourceList -Value Get-MHSourceResourceList
+Set-Alias -Name MH-ListSourceResources -Value Get-MHSourceResourceList
 Set-Alias -Name Notify-MHApplicationState -Value Send-MHApplicationStateNotification
 Set-Alias -Name Notify-MHApplicationStateNotification -Value Send-MHApplicationStateNotification
 Set-Alias -Name MH-NotifyApplicationState -Value Send-MHApplicationStateNotification
@@ -28091,6 +28104,8 @@ Set-Alias -Name Create-SES2ExportJob -Value New-SES2ExportJob
 Set-Alias -Name SES2-CreateExportJob -Value New-SES2ExportJob
 Set-Alias -Name Create-SES2ImportJob -Value New-SES2ImportJob
 Set-Alias -Name SES2-CreateImportJob -Value New-SES2ImportJob
+Set-Alias -Name Create-SES2MultiRegionEndpoint -Value New-SES2MultiRegionEndpoint
+Set-Alias -Name SES2-CreateMultiRegionEndpoint -Value New-SES2MultiRegionEndpoint
 Set-Alias -Name Delete-SES2ConfigurationSet -Value Remove-SES2ConfigurationSet
 Set-Alias -Name SES2-DeleteConfigurationSet -Value Remove-SES2ConfigurationSet
 Set-Alias -Name Delete-SES2ConfigurationSetEventDestination -Value Remove-SES2ConfigurationSetEventDestination
@@ -28109,6 +28124,8 @@ Set-Alias -Name Delete-SES2EmailIdentityPolicy -Value Remove-SES2EmailIdentityPo
 Set-Alias -Name SES2-DeleteEmailIdentityPolicy -Value Remove-SES2EmailIdentityPolicy
 Set-Alias -Name Delete-SES2EmailTemplate -Value Remove-SES2EmailTemplate
 Set-Alias -Name SES2-DeleteEmailTemplate -Value Remove-SES2EmailTemplate
+Set-Alias -Name Delete-SES2MultiRegionEndpoint -Value Remove-SES2MultiRegionEndpoint
+Set-Alias -Name SES2-DeleteMultiRegionEndpoint -Value Remove-SES2MultiRegionEndpoint
 Set-Alias -Name Delete-SES2SuppressedDestination -Value Remove-SES2SuppressedDestination
 Set-Alias -Name SES2-DeleteSuppressedDestination -Value Remove-SES2SuppressedDestination
 Set-Alias -Name SES2-GetAccount -Value Get-SES2Account
@@ -28137,6 +28154,7 @@ Set-Alias -Name SES2-GetExportJob -Value Get-SES2ExportJob
 Set-Alias -Name SES2-GetImportJob -Value Get-SES2ImportJob
 Set-Alias -Name Get-SES2MessageInsights -Value Get-SES2MessageInsight
 Set-Alias -Name SES2-GetMessageInsights -Value Get-SES2MessageInsight
+Set-Alias -Name SES2-GetMultiRegionEndpoint -Value Get-SES2MultiRegionEndpoint
 Set-Alias -Name SES2-GetSuppressedDestination -Value Get-SES2SuppressedDestination
 Set-Alias -Name List-SES2ConfigurationSets -Value Get-SES2ConfigurationSetList
 Set-Alias -Name List-SES2ConfigurationSetList -Value Get-SES2ConfigurationSetList
@@ -28171,6 +28189,9 @@ Set-Alias -Name SES2-ListExportJobs -Value Get-SES2ExportJobList
 Set-Alias -Name List-SES2ImportJobs -Value Get-SES2ImportJobList
 Set-Alias -Name List-SES2ImportJobList -Value Get-SES2ImportJobList
 Set-Alias -Name SES2-ListImportJobs -Value Get-SES2ImportJobList
+Set-Alias -Name List-SES2MultiRegionEndpoints -Value Get-SES2MultiRegionEndpointList
+Set-Alias -Name List-SES2MultiRegionEndpointList -Value Get-SES2MultiRegionEndpointList
+Set-Alias -Name SES2-ListMultiRegionEndpoints -Value Get-SES2MultiRegionEndpointList
 Set-Alias -Name List-SES2Recommendations -Value Get-SES2RecommendationList
 Set-Alias -Name List-SES2RecommendationList -Value Get-SES2RecommendationList
 Set-Alias -Name SES2-ListRecommendations -Value Get-SES2RecommendationList

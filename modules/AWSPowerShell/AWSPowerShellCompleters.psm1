@@ -4555,6 +4555,7 @@ $ART_SelectMap = @{
                "Get-ARTReport",
                "Get-ARTReportMetadata",
                "Get-ARTTermForReport",
+               "Get-ARTCustomerAgreementList",
                "Get-ARTReportList",
                "Write-ARTAccountSetting")
 }
@@ -5459,18 +5460,22 @@ $MH_SelectCompleters = {
 $MH_SelectMap = @{
     "Select"=@("Add-MHCreatedArtifact",
                "Add-MHDiscoveredResource",
+               "Add-MHSourceResource",
                "New-MHProgressUpdateStream",
                "Remove-MHProgressUpdateStream",
                "Get-MHApplicationState",
                "Get-MHMigrationTask",
                "Remove-MHCreatedArtifact",
                "Remove-MHDiscoveredResource",
+               "Remove-MHSourceResource",
                "Import-MHMigrationTask",
                "Get-MHApplicationStateList",
                "Get-MHCreatedArtifactList",
                "Get-MHDiscoveredResourceList",
                "Get-MHMigrationTaskList",
+               "Get-MHMigrationTaskUpdateList",
                "Get-MHProgressUpdateStream",
+               "Get-MHSourceResourceList",
                "Send-MHApplicationStateNotification",
                "Send-MHMigrationTaskStateNotification",
                "Set-MHResourceAttribute")
@@ -69371,6 +69376,7 @@ $SES2_SelectMap = @{
                "New-SES2EmailTemplate",
                "New-SES2ExportJob",
                "New-SES2ImportJob",
+               "New-SES2MultiRegionEndpoint",
                "Remove-SES2ConfigurationSet",
                "Remove-SES2ConfigurationSetEventDestination",
                "Remove-SES2Contact",
@@ -69380,6 +69386,7 @@ $SES2_SelectMap = @{
                "Remove-SES2EmailIdentity",
                "Remove-SES2EmailIdentityPolicy",
                "Remove-SES2EmailTemplate",
+               "Remove-SES2MultiRegionEndpoint",
                "Remove-SES2SuppressedDestination",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
@@ -69401,6 +69408,7 @@ $SES2_SelectMap = @{
                "Get-SES2ExportJob",
                "Get-SES2ImportJob",
                "Get-SES2MessageInsight",
+               "Get-SES2MultiRegionEndpoint",
                "Get-SES2SuppressedDestination",
                "Get-SES2ConfigurationSetList",
                "Get-SES2ContactListCollection",
@@ -69413,6 +69421,7 @@ $SES2_SelectMap = @{
                "Get-SES2EmailTemplateList",
                "Get-SES2ExportJobList",
                "Get-SES2ImportJobList",
+               "Get-SES2MultiRegionEndpointList",
                "Get-SES2RecommendationList",
                "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
@@ -73200,6 +73209,13 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.NetworkType
+        "New-TIDBDbInstance/NetworkType"
+        {
+            $v = "DUAL","IPV4"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.TracingType
         "New-TIDBDbParameterGroup/InfluxDBv2_TracingType"
         {
@@ -73225,6 +73241,7 @@ $TIDB_map = @{
     "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+    "NetworkType"=@("New-TIDBDbInstance")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")

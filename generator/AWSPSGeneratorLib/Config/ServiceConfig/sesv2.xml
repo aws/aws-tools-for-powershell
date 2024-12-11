@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMultiRegionEndpoint" OutputProperty="*" Verb="New" Noun="MultiRegionEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEmailTemplate" Verb="Remove" Noun="EmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMultiRegionEndpoint" OutputProperty="Status" Verb="Remove" Noun="MultiRegionEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,6 +203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMultiRegionEndpoint" OutputProperty="*" Verb="Get" Noun="MultiRegionEndpoint" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSuppressedDestination" OutputProperty="SuppressedDestination" Verb="Get" Noun="SuppressedDestination" PipelineParameter="EmailAddress" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -240,6 +252,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="ImportJobList" PipelineParameter="ImportDestinationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMultiRegionEndpoints" OutputProperty="MultiRegionEndpoints" Verb="Get" Noun="MultiRegionEndpointList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Provides values for UI customization in a <c>Settings</c> JSON object and image files
     /// in an <c>Assets</c> array. To send the JSON object <c>Document</c> type parameter
     /// in <c>Settings</c>, you might need to update to the most recent version of your Amazon
-    /// Web Services SDK. 
+    /// Web Services SDK. To create a new style with default settings, set <c>UseCognitoProvidedValues</c>
+    /// to <c>true</c> and don't provide values for any other options.
     /// </para><para>
     ///  This operation has a 2-megabyte request-size limit and include the CSS settings and
     /// image assets for your app client. Your branding settings might exceed 2MB in size.
@@ -45,8 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// existing style settings that you don't specify. If your request is larger than 2MB,
     /// separate it into multiple requests, each with a size smaller than the limit. 
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API
-    /// and SDK operations for managed login branding</a></para><note><para>
+    /// As a best practice, modify the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html">DescribeManagedLoginBrandingByClient</a>
+    /// into the request parameters for this operation. To get all settings, set <c>ReturnMergedResources</c>
+    /// to <c>true</c>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API
+    /// and SDK operations for managed login branding</a>.
+    /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.
@@ -116,9 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UseCognitoProvidedValue
         /// <summary>
         /// <para>
-        /// <para>When true, applies the default branding style options. This option reverts to default
-        /// style options that are managed by Amazon Cognito. You can modify them later in the
-        /// branding designer.</para><para>When you specify <c>true</c> for this option, you must also omit values for <c>Settings</c>
+        /// <para>When true, applies the default branding style options. These default options are managed
+        /// by Amazon Cognito. You can modify them later in the branding designer.</para><para>When you specify <c>true</c> for this option, you must also omit values for <c>Settings</c>
         /// and <c>Assets</c> in the request.</para>
         /// </para>
         /// </summary>

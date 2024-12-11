@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Deletes a managed login branding style. When you delete a style, you delete the branding
-    /// association for an app client and restore it to default settings.
+    /// association for an app client. When an app client doesn't have a style assigned, your
+    /// managed login pages for that app client are nonfunctional until you create a new style
+    /// or switch the domain branding version.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests

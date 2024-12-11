@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// When given the ID of a managed login branding style, returns detailed information
-    /// about the style.
+    /// Given the ID of a managed login branding style, returns detailed information about
+    /// the style.
     /// </summary>
     [Cmdlet("Get", "CGIPManagedLoginBranding")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ManagedLoginBrandingType")]

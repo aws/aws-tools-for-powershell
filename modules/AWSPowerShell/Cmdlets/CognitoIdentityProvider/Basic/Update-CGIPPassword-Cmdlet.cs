@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProposedPassword
         /// <summary>
         /// <para>
-        /// <para>The new password.</para>
+        /// <para>A new password that you prompted the user to enter in your application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

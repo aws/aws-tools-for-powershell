@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// This public API operation provides a code that Amazon Cognito sent to your user when
+    /// This public API operation submits a code that Amazon Cognito sent to your user when
     /// they signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
     /// API operation. After your user enters their code, they confirm ownership of the email
     /// address or phone number that they provided, and their user account becomes active.
@@ -109,10 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// in Lambda, you can process the <c>clientMetadata</c> value to enhance your workflow
         /// for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
-        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
-        /// are assigned to a user pool to support custom workflows. If your user pool configuration
-        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
+        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
+        /// that are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
+        /// parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ConfirmationCode
         /// <summary>
         /// <para>
-        /// <para>The confirmation code sent by a user's request to confirm registration.</para>
+        /// <para>The confirmation code that your user pool sent in response to the <c>SignUp</c> request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -151,12 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ForceAliasCreation
         /// <summary>
         /// <para>
-        /// <para>Boolean to be specified to force user confirmation irrespective of existing alias.
-        /// By default set to <c>False</c>. If this parameter is set to <c>True</c> and the phone
-        /// number/email used for sign up confirmation already exists as an alias with a different
-        /// user, the API call will migrate the alias from the previous user to the newly created
-        /// user being confirmed. If set to <c>False</c>, the API will throw an <b>AliasExistsException</b>
-        /// error.</para>
+        /// <para>When <c>true</c>, forces user confirmation despite any existing aliases. Defaults
+        /// to <c>false</c>. A value of <c>true</c> migrates the alias from an existing user to
+        /// the new user if an existing user already has the phone number or email address as
+        /// an alias.</para><para>Say, for example, that an existing user has an <c>email</c> attribute of <c>bob@example.com</c>
+        /// and email is an alias in your user pool. If the new user also has an email of <c>bob@example.com</c>
+        /// and your <c>ConfirmSignUp</c> response sets <c>ForceAliasCreation</c> to <c>true</c>,
+        /// the new user can sign in with a username of <c>bob@example.com</c> and the existing
+        /// user can no longer do so.</para><para>If <c>false</c> and an attribute belongs to an existing alias, this request returns
+        /// an <b>AliasExistsException</b> error.</para><para>For more information about sign-in aliases, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
+        /// sign-in attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,7 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A keyed-hash message authentication code (HMAC) calculated using the secret key of
-        /// a user pool client and username plus the client ID in the message.</para>
+        /// a user pool client and username plus the client ID in the message. For more information
+        /// about <c>SecretHash</c>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing
+        /// secret hash values</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

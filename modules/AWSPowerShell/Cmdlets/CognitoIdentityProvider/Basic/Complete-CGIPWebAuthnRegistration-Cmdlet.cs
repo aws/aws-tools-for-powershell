@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A valid access token that Amazon Cognito issued to the user whose passkey registration
-        /// you want to verify.</para>
+        /// you want to complete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

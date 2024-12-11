@@ -63,10 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Message
         /// <summary>
         /// <para>
-        /// <para>The template for the email message that your user pool sends to users with an MFA
-        /// code. The message must contain the <c>{####}</c> placeholder. In the message, Amazon
-        /// Cognito replaces this placeholder with the code. If you don't provide this parameter,
-        /// Amazon Cognito sends messages in the default format.</para>
+        /// <para>The template for the email message that your user pool sends to users with a code
+        /// for MFA and sign-in with an email OTP. The message must contain the <c>{####}</c>
+        /// placeholder. In the message, Amazon Cognito replaces this placeholder with the code.
+        /// If you don't provide this parameter, Amazon Cognito sends messages in the default
+        /// format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email message that your user pool sends to users with an MFA code.</para>
+        /// <para>The subject of the email message that your user pool sends to users with a code for
+        /// MFA and email OTP sign-in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,9 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter WebAuthnConfiguration_UserVerification
         /// <summary>
         /// <para>
-        /// <para>Sets or displays your user-pool treatment for MFA with a passkey. You can override
-        /// other MFA options and require passkey MFA, or you can set it as preferred. When passkey
-        /// MFA is preferred, the hosted UI encourages users to register a passkey at sign-in.</para>
+        /// <para>When <c>required</c>, users can only register and sign in users with passkeys that
+        /// are capable of <a href="https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement">user
+        /// verification</a>. When <c>preferred</c>, your user pool doesn't require the use of
+        /// authenticators with user verification but encourages it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
