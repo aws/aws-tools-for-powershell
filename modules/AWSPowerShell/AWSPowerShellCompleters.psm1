@@ -17388,10 +17388,18 @@ $CONN_Completers = {
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
+            ($_ -eq "Search-CONNContactFlowModule/SearchCriteria_StateCondition") -Or
             ($_ -eq "Update-CONNContactFlowModuleMetadata/State")
         }
         {
             $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
+        # Amazon.Connect.ContactFlowModuleStatus
+        "Search-CONNContactFlowModule/SearchCriteria_StatusCondition"
+        {
+            $v = "PUBLISHED","SAVED"
             break
         }
 
@@ -17440,6 +17448,13 @@ $CONN_Completers = {
         }
         {
             $v = "AGENT","IVR","SCREEN"
+            break
+        }
+
+        # Amazon.Connect.DateComparisonType
+        "Search-CONNHoursOfOperationOverride/DateCondition_ComparisonType"
+        {
+            $v = "EQUAL_TO","GREATER_THAN","GREATER_THAN_OR_EQUAL_TO","LESS_THAN","LESS_THAN_OR_EQUAL_TO"
             break
         }
 
@@ -17770,6 +17785,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEmailAddress/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNHoursOfOperationOverride/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPredefinedAttribute/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPrompt/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNQueue/StringCondition_ComparisonType") -Or
@@ -17895,6 +17911,7 @@ $CONN_map = @{
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
+    "DateCondition_ComparisonType"=@("Search-CONNHoursOfOperationOverride")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
@@ -17924,8 +17941,8 @@ $CONN_map = @{
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchableSegmentAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
-    "SearchCriteria_StateCondition"=@("Search-CONNContactFlow")
-    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
+    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -17938,7 +17955,7 @@ $CONN_map = @{
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
     "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
@@ -18032,6 +18049,7 @@ $CONN_SelectMap = @{
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
+               "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
                "New-CONNParticipant",
@@ -18060,6 +18078,7 @@ $CONN_SelectMap = @{
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
+               "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNPredefinedAttribute",
@@ -18087,6 +18106,7 @@ $CONN_SelectMap = @{
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
+               "Get-CONNHoursOfOperationOverride",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
@@ -18122,6 +18142,7 @@ $CONN_SelectMap = @{
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
+               "Get-CONNEffectiveHoursOfOperation",
                "Get-CONNFederationToken",
                "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
@@ -18145,6 +18166,7 @@ $CONN_SelectMap = @{
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNFlowAssociationList",
+               "Get-CONNHoursOfOperationOverrideList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -18190,6 +18212,7 @@ $CONN_SelectMap = @{
                "Search-CONNContactFlow",
                "Search-CONNContact",
                "Search-CONNEmailAddress",
+               "Search-CONNHoursOfOperationOverride",
                "Search-CONNHoursOfOperation",
                "Search-CONNPredefinedAttribute",
                "Search-CONNPrompt",
@@ -18240,6 +18263,7 @@ $CONN_SelectMap = @{
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
+               "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
                "Update-CONNParticipantRoleConfig",
@@ -23069,6 +23093,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.OracleAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/OracleSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/OracleSettings_AuthenticationMethod")
+        }
+        {
+            $v = "kerberos","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.OriginTypeValue
         {
             ($_ -eq "Start-DMSMetadataModelExportAsScript/Origin") -Or
@@ -23146,6 +23180,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/MicrosoftSQLServerSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/MicrosoftSQLServerSettings_AuthenticationMethod")
+        }
+        {
+            $v = "kerberos","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.SslSecurityProtocolValue
         {
             ($_ -eq "Edit-DMSEndpoint/RedisSettings_SslSecurityProtocol") -Or
@@ -23212,6 +23256,7 @@ $DMS_map = @{
     "KafkaSettings_SslEndpointIdentificationAlgorithm"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MariaDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "MicrosoftSQLServerSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MicrosoftSQLServerSettings_TlogAccessMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -23222,6 +23267,7 @@ $DMS_map = @{
     "MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
@@ -33827,6 +33873,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEncryptionMode
+        "New-GLUESecurityConfiguration/DataQualityEncryption_DataQualityEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
         "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
         {
@@ -34099,6 +34152,7 @@ $GLUE_map = @{
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
+    "DataQualityEncryption_DataQualityEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")

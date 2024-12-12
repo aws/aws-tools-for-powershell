@@ -1,4 +1,23 @@
-﻿### 4.1.716 (2024-12-11 22:32Z)
+﻿### 4.1.717 (2024-12-12 21:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.945.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNEffectiveHoursOfOperation leveraging the GetEffectiveHoursOfOperations service API.
+    * Added cmdlet Get-CONNHoursOfOperationOverride leveraging the DescribeHoursOfOperationOverride service API.
+    * Added cmdlet Get-CONNHoursOfOperationOverrideList leveraging the ListHoursOfOperationOverrides service API.
+    * Added cmdlet New-CONNHoursOfOperationOverride leveraging the CreateHoursOfOperationOverride service API.
+    * Added cmdlet Remove-CONNHoursOfOperationOverride leveraging the DeleteHoursOfOperationOverride service API.
+    * Added cmdlet Search-CONNHoursOfOperationOverride leveraging the SearchHoursOfOperationOverrides service API.
+    * Added cmdlet Update-CONNHoursOfOperationOverride leveraging the UpdateHoursOfOperationOverride service API.
+    * Modified cmdlet Search-CONNContactFlowModule: added parameters SearchCriteria_StateCondition and SearchCriteria_StatusCondition.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters KafkaSettings_UseLargeIntegerValue, KinesisSettings_UseLargeIntegerValue, MicrosoftSQLServerSettings_AuthenticationMethod, OracleSettings_AuthenticationMethod and PostgreSQLSettings_DisableUnicodeSourceFilter.
+    * Modified cmdlet Edit-DMSReplicationInstance: added parameters KerberosAuthenticationSettings_KeyCacheSecretIamArn, KerberosAuthenticationSettings_KeyCacheSecretId and KerberosAuthenticationSettings_Krb5FileContent.
+    * Modified cmdlet New-DMSEndpoint: added parameters KafkaSettings_UseLargeIntegerValue, KinesisSettings_UseLargeIntegerValue, MicrosoftSQLServerSettings_AuthenticationMethod, OracleSettings_AuthenticationMethod and PostgreSQLSettings_DisableUnicodeSourceFilter.
+    * Modified cmdlet New-DMSReplicationInstance: added parameters KerberosAuthenticationSettings_KeyCacheSecretIamArn, KerberosAuthenticationSettings_KeyCacheSecretId and KerberosAuthenticationSettings_Krb5FileContent.
+  * Amazon Glue
+    * Modified cmdlet New-GLUESecurityConfiguration: added parameters DataQualityEncryption_DataQualityEncryptionMode and DataQualityEncryption_KmsKeyArn.
+
+### 4.1.716 (2024-12-11 22:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.944.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Artifact
     * Added cmdlet Get-ARTCustomerAgreementList leveraging the ListCustomerAgreements service API.

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the data providers described in the form of key-value pairs.</para><para>Valid filter names: data-provider-identifier</para>
+        /// <para>Filters applied to the data providers described in the form of key-value pairs.</para><para>Valid filter names and values: data-provider-identifier, data provider arn or name</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

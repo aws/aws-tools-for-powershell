@@ -165,6 +165,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DataQualityEncryptionMode
+        "New-GLUESecurityConfiguration/DataQualityEncryption_DataQualityEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+
         # Amazon.Glue.DQCompositeRuleEvaluationMethod
         "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
         {
@@ -437,6 +444,7 @@ $GLUE_map = @{
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
+    "DataQualityEncryption_DataQualityEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")

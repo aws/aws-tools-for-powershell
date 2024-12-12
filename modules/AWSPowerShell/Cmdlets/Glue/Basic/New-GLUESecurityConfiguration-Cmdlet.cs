@@ -56,6 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.CloudWatchEncryptionMode CloudWatchEncryption_CloudWatchEncryptionMode { get; set; }
         #endregion
         
+        #region Parameter DataQualityEncryption_DataQualityEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The encryption mode to use for encrypting Data Quality assets. These assets include
+        /// data quality rulesets, results, statistics, anomaly detection models and observations.</para><para>Valid values are <c>SSEKMS</c> for encryption using a customer-managed KMS key, or
+        /// <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionConfiguration_DataQualityEncryption_DataQualityEncryptionMode")]
+        [AWSConstantClassSource("Amazon.Glue.DataQualityEncryptionMode")]
+        public Amazon.Glue.DataQualityEncryptionMode DataQualityEncryption_DataQualityEncryptionMode { get; set; }
+        #endregion
+        
         #region Parameter JobBookmarksEncryption_JobBookmarksEncryptionMode
         /// <summary>
         /// <para>
@@ -77,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EncryptionConfiguration_CloudWatchEncryption_KmsKeyArn")]
         public System.String CloudWatchEncryption_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter DataQualityEncryption_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionConfiguration_DataQualityEncryption_KmsKeyArn")]
+        public System.String DataQualityEncryption_KmsKeyArn { get; set; }
         #endregion
         
         #region Parameter JobBookmarksEncryption_KmsKeyArn
@@ -181,6 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CloudWatchEncryption_CloudWatchEncryptionMode = this.CloudWatchEncryption_CloudWatchEncryptionMode;
             context.CloudWatchEncryption_KmsKeyArn = this.CloudWatchEncryption_KmsKeyArn;
+            context.DataQualityEncryption_DataQualityEncryptionMode = this.DataQualityEncryption_DataQualityEncryptionMode;
+            context.DataQualityEncryption_KmsKeyArn = this.DataQualityEncryption_KmsKeyArn;
             context.JobBookmarksEncryption_JobBookmarksEncryptionMode = this.JobBookmarksEncryption_JobBookmarksEncryptionMode;
             context.JobBookmarksEncryption_KmsKeyArn = this.JobBookmarksEncryption_KmsKeyArn;
             if (this.EncryptionConfiguration_S3Encryption != null)
@@ -257,6 +284,41 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestEncryptionConfiguration_encryptionConfiguration_CloudWatchEncryption != null)
             {
                 request.EncryptionConfiguration.CloudWatchEncryption = requestEncryptionConfiguration_encryptionConfiguration_CloudWatchEncryption;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.DataQualityEncryption requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption = null;
+            
+             // populate DataQualityEncryption
+            var requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryptionIsNull = true;
+            requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption = new Amazon.Glue.Model.DataQualityEncryption();
+            Amazon.Glue.DataQualityEncryptionMode requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_DataQualityEncryptionMode = null;
+            if (cmdletContext.DataQualityEncryption_DataQualityEncryptionMode != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_DataQualityEncryptionMode = cmdletContext.DataQualityEncryption_DataQualityEncryptionMode;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_DataQualityEncryptionMode != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption.DataQualityEncryptionMode = requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_DataQualityEncryptionMode;
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryptionIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_KmsKeyArn = null;
+            if (cmdletContext.DataQualityEncryption_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_KmsKeyArn = cmdletContext.DataQualityEncryption_KmsKeyArn;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption_dataQualityEncryption_KmsKeyArn;
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryptionIsNull = false;
+            }
+             // determine if requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption should be set to null
+            if (requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryptionIsNull)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption = null;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption != null)
+            {
+                request.EncryptionConfiguration.DataQualityEncryption = requestEncryptionConfiguration_encryptionConfiguration_DataQualityEncryption;
                 requestEncryptionConfigurationIsNull = false;
             }
             Amazon.Glue.Model.JobBookmarksEncryption requestEncryptionConfiguration_encryptionConfiguration_JobBookmarksEncryption = null;
@@ -366,6 +428,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public Amazon.Glue.CloudWatchEncryptionMode CloudWatchEncryption_CloudWatchEncryptionMode { get; set; }
             public System.String CloudWatchEncryption_KmsKeyArn { get; set; }
+            public Amazon.Glue.DataQualityEncryptionMode DataQualityEncryption_DataQualityEncryptionMode { get; set; }
+            public System.String DataQualityEncryption_KmsKeyArn { get; set; }
             public Amazon.Glue.JobBookmarksEncryptionMode JobBookmarksEncryption_JobBookmarksEncryptionMode { get; set; }
             public System.String JobBookmarksEncryption_KmsKeyArn { get; set; }
             public List<Amazon.Glue.Model.S3Encryption> EncryptionConfiguration_S3Encryption { get; set; }

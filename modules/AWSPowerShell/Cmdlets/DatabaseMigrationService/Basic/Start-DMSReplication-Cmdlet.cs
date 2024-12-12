@@ -101,7 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter StartReplicationType
         /// <summary>
         /// <para>
-        /// <para>The replication type.</para>
+        /// <para>The replication type.</para><para>When the replication type is <c>full-load</c> or <c>full-load-and-cdc</c>, the only
+        /// valid value for the first run of the replication is <c>start-replication</c>. This
+        /// option will start the replication.</para><para>You can also use <a>ReloadTables</a> to reload specific tables that failed during
+        /// replication instead of restarting the replication.</para><para>The <c>resume-processing</c> option isn't applicable for a full-load replication,
+        /// because you can't resume partially loaded tables during the full load phase.</para><para>For a <c>full-load-and-cdc</c> replication, DMS migrates table data, and then applies
+        /// data changes that occur on the source. To load all the tables again, and start capturing
+        /// source changes, use <c>reload-target</c>. Otherwise use <c>resume-processing</c>,
+        /// to replicate the changes from the last stop position.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the instance profiles described in the form of key-value pairs.</para>
+        /// <para>Filters applied to the instance profiles described in the form of key-value pairs.</para><para>Valid filter names and values: instance-profile-identifier, instance profile arn or
+        /// name</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

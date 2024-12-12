@@ -28,15 +28,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches the flow modules in an Amazon Connect instance, with optional filtering.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches the hours of operation overrides.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Search", "CONNContactFlowModule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.SearchContactFlowModulesResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service SearchContactFlowModules API operation.", Operation = new[] {"SearchContactFlowModules"}, SelectReturnType = typeof(Amazon.Connect.Model.SearchContactFlowModulesResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.SearchContactFlowModulesResponse",
-        "This cmdlet returns an Amazon.Connect.Model.SearchContactFlowModulesResponse object containing multiple properties."
+    [Cmdlet("Search", "CONNHoursOfOperationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service SearchHoursOfOperationOverrides API operation.", Operation = new[] {"SearchHoursOfOperationOverrides"}, SelectReturnType = typeof(Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse",
+        "This cmdlet returns an Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse object containing multiple properties."
     )]
-    public partial class SearchCONNContactFlowModuleCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class SearchCONNHoursOfOperationOverrideCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -44,12 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_AndCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <c>AND</c> condition.</para>
+        /// <para>A list of conditions which would be applied together with an AND condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchCriteria_AndConditions")]
-        public Amazon.Connect.Model.ContactFlowModuleSearchCriteria[] SearchCriteria_AndCondition { get; set; }
+        public Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria[] SearchCriteria_AndCondition { get; set; }
         #endregion
         
         #region Parameter TagFilter_AndCondition
@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.TagCondition[] TagFilter_AndCondition { get; set; }
         #endregion
         
+        #region Parameter DateCondition_ComparisonType
+        /// <summary>
+        /// <para>
+        /// <para>An object to specify the hours of operation override date condition <c>comparisonType</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_DateCondition_ComparisonType")]
+        [AWSConstantClassSource("Amazon.Connect.DateComparisonType")]
+        public Amazon.Connect.DateComparisonType DateCondition_ComparisonType { get; set; }
+        #endregion
+        
         #region Parameter StringCondition_ComparisonType
         /// <summary>
         /// <para>
@@ -73,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [Alias("SearchCriteria_StringCondition_ComparisonType")]
         [AWSConstantClassSource("Amazon.Connect.StringComparisonType")]
         public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
+        #endregion
+        
+        #region Parameter DateCondition_FieldName
+        /// <summary>
+        /// <para>
+        /// <para>An object to specify the hours of operation override date field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_DateCondition_FieldName")]
+        public System.String DateCondition_FieldName { get; set; }
         #endregion
         
         #region Parameter StringCondition_FieldName
@@ -89,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instance ID in the
-        /// Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The identifier of the Amazon Connect instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,12 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SearchCriteria_OrCondition
         /// <summary>
         /// <para>
-        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
+        /// <para>A list of conditions which would be applied together with an OR condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchCriteria_OrConditions")]
-        public Amazon.Connect.Model.ContactFlowModuleSearchCriteria[] SearchCriteria_OrCondition { get; set; }
+        public Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria[] SearchCriteria_OrCondition { get; set; }
         #endregion
         
         #region Parameter TagFilter_OrCondition
@@ -125,28 +147,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchFilter_TagFilter_OrConditions")]
         public Amazon.Connect.Model.TagCondition[][] TagFilter_OrCondition { get; set; }
-        #endregion
-        
-        #region Parameter SearchCriteria_StateCondition
-        /// <summary>
-        /// <para>
-        /// <para>The state of the flow.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Connect.ContactFlowModuleState")]
-        public Amazon.Connect.ContactFlowModuleState SearchCriteria_StateCondition { get; set; }
-        #endregion
-        
-        #region Parameter SearchCriteria_StatusCondition
-        /// <summary>
-        /// <para>
-        /// <para>The status of the flow.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Connect.ContactFlowModuleStatus")]
-        public Amazon.Connect.ContactFlowModuleStatus SearchCriteria_StatusCondition { get; set; }
         #endregion
         
         #region Parameter TagCondition_TagKey
@@ -171,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String TagCondition_TagValue { get; set; }
         #endregion
         
+        #region Parameter DateCondition_Value
+        /// <summary>
+        /// <para>
+        /// <para>An object to specify the hours of operation override date value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_DateCondition_Value")]
+        public System.String DateCondition_Value { get; set; }
+        #endregion
+        
         #region Parameter StringCondition_Value
         /// <summary>
         /// <para>
@@ -185,7 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of results to return per page. Valid Range: Minimum value of 1.
+        /// Maximum value of 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// in the next request to retrieve the next set of results. Length Constraints: Minimum
+        /// length of 1. Maximum length of 2500.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -211,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.SearchContactFlowModulesResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.SearchContactFlowModulesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CONNContactFlowModule (SearchContactFlowModules)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CONNHoursOfOperationOverride (SearchHoursOfOperationOverrides)"))
             {
                 return;
             }
@@ -268,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.SearchContactFlowModulesResponse, SearchCONNContactFlowModuleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse, SearchCONNHoursOfOperationOverrideCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -291,14 +304,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             context.NextToken = this.NextToken;
             if (this.SearchCriteria_AndCondition != null)
             {
-                context.SearchCriteria_AndCondition = new List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria>(this.SearchCriteria_AndCondition);
+                context.SearchCriteria_AndCondition = new List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria>(this.SearchCriteria_AndCondition);
             }
+            context.DateCondition_ComparisonType = this.DateCondition_ComparisonType;
+            context.DateCondition_FieldName = this.DateCondition_FieldName;
+            context.DateCondition_Value = this.DateCondition_Value;
             if (this.SearchCriteria_OrCondition != null)
             {
-                context.SearchCriteria_OrCondition = new List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria>(this.SearchCriteria_OrCondition);
+                context.SearchCriteria_OrCondition = new List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria>(this.SearchCriteria_OrCondition);
             }
-            context.SearchCriteria_StateCondition = this.SearchCriteria_StateCondition;
-            context.SearchCriteria_StatusCondition = this.SearchCriteria_StatusCondition;
             context.StringCondition_ComparisonType = this.StringCondition_ComparisonType;
             context.StringCondition_FieldName = this.StringCondition_FieldName;
             context.StringCondition_Value = this.StringCondition_Value;
@@ -334,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.SearchContactFlowModulesRequest();
+            var request = new Amazon.Connect.Model.SearchHoursOfOperationOverridesRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -347,8 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate SearchCriteria
             var requestSearchCriteriaIsNull = true;
-            request.SearchCriteria = new Amazon.Connect.Model.ContactFlowModuleSearchCriteria();
-            List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> requestSearchCriteria_searchCriteria_AndCondition = null;
+            request.SearchCriteria = new Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria();
+            List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria> requestSearchCriteria_searchCriteria_AndCondition = null;
             if (cmdletContext.SearchCriteria_AndCondition != null)
             {
                 requestSearchCriteria_searchCriteria_AndCondition = cmdletContext.SearchCriteria_AndCondition;
@@ -358,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.SearchCriteria.AndConditions = requestSearchCriteria_searchCriteria_AndCondition;
                 requestSearchCriteriaIsNull = false;
             }
-            List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> requestSearchCriteria_searchCriteria_OrCondition = null;
+            List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria> requestSearchCriteria_searchCriteria_OrCondition = null;
             if (cmdletContext.SearchCriteria_OrCondition != null)
             {
                 requestSearchCriteria_searchCriteria_OrCondition = cmdletContext.SearchCriteria_OrCondition;
@@ -368,24 +382,49 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.SearchCriteria.OrConditions = requestSearchCriteria_searchCriteria_OrCondition;
                 requestSearchCriteriaIsNull = false;
             }
-            Amazon.Connect.ContactFlowModuleState requestSearchCriteria_searchCriteria_StateCondition = null;
-            if (cmdletContext.SearchCriteria_StateCondition != null)
+            Amazon.Connect.Model.DateCondition requestSearchCriteria_searchCriteria_DateCondition = null;
+            
+             // populate DateCondition
+            var requestSearchCriteria_searchCriteria_DateConditionIsNull = true;
+            requestSearchCriteria_searchCriteria_DateCondition = new Amazon.Connect.Model.DateCondition();
+            Amazon.Connect.DateComparisonType requestSearchCriteria_searchCriteria_DateCondition_dateCondition_ComparisonType = null;
+            if (cmdletContext.DateCondition_ComparisonType != null)
             {
-                requestSearchCriteria_searchCriteria_StateCondition = cmdletContext.SearchCriteria_StateCondition;
+                requestSearchCriteria_searchCriteria_DateCondition_dateCondition_ComparisonType = cmdletContext.DateCondition_ComparisonType;
             }
-            if (requestSearchCriteria_searchCriteria_StateCondition != null)
+            if (requestSearchCriteria_searchCriteria_DateCondition_dateCondition_ComparisonType != null)
             {
-                request.SearchCriteria.StateCondition = requestSearchCriteria_searchCriteria_StateCondition;
-                requestSearchCriteriaIsNull = false;
+                requestSearchCriteria_searchCriteria_DateCondition.ComparisonType = requestSearchCriteria_searchCriteria_DateCondition_dateCondition_ComparisonType;
+                requestSearchCriteria_searchCriteria_DateConditionIsNull = false;
             }
-            Amazon.Connect.ContactFlowModuleStatus requestSearchCriteria_searchCriteria_StatusCondition = null;
-            if (cmdletContext.SearchCriteria_StatusCondition != null)
+            System.String requestSearchCriteria_searchCriteria_DateCondition_dateCondition_FieldName = null;
+            if (cmdletContext.DateCondition_FieldName != null)
             {
-                requestSearchCriteria_searchCriteria_StatusCondition = cmdletContext.SearchCriteria_StatusCondition;
+                requestSearchCriteria_searchCriteria_DateCondition_dateCondition_FieldName = cmdletContext.DateCondition_FieldName;
             }
-            if (requestSearchCriteria_searchCriteria_StatusCondition != null)
+            if (requestSearchCriteria_searchCriteria_DateCondition_dateCondition_FieldName != null)
             {
-                request.SearchCriteria.StatusCondition = requestSearchCriteria_searchCriteria_StatusCondition;
+                requestSearchCriteria_searchCriteria_DateCondition.FieldName = requestSearchCriteria_searchCriteria_DateCondition_dateCondition_FieldName;
+                requestSearchCriteria_searchCriteria_DateConditionIsNull = false;
+            }
+            System.String requestSearchCriteria_searchCriteria_DateCondition_dateCondition_Value = null;
+            if (cmdletContext.DateCondition_Value != null)
+            {
+                requestSearchCriteria_searchCriteria_DateCondition_dateCondition_Value = cmdletContext.DateCondition_Value;
+            }
+            if (requestSearchCriteria_searchCriteria_DateCondition_dateCondition_Value != null)
+            {
+                requestSearchCriteria_searchCriteria_DateCondition.Value = requestSearchCriteria_searchCriteria_DateCondition_dateCondition_Value;
+                requestSearchCriteria_searchCriteria_DateConditionIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_DateCondition should be set to null
+            if (requestSearchCriteria_searchCriteria_DateConditionIsNull)
+            {
+                requestSearchCriteria_searchCriteria_DateCondition = null;
+            }
+            if (requestSearchCriteria_searchCriteria_DateCondition != null)
+            {
+                request.SearchCriteria.DateCondition = requestSearchCriteria_searchCriteria_DateCondition;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.StringCondition requestSearchCriteria_searchCriteria_StringCondition = null;
@@ -441,7 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             
              // populate SearchFilter
             var requestSearchFilterIsNull = true;
-            request.SearchFilter = new Amazon.Connect.Model.ContactFlowModuleSearchFilter();
+            request.SearchFilter = new Amazon.Connect.Model.HoursOfOperationSearchFilter();
             Amazon.Connect.Model.ControlPlaneTagFilter requestSearchFilter_searchFilter_TagFilter = null;
             
              // populate TagFilter
@@ -574,15 +613,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.SearchContactFlowModulesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.SearchContactFlowModulesRequest request)
+        private Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.SearchHoursOfOperationOverridesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "SearchContactFlowModules");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "SearchHoursOfOperationOverrides");
             try
             {
                 #if DESKTOP
-                return client.SearchContactFlowModules(request);
+                return client.SearchHoursOfOperationOverrides(request);
                 #elif CORECLR
-                return client.SearchContactFlowModulesAsync(request).GetAwaiter().GetResult();
+                return client.SearchHoursOfOperationOverridesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -605,10 +644,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> SearchCriteria_AndCondition { get; set; }
-            public List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> SearchCriteria_OrCondition { get; set; }
-            public Amazon.Connect.ContactFlowModuleState SearchCriteria_StateCondition { get; set; }
-            public Amazon.Connect.ContactFlowModuleStatus SearchCriteria_StatusCondition { get; set; }
+            public List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria> SearchCriteria_AndCondition { get; set; }
+            public Amazon.Connect.DateComparisonType DateCondition_ComparisonType { get; set; }
+            public System.String DateCondition_FieldName { get; set; }
+            public System.String DateCondition_Value { get; set; }
+            public List<Amazon.Connect.Model.HoursOfOperationOverrideSearchCriteria> SearchCriteria_OrCondition { get; set; }
             public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
             public System.String StringCondition_FieldName { get; set; }
             public System.String StringCondition_Value { get; set; }
@@ -616,7 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<List<Amazon.Connect.Model.TagCondition>> TagFilter_OrCondition { get; set; }
             public System.String TagCondition_TagKey { get; set; }
             public System.String TagCondition_TagValue { get; set; }
-            public System.Func<Amazon.Connect.Model.SearchContactFlowModulesResponse, SearchCONNContactFlowModuleCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Connect.Model.SearchHoursOfOperationOverridesResponse, SearchCONNHoursOfOperationOverrideCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

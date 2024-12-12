@@ -28,12 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates a new queue for the specified Amazon Connect instance.
-    /// </para><important><ul><li><para>
+    /// 
+    ///  <important><ul><li><para>
     /// If the phone number is claimed to a traffic distribution group that was created in
     /// the same Region as the Amazon Connect instance where you are calling this API, then
     /// you can use a full phone number ARN or a UUID for <c>OutboundCallerIdNumberId</c>.

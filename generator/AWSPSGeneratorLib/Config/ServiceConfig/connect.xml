@@ -144,6 +144,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHoursOfOperationOverride" OutputProperty="HoursOfOperationOverrideId" Verb="New" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInstance" OutputProperty="*" Verb="New" Noun="Instance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -256,6 +260,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHoursOfOperationOverride" Verb="Remove" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -361,6 +369,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeHoursOfOperation" OutputProperty="HoursOfOperation" Verb="Get" Noun="HoursOfOperation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHoursOfOperationOverride" OutputProperty="HoursOfOperationOverride" Verb="Get" Noun="HoursOfOperationOverride" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -504,6 +516,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEffectiveHoursOfOperations" OutputProperty="*" Verb="Get" Noun="EffectiveHoursOfOperation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -593,6 +609,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFlowAssociations" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHoursOfOperationOverrides" OutputProperty="*" Verb="Get" Noun="HoursOfOperationOverrideList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -780,6 +800,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchEmailAddresses" OutputProperty="*" Verb="Search" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchHoursOfOperationOverrides" OutputProperty="*" Verb="Search" Noun="HoursOfOperationOverride" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1042,6 +1066,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHoursOfOperation" Verb="Update" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHoursOfOperationOverride" Verb="Update" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -128,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactConfiguration_ParticipantRole
         /// <summary>
         /// <para>
-        /// <para>The role of the participant in the chat conversation.</para>
+        /// <para>The role of the participant in the chat conversation.</para><note><para>Only <c>CUSTOMER</c> is currently supported. Any other values other than <c>CUSTOMER</c>
+        /// will result in an exception (4xx error).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

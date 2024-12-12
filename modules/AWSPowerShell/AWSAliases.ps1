@@ -6567,6 +6567,8 @@ Set-Alias -Name Create-CONNEvaluationForm -Value New-CONNEvaluationForm
 Set-Alias -Name CONN-CreateEvaluationForm -Value New-CONNEvaluationForm
 Set-Alias -Name Create-CONNHoursOfOperation -Value New-CONNHoursOfOperation
 Set-Alias -Name CONN-CreateHoursOfOperation -Value New-CONNHoursOfOperation
+Set-Alias -Name Create-CONNHoursOfOperationOverride -Value New-CONNHoursOfOperationOverride
+Set-Alias -Name CONN-CreateHoursOfOperationOverride -Value New-CONNHoursOfOperationOverride
 Set-Alias -Name Create-CONNInstance -Value New-CONNInstance
 Set-Alias -Name CONN-CreateInstance -Value New-CONNInstance
 Set-Alias -Name Create-CONNIntegrationAssociation -Value New-CONNIntegrationAssociation
@@ -6623,6 +6625,8 @@ Set-Alias -Name Delete-CONNEvaluationForm -Value Remove-CONNEvaluationForm
 Set-Alias -Name CONN-DeleteEvaluationForm -Value Remove-CONNEvaluationForm
 Set-Alias -Name Delete-CONNHoursOfOperation -Value Remove-CONNHoursOfOperation
 Set-Alias -Name CONN-DeleteHoursOfOperation -Value Remove-CONNHoursOfOperation
+Set-Alias -Name Delete-CONNHoursOfOperationOverride -Value Remove-CONNHoursOfOperationOverride
+Set-Alias -Name CONN-DeleteHoursOfOperationOverride -Value Remove-CONNHoursOfOperationOverride
 Set-Alias -Name Delete-CONNInstance -Value Remove-CONNInstance
 Set-Alias -Name CONN-DeleteInstance -Value Remove-CONNInstance
 Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationAssociation
@@ -6677,6 +6681,8 @@ Set-Alias -Name Describe-CONNEvaluationForm -Value Get-CONNEvaluationForm
 Set-Alias -Name CONN-DescribeEvaluationForm -Value Get-CONNEvaluationForm
 Set-Alias -Name Describe-CONNHoursOfOperation -Value Get-CONNHoursOfOperation
 Set-Alias -Name CONN-DescribeHoursOfOperation -Value Get-CONNHoursOfOperation
+Set-Alias -Name Describe-CONNHoursOfOperationOverride -Value Get-CONNHoursOfOperationOverride
+Set-Alias -Name CONN-DescribeHoursOfOperationOverride -Value Get-CONNHoursOfOperationOverride
 Set-Alias -Name Describe-CONNInstance -Value Get-CONNInstance
 Set-Alias -Name CONN-DescribeInstance -Value Get-CONNInstance
 Set-Alias -Name Describe-CONNInstanceAttribute -Value Get-CONNInstanceAttribute
@@ -6747,6 +6753,8 @@ Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
 Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
+Set-Alias -Name Get-CONNEffectiveHoursOfOperations -Value Get-CONNEffectiveHoursOfOperation
+Set-Alias -Name CONN-GetEffectiveHoursOfOperations -Value Get-CONNEffectiveHoursOfOperation
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetFlowAssociation -Value Get-CONNFlowAssociation
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
@@ -6800,6 +6808,9 @@ Set-Alias -Name CONN-ListEvaluationFormVersions -Value Get-CONNEvaluationFormVer
 Set-Alias -Name List-CONNFlowAssociations -Value Get-CONNFlowAssociationList
 Set-Alias -Name List-CONNFlowAssociationList -Value Get-CONNFlowAssociationList
 Set-Alias -Name CONN-ListFlowAssociations -Value Get-CONNFlowAssociationList
+Set-Alias -Name List-CONNHoursOfOperationOverrides -Value Get-CONNHoursOfOperationOverrideList
+Set-Alias -Name List-CONNHoursOfOperationOverrideList -Value Get-CONNHoursOfOperationOverrideList
+Set-Alias -Name CONN-ListHoursOfOperationOverrides -Value Get-CONNHoursOfOperationOverrideList
 Set-Alias -Name List-CONNHoursOfOperations -Value Get-CONNHoursOfOperationList
 Set-Alias -Name List-CONNHoursOfOperationList -Value Get-CONNHoursOfOperationList
 Set-Alias -Name CONN-ListHoursOfOperations -Value Get-CONNHoursOfOperationList
@@ -6922,6 +6933,8 @@ Set-Alias -Name Search-CONNContacts -Value Search-CONNContact
 Set-Alias -Name CONN-SearchContacts -Value Search-CONNContact
 Set-Alias -Name Search-CONNEmailAddresses -Value Search-CONNEmailAddress
 Set-Alias -Name CONN-SearchEmailAddresses -Value Search-CONNEmailAddress
+Set-Alias -Name Search-CONNHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
+Set-Alias -Name CONN-SearchHoursOfOperationOverrides -Value Search-CONNHoursOfOperationOverride
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
 Set-Alias -Name CONN-SearchHoursOfOperations -Value Search-CONNHoursOfOperation
 Set-Alias -Name Search-CONNPredefinedAttributes -Value Search-CONNPredefinedAttribute
@@ -6989,6 +7002,7 @@ Set-Alias -Name CONN-UpdateContactSchedule -Value Update-CONNContactSchedule
 Set-Alias -Name CONN-UpdateEmailAddressMetadata -Value Update-CONNEmailAddressMetadata
 Set-Alias -Name CONN-UpdateEvaluationForm -Value Update-CONNEvaluationForm
 Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
+Set-Alias -Name CONN-UpdateHoursOfOperationOverride -Value Update-CONNHoursOfOperationOverride
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig

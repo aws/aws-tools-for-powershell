@@ -117,10 +117,18 @@ $CONN_Completers = {
         # Amazon.Connect.ContactFlowModuleState
         {
             ($_ -eq "Get-CONNContactFlowModuleList/ContactFlowModuleState") -Or
+            ($_ -eq "Search-CONNContactFlowModule/SearchCriteria_StateCondition") -Or
             ($_ -eq "Update-CONNContactFlowModuleMetadata/State")
         }
         {
             $v = "ACTIVE","ARCHIVED"
+            break
+        }
+
+        # Amazon.Connect.ContactFlowModuleStatus
+        "Search-CONNContactFlowModule/SearchCriteria_StatusCondition"
+        {
+            $v = "PUBLISHED","SAVED"
             break
         }
 
@@ -169,6 +177,13 @@ $CONN_Completers = {
         }
         {
             $v = "AGENT","IVR","SCREEN"
+            break
+        }
+
+        # Amazon.Connect.DateComparisonType
+        "Search-CONNHoursOfOperationOverride/DateCondition_ComparisonType"
+        {
+            $v = "EQUAL_TO","GREATER_THAN","GREATER_THAN_OR_EQUAL_TO","LESS_THAN","LESS_THAN_OR_EQUAL_TO"
             break
         }
 
@@ -499,6 +514,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNEmailAddress/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNHoursOfOperationOverride/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPredefinedAttribute/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPrompt/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNQueue/StringCondition_ComparisonType") -Or
@@ -624,6 +640,7 @@ $CONN_map = @{
     "Customer_ScreenShare"=@("Start-CONNWebRTCContact")
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "CustomerEndpoint_Type"=@("Update-CONNContact")
+    "DateCondition_ComparisonType"=@("Search-CONNHoursOfOperationOverride")
     "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "DeviceType"=@("New-CONNPushNotificationRegistration")
     "EmailMessage_MessageSourceType"=@("Send-CONNOutboundEmail","Start-CONNEmailContact","Start-CONNOutboundEmailContact")
@@ -653,8 +670,8 @@ $CONN_map = @{
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchableSegmentAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
-    "SearchCriteria_StateCondition"=@("Search-CONNContactFlow")
-    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_StateCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
+    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow","Search-CONNContactFlowModule")
     "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -667,7 +684,7 @@ $CONN_map = @{
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNEmailAddress","Search-CONNHoursOfOperation","Search-CONNHoursOfOperationOverride","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
     "SystemEndpoint_Type"=@("Update-CONNContact")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
@@ -761,6 +778,7 @@ $CONN_SelectMap = @{
                "New-CONNEmailAddress",
                "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
+               "New-CONNHoursOfOperationOverride",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
                "New-CONNParticipant",
@@ -789,6 +807,7 @@ $CONN_SelectMap = @{
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
+               "Remove-CONNHoursOfOperationOverride",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNPredefinedAttribute",
@@ -816,6 +835,7 @@ $CONN_SelectMap = @{
                "Get-CONNEmailAddress",
                "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
+               "Get-CONNHoursOfOperationOverride",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
                "Get-CONNInstanceStorageConfig",
@@ -851,6 +871,7 @@ $CONN_SelectMap = @{
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
+               "Get-CONNEffectiveHoursOfOperation",
                "Get-CONNFederationToken",
                "Get-CONNFlowAssociation",
                "Get-CONNMetricData",
@@ -874,6 +895,7 @@ $CONN_SelectMap = @{
                "Get-CONNEvaluationFormList",
                "Get-CONNEvaluationFormVersionList",
                "Get-CONNFlowAssociationList",
+               "Get-CONNHoursOfOperationOverrideList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -919,6 +941,7 @@ $CONN_SelectMap = @{
                "Search-CONNContactFlow",
                "Search-CONNContact",
                "Search-CONNEmailAddress",
+               "Search-CONNHoursOfOperationOverride",
                "Search-CONNHoursOfOperation",
                "Search-CONNPredefinedAttribute",
                "Search-CONNPrompt",
@@ -969,6 +992,7 @@ $CONN_SelectMap = @{
                "Update-CONNEmailAddressMetadata",
                "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
+               "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
                "Update-CONNParticipantRoleConfig",
