@@ -168,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String RemoteAccess_Ec2SshKey { get; set; }
         #endregion
         
+        #region Parameter NodeRepairConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable node auto repair for the node group. Node auto repair
+        /// is disabled by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NodeRepairConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter LaunchTemplate_Id
         /// <summary>
         /// <para>
@@ -514,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NodeRepairConfig_Enabled = this.NodeRepairConfig_Enabled;
             context.NodeRole = this.NodeRole;
             #if MODULAR
             if (this.NodeRole == null && ParameterWasBound(nameof(this.NodeRole)))
@@ -641,6 +653,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.NodegroupName != null)
             {
                 request.NodegroupName = cmdletContext.NodegroupName;
+            }
+            
+             // populate NodeRepairConfig
+            var requestNodeRepairConfigIsNull = true;
+            request.NodeRepairConfig = new Amazon.EKS.Model.NodeRepairConfig();
+            System.Boolean? requestNodeRepairConfig_nodeRepairConfig_Enabled = null;
+            if (cmdletContext.NodeRepairConfig_Enabled != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_Enabled = cmdletContext.NodeRepairConfig_Enabled.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_Enabled != null)
+            {
+                request.NodeRepairConfig.Enabled = requestNodeRepairConfig_nodeRepairConfig_Enabled.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+             // determine if request.NodeRepairConfig should be set to null
+            if (requestNodeRepairConfigIsNull)
+            {
+                request.NodeRepairConfig = null;
             }
             if (cmdletContext.NodeRole != null)
             {
@@ -835,6 +866,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String LaunchTemplate_Name { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
             public System.String NodegroupName { get; set; }
+            public System.Boolean? NodeRepairConfig_Enabled { get; set; }
             public System.String NodeRole { get; set; }
             public System.String ReleaseVersion { get; set; }
             public System.String RemoteAccess_Ec2SshKey { get; set; }

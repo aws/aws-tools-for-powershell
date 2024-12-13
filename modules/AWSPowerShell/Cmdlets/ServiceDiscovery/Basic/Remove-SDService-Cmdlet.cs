@@ -28,8 +28,8 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Deletes a specified service. If the service still contains one or more registered
-    /// instances, the request fails.
+    /// Deletes a specified service and all associated service attributes. If the service
+    /// still contains one or more registered instances, the request fails.
     /// </summary>
     [Cmdlet("Remove", "SDService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

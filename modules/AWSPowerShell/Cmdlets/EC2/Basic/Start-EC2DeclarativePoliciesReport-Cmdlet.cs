@@ -46,8 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// account or delegated administrators for the organization.
     /// </para></li><li><para>
     /// An S3 bucket must be available before generating the report (you can create a new
-    /// one or use an existing one), and it must have an appropriate bucket policy. For a
-    /// sample S3 policy, see <i>Sample Amazon S3 policy</i> under .
+    /// one or use an existing one), it must be in the same Region where the report generation
+    /// request is made, and it must have an appropriate bucket policy. For a sample S3 policy,
+    /// see <i>Sample Amazon S3 policy</i> under .
     /// </para></li><li><para>
     /// Trusted access must be enabled for the service for which the declarative policy will
     /// enforce a baseline configuration. If you use the Amazon Web Services Organizations
@@ -82,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket where the report will be saved.</para>
+        /// <para>The name of the S3 bucket where the report will be saved. The bucket must be in the
+        /// same Region where the report generation request is made.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

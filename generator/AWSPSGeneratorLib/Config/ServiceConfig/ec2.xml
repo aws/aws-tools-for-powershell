@@ -840,7 +840,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSecurityGroup" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId" ShouldProcessMsgNoun="Security Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSecurityGroup" OutputProperty="*" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId" ShouldProcessMsgNoun="Security Group" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

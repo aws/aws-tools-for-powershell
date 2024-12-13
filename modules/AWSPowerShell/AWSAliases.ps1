@@ -28018,6 +28018,9 @@ Set-Alias -Name Delete-SDNamespace -Value Remove-SDNamespace
 Set-Alias -Name SD-DeleteNamespace -Value Remove-SDNamespace
 Set-Alias -Name Delete-SDService -Value Remove-SDService
 Set-Alias -Name SD-DeleteService -Value Remove-SDService
+Set-Alias -Name Delete-SDServiceAttributes -Value Remove-SDServiceAttribute
+Set-Alias -Name Delete-SDServiceAttribute -Value Remove-SDServiceAttribute
+Set-Alias -Name SD-DeleteServiceAttributes -Value Remove-SDServiceAttribute
 Set-Alias -Name Deregister-SDInstance -Value Remove-SDInstanceRegistration
 Set-Alias -Name Deregister-SDInstanceRegistration -Value Remove-SDInstanceRegistration
 Set-Alias -Name SD-DeregisterInstance -Value Remove-SDInstanceRegistration
@@ -28031,6 +28034,8 @@ Set-Alias -Name SD-GetInstancesHealthStatus -Value Get-SDInstancesHealthStatus
 Set-Alias -Name SD-GetNamespace -Value Get-SDNamespace
 Set-Alias -Name SD-GetOperation -Value Get-SDOperation
 Set-Alias -Name SD-GetService -Value Get-SDService
+Set-Alias -Name Get-SDServiceAttributes -Value Get-SDServiceAttribute
+Set-Alias -Name SD-GetServiceAttributes -Value Get-SDServiceAttribute
 Set-Alias -Name List-SDInstances -Value Get-SDInstanceList
 Set-Alias -Name List-SDInstanceList -Value Get-SDInstanceList
 Set-Alias -Name SD-ListInstances -Value Get-SDInstanceList
@@ -28054,6 +28059,8 @@ Set-Alias -Name SD-UpdateInstanceCustomHealthStatus -Value Update-SDInstanceCust
 Set-Alias -Name SD-UpdatePrivateDnsNamespace -Value Update-SDPrivateDnsNamespace
 Set-Alias -Name SD-UpdatePublicDnsNamespace -Value Update-SDPublicDnsNamespace
 Set-Alias -Name SD-UpdateService -Value Update-SDService
+Set-Alias -Name Update-SDServiceAttributes -Value Update-SDServiceAttribute
+Set-Alias -Name SD-UpdateServiceAttributes -Value Update-SDServiceAttribute
 Set-Alias -Name Associate-SQServiceQuotaTemplate -Value Register-SQServiceQuotaTemplate
 Set-Alias -Name SQ-AssociateServiceQuotaTemplate -Value Register-SQServiceQuotaTemplate
 Set-Alias -Name Delete-SQServiceQuotaIncreaseRequestFromTemplate -Value Remove-SQServiceQuotaIncreaseRequestFromTemplate

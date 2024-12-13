@@ -1,4 +1,18 @@
-﻿### 4.1.717 (2024-12-12 21:46Z)
+﻿### 4.1.718 (2024-12-13 21:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.946.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cloud Map
+    * Added cmdlet Get-SDServiceAttribute leveraging the GetServiceAttributes service API.
+    * Added cmdlet Remove-SDServiceAttribute leveraging the DeleteServiceAttributes service API.
+    * Added cmdlet Update-SDServiceAttribute leveraging the UpdateServiceAttributes service API.
+  * Amazon CloudHSM V2
+    * Modified cmdlet New-HSM2Cluster: added parameter NetworkType.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSNodegroup: added parameter NodeRepairConfig_Enabled.
+    * Modified cmdlet Update-EKSNodegroupConfig: added parameter NodeRepairConfig_Enabled.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet Update-EMCNBridgeSource: added parameter MulticastSourceSettings_MulticastSourceIp.
+
+### 4.1.717 (2024-12-12 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.945.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNEffectiveHoursOfOperation leveraging the GetEffectiveHoursOfOperations service API.

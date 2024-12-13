@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains the new settings for the service.</para>
+        /// <para>A complex type that contains the new settings for the service. You can specify a maximum
+        /// of 30 attributes (key-value pairs).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

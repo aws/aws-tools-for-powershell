@@ -22,31 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NetworkManager;
-using Amazon.NetworkManager.Model;
+using Amazon.ServiceDiscovery;
+using Amazon.ServiceDiscovery.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NMGR
+namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Updates the edge locations associated with an Amazon Web Services Direct Connect gateway
-    /// attachment.
+    /// Submits a request to update a specified service to add service-level attributes.
     /// </summary>
-    [Cmdlet("Update", "NMGRDirectConnectGatewayAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.NetworkManager.Model.DirectConnectGatewayAttachment")]
-    [AWSCmdlet("Calls the AWS Network Manager UpdateDirectConnectGatewayAttachment API operation.", Operation = new[] {"UpdateDirectConnectGatewayAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse))]
-    [AWSCmdletOutput("Amazon.NetworkManager.Model.DirectConnectGatewayAttachment or Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse",
-        "This cmdlet returns an Amazon.NetworkManager.Model.DirectConnectGatewayAttachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "SDServiceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Cloud Map UpdateServiceAttributes API operation.", Operation = new[] {"UpdateServiceAttributes"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse))]
+    [AWSCmdletOutput("None or Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateNMGRDirectConnectGatewayAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    public partial class UpdateSDServiceAttributeCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AttachmentId
+        #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The ID of the Direct Connect gateway attachment for the updated edge locations. </para>
+        /// <para>A string map that contains attribute key-value pairs.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Attributes")]
+        public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
+        
+        #region Parameter ServiceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the service that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,39 +74,25 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AttachmentId { get; set; }
-        #endregion
-        
-        #region Parameter EdgeLocation
-        /// <summary>
-        /// <para>
-        /// <para>One or more edge locations to update for the Direct Connect gateway attachment. The
-        /// updated array of edge locations overwrites the previous array of locations. <c>EdgeLocations</c>
-        /// is only used for Direct Connect gateway attachments.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EdgeLocations")]
-        public System.String[] EdgeLocation { get; set; }
+        public System.String ServiceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DirectConnectGatewayAttachment'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse).
-        /// Specifying the name of a property of type Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DirectConnectGatewayAttachment";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AttachmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AttachmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServiceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AttachmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AttachmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-NMGRDirectConnectGatewayAttachment (UpdateDirectConnectGatewayAttachment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SDServiceAttribute (UpdateServiceAttributes)"))
             {
                 return;
             }
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse, UpdateNMGRDirectConnectGatewayAttachmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse, UpdateSDServiceAttributeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,20 +135,30 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AttachmentId;
+                context.Select = (response, cmdlet) => this.ServiceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AttachmentId = this.AttachmentId;
-            #if MODULAR
-            if (this.AttachmentId == null && ParameterWasBound(nameof(this.AttachmentId)))
+            if (this.Attribute != null)
             {
-                WriteWarning("You are passing $null as a value for parameter AttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attribute.Keys)
+                {
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
+                }
+            }
+            #if MODULAR
+            if (this.Attribute == null && ParameterWasBound(nameof(this.Attribute)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Attribute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.EdgeLocation != null)
+            context.ServiceId = this.ServiceId;
+            #if MODULAR
+            if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
             {
-                context.EdgeLocation = new List<System.String>(this.EdgeLocation);
+                WriteWarning("You are passing $null as a value for parameter ServiceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,15 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentRequest();
+            var request = new Amazon.ServiceDiscovery.Model.UpdateServiceAttributesRequest();
             
-            if (cmdletContext.AttachmentId != null)
+            if (cmdletContext.Attribute != null)
             {
-                request.AttachmentId = cmdletContext.AttachmentId;
+                request.Attributes = cmdletContext.Attribute;
             }
-            if (cmdletContext.EdgeLocation != null)
+            if (cmdletContext.ServiceId != null)
             {
-                request.EdgeLocations = cmdletContext.EdgeLocation;
+                request.ServiceId = cmdletContext.ServiceId;
             }
             
             CmdletOutput output;
@@ -203,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentRequest request)
+        private Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse CallAWSServiceOperation(IAmazonServiceDiscovery client, Amazon.ServiceDiscovery.Model.UpdateServiceAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "UpdateDirectConnectGatewayAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Map", "UpdateServiceAttributes");
             try
             {
                 #if DESKTOP
-                return client.UpdateDirectConnectGatewayAttachment(request);
+                return client.UpdateServiceAttributes(request);
                 #elif CORECLR
-                return client.UpdateDirectConnectGatewayAttachmentAsync(request).GetAwaiter().GetResult();
+                return client.UpdateServiceAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -231,10 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttachmentId { get; set; }
-            public List<System.String> EdgeLocation { get; set; }
-            public System.Func<Amazon.NetworkManager.Model.UpdateDirectConnectGatewayAttachmentResponse, UpdateNMGRDirectConnectGatewayAttachmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DirectConnectGatewayAttachment;
+            public Dictionary<System.String, System.String> Attribute { get; set; }
+            public System.String ServiceId { get; set; }
+            public System.Func<Amazon.ServiceDiscovery.Model.UpdateServiceAttributesResponse, UpdateSDServiceAttributeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

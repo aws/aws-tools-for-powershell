@@ -179,6 +179,7 @@ $SD_SelectMap = @{
                "New-SDService",
                "Remove-SDNamespace",
                "Remove-SDService",
+               "Remove-SDServiceAttribute",
                "Remove-SDInstanceRegistration",
                "Find-SDInstance",
                "Get-SDInstancesRevision",
@@ -187,6 +188,7 @@ $SD_SelectMap = @{
                "Get-SDNamespace",
                "Get-SDOperation",
                "Get-SDService",
+               "Get-SDServiceAttribute",
                "Get-SDInstanceList",
                "Get-SDNamespaceList",
                "Get-SDOperationList",
@@ -199,7 +201,8 @@ $SD_SelectMap = @{
                "Update-SDInstanceCustomHealthStatus",
                "Update-SDPrivateDnsNamespace",
                "Update-SDPublicDnsNamespace",
-               "Update-SDService")
+               "Update-SDService",
+               "Update-SDServiceAttribute")
 }
 
 _awsArgumentCompleterRegistration $SD_SelectCompleters $SD_SelectMap

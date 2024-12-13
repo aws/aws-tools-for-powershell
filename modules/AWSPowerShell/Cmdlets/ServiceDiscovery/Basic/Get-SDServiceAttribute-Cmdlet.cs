@@ -22,95 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.ServiceDiscovery;
+using Amazon.ServiceDiscovery.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Deletes a security group.
-    /// 
-    ///  
-    /// <para>
-    /// If you attempt to delete a security group that is associated with an instance or network
-    /// interface, is referenced by another security group in the same VPC, or has a VPC association,
-    /// the operation fails with <c>DependencyViolation</c>.
-    /// </para>
+    /// Returns the attributes associated with a specified service.
     /// </summary>
-    [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.EC2.Model.DeleteSecurityGroupResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSecurityGroup API operation.", Operation = new[] {"DeleteSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecurityGroupResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.DeleteSecurityGroupResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DeleteSecurityGroupResponse object containing multiple properties."
+    [Cmdlet("Get", "SDServiceAttribute")]
+    [OutputType("Amazon.ServiceDiscovery.Model.ServiceAttributes")]
+    [AWSCmdlet("Calls the AWS Cloud Map GetServiceAttributes API operation.", Operation = new[] {"GetServiceAttributes"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse))]
+    [AWSCmdletOutput("Amazon.ServiceDiscovery.Model.ServiceAttributes or Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse",
+        "This cmdlet returns an Amazon.ServiceDiscovery.Model.ServiceAttributes object.",
+        "The service call response (type Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetSDServiceAttributeCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GroupId
+        #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group.</para>
+        /// <para>The ID of the service that you want to get attributes for.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GroupId { get; set; }
-        #endregion
-        
-        #region Parameter GroupName
-        /// <summary>
-        /// <para>
-        /// <para>[Default VPC] The name of the security group. You can specify either the security
-        /// group name or the security group ID. For security groups in a nondefault VPC, you
-        /// must specify the security group ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String GroupName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ServiceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteSecurityGroupResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteSecurityGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceAttributes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse).
+        /// Specifying the name of a property of type Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ServiceAttributes";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServiceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2SecurityGroup (DeleteSecurityGroup)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -120,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteSecurityGroupResponse, RemoveEC2SecurityGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse, GetSDServiceAttributeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,11 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupId;
+                context.Select = (response, cmdlet) => this.ServiceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupId = this.GroupId;
-            context.GroupName = this.GroupName;
+            context.ServiceId = this.ServiceId;
+            #if MODULAR
+            if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DeleteSecurityGroupRequest();
+            var request = new Amazon.ServiceDiscovery.Model.GetServiceAttributesRequest();
             
-            if (cmdletContext.GroupId != null)
+            if (cmdletContext.ServiceId != null)
             {
-                request.GroupId = cmdletContext.GroupId;
-            }
-            if (cmdletContext.GroupName != null)
-            {
-                request.GroupName = cmdletContext.GroupName;
+                request.ServiceId = cmdletContext.ServiceId;
             }
             
             CmdletOutput output;
@@ -191,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DeleteSecurityGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSecurityGroupRequest request)
+        private Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse CallAWSServiceOperation(IAmazonServiceDiscovery client, Amazon.ServiceDiscovery.Model.GetServiceAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSecurityGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Map", "GetServiceAttributes");
             try
             {
                 #if DESKTOP
-                return client.DeleteSecurityGroup(request);
+                return client.GetServiceAttributes(request);
                 #elif CORECLR
-                return client.DeleteSecurityGroupAsync(request).GetAwaiter().GetResult();
+                return client.GetServiceAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupId { get; set; }
-            public System.String GroupName { get; set; }
-            public System.Func<Amazon.EC2.Model.DeleteSecurityGroupResponse, RemoveEC2SecurityGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ServiceId { get; set; }
+            public System.Func<Amazon.ServiceDiscovery.Model.GetServiceAttributesResponse, GetSDServiceAttributeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ServiceAttributes;
         }
         
     }
