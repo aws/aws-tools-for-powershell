@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteAutoSnapshot API operation.", Operation = new[] {"DeleteAutoSnapshot"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteAutoSnapshotResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteAutoSnapshotResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteAutoSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteAutoSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSAutoSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

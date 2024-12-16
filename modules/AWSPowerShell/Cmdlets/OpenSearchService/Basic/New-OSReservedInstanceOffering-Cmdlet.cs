@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service PurchaseReservedInstanceOffering API operation.", Operation = new[] {"PurchaseReservedInstanceOffering"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse object containing multiple properties."
     )]
     public partial class NewOSReservedInstanceOfferingCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

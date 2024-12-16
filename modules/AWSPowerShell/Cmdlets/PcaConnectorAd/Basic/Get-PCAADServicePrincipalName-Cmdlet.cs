@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad GetServicePrincipalName API operation.", Operation = new[] {"GetServicePrincipalName"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.GetServicePrincipalNameResponse))]
     [AWSCmdletOutput("Amazon.PcaConnectorAd.Model.ServicePrincipalName or Amazon.PcaConnectorAd.Model.GetServicePrincipalNameResponse",
         "This cmdlet returns an Amazon.PcaConnectorAd.Model.ServicePrincipalName object.",
-        "The service call response (type Amazon.PcaConnectorAd.Model.GetServicePrincipalNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorAd.Model.GetServicePrincipalNameResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCAADServicePrincipalNameCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

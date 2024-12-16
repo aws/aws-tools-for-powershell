@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeAppImageConfigResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeAppImageConfig API operation.", Operation = new[] {"DescribeAppImageConfig"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeAppImageConfigResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeAppImageConfigResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeAppImageConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeAppImageConfigResponse object containing multiple properties."
     )]
     public partial class GetSMAppImageConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station CreateDataflowEndpointGroup API operation.", Operation = new[] {"CreateDataflowEndpointGroup"}, SelectReturnType = typeof(Amazon.GroundStation.Model.CreateDataflowEndpointGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.CreateDataflowEndpointGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.CreateDataflowEndpointGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.CreateDataflowEndpointGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGSDataflowEndpointGroupCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

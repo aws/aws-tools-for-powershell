@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeImages API operation.", Operation = new[] {"DescribeImages"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeImagesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Image or Amazon.EC2.Model.DescribeImagesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.Image objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeImagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -92,15 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <c>2021-09-29T11:04:43.305Z</c>.
         /// You can use a wildcard (<c>*</c>), for example, <c>2021-09-29T*</c>, which matches
         /// an entire day.</para></li><li><para><c>description</c> - The description of the image (provided during image creation).</para></li><li><para><c>ena-support</c> - A Boolean that indicates whether enhanced networking with ENA
-        /// is enabled.</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-id</c> - The ID of the image.</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-marketplace</c>). The
-        /// valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web
-        /// Services account alias that can be set using the IAM console. We recommend that you
-        /// use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner. We recommend that
+        /// is enabled.</para></li><li><para><c>hypervisor</c> - The hypervisor type (<c>ovm</c> | <c>xen</c>).</para></li><li><para><c>image-id</c> - The ID of the image.</para></li><li><para><c>image-type</c> - The image type (<c>machine</c> | <c>kernel</c> | <c>ramdisk</c>).</para></li><li><para><c>is-public</c> - A Boolean that indicates whether the image is public.</para></li><li><para><c>kernel-id</c> - The kernel ID.</para></li><li><para><c>manifest-location</c> - The location of the image manifest.</para></li><li><para><c>name</c> - The name of the AMI (provided during image creation).</para></li><li><para><c>owner-alias</c> - The owner alias (<c>amazon</c> | <c>aws-backup-vault</c> | <c>aws-marketplace</c>).
+        /// The valid aliases are defined in an Amazon-maintained list. This is not the Amazon
+        /// Web Services account alias that can be set using the IAM console. We recommend that
+        /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the owner. We recommend that
         /// you use the <b>Owner</b> request parameter instead of this filter.</para></li><li><para><c>platform</c> - The platform. The only supported value is <c>windows</c>.</para></li><li><para><c>product-code</c> - The product code.</para></li><li><para><c>product-code.type</c> - The type of the product code (<c>marketplace</c>).</para></li><li><para><c>ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>root-device-name</c> - The device name of the root device volume (for example,
         /// <c>/dev/sda1</c>).</para></li><li><para><c>root-device-type</c> - The type of the root device volume (<c>ebs</c> | <c>instance-store</c>).</para></li><li><para><c>source-instance-id</c> - The ID of the instance that the AMI was created from
         /// if the AMI was created using CreateImage. This filter is applicable only if the AMI
         /// was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</para></li><li><para><c>state</c> - The state of the image (<c>available</c> | <c>pending</c> | <c>failed</c>).</para></li><li><para><c>state-reason-code</c> - The reason code for the state change.</para></li><li><para><c>state-reason-message</c> - The message for the state change.</para></li><li><para><c>sriov-net-support</c> - A value of <c>simple</c> indicates that enhanced networking
-        /// with the Intel 82599 VF interface is enabled.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// with the Intel 82599 VF interface is enabled.</para></li><li><para><c>tag:&lt;key&gt;</c> - The key/value combination of a tag assigned to the resource.
         /// Use the tag key in the filter name and the tag value as the filter value. For example,
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
@@ -148,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Scopes the results to images with the specified owners. You can specify a combination
-        /// of Amazon Web Services account IDs, <c>self</c>, <c>amazon</c>, and <c>aws-marketplace</c>.
-        /// If you omit this parameter, the results include all images for which you have launch
-        /// permissions, regardless of ownership.</para>
+        /// of Amazon Web Services account IDs, <c>self</c>, <c>amazon</c>, <c>aws-backup-vault</c>,
+        /// and <c>aws-marketplace</c>. If you omit this parameter, the results include all images
+        /// for which you have launch permissions, regardless of ownership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

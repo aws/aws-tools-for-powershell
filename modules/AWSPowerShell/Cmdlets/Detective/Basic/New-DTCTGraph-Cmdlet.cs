@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective CreateGraph API operation.", Operation = new[] {"CreateGraph"}, SelectReturnType = typeof(Amazon.Detective.Model.CreateGraphResponse))]
     [AWSCmdletOutput("System.String or Amazon.Detective.Model.CreateGraphResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Detective.Model.CreateGraphResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Detective.Model.CreateGraphResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDTCTGraphCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

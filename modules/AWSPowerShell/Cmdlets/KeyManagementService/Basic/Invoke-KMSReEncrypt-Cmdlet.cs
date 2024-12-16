@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.ReEncryptResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service ReEncrypt API operation.", Operation = new[] {"ReEncrypt"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.ReEncryptResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReEncryptResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.ReEncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.ReEncryptResponse object containing multiple properties."
     )]
     public partial class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

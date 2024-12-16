@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SME
     [AWSCmdlet("Calls the Amazon Sagemaker Edge Manager GetDeployments API operation.", Operation = new[] {"GetDeployments"}, SelectReturnType = typeof(Amazon.SagemakerEdgeManager.Model.GetDeploymentsResponse))]
     [AWSCmdletOutput("Amazon.SagemakerEdgeManager.Model.EdgeDeployment or Amazon.SagemakerEdgeManager.Model.GetDeploymentsResponse",
         "This cmdlet returns a collection of Amazon.SagemakerEdgeManager.Model.EdgeDeployment objects.",
-        "The service call response (type Amazon.SagemakerEdgeManager.Model.GetDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SagemakerEdgeManager.Model.GetDeploymentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMEDeploymentCmdlet : AmazonSagemakerEdgeManagerClientCmdlet, IExecutor
     {

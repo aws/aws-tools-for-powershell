@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [OutputType("Amazon.Proton.Model.GetTemplateSyncStatusResponse")]
     [AWSCmdlet("Calls the AWS Proton GetTemplateSyncStatus API operation.", Operation = new[] {"GetTemplateSyncStatus"}, SelectReturnType = typeof(Amazon.Proton.Model.GetTemplateSyncStatusResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.GetTemplateSyncStatusResponse",
-        "This cmdlet returns an Amazon.Proton.Model.GetTemplateSyncStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Proton.Model.GetTemplateSyncStatusResponse object containing multiple properties."
     )]
     public partial class GetPROTemplateSyncStatusCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector SetTagsForResource API operation.", Operation = new[] {"SetTagsForResource"}, SelectReturnType = typeof(Amazon.Inspector.Model.SetTagsForResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.SetTagsForResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.SetTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.SetTagsForResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetINSResourceTagCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

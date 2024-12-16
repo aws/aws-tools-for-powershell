@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [AWSCmdlet("Calls the AWS Compute Optimizer GetEffectiveRecommendationPreferences API operation.", Operation = new[] {"GetEffectiveRecommendationPreferences"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics or Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse",
         "This cmdlet returns an Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics object.",
-        "The service call response (type Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ComputeOptimizer.Model.GetEffectiveRecommendationPreferencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOEffectiveRecommendationPreferenceCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

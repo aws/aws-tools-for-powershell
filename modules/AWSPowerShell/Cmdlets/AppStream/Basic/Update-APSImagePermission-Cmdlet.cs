@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream UpdateImagePermissions API operation.", Operation = new[] {"UpdateImagePermissions"}, SelectReturnType = typeof(Amazon.AppStream.Model.UpdateImagePermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.UpdateImagePermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.UpdateImagePermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.UpdateImagePermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateAPSImagePermissionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

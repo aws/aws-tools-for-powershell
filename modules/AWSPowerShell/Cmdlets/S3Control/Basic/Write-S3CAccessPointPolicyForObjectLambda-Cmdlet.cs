@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control PutAccessPointPolicyForObjectLambda API operation.", Operation = new[] {"PutAccessPointPolicyForObjectLambda"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutAccessPointPolicyForObjectLambdaResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutAccessPointPolicyForObjectLambdaResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.PutAccessPointPolicyForObjectLambdaResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.PutAccessPointPolicyForObjectLambdaResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteS3CAccessPointPolicyForObjectLambdaCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

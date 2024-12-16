@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [OutputType("Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse")]
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB UpdateDbInstance API operation.", Operation = new[] {"UpdateDbInstance"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse))]
     [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse",
-        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse object containing multiple properties."
     )]
     public partial class UpdateTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
@@ -115,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number on which InfluxDB accepts connections.</para><para>If you change the Port value, your database restarts immediately.</para><para>Valid Values: 1024-65535</para><para>Default: 8086</para><para>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Port { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -169,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             #endif
             context.S3Configuration_BucketName = this.S3Configuration_BucketName;
             context.S3Configuration_Enabled = this.S3Configuration_Enabled;
+            context.Port = this.Port;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -245,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             {
                 request.LogDeliveryConfiguration = null;
             }
+            if (cmdletContext.Port != null)
+            {
+                request.Port = cmdletContext.Port.Value;
+            }
             
             CmdletOutput output;
             
@@ -312,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.String Identifier { get; set; }
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }
+            public System.Int32? Port { get; set; }
             public System.Func<Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse, UpdateTIDBDbInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

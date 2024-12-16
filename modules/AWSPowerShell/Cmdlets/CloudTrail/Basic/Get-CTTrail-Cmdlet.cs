@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail DescribeTrails API operation.", Operation = new[] {"DescribeTrails"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DescribeTrailsResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.Trail or Amazon.CloudTrail.Model.DescribeTrailsResponse",
         "This cmdlet returns a collection of Amazon.CloudTrail.Model.Trail objects.",
-        "The service call response (type Amazon.CloudTrail.Model.DescribeTrailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudTrail.Model.DescribeTrailsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

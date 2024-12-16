@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [AWSCmdlet("Calls the Amazon NeptuneData ExecuteOpenCypherExplainQuery API operation.", Operation = new[] {"ExecuteOpenCypherExplainQuery"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ExecuteOpenCypherExplainQueryResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.Neptunedata.Model.ExecuteOpenCypherExplainQueryResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.Neptunedata.Model.ExecuteOpenCypherExplainQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptunedata.Model.ExecuteOpenCypherExplainQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeNEPTOpenCypherExplainQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

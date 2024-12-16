@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 GetSensitiveDataOccurrences API operation.", Operation = new[] {"GetSensitiveDataOccurrences"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.GetSensitiveDataOccurrencesResponse object containing multiple properties."
     )]
     public partial class GetMAC2SensitiveDataOccurrenceCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

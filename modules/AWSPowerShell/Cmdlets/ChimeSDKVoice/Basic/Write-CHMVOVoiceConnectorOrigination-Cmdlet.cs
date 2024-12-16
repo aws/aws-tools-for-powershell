@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice PutVoiceConnectorOrigination API operation.", Operation = new[] {"PutVoiceConnectorOrigination"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.PutVoiceConnectorOriginationResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.Origination or Amazon.ChimeSDKVoice.Model.PutVoiceConnectorOriginationResponse",
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.Origination object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorOriginationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorOriginationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCHMVOVoiceConnectorOriginationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

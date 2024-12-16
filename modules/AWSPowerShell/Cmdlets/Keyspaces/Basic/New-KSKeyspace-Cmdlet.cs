@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// <para><c>CreateKeyspace</c> is an asynchronous operation. You can monitor the creation
     /// status of the new keyspace by using the <c>GetKeyspace</c> operation.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create">Creating
-    /// keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.keyspaces.html">Create
+    /// a keyspace</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KSKeyspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces CreateKeyspace API operation.", Operation = new[] {"CreateKeyspace"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.CreateKeyspaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Keyspaces.Model.CreateKeyspaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Keyspaces.Model.CreateKeyspaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.CreateKeyspaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKSKeyspaceCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice DeleteSipMediaApplication API operation.", Operation = new[] {"DeleteSipMediaApplication"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.DeleteSipMediaApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKVoice.Model.DeleteSipMediaApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKVoice.Model.DeleteSipMediaApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKVoice.Model.DeleteSipMediaApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMVOSipMediaApplicationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

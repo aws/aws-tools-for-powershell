@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service StartTest API operation.", Operation = new[] {"StartTest"}, SelectReturnType = typeof(Amazon.Mgn.Model.StartTestResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.Job or Amazon.Mgn.Model.StartTestResponse",
         "This cmdlet returns an Amazon.Mgn.Model.Job object.",
-        "The service call response (type Amazon.Mgn.Model.StartTestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.StartTestResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMGNTestCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

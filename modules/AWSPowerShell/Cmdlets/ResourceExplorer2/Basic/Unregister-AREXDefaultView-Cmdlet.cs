@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer DisassociateDefaultView API operation.", Operation = new[] {"DisassociateDefaultView"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.DisassociateDefaultViewResponse))]
     [AWSCmdletOutput("None or Amazon.ResourceExplorer2.Model.DisassociateDefaultViewResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResourceExplorer2.Model.DisassociateDefaultViewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResourceExplorer2.Model.DisassociateDefaultViewResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAREXDefaultViewCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

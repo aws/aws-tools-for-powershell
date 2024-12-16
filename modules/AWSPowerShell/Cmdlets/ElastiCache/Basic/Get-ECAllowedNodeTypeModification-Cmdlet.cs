@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Lists all available node types that you can scale your Redis OSS cluster's or replication
+    /// Lists all available node types that you can scale with your cluster's replication
     /// group's current node type.
     /// 
     ///  
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache ListAllowedNodeTypeModifications API operation.", Operation = new[] {"ListAllowedNodeTypeModifications"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECAllowedNodeTypeModificationCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

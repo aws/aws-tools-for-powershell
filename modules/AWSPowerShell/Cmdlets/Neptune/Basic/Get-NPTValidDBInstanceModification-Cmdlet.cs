@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DescribeValidDBInstanceModifications API operation.", Operation = new[] {"DescribeValidDBInstanceModifications"}, SelectReturnType = typeof(Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.ValidDBInstanceModificationsMessage or Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse",
         "This cmdlet returns an Amazon.Neptune.Model.ValidDBInstanceModificationsMessage object.",
-        "The service call response (type Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNPTValidDBInstanceModificationCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

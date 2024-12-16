@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVolume API operation.", Operation = new[] {"DeleteVolume"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVolumeResponse))]
     [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteVolumeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteVolumeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

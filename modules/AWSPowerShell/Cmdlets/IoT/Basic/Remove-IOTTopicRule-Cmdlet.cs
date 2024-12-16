@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteTopicRule API operation.", Operation = new[] {"DeleteTopicRule"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteTopicRuleResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteTopicRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteTopicRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteInstanceEventWindow API operation.", Operation = new[] {"DeleteInstanceEventWindow"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteInstanceEventWindowResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceEventWindowStateChange or Amazon.EC2.Model.DeleteInstanceEventWindowResponse",
         "This cmdlet returns an Amazon.EC2.Model.InstanceEventWindowStateChange object.",
-        "The service call response (type Amazon.EC2.Model.DeleteInstanceEventWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteInstanceEventWindowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2InstanceEventWindowCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

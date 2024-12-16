@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service RestoreDBClusterFromS3 API operation.", Operation = new[] {"RestoreDBClusterFromS3"}, SelectReturnType = typeof(Amazon.RDS.Model.RestoreDBClusterFromS3Response))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster or Amazon.RDS.Model.RestoreDBClusterFromS3Response",
         "This cmdlet returns an Amazon.RDS.Model.DBCluster object.",
-        "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromS3Response) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreRDSDBClusterFromS3Cmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// version, if the major engine version is past its end of standard support date.</para></note><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
         /// With RDS Extended Support, you can run the selected major engine version on your DB
         /// cluster past the end of standard support for that engine version. For more information,
-        /// see the following sections:</para><ul><li><para>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
+        /// see the following sections:</para><ul><li><para>Amazon Aurora - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
         /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
         /// </para>

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     [AWSCmdlet("Calls the Amazon Lookout for Vision CreateProject API operation.", Operation = new[] {"CreateProject"}, SelectReturnType = typeof(Amazon.LookoutforVision.Model.CreateProjectResponse))]
     [AWSCmdletOutput("Amazon.LookoutforVision.Model.ProjectMetadata or Amazon.LookoutforVision.Model.CreateProjectResponse",
         "This cmdlet returns an Amazon.LookoutforVision.Model.ProjectMetadata object.",
-        "The service call response (type Amazon.LookoutforVision.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutforVision.Model.CreateProjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewLFVProjectCmdlet : AmazonLookoutforVisionClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Calls the AWS CloudHSM ListHsms API operation.", Operation = new[] {"ListHsms"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.ListHsmsResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudHSM.Model.ListHsmsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CloudHSM.Model.ListHsmsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ListHsmsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class GetHSMItemListCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

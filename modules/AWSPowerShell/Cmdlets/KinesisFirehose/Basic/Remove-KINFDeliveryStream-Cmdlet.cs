@@ -28,23 +28,23 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Deletes a delivery stream and its data.
+    /// Deletes a Firehose stream and its data.
     /// 
     ///  
     /// <para>
-    /// You can delete a delivery stream only if it is in one of the following states: <c>ACTIVE</c>,
+    /// You can delete a Firehose stream only if it is in one of the following states: <c>ACTIVE</c>,
     /// <c>DELETING</c>, <c>CREATING_FAILED</c>, or <c>DELETING_FAILED</c>. You can't delete
-    /// a delivery stream that is in the <c>CREATING</c> state. To check the state of a delivery
+    /// a Firehose stream that is in the <c>CREATING</c> state. To check the state of a Firehose
     /// stream, use <a>DescribeDeliveryStream</a>. 
     /// </para><para>
     /// DeleteDeliveryStream is an asynchronous API. When an API request to DeleteDeliveryStream
-    /// succeeds, the delivery stream is marked for deletion, and it goes into the <c>DELETING</c>
-    /// state.While the delivery stream is in the <c>DELETING</c> state, the service might
+    /// succeeds, the Firehose stream is marked for deletion, and it goes into the <c>DELETING</c>
+    /// state.While the Firehose stream is in the <c>DELETING</c> state, the service might
     /// continue to accept records, but it doesn't make any guarantees with respect to delivering
     /// the data. Therefore, as a best practice, first stop any applications that are sending
-    /// records before you delete a delivery stream.
+    /// records before you delete a Firehose stream.
     /// </para><para>
-    /// Removal of a delivery stream that is in the <c>DELETING</c> state is a low priority
+    /// Removal of a Firehose stream that is in the <c>DELETING</c> state is a low priority
     /// operation for the service. A stream may remain in the <c>DELETING</c> state for several
     /// minutes. Therefore, as a best practice, applications should not wait for streams in
     /// the <c>DELETING</c> state to be removed. 
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose DeleteDeliveryStream API operation.", Operation = new[] {"DeleteDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AllowForceDelete
         /// <summary>
         /// <para>
-        /// <para>Set this to true if you want to delete the delivery stream even if Firehose is unable
+        /// <para>Set this to true if you want to delete the Firehose stream even if Firehose is unable
         /// to retire the grant for the CMK. Firehose might be unable to retire the grant due
         /// to a customer error, such as when the CMK or the grant are in an invalid state. If
         /// you force deletion, you can then use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream.</para>
+        /// <para>The name of the Firehose stream.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

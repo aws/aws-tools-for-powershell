@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeEvents API operation.", Operation = new[] {"DescribeEvents"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeEventsResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.Event or Amazon.MemoryDB.Model.DescribeEventsResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.Event objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBEventCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

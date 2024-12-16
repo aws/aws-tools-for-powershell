@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Chatbot.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Chatbot.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHATResourceTagCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

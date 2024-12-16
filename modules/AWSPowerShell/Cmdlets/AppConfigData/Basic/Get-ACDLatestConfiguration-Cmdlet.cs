@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     [OutputType("Amazon.AppConfigData.Model.GetLatestConfigurationResponse")]
     [AWSCmdlet("Calls the AWS AppConfig Data GetLatestConfiguration API operation.", Operation = new[] {"GetLatestConfiguration"}, SelectReturnType = typeof(Amazon.AppConfigData.Model.GetLatestConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppConfigData.Model.GetLatestConfigurationResponse",
-        "This cmdlet returns an Amazon.AppConfigData.Model.GetLatestConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfigData.Model.GetLatestConfigurationResponse object containing multiple properties."
     )]
     public partial class GetACDLatestConfigurationCmdlet : AmazonAppConfigDataClientCmdlet, IExecutor
     {

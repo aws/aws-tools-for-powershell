@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetMLTransformResponse")]
     [AWSCmdlet("Calls the AWS Glue GetMLTransform API operation.", Operation = new[] {"GetMLTransform"}, SelectReturnType = typeof(Amazon.Glue.Model.GetMLTransformResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetMLTransformResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetMLTransformResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetMLTransformResponse object containing multiple properties."
     )]
     public partial class GetGLUEMLTransformCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

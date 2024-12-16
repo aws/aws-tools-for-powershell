@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [OutputType("Amazon.OpenSearchServerless.Model.BatchGetCollectionResponse")]
     [AWSCmdlet("Calls the OpenSearch Serverless BatchGetCollection API operation.", Operation = new[] {"BatchGetCollection"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.BatchGetCollectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.BatchGetCollectionResponse",
-        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetCollectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchServerless.Model.BatchGetCollectionResponse object containing multiple properties."
     )]
     public partial class GetOSSGetCollectionCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

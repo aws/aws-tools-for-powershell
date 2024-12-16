@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeregisterManagedInstance API operation.", Operation = new[] {"DeregisterManagedInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSSMManagedInstanceCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

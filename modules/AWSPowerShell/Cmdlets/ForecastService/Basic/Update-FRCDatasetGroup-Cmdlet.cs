@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service UpdateDatasetGroup API operation.", Operation = new[] {"UpdateDatasetGroup"}, SelectReturnType = typeof(Amazon.ForecastService.Model.UpdateDatasetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.UpdateDatasetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.UpdateDatasetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.UpdateDatasetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

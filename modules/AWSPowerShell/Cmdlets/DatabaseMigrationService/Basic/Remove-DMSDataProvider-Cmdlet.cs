@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteDataProvider API operation.", Operation = new[] {"DeleteDataProvider"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteDataProviderResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.DataProvider or Amazon.DatabaseMigrationService.Model.DeleteDataProviderResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.DataProvider object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteDataProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteDataProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSDataProviderCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [AWSCmdlet("Calls the Amazon Appflow UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Appflow.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Appflow.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Appflow.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Appflow.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAFResourceTagCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

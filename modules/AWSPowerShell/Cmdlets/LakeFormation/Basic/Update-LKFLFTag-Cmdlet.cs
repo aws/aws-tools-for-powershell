@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation UpdateLFTag API operation.", Operation = new[] {"UpdateLFTag"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.UpdateLFTagResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.UpdateLFTagResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.UpdateLFTagResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.UpdateLFTagResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateLKFLFTagCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

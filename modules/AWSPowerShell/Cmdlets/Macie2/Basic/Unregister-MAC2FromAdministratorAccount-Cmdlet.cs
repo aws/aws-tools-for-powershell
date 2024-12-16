@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 DisassociateFromAdministratorAccount API operation.", Operation = new[] {"DisassociateFromAdministratorAccount"}, SelectReturnType = typeof(Amazon.Macie2.Model.DisassociateFromAdministratorAccountResponse))]
     [AWSCmdletOutput("None or Amazon.Macie2.Model.DisassociateFromAdministratorAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Macie2.Model.DisassociateFromAdministratorAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Macie2.Model.DisassociateFromAdministratorAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterMAC2FromAdministratorAccountCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

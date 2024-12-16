@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     [OutputType("Amazon.MediaStoreData.Model.DescribeObjectResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaStore Data Plane DescribeObject API operation.", Operation = new[] {"DescribeObject"}, SelectReturnType = typeof(Amazon.MediaStoreData.Model.DescribeObjectResponse))]
     [AWSCmdletOutput("Amazon.MediaStoreData.Model.DescribeObjectResponse",
-        "This cmdlet returns an Amazon.MediaStoreData.Model.DescribeObjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaStoreData.Model.DescribeObjectResponse object containing multiple properties."
     )]
     public partial class GetEMSDObjectMetadataCmdlet : AmazonMediaStoreDataClientCmdlet, IExecutor
     {

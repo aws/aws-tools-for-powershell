@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control GetAccessPointPolicyStatus API operation.", Operation = new[] {"GetAccessPointPolicyStatus"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.PolicyStatus or Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse",
         "This cmdlet returns an Amazon.S3Control.Model.PolicyStatus object.",
-        "The service call response (type Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.GetAccessPointPolicyStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CAccessPointPolicyStatusCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

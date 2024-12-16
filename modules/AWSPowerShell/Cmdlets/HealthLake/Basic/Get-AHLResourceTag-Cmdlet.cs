@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [AWSCmdlet("Calls the Amazon HealthLake ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.HealthLake.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.Tag or Amazon.HealthLake.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.HealthLake.Model.Tag objects.",
-        "The service call response (type Amazon.HealthLake.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.HealthLake.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAHLResourceTagCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

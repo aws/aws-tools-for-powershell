@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarNotifications.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarNotifications.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarNotifications.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSTNResourceTagCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

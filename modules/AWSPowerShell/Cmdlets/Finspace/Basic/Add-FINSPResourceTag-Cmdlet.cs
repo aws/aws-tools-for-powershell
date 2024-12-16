@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Finspace.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Finspace.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddFINSPResourceTagCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

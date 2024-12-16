@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service ListConfiguredTableAssociations API operation.", Operation = new[] {"ListConfiguredTableAssociations"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListConfiguredTableAssociationsResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.ConfiguredTableAssociationSummary or Amazon.CleanRooms.Model.ListConfiguredTableAssociationsResponse",
         "This cmdlet returns a collection of Amazon.CleanRooms.Model.ConfiguredTableAssociationSummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListConfiguredTableAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.ListConfiguredTableAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSConfiguredTableAssociationListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the results that is returned per call.</para>
+        /// <para>The maximum number of results that are returned for an API request call. The service
+        /// chooses a default number if you don't set one. The service might return a `nextToken`
+        /// even if the `maxResults` value has not been met.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token value retrieved from a previous call to access the next page of results.</para>
+        /// <para>The pagination token that's used to fetch the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

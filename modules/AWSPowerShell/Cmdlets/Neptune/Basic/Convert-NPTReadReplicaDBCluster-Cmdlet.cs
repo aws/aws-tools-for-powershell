@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune PromoteReadReplicaDBCluster API operation.", Operation = new[] {"PromoteReadReplicaDBCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.PromoteReadReplicaDBClusterResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DBCluster or Amazon.Neptune.Model.PromoteReadReplicaDBClusterResponse",
         "This cmdlet returns an Amazon.Neptune.Model.DBCluster object.",
-        "The service call response (type Amazon.Neptune.Model.PromoteReadReplicaDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.PromoteReadReplicaDBClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConvertNPTReadReplicaDBClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

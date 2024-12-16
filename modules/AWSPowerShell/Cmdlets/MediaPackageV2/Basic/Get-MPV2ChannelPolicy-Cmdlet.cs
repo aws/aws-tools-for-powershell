@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [OutputType("Amazon.MediaPackageV2.Model.GetChannelPolicyResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 GetChannelPolicy API operation.", Operation = new[] {"GetChannelPolicy"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.GetChannelPolicyResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.GetChannelPolicyResponse",
-        "This cmdlet returns an Amazon.MediaPackageV2.Model.GetChannelPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.GetChannelPolicyResponse object containing multiple properties."
     )]
     public partial class GetMPV2ChannelPolicyCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

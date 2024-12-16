@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty DisassociateFromAdministratorAccount API operation.", Operation = new[] {"DisassociateFromAdministratorAccount"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.DisassociateFromAdministratorAccountResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGDFromAdministratorAccountCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {

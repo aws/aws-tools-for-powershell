@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect ListImportJobs API operation.", Operation = new[] {"ListImportJobs"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListImportJobsResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.ImportJobSummary or Amazon.QConnect.Model.ListImportJobsResponse",
         "This cmdlet returns a collection of Amazon.QConnect.Model.ImportJobSummary objects.",
-        "The service call response (type Amazon.QConnect.Model.ListImportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.ListImportJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQCImportJobListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

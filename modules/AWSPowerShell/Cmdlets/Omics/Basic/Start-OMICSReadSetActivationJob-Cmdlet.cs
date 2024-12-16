@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [OutputType("Amazon.Omics.Model.StartReadSetActivationJobResponse")]
     [AWSCmdlet("Calls the Amazon Omics StartReadSetActivationJob API operation.", Operation = new[] {"StartReadSetActivationJob"}, SelectReturnType = typeof(Amazon.Omics.Model.StartReadSetActivationJobResponse))]
     [AWSCmdletOutput("Amazon.Omics.Model.StartReadSetActivationJobResponse",
-        "This cmdlet returns an Amazon.Omics.Model.StartReadSetActivationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Omics.Model.StartReadSetActivationJobResponse object containing multiple properties."
     )]
     public partial class StartOMICSReadSetActivationJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

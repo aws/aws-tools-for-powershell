@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [OutputType("Amazon.Translate.Model.UpdateParallelDataResponse")]
     [AWSCmdlet("Calls the Amazon Translate UpdateParallelData API operation.", Operation = new[] {"UpdateParallelData"}, SelectReturnType = typeof(Amazon.Translate.Model.UpdateParallelDataResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.UpdateParallelDataResponse",
-        "This cmdlet returns an Amazon.Translate.Model.UpdateParallelDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Translate.Model.UpdateParallelDataResponse object containing multiple properties."
     )]
     public partial class UpdateTRNParallelDataCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

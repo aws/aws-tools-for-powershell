@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager BatchDeleteDelegationByAssessment API operation.", Operation = new[] {"BatchDeleteDelegationByAssessment"}, SelectReturnType = typeof(Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentError or Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentError objects.",
-        "The service call response (type Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.BatchDeleteDelegationByAssessmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAUDMDelegationByAssessmentCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

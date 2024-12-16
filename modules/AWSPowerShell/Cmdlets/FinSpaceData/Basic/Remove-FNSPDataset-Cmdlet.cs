@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API DeleteDataset API operation.", Operation = new[] {"DeleteDataset"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.DeleteDatasetResponse))]
     [AWSCmdletOutput("System.String or Amazon.FinSpaceData.Model.DeleteDatasetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.FinSpaceData.Model.DeleteDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.DeleteDatasetResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

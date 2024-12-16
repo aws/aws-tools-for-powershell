@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service UpdateWorkspaceAlias API operation.", Operation = new[] {"UpdateWorkspaceAlias"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.UpdateWorkspaceAliasResponse))]
     [AWSCmdletOutput("None or Amazon.PrometheusService.Model.UpdateWorkspaceAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.UpdateWorkspaceAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PrometheusService.Model.UpdateWorkspaceAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdatePROMWorkspaceAliasCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

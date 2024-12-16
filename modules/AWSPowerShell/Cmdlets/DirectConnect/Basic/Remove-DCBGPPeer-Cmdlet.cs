@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DeleteBGPPeer API operation.", Operation = new[] {"DeleteBGPPeer"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DeleteBGPPeerResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterface or Amazon.DirectConnect.Model.DeleteBGPPeerResponse",
         "This cmdlet returns an Amazon.DirectConnect.Model.VirtualInterface object.",
-        "The service call response (type Amazon.DirectConnect.Model.DeleteBGPPeerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DeleteBGPPeerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDCBGPPeerCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

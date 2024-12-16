@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     [AWSCmdlet("Calls the Amazon Bedrock Agent Runtime GetAgentMemory API operation.", Operation = new[] {"GetAgentMemory"}, SelectReturnType = typeof(Amazon.BedrockAgentRuntime.Model.GetAgentMemoryResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgentRuntime.Model.Memory or Amazon.BedrockAgentRuntime.Model.GetAgentMemoryResponse",
         "This cmdlet returns a collection of Amazon.BedrockAgentRuntime.Model.Memory objects.",
-        "The service call response (type Amazon.BedrockAgentRuntime.Model.GetAgentMemoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgentRuntime.Model.GetAgentMemoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBARAgentMemoryCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {

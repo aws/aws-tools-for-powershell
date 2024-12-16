@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [OutputType("Amazon.Kinesis.Model.PutRecordResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis PutRecord API operation.", Operation = new[] {"PutRecord"}, SelectReturnType = typeof(Amazon.Kinesis.Model.PutRecordResponse))]
     [AWSCmdletOutput("Amazon.Kinesis.Model.PutRecordResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.PutRecordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kinesis.Model.PutRecordResponse object containing multiple properties."
     )]
     public partial class WriteKINRecordCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

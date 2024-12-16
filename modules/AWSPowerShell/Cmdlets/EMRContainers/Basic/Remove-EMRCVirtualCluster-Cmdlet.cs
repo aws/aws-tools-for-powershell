@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [AWSCmdlet("Calls the Amazon EMR Containers DeleteVirtualCluster API operation.", Operation = new[] {"DeleteVirtualCluster"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DeleteVirtualClusterResponse))]
     [AWSCmdletOutput("System.String or Amazon.EMRContainers.Model.DeleteVirtualClusterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EMRContainers.Model.DeleteVirtualClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EMRContainers.Model.DeleteVirtualClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMRCVirtualClusterCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

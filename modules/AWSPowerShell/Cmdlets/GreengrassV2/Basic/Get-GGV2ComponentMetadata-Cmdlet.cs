@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [OutputType("Amazon.GreengrassV2.Model.DescribeComponentResponse")]
     [AWSCmdlet("Calls the AWS GreengrassV2 DescribeComponent API operation.", Operation = new[] {"DescribeComponent"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.DescribeComponentResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.DescribeComponentResponse",
-        "This cmdlet returns an Amazon.GreengrassV2.Model.DescribeComponentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GreengrassV2.Model.DescribeComponentResponse object containing multiple properties."
     )]
     public partial class GetGGV2ComponentMetadataCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

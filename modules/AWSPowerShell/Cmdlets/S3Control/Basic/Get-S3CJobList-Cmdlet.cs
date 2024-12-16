@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control ListJobs API operation.", Operation = new[] {"ListJobs"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListJobsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.JobListDescriptor or Amazon.S3Control.Model.ListJobsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.JobListDescriptor objects.",
-        "The service call response (type Amazon.S3Control.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.ListJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CJobListCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

@@ -80,6 +80,16 @@ $RSS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RedshiftServerless.PerformanceTargetStatus
+        {
+            ($_ -eq "New-RSSWorkgroup/PricePerformanceTarget_Status") -Or
+            ($_ -eq "Update-RSSWorkgroup/PricePerformanceTarget_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.RedshiftServerless.UsageLimitBreachAction
         {
             ($_ -eq "New-RSSUsageLimit/BreachAction") -Or
@@ -118,6 +128,7 @@ $RSS_Completers = {
 $RSS_map = @{
     "BreachAction"=@("New-RSSUsageLimit","Update-RSSUsageLimit")
     "Period"=@("New-RSSUsageLimit")
+    "PricePerformanceTarget_Status"=@("New-RSSWorkgroup","Update-RSSWorkgroup")
     "UsageType"=@("Get-RSSUsageLimitList","New-RSSUsageLimit")
 }
 

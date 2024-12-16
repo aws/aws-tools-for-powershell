@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs UpdateFolder API operation.", Operation = new[] {"UpdateFolder"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.UpdateFolderResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.UpdateFolderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.UpdateFolderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.UpdateFolderResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

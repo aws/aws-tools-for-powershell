@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact UpdateRepository API operation.", Operation = new[] {"UpdateRepository"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.UpdateRepositoryResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositoryDescription or Amazon.CodeArtifact.Model.UpdateRepositoryResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.RepositoryDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.UpdateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.UpdateRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCARepositoryCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

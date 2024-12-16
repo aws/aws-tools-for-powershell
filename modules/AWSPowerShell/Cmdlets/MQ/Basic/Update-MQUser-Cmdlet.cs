@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.MQ.Model.UpdateUserResponse))]
     [AWSCmdletOutput("None or Amazon.MQ.Model.UpdateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MQ.Model.UpdateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateMQUserCmdlet : AmazonMQClientCmdlet, IExecutor
     {

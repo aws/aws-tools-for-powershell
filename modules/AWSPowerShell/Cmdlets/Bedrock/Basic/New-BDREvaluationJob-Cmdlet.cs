@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock CreateEvaluationJob API operation.", Operation = new[] {"CreateEvaluationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.CreateEvaluationJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Bedrock.Model.CreateEvaluationJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Bedrock.Model.CreateEvaluationJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Bedrock.Model.CreateEvaluationJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewBDREvaluationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

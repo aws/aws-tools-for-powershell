@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RedshiftServerless.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RedshiftServerless.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RedshiftServerless.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSResourceTagCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

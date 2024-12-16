@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.Tag or Amazon.OpenSearchServerless.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.OpenSearchServerless.Model.Tag objects.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSSResourceTagCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

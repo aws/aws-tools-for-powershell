@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStatementResultV2" OutputProperty="*" Verb="Get" Noun="StatementResultV2" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabasisList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

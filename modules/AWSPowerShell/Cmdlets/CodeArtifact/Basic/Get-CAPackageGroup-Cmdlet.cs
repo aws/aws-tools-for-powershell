@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact DescribePackageGroup API operation.", Operation = new[] {"DescribePackageGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DescribePackageGroupResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageGroupDescription or Amazon.CodeArtifact.Model.DescribePackageGroupResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.PackageGroupDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DescribePackageGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.DescribePackageGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCAPackageGroupCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

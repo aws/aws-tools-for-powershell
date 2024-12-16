@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline ListRuleTypes API operation.", Operation = new[] {"ListRuleTypes"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.ListRuleTypesResponse))]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.RuleType or Amazon.CodePipeline.Model.ListRuleTypesResponse",
         "This cmdlet returns a collection of Amazon.CodePipeline.Model.RuleType objects.",
-        "The service call response (type Amazon.CodePipeline.Model.ListRuleTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.ListRuleTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCPRuleTypeListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

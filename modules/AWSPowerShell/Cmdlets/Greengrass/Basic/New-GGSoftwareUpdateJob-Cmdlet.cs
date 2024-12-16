@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse")]
     [AWSCmdlet("Calls the AWS Greengrass CreateSoftwareUpdateJob API operation.", Operation = new[] {"CreateSoftwareUpdateJob"}, SelectReturnType = typeof(Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.CreateSoftwareUpdateJobResponse object containing multiple properties."
     )]
     public partial class NewGGSoftwareUpdateJobCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

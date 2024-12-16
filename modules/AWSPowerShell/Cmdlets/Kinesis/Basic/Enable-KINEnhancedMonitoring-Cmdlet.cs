@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [OutputType("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis EnableEnhancedMonitoring API operation.", Operation = new[] {"EnableEnhancedMonitoring"}, SelectReturnType = typeof(Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse))]
     [AWSCmdletOutput("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse object containing multiple properties."
     )]
     public partial class EnableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

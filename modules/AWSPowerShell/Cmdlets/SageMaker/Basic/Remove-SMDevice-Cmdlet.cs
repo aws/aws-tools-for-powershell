@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeregisterDevices API operation.", Operation = new[] {"DeregisterDevices"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeregisterDevicesResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeregisterDevicesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeregisterDevicesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeregisterDevicesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMDeviceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

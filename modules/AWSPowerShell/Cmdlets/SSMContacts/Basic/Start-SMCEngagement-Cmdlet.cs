@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts StartEngagement API operation.", Operation = new[] {"StartEngagement"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.StartEngagementResponse))]
     [AWSCmdletOutput("System.String or Amazon.SSMContacts.Model.StartEngagementResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SSMContacts.Model.StartEngagementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMContacts.Model.StartEngagementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartSMCEngagementCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

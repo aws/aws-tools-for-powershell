@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteBotAlias API operation.", Operation = new[] {"DeleteBotAlias"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.DeleteBotAliasResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelBuildingService.Model.DeleteBotAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelBuildingService.Model.DeleteBotAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelBuildingService.Model.DeleteBotAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBBotAliasCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

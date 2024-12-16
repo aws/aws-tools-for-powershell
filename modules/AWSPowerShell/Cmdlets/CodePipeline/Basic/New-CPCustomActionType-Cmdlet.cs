@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline CreateCustomActionType API operation.", Operation = new[] {"CreateCustomActionType"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.CreateCustomActionTypeResponse))]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType or Amazon.CodePipeline.Model.CreateCustomActionTypeResponse",
         "This cmdlet returns an Amazon.CodePipeline.Model.ActionType object.",
-        "The service call response (type Amazon.CodePipeline.Model.CreateCustomActionTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.CreateCustomActionTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

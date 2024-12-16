@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync GetIntrospectionSchema API operation.", Operation = new[] {"GetIntrospectionSchema"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetIntrospectionSchemaResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.AppSync.Model.GetIntrospectionSchemaResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.AppSync.Model.GetIntrospectionSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.GetIntrospectionSchemaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASYNIntrospectionSchemaCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

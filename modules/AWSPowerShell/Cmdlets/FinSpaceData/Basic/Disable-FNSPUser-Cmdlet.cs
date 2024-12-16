@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API DisableUser API operation.", Operation = new[] {"DisableUser"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.DisableUserResponse))]
     [AWSCmdletOutput("System.String or Amazon.FinSpaceData.Model.DisableUserResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.FinSpaceData.Model.DisableUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.DisableUserResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class DisableFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

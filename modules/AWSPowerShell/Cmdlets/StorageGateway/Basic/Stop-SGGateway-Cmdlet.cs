@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway ShutdownGateway API operation.", Operation = new[] {"ShutdownGateway"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.ShutdownGatewayResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.ShutdownGatewayResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.ShutdownGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ShutdownGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

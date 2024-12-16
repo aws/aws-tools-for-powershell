@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
     [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking DeleteRescoreExecutionPlan API operation.", Operation = new[] {"DeleteRescoreExecutionPlan"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse))]
     [AWSCmdletOutput("None or Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNRKRescoreExecutionPlanCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {

@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li></ul><para>
     /// When you receive a successful response from this operation, Amazon EC2 Auto Scaling
     /// immediately begins replacing instances. You can check the status of this operation
-    /// through the <a>DescribeInstanceRefreshes</a> API operation. 
+    /// through the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a>
+    /// API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("Undo", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling RollbackInstanceRefresh API operation.", Operation = new[] {"RollbackInstanceRefresh"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse))]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UndoASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

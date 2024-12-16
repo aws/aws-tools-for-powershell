@@ -19,11 +19,6 @@ support_DescribeCommunications:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Get-ASACommunication.2.1.ps1
-        - description: '<emphasis role="bold">Example 3: Returns all communications since midnight UTC on January 1st 2012 for the specified case, using manual paging. The communications are retrieved in batches of 20.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/support_Get-ASACommunication.3.1.ps1
   services:
     support:
       DescribeCommunications:

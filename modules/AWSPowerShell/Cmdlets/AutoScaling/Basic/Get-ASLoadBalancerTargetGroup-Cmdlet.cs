@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>DescribeTrafficSources</a>, which can describe
-    /// multiple traffic sources types. We recommend using <c>DetachTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>DescribeLoadBalancerTargetGroups</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>,
+    /// which can describe multiple traffic sources types. We recommend using <c>DetachTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>DescribeLoadBalancerTargetGroups</c>.
     /// You can use both the original <c>DescribeLoadBalancerTargetGroups</c> API operation
     /// and <c>DescribeTrafficSources</c> on the same Auto Scaling group.
     /// </para></note><para>
@@ -48,10 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// replace any instances that are reported as unhealthy. If no registered instances pass
     /// the health checks, the target group doesn't enter the <c>InService</c> state. 
     /// </para><para>
-    /// Target groups also have an <c>InService</c> state if you attach them in the <a>CreateAutoScalingGroup</a>
+    /// Target groups also have an <c>InService</c> state if you attach them in the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
     /// API call. If your target group state is <c>InService</c>, but it is not working properly,
-    /// check the scaling activities by calling <a>DescribeScalingActivities</a> and take
-    /// any corrective actions necessary.
+    /// check the scaling activities by calling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
+    /// and take any corrective actions necessary.
     /// </para><para>
     /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
     /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
     /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
     /// </para><note><para>
-    /// You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
-    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+    /// You can use this operation to describe target groups that were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html">AttachLoadBalancerTargetGroups</a>,
+    /// but not for target groups that were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancerTargetGroup")]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeLoadBalancerTargetGroups API operation.", Operation = new[] {"DescribeLoadBalancerTargetGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.LoadBalancerTargetGroupState or Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.LoadBalancerTargetGroupState objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASLoadBalancerTargetGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

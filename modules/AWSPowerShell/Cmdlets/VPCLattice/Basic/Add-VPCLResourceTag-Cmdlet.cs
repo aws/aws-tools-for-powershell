@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.VPCLattice.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VPCLattice.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VPCLattice.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddVPCLResourceTagCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

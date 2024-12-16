@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail StopLogging API operation.", Operation = new[] {"StopLogging"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StopLoggingResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.StopLoggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.StopLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.StopLoggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

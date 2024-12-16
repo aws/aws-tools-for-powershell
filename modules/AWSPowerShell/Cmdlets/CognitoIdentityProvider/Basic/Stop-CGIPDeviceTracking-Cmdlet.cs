@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ForgetDevice API operation.", Operation = new[] {"ForgetDevice"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ForgetDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.ForgetDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.ForgetDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.ForgetDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCGIPDeviceTrackingCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

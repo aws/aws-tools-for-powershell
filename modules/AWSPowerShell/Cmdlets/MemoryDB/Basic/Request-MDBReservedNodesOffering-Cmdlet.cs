@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [OutputType("Amazon.MemoryDB.Model.PurchaseReservedNodesOfferingResponse")]
     [AWSCmdlet("Calls the Amazon MemoryDB PurchaseReservedNodesOffering API operation.", Operation = new[] {"PurchaseReservedNodesOffering"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.PurchaseReservedNodesOfferingResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.PurchaseReservedNodesOfferingResponse",
-        "This cmdlet returns an Amazon.MemoryDB.Model.PurchaseReservedNodesOfferingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MemoryDB.Model.PurchaseReservedNodesOfferingResponse object containing multiple properties."
     )]
     public partial class RequestMDBReservedNodesOfferingCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

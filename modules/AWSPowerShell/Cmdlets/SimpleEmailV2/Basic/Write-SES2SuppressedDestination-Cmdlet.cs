@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutSuppressedDestination API operation.", Operation = new[] {"PutSuppressedDestination"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.PutSuppressedDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSES2SuppressedDestinationCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

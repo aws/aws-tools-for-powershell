@@ -28,18 +28,18 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Adds or updates tags for the specified delivery stream. A tag is a key-value pair
+    /// Adds or updates tags for the specified Firehose stream. A tag is a key-value pair
     /// that you can define and assign to Amazon Web Services resources. If you specify a
     /// tag that already exists, the tag value is replaced with the value that you specify
     /// in the request. Tags are metadata. For example, you can add friendly names and descriptions
-    /// or other types of information that can help you distinguish the delivery stream. For
+    /// or other types of information that can help you distinguish the Firehose stream. For
     /// more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
     /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
     /// User Guide</i>. 
     /// 
     ///  
     /// <para>
-    /// Each delivery stream can have up to 50 tags. 
+    /// Each Firehose stream can have up to 50 tags. 
     /// </para><para>
     /// This operation has a limit of five transactions per second per account. 
     /// </para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose TagDeliveryStream API operation.", Operation = new[] {"TagDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.TagDeliveryStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKINFDeliveryStreamTagCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream to which you want to add the tags.</para>
+        /// <para>The name of the Firehose stream to which you want to add the tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.GetAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.AccountSettingsDetail or Amazon.OpenSearchServerless.Model.GetAccountSettingsResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.AccountSettingsDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.GetAccountSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSSAccountSettingCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 CreateApplicationPresignedUrl API operation.", Operation = new[] {"CreateApplicationPresignedUrl"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.CreateApplicationPresignedUrlResponse))]
     [AWSCmdletOutput("System.String or Amazon.KinesisAnalyticsV2.Model.CreateApplicationPresignedUrlResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.CreateApplicationPresignedUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisAnalyticsV2.Model.CreateApplicationPresignedUrlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKINA2ApplicationPresignedUrlCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

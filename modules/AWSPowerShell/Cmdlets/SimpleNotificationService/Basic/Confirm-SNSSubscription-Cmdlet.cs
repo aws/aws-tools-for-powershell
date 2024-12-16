@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) ConfirmSubscription API operation.", Operation = new[] {"ConfirmSubscription"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

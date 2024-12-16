@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service CreateCollaboration API operation.", Operation = new[] {"CreateCollaboration"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.CreateCollaborationResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.Collaboration or Amazon.CleanRooms.Model.CreateCollaborationResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.Collaboration object.",
-        "The service call response (type Amazon.CleanRooms.Model.CreateCollaborationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.CreateCollaborationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCRSCollaborationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Boolean? DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName { get; set; }
         #endregion
         
+        #region Parameter AnalyticsEngine
+        /// <summary>
+        /// <para>
+        /// <para> The analytics engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.AnalyticsEngine")]
+        public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
+        #endregion
+        
         #region Parameter CreatorDisplayName
         /// <summary>
         /// <para>
@@ -113,6 +124,20 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String[] CreatorMemberAbility { get; set; }
         #endregion
         
+        #region Parameter CreatorMLMemberAbilities_CustomMLMemberAbility
+        /// <summary>
+        /// <para>
+        /// <para>The custom ML member abilities for a collaboration member. The inference feature is
+        /// not available in the custom ML modeling beta.</para><para>Custom ML modeling is in beta release and is subject to change. For beta terms and
+        /// conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon
+        /// Web Services Service Terms</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorMLMemberAbilities_CustomMLMemberAbilities")]
+        public System.String[] CreatorMLMemberAbilities_CustomMLMemberAbility { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -128,6 +153,40 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter ModelInference_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration creator has configured the collaboration member
+        /// to pay for model inference costs (<c>TRUE</c>) or has not configured the collaboration
+        /// member to pay for model inference costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for model inference costs. An error is
+        /// returned if the collaboration creator sets a <c>TRUE</c> value for more than one member
+        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for model
+        /// inference costs, then the member who can query is the default payer. An error is returned
+        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorPaymentConfiguration_MachineLearning_ModelInference_IsResponsible")]
+        public System.Boolean? ModelInference_IsResponsible { get; set; }
+        #endregion
+        
+        #region Parameter ModelTraining_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration creator has configured the collaboration member
+        /// to pay for model training costs (<c>TRUE</c>) or has not configured the collaboration
+        /// member to pay for model training costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for model training costs. An error is
+        /// returned if the collaboration creator sets a <c>TRUE</c> value for more than one member
+        /// in the collaboration. </para><para>If the collaboration creator hasn't specified anyone as the member paying for model
+        /// training costs, then the member who can query is the default payer. An error is returned
+        /// if the collaboration creator sets a <c>FALSE</c> value for the member who can query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorPaymentConfiguration_MachineLearning_ModelTraining_IsResponsible")]
+        public System.Boolean? ModelTraining_IsResponsible { get; set; }
         #endregion
         
         #region Parameter QueryCompute_IsResponsible
@@ -266,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.CreateCollaborationResponse, NewCRSCollaborationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AnalyticsEngine = this.AnalyticsEngine;
             context.CreatorDisplayName = this.CreatorDisplayName;
             #if MODULAR
             if (this.CreatorDisplayName == null && ParameterWasBound(nameof(this.CreatorDisplayName)))
@@ -283,6 +343,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter CreatorMemberAbility which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CreatorMLMemberAbilities_CustomMLMemberAbility != null)
+            {
+                context.CreatorMLMemberAbilities_CustomMLMemberAbility = new List<System.String>(this.CreatorMLMemberAbilities_CustomMLMemberAbility);
+            }
+            context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
+            context.ModelTraining_IsResponsible = this.ModelTraining_IsResponsible;
             context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
             context.DataEncryptionMetadata_AllowCleartext = this.DataEncryptionMetadata_AllowCleartext;
             context.DataEncryptionMetadata_AllowDuplicate = this.DataEncryptionMetadata_AllowDuplicate;
@@ -343,6 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.CreateCollaborationRequest();
             
+            if (cmdletContext.AnalyticsEngine != null)
+            {
+                request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+            }
             if (cmdletContext.CreatorDisplayName != null)
             {
                 request.CreatorDisplayName = cmdletContext.CreatorDisplayName;
@@ -350,6 +420,25 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.CreatorMemberAbility != null)
             {
                 request.CreatorMemberAbilities = cmdletContext.CreatorMemberAbility;
+            }
+            
+             // populate CreatorMLMemberAbilities
+            var requestCreatorMLMemberAbilitiesIsNull = true;
+            request.CreatorMLMemberAbilities = new Amazon.CleanRooms.Model.MLMemberAbilities();
+            List<System.String> requestCreatorMLMemberAbilities_creatorMLMemberAbilities_CustomMLMemberAbility = null;
+            if (cmdletContext.CreatorMLMemberAbilities_CustomMLMemberAbility != null)
+            {
+                requestCreatorMLMemberAbilities_creatorMLMemberAbilities_CustomMLMemberAbility = cmdletContext.CreatorMLMemberAbilities_CustomMLMemberAbility;
+            }
+            if (requestCreatorMLMemberAbilities_creatorMLMemberAbilities_CustomMLMemberAbility != null)
+            {
+                request.CreatorMLMemberAbilities.CustomMLMemberAbilities = requestCreatorMLMemberAbilities_creatorMLMemberAbilities_CustomMLMemberAbility;
+                requestCreatorMLMemberAbilitiesIsNull = false;
+            }
+             // determine if request.CreatorMLMemberAbilities should be set to null
+            if (requestCreatorMLMemberAbilitiesIsNull)
+            {
+                request.CreatorMLMemberAbilities = null;
             }
             
              // populate CreatorPaymentConfiguration
@@ -378,6 +467,71 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute != null)
             {
                 request.CreatorPaymentConfiguration.QueryCompute = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute;
+                requestCreatorPaymentConfigurationIsNull = false;
+            }
+            Amazon.CleanRooms.Model.MLPaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning = null;
+            
+             // populate MachineLearning
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning = new Amazon.CleanRooms.Model.MLPaymentConfig();
+            Amazon.CleanRooms.Model.ModelInferencePaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference = null;
+            
+             // populate ModelInference
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInferenceIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference = new Amazon.CleanRooms.Model.ModelInferencePaymentConfig();
+            System.Boolean? requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible = null;
+            if (cmdletContext.ModelInference_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible = cmdletContext.ModelInference_IsResponsible.Value;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference.IsResponsible = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference_modelInference_IsResponsible.Value;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInferenceIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInferenceIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning.ModelInference = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelInference;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull = false;
+            }
+            Amazon.CleanRooms.Model.ModelTrainingPaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining = null;
+            
+             // populate ModelTraining
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTrainingIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining = new Amazon.CleanRooms.Model.ModelTrainingPaymentConfig();
+            System.Boolean? requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible = null;
+            if (cmdletContext.ModelTraining_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible = cmdletContext.ModelTraining_IsResponsible.Value;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining.IsResponsible = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining_modelTraining_IsResponsible.Value;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTrainingIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTrainingIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning.ModelTraining = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning_creatorPaymentConfiguration_MachineLearning_ModelTraining;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearningIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning != null)
+            {
+                request.CreatorPaymentConfiguration.MachineLearning = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_MachineLearning;
                 requestCreatorPaymentConfigurationIsNull = false;
             }
              // determine if request.CreatorPaymentConfiguration should be set to null
@@ -515,8 +669,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
             public System.String CreatorDisplayName { get; set; }
             public List<System.String> CreatorMemberAbility { get; set; }
+            public List<System.String> CreatorMLMemberAbilities_CustomMLMemberAbility { get; set; }
+            public System.Boolean? ModelInference_IsResponsible { get; set; }
+            public System.Boolean? ModelTraining_IsResponsible { get; set; }
             public System.Boolean? QueryCompute_IsResponsible { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowCleartext { get; set; }
             public System.Boolean? DataEncryptionMetadata_AllowDuplicate { get; set; }

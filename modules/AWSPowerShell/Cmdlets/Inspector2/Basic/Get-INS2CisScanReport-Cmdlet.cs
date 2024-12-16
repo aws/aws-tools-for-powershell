@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.GetCisScanReportResponse")]
     [AWSCmdlet("Calls the Inspector2 GetCisScanReport API operation.", Operation = new[] {"GetCisScanReport"}, SelectReturnType = typeof(Amazon.Inspector2.Model.GetCisScanReportResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.GetCisScanReportResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.GetCisScanReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.GetCisScanReportResponse object containing multiple properties."
     )]
     public partial class GetINS2CisScanReportCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

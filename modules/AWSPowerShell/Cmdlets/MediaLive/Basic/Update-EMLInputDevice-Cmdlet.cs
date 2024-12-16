@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.UpdateInputDeviceResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateInputDevice API operation.", Operation = new[] {"UpdateInputDevice"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateInputDeviceResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.UpdateInputDeviceResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.UpdateInputDeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.UpdateInputDeviceResponse object containing multiple properties."
     )]
     public partial class UpdateEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

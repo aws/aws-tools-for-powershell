@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse")]
     [AWSCmdlet("Calls the AWS Security Hub UpdateFindingAggregator API operation.", Operation = new[] {"UpdateFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.UpdateFindingAggregatorResponse object containing multiple properties."
     )]
     public partial class UpdateSHUBFindingAggregatorCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

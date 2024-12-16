@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [OutputType("Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse")]
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness CreateReadinessCheck API operation.", Operation = new[] {"CreateReadinessCheck"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse",
-        "This cmdlet returns an Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53RecoveryReadiness.Model.CreateReadinessCheckResponse object containing multiple properties."
     )]
     public partial class NewPDReadinessCheckCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

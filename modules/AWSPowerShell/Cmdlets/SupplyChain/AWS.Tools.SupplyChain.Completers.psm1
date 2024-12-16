@@ -87,6 +87,46 @@ $SUPCH_Completers = {
             break
         }
 
+        # Amazon.SupplyChain.DataIntegrationFlowFileType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Options_FileType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Options_FileType")
+        }
+        {
+            $v = "CSV","JSON","PARQUET"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowLoadType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Options_LoadType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Options_LoadType")
+        }
+        {
+            $v = "INCREMENTAL","REPLACE"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowTargetType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Target_TargetType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Target_TargetType")
+        }
+        {
+            $v = "DATASET","S3"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowTransformationType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Transformation_TransformationType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Transformation_TransformationType")
+        }
+        {
+            $v = "NONE","SQL"
+            break
+        }
+
 
     }
 
@@ -97,6 +137,10 @@ $SUPCH_Completers = {
 
 $SUPCH_map = @{
     "EventType"=@("Send-SUPCHDataIntegrationEvent")
+    "Options_FileType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Options_LoadType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Target_TargetType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Transformation_TransformationType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_Completers $SUPCH_map
@@ -150,8 +194,26 @@ $SUPCH_SelectCompleters = {
 
 $SUPCH_SelectMap = @{
     "Select"=@("New-SUPCHBillOfMaterialsImportJob",
+               "New-SUPCHDataIntegrationFlow",
+               "New-SUPCHDataLakeDataset",
+               "New-SUPCHInstance",
+               "Remove-SUPCHDataIntegrationFlow",
+               "Remove-SUPCHDataLakeDataset",
+               "Remove-SUPCHInstance",
                "Get-SUPCHBillOfMaterialsImportJob",
-               "Send-SUPCHDataIntegrationEvent")
+               "Get-SUPCHDataIntegrationFlow",
+               "Get-SUPCHDataLakeDataset",
+               "Get-SUPCHInstance",
+               "Get-SUPCHDataIntegrationFlowList",
+               "Get-SUPCHDataLakeDatasetList",
+               "Get-SUPCHInstanceList",
+               "Get-SUPCHResourceTag",
+               "Send-SUPCHDataIntegrationEvent",
+               "Add-SUPCHResourceTag",
+               "Remove-SUPCHResourceTag",
+               "Update-SUPCHDataIntegrationFlow",
+               "Update-SUPCHDataLakeDataset",
+               "Update-SUPCHInstance")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_SelectCompleters $SUPCH_SelectMap

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT SetV2LoggingOptions API operation.", Operation = new[] {"SetV2LoggingOptions"}, SelectReturnType = typeof(Amazon.IoT.Model.SetV2LoggingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.SetV2LoggingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.SetV2LoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.SetV2LoggingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetIOTV2LoggingOptionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

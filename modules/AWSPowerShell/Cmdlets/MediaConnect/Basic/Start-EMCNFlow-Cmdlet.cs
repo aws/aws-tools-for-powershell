@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.StartFlowResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect StartFlow API operation.", Operation = new[] {"StartFlow"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.StartFlowResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.StartFlowResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.StartFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.StartFlowResponse object containing multiple properties."
     )]
     public partial class StartEMCNFlowCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

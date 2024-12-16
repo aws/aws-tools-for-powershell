@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ResilienceHub.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResilienceHub.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResilienceHub.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddRESHResourceTagCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

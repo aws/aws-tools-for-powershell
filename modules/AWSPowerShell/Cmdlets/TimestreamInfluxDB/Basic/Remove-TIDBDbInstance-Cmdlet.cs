@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
     [OutputType("Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse")]
     [AWSCmdlet("Calls the Amazon Timestream InfluxDB DeleteDbInstance API operation.", Operation = new[] {"DeleteDbInstance"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse))]
     [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse",
-        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse object containing multiple properties."
     )]
     public partial class RemoveTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {

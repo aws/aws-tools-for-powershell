@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DetectKeyPhrases API operation.", Operation = new[] {"DetectKeyPhrases"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DetectKeyPhrasesResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.KeyPhrase or Amazon.Comprehend.Model.DetectKeyPhrasesResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.KeyPhrase objects.",
-        "The service call response (type Amazon.Comprehend.Model.DetectKeyPhrasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DetectKeyPhrasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCOMPKeyPhraseCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

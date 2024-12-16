@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListVPCAssociationAuthorizationsResponse")]
     [AWSCmdlet("Calls the Amazon Route 53 ListVPCAssociationAuthorizations API operation.", Operation = new[] {"ListVPCAssociationAuthorizations"}, SelectReturnType = typeof(Amazon.Route53.Model.ListVPCAssociationAuthorizationsResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.ListVPCAssociationAuthorizationsResponse",
-        "This cmdlet returns an Amazon.Route53.Model.ListVPCAssociationAuthorizationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53.Model.ListVPCAssociationAuthorizationsResponse object containing multiple properties."
     )]
     public partial class GetR53VPCAssociationAuthorizationListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

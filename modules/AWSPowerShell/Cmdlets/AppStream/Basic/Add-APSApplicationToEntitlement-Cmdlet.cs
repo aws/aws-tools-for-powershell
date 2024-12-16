@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream AssociateApplicationToEntitlement API operation.", Operation = new[] {"AssociateApplicationToEntitlement"}, SelectReturnType = typeof(Amazon.AppStream.Model.AssociateApplicationToEntitlementResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.AssociateApplicationToEntitlementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.AssociateApplicationToEntitlementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.AssociateApplicationToEntitlementResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddAPSApplicationToEntitlementCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront TestFunction API operation.", Operation = new[] {"TestFunction"}, SelectReturnType = typeof(Amazon.CloudFront.Model.TestFunctionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.TestResult or Amazon.CloudFront.Model.TestFunctionResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.TestResult object.",
-        "The service call response (type Amazon.CloudFront.Model.TestFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.TestFunctionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service GetProtectedQuery API operation.", Operation = new[] {"GetProtectedQuery"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.GetProtectedQueryResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.ProtectedQuery or Amazon.CleanRooms.Model.GetProtectedQueryResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.ProtectedQuery object.",
-        "The service call response (type Amazon.CleanRooms.Model.GetProtectedQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.GetProtectedQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSProtectedQueryCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

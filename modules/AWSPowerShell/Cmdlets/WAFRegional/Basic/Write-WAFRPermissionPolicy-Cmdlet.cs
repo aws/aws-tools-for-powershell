@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional PutPermissionPolicy API operation.", Operation = new[] {"PutPermissionPolicy"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.PutPermissionPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.PutPermissionPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.PutPermissionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.PutPermissionPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteWAFRPermissionPolicyCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

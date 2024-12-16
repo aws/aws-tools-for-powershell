@@ -18,6 +18,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchAddRole" OutputProperty="*" Verb="Add" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchRemoveRole" OutputProperty="*" Verb="Remove" Noun="BatchRole" ShouldProcessTarget="SpaceId" PipelineParameter="SpaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSpace" OutputProperty="SpaceId" Verb="New" Noun="Space" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

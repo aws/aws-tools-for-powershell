@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) SetQueueAttributes API operation.", Operation = new[] {"SetQueueAttributes"}, SelectReturnType = typeof(Amazon.SQS.Model.SetQueueAttributesResponse))]
     [AWSCmdletOutput("None or Amazon.SQS.Model.SetQueueAttributesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SQS.Model.SetQueueAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.SetQueueAttributesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

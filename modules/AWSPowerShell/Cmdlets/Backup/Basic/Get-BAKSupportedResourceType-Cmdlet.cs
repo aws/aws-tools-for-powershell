@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup GetSupportedResourceTypes API operation.", Operation = new[] {"GetSupportedResourceTypes"}, SelectReturnType = typeof(Amazon.Backup.Model.GetSupportedResourceTypesResponse))]
     [AWSCmdletOutput("System.String or Amazon.Backup.Model.GetSupportedResourceTypesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Backup.Model.GetSupportedResourceTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Backup.Model.GetSupportedResourceTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBAKSupportedResourceTypeCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

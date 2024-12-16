@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
     [OutputType("Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse")]
     [AWSCmdlet("Calls the CleanRoomsML GetAudienceGenerationJob API operation.", Operation = new[] {"GetAudienceGenerationJob"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse))]
     [AWSCmdletOutput("Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse",
-        "This cmdlet returns an Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse object containing multiple properties."
     )]
     public partial class GetCRMLAudienceGenerationJobCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
     {

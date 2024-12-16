@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DeleteElasticsearchDomain API operation.", Operation = new[] {"DeleteElasticsearchDomain"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus or Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.ElasticsearchDomainStatus object.",
-        "The service call response (type Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveESDomainCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

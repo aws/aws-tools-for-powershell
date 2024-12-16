@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service BatchStartViewerSessionRevocation API operation.", Operation = new[] {"BatchStartViewerSessionRevocation"}, SelectReturnType = typeof(Amazon.IVS.Model.BatchStartViewerSessionRevocationResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.BatchStartViewerSessionRevocationError or Amazon.IVS.Model.BatchStartViewerSessionRevocationResponse",
         "This cmdlet returns a collection of Amazon.IVS.Model.BatchStartViewerSessionRevocationError objects.",
-        "The service call response (type Amazon.IVS.Model.BatchStartViewerSessionRevocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.BatchStartViewerSessionRevocationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartIVSStartViewerSessionRevocationCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

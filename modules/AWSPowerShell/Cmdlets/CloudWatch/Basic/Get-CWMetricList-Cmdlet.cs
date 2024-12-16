@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch ListMetrics API operation.", Operation = new[] {"ListMetrics"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.ListMetricsResponse), LegacyAlias="Get-CWMetrics")]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.Metric or Amazon.CloudWatch.Model.ListMetricsResponse",
         "This cmdlet returns a collection of Amazon.CloudWatch.Model.Metric objects.",
-        "The service call response (type Amazon.CloudWatch.Model.ListMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.ListMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWMetricListCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// the past three hours, specify this parameter with a value of <c>PT3H</c>. This is
         /// the only valid value for this parameter.</para><para>The results that are returned are an approximation of the value you specify. There
         /// is a low probability that the returned results include metrics with last published
-        /// data as much as 40 minutes more than the specified time interval.</para>
+        /// data as much as 50 minutes more than the specified time interval.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

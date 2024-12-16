@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry DeleteAttributeGroup API operation.", Operation = new[] {"DeleteAttributeGroup"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.DeleteAttributeGroupResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.AttributeGroupSummary or Amazon.AppRegistry.Model.DeleteAttributeGroupResponse",
         "This cmdlet returns an Amazon.AppRegistry.Model.AttributeGroupSummary object.",
-        "The service call response (type Amazon.AppRegistry.Model.DeleteAttributeGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.DeleteAttributeGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCARAttributeGroupCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

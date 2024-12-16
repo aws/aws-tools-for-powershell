@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [OutputType("Amazon.GlobalAccelerator.Model.AddEndpointsResponse")]
     [AWSCmdlet("Calls the AWS Global Accelerator AddEndpoints API operation.", Operation = new[] {"AddEndpoints"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.AddEndpointsResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.AddEndpointsResponse",
-        "This cmdlet returns an Amazon.GlobalAccelerator.Model.AddEndpointsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlobalAccelerator.Model.AddEndpointsResponse object containing multiple properties."
     )]
     public partial class AddGACLEndpointCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service DisassociateApplications API operation.", Operation = new[] {"DisassociateApplications"}, SelectReturnType = typeof(Amazon.Mgn.Model.DisassociateApplicationsResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.DisassociateApplicationsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.DisassociateApplicationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.DisassociateApplicationsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGNApplicationsFromWaveCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

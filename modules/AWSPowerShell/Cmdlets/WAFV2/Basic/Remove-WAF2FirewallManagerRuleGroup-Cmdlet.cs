@@ -28,13 +28,13 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Deletes all rule groups that are managed by Firewall Manager for the specified web
-    /// ACL. 
+    /// Deletes all rule groups that are managed by Firewall Manager from the specified <a>WebACL</a>.
+    /// 
     /// 
     ///  
     /// <para>
-    /// You can only use this if <c>ManagedByFirewallManager</c> is false in the specified
-    /// <a>WebACL</a>. 
+    /// You can only use this if <c>ManagedByFirewallManager</c> and <c>RetrofittedByFirewallManager</c>
+    /// are both false in the web ACL. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAF2FirewallManagerRuleGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [AWSCmdlet("Calls the AWS WAF V2 DeleteFirewallManagerRuleGroups API operation.", Operation = new[] {"DeleteFirewallManagerRuleGroups"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFV2.Model.DeleteFirewallManagerRuleGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAF2FirewallManagerRuleGroupCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {

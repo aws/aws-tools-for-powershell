@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.BatchStopResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive BatchStop API operation.", Operation = new[] {"BatchStop"}, SelectReturnType = typeof(Amazon.MediaLive.Model.BatchStopResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.BatchStopResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.BatchStopResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.BatchStopResponse object containing multiple properties."
     )]
     public partial class StopEMLResourceBatchCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

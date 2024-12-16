@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Calls the AWS CloudHSM ModifyHapg API operation.", Operation = new[] {"ModifyHapg"}, SelectReturnType = typeof(Amazon.CloudHSM.Model.ModifyHapgResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudHSM.Model.ModifyHapgResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudHSM.Model.ModifyHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ModifyHapgResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This API is deprecated.")]
     public partial class EditHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor

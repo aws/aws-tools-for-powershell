@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service DeleteResourceSet API operation.", Operation = new[] {"DeleteResourceSet"}, SelectReturnType = typeof(Amazon.FMS.Model.DeleteResourceSetResponse))]
     [AWSCmdletOutput("None or Amazon.FMS.Model.DeleteResourceSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.DeleteResourceSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FMS.Model.DeleteResourceSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFMSResourceSetCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) CreateDBCluster API operation.", Operation = new[] {"CreateDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.CreateDBClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.CreateDBClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
-        "The service call response (type Amazon.DocDB.Model.CreateDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.CreateDBClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDOCDBClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeReservedNodes API operation.", Operation = new[] {"DescribeReservedNodes"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeReservedNodesResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ReservedNode or Amazon.MemoryDB.Model.DescribeReservedNodesResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.ReservedNode objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeReservedNodesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeReservedNodesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBReservedNodeCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

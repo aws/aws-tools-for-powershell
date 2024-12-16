@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateTransitGatewayVpcAttachment API operation.", Operation = new[] {"CreateTransitGatewayVpcAttachment"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayVpcAttachment or Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayVpcAttachment object.",
-        "The service call response (type Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2TransitGatewayVpcAttachmentCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -91,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enables you to reference a security group across VPCs attached to a transit gateway
-        /// to simplify security group management. </para><para>This option is disabled by default.</para><para>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
-        /// attachment will inherit the security group referencing support setting on the transit
-        /// gateway.</para><para>For more information about security group referencing, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security
+        /// to simplify security group management.</para><para>This option is set to <c>enable</c> by default. However, at the transit gateway level
+        /// the default is set to <c>disable</c>.</para><para>For more information about security group referencing, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security
         /// group referencing </a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</para>
         /// </para>
         /// </summary>

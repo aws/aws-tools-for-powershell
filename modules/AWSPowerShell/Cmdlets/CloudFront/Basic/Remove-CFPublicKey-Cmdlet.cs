@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeletePublicKey API operation.", Operation = new[] {"DeletePublicKey"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeletePublicKeyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeletePublicKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeletePublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeletePublicKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFPublicKeyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

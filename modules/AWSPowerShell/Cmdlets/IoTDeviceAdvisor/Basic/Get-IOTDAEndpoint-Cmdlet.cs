@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor GetEndpoint API operation.", Operation = new[] {"GetEndpoint"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTDAEndpointCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

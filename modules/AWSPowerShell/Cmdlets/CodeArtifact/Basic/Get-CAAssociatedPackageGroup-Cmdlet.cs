@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.GetAssociatedPackageGroupResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact GetAssociatedPackageGroup API operation.", Operation = new[] {"GetAssociatedPackageGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetAssociatedPackageGroupResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.GetAssociatedPackageGroupResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.GetAssociatedPackageGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.GetAssociatedPackageGroupResponse object containing multiple properties."
     )]
     public partial class GetCAAssociatedPackageGroupCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

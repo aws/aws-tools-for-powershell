@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.SuggestResponse")]
     [AWSCmdlet("Calls the Amazon CloudSearchDomain Suggest API operation.", Operation = new[] { "Suggest" }, SelectReturnType = typeof(Amazon.CloudSearchDomain.Model.SuggestResponse), LegacyAlias = "Get-CSDSuggestions")]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.SuggestResponse",
-        "This cmdlet returns an Amazon.CloudSearchDomain.Model.SuggestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.SuggestResponse object containing multiple properties. The object can be returned by specifying '-Select *'."
     )]
     public class GetCSDSuggestionCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [OutputType("Amazon.OpsWorksCM.Model.ExportServerEngineAttributeResponse")]
     [AWSCmdlet("Calls the AWS OpsWorksCM ExportServerEngineAttribute API operation.", Operation = new[] {"ExportServerEngineAttribute"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.ExportServerEngineAttributeResponse))]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.ExportServerEngineAttributeResponse",
-        "This cmdlet returns an Amazon.OpsWorksCM.Model.ExportServerEngineAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpsWorksCM.Model.ExportServerEngineAttributeResponse object containing multiple properties."
     )]
     public partial class ExportOWCMServerEngineAttributeCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

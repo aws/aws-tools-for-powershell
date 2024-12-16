@@ -28,19 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Associates a list of analytics datasets for a given Amazon Connect instance to a target
     /// account. You can associate multiple datasets in a single call.
-    /// </para>
     /// </summary>
     [Cmdlet("Register", "CONNBatchAnalyticsDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service BatchAssociateAnalyticsDataSet API operation.", Operation = new[] {"BatchAssociateAnalyticsDataSet"}, SelectReturnType = typeof(Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse",
-        "This cmdlet returns an Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse object containing multiple properties."
     )]
     public partial class RegisterCONNBatchAnalyticsDataSetCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

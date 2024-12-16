@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB UpdateTimeToLive API operation.", Operation = new[] {"UpdateTimeToLive"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TimeToLiveSpecification or Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.TimeToLiveSpecification object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDDBTimeToLiveCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

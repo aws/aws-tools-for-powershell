@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [OutputType("Amazon.MailManager.Model.GetArchiveResponse")]
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetArchive API operation.", Operation = new[] {"GetArchive"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetArchiveResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.GetArchiveResponse",
-        "This cmdlet returns an Amazon.MailManager.Model.GetArchiveResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MailManager.Model.GetArchiveResponse object containing multiple properties."
     )]
     public partial class GetMMGRArchiveCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

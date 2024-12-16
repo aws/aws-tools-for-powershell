@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateNetworkInsightsAccessScopeResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateNetworkInsightsAccessScope API operation.", Operation = new[] {"CreateNetworkInsightsAccessScope"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateNetworkInsightsAccessScopeResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateNetworkInsightsAccessScopeResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateNetworkInsightsAccessScopeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateNetworkInsightsAccessScopeResponse object containing multiple properties."
     )]
     public partial class NewEC2NetworkInsightsAccessScopeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

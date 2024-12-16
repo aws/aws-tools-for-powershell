@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice PutVoiceConnectorProxy API operation.", Operation = new[] {"PutVoiceConnectorProxy"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.PutVoiceConnectorProxyResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.Proxy or Amazon.ChimeSDKVoice.Model.PutVoiceConnectorProxyResponse",
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.Proxy object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorProxyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.PutVoiceConnectorProxyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCHMVOVoiceConnectorProxyCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

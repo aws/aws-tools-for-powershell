@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory AttachTypedLink API operation.", Operation = new[] {"AttachTypedLink"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.AttachTypedLinkResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkSpecifier or Amazon.CloudDirectory.Model.AttachTypedLinkResponse",
         "This cmdlet returns an Amazon.CloudDirectory.Model.TypedLinkSpecifier object.",
-        "The service call response (type Amazon.CloudDirectory.Model.AttachTypedLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.AttachTypedLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MountCDIRTypedLinkCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

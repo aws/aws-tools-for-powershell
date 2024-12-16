@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation EstimateTemplateCost API operation.", Operation = new[] {"EstimateTemplateCost"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.EstimateTemplateCostResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.EstimateTemplateCostResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.EstimateTemplateCostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.EstimateTemplateCostResponse) can be returned by specifying '-Select *'."
     )]
     public partial class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -59,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
-        /// length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.)</para><para>Conditional: You must pass <c>TemplateBody</c> or <c>TemplateURL</c>. If both are
+        /// length of 51,200 bytes.</para><para>Conditional: You must pass <c>TemplateBody</c> or <c>TemplateURL</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>
@@ -72,10 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template that's
-        /// located in an Amazon S3 bucket or a Systems Manager document. For more information,
-        /// go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the <i>CloudFormation User Guide</i>. The location for an Amazon S3
-        /// bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
+        /// located in an Amazon S3 bucket or a Systems Manager document. The location for an
+        /// Amazon S3 bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>
         /// </para>
         /// </summary>

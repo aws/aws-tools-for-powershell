@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream BatchDisassociateUserStack API operation.", Operation = new[] {"BatchDisassociateUserStack"}, SelectReturnType = typeof(Amazon.AppStream.Model.BatchDisassociateUserStackResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.UserStackAssociationError or Amazon.AppStream.Model.BatchDisassociateUserStackResponse",
         "This cmdlet returns a collection of Amazon.AppStream.Model.UserStackAssociationError objects.",
-        "The service call response (type Amazon.AppStream.Model.BatchDisassociateUserStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.BatchDisassociateUserStackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAPSUserStackBatchCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

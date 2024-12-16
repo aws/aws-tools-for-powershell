@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [OutputType("Amazon.Ivschat.Model.CreateChatTokenResponse")]
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat CreateChatToken API operation.", Operation = new[] {"CreateChatToken"}, SelectReturnType = typeof(Amazon.Ivschat.Model.CreateChatTokenResponse))]
     [AWSCmdletOutput("Amazon.Ivschat.Model.CreateChatTokenResponse",
-        "This cmdlet returns an Amazon.Ivschat.Model.CreateChatTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Ivschat.Model.CreateChatTokenResponse object containing multiple properties."
     )]
     public partial class NewIVSCChatTokenCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

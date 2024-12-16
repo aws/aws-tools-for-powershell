@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Set" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CopyClusterSnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,11 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshotList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPendingMaintenanceActions" OutputProperty="ResourcePendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceActionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

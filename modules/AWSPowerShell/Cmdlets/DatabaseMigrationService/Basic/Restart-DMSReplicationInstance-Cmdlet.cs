@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service RebootReplicationInstance API operation.", Operation = new[] {"RebootReplicationInstance"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.RebootReplicationInstanceResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationInstance or Amazon.DatabaseMigrationService.Model.RebootReplicationInstanceResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationInstance object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.RebootReplicationInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.RebootReplicationInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestartDMSReplicationInstanceCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

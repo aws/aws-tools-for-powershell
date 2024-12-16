@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime LogoutUser API operation.", Operation = new[] {"LogoutUser"}, SelectReturnType = typeof(Amazon.Chime.Model.LogoutUserResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.LogoutUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.LogoutUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.LogoutUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class InvokeCHMUserLogoutCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

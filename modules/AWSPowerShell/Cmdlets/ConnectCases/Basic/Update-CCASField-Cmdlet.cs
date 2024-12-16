@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases UpdateField API operation.", Operation = new[] {"UpdateField"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.UpdateFieldResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectCases.Model.UpdateFieldResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.UpdateFieldResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectCases.Model.UpdateFieldResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCCASFieldCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

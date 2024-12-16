@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [OutputType("Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse")]
     [AWSCmdlet("Calls the AWS Audit Manager BatchAssociateAssessmentReportEvidence API operation.", Operation = new[] {"BatchAssociateAssessmentReportEvidence"}, SelectReturnType = typeof(Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse",
-        "This cmdlet returns an Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AuditManager.Model.BatchAssociateAssessmentReportEvidenceResponse object containing multiple properties."
     )]
     public partial class AddAUDMAssessmentReportEvidenceCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

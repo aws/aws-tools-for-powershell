@@ -148,6 +148,7 @@ $PROM_SelectMap = @{
                "Add-PROMResourceTag",
                "Remove-PROMResourceTag",
                "Update-PROMLoggingConfiguration",
+               "Update-PROMScraper",
                "Update-PROMWorkspaceAlias")
 }
 

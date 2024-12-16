@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [OutputType("Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse")]
     [AWSCmdlet("Calls the Amazon NeptuneData DeleteSparqlStatistics API operation.", Operation = new[] {"DeleteSparqlStatistics"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse))]
     [AWSCmdletOutput("Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse",
-        "This cmdlet returns an Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Neptunedata.Model.DeleteSparqlStatisticsResponse object containing multiple properties."
     )]
     public partial class RemoveNEPTSparqlStatisticCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

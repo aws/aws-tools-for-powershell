@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     [AWSCmdlet("Calls the Amazon Pinpoint Email UpdateConfigurationSetEventDestination API operation.", Operation = new[] {"UpdateConfigurationSetEventDestination"}, SelectReturnType = typeof(Amazon.PinpointEmail.Model.UpdateConfigurationSetEventDestinationResponse))]
     [AWSCmdletOutput("None or Amazon.PinpointEmail.Model.UpdateConfigurationSetEventDestinationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointEmail.Model.UpdateConfigurationSetEventDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PinpointEmail.Model.UpdateConfigurationSetEventDestinationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdatePINEConfigurationSetEventDestinationCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {

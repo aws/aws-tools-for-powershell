@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [OutputType("Amazon.BedrockAgent.Model.UpdateFlowResponse")]
     [AWSCmdlet("Calls the Agents for Amazon Bedrock UpdateFlow API operation.", Operation = new[] {"UpdateFlow"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.UpdateFlowResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.UpdateFlowResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.UpdateFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BedrockAgent.Model.UpdateFlowResponse object containing multiple properties."
     )]
     public partial class UpdateAABFlowCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

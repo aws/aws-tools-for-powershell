@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics CancelRun API operation.", Operation = new[] {"CancelRun"}, SelectReturnType = typeof(Amazon.Omics.Model.CancelRunResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.CancelRunResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.CancelRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.CancelRunResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopOMICSRunCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

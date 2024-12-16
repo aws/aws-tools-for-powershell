@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service GetDomainMaintenanceStatus API operation.", Operation = new[] {"GetDomainMaintenanceStatus"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.GetDomainMaintenanceStatusResponse object containing multiple properties."
     )]
     public partial class GetOSDomainMaintenanceStatusCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

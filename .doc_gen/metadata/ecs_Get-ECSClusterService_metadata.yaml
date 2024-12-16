@@ -19,11 +19,6 @@ ecs_ListServices:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/ecs_Get-ECSClusterService.2.1.ps1
-        - description: '<emphasis role="bold">Example 3: This example lists the services running in the specified cluster, fetching a maximum of 10 service details at a time.</emphasis>'
-          snippet_files: []
-        - description:
-          snippet_files:
-          - .doc_gen/snippet_files/ecs_Get-ECSClusterService.3.1.ps1
   services:
     ecs:
       ListServices:

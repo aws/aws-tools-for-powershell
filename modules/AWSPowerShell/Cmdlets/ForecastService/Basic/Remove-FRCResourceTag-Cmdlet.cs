@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ForecastService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFRCResourceTagCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

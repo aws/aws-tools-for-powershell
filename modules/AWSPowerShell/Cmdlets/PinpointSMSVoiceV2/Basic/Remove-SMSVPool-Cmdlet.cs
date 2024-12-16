@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DeletePoolResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DeletePool API operation.", Operation = new[] {"DeletePool"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DeletePoolResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DeletePoolResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeletePoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeletePoolResponse object containing multiple properties."
     )]
     public partial class RemoveSMSVPoolCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerFleet" OutputProperty="ContainerFleet" Verb="New" Noun="ContainerFleet" ShouldProcessTarget="FleetRoleArn" PipelineParameter="FleetRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="New" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBuild" Verb="Remove" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerFleet" Verb="Remove" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,6 +175,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContainerFleet" OutputProperty="ContainerFleet" Verb="Get" Noun="ContainerFleet" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Get" Noun="ContainerGroupDefinition" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +192,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetDeployment" OutputProperty="*" Verb="Get" Noun="FleetDeployment" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -303,7 +319,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainerGroupDefinitions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionList" PipelineParameter="SchedulingStrategy" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContainerFleets" OutputProperty="ContainerFleets" Verb="Get" Noun="ContainerFleetList" PipelineParameter="ContainerGroupDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContainerGroupDefinitions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionList" PipelineParameter="ContainerGroupType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContainerGroupDefinitionVersions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleetDeployments" OutputProperty="FleetDeployments" Verb="Get" Noun="FleetDeploymentList" PipelineParameter="FleetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -404,6 +432,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateBuild" OutputProperty="Build" Verb="Update" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContainerFleet" OutputProperty="ContainerFleet" Verb="Update" Noun="ContainerFleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Update" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [OutputType("Amazon.TimestreamQuery.Model.PrepareQueryResponse")]
     [AWSCmdlet("Calls the Amazon Timestream Query PrepareQuery API operation.", Operation = new[] {"PrepareQuery"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.PrepareQueryResponse))]
     [AWSCmdletOutput("Amazon.TimestreamQuery.Model.PrepareQueryResponse",
-        "This cmdlet returns an Amazon.TimestreamQuery.Model.PrepareQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamQuery.Model.PrepareQueryResponse object containing multiple properties."
     )]
     public partial class InitializeTSQQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild ListSourceCredentials API operation.", Operation = new[] {"ListSourceCredentials"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.ListSourceCredentialsResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.SourceCredentialsInfo or Amazon.CodeBuild.Model.ListSourceCredentialsResponse",
         "This cmdlet returns a collection of Amazon.CodeBuild.Model.SourceCredentialsInfo objects.",
-        "The service call response (type Amazon.CodeBuild.Model.ListSourceCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.ListSourceCredentialsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCBSourceCredentialListCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

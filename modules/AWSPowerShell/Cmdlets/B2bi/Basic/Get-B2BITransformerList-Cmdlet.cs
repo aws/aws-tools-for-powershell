@@ -28,15 +28,16 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Lists the available transformers. A transformer describes how to process the incoming
-    /// EDI documents and extract the necessary information to the output file.
+    /// Lists the available transformers. A transformer can take an EDI file as input and
+    /// transform it into a JSON-or XML-formatted document. Alternatively, a transformer can
+    /// take a JSON-or XML-formatted document as input and transform it into an EDI file.
     /// </summary>
     [Cmdlet("Get", "B2BITransformerList")]
     [OutputType("Amazon.B2bi.Model.TransformerSummary")]
     [AWSCmdlet("Calls the AWS B2B Data Interchange ListTransformers API operation.", Operation = new[] {"ListTransformers"}, SelectReturnType = typeof(Amazon.B2bi.Model.ListTransformersResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.TransformerSummary or Amazon.B2bi.Model.ListTransformersResponse",
         "This cmdlet returns a collection of Amazon.B2bi.Model.TransformerSummary objects.",
-        "The service call response (type Amazon.B2bi.Model.ListTransformersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.ListTransformersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetB2BITransformerListCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

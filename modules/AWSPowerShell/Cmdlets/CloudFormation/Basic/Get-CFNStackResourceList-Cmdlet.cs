@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// You must specify either <c>StackName</c> or <c>PhysicalResourceId</c>, but not both.
     /// In addition, you can specify <c>LogicalResourceId</c> to filter the returned result.
     /// For more information about resources, the <c>LogicalResourceId</c> and <c>PhysicalResourceId</c>,
-    /// go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation
+    /// see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation
     /// User Guide</a>.
     /// </para><note><para>
     /// A <c>ValidationError</c> is returned if you specify both <c>StackName</c> and <c>PhysicalResourceId</c>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackResources API operation.", Operation = new[] {"DescribeStackResources"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackResourcesResponse), LegacyAlias="Get-CFNStackResources")]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResource or Amazon.CloudFormation.Model.DescribeStackResourcesResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackResource objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNStackResourceListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

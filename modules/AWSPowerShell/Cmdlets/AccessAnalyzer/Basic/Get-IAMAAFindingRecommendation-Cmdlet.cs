@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [OutputType("Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetFindingRecommendation API operation.", Operation = new[] {"GetFindingRecommendation"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse object containing multiple properties."
     )]
     public partial class GetIAMAAFindingRecommendationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

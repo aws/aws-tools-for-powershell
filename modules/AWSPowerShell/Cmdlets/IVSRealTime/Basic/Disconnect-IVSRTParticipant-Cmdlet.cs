@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DisconnectParticipant API operation.", Operation = new[] {"DisconnectParticipant"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DisconnectParticipantResponse))]
     [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DisconnectParticipantResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.DisconnectParticipantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVSRealTime.Model.DisconnectParticipantResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectIVSRTParticipantCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

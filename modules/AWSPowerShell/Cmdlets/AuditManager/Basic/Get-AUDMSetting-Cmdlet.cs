@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager GetSettings API operation.", Operation = new[] {"GetSettings"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetSettingsResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.Settings or Amazon.AuditManager.Model.GetSettingsResponse",
         "This cmdlet returns an Amazon.AuditManager.Model.Settings object.",
-        "The service call response (type Amazon.AuditManager.Model.GetSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.GetSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMSettingCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

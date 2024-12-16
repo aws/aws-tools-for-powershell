@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DescribeAccountConfiguration API operation.", Operation = new[] {"DescribeAccountConfiguration"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DescribeAccountConfigurationResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.AccountConfiguration or Amazon.MediaLive.Model.DescribeAccountConfigurationResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.AccountConfiguration object.",
-        "The service call response (type Amazon.MediaLive.Model.DescribeAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.DescribeAccountConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMLAccountConfigurationCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

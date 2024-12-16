@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MailManager.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.Tag or Amazon.MailManager.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.MailManager.Model.Tag objects.",
-        "The service call response (type Amazon.MailManager.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMMGRResourceTagCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

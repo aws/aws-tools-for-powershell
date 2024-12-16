@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.Cloud9.Model.DeleteEnvironmentResponse))]
     [AWSCmdletOutput("None or Amazon.Cloud9.Model.DeleteEnvironmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Cloud9.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Cloud9.Model.DeleteEnvironmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveC9EnvironmentCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

@@ -20,7 +20,10 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="New" Noun="ExperimentTemplate" ShouldProcessTarget="RoleArn" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
+                <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTargetAccountConfiguration" OutputProperty="TargetAccountConfiguration" Verb="New" Noun="TargetAccountConfiguration" ShouldProcessTarget="ExperimentTemplateId" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
@@ -112,7 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateExperimentTemplate" OutputProperty="ExperimentTemplate" Verb="Update" Noun="ExperimentTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_BucketName" />
+                <Param Name="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" NewName="ExperimentReportConfiguration_Outputs_S3Configuration_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSafetyLeverState" OutputProperty="SafetyLever" Verb="Update" Noun="SafetyLeverState" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

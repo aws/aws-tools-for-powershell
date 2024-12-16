@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DeleteTable API operation.", Operation = new[] {"DeleteTable"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DeleteTableResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription or Amazon.DynamoDBv2.Model.DeleteTableResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.TableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DeleteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DeleteTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

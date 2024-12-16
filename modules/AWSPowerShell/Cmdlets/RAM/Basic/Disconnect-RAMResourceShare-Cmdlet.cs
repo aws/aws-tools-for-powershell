@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) DisassociateResourceShare API operation.", Operation = new[] {"DisassociateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.DisassociateResourceShareResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceShareAssociation or Amazon.RAM.Model.DisassociateResourceShareResponse",
         "This cmdlet returns a collection of Amazon.RAM.Model.ResourceShareAssociation objects.",
-        "The service call response (type Amazon.RAM.Model.DisassociateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.DisassociateResourceShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisconnectRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

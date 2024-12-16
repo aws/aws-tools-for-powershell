@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// of the new table by using the <c>GetTable</c> operation, which returns the current
     /// <c>status</c> of the table. You can start using a table when the status is <c>ACTIVE</c>.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html#tables-create">Creating
-    /// tables</a> in the <i>Amazon Keyspaces Developer Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.tables.html">Create
+    /// a table</a> in the <i>Amazon Keyspaces Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces CreateTable API operation.", Operation = new[] {"CreateTable"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.CreateTableResponse))]
     [AWSCmdletOutput("System.String or Amazon.Keyspaces.Model.CreateTableResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Keyspaces.Model.CreateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.CreateTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

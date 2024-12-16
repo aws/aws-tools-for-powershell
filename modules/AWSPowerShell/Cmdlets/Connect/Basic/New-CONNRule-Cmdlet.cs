@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateRuleResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateRule API operation.", Operation = new[] {"CreateRule"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateRuleResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateRuleResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateRuleResponse object containing multiple properties."
     )]
     public partial class NewCONNRuleCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

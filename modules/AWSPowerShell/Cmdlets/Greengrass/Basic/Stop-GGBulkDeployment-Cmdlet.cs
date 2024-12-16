@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass StopBulkDeployment API operation.", Operation = new[] {"StopBulkDeployment"}, SelectReturnType = typeof(Amazon.Greengrass.Model.StopBulkDeploymentResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.StopBulkDeploymentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.StopBulkDeploymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.StopBulkDeploymentResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGGBulkDeploymentCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

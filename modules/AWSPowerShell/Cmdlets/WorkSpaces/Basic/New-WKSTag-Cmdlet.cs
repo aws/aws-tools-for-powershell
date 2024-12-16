@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

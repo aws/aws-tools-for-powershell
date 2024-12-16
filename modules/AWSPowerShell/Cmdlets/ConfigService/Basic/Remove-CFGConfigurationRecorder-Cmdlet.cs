@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteConfigurationRecorder API operation.", Operation = new[] {"DeleteConfigurationRecorder"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

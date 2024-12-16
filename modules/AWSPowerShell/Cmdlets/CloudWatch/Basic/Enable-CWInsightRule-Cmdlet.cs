@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch EnableInsightRules API operation.", Operation = new[] {"EnableInsightRules"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.EnableInsightRulesResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.PartialFailure or Amazon.CloudWatch.Model.EnableInsightRulesResponse",
         "This cmdlet returns a collection of Amazon.CloudWatch.Model.PartialFailure objects.",
-        "The service call response (type Amazon.CloudWatch.Model.EnableInsightRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.EnableInsightRulesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableCWInsightRuleCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

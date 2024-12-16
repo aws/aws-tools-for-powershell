@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.CreateDomainResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainStatus or Amazon.CloudSearch.Model.CreateDomainResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.DomainStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.CreateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.CreateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

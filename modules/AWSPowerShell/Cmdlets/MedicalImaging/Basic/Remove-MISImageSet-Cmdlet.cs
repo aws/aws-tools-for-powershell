@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [OutputType("Amazon.MedicalImaging.Model.DeleteImageSetResponse")]
     [AWSCmdlet("Calls the Amazon Medical Imaging Service DeleteImageSet API operation.", Operation = new[] {"DeleteImageSet"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.DeleteImageSetResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.DeleteImageSetResponse",
-        "This cmdlet returns an Amazon.MedicalImaging.Model.DeleteImageSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MedicalImaging.Model.DeleteImageSetResponse object containing multiple properties."
     )]
     public partial class RemoveMISImageSetCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

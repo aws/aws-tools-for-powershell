@@ -28,14 +28,14 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Returns a list of the available Redis OSS engine versions.
+    /// Returns a list of the available engine versions.
     /// </summary>
     [Cmdlet("Get", "MDBEngineVersion")]
     [OutputType("Amazon.MemoryDB.Model.EngineVersionInfo")]
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeEngineVersions API operation.", Operation = new[] {"DescribeEngineVersions"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeEngineVersionsResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.EngineVersionInfo or Amazon.MemoryDB.Model.DescribeEngineVersionsResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.EngineVersionInfo objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeEngineVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBEngineVersionCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {
@@ -53,10 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public System.Boolean? DefaultOnly { get; set; }
         #endregion
         
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>The engine version to return. Valid values are either valkey or redis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The Redis OSS engine version</para>
+        /// <para>The engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -127,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DefaultOnly = this.DefaultOnly;
+            context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -150,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.DefaultOnly != null)
             {
                 request.DefaultOnly = cmdletContext.DefaultOnly.Value;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -229,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DefaultOnly { get; set; }
+            public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminListGroupsForUser API operation.", Operation = new[] {"AdminListGroupsForUser"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminListGroupsForUserResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GroupType or Amazon.CognitoIdentityProvider.Model.AdminListGroupsForUserResponse",
         "This cmdlet returns a collection of Amazon.CognitoIdentityProvider.Model.GroupType objects.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListGroupsForUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPGroupsForUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

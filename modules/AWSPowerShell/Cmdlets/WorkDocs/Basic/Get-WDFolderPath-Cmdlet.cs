@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs GetFolderPath API operation.", Operation = new[] {"GetFolderPath"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.GetFolderPathResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.ResourcePath or Amazon.WorkDocs.Model.GetFolderPathResponse",
         "This cmdlet returns an Amazon.WorkDocs.Model.ResourcePath object.",
-        "The service call response (type Amazon.WorkDocs.Model.GetFolderPathResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.GetFolderPathResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWDFolderPathCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

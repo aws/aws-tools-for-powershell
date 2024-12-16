@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer DeleteAnalyzer API operation.", Operation = new[] {"DeleteAnalyzer"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.DeleteAnalyzerResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.DeleteAnalyzerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.DeleteAnalyzerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.DeleteAnalyzerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMAAAnalyzerCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory CreateIndex API operation.", Operation = new[] {"CreateIndex"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.CreateIndexResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.CreateIndexResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.CreateIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.CreateIndexResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCDIRIndexCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

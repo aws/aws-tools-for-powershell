@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [AWSCmdlet("Calls the Amazon EC2 Container Registry PutReplicationConfiguration API operation.", Operation = new[] {"PutReplicationConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutReplicationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.ReplicationConfiguration or Amazon.ECR.Model.PutReplicationConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.ReplicationConfiguration object.",
-        "The service call response (type Amazon.ECR.Model.PutReplicationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECR.Model.PutReplicationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteECRReplicationConfigurationCmdlet : AmazonECRClientCmdlet, IExecutor
     {

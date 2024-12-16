@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DeleteInterconnect API operation.", Operation = new[] {"DeleteInterconnect"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DeleteInterconnectResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.InterconnectState or Amazon.DirectConnect.Model.DeleteInterconnectResponse",
         "This cmdlet returns an Amazon.DirectConnect.InterconnectState object.",
-        "The service call response (type Amazon.DirectConnect.Model.DeleteInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DeleteInterconnectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

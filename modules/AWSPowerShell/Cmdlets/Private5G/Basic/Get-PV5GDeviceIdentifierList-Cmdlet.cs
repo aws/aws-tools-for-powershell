@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G ListDeviceIdentifiers API operation.", Operation = new[] {"ListDeviceIdentifiers"}, SelectReturnType = typeof(Amazon.Private5G.Model.ListDeviceIdentifiersResponse))]
     [AWSCmdletOutput("Amazon.Private5G.Model.DeviceIdentifier or Amazon.Private5G.Model.ListDeviceIdentifiersResponse",
         "This cmdlet returns a collection of Amazon.Private5G.Model.DeviceIdentifier objects.",
-        "The service call response (type Amazon.Private5G.Model.ListDeviceIdentifiersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Private5G.Model.ListDeviceIdentifiersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPV5GDeviceIdentifierListCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

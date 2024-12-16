@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessGrantsInstance API operation.", Operation = new[] {"DeleteAccessGrantsInstance"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CAccessGrantsInstanceCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

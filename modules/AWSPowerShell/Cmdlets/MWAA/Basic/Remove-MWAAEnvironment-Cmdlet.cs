@@ -28,14 +28,14 @@ using Amazon.MWAA.Model;
 namespace Amazon.PowerShell.Cmdlets.MWAA
 {
     /// <summary>
-    /// Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
+    /// Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.
     /// </summary>
     [Cmdlet("Remove", "MWAAEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AmazonMWAA DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.MWAA.Model.DeleteEnvironmentResponse))]
     [AWSCmdletOutput("None or Amazon.MWAA.Model.DeleteEnvironmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MWAA.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MWAA.Model.DeleteEnvironmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {

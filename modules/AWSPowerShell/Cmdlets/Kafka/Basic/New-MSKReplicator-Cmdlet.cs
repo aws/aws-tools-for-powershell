@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.CreateReplicatorResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) CreateReplicator API operation.", Operation = new[] {"CreateReplicator"}, SelectReturnType = typeof(Amazon.Kafka.Model.CreateReplicatorResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.CreateReplicatorResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.CreateReplicatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.CreateReplicatorResponse object containing multiple properties."
     )]
     public partial class NewMSKReplicatorCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

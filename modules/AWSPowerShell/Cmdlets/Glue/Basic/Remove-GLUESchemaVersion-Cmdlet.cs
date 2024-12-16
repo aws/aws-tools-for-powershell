@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteSchemaVersions API operation.", Operation = new[] {"DeleteSchemaVersions"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteSchemaVersionsResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.SchemaVersionErrorItem or Amazon.Glue.Model.DeleteSchemaVersionsResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.SchemaVersionErrorItem objects.",
-        "The service call response (type Amazon.Glue.Model.DeleteSchemaVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteSchemaVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUESchemaVersionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

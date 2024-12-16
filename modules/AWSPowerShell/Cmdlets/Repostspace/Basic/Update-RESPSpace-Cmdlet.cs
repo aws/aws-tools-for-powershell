@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private UpdateSpace API operation.", Operation = new[] {"UpdateSpace"}, SelectReturnType = typeof(Amazon.Repostspace.Model.UpdateSpaceResponse))]
     [AWSCmdletOutput("None or Amazon.Repostspace.Model.UpdateSpaceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Repostspace.Model.UpdateSpaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Repostspace.Model.UpdateSpaceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateRESPSpaceCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

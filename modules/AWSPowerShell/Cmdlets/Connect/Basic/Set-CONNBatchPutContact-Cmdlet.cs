@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.BatchPutContactResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service BatchPutContact API operation.", Operation = new[] {"BatchPutContact"}, SelectReturnType = typeof(Amazon.Connect.Model.BatchPutContactResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.BatchPutContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.BatchPutContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.BatchPutContactResponse object containing multiple properties."
     )]
     public partial class SetCONNBatchPutContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

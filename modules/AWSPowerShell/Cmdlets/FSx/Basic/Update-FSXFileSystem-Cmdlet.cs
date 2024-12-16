@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx UpdateFileSystem API operation.", Operation = new[] {"UpdateFileSystem"}, SelectReturnType = typeof(Amazon.FSx.Model.UpdateFileSystemResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.FileSystem or Amazon.FSx.Model.UpdateFileSystemResponse",
         "This cmdlet returns an Amazon.FSx.Model.FileSystem object.",
-        "The service call response (type Amazon.FSx.Model.UpdateFileSystemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.UpdateFileSystemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint VerifyOTPMessage API operation.", Operation = new[] {"VerifyOTPMessage"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.VerifyOTPMessageResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.VerificationResponse or Amazon.Pinpoint.Model.VerifyOTPMessageResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.VerificationResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.VerifyOTPMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.VerifyOTPMessageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmPINOTPMessageCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

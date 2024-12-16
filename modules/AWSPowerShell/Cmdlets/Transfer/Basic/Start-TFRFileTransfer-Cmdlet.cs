@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP StartFileTransfer API operation.", Operation = new[] {"StartFileTransfer"}, SelectReturnType = typeof(Amazon.Transfer.Model.StartFileTransferResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.StartFileTransferResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.StartFileTransferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.StartFileTransferResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartTFRFileTransferCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>One or more source paths for the Amazon S3 storage. Each string represents a source
-        /// file path for one outbound file transfer. For example, <c><i>DOC-EXAMPLE-BUCKET</i>/<i>myfile.txt</i></c>.</para><note><para>Replace <c><i>DOC-EXAMPLE-BUCKET</i></c> with one of your actual buckets.</para></note>
+        /// file path for one outbound file transfer. For example, <c><i>amzn-s3-demo-bucket</i>/<i>myfile.txt</i></c>.</para><note><para>Replace <c><i>amzn-s3-demo-bucket</i></c> with one of your actual buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

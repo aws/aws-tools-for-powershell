@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [OutputType("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse")]
     [AWSCmdlet("Calls the AWS OpsWorks DescribeStackProvisioningParameters API operation.", Operation = new[] {"DescribeStackProvisioningParameters"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse), LegacyAlias="Get-OPSStackProvisioningParameters")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse",
-        "This cmdlet returns an Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse object containing multiple properties."
     )]
     public partial class GetOPSStackProvisioningParameterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

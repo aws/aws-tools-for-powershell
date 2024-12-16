@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync SubscribeToDataset API operation.", Operation = new[] {"SubscribeToDataset"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.SubscribeToDatasetResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoSync.Model.SubscribeToDatasetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoSync.Model.SubscribeToDatasetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoSync.Model.SubscribeToDatasetResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCGISDatasetSubscriptionCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateDynamicThingGroupResponse")]
     [AWSCmdlet("Calls the AWS IoT CreateDynamicThingGroup API operation.", Operation = new[] {"CreateDynamicThingGroup"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateDynamicThingGroupResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateDynamicThingGroupResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateDynamicThingGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreateDynamicThingGroupResponse object containing multiple properties."
     )]
     public partial class NewIOTDynamicThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

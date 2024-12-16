@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     [AWSCmdlet("Calls the Amazon CodeGuru Reviewer UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CodeGuruReviewer.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CodeGuruReviewer.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruReviewer.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeGuruReviewer.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGRResourceTagCmdlet : AmazonCodeGuruReviewerClientCmdlet, IExecutor
     {

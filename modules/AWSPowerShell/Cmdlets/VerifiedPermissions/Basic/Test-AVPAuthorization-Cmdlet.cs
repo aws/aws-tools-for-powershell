@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.IsAuthorizedResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions IsAuthorized API operation.", Operation = new[] {"IsAuthorized"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.IsAuthorizedResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.IsAuthorizedResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.IsAuthorizedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.IsAuthorizedResponse object containing multiple properties."
     )]
     public partial class TestAVPAuthorizationCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

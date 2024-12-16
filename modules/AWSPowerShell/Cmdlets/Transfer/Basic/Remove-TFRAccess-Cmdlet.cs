@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteAccess API operation.", Operation = new[] {"DeleteAccess"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteAccessResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.DeleteAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTFRAccessCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

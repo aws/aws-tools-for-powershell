@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse")]
     [AWSCmdlet("Calls the AWS Security Hub BatchUpdateAutomationRules API operation.", Operation = new[] {"BatchUpdateAutomationRules"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.BatchUpdateAutomationRulesResponse object containing multiple properties."
     )]
     public partial class EditSHUBUpdateAutomationRuleCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

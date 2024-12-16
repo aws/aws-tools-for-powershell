@@ -28,24 +28,25 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
-    /// source types for member accounts in required Amazon Web Services Regions, based on
-    /// the parameters you specify. You can choose any source type in any Region for either
-    /// accounts that are part of a trusted organization or standalone accounts. Once you
-    /// add an Amazon Web Service as a source, Security Lake starts collecting logs and events
-    /// from it.
+    /// Adds a natively supported Amazon Web Services service as an Amazon Security Lake source.
+    /// Enables source types for member accounts in required Amazon Web Services Regions,
+    /// based on the parameters you specify. You can choose any source type in any Region
+    /// for either accounts that are part of a trusted organization or standalone accounts.
+    /// Once you add an Amazon Web Services service as a source, Security Lake starts collecting
+    /// logs and events from it.
     /// 
     ///  
     /// <para>
-    /// You can use this API only to enable natively supported Amazon Web Services as a source.
-    /// Use <c>CreateCustomLogSource</c> to enable data collection from a custom source.
+    /// You can use this API only to enable natively supported Amazon Web Services services
+    /// as a source. Use <c>CreateCustomLogSource</c> to enable data collection from a custom
+    /// source.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SLKAwsLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.CreateAwsLogSourceResponse")]
     [AWSCmdlet("Calls the Amazon Security Lake CreateAwsLogSource API operation.", Operation = new[] {"CreateAwsLogSource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateAwsLogSourceResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.CreateAwsLogSourceResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.CreateAwsLogSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityLake.Model.CreateAwsLogSourceResponse object containing multiple properties."
     )]
     public partial class NewSLKAwsLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

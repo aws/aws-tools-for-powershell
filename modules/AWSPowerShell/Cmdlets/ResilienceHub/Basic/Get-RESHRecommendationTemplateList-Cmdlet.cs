@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub ListRecommendationTemplates API operation.", Operation = new[] {"ListRecommendationTemplates"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.RecommendationTemplate or Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse",
         "This cmdlet returns a collection of Amazon.ResilienceHub.Model.RecommendationTemplate objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRESHRecommendationTemplateListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

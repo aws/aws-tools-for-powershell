@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     [AWSCmdlet("Calls the AWS Marketplace Catalog Service PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteMCATResourcePolicyCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {

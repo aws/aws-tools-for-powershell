@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations StopAssessment API operation.", Operation = new[] {"StopAssessment"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.StopAssessmentResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubStrategyRecommendations.Model.StopAssessmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.StopAssessmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.StopAssessmentResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopMHSAssessmentCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

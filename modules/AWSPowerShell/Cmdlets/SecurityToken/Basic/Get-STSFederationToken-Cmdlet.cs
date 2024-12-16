@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// those credentials can be safeguarded, usually in a server-based application. For a
     /// comparison of <c>GetFederationToken</c> with the other API operations that produce
     /// temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
-    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
-    /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
+    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare
+    /// STS credentials</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// Although it is possible to call <c>GetFederationToken</c> using the security credentials
     /// of an Amazon Web Services account root user rather than an IAM user that you create
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.GetFederationTokenResponse")]
     [AWSCmdlet("Calls the AWS Security Token Service (STS) GetFederationToken API operation.", Operation = new[] {"GetFederationToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetFederationTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetFederationTokenResponse",
-        "This cmdlet returns an Amazon.SecurityToken.Model.GetFederationTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityToken.Model.GetFederationTokenResponse object containing multiple properties."
     )]
     public partial class GetSTSFederationTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

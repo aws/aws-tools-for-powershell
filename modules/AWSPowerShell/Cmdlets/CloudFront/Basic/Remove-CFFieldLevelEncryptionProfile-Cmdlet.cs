@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteFieldLevelEncryptionProfile API operation.", Operation = new[] {"DeleteFieldLevelEncryptionProfile"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteFieldLevelEncryptionProfileResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteFieldLevelEncryptionProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteFieldLevelEncryptionProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteFieldLevelEncryptionProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFFieldLevelEncryptionProfileCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

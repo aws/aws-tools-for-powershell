@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.CreateGroupResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.CreateGroupResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.CreateGroupResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.CreateGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.CreateGroupResponse object containing multiple properties."
     )]
     public partial class NewRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public Amazon.ResourceGroups.Model.GroupConfigurationItem[] Configuration { get; set; }
         #endregion
         
+        #region Parameter Criticality
+        /// <summary>
+        /// <para>
+        /// <para>The critical rank of the application group on a scale of 1 to 10, with a rank of 1
+        /// being the most critical, and a rank of 10 being least critical.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Criticality { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -75,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DisplayName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the application group, which you can change at any time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DisplayName { get; set; }
         #endregion
         
         #region Parameter Name
@@ -123,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>A name, email address or other identifier for the person or group who is considered
+        /// as the owner of this application group within your organization. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Owner { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -169,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 context.Configuration = new List<Amazon.ResourceGroups.Model.GroupConfigurationItem>(this.Configuration);
             }
+            context.Criticality = this.Criticality;
             context.Description = this.Description;
+            context.DisplayName = this.DisplayName;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -177,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Owner = this.Owner;
             context.ResourceQuery = this.ResourceQuery;
             if (this.Tag != null)
             {
@@ -206,13 +241,25 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Configuration = cmdletContext.Configuration;
             }
+            if (cmdletContext.Criticality != null)
+            {
+                request.Criticality = cmdletContext.Criticality.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.DisplayName != null)
+            {
+                request.DisplayName = cmdletContext.DisplayName;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             if (cmdletContext.ResourceQuery != null)
             {
@@ -284,8 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ResourceGroups.Model.GroupConfigurationItem> Configuration { get; set; }
+            public System.Int32? Criticality { get; set; }
             public System.String Description { get; set; }
+            public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public System.String Owner { get; set; }
             public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ResourceGroups.Model.CreateGroupResponse, NewRGGroupCmdlet, object> Select { get; set; } =

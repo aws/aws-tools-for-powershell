@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     [OutputType("Amazon.NeptuneGraph.Model.CreateGraphResponse")]
     [AWSCmdlet("Calls the Amazon Neptune Graph CreateGraph API operation.", Operation = new[] {"CreateGraph"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.CreateGraphResponse))]
     [AWSCmdletOutput("Amazon.NeptuneGraph.Model.CreateGraphResponse",
-        "This cmdlet returns an Amazon.NeptuneGraph.Model.CreateGraphResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NeptuneGraph.Model.CreateGraphResponse object containing multiple properties."
     )]
     public partial class NewNEPTGGraphCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
     {

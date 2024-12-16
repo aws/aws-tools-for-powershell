@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector UnsubscribeFromEvent API operation.", Operation = new[] {"UnsubscribeFromEvent"}, SelectReturnType = typeof(Amazon.Inspector.Model.UnsubscribeFromEventResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.UnsubscribeFromEventResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.UnsubscribeFromEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.UnsubscribeFromEventResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveINSEventSubscriptionCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

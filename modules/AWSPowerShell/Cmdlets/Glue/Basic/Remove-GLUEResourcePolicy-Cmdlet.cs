@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEResourcePolicyCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

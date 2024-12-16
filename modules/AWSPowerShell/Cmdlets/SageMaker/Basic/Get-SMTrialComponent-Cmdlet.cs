@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeTrialComponentResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeTrialComponent API operation.", Operation = new[] {"DescribeTrialComponent"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeTrialComponentResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeTrialComponentResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeTrialComponentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeTrialComponentResponse object containing multiple properties."
     )]
     public partial class GetSMTrialComponentCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

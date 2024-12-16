@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UntagPolicy API operation.", Operation = new[] {"UntagPolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UntagPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UntagPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UntagPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UntagPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMPolicyTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

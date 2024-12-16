@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVerifiedAccessEndpoint API operation.", Operation = new[] {"DeleteVerifiedAccessEndpoint"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessEndpoint or Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessEndpoint object.",
-        "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteVerifiedAccessEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2VerifiedAccessEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

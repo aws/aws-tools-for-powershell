@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreatePodIdentityAssociation API operation.", Operation = new[] {"CreatePodIdentityAssociation"}, SelectReturnType = typeof(Amazon.EKS.Model.CreatePodIdentityAssociationResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.PodIdentityAssociation or Amazon.EKS.Model.CreatePodIdentityAssociationResponse",
         "This cmdlet returns an Amazon.EKS.Model.PodIdentityAssociation object.",
-        "The service call response (type Amazon.EKS.Model.CreatePodIdentityAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.CreatePodIdentityAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEKSPodIdentityAssociationCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

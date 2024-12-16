@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [OutputType("Amazon.WorkMail.Model.GetDefaultRetentionPolicyResponse")]
     [AWSCmdlet("Calls the Amazon WorkMail GetDefaultRetentionPolicy API operation.", Operation = new[] {"GetDefaultRetentionPolicy"}, SelectReturnType = typeof(Amazon.WorkMail.Model.GetDefaultRetentionPolicyResponse))]
     [AWSCmdletOutput("Amazon.WorkMail.Model.GetDefaultRetentionPolicyResponse",
-        "This cmdlet returns an Amazon.WorkMail.Model.GetDefaultRetentionPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkMail.Model.GetDefaultRetentionPolicyResponse object containing multiple properties."
     )]
     public partial class GetWMDefaultRetentionPolicyCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

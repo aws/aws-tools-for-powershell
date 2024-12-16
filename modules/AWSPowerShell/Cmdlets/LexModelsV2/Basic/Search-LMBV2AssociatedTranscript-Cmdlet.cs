@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 SearchAssociatedTranscripts API operation.", Operation = new[] {"SearchAssociatedTranscripts"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.SearchAssociatedTranscriptsResponse object containing multiple properties."
     )]
     public partial class SearchLMBV2AssociatedTranscriptCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

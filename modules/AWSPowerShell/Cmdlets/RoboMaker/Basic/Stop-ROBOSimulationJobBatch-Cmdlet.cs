@@ -28,15 +28,24 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
     /// Cancels a simulation job batch. When you cancel a simulation job batch, you are also
-    /// cancelling all of the active simulation jobs created as part of the batch.
+    /// cancelling all of the active simulation jobs created as part of the batch. 
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "ROBOSimulationJobBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS RoboMaker CancelSimulationJobBatch API operation.", Operation = new[] {"CancelSimulationJobBatch"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CancelSimulationJobBatchResponse))]
     [AWSCmdletOutput("None or Amazon.RoboMaker.Model.CancelSimulationJobBatchResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RoboMaker.Model.CancelSimulationJobBatchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RoboMaker.Model.CancelSimulationJobBatchResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopROBOSimulationJobBatchCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

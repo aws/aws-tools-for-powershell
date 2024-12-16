@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ConfirmSignUp API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ConfirmSignUp"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConfirmCGIPUserRegistrationCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

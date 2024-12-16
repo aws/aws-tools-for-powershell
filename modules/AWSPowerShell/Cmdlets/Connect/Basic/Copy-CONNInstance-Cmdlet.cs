@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.ReplicateInstanceResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service ReplicateInstance API operation.", Operation = new[] {"ReplicateInstance"}, SelectReturnType = typeof(Amazon.Connect.Model.ReplicateInstanceResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.ReplicateInstanceResponse",
-        "This cmdlet returns an Amazon.Connect.Model.ReplicateInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.ReplicateInstanceResponse object containing multiple properties."
     )]
     public partial class CopyCONNInstanceCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

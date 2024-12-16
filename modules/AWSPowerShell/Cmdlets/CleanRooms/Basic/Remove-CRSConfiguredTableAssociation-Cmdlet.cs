@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service DeleteConfiguredTableAssociation API operation.", Operation = new[] {"DeleteConfiguredTableAssociation"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCRSConfiguredTableAssociationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

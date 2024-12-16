@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateCachePolicy API operation.", Operation = new[] {"UpdateCachePolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateCachePolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CachePolicy or Amazon.CloudFront.Model.UpdateCachePolicyResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.CachePolicy object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateCachePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateCachePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFCachePolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

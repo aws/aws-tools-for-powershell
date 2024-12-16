@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateModelCardExportJob API operation.", Operation = new[] {"CreateModelCardExportJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateModelCardExportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateModelCardExportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateModelCardExportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateModelCardExportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMModelCardExportJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

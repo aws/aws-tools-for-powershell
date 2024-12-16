@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.DeriveSharedSecretResponse")]
     [AWSCmdlet("Calls the AWS Key Management Service DeriveSharedSecret API operation.", Operation = new[] {"DeriveSharedSecret"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DeriveSharedSecretResponse))]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.DeriveSharedSecretResponse",
-        "This cmdlet returns an Amazon.KeyManagementService.Model.DeriveSharedSecretResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KeyManagementService.Model.DeriveSharedSecretResponse object containing multiple properties."
     )]
     public partial class GetKMSSharedSecretCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

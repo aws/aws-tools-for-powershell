@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AT
     [OutputType("Amazon.AppTest.Model.CreateTestSuiteResponse")]
     [AWSCmdlet("Calls the AWS Mainframe Modernization Application Testing CreateTestSuite API operation.", Operation = new[] {"CreateTestSuite"}, SelectReturnType = typeof(Amazon.AppTest.Model.CreateTestSuiteResponse))]
     [AWSCmdletOutput("Amazon.AppTest.Model.CreateTestSuiteResponse",
-        "This cmdlet returns an Amazon.AppTest.Model.CreateTestSuiteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppTest.Model.CreateTestSuiteResponse object containing multiple properties."
     )]
     public partial class NewATTestSuiteCmdlet : AmazonAppTestClientCmdlet, IExecutor
     {

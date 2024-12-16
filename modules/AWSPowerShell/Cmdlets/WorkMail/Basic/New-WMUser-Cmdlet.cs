@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.WorkMail.Model.CreateUserResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkMail.Model.CreateUserResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkMail.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkMail.Model.CreateUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewWMUserCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+        #endregion
+        
+        #region Parameter IdentityProviderUserId
+        /// <summary>
+        /// <para>
+        /// <para>User ID from the IAM Identity Center. If this parameter is empty it will be updated
+        /// automatically when the user logs in for the first time to the mailbox associated with
+        /// WorkMail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityProviderUserId { get; set; }
         #endregion
         
         #region Parameter LastName
@@ -198,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             #endif
             context.FirstName = this.FirstName;
             context.HiddenFromGlobalAddressList = this.HiddenFromGlobalAddressList;
+            context.IdentityProviderUserId = this.IdentityProviderUserId;
             context.LastName = this.LastName;
             context.Name = this.Name;
             #if MODULAR
@@ -242,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.HiddenFromGlobalAddressList != null)
             {
                 request.HiddenFromGlobalAddressList = cmdletContext.HiddenFromGlobalAddressList.Value;
+            }
+            if (cmdletContext.IdentityProviderUserId != null)
+            {
+                request.IdentityProviderUserId = cmdletContext.IdentityProviderUserId;
             }
             if (cmdletContext.LastName != null)
             {
@@ -327,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
             public System.String DisplayName { get; set; }
             public System.String FirstName { get; set; }
             public System.Boolean? HiddenFromGlobalAddressList { get; set; }
+            public System.String IdentityProviderUserId { get; set; }
             public System.String LastName { get; set; }
             public System.String Name { get; set; }
             public System.String OrganizationId { get; set; }

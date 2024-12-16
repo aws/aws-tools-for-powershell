@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service ShareDirectory API operation.", Operation = new[] {"ShareDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ShareDirectoryResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.ShareDirectoryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.ShareDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.ShareDirectoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableDSDirectoryShareCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

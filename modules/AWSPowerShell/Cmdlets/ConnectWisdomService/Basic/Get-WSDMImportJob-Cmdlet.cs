@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     [AWSCmdlet("Calls the Amazon Connect Wisdom Service GetImportJob API operation.", Operation = new[] {"GetImportJob"}, SelectReturnType = typeof(Amazon.ConnectWisdomService.Model.GetImportJobResponse))]
     [AWSCmdletOutput("Amazon.ConnectWisdomService.Model.ImportJobData or Amazon.ConnectWisdomService.Model.GetImportJobResponse",
         "This cmdlet returns an Amazon.ConnectWisdomService.Model.ImportJobData object.",
-        "The service call response (type Amazon.ConnectWisdomService.Model.GetImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectWisdomService.Model.GetImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSDMImportJobCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {

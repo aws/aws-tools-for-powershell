@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [OutputType("Amazon.OpenSearchService.Model.DescribeDryRunProgressResponse")]
     [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeDryRunProgress API operation.", Operation = new[] {"DescribeDryRunProgress"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeDryRunProgressResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.DescribeDryRunProgressResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeDryRunProgressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeDryRunProgressResponse object containing multiple properties."
     )]
     public partial class GetOSDryRunProgressCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

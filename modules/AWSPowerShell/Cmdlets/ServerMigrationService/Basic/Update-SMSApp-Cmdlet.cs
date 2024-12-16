@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [OutputType("Amazon.ServerMigrationService.Model.UpdateAppResponse")]
     [AWSCmdlet("Calls the AWS Server Migration Service UpdateApp API operation.", Operation = new[] {"UpdateApp"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.UpdateAppResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.UpdateAppResponse",
-        "This cmdlet returns an Amazon.ServerMigrationService.Model.UpdateAppResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServerMigrationService.Model.UpdateAppResponse object containing multiple properties."
     )]
     public partial class UpdateSMSAppCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

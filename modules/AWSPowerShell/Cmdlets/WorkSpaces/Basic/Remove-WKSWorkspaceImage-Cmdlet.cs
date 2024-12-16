@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeleteWorkspaceImage API operation.", Operation = new[] {"DeleteWorkspaceImage"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeleteWorkspaceImageResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.DeleteWorkspaceImageResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteWorkspaceImageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.DeleteWorkspaceImageResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

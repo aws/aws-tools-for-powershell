@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.DisconnectFromServiceResponse")]
     [AWSCmdlet("Calls the Application Migration Service DisconnectFromService API operation.", Operation = new[] {"DisconnectFromService"}, SelectReturnType = typeof(Amazon.Mgn.Model.DisconnectFromServiceResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.DisconnectFromServiceResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.DisconnectFromServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.DisconnectFromServiceResponse object containing multiple properties."
     )]
     public partial class DisconnectMGNFromServiceCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

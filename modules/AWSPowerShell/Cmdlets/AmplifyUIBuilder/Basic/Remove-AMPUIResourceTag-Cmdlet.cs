@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AmplifyUIBuilder.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AmplifyUIBuilder.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AmplifyUIBuilder.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPUIResourceTagCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

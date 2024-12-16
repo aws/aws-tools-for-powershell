@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact DisassociateExternalConnection API operation.", Operation = new[] {"DisassociateExternalConnection"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DisassociateExternalConnectionResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositoryDescription or Amazon.CodeArtifact.Model.DisassociateExternalConnectionResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.RepositoryDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DisassociateExternalConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.DisassociateExternalConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisconnectCAExternalConnectionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

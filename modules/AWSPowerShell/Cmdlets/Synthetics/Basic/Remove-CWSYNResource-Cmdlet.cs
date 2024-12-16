@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics DisassociateResource API operation.", Operation = new[] {"DisassociateResource"}, SelectReturnType = typeof(Amazon.Synthetics.Model.DisassociateResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.DisassociateResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.DisassociateResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.DisassociateResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWSYNResourceCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

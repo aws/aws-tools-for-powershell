@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager DeleteSite API operation.", Operation = new[] {"DeleteSite"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.DeleteSiteResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Site or Amazon.NetworkManager.Model.DeleteSiteResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Site object.",
-        "The service call response (type Amazon.NetworkManager.Model.DeleteSiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.DeleteSiteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNMGRSiteCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

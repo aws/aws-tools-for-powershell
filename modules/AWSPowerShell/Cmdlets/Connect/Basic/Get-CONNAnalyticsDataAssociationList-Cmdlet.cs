@@ -28,19 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
-    /// Lists the association status of requested dataset ID for a given Amazon Connect instance.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the association status of requested dataset ID for a given Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNAnalyticsDataAssociationList")]
     [OutputType("Amazon.Connect.Model.AnalyticsDataAssociationResult")]
     [AWSCmdlet("Calls the Amazon Connect Service ListAnalyticsDataAssociations API operation.", Operation = new[] {"ListAnalyticsDataAssociations"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.AnalyticsDataAssociationResult or Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse",
         "This cmdlet returns a collection of Amazon.Connect.Model.AnalyticsDataAssociationResult objects.",
-        "The service call response (type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNAnalyticsDataAssociationListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
@@ -94,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

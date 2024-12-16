@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DescribeServiceUpdates API operation.", Operation = new[] {"DescribeServiceUpdates"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DescribeServiceUpdatesResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ServiceUpdate or Amazon.MemoryDB.Model.DescribeServiceUpdatesResponse",
         "This cmdlet returns a collection of Amazon.MemoryDB.Model.ServiceUpdate objects.",
-        "The service call response (type Amazon.MemoryDB.Model.DescribeServiceUpdatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DescribeServiceUpdatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMDBServiceUpdateCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

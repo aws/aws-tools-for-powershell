@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync UpdateFunction API operation.", Operation = new[] {"UpdateFunction"}, SelectReturnType = typeof(Amazon.AppSync.Model.UpdateFunctionResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.FunctionConfiguration or Amazon.AppSync.Model.UpdateFunctionResponse",
         "This cmdlet returns an Amazon.AppSync.Model.FunctionConfiguration object.",
-        "The service call response (type Amazon.AppSync.Model.UpdateFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.UpdateFunctionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateASYNFunctionCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

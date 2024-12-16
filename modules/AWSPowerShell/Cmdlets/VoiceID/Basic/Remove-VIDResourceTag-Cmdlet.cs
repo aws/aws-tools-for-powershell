@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.VoiceID.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.VoiceID.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.VoiceID.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.VoiceID.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveVIDResourceTagCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Removes the log-level override, if any, for a specific resource-ID and resource-type.
-    /// It can be used for a wireless device or a wireless gateway.
+    /// It can be used for a wireless device, a wireless gateway, or a fuota task.
     /// </summary>
     [Cmdlet("Reset", "IOTWResourceLogLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS IoT Wireless ResetResourceLogLevel API operation.", Operation = new[] {"ResetResourceLogLevel"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ResetResourceLogLevelResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.ResetResourceLogLevelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.ResetResourceLogLevelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.ResetResourceLogLevelResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetIOTWResourceLogLevelCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource, which can be <c>WirelessDevice</c> or <c>WirelessGateway</c>.</para>
+        /// <para>The type of the resource, which can be <c>WirelessDevice</c>, <c>WirelessGateway</c>,
+        /// or <c>FuotaTask</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

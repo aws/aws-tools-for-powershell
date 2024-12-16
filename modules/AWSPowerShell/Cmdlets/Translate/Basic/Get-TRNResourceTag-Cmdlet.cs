@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [AWSCmdlet("Calls the Amazon Translate ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Translate.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.Tag or Amazon.Translate.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Translate.Model.Tag objects.",
-        "The service call response (type Amazon.Translate.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Translate.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTRNResourceTagCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

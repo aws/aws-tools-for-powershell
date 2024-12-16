@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama RegisterPackageVersion API operation.", Operation = new[] {"RegisterPackageVersion"}, SelectReturnType = typeof(Amazon.Panorama.Model.RegisterPackageVersionResponse))]
     [AWSCmdletOutput("None or Amazon.Panorama.Model.RegisterPackageVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Panorama.Model.RegisterPackageVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Panorama.Model.RegisterPackageVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterPANPackageVersionCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.RestartChannelPipelinesResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive RestartChannelPipelines API operation.", Operation = new[] {"RestartChannelPipelines"}, SelectReturnType = typeof(Amazon.MediaLive.Model.RestartChannelPipelinesResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.RestartChannelPipelinesResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.RestartChannelPipelinesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.RestartChannelPipelinesResponse object containing multiple properties."
     )]
     public partial class RestartEMLChannelPipelineCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

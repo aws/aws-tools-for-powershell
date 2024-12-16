@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor AssociateAccounts API operation.", Operation = new[] {"AssociateAccounts"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.AssociateAccountsResponse))]
     [AWSCmdletOutput("System.String or Amazon.BillingConductor.Model.AssociateAccountsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BillingConductor.Model.AssociateAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BillingConductor.Model.AssociateAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterABCAccountCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

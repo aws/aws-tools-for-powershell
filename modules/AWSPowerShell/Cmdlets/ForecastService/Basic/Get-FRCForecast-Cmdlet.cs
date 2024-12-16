@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [OutputType("Amazon.ForecastService.Model.DescribeForecastResponse")]
     [AWSCmdlet("Calls the Amazon Forecast Service DescribeForecast API operation.", Operation = new[] {"DescribeForecast"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DescribeForecastResponse))]
     [AWSCmdletOutput("Amazon.ForecastService.Model.DescribeForecastResponse",
-        "This cmdlet returns an Amazon.ForecastService.Model.DescribeForecastResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ForecastService.Model.DescribeForecastResponse object containing multiple properties."
     )]
     public partial class GetFRCForecastCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

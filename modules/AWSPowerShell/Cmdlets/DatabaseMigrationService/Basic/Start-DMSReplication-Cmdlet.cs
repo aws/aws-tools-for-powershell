@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service StartReplication API operation.", Operation = new[] {"StartReplication"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.StartReplicationResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Replication or Amazon.DatabaseMigrationService.Model.StartReplicationResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.Replication object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.StartReplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDMSReplicationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

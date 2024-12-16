@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DeleteDBClusterSnapshot API operation.", Operation = new[] {"DeleteDBClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBClusterSnapshot or Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBClusterSnapshot object.",
-        "The service call response (type Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.DeleteDBClusterSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCDBClusterSnapshotCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

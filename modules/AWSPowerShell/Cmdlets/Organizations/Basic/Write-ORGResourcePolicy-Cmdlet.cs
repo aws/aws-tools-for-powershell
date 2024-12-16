@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.ResourcePolicy or Amazon.Organizations.Model.PutResourcePolicyResponse",
         "This cmdlet returns an Amazon.Organizations.Model.ResourcePolicy object.",
-        "The service call response (type Amazon.Organizations.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteORGResourcePolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

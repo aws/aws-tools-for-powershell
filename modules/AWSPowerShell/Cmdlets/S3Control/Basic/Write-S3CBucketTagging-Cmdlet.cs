@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control PutBucketTagging API operation.", Operation = new[] {"PutBucketTagging"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutBucketTaggingResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.PutBucketTaggingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.PutBucketTaggingResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteS3CBucketTaggingCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

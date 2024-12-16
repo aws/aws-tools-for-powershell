@@ -130,7 +130,7 @@ $OUTP_Completers = {
         # Amazon.Outposts.PaymentTerm
         "New-OUTPOrder/PaymentTerm"
         {
-            $v = "ONE_YEAR","THREE_YEARS"
+            $v = "FIVE_YEARS","ONE_YEAR","THREE_YEARS"
             break
         }
 
@@ -184,6 +184,13 @@ $OUTP_Completers = {
             break
         }
 
+        # Amazon.Outposts.TaskActionOnBlockingInstances
+        "Start-OUTPCapacityTask/TaskActionOnBlockingInstance"
+        {
+            $v = "FAIL_TASK","WAIT_FOR_EVACUATION"
+            break
+        }
+
         # Amazon.Outposts.UplinkCount
         {
             ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkCount") -Or
@@ -233,6 +240,7 @@ $OUTP_map = @{
     "RackPhysicalProperties_UplinkCount"=@("New-OUTPSite")
     "RackPhysicalProperties_UplinkGbp"=@("New-OUTPSite")
     "SupportedHardwareType"=@("New-OUTPOutpost","Update-OUTPOutpost")
+    "TaskActionOnBlockingInstance"=@("Start-OUTPCapacityTask")
     "UplinkCount"=@("Update-OUTPSiteRackPhysicalProperty")
     "UplinkGbp"=@("Update-OUTPSiteRackPhysicalProperty")
 }
@@ -303,7 +311,9 @@ $OUTP_SelectMap = @{
                "Get-OUTPOutpostSupportedInstanceType",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
+               "Get-OUTPAssetInstanceList",
                "Get-OUTPAssetList",
+               "Get-OUTPBlockingInstancesForCapacityTaskList",
                "Get-OUTPCapacityTaskList",
                "Get-OUTPCatalogItemList",
                "Get-OUTPOrderList",

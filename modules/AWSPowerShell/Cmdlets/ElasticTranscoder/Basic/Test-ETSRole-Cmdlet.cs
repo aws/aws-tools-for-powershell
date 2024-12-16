@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Transcoder TestRole API operation.", Operation = new[] {"TestRole"}, SelectReturnType = typeof(Amazon.ElasticTranscoder.Model.TestRoleResponse))]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
-        "This cmdlet returns an Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API is deprecated and will be removed in a future release.")]
     public partial class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor

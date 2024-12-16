@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client DeregisterDevice API operation.", Operation = new[] {"DeregisterDevice"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.DeregisterDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesThinClient.Model.DeregisterDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesThinClient.Model.DeregisterDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesThinClient.Model.DeregisterDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWSTCDeviceCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

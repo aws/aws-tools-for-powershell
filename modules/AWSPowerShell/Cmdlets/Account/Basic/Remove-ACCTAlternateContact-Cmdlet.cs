@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account DeleteAlternateContact API operation.", Operation = new[] {"DeleteAlternateContact"}, SelectReturnType = typeof(Amazon.Account.Model.DeleteAlternateContactResponse))]
     [AWSCmdletOutput("None or Amazon.Account.Model.DeleteAlternateContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.DeleteAlternateContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Account.Model.DeleteAlternateContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveACCTAlternateContactCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

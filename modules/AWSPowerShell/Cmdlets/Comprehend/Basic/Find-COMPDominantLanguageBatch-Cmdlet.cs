@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend BatchDetectDominantLanguage API operation.", Operation = new[] {"BatchDetectDominantLanguage"}, SelectReturnType = typeof(Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse object containing multiple properties."
     )]
     public partial class FindCOMPDominantLanguageBatchCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

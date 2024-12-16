@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract DetectDocumentText API operation.", Operation = new[] {"DetectDocumentText"}, SelectReturnType = typeof(Amazon.Textract.Model.DetectDocumentTextResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.Block or Amazon.Textract.Model.DetectDocumentTextResponse",
         "This cmdlet returns a collection of Amazon.Textract.Model.Block objects.",
-        "The service call response (type Amazon.Textract.Model.DetectDocumentTextResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.DetectDocumentTextResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindTXTDocumentTextCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

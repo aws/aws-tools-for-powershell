@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor StopChannel API operation.", Operation = new[] {"StopChannel"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.StopChannelResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.StopChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.StopChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.StopChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopEMTChannelCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

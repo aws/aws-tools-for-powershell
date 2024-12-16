@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service StartSchemaExtension API operation.", Operation = new[] {"StartSchemaExtension"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.StartSchemaExtensionResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.StartSchemaExtensionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.StartSchemaExtensionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.StartSchemaExtensionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDSSchemaExtensionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

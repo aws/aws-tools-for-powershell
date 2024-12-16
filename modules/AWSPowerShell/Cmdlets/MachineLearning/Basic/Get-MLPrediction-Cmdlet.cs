@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Calls the Amazon Machine Learning Predict API operation.", Operation = new[] {"Predict"}, SelectReturnType = typeof(Amazon.MachineLearning.Model.PredictResponse))]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.Prediction or Amazon.MachineLearning.Model.PredictResponse",
         "This cmdlet returns an Amazon.MachineLearning.Model.Prediction object.",
-        "The service call response (type Amazon.MachineLearning.Model.PredictResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.PredictResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMLPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

@@ -28,33 +28,27 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Requests authorization to remotely connect to a hosting resource in a Amazon GameLift
-    /// managed fleet. This operation is not used with Amazon GameLift Anywhere fleets
-    /// </para><para>
-    /// To request access, specify the compute name and the fleet ID. If successful, this
-    /// operation returns a set of temporary Amazon Web Services credentials, including a
-    /// two-part access key and a session token.
-    /// </para><para><b>EC2 fleets</b></para><para>
-    /// With an EC2 fleet (where compute type is <c>EC2</c>), use these credentials with Amazon
-    /// EC2 Systems Manager (SSM) to start a session with the compute. For more details, see
-    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli">
+    /// managed fleet. This operation is not used with Amazon GameLift Anywhere fleets.
+    /// 
+    ///  
+    /// <para><b>Request options</b></para><para>
+    /// To request access to a compute, specify the compute name and the fleet ID.
+    /// </para><para><b>Results</b></para><para>
+    /// If successful, this operation returns a set of temporary Amazon Web Services credentials,
+    /// including a two-part access key and a session token.
+    /// </para><ul><li><para>
+    /// With a managed EC2 fleet (where compute type is <c>EC2</c>), use these credentials
+    /// with Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more
+    /// details, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli">
     /// Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.
-    /// </para><para><b>Container fleets</b></para><para>
-    /// With a container fleet (where compute type is <c>CONTAINER</c>), use these credentials
-    /// and the target value with SSM to connect to the fleet instance where the container
-    /// is running. After you're connected to the instance, use Docker commands to interact
-    /// with the container.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
-    /// connect to fleet instances</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// fleet issues</a></para></li></ul>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLComputeAccess")]
     [OutputType("Amazon.GameLift.Model.GetComputeAccessResponse")]
     [AWSCmdlet("Calls the Amazon GameLift Service GetComputeAccess API operation.", Operation = new[] {"GetComputeAccess"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetComputeAccessResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.GetComputeAccessResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.GetComputeAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GameLift.Model.GetComputeAccessResponse object containing multiple properties."
     )]
     public partial class GetGMLComputeAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -65,9 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the compute resource that you want to connect to. For an EC2
-        /// fleet compute, use the instance ID. For a container fleet, use the compute name (for
-        /// example, <c>a123b456c789012d3e4567f8a901b23c/1a234b56-7cd8-9e0f-a1b2-c34d567ef8a9</c>)
-        /// or the compute ARN. </para>
+        /// fleet compute, use the instance ID. Use <a>ListCompute</a> to retrieve compute identifiers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,10 +28,11 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates a knowledge base that contains data sources from which information can be
-    /// queried and used by LLMs. To create a knowledge base, you must first set up your data
-    /// sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html">Set
-    /// up your data for ingestion</a>.
+    /// Creates a knowledge base. A knowledge base contains your data sources so that Large
+    /// Language Models (LLMs) can use your data. To create a knowledge base, you must first
+    /// set up your data sources and configure a supported vector store. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html">Set
+    /// up a knowledge base</a>.
     /// 
     ///  <note><para>
     /// If you prefer to let Amazon Bedrock create and manage a vector store for you in Amazon
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock CreateKnowledgeBase API operation.", Operation = new[] {"CreateKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.CreateKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.KnowledgeBase or Amazon.BedrockAgent.Model.CreateKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.KnowledgeBase object.",
-        "The service call response (type Amazon.BedrockAgent.Model.CreateKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.CreateKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAABKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
@@ -206,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the
-        /// knowledge base.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model or inference profile used to create vector
+        /// embeddings for the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

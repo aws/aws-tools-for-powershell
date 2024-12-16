@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeleteStackInstances API operation.", Operation = new[] {"DeleteStackInstances"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeleteStackInstancesResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.DeleteStackInstancesResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.DeleteStackInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DeleteStackInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFNStackInstanceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Removes the stack instances from the specified stack set, but doesn't delete the stacks.
         /// You can't reassociate a retained stack or add an existing, saved stack to a new stack
-        /// set.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack
+        /// set.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack
         /// set operation options</a>.</para>
         /// </para>
         /// </summary>

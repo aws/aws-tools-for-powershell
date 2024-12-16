@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager PutCoreNetworkPolicy API operation.", Operation = new[] {"PutCoreNetworkPolicy"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.PutCoreNetworkPolicyResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.CoreNetworkPolicy or Amazon.NetworkManager.Model.PutCoreNetworkPolicyResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.CoreNetworkPolicy object.",
-        "The service call response (type Amazon.NetworkManager.Model.PutCoreNetworkPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.PutCoreNetworkPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteNMGRCoreNetworkPolicyCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

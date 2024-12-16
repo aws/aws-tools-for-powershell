@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.CreateParticipantResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service CreateParticipant API operation.", Operation = new[] {"CreateParticipant"}, SelectReturnType = typeof(Amazon.Connect.Model.CreateParticipantResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.CreateParticipantResponse",
-        "This cmdlet returns an Amazon.Connect.Model.CreateParticipantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.CreateParticipantResponse object containing multiple properties."
     )]
     public partial class NewCONNParticipantCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

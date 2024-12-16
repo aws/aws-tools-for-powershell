@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DeleteUserResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.User or Amazon.MemoryDB.Model.DeleteUserResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.User object.",
-        "The service call response (type Amazon.MemoryDB.Model.DeleteUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DeleteUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBUserCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

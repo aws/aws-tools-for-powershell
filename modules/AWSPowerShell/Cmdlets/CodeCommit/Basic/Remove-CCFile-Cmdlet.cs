@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.DeleteFileResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit DeleteFile API operation.", Operation = new[] {"DeleteFile"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.DeleteFileResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.DeleteFileResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.DeleteFileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.DeleteFileResponse object containing multiple properties."
     )]
     public partial class RemoveCCFileCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

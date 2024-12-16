@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP UpdateAgreement API operation.", Operation = new[] {"UpdateAgreement"}, SelectReturnType = typeof(Amazon.Transfer.Model.UpdateAgreementResponse))]
     [AWSCmdletOutput("System.String or Amazon.Transfer.Model.UpdateAgreementResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Transfer.Model.UpdateAgreementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.UpdateAgreementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTFRAgreementCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>To change the landing directory (folder) for files that are transferred, provide the
-        /// bucket folder that you want to use; for example, <c>/<i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i></c>.</para>
+        /// bucket folder that you want to use; for example, <c>/<i>amzn-s3-demo-bucket</i>/<i>home</i>/<i>mydirectory</i></c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

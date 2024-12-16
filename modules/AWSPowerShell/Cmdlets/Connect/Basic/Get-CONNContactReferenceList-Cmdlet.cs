@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service ListContactReferences API operation.", Operation = new[] {"ListContactReferences"}, SelectReturnType = typeof(Amazon.Connect.Model.ListContactReferencesResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.ReferenceSummary or Amazon.Connect.Model.ListContactReferencesResponse",
         "This cmdlet returns a collection of Amazon.Connect.Model.ReferenceSummary objects.",
-        "The service call response (type Amazon.Connect.Model.ListContactReferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.ListContactReferencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNContactReferenceListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog ListTagOptions API operation.", Operation = new[] {"ListTagOptions"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.ListTagOptionsResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail or Amazon.ServiceCatalog.Model.ListTagOptionsResponse",
         "This cmdlet returns a collection of Amazon.ServiceCatalog.Model.TagOptionDetail objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ListTagOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.ListTagOptionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCTagOptionListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.PageToken' for subsequent calls.
+        /// <br/>'PageToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-PageToken' to null for the first call then set the 'PageToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

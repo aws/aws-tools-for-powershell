@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     [AWSCmdlet("Calls the Amazon Recycle Bin ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.RecycleBin.Model.Tag or Amazon.RecycleBin.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.RecycleBin.Model.Tag objects.",
-        "The service call response (type Amazon.RecycleBin.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RecycleBin.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRBINResourceTagCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {

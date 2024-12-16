@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver DeleteResolverEndpoint API operation.", Operation = new[] {"DeleteResolverEndpoint"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.DeleteResolverEndpointResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverEndpoint or Amazon.Route53Resolver.Model.DeleteResolverEndpointResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverEndpoint object.",
-        "The service call response (type Amazon.Route53Resolver.Model.DeleteResolverEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.DeleteResolverEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RResolverEndpointCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

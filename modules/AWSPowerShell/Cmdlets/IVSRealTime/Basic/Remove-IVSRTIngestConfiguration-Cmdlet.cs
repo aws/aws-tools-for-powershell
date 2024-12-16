@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DeleteIngestConfiguration API operation.", Operation = new[] {"DeleteIngestConfiguration"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSRTIngestConfigurationCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

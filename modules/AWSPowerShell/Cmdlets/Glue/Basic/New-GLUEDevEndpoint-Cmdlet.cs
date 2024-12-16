@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.CreateDevEndpointResponse")]
     [AWSCmdlet("Calls the AWS Glue CreateDevEndpoint API operation.", Operation = new[] {"CreateDevEndpoint"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateDevEndpointResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.CreateDevEndpointResponse",
-        "This cmdlet returns an Amazon.Glue.Model.CreateDevEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.CreateDevEndpointResponse object containing multiple properties."
     )]
     public partial class NewGLUEDevEndpointCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

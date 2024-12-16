@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority RevokeCertificate API operation.", Operation = new[] {"RevokeCertificate"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.RevokeCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.RevokeCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.RevokeCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.RevokeCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RevokePCACertificateCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

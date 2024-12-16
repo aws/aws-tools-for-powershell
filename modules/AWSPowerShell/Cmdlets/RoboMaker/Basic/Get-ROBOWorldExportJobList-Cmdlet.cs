@@ -28,14 +28,23 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Lists world export jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
+    /// Lists world export jobs.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ROBOWorldExportJobList")]
     [OutputType("Amazon.RoboMaker.Model.WorldExportJobSummary")]
     [AWSCmdlet("Calls the AWS RoboMaker ListWorldExportJobs API operation.", Operation = new[] {"ListWorldExportJobs"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.ListWorldExportJobsResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.WorldExportJobSummary or Amazon.RoboMaker.Model.ListWorldExportJobsResponse",
         "This cmdlet returns a collection of Amazon.RoboMaker.Model.WorldExportJobSummary objects.",
-        "The service call response (type Amazon.RoboMaker.Model.ListWorldExportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.ListWorldExportJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetROBOWorldExportJobListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
@@ -86,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

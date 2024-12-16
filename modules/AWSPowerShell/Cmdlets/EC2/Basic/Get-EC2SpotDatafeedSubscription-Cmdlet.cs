@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeSpotDatafeedSubscription API operation.", Operation = new[] {"DescribeSpotDatafeedSubscription"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeSpotDatafeedSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription or Amazon.EC2.Model.DescribeSpotDatafeedSubscriptionResponse",
         "This cmdlet returns an Amazon.EC2.Model.SpotDatafeedSubscription object.",
-        "The service call response (type Amazon.EC2.Model.DescribeSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeSpotDatafeedSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

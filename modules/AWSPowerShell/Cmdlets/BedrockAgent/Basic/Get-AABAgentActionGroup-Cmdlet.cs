@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock GetAgentActionGroup API operation.", Operation = new[] {"GetAgentActionGroup"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.GetAgentActionGroupResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.AgentActionGroup or Amazon.BedrockAgent.Model.GetAgentActionGroupResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.AgentActionGroup object.",
-        "The service call response (type Amazon.BedrockAgent.Model.GetAgentActionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.GetAgentActionGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAABAgentActionGroupCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

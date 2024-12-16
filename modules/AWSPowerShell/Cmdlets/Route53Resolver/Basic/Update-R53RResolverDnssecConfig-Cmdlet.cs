@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver UpdateResolverDnssecConfig API operation.", Operation = new[] {"UpdateResolverDnssecConfig"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.UpdateResolverDnssecConfigResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.ResolverDnssecConfig or Amazon.Route53Resolver.Model.UpdateResolverDnssecConfigResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.ResolverDnssecConfig object.",
-        "The service call response (type Amazon.Route53Resolver.Model.UpdateResolverDnssecConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.UpdateResolverDnssecConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateR53RResolverDnssecConfigCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

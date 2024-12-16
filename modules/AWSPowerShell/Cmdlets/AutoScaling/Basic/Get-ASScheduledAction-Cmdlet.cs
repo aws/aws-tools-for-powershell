@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// To describe the scaling activities for scheduled actions that have already run, call
-    /// the <a>DescribeScalingActivities</a> API.
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a>
+    /// API.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASScheduledAction")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeScheduledActions API operation.", Operation = new[] {"DescribeScheduledActions"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeScheduledActionsResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ScheduledUpdateGroupAction or Amazon.AutoScaling.Model.DescribeScheduledActionsResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.ScheduledUpdateGroupAction objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeScheduledActionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -137,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

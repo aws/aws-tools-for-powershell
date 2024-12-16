@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DescribeMaintenanceWindowSchedule API operation.", Operation = new[] {"DescribeMaintenanceWindowSchedule"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowScheduleResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ScheduledWindowExecution or Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowScheduleResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.ScheduledWindowExecution objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowScheduleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMMaintenanceWindowScheduleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

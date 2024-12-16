@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     [AWSCmdlet("Calls the Amazon Augmented AI (A2I) Runtime StopHumanLoop API operation.", Operation = new[] {"StopHumanLoop"}, SelectReturnType = typeof(Amazon.AugmentedAIRuntime.Model.StopHumanLoopResponse))]
     [AWSCmdletOutput("None or Amazon.AugmentedAIRuntime.Model.StopHumanLoopResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AugmentedAIRuntime.Model.StopHumanLoopResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AugmentedAIRuntime.Model.StopHumanLoopResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopA2IRHumanLoopCmdlet : AmazonAugmentedAIRuntimeClientCmdlet, IExecutor
     {

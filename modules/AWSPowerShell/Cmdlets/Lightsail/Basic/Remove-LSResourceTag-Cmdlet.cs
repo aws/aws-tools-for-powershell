@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Lightsail.Model.UntagResourceResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.UntagResourceResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.UntagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.UntagResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSResourceTagCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

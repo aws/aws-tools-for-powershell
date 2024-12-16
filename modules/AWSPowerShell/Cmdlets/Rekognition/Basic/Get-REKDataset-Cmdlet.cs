@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition DescribeDataset API operation.", Operation = new[] {"DescribeDataset"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DescribeDatasetResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.DatasetDescription or Amazon.Rekognition.Model.DescribeDatasetResponse",
         "This cmdlet returns an Amazon.Rekognition.Model.DatasetDescription object.",
-        "The service call response (type Amazon.Rekognition.Model.DescribeDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.DescribeDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetREKDatasetCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

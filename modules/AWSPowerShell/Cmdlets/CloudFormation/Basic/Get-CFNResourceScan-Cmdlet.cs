@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeResourceScanResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeResourceScan API operation.", Operation = new[] {"DescribeResourceScan"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeResourceScanResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeResourceScanResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeResourceScanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeResourceScanResponse object containing multiple properties."
     )]
     public partial class GetCFNResourceScanCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

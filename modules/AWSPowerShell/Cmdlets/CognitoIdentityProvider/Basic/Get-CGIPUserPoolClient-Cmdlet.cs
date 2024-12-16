@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider DescribeUserPoolClient API operation.", Operation = new[] {"DescribeUserPoolClient"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.DescribeUserPoolClientResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserPoolClientType or Amazon.CognitoIdentityProvider.Model.DescribeUserPoolClientResponse",
         "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.UserPoolClientType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.DescribeUserPoolClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.DescribeUserPoolClientResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

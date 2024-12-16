@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [OutputType("Amazon.AWSSupport.Model.DescribeCreateCaseOptionsResponse")]
     [AWSCmdlet("Calls the AWS Support DescribeCreateCaseOptions API operation.", Operation = new[] {"DescribeCreateCaseOptions"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeCreateCaseOptionsResponse))]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.DescribeCreateCaseOptionsResponse",
-        "This cmdlet returns an Amazon.AWSSupport.Model.DescribeCreateCaseOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AWSSupport.Model.DescribeCreateCaseOptionsResponse object containing multiple properties."
     )]
     public partial class GetASACreateCaseOptionCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

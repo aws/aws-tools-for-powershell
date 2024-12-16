@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.GetChatControlsConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness GetChatControlsConfiguration API operation.", Operation = new[] {"GetChatControlsConfiguration"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetChatControlsConfigurationResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.GetChatControlsConfigurationResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.GetChatControlsConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.GetChatControlsConfigurationResponse object containing multiple properties."
     )]
     public partial class GetQBUSChatControlsConfigurationCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

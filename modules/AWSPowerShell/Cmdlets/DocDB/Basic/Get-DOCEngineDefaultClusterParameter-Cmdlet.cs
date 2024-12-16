@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) DescribeEngineDefaultClusterParameters API operation.", Operation = new[] {"DescribeEngineDefaultClusterParameters"}, SelectReturnType = typeof(Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EngineDefaults or Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EngineDefaults object.",
-        "The service call response (type Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.DescribeEngineDefaultClusterParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDOCEngineDefaultClusterParameterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

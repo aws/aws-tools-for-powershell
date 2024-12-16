@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.XRay.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.XRay.Model.ResourcePolicy or Amazon.XRay.Model.PutResourcePolicyResponse",
         "This cmdlet returns an Amazon.XRay.Model.ResourcePolicy object.",
-        "The service call response (type Amazon.XRay.Model.PutResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.XRay.Model.PutResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteXRResourcePolicyCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

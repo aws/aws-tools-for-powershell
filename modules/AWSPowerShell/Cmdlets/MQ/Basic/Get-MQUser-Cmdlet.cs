@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [OutputType("Amazon.MQ.Model.DescribeUserResponse")]
     [AWSCmdlet("Calls the Amazon MQ DescribeUser API operation.", Operation = new[] {"DescribeUser"}, SelectReturnType = typeof(Amazon.MQ.Model.DescribeUserResponse))]
     [AWSCmdletOutput("Amazon.MQ.Model.DescribeUserResponse",
-        "This cmdlet returns an Amazon.MQ.Model.DescribeUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MQ.Model.DescribeUserResponse object containing multiple properties."
     )]
     public partial class GetMQUserCmdlet : AmazonMQClientCmdlet, IExecutor
     {

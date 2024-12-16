@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DeleteLaunchConfiguration API operation.", Operation = new[] {"DeleteLaunchConfiguration"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

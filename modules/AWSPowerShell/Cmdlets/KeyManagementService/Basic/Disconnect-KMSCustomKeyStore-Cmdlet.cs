@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DisconnectCustomKeyStore API operation.", Operation = new[] {"DisconnectCustomKeyStore"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DisconnectCustomKeyStoreResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DisconnectCustomKeyStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DisconnectCustomKeyStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DisconnectCustomKeyStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectKMSCustomKeyStoreCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

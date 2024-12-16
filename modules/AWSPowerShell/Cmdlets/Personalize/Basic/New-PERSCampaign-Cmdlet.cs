@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize CreateCampaign API operation.", Operation = new[] {"CreateCampaign"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateCampaignResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateCampaignResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.CreateCampaignResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.CreateCampaignResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPERSCampaignCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

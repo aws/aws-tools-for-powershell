@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     [AWSCmdlet("Calls the AWS App Runner DescribeService API operation.", Operation = new[] {"DescribeService"}, SelectReturnType = typeof(Amazon.AppRunner.Model.DescribeServiceResponse))]
     [AWSCmdletOutput("Amazon.AppRunner.Model.Service or Amazon.AppRunner.Model.DescribeServiceResponse",
         "This cmdlet returns an Amazon.AppRunner.Model.Service object.",
-        "The service call response (type Amazon.AppRunner.Model.DescribeServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRunner.Model.DescribeServiceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {

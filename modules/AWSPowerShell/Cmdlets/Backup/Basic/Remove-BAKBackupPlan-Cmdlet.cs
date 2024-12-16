@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.DeleteBackupPlanResponse")]
     [AWSCmdlet("Calls the AWS Backup DeleteBackupPlan API operation.", Operation = new[] {"DeleteBackupPlan"}, SelectReturnType = typeof(Amazon.Backup.Model.DeleteBackupPlanResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.DeleteBackupPlanResponse",
-        "This cmdlet returns an Amazon.Backup.Model.DeleteBackupPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.DeleteBackupPlanResponse object containing multiple properties."
     )]
     public partial class RemoveBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

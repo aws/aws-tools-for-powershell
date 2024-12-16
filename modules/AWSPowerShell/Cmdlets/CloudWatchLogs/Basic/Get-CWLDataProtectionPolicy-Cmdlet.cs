@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("Amazon.CloudWatchLogs.Model.GetDataProtectionPolicyResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Logs GetDataProtectionPolicy API operation.", Operation = new[] {"GetDataProtectionPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetDataProtectionPolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetDataProtectionPolicyResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetDataProtectionPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetDataProtectionPolicyResponse object containing multiple properties."
     )]
     public partial class GetCWLDataProtectionPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

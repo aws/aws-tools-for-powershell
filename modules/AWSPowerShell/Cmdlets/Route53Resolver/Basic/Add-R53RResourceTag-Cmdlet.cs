@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Route53Resolver.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53Resolver.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Resolver.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddR53RResourceTagCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

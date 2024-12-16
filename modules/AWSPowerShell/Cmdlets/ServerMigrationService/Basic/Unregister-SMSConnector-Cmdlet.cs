@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service DisassociateConnector API operation.", Operation = new[] {"DisassociateConnector"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.DisassociateConnectorResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.DisassociateConnectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.DisassociateConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.DisassociateConnectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSMSConnectorCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubOrchestrator.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubOrchestrator.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubOrchestrator.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddMHOResourceTagCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

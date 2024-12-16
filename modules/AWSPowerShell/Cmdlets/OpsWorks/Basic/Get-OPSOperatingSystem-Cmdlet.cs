@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DescribeOperatingSystems API operation.", Operation = new[] {"DescribeOperatingSystems"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse))]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.OperatingSystem or Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse",
         "This cmdlet returns a collection of Amazon.OpsWorks.Model.OperatingSystem objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeOperatingSystemsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOPSOperatingSystemCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

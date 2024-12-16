@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream CreateStack API operation.", Operation = new[] {"CreateStack"}, SelectReturnType = typeof(Amazon.AppStream.Model.CreateStackResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.Stack or Amazon.AppStream.Model.CreateStackResponse",
         "This cmdlet returns an Amazon.AppStream.Model.Stack object.",
-        "The service call response (type Amazon.AppStream.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.CreateStackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAPSStackCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

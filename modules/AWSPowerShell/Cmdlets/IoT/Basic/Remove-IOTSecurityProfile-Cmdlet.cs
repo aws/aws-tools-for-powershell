@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteSecurityProfile API operation.", Operation = new[] {"DeleteSecurityProfile"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteSecurityProfileResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteSecurityProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteSecurityProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteSecurityProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSecurityProfileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

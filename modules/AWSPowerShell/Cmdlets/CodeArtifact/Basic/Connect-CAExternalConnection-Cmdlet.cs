@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact AssociateExternalConnection API operation.", Operation = new[] {"AssociateExternalConnection"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.AssociateExternalConnectionResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositoryDescription or Amazon.CodeArtifact.Model.AssociateExternalConnectionResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.RepositoryDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.AssociateExternalConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.AssociateExternalConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConnectCAExternalConnectionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild ImportSourceCredentials API operation.", Operation = new[] {"ImportSourceCredentials"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.ImportSourceCredentialsResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeBuild.Model.ImportSourceCredentialsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeBuild.Model.ImportSourceCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.ImportSourceCredentialsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportCBSourceCredentialCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

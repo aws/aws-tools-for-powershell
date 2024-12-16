@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway CreateTapeWithBarcode API operation.", Operation = new[] {"CreateTapeWithBarcode"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSGTapeWithBarcodeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

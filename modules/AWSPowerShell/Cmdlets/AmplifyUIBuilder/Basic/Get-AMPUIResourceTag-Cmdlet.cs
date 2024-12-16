@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.AmplifyUIBuilder.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMPUIResourceTagCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

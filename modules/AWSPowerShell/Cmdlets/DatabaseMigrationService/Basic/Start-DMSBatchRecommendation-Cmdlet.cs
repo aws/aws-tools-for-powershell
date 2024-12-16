@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service BatchStartRecommendations API operation.", Operation = new[] {"BatchStartRecommendations"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsErrorEntry or Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsResponse",
         "This cmdlet returns a collection of Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsErrorEntry objects.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.BatchStartRecommendationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDMSBatchRecommendationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

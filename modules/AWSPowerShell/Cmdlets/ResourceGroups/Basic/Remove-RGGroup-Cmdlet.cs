@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.DeleteGroupResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.Group or Amazon.ResourceGroups.Model.DeleteGroupResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.Group object.",
-        "The service call response (type Amazon.ResourceGroups.Model.DeleteGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.DeleteGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to delete.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

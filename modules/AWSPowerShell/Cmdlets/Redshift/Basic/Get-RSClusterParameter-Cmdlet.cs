@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift DescribeClusterParameters API operation.", Operation = new[] {"DescribeClusterParameters"}, SelectReturnType = typeof(Amazon.Redshift.Model.DescribeClusterParametersResponse), LegacyAlias="Get-RSClusterParameters")]
     [AWSCmdletOutput("Amazon.Redshift.Model.Parameter or Amazon.Redshift.Model.DescribeClusterParametersResponse",
         "This cmdlet returns a collection of Amazon.Redshift.Model.Parameter objects.",
-        "The service call response (type Amazon.Redshift.Model.DescribeClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribeClusterParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRSClusterParameterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

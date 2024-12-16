@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway CreateNFSFileShare API operation.", Operation = new[] {"CreateNFSFileShare"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.CreateNFSFileShareResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.CreateNFSFileShareResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.CreateNFSFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.CreateNFSFileShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -159,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The name of the file share. Optional.</para><note><para><c>FileShareName</c> must be set if an S3 prefix name is set in <c>LocationARN</c>,
-        /// or if an access point or access point alias is used.</para></note>
+        /// or if an access point or access point alias is used.</para><para>A valid NFS file share name can only contain the following characters: <c>a</c>-<c>z</c>,
+        /// <c>A</c>-<c>Z</c>, <c>0</c>-<c>9</c>, <c>-</c>, <c>.</c>, and <c>_</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A custom ARN for the backend storage used for storing data for file shares. It includes
         /// a resource ARN with an optional prefix concatenation. The prefix must end with a forward
         /// slash (/).</para><note><para>You can specify LocationARN as a bucket ARN, access point ARN or access point alias,
-        /// as shown in the following examples.</para><para>Bucket ARN:</para><para><c>arn:aws:s3:::my-bucket/prefix/</c></para><para>Access point ARN:</para><para><c>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</c></para><para>If you specify an access point, the bucket policy must be configured to delegate access
+        /// as shown in the following examples.</para><para>Bucket ARN:</para><para><c>arn:aws:s3:::amzn-s3-demo-bucket/prefix/</c></para><para>Access point ARN:</para><para><c>arn:aws:s3:region:account-id:accesspoint/access-point-name/prefix/</c></para><para>If you specify an access point, the bucket policy must be configured to delegate access
         /// control to the access point. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control">Delegating
         /// access control to access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>Access point alias:</para><para><c>test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias</c></para></note>
         /// </para>

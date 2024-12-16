@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs StartLiveTail API operation.", Operation = new[] {"StartLiveTail"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.StartLiveTailResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.StartLiveTailResponseStream or Amazon.CloudWatchLogs.Model.StartLiveTailResponse",
         "This cmdlet returns an Amazon.CloudWatchLogs.Model.StartLiveTailResponseStream object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.StartLiveTailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.StartLiveTailResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCWLLiveTailCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog UpdateTagOption API operation.", Operation = new[] {"UpdateTagOption"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.UpdateTagOptionResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail or Amazon.ServiceCatalog.Model.UpdateTagOptionResponse",
         "This cmdlet returns an Amazon.ServiceCatalog.Model.TagOptionDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.UpdateTagOptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.UpdateTagOptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSCTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

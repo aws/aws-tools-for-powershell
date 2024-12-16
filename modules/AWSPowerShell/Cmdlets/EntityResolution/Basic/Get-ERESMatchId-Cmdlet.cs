@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution GetMatchId API operation.", Operation = new[] {"GetMatchId"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.GetMatchIdResponse))]
     [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.GetMatchIdResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EntityResolution.Model.GetMatchIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.GetMatchIdResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetERESMatchIdCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

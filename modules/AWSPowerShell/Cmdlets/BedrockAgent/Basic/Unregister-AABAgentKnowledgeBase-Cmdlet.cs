@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock DisassociateAgentKnowledgeBase API operation.", Operation = new[] {"DisassociateAgentKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.DisassociateAgentKnowledgeBaseResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgent.Model.DisassociateAgentKnowledgeBaseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgent.Model.DisassociateAgentKnowledgeBaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BedrockAgent.Model.DisassociateAgentKnowledgeBaseResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAABAgentKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

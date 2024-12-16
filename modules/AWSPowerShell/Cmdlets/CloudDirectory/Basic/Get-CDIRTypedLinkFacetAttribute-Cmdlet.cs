@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory ListTypedLinkFacetAttributes API operation.", Operation = new[] {"ListTypedLinkFacetAttributes"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse))]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition or Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse",
         "This cmdlet returns a collection of Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCDIRTypedLinkFacetAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

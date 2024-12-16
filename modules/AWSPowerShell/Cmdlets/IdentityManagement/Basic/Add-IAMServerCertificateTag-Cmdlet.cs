@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management TagServerCertificate API operation.", Operation = new[] {"TagServerCertificate"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.TagServerCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.TagServerCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.TagServerCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.TagServerCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMServerCertificateTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

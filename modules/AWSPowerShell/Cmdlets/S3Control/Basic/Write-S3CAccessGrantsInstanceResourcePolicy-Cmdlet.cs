@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.PutAccessGrantsInstanceResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control PutAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"PutAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.PutAccessGrantsInstanceResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.PutAccessGrantsInstanceResourcePolicyResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.PutAccessGrantsInstanceResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.PutAccessGrantsInstanceResourcePolicyResponse object containing multiple properties."
     )]
     public partial class WriteS3CAccessGrantsInstanceResourcePolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

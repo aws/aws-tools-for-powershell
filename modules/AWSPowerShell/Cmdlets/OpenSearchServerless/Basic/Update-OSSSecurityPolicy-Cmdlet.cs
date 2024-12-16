@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless UpdateSecurityPolicy API operation.", Operation = new[] {"UpdateSecurityPolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.UpdateSecurityPolicyResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.SecurityPolicyDetail or Amazon.OpenSearchServerless.Model.UpdateSecurityPolicyResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.SecurityPolicyDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateSecurityPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.UpdateSecurityPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOSSSecurityPolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

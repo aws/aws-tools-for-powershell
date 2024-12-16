@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteJob API operation.", Operation = new[] {"DeleteJob"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteJobResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTJobCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

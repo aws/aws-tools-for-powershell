@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail PutAlarm API operation.", Operation = new[] {"PutAlarm"}, SelectReturnType = typeof(Amazon.Lightsail.Model.PutAlarmResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.PutAlarmResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.PutAlarmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.PutAlarmResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddLSAlarmCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

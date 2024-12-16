@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeleteChangeSet API operation.", Operation = new[] {"DeleteChangeSet"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeleteChangeSetResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeleteChangeSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeleteChangeSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeleteChangeSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

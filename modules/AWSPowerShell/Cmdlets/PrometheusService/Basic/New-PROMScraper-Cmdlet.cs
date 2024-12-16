@@ -30,34 +30,31 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     /// <summary>
     /// The <c>CreateScraper</c> operation creates a scraper to collect metrics. A scraper
     /// pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster, and
-    /// sends them to your Amazon Managed Service for Prometheus workspace. You can configure
-    /// the scraper to control what metrics are collected, and what transformations are applied
-    /// prior to sending them to your workspace.
+    /// sends them to your Amazon Managed Service for Prometheus workspace. Scrapers are flexible,
+    /// and can be configured to control what metrics are collected, the frequency of collection,
+    /// what transformations are applied to the metrics, and more.
     /// 
     ///  
     /// <para>
-    /// If needed, an IAM role will be created for you that gives Amazon Managed Service for
-    /// Prometheus access to the metrics in your cluster. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper">Using
-    /// roles for scraping metrics from EKS</a> in the <i>Amazon Managed Service for Prometheus
-    /// User Guide</i>.
+    /// An IAM role will be created for you that Amazon Managed Service for Prometheus uses
+    /// to access the metrics in your cluster. You must configure this role with a policy
+    /// that allows it to scrape metrics from your cluster. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup">Configuring
+    /// your Amazon EKS cluster</a> in the <i>Amazon Managed Service for Prometheus User Guide</i>.
     /// </para><para>
-    /// You cannot update a scraper. If you want to change the configuration of the scraper,
-    /// create a new scraper and delete the old one.
-    /// </para><para>
-    /// The <c>scrapeConfiguration</c> parameter contains the base64-encoded version of the
-    /// YAML configuration file.
+    /// The <c>scrapeConfiguration</c> parameter contains the base-64 encoded YAML configuration
+    /// for the scraper.
     /// </para><note><para>
     /// For more information about collectors, including what metrics are collected, and how
-    /// to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html">Amazon
-    /// Web Services managed collectors</a> in the <i>Amazon Managed Service for Prometheus
-    /// User Guide</i>.
+    /// to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html">Using
+    /// an Amazon Web Services managed collector</a> in the <i>Amazon Managed Service for
+    /// Prometheus User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "PROMScraper", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.CreateScraperResponse")]
     [AWSCmdlet("Calls the Amazon Prometheus Service CreateScraper API operation.", Operation = new[] {"CreateScraper"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateScraperResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.CreateScraperResponse",
-        "This cmdlet returns an Amazon.PrometheusService.Model.CreateScraperResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PrometheusService.Model.CreateScraperResponse object containing multiple properties."
     )]
     public partial class NewPROMScraperCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
@@ -67,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>(optional) a name to associate with the scraper. This is for your use, and does not
-        /// need to be unique.</para>
+        /// <para>(optional) An alias to associate with the scraper. This is for your use, and does
+        /// not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail PeerVpc API operation.", Operation = new[] {"PeerVpc"}, SelectReturnType = typeof(Amazon.Lightsail.Model.PeerVpcResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.PeerVpcResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.PeerVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.PeerVpcResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddLSPeerVpcCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

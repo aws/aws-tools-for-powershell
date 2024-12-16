@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.GetProjectResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst GetProject API operation.", Operation = new[] {"GetProject"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.GetProjectResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.GetProjectResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetProjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetProjectResponse object containing multiple properties."
     )]
     public partial class GetCCATProjectCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

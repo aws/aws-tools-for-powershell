@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad DeleteDirectoryRegistration API operation.", Operation = new[] {"DeleteDirectoryRegistration"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.DeleteDirectoryRegistrationResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorAd.Model.DeleteDirectoryRegistrationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorAd.Model.DeleteDirectoryRegistrationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorAd.Model.DeleteDirectoryRegistrationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCAADDirectoryRegistrationCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

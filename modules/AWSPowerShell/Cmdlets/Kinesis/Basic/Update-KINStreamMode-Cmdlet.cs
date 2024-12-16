@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis UpdateStreamMode API operation.", Operation = new[] {"UpdateStreamMode"}, SelectReturnType = typeof(Amazon.Kinesis.Model.UpdateStreamModeResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.UpdateStreamModeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.UpdateStreamModeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.UpdateStreamModeResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateKINStreamModeCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

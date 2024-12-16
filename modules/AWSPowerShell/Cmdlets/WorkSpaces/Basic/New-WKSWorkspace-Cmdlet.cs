@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Contact your account team to be allow-listed to use this value. For more information,
     /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
     /// </para></li><li><para>
-    /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because <c>WSP</c>
-    /// is the default protocol for those bundles.
+    /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because <c>DCV</c>
+    /// (formerly WSP) is the default protocol for those bundles.
     /// </para></li><li><para>
     /// User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.
     /// </para></li><li><para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces CreateWorkspaces API operation.", Operation = new[] {"CreateWorkspaces"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.CreateWorkspacesResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.CreateWorkspacesResponse",
-        "This cmdlet returns an Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties."
     )]
     public partial class NewWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

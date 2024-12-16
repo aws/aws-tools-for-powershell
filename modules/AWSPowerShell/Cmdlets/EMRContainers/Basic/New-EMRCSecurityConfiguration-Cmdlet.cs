@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     [OutputType("Amazon.EMRContainers.Model.CreateSecurityConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon EMR Containers CreateSecurityConfiguration API operation.", Operation = new[] {"CreateSecurityConfiguration"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.CreateSecurityConfigurationResponse))]
     [AWSCmdletOutput("Amazon.EMRContainers.Model.CreateSecurityConfigurationResponse",
-        "This cmdlet returns an Amazon.EMRContainers.Model.CreateSecurityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EMRContainers.Model.CreateSecurityConfigurationResponse object containing multiple properties."
     )]
     public partial class NewEMRCSecurityConfigurationCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {

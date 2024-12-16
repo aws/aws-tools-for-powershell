@@ -61,6 +61,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLFTagExpression" Verb="New" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataCellsFilter" Verb="Remove" Noun="DataCellsFilter" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -74,6 +78,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLFTag" Verb="Remove" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLFTagExpression" Verb="Remove" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -121,6 +129,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLFTagExpression" OutputProperty="*" Verb="Get" Noun="LFTagExpression" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetQueryState" OutputProperty="*" Verb="Get" Noun="QueryState" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -162,6 +174,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLakeFormationOptIns" OutputProperty="LakeFormationOptInsInfoList" Verb="Get" Noun="LakeFormationOptInList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLFTagExpressions" OutputProperty="LFTagExpressions" Verb="Get" Noun="LFTagExpressionList" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -226,6 +242,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLFTag" Verb="Update" Noun="LFTag" ShouldProcessTarget="CatalogId" PipelineParameter="TagKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLFTagExpression" Verb="Update" Noun="LFTagExpression" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

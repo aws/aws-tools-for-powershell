@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda PutFunctionEventInvokeConfig API operation.", Operation = new[] {"PutFunctionEventInvokeConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse object containing multiple properties."
     )]
     public partial class WriteLMFunctionEventInvokeConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

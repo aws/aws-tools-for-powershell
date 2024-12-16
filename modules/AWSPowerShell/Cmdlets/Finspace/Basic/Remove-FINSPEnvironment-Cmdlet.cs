@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.Finspace.Model.DeleteEnvironmentResponse))]
     [AWSCmdletOutput("None or Amazon.Finspace.Model.DeleteEnvironmentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Finspace.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Finspace.Model.DeleteEnvironmentResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class RemoveFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor

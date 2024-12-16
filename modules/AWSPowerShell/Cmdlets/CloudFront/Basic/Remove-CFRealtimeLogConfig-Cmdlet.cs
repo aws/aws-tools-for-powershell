@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteRealtimeLogConfig API operation.", Operation = new[] {"DeleteRealtimeLogConfig"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteRealtimeLogConfigResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteRealtimeLogConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteRealtimeLogConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteRealtimeLogConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFRealtimeLogConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [OutputType("Amazon.SecurityLake.Model.GetDataLakeSourcesResponse")]
     [AWSCmdlet("Calls the Amazon Security Lake GetDataLakeSources API operation.", Operation = new[] {"GetDataLakeSources"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.GetDataLakeSourcesResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.GetDataLakeSourcesResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeSourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityLake.Model.GetDataLakeSourcesResponse object containing multiple properties."
     )]
     public partial class GetSLKDataLakeSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

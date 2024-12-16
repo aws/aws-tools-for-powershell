@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client UpdateDevice API operation.", Operation = new[] {"UpdateDevice"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.UpdateDeviceResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesThinClient.Model.DeviceSummary or Amazon.WorkSpacesThinClient.Model.UpdateDeviceResponse",
         "This cmdlet returns an Amazon.WorkSpacesThinClient.Model.DeviceSummary object.",
-        "The service call response (type Amazon.WorkSpacesThinClient.Model.UpdateDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesThinClient.Model.UpdateDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWSTCDeviceCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

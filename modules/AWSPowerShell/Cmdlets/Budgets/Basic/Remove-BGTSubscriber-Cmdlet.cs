@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [AWSCmdlet("Calls the AWS Budgets DeleteSubscriber API operation.", Operation = new[] {"DeleteSubscriber"}, SelectReturnType = typeof(Amazon.Budgets.Model.DeleteSubscriberResponse))]
     [AWSCmdletOutput("None or Amazon.Budgets.Model.DeleteSubscriberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Budgets.Model.DeleteSubscriberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Budgets.Model.DeleteSubscriberResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBGTSubscriberCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

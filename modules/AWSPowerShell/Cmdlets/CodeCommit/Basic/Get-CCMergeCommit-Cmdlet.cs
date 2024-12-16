@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.GetMergeCommitResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit GetMergeCommit API operation.", Operation = new[] {"GetMergeCommit"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.GetMergeCommitResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.GetMergeCommitResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.GetMergeCommitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.GetMergeCommitResponse object containing multiple properties."
     )]
     public partial class GetCCMergeCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild ListCuratedEnvironmentImages API operation.", Operation = new[] {"ListCuratedEnvironmentImages"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.EnvironmentPlatform or Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse",
         "This cmdlet returns a collection of Amazon.CodeBuild.Model.EnvironmentPlatform objects.",
-        "The service call response (type Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCBCuratedEnvironmentImageListCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

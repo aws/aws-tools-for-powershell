@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [OutputType("Amazon.DirectoryServiceData.Model.DescribeUserResponse")]
     [AWSCmdlet("Calls the AWS Directory Service Data DescribeUser API operation.", Operation = new[] {"DescribeUser"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.DescribeUserResponse))]
     [AWSCmdletOutput("Amazon.DirectoryServiceData.Model.DescribeUserResponse",
-        "This cmdlet returns an Amazon.DirectoryServiceData.Model.DescribeUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectoryServiceData.Model.DescribeUserResponse object containing multiple properties."
     )]
     public partial class GetDSDUserCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

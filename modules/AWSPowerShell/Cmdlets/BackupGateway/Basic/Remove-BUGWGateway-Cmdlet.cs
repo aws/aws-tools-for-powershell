@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway DeleteGateway API operation.", Operation = new[] {"DeleteGateway"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.DeleteGatewayResponse))]
     [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.DeleteGatewayResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BackupGateway.Model.DeleteGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.DeleteGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveBUGWGatewayCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.UpdateConnectionResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.EventBridge.Model.UpdateConnectionResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.UpdateConnectionResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.UpdateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.UpdateConnectionResponse object containing multiple properties."
     )]
     public partial class UpdateEVBConnectionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

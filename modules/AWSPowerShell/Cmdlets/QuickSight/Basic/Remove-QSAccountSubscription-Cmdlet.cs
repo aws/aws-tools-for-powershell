@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DeleteAccountSubscription API operation.", Operation = new[] {"DeleteAccountSubscription"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteAccountSubscriptionResponse object containing multiple properties."
     )]
     public partial class RemoveQSAccountSubscriptionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetAssociatedEnclaveCertificateIamRoles API operation.", Operation = new[] {"GetAssociatedEnclaveCertificateIamRoles"}, SelectReturnType = typeof(Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssociatedRole or Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.AssociatedRole objects.",
-        "The service call response (type Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.GetAssociatedEnclaveCertificateIamRolesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2AssociatedEnclaveCertificateIamRoleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

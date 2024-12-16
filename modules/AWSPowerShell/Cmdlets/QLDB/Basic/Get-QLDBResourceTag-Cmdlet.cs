@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [AWSCmdlet("Calls the Amazon QLDB ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.QLDB.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.QLDB.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.QLDB.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QLDB.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQLDBResourceTagCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

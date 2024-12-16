@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map DiscoverInstances API operation.", Operation = new[] {"DiscoverInstances"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse))]
     [AWSCmdletOutput("Amazon.ServiceDiscovery.Model.HttpInstanceSummary or Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse",
         "This cmdlet returns a collection of Amazon.ServiceDiscovery.Model.HttpInstanceSummary objects.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindSDInstanceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

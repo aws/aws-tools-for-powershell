@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetFinding API operation.", Operation = new[] {"GetFinding"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetFindingResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.Finding or Amazon.AccessAnalyzer.Model.GetFindingResponse",
         "This cmdlet returns an Amazon.AccessAnalyzer.Model.Finding object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.GetFindingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.GetFindingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAAFindingCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

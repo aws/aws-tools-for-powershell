@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public DescribeImageTags API operation.", Operation = new[] {"DescribeImageTags"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.DescribeImageTagsResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.ImageTagDetail or Amazon.ECRPublic.Model.DescribeImageTagsResponse",
         "This cmdlet returns a collection of Amazon.ECRPublic.Model.ImageTagDetail objects.",
-        "The service call response (type Amazon.ECRPublic.Model.DescribeImageTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECRPublic.Model.DescribeImageTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECRPImageTagCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

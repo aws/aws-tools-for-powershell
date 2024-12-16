@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// CloudWatch Logs doesn’t support IAM policies that control access to the <c>DescribeLogGroups</c>
+    /// CloudWatch Logs doesn't support IAM policies that control access to the <c>DescribeLogGroups</c>
     /// action by using the <c>aws:ResourceTag/<i>key-name</i></c> condition key. Other CloudWatch
     /// Logs actions do support the use of the <c>aws:ResourceTag/<i>key-name</i></c> condition
     /// key to control access. For more information about using tags to control access, see
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeLogGroups API operation.", Operation = new[] {"DescribeLogGroups"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse), LegacyAlias="Get-CWLLogGroups")]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.LogGroup or Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse",
         "This cmdlet returns a collection of Amazon.CloudWatchLogs.Model.LogGroup objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

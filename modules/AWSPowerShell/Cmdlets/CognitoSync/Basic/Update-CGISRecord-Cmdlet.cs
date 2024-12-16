@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync UpdateRecords API operation.", Operation = new[] {"UpdateRecords"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.UpdateRecordsResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.Record or Amazon.CognitoSync.Model.UpdateRecordsResponse",
         "This cmdlet returns a collection of Amazon.CognitoSync.Model.Record objects.",
-        "The service call response (type Amazon.CognitoSync.Model.UpdateRecordsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.UpdateRecordsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCGISRecordCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

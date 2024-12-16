@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse), LegacyAlias="Get-ELBTags")]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.TagDescription or Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancing.Model.TagDescription objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetELBResourceTagCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

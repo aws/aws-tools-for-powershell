@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.BatchStartResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive BatchStart API operation.", Operation = new[] {"BatchStart"}, SelectReturnType = typeof(Amazon.MediaLive.Model.BatchStartResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.BatchStartResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.BatchStartResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.BatchStartResponse object containing multiple properties."
     )]
     public partial class StartEMLResourceBatchCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

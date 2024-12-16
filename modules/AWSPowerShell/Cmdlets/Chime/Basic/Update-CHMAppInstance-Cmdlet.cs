@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime UpdateAppInstance API operation.", Operation = new[] {"UpdateAppInstance"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdateAppInstanceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Chime.Model.UpdateAppInstanceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Chime.Model.UpdateAppInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.UpdateAppInstanceResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace")]
     public partial class UpdateCHMAppInstanceCmdlet : AmazonChimeClientCmdlet, IExecutor

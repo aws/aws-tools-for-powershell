@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [OutputType("Amazon.CleanRooms.Model.BatchGetSchemaResponse")]
     [AWSCmdlet("Calls the AWS Clean Rooms Service BatchGetSchema API operation.", Operation = new[] {"BatchGetSchema"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.BatchGetSchemaResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.BatchGetSchemaResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetSchemaResponse object containing multiple properties."
     )]
     public partial class GetCRSBatchSchemaCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

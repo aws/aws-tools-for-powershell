@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud UpdateStep API operation.", Operation = new[] {"UpdateStep"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateStepResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.UpdateStepResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.UpdateStepResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.UpdateStepResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateADCStepCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AppRegistry.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppRegistry.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppRegistry.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSCARResourceTagCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

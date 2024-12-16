@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListManagedAccounts API operation.", Operation = new[] {"ListManagedAccounts"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListManagedAccountsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.ManagedAccount or Amazon.Mgn.Model.ListManagedAccountsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.ManagedAccount objects.",
-        "The service call response (type Amazon.Mgn.Model.ListManagedAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListManagedAccountsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNManagedAccountListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

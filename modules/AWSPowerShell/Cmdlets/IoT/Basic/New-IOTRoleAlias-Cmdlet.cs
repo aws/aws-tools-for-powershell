@@ -34,13 +34,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateRoleAlias</a>
     /// action.
-    /// </para>
+    /// </para><important><para>
+    /// The value of <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CreateRoleAlias.html#iot-CreateRoleAlias-request-credentialDurationSeconds"><c>credentialDurationSeconds</c></a> must be less than or equal to the maximum session
+    /// duration of the IAM role that the role alias references. For more information, see
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-api.html#roles-modify_max-session-duration-api">
+    /// Modifying a role maximum session duration (Amazon Web Services API)</a> from the Amazon
+    /// Web Services Identity and Access Management User Guide.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "IOTRoleAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateRoleAliasResponse")]
     [AWSCmdlet("Calls the AWS IoT CreateRoleAlias API operation.", Operation = new[] {"CreateRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.CreateRoleAliasResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateRoleAliasResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreateRoleAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.CreateRoleAliasResponse object containing multiple properties."
     )]
     public partial class NewIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -82,9 +82,27 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SUPCHResourceTag', 
         'Get-SUPCHBillOfMaterialsImportJob', 
+        'Get-SUPCHDataIntegrationFlow', 
+        'Get-SUPCHDataIntegrationFlowList', 
+        'Get-SUPCHDataLakeDataset', 
+        'Get-SUPCHDataLakeDatasetList', 
+        'Get-SUPCHInstance', 
+        'Get-SUPCHInstanceList', 
+        'Get-SUPCHResourceTag', 
         'New-SUPCHBillOfMaterialsImportJob', 
-        'Send-SUPCHDataIntegrationEvent')
+        'New-SUPCHDataIntegrationFlow', 
+        'New-SUPCHDataLakeDataset', 
+        'New-SUPCHInstance', 
+        'Remove-SUPCHDataIntegrationFlow', 
+        'Remove-SUPCHDataLakeDataset', 
+        'Remove-SUPCHInstance', 
+        'Remove-SUPCHResourceTag', 
+        'Send-SUPCHDataIntegrationEvent', 
+        'Update-SUPCHDataIntegrationFlow', 
+        'Update-SUPCHDataLakeDataset', 
+        'Update-SUPCHInstance')
 
     # Variables to export from this module
     VariablesToExport = '*'

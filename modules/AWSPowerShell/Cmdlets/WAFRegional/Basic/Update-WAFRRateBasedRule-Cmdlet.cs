@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional UpdateRateBasedRule API operation.", Operation = new[] {"UpdateRateBasedRule"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.UpdateRateBasedRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.UpdateRateBasedRuleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.UpdateRateBasedRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.UpdateRateBasedRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWAFRRateBasedRuleCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

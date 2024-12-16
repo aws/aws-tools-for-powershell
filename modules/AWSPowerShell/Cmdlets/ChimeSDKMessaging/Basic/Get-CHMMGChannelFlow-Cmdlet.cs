@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging DescribeChannelFlow API operation.", Operation = new[] {"DescribeChannelFlow"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.DescribeChannelFlowResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ChannelFlow or Amazon.ChimeSDKMessaging.Model.DescribeChannelFlowResponse",
         "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ChannelFlow object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.DescribeChannelFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.DescribeChannelFlowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMMGChannelFlowCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

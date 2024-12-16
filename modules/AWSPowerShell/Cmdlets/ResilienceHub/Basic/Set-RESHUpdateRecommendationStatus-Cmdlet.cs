@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [OutputType("Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse")]
     [AWSCmdlet("Calls the AWS Resilience Hub BatchUpdateRecommendationStatus API operation.", Operation = new[] {"BatchUpdateRecommendationStatus"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResilienceHub.Model.BatchUpdateRecommendationStatusResponse object containing multiple properties."
     )]
     public partial class SetRESHUpdateRecommendationStatusCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

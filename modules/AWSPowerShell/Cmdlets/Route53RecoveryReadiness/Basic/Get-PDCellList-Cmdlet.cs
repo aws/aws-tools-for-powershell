@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness ListCells API operation.", Operation = new[] {"ListCells"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.ListCellsResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryReadiness.Model.CellOutput or Amazon.Route53RecoveryReadiness.Model.ListCellsResponse",
         "This cmdlet returns a collection of Amazon.Route53RecoveryReadiness.Model.CellOutput objects.",
-        "The service call response (type Amazon.Route53RecoveryReadiness.Model.ListCellsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryReadiness.Model.ListCellsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPDCellListCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

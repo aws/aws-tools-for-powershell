@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation StartTransaction API operation.", Operation = new[] {"StartTransaction"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.StartTransactionResponse))]
     [AWSCmdletOutput("System.String or Amazon.LakeFormation.Model.StartTransactionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.LakeFormation.Model.StartTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LakeFormation.Model.StartTransactionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartLKFTransactionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

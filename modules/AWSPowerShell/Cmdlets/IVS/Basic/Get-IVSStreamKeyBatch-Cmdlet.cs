@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [OutputType("Amazon.IVS.Model.BatchGetStreamKeyResponse")]
     [AWSCmdlet("Calls the Amazon Interactive Video Service BatchGetStreamKey API operation.", Operation = new[] {"BatchGetStreamKey"}, SelectReturnType = typeof(Amazon.IVS.Model.BatchGetStreamKeyResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.BatchGetStreamKeyResponse",
-        "This cmdlet returns an Amazon.IVS.Model.BatchGetStreamKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IVS.Model.BatchGetStreamKeyResponse object containing multiple properties."
     )]
     public partial class GetIVSStreamKeyBatchCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

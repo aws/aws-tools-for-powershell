@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud DeleteMeteredProduct API operation.", Operation = new[] {"DeleteMeteredProduct"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteMeteredProductResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteMeteredProductResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteMeteredProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.DeleteMeteredProductResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveADCMeteredProductCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

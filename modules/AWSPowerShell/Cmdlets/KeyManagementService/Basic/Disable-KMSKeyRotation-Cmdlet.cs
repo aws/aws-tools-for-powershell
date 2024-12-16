@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DisableKeyRotation API operation.", Operation = new[] {"DisableKeyRotation"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DisableKeyRotationResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DisableKeyRotationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DisableKeyRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DisableKeyRotationResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableKMSKeyRotationCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

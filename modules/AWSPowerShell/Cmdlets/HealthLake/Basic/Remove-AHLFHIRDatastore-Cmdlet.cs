@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [OutputType("Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse")]
     [AWSCmdlet("Calls the Amazon HealthLake DeleteFHIRDatastore API operation.", Operation = new[] {"DeleteFHIRDatastore"}, SelectReturnType = typeof(Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse))]
     [AWSCmdletOutput("Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse",
-        "This cmdlet returns an Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.HealthLake.Model.DeleteFHIRDatastoreResponse object containing multiple properties."
     )]
     public partial class RemoveAHLFHIRDatastoreCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DescribeEventCategories API operation.", Operation = new[] {"DescribeEventCategories"}, SelectReturnType = typeof(Amazon.Neptune.Model.DescribeEventCategoriesResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.EventCategoriesMap or Amazon.Neptune.Model.DescribeEventCategoriesResponse",
         "This cmdlet returns a collection of Amazon.Neptune.Model.EventCategoriesMap objects.",
-        "The service call response (type Amazon.Neptune.Model.DescribeEventCategoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.DescribeEventCategoriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNPTEventCategoryCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

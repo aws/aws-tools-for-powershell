@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager RegisterTransitGateway API operation.", Operation = new[] {"RegisterTransitGateway"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.RegisterTransitGatewayResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.TransitGatewayRegistration or Amazon.NetworkManager.Model.RegisterTransitGatewayResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.TransitGatewayRegistration object.",
-        "The service call response (type Amazon.NetworkManager.Model.RegisterTransitGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.RegisterTransitGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RegisterNMGRTransitGatewayCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

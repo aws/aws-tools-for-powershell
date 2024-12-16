@@ -28,15 +28,15 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Deletes an existing serverless cache snapshot. Available for Redis OSS and Serverless
-    /// Memcached only.
+    /// Deletes an existing serverless cache snapshot. Available for Valkey, Redis OSS and
+    /// Serverless Memcached only.
     /// </summary>
     [Cmdlet("Remove", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteServerlessCacheSnapshot API operation.", Operation = new[] {"DeleteServerlessCacheSnapshot"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCacheSnapshot or Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCacheSnapshot object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECServerlessCacheSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ServerlessCacheSnapshotName
         /// <summary>
         /// <para>
-        /// <para>Idenfitier of the snapshot to be deleted. Available for Redis OSS and Serverless Memcached
-        /// only.</para>
+        /// <para>Idenfitier of the snapshot to be deleted. Available for Valkey, Redis OSS and Serverless
+        /// Memcached only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

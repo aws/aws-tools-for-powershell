@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock ListFoundationModels API operation.", Operation = new[] {"ListFoundationModels"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListFoundationModelsResponse))]
     [AWSCmdletOutput("Amazon.Bedrock.Model.FoundationModelSummary or Amazon.Bedrock.Model.ListFoundationModelsResponse",
         "This cmdlet returns a collection of Amazon.Bedrock.Model.FoundationModelSummary objects.",
-        "The service call response (type Amazon.Bedrock.Model.ListFoundationModelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Bedrock.Model.ListFoundationModelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBDRFoundationModelListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

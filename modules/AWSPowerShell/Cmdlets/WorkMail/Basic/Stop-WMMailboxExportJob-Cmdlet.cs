@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail CancelMailboxExportJob API operation.", Operation = new[] {"CancelMailboxExportJob"}, SelectReturnType = typeof(Amazon.WorkMail.Model.CancelMailboxExportJobResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.CancelMailboxExportJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.CancelMailboxExportJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.CancelMailboxExportJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopWMMailboxExportJobCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

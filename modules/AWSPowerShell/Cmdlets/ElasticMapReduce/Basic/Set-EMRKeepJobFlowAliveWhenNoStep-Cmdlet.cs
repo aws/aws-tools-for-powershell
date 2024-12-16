@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce SetKeepJobFlowAliveWhenNoSteps API operation.", Operation = new[] {"SetKeepJobFlowAliveWhenNoSteps"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.SetKeepJobFlowAliveWhenNoStepsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.SetKeepJobFlowAliveWhenNoStepsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.SetKeepJobFlowAliveWhenNoStepsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetKeepJobFlowAliveWhenNoStepsResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetEMRKeepJobFlowAliveWhenNoStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

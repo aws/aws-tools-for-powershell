@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control ListAccessGrants API operation.", Operation = new[] {"ListAccessGrants"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessGrantsResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.ListAccessGrantEntry or Amazon.S3Control.Model.ListAccessGrantsResponse",
         "This cmdlet returns a collection of Amazon.S3Control.Model.ListAccessGrantEntry objects.",
-        "The service call response (type Amazon.S3Control.Model.ListAccessGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3Control.Model.ListAccessGrantsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3CAccessGrantListCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

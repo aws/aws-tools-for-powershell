@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CloudFront.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Tags or Amazon.CloudFront.Model.ListTagsForResourceResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.Tags object.",
-        "The service call response (type Amazon.CloudFront.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

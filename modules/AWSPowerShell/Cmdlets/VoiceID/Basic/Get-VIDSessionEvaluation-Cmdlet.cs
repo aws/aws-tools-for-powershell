@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [OutputType("Amazon.VoiceID.Model.EvaluateSessionResponse")]
     [AWSCmdlet("Calls the Amazon Voice ID EvaluateSession API operation.", Operation = new[] {"EvaluateSession"}, SelectReturnType = typeof(Amazon.VoiceID.Model.EvaluateSessionResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.EvaluateSessionResponse",
-        "This cmdlet returns an Amazon.VoiceID.Model.EvaluateSessionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VoiceID.Model.EvaluateSessionResponse object containing multiple properties."
     )]
     public partial class GetVIDSessionEvaluationCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

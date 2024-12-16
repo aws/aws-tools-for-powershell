@@ -28,16 +28,16 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis OSS engine version 6.0 onwards: Deletes a user. The user will be removed
-    /// from all user groups and in turn removed from all replication groups. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The
+    /// user will be removed from all user groups and in turn removed from all replication
+    /// groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.
     /// </summary>
     [Cmdlet("Remove", "ECUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.DeleteUserResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteUserResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.DeleteUserResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserResponse object containing multiple properties."
     )]
     public partial class RemoveECUserCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminAddUserToGroup API operation.", Operation = new[] {"AdminAddUserToGroup"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminAddUserToGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminAddUserToGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminAddUserToGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminAddUserToGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCGIPUserToGroupAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

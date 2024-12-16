@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.GetBucketsAggregationResponse")]
     [AWSCmdlet("Calls the AWS IoT GetBucketsAggregation API operation.", Operation = new[] {"GetBucketsAggregation"}, SelectReturnType = typeof(Amazon.IoT.Model.GetBucketsAggregationResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.GetBucketsAggregationResponse",
-        "This cmdlet returns an Amazon.IoT.Model.GetBucketsAggregationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.GetBucketsAggregationResponse object containing multiple properties."
     )]
     public partial class GetIOTBucketsAggregationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

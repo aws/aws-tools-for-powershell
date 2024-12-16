@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResponse")]
     [AWSCmdlet("Calls the AWS Lambda UpdateEventSourceMapping API operation.", Operation = new[] {"UpdateEventSourceMapping"}, SelectReturnType = typeof(Amazon.Lambda.Model.UpdateEventSourceMappingResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateEventSourceMappingResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.UpdateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.UpdateEventSourceMappingResponse object containing multiple properties."
     )]
     public partial class UpdateLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

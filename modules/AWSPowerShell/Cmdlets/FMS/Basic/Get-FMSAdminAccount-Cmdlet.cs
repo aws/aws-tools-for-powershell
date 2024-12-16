@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [OutputType("Amazon.FMS.Model.GetAdminAccountResponse")]
     [AWSCmdlet("Calls the Firewall Management Service GetAdminAccount API operation.", Operation = new[] {"GetAdminAccount"}, SelectReturnType = typeof(Amazon.FMS.Model.GetAdminAccountResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.GetAdminAccountResponse",
-        "This cmdlet returns an Amazon.FMS.Model.GetAdminAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FMS.Model.GetAdminAccountResponse object containing multiple properties."
     )]
     public partial class GetFMSAdminAccountCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

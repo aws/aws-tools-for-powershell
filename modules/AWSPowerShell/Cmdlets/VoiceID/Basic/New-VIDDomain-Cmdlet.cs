@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
     [AWSCmdlet("Calls the Amazon Voice ID CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.VoiceID.Model.CreateDomainResponse))]
     [AWSCmdletOutput("Amazon.VoiceID.Model.Domain or Amazon.VoiceID.Model.CreateDomainResponse",
         "This cmdlet returns an Amazon.VoiceID.Model.Domain object.",
-        "The service call response (type Amazon.VoiceID.Model.CreateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VoiceID.Model.CreateDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewVIDDomainCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {

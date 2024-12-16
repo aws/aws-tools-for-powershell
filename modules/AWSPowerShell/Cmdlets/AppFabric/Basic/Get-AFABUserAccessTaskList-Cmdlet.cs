@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric BatchGetUserAccessTasks API operation.", Operation = new[] {"BatchGetUserAccessTasks"}, SelectReturnType = typeof(Amazon.AppFabric.Model.BatchGetUserAccessTasksResponse))]
     [AWSCmdletOutput("Amazon.AppFabric.Model.UserAccessResultItem or Amazon.AppFabric.Model.BatchGetUserAccessTasksResponse",
         "This cmdlet returns a collection of Amazon.AppFabric.Model.UserAccessResultItem objects.",
-        "The service call response (type Amazon.AppFabric.Model.BatchGetUserAccessTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppFabric.Model.BatchGetUserAccessTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAFABUserAccessTaskListCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

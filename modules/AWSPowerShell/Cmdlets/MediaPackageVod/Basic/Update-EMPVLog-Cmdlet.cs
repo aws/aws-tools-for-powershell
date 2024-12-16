@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     [OutputType("Amazon.MediaPackageVod.Model.ConfigureLogsResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage VOD ConfigureLogs API operation.", Operation = new[] {"ConfigureLogs"}, SelectReturnType = typeof(Amazon.MediaPackageVod.Model.ConfigureLogsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageVod.Model.ConfigureLogsResponse",
-        "This cmdlet returns an Amazon.MediaPackageVod.Model.ConfigureLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageVod.Model.ConfigureLogsResponse object containing multiple properties."
     )]
     public partial class UpdateEMPVLogCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {

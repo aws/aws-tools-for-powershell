@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [OutputType("Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse")]
     [AWSCmdlet("Calls the AWS Database Migration Service DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse",
-        "This cmdlet returns an Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse object containing multiple properties."
     )]
     public partial class GetDMSAccountAttributeCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

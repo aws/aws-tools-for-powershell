@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs PutAccountPolicy API operation.", Operation = new[] {"PutAccountPolicy"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.AccountPolicy or Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse",
         "This cmdlet returns an Amazon.CloudWatchLogs.Model.AccountPolicy object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutAccountPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCWLAccountPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [OutputType("Amazon.WorkDocs.Model.GetDocumentVersionResponse")]
     [AWSCmdlet("Calls the Amazon WorkDocs GetDocumentVersion API operation.", Operation = new[] {"GetDocumentVersion"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.GetDocumentVersionResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.GetDocumentVersionResponse",
-        "This cmdlet returns an Amazon.WorkDocs.Model.GetDocumentVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkDocs.Model.GetDocumentVersionResponse object containing multiple properties."
     )]
     public partial class GetWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

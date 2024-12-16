@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [OutputType("Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse")]
     [AWSCmdlet("Calls the Amazon AppStream CreateImageBuilderStreamingURL API operation.", Operation = new[] {"CreateImageBuilderStreamingURL"}, SelectReturnType = typeof(Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse",
-        "This cmdlet returns an Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse object containing multiple properties."
     )]
     public partial class NewAPSImageBuilderStreamingURLCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

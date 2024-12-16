@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball CreateAddress API operation.", Operation = new[] {"CreateAddress"}, SelectReturnType = typeof(Amazon.Snowball.Model.CreateAddressResponse))]
     [AWSCmdletOutput("System.String or Amazon.Snowball.Model.CreateAddressResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Snowball.Model.CreateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Snowball.Model.CreateAddressResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

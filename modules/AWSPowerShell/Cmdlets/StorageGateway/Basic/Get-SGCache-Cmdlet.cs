@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeCacheResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeCache API operation.", Operation = new[] {"DescribeCache"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeCacheResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeCacheResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeCacheResponse object containing multiple properties."
     )]
     public partial class GetSGCacheCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

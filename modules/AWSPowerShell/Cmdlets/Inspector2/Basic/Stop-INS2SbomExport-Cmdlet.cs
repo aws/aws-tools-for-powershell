@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 CancelSbomExport API operation.", Operation = new[] {"CancelSbomExport"}, SelectReturnType = typeof(Amazon.Inspector2.Model.CancelSbomExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector2.Model.CancelSbomExportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector2.Model.CancelSbomExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.CancelSbomExportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopINS2SbomExportCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

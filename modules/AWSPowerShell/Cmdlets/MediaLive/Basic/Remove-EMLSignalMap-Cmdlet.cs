@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteSignalMap API operation.", Operation = new[] {"DeleteSignalMap"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteSignalMapResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.DeleteSignalMapResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.DeleteSignalMapResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.DeleteSignalMapResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMLSignalMapCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

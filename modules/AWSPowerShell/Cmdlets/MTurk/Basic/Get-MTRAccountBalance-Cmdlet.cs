@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [OutputType("Amazon.MTurk.Model.GetAccountBalanceResponse")]
     [AWSCmdlet("Calls the Amazon MTurk Service GetAccountBalance API operation.", Operation = new[] {"GetAccountBalance"}, SelectReturnType = typeof(Amazon.MTurk.Model.GetAccountBalanceResponse))]
     [AWSCmdletOutput("Amazon.MTurk.Model.GetAccountBalanceResponse",
-        "This cmdlet returns an Amazon.MTurk.Model.GetAccountBalanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MTurk.Model.GetAccountBalanceResponse object containing multiple properties."
     )]
     public partial class GetMTRAccountBalanceCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

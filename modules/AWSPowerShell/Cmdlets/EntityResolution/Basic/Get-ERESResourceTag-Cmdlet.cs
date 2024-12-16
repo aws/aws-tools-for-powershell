@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [AWSCmdlet("Calls the AWS EntityResolution ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.EntityResolution.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.EntityResolution.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EntityResolution.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetERESResourceTagCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

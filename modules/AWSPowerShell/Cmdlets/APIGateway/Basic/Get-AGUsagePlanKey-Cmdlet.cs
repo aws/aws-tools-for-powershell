@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.GetUsagePlanKeyResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway GetUsagePlanKey API operation.", Operation = new[] {"GetUsagePlanKey"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetUsagePlanKeyResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetUsagePlanKeyResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.GetUsagePlanKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.GetUsagePlanKeyResponse object containing multiple properties."
     )]
     public partial class GetAGUsagePlanKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

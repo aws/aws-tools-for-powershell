@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DeleteMountTarget API operation.", Operation = new[] {"DeleteMountTarget"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

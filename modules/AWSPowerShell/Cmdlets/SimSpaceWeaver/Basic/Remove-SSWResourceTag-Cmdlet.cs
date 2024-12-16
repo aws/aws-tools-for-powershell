@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     [AWSCmdlet("Calls the AWS SimSpace Weaver UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimSpaceWeaver.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimSpaceWeaver.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSWResourceTagCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {

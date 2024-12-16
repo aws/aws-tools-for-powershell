@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service StopNotebookInstance API operation.", Operation = new[] {"StopNotebookInstance"}, SelectReturnType = typeof(Amazon.SageMaker.Model.StopNotebookInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.StopNotebookInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.StopNotebookInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.StopNotebookInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

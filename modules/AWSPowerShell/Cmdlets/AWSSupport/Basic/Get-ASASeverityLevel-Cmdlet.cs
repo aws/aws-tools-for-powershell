@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support DescribeSeverityLevels API operation.", Operation = new[] {"DescribeSeverityLevels"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse), LegacyAlias="Get-ASASeverityLevels")]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.SeverityLevel or Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse",
         "This cmdlet returns a collection of Amazon.AWSSupport.Model.SeverityLevel objects.",
-        "The service call response (type Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASASeverityLevelCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

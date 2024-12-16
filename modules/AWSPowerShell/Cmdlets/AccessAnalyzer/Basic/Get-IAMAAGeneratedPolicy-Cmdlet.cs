@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [OutputType("Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse")]
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetGeneratedPolicy API operation.", Operation = new[] {"GetGeneratedPolicy"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetGeneratedPolicyResponse object containing multiple properties."
     )]
     public partial class GetIAMAAGeneratedPolicyCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

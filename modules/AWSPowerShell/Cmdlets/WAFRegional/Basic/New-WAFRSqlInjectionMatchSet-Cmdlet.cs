@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateSqlInjectionMatchSetResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateSqlInjectionMatchSet API operation.", Operation = new[] {"CreateSqlInjectionMatchSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateSqlInjectionMatchSetResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateSqlInjectionMatchSetResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateSqlInjectionMatchSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateSqlInjectionMatchSetResponse object containing multiple properties."
     )]
     public partial class NewWAFRSqlInjectionMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

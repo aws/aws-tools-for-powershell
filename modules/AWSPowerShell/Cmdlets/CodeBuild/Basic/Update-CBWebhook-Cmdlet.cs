@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild UpdateWebhook API operation.", Operation = new[] {"UpdateWebhook"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.UpdateWebhookResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Webhook or Amazon.CodeBuild.Model.UpdateWebhookResponse",
         "This cmdlet returns an Amazon.CodeBuild.Model.Webhook object.",
-        "The service call response (type Amazon.CodeBuild.Model.UpdateWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.UpdateWebhookResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.GetSpaceResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst GetSpace API operation.", Operation = new[] {"GetSpace"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.GetSpaceResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.GetSpaceResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetSpaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetSpaceResponse object containing multiple properties."
     )]
     public partial class GetCCATSpaceCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

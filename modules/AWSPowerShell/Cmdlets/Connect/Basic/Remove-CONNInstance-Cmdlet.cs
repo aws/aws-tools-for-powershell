@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteInstance API operation.", Operation = new[] {"DeleteInstance"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNInstanceCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

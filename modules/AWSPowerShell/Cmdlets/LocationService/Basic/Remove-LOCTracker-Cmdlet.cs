@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service DeleteTracker API operation.", Operation = new[] {"DeleteTracker"}, SelectReturnType = typeof(Amazon.LocationService.Model.DeleteTrackerResponse))]
     [AWSCmdletOutput("None or Amazon.LocationService.Model.DeleteTrackerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LocationService.Model.DeleteTrackerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LocationService.Model.DeleteTrackerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLOCTrackerCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

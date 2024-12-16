@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections CreateRepositoryLink API operation.", Operation = new[] {"CreateRepositoryLink"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.CreateRepositoryLinkResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.RepositoryLinkInfo or Amazon.CodeConnections.Model.CreateRepositoryLinkResponse",
         "This cmdlet returns an Amazon.CodeConnections.Model.RepositoryLinkInfo object.",
-        "The service call response (type Amazon.CodeConnections.Model.CreateRepositoryLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.CreateRepositoryLinkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCCONRepositoryLinkCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

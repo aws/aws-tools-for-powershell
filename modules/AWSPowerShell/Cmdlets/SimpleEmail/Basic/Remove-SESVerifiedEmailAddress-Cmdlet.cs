@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) DeleteVerifiedEmailAddress API operation.", Operation = new[] {"DeleteVerifiedEmailAddress"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSESVerifiedEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

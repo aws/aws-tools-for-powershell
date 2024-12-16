@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.ApplyPendingMaintenanceActionResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ResourcePendingMaintenanceActions or Amazon.DatabaseMigrationService.Model.ApplyPendingMaintenanceActionResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ResourcePendingMaintenanceActions object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ApplyPendingMaintenanceActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CompleteDMSPendingMaintenanceActionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

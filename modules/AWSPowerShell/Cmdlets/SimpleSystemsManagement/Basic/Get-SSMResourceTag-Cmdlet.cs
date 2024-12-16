@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Tag or Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.Tag objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMResourceTagCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

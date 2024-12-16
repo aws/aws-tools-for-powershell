@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DisassociateApi API operation.", Operation = new[] {"DisassociateApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.DisassociateApiResponse))]
     [AWSCmdletOutput("None or Amazon.AppSync.Model.DisassociateApiResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppSync.Model.DisassociateApiResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppSync.Model.DisassociateApiResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopASYNApiAssociationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

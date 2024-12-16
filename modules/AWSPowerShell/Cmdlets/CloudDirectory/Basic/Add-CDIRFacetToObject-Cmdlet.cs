@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory AddFacetToObject API operation.", Operation = new[] {"AddFacetToObject"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.AddFacetToObjectResponse))]
     [AWSCmdletOutput("None or Amazon.CloudDirectory.Model.AddFacetToObjectResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudDirectory.Model.AddFacetToObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.AddFacetToObjectResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCDIRFacetToObjectCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

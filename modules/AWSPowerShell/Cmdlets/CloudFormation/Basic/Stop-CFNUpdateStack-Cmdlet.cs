@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation CancelUpdateStack API operation.", Operation = new[] {"CancelUpdateStack"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.CancelUpdateStackResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.CancelUpdateStackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.CancelUpdateStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.CancelUpdateStackResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCFNUpdateStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

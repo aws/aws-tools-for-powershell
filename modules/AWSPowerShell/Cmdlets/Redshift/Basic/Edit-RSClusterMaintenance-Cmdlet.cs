@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ModifyClusterMaintenance API operation.", Operation = new[] {"ModifyClusterMaintenance"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyClusterMaintenanceResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.ModifyClusterMaintenanceResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.ModifyClusterMaintenanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifyClusterMaintenanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRSClusterMaintenanceCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

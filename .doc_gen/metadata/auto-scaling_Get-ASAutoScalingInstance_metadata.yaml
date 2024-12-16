@@ -53,11 +53,6 @@ auto-scaling_DescribeAutoScalingInstances:
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingInstance.5.1.ps1
           description:
-        - snippet_files: []
-          description: '<emphasis role="bold">Example 6: This example describes all your Auto Scaling instances, in batches of 10.</emphasis>'
-        - snippet_files:
-          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingInstance.6.1.ps1
-          description:
   services:
     auto-scaling:
       DescribeAutoScalingInstances:

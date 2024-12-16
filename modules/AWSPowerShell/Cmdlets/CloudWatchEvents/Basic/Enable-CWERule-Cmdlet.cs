@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events EnableRule API operation.", Operation = new[] {"EnableRule"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.EnableRuleResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.EnableRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.EnableRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.EnableRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

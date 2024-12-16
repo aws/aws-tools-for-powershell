@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableSnapshotBlockPublicAccess API operation.", Operation = new[] {"EnableSnapshotBlockPublicAccess"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableSnapshotBlockPublicAccessResponse))]
     [AWSCmdletOutput("Amazon.EC2.SnapshotBlockPublicAccessState or Amazon.EC2.Model.EnableSnapshotBlockPublicAccessResponse",
         "This cmdlet returns an Amazon.EC2.SnapshotBlockPublicAccessState object.",
-        "The service call response (type Amazon.EC2.Model.EnableSnapshotBlockPublicAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.EnableSnapshotBlockPublicAccessResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2SnapshotBlockPublicAccessCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

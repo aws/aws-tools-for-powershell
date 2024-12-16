@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless CreateSnapshotCopyConfiguration API operation.", Operation = new[] {"CreateSnapshotCopyConfiguration"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.CreateSnapshotCopyConfigurationResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.SnapshotCopyConfiguration or Amazon.RedshiftServerless.Model.CreateSnapshotCopyConfigurationResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.SnapshotCopyConfiguration object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.CreateSnapshotCopyConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.CreateSnapshotCopyConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRSSSnapshotCopyConfigurationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

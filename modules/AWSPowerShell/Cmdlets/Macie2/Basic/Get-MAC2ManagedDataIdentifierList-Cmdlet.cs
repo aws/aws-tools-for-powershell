@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 ListManagedDataIdentifiers API operation.", Operation = new[] {"ListManagedDataIdentifiers"}, SelectReturnType = typeof(Amazon.Macie2.Model.ListManagedDataIdentifiersResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.ManagedDataIdentifierSummary or Amazon.Macie2.Model.ListManagedDataIdentifiersResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.ManagedDataIdentifierSummary objects.",
-        "The service call response (type Amazon.Macie2.Model.ListManagedDataIdentifiersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.ListManagedDataIdentifiersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2ManagedDataIdentifierListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

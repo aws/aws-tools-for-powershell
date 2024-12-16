@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [OutputType("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse")]
     [AWSCmdlet("Calls the AWS Device Farm GetDevicePoolCompatibility API operation.", Operation = new[] {"GetDevicePoolCompatibility"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse",
-        "This cmdlet returns an Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse object containing multiple properties."
     )]
     public partial class GetDFDevicePoolCompatibilityCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

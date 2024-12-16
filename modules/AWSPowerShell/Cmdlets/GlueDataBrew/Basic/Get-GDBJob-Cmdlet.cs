@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [OutputType("Amazon.GlueDataBrew.Model.DescribeJobResponse")]
     [AWSCmdlet("Calls the AWS Glue DataBrew DescribeJob API operation.", Operation = new[] {"DescribeJob"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.DescribeJobResponse))]
     [AWSCmdletOutput("Amazon.GlueDataBrew.Model.DescribeJobResponse",
-        "This cmdlet returns an Amazon.GlueDataBrew.Model.DescribeJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlueDataBrew.Model.DescribeJobResponse object containing multiple properties."
     )]
     public partial class GetGDBJobCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

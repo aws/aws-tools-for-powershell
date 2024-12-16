@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-    /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2KeyPair")]
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeKeyPairs API operation.", Operation = new[] {"DescribeKeyPairs"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeKeyPairsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.KeyPairInfo or Amazon.EC2.Model.DescribeKeyPairsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.KeyPairInfo objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeKeyPairsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeKeyPairsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

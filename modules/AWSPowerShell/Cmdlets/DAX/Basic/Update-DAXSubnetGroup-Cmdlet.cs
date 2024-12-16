@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) UpdateSubnetGroup API operation.", Operation = new[] {"UpdateSubnetGroup"}, SelectReturnType = typeof(Amazon.DAX.Model.UpdateSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.DAX.Model.SubnetGroup or Amazon.DAX.Model.UpdateSubnetGroupResponse",
         "This cmdlet returns an Amazon.DAX.Model.SubnetGroup object.",
-        "The service call response (type Amazon.DAX.Model.UpdateSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DAX.Model.UpdateSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateDAXSubnetGroupCmdlet : AmazonDAXClientCmdlet, IExecutor
     {

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda AddPermission API operation.", Operation = new[] {"AddPermission"}, SelectReturnType = typeof(Amazon.Lambda.Model.AddPermissionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Lambda.Model.AddPermissionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

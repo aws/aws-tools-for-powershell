@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     [OutputType("Amazon.MTurk.Model.GetAssignmentResponse")]
     [AWSCmdlet("Calls the Amazon MTurk Service GetAssignment API operation.", Operation = new[] {"GetAssignment"}, SelectReturnType = typeof(Amazon.MTurk.Model.GetAssignmentResponse))]
     [AWSCmdletOutput("Amazon.MTurk.Model.GetAssignmentResponse",
-        "This cmdlet returns an Amazon.MTurk.Model.GetAssignmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MTurk.Model.GetAssignmentResponse object containing multiple properties."
     )]
     public partial class GetMTRAssignmentCmdlet : AmazonMTurkClientCmdlet, IExecutor
     {

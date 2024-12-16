@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeGlobalTable API operation.", Operation = new[] {"DescribeGlobalTable"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeGlobalTableResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.GlobalTableDescription or Amazon.DynamoDBv2.Model.DescribeGlobalTableResponse",
         "This cmdlet returns an Amazon.DynamoDBv2.Model.GlobalTableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeGlobalTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeGlobalTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDDBGlobalTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

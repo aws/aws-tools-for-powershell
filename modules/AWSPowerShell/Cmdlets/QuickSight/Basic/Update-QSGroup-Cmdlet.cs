@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight UpdateGroup API operation.", Operation = new[] {"UpdateGroup"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateGroupResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.Group or Amazon.QuickSight.Model.UpdateGroupResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.Group object.",
-        "The service call response (type Amazon.QuickSight.Model.UpdateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.UpdateGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQSGroupCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

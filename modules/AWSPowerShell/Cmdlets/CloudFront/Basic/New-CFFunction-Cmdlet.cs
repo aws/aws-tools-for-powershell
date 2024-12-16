@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateFunctionResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateFunction API operation.", Operation = new[] {"CreateFunction"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateFunctionResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateFunctionResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateFunctionResponse object containing multiple properties."
     )]
     public partial class NewCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

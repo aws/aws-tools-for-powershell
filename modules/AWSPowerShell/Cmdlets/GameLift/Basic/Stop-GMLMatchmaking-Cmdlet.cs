@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service StopMatchmaking API operation.", Operation = new[] {"StopMatchmaking"}, SelectReturnType = typeof(Amazon.GameLift.Model.StopMatchmakingResponse))]
     [AWSCmdletOutput("None or Amazon.GameLift.Model.StopMatchmakingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.StopMatchmakingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.StopMatchmakingResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopGMLMatchmakingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

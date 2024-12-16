@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service ListTags API operation.", Operation = new[] {"ListTags"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.ListTagsResponse), LegacyAlias="Get-ESTag")]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.Tag or Amazon.OpenSearchService.Model.ListTagsResponse",
         "This cmdlet returns a collection of Amazon.OpenSearchService.Model.Tag objects.",
-        "The service call response (type Amazon.OpenSearchService.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.ListTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSResourceTagCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

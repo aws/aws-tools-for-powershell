@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Tests the status of a stack using the DescribeStacks API operation to retrieve the stack's status.", Operation = new[] { "DescribeStacks" })]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean value.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [AWSCmdlet("Calls the AWS Secrets Manager StopReplicationToReplica API operation.", Operation = new[] {"StopReplicationToReplica"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.StopReplicationToReplicaResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecretsManager.Model.StopReplicationToReplicaResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecretsManager.Model.StopReplicationToReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecretsManager.Model.StopReplicationToReplicaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopSECReplicationToReplicaCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

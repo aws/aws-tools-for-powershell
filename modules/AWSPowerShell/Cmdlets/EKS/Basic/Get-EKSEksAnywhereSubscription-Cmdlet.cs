@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeEksAnywhereSubscription API operation.", Operation = new[] {"DescribeEksAnywhereSubscription"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeEksAnywhereSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.EksAnywhereSubscription or Amazon.EKS.Model.DescribeEksAnywhereSubscriptionResponse",
         "This cmdlet returns an Amazon.EKS.Model.EksAnywhereSubscription object.",
-        "The service call response (type Amazon.EKS.Model.DescribeEksAnywhereSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DescribeEksAnywhereSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEKSEksAnywhereSubscriptionCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

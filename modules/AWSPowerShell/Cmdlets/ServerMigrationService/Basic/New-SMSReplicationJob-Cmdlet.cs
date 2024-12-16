@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service CreateReplicationJob API operation.", Operation = new[] {"CreateReplicationJob"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.CreateReplicationJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServerMigrationService.Model.CreateReplicationJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServerMigrationService.Model.CreateReplicationJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerMigrationService.Model.CreateReplicationJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMSReplicationJobCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

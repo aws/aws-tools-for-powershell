@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.CreatePoolResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 CreatePool API operation.", Operation = new[] {"CreatePool"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.CreatePoolResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.CreatePoolResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CreatePoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CreatePoolResponse object containing multiple properties."
     )]
     public partial class NewSMSVPoolCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {

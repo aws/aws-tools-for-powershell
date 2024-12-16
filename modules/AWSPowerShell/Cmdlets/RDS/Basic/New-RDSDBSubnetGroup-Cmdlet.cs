@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBSubnetGroup API operation.", Operation = new[] {"CreateDBSubnetGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateDBSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSubnetGroup or Amazon.RDS.Model.CreateDBSubnetGroupResponse",
         "This cmdlet returns an Amazon.RDS.Model.DBSubnetGroup object.",
-        "The service call response (type Amazon.RDS.Model.CreateDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

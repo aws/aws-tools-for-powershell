@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB UpdateSubnetGroup API operation.", Operation = new[] {"UpdateSubnetGroup"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.UpdateSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.SubnetGroup or Amazon.MemoryDB.Model.UpdateSubnetGroupResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.SubnetGroup object.",
-        "The service call response (type Amazon.MemoryDB.Model.UpdateSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.UpdateSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateMDBSubnetGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

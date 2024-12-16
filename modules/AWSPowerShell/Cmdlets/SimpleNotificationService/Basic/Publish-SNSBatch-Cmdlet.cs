@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [OutputType("Amazon.SimpleNotificationService.Model.PublishBatchResponse")]
     [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) PublishBatch API operation.", Operation = new[] {"PublishBatch"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.PublishBatchResponse))]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.PublishBatchResponse",
-        "This cmdlet returns an Amazon.SimpleNotificationService.Model.PublishBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleNotificationService.Model.PublishBatchResponse object containing multiple properties."
     )]
     public partial class PublishSNSBatchCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {

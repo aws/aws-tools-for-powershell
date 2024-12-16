@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime RegenerateSecurityToken API operation.", Operation = new[] {"RegenerateSecurityToken"}, SelectReturnType = typeof(Amazon.Chime.Model.RegenerateSecurityTokenResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.Bot or Amazon.Chime.Model.RegenerateSecurityTokenResponse",
         "This cmdlet returns an Amazon.Chime.Model.Bot object.",
-        "The service call response (type Amazon.Chime.Model.RegenerateSecurityTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.RegenerateSecurityTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMSecurityTokenCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

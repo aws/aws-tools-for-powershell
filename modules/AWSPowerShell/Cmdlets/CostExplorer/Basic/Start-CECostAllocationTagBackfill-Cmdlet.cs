@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer StartCostAllocationTagBackfill API operation.", Operation = new[] {"StartCostAllocationTagBackfill"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest or Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse",
         "This cmdlet returns an Amazon.CostExplorer.Model.CostAllocationTagBackfillRequest object.",
-        "The service call response (type Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.StartCostAllocationTagBackfillResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCECostAllocationTagBackfillCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

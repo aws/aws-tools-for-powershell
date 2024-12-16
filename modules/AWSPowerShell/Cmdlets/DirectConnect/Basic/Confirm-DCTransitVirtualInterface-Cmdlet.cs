@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect ConfirmTransitVirtualInterface API operation.", Operation = new[] {"ConfirmTransitVirtualInterface"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.ConfirmTransitVirtualInterfaceResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState or Amazon.DirectConnect.Model.ConfirmTransitVirtualInterfaceResponse",
         "This cmdlet returns an Amazon.DirectConnect.VirtualInterfaceState object.",
-        "The service call response (type Amazon.DirectConnect.Model.ConfirmTransitVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.ConfirmTransitVirtualInterfaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmDCTransitVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

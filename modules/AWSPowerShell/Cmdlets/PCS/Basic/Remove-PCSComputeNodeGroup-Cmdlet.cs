@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service DeleteComputeNodeGroup API operation.", Operation = new[] {"DeleteComputeNodeGroup"}, SelectReturnType = typeof(Amazon.PCS.Model.DeleteComputeNodeGroupResponse))]
     [AWSCmdletOutput("None or Amazon.PCS.Model.DeleteComputeNodeGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PCS.Model.DeleteComputeNodeGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.DeleteComputeNodeGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCSComputeNodeGroupCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.ExportSchemaResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry ExportSchema API operation.", Operation = new[] {"ExportSchema"}, SelectReturnType = typeof(Amazon.Schemas.Model.ExportSchemaResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.ExportSchemaResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.ExportSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.ExportSchemaResponse object containing multiple properties."
     )]
     public partial class ExportSCHMSchemaCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

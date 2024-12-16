@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DescribeDefaultAuthorizer API operation.", Operation = new[] {"DescribeDefaultAuthorizer"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeDefaultAuthorizerResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.AuthorizerDescription or Amazon.IoT.Model.DescribeDefaultAuthorizerResponse",
         "This cmdlet returns an Amazon.IoT.Model.AuthorizerDescription object.",
-        "The service call response (type Amazon.IoT.Model.DescribeDefaultAuthorizerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeDefaultAuthorizerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTDefaultAuthorizerCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

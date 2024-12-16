@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteCloudWatchAlarmTemplate API operation.", Operation = new[] {"DeleteCloudWatchAlarmTemplate"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteCloudWatchAlarmTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.DeleteCloudWatchAlarmTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.DeleteCloudWatchAlarmTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.DeleteCloudWatchAlarmTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMLCloudWatchAlarmTemplateCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

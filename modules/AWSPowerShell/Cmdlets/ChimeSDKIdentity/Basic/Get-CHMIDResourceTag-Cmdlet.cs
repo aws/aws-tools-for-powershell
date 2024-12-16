@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [AWSCmdlet("Calls the Amazon Chime SDK Identity ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKIdentity.Model.Tag or Amazon.ChimeSDKIdentity.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ChimeSDKIdentity.Model.Tag objects.",
-        "The service call response (type Amazon.ChimeSDKIdentity.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKIdentity.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMIDResourceTagCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

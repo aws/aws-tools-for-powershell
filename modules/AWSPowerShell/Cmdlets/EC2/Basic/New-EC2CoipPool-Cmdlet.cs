@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCoipPool API operation.", Operation = new[] {"CreateCoipPool"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCoipPoolResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CoipPool or Amazon.EC2.Model.CreateCoipPoolResponse",
         "This cmdlet returns an Amazon.EC2.Model.CoipPool object.",
-        "The service call response (type Amazon.EC2.Model.CreateCoipPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateCoipPoolResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2CoipPoolCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

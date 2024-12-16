@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.DeleteLicenseResponse")]
     [AWSCmdlet("Calls the AWS License Manager DeleteLicense API operation.", Operation = new[] {"DeleteLicense"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.DeleteLicenseResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.DeleteLicenseResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.DeleteLicenseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.DeleteLicenseResponse object containing multiple properties."
     )]
     public partial class RemoveLICMLicenseCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

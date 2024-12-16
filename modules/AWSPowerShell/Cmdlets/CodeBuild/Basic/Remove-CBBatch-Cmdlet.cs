@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [OutputType("Amazon.CodeBuild.Model.DeleteBuildBatchResponse")]
     [AWSCmdlet("Calls the AWS CodeBuild DeleteBuildBatch API operation.", Operation = new[] {"DeleteBuildBatch"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteBuildBatchResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.DeleteBuildBatchResponse",
-        "This cmdlet returns an Amazon.CodeBuild.Model.DeleteBuildBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeBuild.Model.DeleteBuildBatchResponse object containing multiple properties."
     )]
     public partial class RemoveCBBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

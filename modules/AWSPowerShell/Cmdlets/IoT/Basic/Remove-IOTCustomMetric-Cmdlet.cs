@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteCustomMetric API operation.", Operation = new[] {"DeleteCustomMetric"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteCustomMetricResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteCustomMetricResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteCustomMetricResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteCustomMetricResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTCustomMetricCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

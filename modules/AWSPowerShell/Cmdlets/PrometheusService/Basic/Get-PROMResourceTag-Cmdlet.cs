@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     /// <summary>
     /// The <c>ListTagsForResource</c> operation returns the tags that are associated with
     /// an Amazon Managed Service for Prometheus resource. Currently, the only resources that
-    /// can be tagged are workspaces and rule groups namespaces.
+    /// can be tagged are scrapers, workspaces, and rule groups namespaces.
     /// </summary>
     [Cmdlet("Get", "PROMResourceTag")]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon Prometheus Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.PrometheusService.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.PrometheusService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMResourceTagCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to list tages for. Must be a workspace or rule groups namespace
-        /// resource.</para>
+        /// <para>The ARN of the resource to list tages for. Must be a workspace, scraper, or rule groups
+        /// namespace resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

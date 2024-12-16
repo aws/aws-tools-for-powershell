@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder GetImageRecipePolicy API operation.", Operation = new[] {"GetImageRecipePolicy"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.GetImageRecipePolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.GetImageRecipePolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.GetImageRecipePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.GetImageRecipePolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2IBImageRecipePolicyCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [OutputType("Amazon.CloudWatchEvidently.Model.StopLaunchResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently StopLaunch API operation.", Operation = new[] {"StopLaunch"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.StopLaunchResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvidently.Model.StopLaunchResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvidently.Model.StopLaunchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvidently.Model.StopLaunchResponse object containing multiple properties."
     )]
     public partial class StopCWEVDLaunchCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

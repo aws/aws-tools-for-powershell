@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.RegisterTaskDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service RegisterTaskDefinition API operation.", Operation = new[] {"RegisterTaskDefinition"}, SelectReturnType = typeof(Amazon.ECS.Model.RegisterTaskDefinitionResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.RegisterTaskDefinitionResponse",
-        "This cmdlet returns an Amazon.ECS.Model.RegisterTaskDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.RegisterTaskDefinitionResponse object containing multiple properties."
     )]
     public partial class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The CPU architecture.</para><para>You can run your Linux tasks on an ARM-based platform by setting the value to <c>ARM64</c>.
         /// This option is available for tasks that run on Linux Amazon EC2 instance or Linux
-        /// containers on Fargate.</para>
+        /// containers on Fargate.</para><para>The default is <c>X86_64</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// If <c>none</c> is specified, then IPC resources within the containers of a task are
         /// private and not shared with other containers in a task or on the container instance.
         /// If no value is specified, then the IPC resource namespace sharing depends on the Docker
-        /// daemon setting on the container instance.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
-        /// IPC namespace expose.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
+        /// daemon setting on the container instance. For more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC
+        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
+        /// IPC namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
+        /// security</a>.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
         /// containers in the task, the following will apply to your IPC resource namespace. For
         /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
         /// Controls</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><ul><li><para>For tasks that use the <c>host</c> IPC mode, IPC namespace related <c>systemControls</c>
@@ -233,11 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// or the attached elastic network interface port (for the <c>awsvpc</c> network mode),
         /// so you cannot take advantage of dynamic host port mappings. </para><important><para>When using the <c>host</c> network mode, you should not run containers using the root
         /// user (UID 0). It is considered best practice to use a non-root user.</para></important><para>If the network mode is <c>awsvpc</c>, the task is allocated an elastic network interface,
-        /// and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a>
-        /// value when you create a service or run a task with the task definition. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// and you must specify a <a>NetworkConfiguration</a> value when you create a service
+        /// or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
         /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the network mode is <c>host</c>, you cannot run multiple instantiations of the
-        /// same task on a single container instance when port mappings are used.</para>
+        /// same task on a single container instance when port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+        /// settings</a> in the <i>Docker run reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter RuntimePlatform_OperatingSystemFamily
         /// <summary>
         /// <para>
-        /// <para>The operating system.</para>
+        /// <para>The operating system.</para><para>The default is <c>Linux</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,8 +267,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// information about other containers running in the same task.</para><para>If <c>host</c> is specified, all containers within the tasks that specified the <c>host</c>
         /// PID mode on the same container instance share the same process namespace with the
         /// host Amazon EC2 instance.</para><para>If <c>task</c> is specified, all containers within the specified task share the same
-        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
-        /// namespace exposure.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
+        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container. For
+        /// more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
+        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
+        /// namespace exposure. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
+        /// security</a>.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
         /// are using platform version <c>1.4.0</c> or later (Linux). This isn't supported for
         /// Windows containers on Fargate.</para></note>
         /// </para>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [OutputType("Amazon.Inspector.Model.DescribeExclusionsResponse")]
     [AWSCmdlet("Calls the Amazon Inspector DescribeExclusions API operation.", Operation = new[] {"DescribeExclusions"}, SelectReturnType = typeof(Amazon.Inspector.Model.DescribeExclusionsResponse))]
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeExclusionsResponse",
-        "This cmdlet returns an Amazon.Inspector.Model.DescribeExclusionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector.Model.DescribeExclusionsResponse object containing multiple properties."
     )]
     public partial class GetINSExclusionCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

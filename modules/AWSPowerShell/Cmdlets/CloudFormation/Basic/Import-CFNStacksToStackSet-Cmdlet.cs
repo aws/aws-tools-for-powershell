@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation ImportStacksToStackSet API operation.", Operation = new[] {"ImportStacksToStackSet"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ImportStacksToStackSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.ImportStacksToStackSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.ImportStacksToStackSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.ImportStacksToStackSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportCFNStacksToStackSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The user-specified preferences for how CloudFormation performs a stack set operation.</para><para>For more information about maximum concurrent accounts and failure tolerance, see
-        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack
         /// set operation options</a>.</para>
         /// </para>
         /// </summary>

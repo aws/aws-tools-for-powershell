@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     [AWSCmdlet("Calls the AWS OpsWorksCM UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.OpsWorksCM.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorksCM.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorksCM.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorksCM.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOWCMResourceTagCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeAdjustmentTypes API operation.", Operation = new[] {"DescribeAdjustmentTypes"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeAdjustmentTypesResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.AdjustmentType or Amazon.AutoScaling.Model.DescribeAdjustmentTypesResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.AdjustmentType objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeAdjustmentTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeAdjustmentTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASAdjustmentTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra PutPrincipalMapping API operation.", Operation = new[] {"PutPrincipalMapping"}, SelectReturnType = typeof(Amazon.Kendra.Model.PutPrincipalMappingResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.PutPrincipalMappingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.PutPrincipalMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.PutPrincipalMappingResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteKNDRPrincipalMappingCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

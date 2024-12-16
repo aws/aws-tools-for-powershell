@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListCisScanResultsAggregatedByChecks API operation.", Operation = new[] {"ListCisScanResultsAggregatedByChecks"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListCisScanResultsAggregatedByChecksResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.CisCheckAggregation or Amazon.Inspector2.Model.ListCisScanResultsAggregatedByChecksResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.CisCheckAggregation objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListCisScanResultsAggregatedByChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListCisScanResultsAggregatedByChecksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2CisScanResultsAggregatedByCheckListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

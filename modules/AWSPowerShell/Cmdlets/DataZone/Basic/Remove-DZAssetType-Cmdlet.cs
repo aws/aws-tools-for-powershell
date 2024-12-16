@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DeleteAssetType API operation.", Operation = new[] {"DeleteAssetType"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteAssetTypeResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteAssetTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteAssetTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.DeleteAssetTypeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZAssetTypeCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

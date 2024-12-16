@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVerifiedAccessGroup API operation.", Operation = new[] {"CreateVerifiedAccessGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessGroupResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessGroup or Amazon.EC2.Model.CreateVerifiedAccessGroupResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessGroup object.",
-        "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2VerifiedAccessGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

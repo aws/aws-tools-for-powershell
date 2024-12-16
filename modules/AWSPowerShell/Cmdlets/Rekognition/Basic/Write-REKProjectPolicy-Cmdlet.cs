@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition PutProjectPolicy API operation.", Operation = new[] {"PutProjectPolicy"}, SelectReturnType = typeof(Amazon.Rekognition.Model.PutProjectPolicyResponse))]
     [AWSCmdletOutput("System.String or Amazon.Rekognition.Model.PutProjectPolicyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Rekognition.Model.PutProjectPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.PutProjectPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteREKProjectPolicyCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

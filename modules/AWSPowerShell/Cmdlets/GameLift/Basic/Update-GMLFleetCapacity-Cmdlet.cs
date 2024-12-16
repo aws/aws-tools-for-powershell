@@ -28,14 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
-    /// Updates capacity settings for a managed EC2 fleet or container fleet. For these fleets,
-    /// you adjust capacity by changing the number of instances in the fleet. Fleet capacity
-    /// determines the number of game sessions and players that the fleet can host based on
-    /// its configuration. For fleets with multiple locations, use this operation to manage
-    /// capacity settings in each location individually.
-    /// </para><para>
+    /// Updates capacity settings for a managed EC2 fleet or managed container fleet. For
+    /// these fleets, you adjust capacity by changing the number of instances in the fleet.
+    /// Fleet capacity determines the number of game sessions and players that the fleet can
+    /// host based on its configuration. For fleets with multiple locations, use this operation
+    /// to manage capacity settings in each location individually.
+    /// 
+    ///  
+    /// <para>
     /// Use this operation to set these fleet capacity properties: 
     /// </para><ul><li><para>
     /// Minimum/maximum size: Set hard limits on the number of Amazon EC2 instances allowed.
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service UpdateFleetCapacity API operation.", Operation = new[] {"UpdateFleetCapacity"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateFleetCapacityResponse))]
     [AWSCmdletOutput("System.String or Amazon.GameLift.Model.UpdateFleetCapacityResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GameLift.Model.UpdateFleetCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.UpdateFleetCapacityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGMLFleetCapacityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

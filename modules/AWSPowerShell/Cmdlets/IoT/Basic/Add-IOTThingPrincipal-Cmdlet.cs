@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT AttachThingPrincipal API operation.", Operation = new[] {"AttachThingPrincipal"}, SelectReturnType = typeof(Amazon.IoT.Model.AttachThingPrincipalResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.AttachThingPrincipalResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -82,6 +82,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ThingName { get; set; }
+        #endregion
+        
+        #region Parameter ThingPrincipalType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the relation you want to specify when you attach a principal to a thing.</para><ul><li><para><c>EXCLUSIVE_THING</c> - Attaches the specified principal to the specified thing,
+        /// exclusively. The thing will be the only thing that’s attached to the principal.</para></li></ul><ul><li><para><c>NON_EXCLUSIVE_THING</c> - Attaches the specified principal to the specified thing.
+        /// Multiple things can be attached to the principal.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.ThingPrincipalType")]
+        public Amazon.IoT.ThingPrincipalType ThingPrincipalType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -139,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter ThingName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ThingPrincipalType = this.ThingPrincipalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.ThingPrincipalType != null)
+            {
+                request.ThingPrincipalType = cmdletContext.ThingPrincipalType;
             }
             
             CmdletOutput output;
@@ -226,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String Principal { get; set; }
             public System.String ThingName { get; set; }
+            public Amazon.IoT.ThingPrincipalType ThingPrincipalType { get; set; }
             public System.Func<Amazon.IoT.Model.AttachThingPrincipalResponse, AddIOTThingPrincipalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

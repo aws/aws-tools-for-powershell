@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.QuickSight.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.Tag or Amazon.QuickSight.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.QuickSight.Model.Tag objects.",
-        "The service call response (type Amazon.QuickSight.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSResourceTagCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

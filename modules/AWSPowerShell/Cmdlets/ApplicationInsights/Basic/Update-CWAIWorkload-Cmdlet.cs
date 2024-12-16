@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [OutputType("Amazon.ApplicationInsights.Model.UpdateWorkloadResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateWorkload API operation.", Operation = new[] {"UpdateWorkload"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateWorkloadResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.UpdateWorkloadResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.UpdateWorkloadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationInsights.Model.UpdateWorkloadResponse object containing multiple properties."
     )]
     public partial class UpdateCWAIWorkloadCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

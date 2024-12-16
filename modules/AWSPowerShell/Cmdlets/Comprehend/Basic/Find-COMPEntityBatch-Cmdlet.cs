@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.BatchDetectEntitiesResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend BatchDetectEntities API operation.", Operation = new[] {"BatchDetectEntities"}, SelectReturnType = typeof(Amazon.Comprehend.Model.BatchDetectEntitiesResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectEntitiesResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectEntitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectEntitiesResponse object containing multiple properties."
     )]
     public partial class FindCOMPEntityBatchCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

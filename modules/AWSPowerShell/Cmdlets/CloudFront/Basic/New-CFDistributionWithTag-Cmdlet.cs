@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateDistributionWithTagsResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateDistributionWithTags API operation.", Operation = new[] {"CreateDistributionWithTags"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateDistributionWithTagsResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateDistributionWithTagsResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateDistributionWithTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateDistributionWithTagsResponse object containing multiple properties."
     )]
     public partial class NewCFDistributionWithTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

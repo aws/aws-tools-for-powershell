@@ -28,14 +28,14 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Lists coverage details for you environment.
+    /// Lists coverage details for your environment.
     /// </summary>
     [Cmdlet("Get", "INS2CoverageList")]
     [OutputType("Amazon.Inspector2.Model.CoveredResource")]
     [AWSCmdlet("Calls the Inspector2 ListCoverage API operation.", Operation = new[] {"ListCoverage"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListCoverageResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.CoveredResource or Amazon.Inspector2.Model.ListCoverageResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.CoveredResource objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListCoverageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListCoverageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2CoverageListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// <summary>
         /// <para>
         /// <para>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
-        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_HYBRID</c>.</para>
+        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_AGENTLESS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

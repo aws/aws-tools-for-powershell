@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service UpdateImage API operation.", Operation = new[] {"UpdateImage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMImageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

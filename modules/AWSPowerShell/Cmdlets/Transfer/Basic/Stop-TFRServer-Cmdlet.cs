@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP StopServer API operation.", Operation = new[] {"StopServer"}, SelectReturnType = typeof(Amazon.Transfer.Model.StopServerResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.StopServerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.StopServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.StopServerResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

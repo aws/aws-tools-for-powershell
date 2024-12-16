@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache StartMigration API operation.", Operation = new[] {"StartMigration"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.StartMigrationResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup or Amazon.ElastiCache.Model.StartMigrationResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.StartMigrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.StartMigrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartECMigrationCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CustomerNodeEndpointList
         /// <summary>
         /// <para>
-        /// <para>List of endpoints from which data should be migrated. For Redis OSS (cluster mode
-        /// disabled), list should have only one element.</para>
+        /// <para>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster
+        /// mode disabled), the list should have only one element.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

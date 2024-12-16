@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.GetQueryResultsResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail GetQueryResults API operation.", Operation = new[] {"GetQueryResults"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetQueryResultsResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetQueryResultsResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.GetQueryResultsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.GetQueryResultsResponse object containing multiple properties."
     )]
     public partial class GetCTQueryResultCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

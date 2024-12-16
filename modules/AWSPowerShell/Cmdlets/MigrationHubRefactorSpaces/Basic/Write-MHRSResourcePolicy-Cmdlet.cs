@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     [AWSCmdlet("Calls the AWS Migration Hub Refactor Spaces PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.MigrationHubRefactorSpaces.Model.PutResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubRefactorSpaces.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.PutResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubRefactorSpaces.Model.PutResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteMHRSResourcePolicyCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {

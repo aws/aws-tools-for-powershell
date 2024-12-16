@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetCloudFrontOriginAccessIdentity API operation.", Operation = new[] {"GetCloudFrontOriginAccessIdentity"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentity or Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.CloudFrontOriginAccessIdentity object.",
-        "The service call response (type Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

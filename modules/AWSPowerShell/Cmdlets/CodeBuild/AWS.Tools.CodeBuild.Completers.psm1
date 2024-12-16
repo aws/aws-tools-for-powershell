@@ -172,7 +172,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
+            $v = "ATTRIBUTE_BASED_COMPUTE","BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
             break
         }
 
@@ -198,7 +198,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "ARM_CONTAINER","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_SERVER_2019_CONTAINER"
+            $v = "ARM_CONTAINER","ARM_EC2","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_EC2","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_EC2","WINDOWS_SERVER_2019_CONTAINER"
             break
         }
 
@@ -209,6 +209,16 @@ $CB_Completers = {
         }
         {
             $v = "ON_DEMAND","QUEUE"
+            break
+        }
+
+        # Amazon.CodeBuild.FleetProxyRuleBehavior
+        {
+            ($_ -eq "New-CBFleet/ProxyConfiguration_DefaultBehavior") -Or
+            ($_ -eq "Update-CBFleet/ProxyConfiguration_DefaultBehavior")
+        }
+        {
+            $v = "ALLOW_ALL","DENY_ALL"
             break
         }
 
@@ -254,6 +264,18 @@ $CB_Completers = {
         }
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.CodeBuild.MachineType
+        {
+            ($_ -eq "New-CBFleet/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "New-CBProject/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "Update-CBFleet/ComputeConfiguration_MachineType") -Or
+            ($_ -eq "Update-CBProject/ComputeConfiguration_MachineType")
+        }
+        {
+            $v = "GENERAL","NVME"
             break
         }
 
@@ -449,6 +471,7 @@ $CB_map = @{
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "CloudWatchLogs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
+    "ComputeConfiguration_MachineType"=@("New-CBFleet","New-CBProject","Update-CBFleet","Update-CBProject")
     "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
@@ -461,6 +484,7 @@ $CB_map = @{
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
+    "ProxyConfiguration_DefaultBehavior"=@("New-CBFleet","Update-CBFleet")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     [AWSCmdlet("Calls the AWS Service Quotas GetAssociationForServiceQuotaTemplate API operation.", Operation = new[] {"GetAssociationForServiceQuotaTemplate"}, SelectReturnType = typeof(Amazon.ServiceQuotas.Model.GetAssociationForServiceQuotaTemplateResponse))]
     [AWSCmdletOutput("Amazon.ServiceQuotas.ServiceQuotaTemplateAssociationStatus or Amazon.ServiceQuotas.Model.GetAssociationForServiceQuotaTemplateResponse",
         "This cmdlet returns an Amazon.ServiceQuotas.ServiceQuotaTemplateAssociationStatus object.",
-        "The service call response (type Amazon.ServiceQuotas.Model.GetAssociationForServiceQuotaTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceQuotas.Model.GetAssociationForServiceQuotaTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSQAssociationForServiceQuotaTemplateCmdlet : AmazonServiceQuotasClientCmdlet, IExecutor
     {

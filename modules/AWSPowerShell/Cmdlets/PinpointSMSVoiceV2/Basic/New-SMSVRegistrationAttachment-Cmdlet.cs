@@ -29,15 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Create a new registration attachment to use for uploading a file or a URL to a file.
-    /// The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG. For
+    /// The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG. For
     /// example, many sender ID registrations require a signed “letter of authorization” (LOA)
     /// to be submitted.
+    /// 
+    ///  
+    /// <para>
+    /// Use either <c>AttachmentUrl</c> or <c>AttachmentBody</c> to upload your attachment.
+    /// If both are specified then an exception is returned.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SMSVRegistrationAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.CreateRegistrationAttachmentResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 CreateRegistrationAttachment API operation.", Operation = new[] {"CreateRegistrationAttachment"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.CreateRegistrationAttachmentResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.CreateRegistrationAttachmentResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CreateRegistrationAttachmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.CreateRegistrationAttachmentResponse object containing multiple properties."
     )]
     public partial class NewSMSVRegistrationAttachmentCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
@@ -47,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter AttachmentBody
         /// <summary>
         /// <para>
-        /// <para>The registration file to upload. The maximum file size is 1MiB and valid file extensions
+        /// <para>The registration file to upload. The maximum file size is 500KB and valid file extensions
         /// are PDF, JPEG and PNG.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -60,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter AttachmentUrl
         /// <summary>
         /// <para>
-        /// <para>A URL to the required registration file. For example, you can provide the S3 object
-        /// URL.</para>
+        /// <para>Registration files have to be stored in an Amazon S3 bucket. The URI to use when sending
+        /// is in the format <c>s3://BucketName/FileName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

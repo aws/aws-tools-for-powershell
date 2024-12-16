@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DeleteInstance API operation.", Operation = new[] {"DeleteInstance"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DeleteInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DeleteInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DeleteInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSOADMNInstanceCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     [AWSCmdlet("Calls the AWS Panorama CreatePackageImportJob API operation.", Operation = new[] {"CreatePackageImportJob"}, SelectReturnType = typeof(Amazon.Panorama.Model.CreatePackageImportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Panorama.Model.CreatePackageImportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Panorama.Model.CreatePackageImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Panorama.Model.CreatePackageImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPANPackageImportJobCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {

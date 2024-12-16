@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DetectSyntax API operation.", Operation = new[] {"DetectSyntax"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DetectSyntaxResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.SyntaxToken or Amazon.Comprehend.Model.DetectSyntaxResponse",
         "This cmdlet returns a collection of Amazon.Comprehend.Model.SyntaxToken objects.",
-        "The service call response (type Amazon.Comprehend.Model.DetectSyntaxResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DetectSyntaxResponse) can be returned by specifying '-Select *'."
     )]
     public partial class FindCOMPSyntaxCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

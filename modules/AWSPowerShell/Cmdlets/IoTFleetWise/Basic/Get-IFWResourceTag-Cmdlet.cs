@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [AWSCmdlet("Calls the AWS IoT FleetWise ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.Tag or Amazon.IoTFleetWise.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.IoTFleetWise.Model.Tag objects.",
-        "The service call response (type Amazon.IoTFleetWise.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTFleetWise.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIFWResourceTagCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

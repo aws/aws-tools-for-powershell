@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service PutKeyPolicy API operation.", Operation = new[] {"PutKeyPolicy"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.PutKeyPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.PutKeyPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.PutKeyPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.PutKeyPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteAlarm API operation.", Operation = new[] {"DeleteAlarm"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteAlarmResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteAlarmResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteAlarmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteAlarmResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSAlarmCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

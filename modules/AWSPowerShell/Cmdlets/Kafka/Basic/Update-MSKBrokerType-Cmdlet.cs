@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     [OutputType("Amazon.Kafka.Model.UpdateBrokerTypeResponse")]
     [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) UpdateBrokerType API operation.", Operation = new[] {"UpdateBrokerType"}, SelectReturnType = typeof(Amazon.Kafka.Model.UpdateBrokerTypeResponse))]
     [AWSCmdletOutput("Amazon.Kafka.Model.UpdateBrokerTypeResponse",
-        "This cmdlet returns an Amazon.Kafka.Model.UpdateBrokerTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kafka.Model.UpdateBrokerTypeResponse object containing multiple properties."
     )]
     public partial class UpdateMSKBrokerTypeCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {

@@ -28,23 +28,21 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Imports the public key from an RSA or ED25519 key pair that you created with a third-party
-    /// tool. Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates
-    /// the key pair and gives the keys to you (Amazon Web Services keeps a copy of the public
-    /// key). With ImportKeyPair, you create the key pair and give Amazon Web Services just
-    /// the public key. The private key is never transferred between you and Amazon Web Services.
+    /// Imports the public key from an RSA or ED25519 key pair that you created using a third-party
+    /// tool. You give Amazon Web Services only the public key. The private key is never transferred
+    /// between you and Amazon Web Services.
     /// 
     ///  
     /// <para>
-    /// For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-    /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information about the requirements for importing a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws">Create
+    /// a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Import", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="PreEncodedToBase64")]
     [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ImportKeyPair API operation.", Operation = new[] {"ImportKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.ImportKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties."
     )]
     public partial class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -71,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicKey
         /// <summary>
         /// <para>
-        /// <para>The public key. For API calls, the text must be base64-encoded. For command line tools,
-        /// base64 encoding is performed for you.</para>
+        /// <para>The public key.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
         /// </summary>

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 GetTrustStoreRevocationContent API operation.", Operation = new[] {"GetTrustStoreRevocationContent"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreRevocationContentResponse))]
     [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreRevocationContentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreRevocationContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.GetTrustStoreRevocationContentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetELB2TrustStoreRevocationContentCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

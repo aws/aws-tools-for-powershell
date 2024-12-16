@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListWaves API operation.", Operation = new[] {"ListWaves"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListWavesResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.Wave or Amazon.Mgn.Model.ListWavesResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.Wave objects.",
-        "The service call response (type Amazon.Mgn.Model.ListWavesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListWavesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNWaveListCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

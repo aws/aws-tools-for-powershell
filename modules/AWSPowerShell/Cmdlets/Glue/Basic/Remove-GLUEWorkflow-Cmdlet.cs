@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteWorkflow API operation.", Operation = new[] {"DeleteWorkflow"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteWorkflowResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.DeleteWorkflowResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.DeleteWorkflowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteWorkflowResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEWorkflowCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [OutputType("Amazon.FraudDetector.Model.GetEventPredictionResponse")]
     [AWSCmdlet("Calls the Amazon Fraud Detector GetEventPrediction API operation.", Operation = new[] {"GetEventPrediction"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.GetEventPredictionResponse))]
     [AWSCmdletOutput("Amazon.FraudDetector.Model.GetEventPredictionResponse",
-        "This cmdlet returns an Amazon.FraudDetector.Model.GetEventPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FraudDetector.Model.GetEventPredictionResponse object containing multiple properties."
     )]
     public partial class GetFDEventPredictionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

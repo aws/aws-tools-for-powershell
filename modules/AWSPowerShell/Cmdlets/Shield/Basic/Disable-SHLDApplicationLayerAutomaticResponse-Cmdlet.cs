@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DisableApplicationLayerAutomaticResponse API operation.", Operation = new[] {"DisableApplicationLayerAutomaticResponse"}, SelectReturnType = typeof(Amazon.Shield.Model.DisableApplicationLayerAutomaticResponseResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.DisableApplicationLayerAutomaticResponseResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.DisableApplicationLayerAutomaticResponseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.DisableApplicationLayerAutomaticResponseResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableSHLDApplicationLayerAutomaticResponseCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

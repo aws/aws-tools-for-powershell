@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.PCS.Model.DeleteQueueResponse))]
     [AWSCmdletOutput("None or Amazon.PCS.Model.DeleteQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PCS.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.DeleteQueueResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCSQueueCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

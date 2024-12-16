@@ -136,7 +136,8 @@ $PAYCD_Completers = {
         # Amazon.PaymentCryptographyData.EmvEncryptionMode
         {
             ($_ -eq "Protect-PAYCDData/Emv_Mode") -Or
-            ($_ -eq "Unprotect-PAYCDData/Emv_Mode")
+            ($_ -eq "Unprotect-PAYCDData/Emv_Mode") -Or
+            ($_ -eq "New-PAYCDMacEmvPinChange/EmvCommon_Mode")
         }
         {
             $v = "CBC","ECB"
@@ -167,6 +168,8 @@ $PAYCD_Completers = {
 
         # Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm
         {
+            ($_ -eq "New-PAYCDPinData/EncryptionWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Test-PAYCDPinData/EncryptionWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
             ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
@@ -176,6 +179,38 @@ $PAYCD_Completers = {
         }
         {
             $v = "ANSI_X9_24","CMAC"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.KeyDerivationFunction
+        {
+            ($_ -eq "New-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction")
+        }
+        {
+            $v = "ANSI_X963","NIST_SP800"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.KeyDerivationHashAlgorithm
+        {
+            ($_ -eq "New-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm")
+        }
+        {
+            $v = "SHA_256","SHA_384","SHA_512"
             break
         }
 
@@ -191,9 +226,14 @@ $PAYCD_Completers = {
 
         # Amazon.PaymentCryptographyData.MajorKeyDerivationMode
         {
+            ($_ -eq "New-PAYCDMacEmvPinChange/Amex_MajorKeyDerivationMode") -Or
+            ($_ -eq "New-PAYCDMacEmvPinChange/Emv2000_MajorKeyDerivationMode") -Or
+            ($_ -eq "New-PAYCDMacEmvPinChange/EmvCommon_MajorKeyDerivationMode") -Or
             ($_ -eq "New-PAYCDMac/EmvMac_MajorKeyDerivationMode") -Or
             ($_ -eq "Test-PAYCDMac/EmvMac_MajorKeyDerivationMode") -Or
-            ($_ -eq "Test-PAYCDAuthRequestCryptogram/MajorKeyDerivationMode")
+            ($_ -eq "Test-PAYCDAuthRequestCryptogram/MajorKeyDerivationMode") -Or
+            ($_ -eq "New-PAYCDMacEmvPinChange/Mastercard_MajorKeyDerivationMode") -Or
+            ($_ -eq "New-PAYCDMacEmvPinChange/Visa_MajorKeyDerivationMode")
         }
         {
             $v = "EMV_OPTION_A","EMV_OPTION_B"
@@ -214,13 +254,34 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.PinBlockFormatForEmvPinChange
+        "New-PAYCDMacEmvPinChange/PinBlockFormat"
+        {
+            $v = "ISO_FORMAT_0","ISO_FORMAT_1","ISO_FORMAT_3"
+            break
+        }
+
         # Amazon.PaymentCryptographyData.PinBlockFormatForPinData
         {
             ($_ -eq "New-PAYCDPinData/PinBlockFormat") -Or
             ($_ -eq "Test-PAYCDPinData/PinBlockFormat")
         }
         {
-            $v = "ISO_FORMAT_0","ISO_FORMAT_3"
+            $v = "ISO_FORMAT_0","ISO_FORMAT_3","ISO_FORMAT_4"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.PinBlockLengthPosition
+        "New-PAYCDMacEmvPinChange/EmvCommon_PinBlockLengthPosition"
+        {
+            $v = "FRONT_OF_PIN_BLOCK","NONE"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.PinBlockPaddingType
+        "New-PAYCDMacEmvPinChange/EmvCommon_PinBlockPaddingType"
+        {
+            $v = "ISO_IEC_7816_4","NO_PADDING"
             break
         }
 
@@ -234,6 +295,22 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.SymmetricKeyAlgorithm
+        {
+            ($_ -eq "New-PAYCDPinData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Protect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Test-PAYCDPinData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Unprotect-PAYCDData/DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm")
+        }
+        {
+            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            break
+        }
+
 
     }
 
@@ -243,7 +320,11 @@ $PAYCD_Completers = {
 }
 
 $PAYCD_map = @{
+    "Amex_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "Asymmetric_PaddingType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
+    "DiffieHellmanSymmetricKey_KeyAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
+    "DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
+    "DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("New-PAYCDPinData","Protect-PAYCDData","Test-PAYCDPinData","Unprotect-PAYCDData")
     "Dukpt_DukptKeyDerivationType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_DukptKeyVariant"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Dukpt_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
@@ -256,8 +337,14 @@ $PAYCD_map = @{
     "DukptIso9797Algorithm3_DukptKeyVariant"=@("New-PAYCDMac","Test-PAYCDMac")
     "Emv_MajorKeyDerivationMode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Emv_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
+    "Emv2000_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
+    "EmvCommon_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
+    "EmvCommon_Mode"=@("New-PAYCDMacEmvPinChange")
+    "EmvCommon_PinBlockLengthPosition"=@("New-PAYCDMacEmvPinChange")
+    "EmvCommon_PinBlockPaddingType"=@("New-PAYCDMacEmvPinChange")
     "EmvMac_MajorKeyDerivationMode"=@("New-PAYCDMac","Test-PAYCDMac")
     "EmvMac_SessionKeyDerivationMode"=@("New-PAYCDMac","Test-PAYCDMac")
+    "EncryptionWrappedKey_KeyCheckValueAlgorithm"=@("New-PAYCDPinData","Test-PAYCDPinData")
     "GenerationAttributes_Algorithm"=@("New-PAYCDMac")
     "IncomingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "IncomingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
@@ -267,7 +354,11 @@ $PAYCD_map = @{
     "IncomingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "IncomingWrappedKey_KeyCheckValueAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "IncomingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
+    "Mastercard_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
     "OutgoingEncryptionAttributes_Dukpt_DukptKeyDerivationType"=@("Update-PAYCDEncryptData")
@@ -276,10 +367,14 @@ $PAYCD_map = @{
     "OutgoingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
     "OutgoingWrappedKey_KeyCheckValueAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
-    "PinBlockFormat"=@("New-PAYCDPinData","Test-PAYCDPinData")
+    "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationFunction"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "OutgoingWrappedKey_WrappedKeyMaterial_DiffieHellmanSymmetricKey_KeyDerivationHashAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
+    "PinBlockFormat"=@("New-PAYCDMacEmvPinChange","New-PAYCDPinData","Test-PAYCDPinData")
     "Symmetric_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Symmetric_PaddingType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "VerificationAttributes_Algorithm"=@("Test-PAYCDMac")
+    "Visa_MajorKeyDerivationMode"=@("New-PAYCDMacEmvPinChange")
     "WrappedKey_KeyCheckValueAlgorithm"=@("Protect-PAYCDData","Unprotect-PAYCDData")
 }
 
@@ -337,6 +432,7 @@ $PAYCD_SelectMap = @{
                "Protect-PAYCDData",
                "New-PAYCDCardValidationData",
                "New-PAYCDMac",
+               "New-PAYCDMacEmvPinChange",
                "New-PAYCDPinData",
                "Update-PAYCDEncryptData",
                "Convert-PAYCDPinData",

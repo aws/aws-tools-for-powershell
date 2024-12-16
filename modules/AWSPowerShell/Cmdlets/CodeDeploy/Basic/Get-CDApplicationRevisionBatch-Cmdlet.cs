@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [OutputType("Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse")]
     [AWSCmdlet("Calls the AWS CodeDeploy BatchGetApplicationRevisions API operation.", Operation = new[] {"BatchGetApplicationRevisions"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse))]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse",
-        "This cmdlet returns an Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse object containing multiple properties."
     )]
     public partial class GetCDApplicationRevisionBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

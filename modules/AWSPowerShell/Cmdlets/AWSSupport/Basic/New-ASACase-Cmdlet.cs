@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support CreateCase API operation.", Operation = new[] {"CreateCase"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.CreateCaseResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSSupport.Model.CreateCaseResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AWSSupport.Model.CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.CreateCaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

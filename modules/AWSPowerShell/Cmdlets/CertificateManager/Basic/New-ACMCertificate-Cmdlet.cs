@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager RequestCertificate API operation.", Operation = new[] {"RequestCertificate"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.RequestCertificateResponse))]
     [AWSCmdletOutput("System.String or Amazon.CertificateManager.Model.RequestCertificateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CertificateManager.Model.RequestCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CertificateManager.Model.RequestCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTransitGatewayMulticastDomain API operation.", Operation = new[] {"DeleteTransitGatewayMulticastDomain"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomain or Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomain object.",
-        "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteTransitGatewayMulticastDomainResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2TransitGatewayMulticastDomainCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

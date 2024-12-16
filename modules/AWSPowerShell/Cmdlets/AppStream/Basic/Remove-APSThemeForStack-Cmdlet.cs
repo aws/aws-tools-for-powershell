@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DeleteThemeForStack API operation.", Operation = new[] {"DeleteThemeForStack"}, SelectReturnType = typeof(Amazon.AppStream.Model.DeleteThemeForStackResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DeleteThemeForStackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DeleteThemeForStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DeleteThemeForStackResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAPSThemeForStackCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

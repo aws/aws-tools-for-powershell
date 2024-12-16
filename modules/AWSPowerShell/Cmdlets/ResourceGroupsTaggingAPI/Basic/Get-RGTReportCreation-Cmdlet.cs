@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     [OutputType("Amazon.ResourceGroupsTaggingAPI.Model.DescribeReportCreationResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups Tagging API DescribeReportCreation API operation.", Operation = new[] {"DescribeReportCreation"}, SelectReturnType = typeof(Amazon.ResourceGroupsTaggingAPI.Model.DescribeReportCreationResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroupsTaggingAPI.Model.DescribeReportCreationResponse",
-        "This cmdlet returns an Amazon.ResourceGroupsTaggingAPI.Model.DescribeReportCreationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroupsTaggingAPI.Model.DescribeReportCreationResponse object containing multiple properties."
     )]
     public partial class GetRGTReportCreationCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {

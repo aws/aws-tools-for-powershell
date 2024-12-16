@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton DeleteEnvironmentAccountConnection API operation.", Operation = new[] {"DeleteEnvironmentAccountConnection"}, SelectReturnType = typeof(Amazon.Proton.Model.DeleteEnvironmentAccountConnectionResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.EnvironmentAccountConnection or Amazon.Proton.Model.DeleteEnvironmentAccountConnectionResponse",
         "This cmdlet returns an Amazon.Proton.Model.EnvironmentAccountConnection object.",
-        "The service call response (type Amazon.Proton.Model.DeleteEnvironmentAccountConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.DeleteEnvironmentAccountConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemovePROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

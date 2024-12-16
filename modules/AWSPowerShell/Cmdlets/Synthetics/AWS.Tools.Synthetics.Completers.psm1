@@ -90,6 +90,16 @@ $CWSYN_Completers = {
             break
         }
 
+        # Amazon.Synthetics.ProvisionedResourceCleanupSetting
+        {
+            ($_ -eq "New-CWSYNCanary/ProvisionedResourceCleanup") -Or
+            ($_ -eq "Update-CWSYNCanary/ProvisionedResourceCleanup")
+        }
+        {
+            $v = "AUTOMATIC","OFF"
+            break
+        }
+
 
     }
 
@@ -99,6 +109,7 @@ $CWSYN_Completers = {
 }
 
 $CWSYN_map = @{
+    "ProvisionedResourceCleanup"=@("New-CWSYNCanary","Update-CWSYNCanary")
     "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
 }
 

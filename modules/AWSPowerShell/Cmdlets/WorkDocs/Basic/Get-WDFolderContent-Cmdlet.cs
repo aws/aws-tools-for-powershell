@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [OutputType("Amazon.WorkDocs.Model.DescribeFolderContentsResponse")]
     [AWSCmdlet("Calls the Amazon WorkDocs DescribeFolderContents API operation.", Operation = new[] {"DescribeFolderContents"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DescribeFolderContentsResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.DescribeFolderContentsResponse",
-        "This cmdlet returns an Amazon.WorkDocs.Model.DescribeFolderContentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkDocs.Model.DescribeFolderContentsResponse object containing multiple properties."
     )]
     public partial class GetWDFolderContentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.WorkDocs module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     [AWSCmdlet("Calls the AWS Glue DataBrew CreateProfileJob API operation.", Operation = new[] {"CreateProfileJob"}, SelectReturnType = typeof(Amazon.GlueDataBrew.Model.CreateProfileJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.GlueDataBrew.Model.CreateProfileJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GlueDataBrew.Model.CreateProfileJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlueDataBrew.Model.CreateProfileJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGDBProfileJobCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {

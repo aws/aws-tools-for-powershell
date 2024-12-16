@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.GetRecommendationsResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect GetRecommendations API operation.", Operation = new[] {"GetRecommendations"}, SelectReturnType = typeof(Amazon.QConnect.Model.GetRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.GetRecommendationsResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.GetRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.GetRecommendationsResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.")]
     public partial class GetQCRecommendationCmdlet : AmazonQConnectClientCmdlet, IExecutor

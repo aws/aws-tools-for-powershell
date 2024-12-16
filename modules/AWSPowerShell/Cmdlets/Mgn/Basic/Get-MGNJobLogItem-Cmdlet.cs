@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service DescribeJobLogItems API operation.", Operation = new[] {"DescribeJobLogItems"}, SelectReturnType = typeof(Amazon.Mgn.Model.DescribeJobLogItemsResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.JobLog or Amazon.Mgn.Model.DescribeJobLogItemsResponse",
         "This cmdlet returns a collection of Amazon.Mgn.Model.JobLog objects.",
-        "The service call response (type Amazon.Mgn.Model.DescribeJobLogItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.DescribeJobLogItemsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNJobLogItemCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

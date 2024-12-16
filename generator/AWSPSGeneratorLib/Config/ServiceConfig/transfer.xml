@@ -163,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFileTransferResults" OutputProperty="FileTransferResults" Verb="Get" Noun="FileTransferResultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHostKeys" OutputProperty="*" Verb="Get" Noun="HostKeyList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

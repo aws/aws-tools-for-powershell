@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DeleteReviewTemplate API operation.", Operation = new[] {"DeleteReviewTemplate"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DeleteReviewTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DeleteReviewTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DeleteReviewTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DeleteReviewTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATReviewTemplateCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

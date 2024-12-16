@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud AssumeQueueRoleForUser API operation.", Operation = new[] {"AssumeQueueRoleForUser"}, SelectReturnType = typeof(Amazon.Deadline.Model.AssumeQueueRoleForUserResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.AwsCredentials or Amazon.Deadline.Model.AssumeQueueRoleForUserResponse",
         "This cmdlet returns an Amazon.Deadline.Model.AwsCredentials object.",
-        "The service call response (type Amazon.Deadline.Model.AssumeQueueRoleForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.AssumeQueueRoleForUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetADCQueueRoleForUserCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

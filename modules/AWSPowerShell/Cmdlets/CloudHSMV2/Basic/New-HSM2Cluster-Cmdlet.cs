@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.CreateClusterResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Cluster or Amazon.CloudHSMV2.Model.CreateClusterResponse",
         "This cmdlet returns an Amazon.CloudHSMV2.Model.Cluster object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSMV2.Model.CreateClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewHSM2ClusterCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     [AWSCmdlet("Calls the AWSBillingAndCostManagementDataExports CreateExport API operation.", Operation = new[] {"CreateExport"}, SelectReturnType = typeof(Amazon.BCMDataExports.Model.CreateExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.BCMDataExports.Model.CreateExportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BCMDataExports.Model.CreateExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BCMDataExports.Model.CreateExportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewBCMDEExportCmdlet : AmazonBCMDataExportsClientCmdlet, IExecutor
     {

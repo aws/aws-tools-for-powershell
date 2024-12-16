@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs RestoreDocumentVersions API operation.", Operation = new[] {"RestoreDocumentVersions"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestoreWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

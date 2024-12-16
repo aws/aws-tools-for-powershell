@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMQS
     [AWSCmdlet("Calls the AWS Systems Manager QuickSetup UpdateConfigurationDefinition API operation.", Operation = new[] {"UpdateConfigurationDefinition"}, SelectReturnType = typeof(Amazon.SSMQuickSetup.Model.UpdateConfigurationDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.SSMQuickSetup.Model.UpdateConfigurationDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMQuickSetup.Model.UpdateConfigurationDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMQuickSetup.Model.UpdateConfigurationDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMQSConfigurationDefinitionCmdlet : AmazonSSMQuickSetupClientCmdlet, IExecutor
     {

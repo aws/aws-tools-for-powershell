@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [OutputType("Amazon.AppConfig.Model.GetConfigurationResponse")]
     [AWSCmdlet("Calls the AWS AppConfig GetConfiguration API operation.", Operation = new[] {"GetConfiguration"}, SelectReturnType = typeof(Amazon.AppConfig.Model.GetConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppConfig.Model.GetConfigurationResponse",
-        "This cmdlet returns an Amazon.AppConfig.Model.GetConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppConfig.Model.GetConfigurationResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.")]
     public partial class GetAPPCConfigurationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// continue using <a>GetConfiguration</a>, we recommend that you include the <c>ClientConfigurationVersion</c>
         /// value with every call to <a>GetConfiguration</a>. The value to use for <c>ClientConfigurationVersion</c>
         /// comes from the <c>ConfigurationVersion</c> attribute returned by <a>GetConfiguration</a>
-        /// when there is new or updated data, and should be saved for subsequent calls to <a>GetConfiguration</a>.</para></important><para>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving
-        /// the Configuration</a> in the <i>AppConfig User Guide</i>.</para>
+        /// when there is new or updated data, and should be saved for subsequent calls to <a>GetConfiguration</a>.</para></important><para>For more information about working with configurations, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html">Retrieving
+        /// feature flags and configuration data in AppConfig</a> in the <i>AppConfig User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

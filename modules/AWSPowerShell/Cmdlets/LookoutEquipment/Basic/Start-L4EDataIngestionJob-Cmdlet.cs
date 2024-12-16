@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [OutputType("Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse")]
     [AWSCmdlet("Calls the Amazon Lookout for Equipment StartDataIngestionJob API operation.", Operation = new[] {"StartDataIngestionJob"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse))]
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse",
-        "This cmdlet returns an Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LookoutEquipment.Model.StartDataIngestionJobResponse object containing multiple properties."
     )]
     public partial class StartL4EDataIngestionJobCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {

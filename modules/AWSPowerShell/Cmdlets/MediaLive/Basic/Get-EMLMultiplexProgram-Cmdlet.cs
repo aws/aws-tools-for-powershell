@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DescribeMultiplexProgramResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DescribeMultiplexProgram API operation.", Operation = new[] {"DescribeMultiplexProgram"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DescribeMultiplexProgramResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DescribeMultiplexProgramResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DescribeMultiplexProgramResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DescribeMultiplexProgramResponse object containing multiple properties."
     )]
     public partial class GetEMLMultiplexProgramCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

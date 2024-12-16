@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce CancelSteps API operation.", Operation = new[] {"CancelSteps"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.CancelStepsResponse), LegacyAlias="Stop-EMRSteps")]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CancelStepsInfo or Amazon.ElasticMapReduce.Model.CancelStepsResponse",
         "This cmdlet returns a collection of Amazon.ElasticMapReduce.Model.CancelStepsInfo objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.CancelStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.CancelStepsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEMRStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

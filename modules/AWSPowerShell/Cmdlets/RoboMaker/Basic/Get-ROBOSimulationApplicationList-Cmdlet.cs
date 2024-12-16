@@ -28,15 +28,24 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
     /// Returns a list of simulation applications. You can optionally provide filters to retrieve
-    /// specific simulation applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// specific simulation applications. 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ROBOSimulationApplicationList")]
     [OutputType("Amazon.RoboMaker.Model.SimulationApplicationSummary")]
     [AWSCmdlet("Calls the AWS RoboMaker ListSimulationApplications API operation.", Operation = new[] {"ListSimulationApplications"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.ListSimulationApplicationsResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.SimulationApplicationSummary or Amazon.RoboMaker.Model.ListSimulationApplicationsResponse",
         "This cmdlet returns a collection of Amazon.RoboMaker.Model.SimulationApplicationSummary objects.",
-        "The service call response (type Amazon.RoboMaker.Model.ListSimulationApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.ListSimulationApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetROBOSimulationApplicationListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {
@@ -98,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

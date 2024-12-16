@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud AssociateMemberToFleet API operation.", Operation = new[] {"AssociateMemberToFleet"}, SelectReturnType = typeof(Amazon.Deadline.Model.AssociateMemberToFleetResponse))]
     [AWSCmdletOutput("None or Amazon.Deadline.Model.AssociateMemberToFleetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.AssociateMemberToFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Deadline.Model.AssociateMemberToFleetResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddADCMemberToFleetCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

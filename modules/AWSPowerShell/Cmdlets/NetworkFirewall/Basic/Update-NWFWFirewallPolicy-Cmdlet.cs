@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [OutputType("Amazon.NetworkFirewall.Model.UpdateFirewallPolicyResponse")]
     [AWSCmdlet("Calls the AWS Network Firewall UpdateFirewallPolicy API operation.", Operation = new[] {"UpdateFirewallPolicy"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.UpdateFirewallPolicyResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.UpdateFirewallPolicyResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.UpdateFirewallPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.UpdateFirewallPolicyResponse object containing multiple properties."
     )]
     public partial class UpdateNWFWFirewallPolicyCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
@@ -265,6 +265,22 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }
         #endregion
         
+        #region Parameter FlowTimeouts_TcpIdleTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds that can pass without any TCP traffic sent through the firewall
+        /// before the firewall determines that the connection is idle. After the idle timeout
+        /// passes, data packets are dropped, however, the next TCP SYN packet is considered a
+        /// new flow and is processed by the firewall. Clients or targets can use TCP keepalive
+        /// packets to reset the idle timeout. </para><para>You can define the <c>TcpIdleTimeoutSeconds</c> value to be between 60 and 6000 seconds.
+        /// If no value is provided, it defaults to 350 seconds. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_StatefulEngineOptions_FlowTimeouts_TcpIdleTimeoutSeconds")]
+        public System.Int32? FlowTimeouts_TcpIdleTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter FirewallPolicy_TLSInspectionConfigurationArn
         /// <summary>
         /// <para>
@@ -369,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 context.FirewallPolicy_StatefulDefaultAction = new List<System.String>(this.FirewallPolicy_StatefulDefaultAction);
             }
+            context.FlowTimeouts_TcpIdleTimeoutSecond = this.FlowTimeouts_TcpIdleTimeoutSecond;
             context.StatefulEngineOptions_RuleOrder = this.StatefulEngineOptions_RuleOrder;
             context.StatefulEngineOptions_StreamExceptionPolicy = this.StatefulEngineOptions_StreamExceptionPolicy;
             if (this.FirewallPolicy_StatefulRuleGroupReference != null)
@@ -590,6 +607,31 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 requestFirewallPolicy_firewallPolicy_StatefulEngineOptions.StreamExceptionPolicy = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_StreamExceptionPolicy;
                 requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = false;
             }
+            Amazon.NetworkFirewall.Model.FlowTimeouts requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts = null;
+            
+             // populate FlowTimeouts
+            var requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeoutsIsNull = true;
+            requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts = new Amazon.NetworkFirewall.Model.FlowTimeouts();
+            System.Int32? requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts_flowTimeouts_TcpIdleTimeoutSecond = null;
+            if (cmdletContext.FlowTimeouts_TcpIdleTimeoutSecond != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts_flowTimeouts_TcpIdleTimeoutSecond = cmdletContext.FlowTimeouts_TcpIdleTimeoutSecond.Value;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts_flowTimeouts_TcpIdleTimeoutSecond != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts.TcpIdleTimeoutSeconds = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts_flowTimeouts_TcpIdleTimeoutSecond.Value;
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeoutsIsNull = false;
+            }
+             // determine if requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts should be set to null
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeoutsIsNull)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts = null;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions.FlowTimeouts = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_firewallPolicy_StatefulEngineOptions_FlowTimeouts;
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = false;
+            }
              // determine if requestFirewallPolicy_firewallPolicy_StatefulEngineOptions should be set to null
             if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull)
             {
@@ -684,6 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> PolicyVariables_RuleVariable { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
+            public System.Int32? FlowTimeouts_TcpIdleTimeoutSecond { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
             public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference> FirewallPolicy_StatefulRuleGroupReference { get; set; }

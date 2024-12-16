@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune ModifyDBClusterSnapshotAttribute API operation.", Operation = new[] {"ModifyDBClusterSnapshotAttribute"}, SelectReturnType = typeof(Amazon.Neptune.Model.ModifyDBClusterSnapshotAttributeResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DBClusterSnapshotAttributesResult or Amazon.Neptune.Model.ModifyDBClusterSnapshotAttributeResponse",
         "This cmdlet returns an Amazon.Neptune.Model.DBClusterSnapshotAttributesResult object.",
-        "The service call response (type Amazon.Neptune.Model.ModifyDBClusterSnapshotAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.ModifyDBClusterSnapshotAttributeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditNPTDBClusterSnapshotAttributeCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

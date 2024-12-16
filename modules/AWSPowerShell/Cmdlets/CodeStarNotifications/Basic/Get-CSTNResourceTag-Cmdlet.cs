@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeStarNotifications.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CodeStarNotifications.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarNotifications.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSTNResourceTagCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

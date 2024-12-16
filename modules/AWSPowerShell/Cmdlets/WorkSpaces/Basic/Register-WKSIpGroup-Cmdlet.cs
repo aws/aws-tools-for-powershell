@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces AssociateIpGroups API operation.", Operation = new[] {"AssociateIpGroups"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.AssociateIpGroupsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.AssociateIpGroupsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.AssociateIpGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.AssociateIpGroupsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterWKSIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

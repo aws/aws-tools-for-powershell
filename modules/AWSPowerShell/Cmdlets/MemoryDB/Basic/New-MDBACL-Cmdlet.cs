@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB CreateACL API operation.", Operation = new[] {"CreateACL"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.CreateACLResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ACL or Amazon.MemoryDB.Model.CreateACLResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.ACL object.",
-        "The service call response (type Amazon.MemoryDB.Model.CreateACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.CreateACLResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMDBACLCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

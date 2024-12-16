@@ -388,12 +388,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 if (Operation.OutputProperty == null)
                 {
                     var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(MethodAnalysis.ResponseType, ServiceConfig));
-                    writer.WriteLine($"\"The service response (type {type}) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+                    writer.WriteLine($"\"The service response (type {type}) be returned by specifying '-Select *'.\"");
                 }
                 else if (Operation.OutputProperty == "*")
                 {
                     var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ReturnType, ServiceConfig));
-                    writer.WriteLine($"\"This cmdlet returns {GetIndefiniteArticle(type)} {type} object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+                    writer.WriteLine($"\"This cmdlet returns {GetIndefiniteArticle(type)} {type} object containing multiple properties.\"");
                 }
                 else
                 {
@@ -408,7 +408,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
 
                     var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(MethodAnalysis.ResponseType, ServiceConfig));
-                    writer.Write($"\"The service call response (type {type}) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+                    writer.Write($"\"The service call response (type {type}) can be returned by specifying '-Select *'.\"");
 
                     writer.WriteLine();
                 }
@@ -461,7 +461,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             {
                 paramDoc += Environment.NewLine + "<para>" +
                             Environment.NewLine + $"<br/><b>Note:</b> {(Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination ? "In the AWS.Tools." + ServiceConfig.AssemblyName + " module, t" : "T")}his parameter is only used if you are manually controlling output pagination of the service API call." +
-                            Environment.NewLine + $"<br/>In order to manually control output pagination, use '-{property.CmdletParameterName} $null' for the first call and '-{property.CmdletParameterName} $AWSHistory.LastServiceResponse.{MethodAnalysis.AutoIterateSettings.Next}' for subsequent calls." +
+                            Environment.NewLine + $"<br/>'{property.CmdletParameterName}' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-{property.CmdletParameterName}' to null for the first call then set the '{property.CmdletParameterName}' using the same property output from the previous call for subsequent calls." +
                             Environment.NewLine + "</para>";
             }
             else if (MethodAnalysis.AutoIterateSettings?.EmitLimit == property.Name)

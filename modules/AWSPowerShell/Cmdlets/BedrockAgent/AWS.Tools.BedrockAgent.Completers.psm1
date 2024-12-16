@@ -400,6 +400,7 @@ $AAB_SelectMap = @{
                "Initialize-AABAgent",
                "Initialize-AABFlow",
                "Start-AABIngestionJob",
+               "Stop-AABIngestionJob",
                "Add-AABResourceTag",
                "Remove-AABResourceTag",
                "Update-AABAgent",
@@ -410,7 +411,8 @@ $AAB_SelectMap = @{
                "Update-AABFlow",
                "Update-AABFlowAlias",
                "Update-AABKnowledgeBase",
-               "Update-AABPrompt")
+               "Update-AABPrompt",
+               "Confirm-AABFlowDefinition")
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap

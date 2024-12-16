@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact GetRepositoryPermissionsPolicy API operation.", Operation = new[] {"GetRepositoryPermissionsPolicy"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetRepositoryPermissionsPolicyResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.ResourcePolicy or Amazon.CodeArtifact.Model.GetRepositoryPermissionsPolicyResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.ResourcePolicy object.",
-        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryPermissionsPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryPermissionsPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCARepositoryPermissionsPolicyCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

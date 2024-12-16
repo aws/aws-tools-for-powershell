@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.SearchWorkersResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud SearchWorkers API operation.", Operation = new[] {"SearchWorkers"}, SelectReturnType = typeof(Amazon.Deadline.Model.SearchWorkersResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.SearchWorkersResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.SearchWorkersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.SearchWorkersResponse object containing multiple properties."
     )]
     public partial class SearchADCWorkerCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 ListIntentPaths API operation.", Operation = new[] {"ListIntentPaths"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.ListIntentPathsResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.AnalyticsIntentNodeSummary or Amazon.LexModelsV2.Model.ListIntentPathsResponse",
         "This cmdlet returns a collection of Amazon.LexModelsV2.Model.AnalyticsIntentNodeSummary objects.",
-        "The service call response (type Amazon.LexModelsV2.Model.ListIntentPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LexModelsV2.Model.ListIntentPathsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMBV2IntentPathListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

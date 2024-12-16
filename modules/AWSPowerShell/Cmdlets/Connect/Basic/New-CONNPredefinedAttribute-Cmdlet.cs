@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service CreatePredefinedAttribute API operation.", Operation = new[] {"CreatePredefinedAttribute"}, SelectReturnType = typeof(Amazon.Connect.Model.CreatePredefinedAttributeResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.CreatePredefinedAttributeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.CreatePredefinedAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.CreatePredefinedAttributeResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewCONNPredefinedAttributeCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

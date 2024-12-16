@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [AWSCmdlet("Calls the AWS re:Post Private CreateSpace API operation.", Operation = new[] {"CreateSpace"}, SelectReturnType = typeof(Amazon.Repostspace.Model.CreateSpaceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Repostspace.Model.CreateSpaceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Repostspace.Model.CreateSpaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Repostspace.Model.CreateSpaceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRESPSpaceCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [OutputType("Amazon.BillingConductor.Model.UpdateBillingGroupResponse")]
     [AWSCmdlet("Calls the AWSBillingConductor UpdateBillingGroup API operation.", Operation = new[] {"UpdateBillingGroup"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.UpdateBillingGroupResponse))]
     [AWSCmdletOutput("Amazon.BillingConductor.Model.UpdateBillingGroupResponse",
-        "This cmdlet returns an Amazon.BillingConductor.Model.UpdateBillingGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.BillingConductor.Model.UpdateBillingGroupResponse object containing multiple properties."
     )]
     public partial class UpdateABCBillingGroupCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail CreateDisk API operation.", Operation = new[] {"CreateDisk"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateDiskResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.CreateDiskResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.CreateDiskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.CreateDiskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewLSDiskCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

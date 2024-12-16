@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvidently.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvidently.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvidently.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCWEVDResourceTagCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

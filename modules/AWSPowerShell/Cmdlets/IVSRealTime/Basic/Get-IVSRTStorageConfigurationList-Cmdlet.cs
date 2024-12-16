@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime ListStorageConfigurations API operation.", Operation = new[] {"ListStorageConfigurations"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.ListStorageConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.StorageConfigurationSummary or Amazon.IVSRealTime.Model.ListStorageConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.IVSRealTime.Model.StorageConfigurationSummary objects.",
-        "The service call response (type Amazon.IVSRealTime.Model.ListStorageConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.ListStorageConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSRTStorageConfigurationListCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

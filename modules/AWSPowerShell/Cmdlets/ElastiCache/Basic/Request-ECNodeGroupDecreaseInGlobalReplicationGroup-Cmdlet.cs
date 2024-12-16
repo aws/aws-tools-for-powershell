@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DecreaseNodeGroupsInGlobalReplicationGroup API operation.", Operation = new[] {"DecreaseNodeGroupsInGlobalReplicationGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DecreaseNodeGroupsInGlobalReplicationGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.GlobalReplicationGroup or Amazon.ElastiCache.Model.DecreaseNodeGroupsInGlobalReplicationGroupResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.GlobalReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.DecreaseNodeGroupsInGlobalReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DecreaseNodeGroupsInGlobalReplicationGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestECNodeGroupDecreaseInGlobalReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -64,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If the value of NodeGroupCount is less than the current number of node groups (shards),
         /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRemove
-        /// is a list of NodeGroupIds to remove from the cluster. ElastiCache (Redis OSS) will
-        /// attempt to remove all node groups listed by GlobalNodeGroupsToRemove from the cluster.
-        /// </para>
+        /// is a list of NodeGroupIds to remove from the cluster. ElastiCache will attempt to
+        /// remove all node groups listed by GlobalNodeGroupsToRemove from the cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,9 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If the value of NodeGroupCount is less than the current number of node groups (shards),
         /// then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRetain
-        /// is a list of NodeGroupIds to retain from the cluster. ElastiCache (Redis OSS) will
-        /// attempt to retain all node groups listed by GlobalNodeGroupsToRetain from the cluster.
-        /// </para>
+        /// is a list of NodeGroupIds to retain from the cluster. ElastiCache will attempt to
+        /// retain all node groups listed by GlobalNodeGroupsToRetain from the cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -283,6 +283,13 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.TaskMode
+        "New-DSYNTask/TaskMode"
+        {
+            $v = "BASIC","ENHANCED"
+            break
+        }
+
 
     }
 
@@ -310,6 +317,7 @@ $DSYN_map = @{
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "SystemType"=@("Add-DSYNStorageSystem")
+    "TaskMode"=@("New-DSYNTask")
     "TaskReportConfig_ObjectVersionId"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")

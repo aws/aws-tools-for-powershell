@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListUsageTotals API operation.", Operation = new[] {"ListUsageTotals"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListUsageTotalsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.UsageTotal or Amazon.Inspector2.Model.ListUsageTotalsResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.UsageTotal objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListUsageTotalsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListUsageTotalsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2UsageTotalListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

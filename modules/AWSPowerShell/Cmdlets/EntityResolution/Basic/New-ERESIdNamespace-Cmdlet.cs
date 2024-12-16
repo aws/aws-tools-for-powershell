@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     [OutputType("Amazon.EntityResolution.Model.CreateIdNamespaceResponse")]
     [AWSCmdlet("Calls the AWS EntityResolution CreateIdNamespace API operation.", Operation = new[] {"CreateIdNamespace"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.CreateIdNamespaceResponse))]
     [AWSCmdletOutput("Amazon.EntityResolution.Model.CreateIdNamespaceResponse",
-        "This cmdlet returns an Amazon.EntityResolution.Model.CreateIdNamespaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EntityResolution.Model.CreateIdNamespaceResponse object containing multiple properties."
     )]
     public partial class NewERESIdNamespaceCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {

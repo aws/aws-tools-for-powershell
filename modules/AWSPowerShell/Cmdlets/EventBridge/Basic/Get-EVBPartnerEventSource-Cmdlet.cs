@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.DescribePartnerEventSourceResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge DescribePartnerEventSource API operation.", Operation = new[] {"DescribePartnerEventSource"}, SelectReturnType = typeof(Amazon.EventBridge.Model.DescribePartnerEventSourceResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.DescribePartnerEventSourceResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.DescribePartnerEventSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.DescribePartnerEventSourceResponse object containing multiple properties."
     )]
     public partial class GetEVBPartnerEventSourceCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

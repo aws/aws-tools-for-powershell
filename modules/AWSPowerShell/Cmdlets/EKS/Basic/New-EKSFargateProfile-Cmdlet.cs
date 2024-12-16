@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes CreateFargateProfile API operation.", Operation = new[] {"CreateFargateProfile"}, SelectReturnType = typeof(Amazon.EKS.Model.CreateFargateProfileResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.FargateProfile or Amazon.EKS.Model.CreateFargateProfileResponse",
         "This cmdlet returns an Amazon.EKS.Model.FargateProfile object.",
-        "The service call response (type Amazon.EKS.Model.CreateFargateProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.CreateFargateProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEKSFargateProfileCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

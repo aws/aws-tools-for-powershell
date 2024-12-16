@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management ResyncMFADevice API operation.", Operation = new[] {"ResyncMFADevice"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.ResyncMFADeviceResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.ResyncMFADeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.ResyncMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.ResyncMFADeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class SyncIAMMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

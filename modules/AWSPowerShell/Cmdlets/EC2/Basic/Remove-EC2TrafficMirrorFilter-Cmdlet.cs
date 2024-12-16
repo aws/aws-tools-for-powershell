@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteTrafficMirrorFilter API operation.", Operation = new[] {"DeleteTrafficMirrorFilter"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteTrafficMirrorFilterResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.DeleteTrafficMirrorFilterResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.DeleteTrafficMirrorFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteTrafficMirrorFilterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEC2TrafficMirrorFilterCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

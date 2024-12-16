@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager GetDocument API operation.", Operation = new[] {"GetDocument"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetDocumentResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetDocumentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetDocumentResponse object containing multiple properties."
     )]
     public partial class GetSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [AWSCmdlet("Calls the Amazon Lookout for Metrics GetAnomalyGroup API operation.", Operation = new[] {"GetAnomalyGroup"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.GetAnomalyGroupResponse))]
     [AWSCmdletOutput("Amazon.LookoutMetrics.Model.AnomalyGroup or Amazon.LookoutMetrics.Model.GetAnomalyGroupResponse",
         "This cmdlet returns an Amazon.LookoutMetrics.Model.AnomalyGroup object.",
-        "The service call response (type Amazon.LookoutMetrics.Model.GetAnomalyGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutMetrics.Model.GetAnomalyGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOMAnomalyGroupCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

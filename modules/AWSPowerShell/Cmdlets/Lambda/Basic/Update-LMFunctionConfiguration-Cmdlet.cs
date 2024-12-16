@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateFunctionConfigurationResponse")]
     [AWSCmdlet("Calls the AWS Lambda UpdateFunctionConfiguration API operation.", Operation = new[] {"UpdateFunctionConfiguration"}, SelectReturnType = typeof(Amazon.Lambda.Model.UpdateFunctionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionConfigurationResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -272,14 +272,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt
-        /// your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
-        /// variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
-        /// SnapStart</a> is activated, Lambda also uses this key is to encrypt your function's
-        /// snapshot. If you deploy your function using a container image, Lambda also uses this
-        /// key to encrypt your function when it's deployed. Note that this is not the same key
-        /// that's used to protect your container image in the Amazon Elastic Container Registry
-        /// (Amazon ECR). If you don't provide a customer managed key, Lambda uses a default service
-        /// key.</para>
+        /// the following resources:</para><ul><li><para>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
+        /// variables</a>.</para></li><li><para>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
+        /// SnapStart</a> snapshots.</para></li><li><para>When used with <c>SourceKMSKeyArn</c>, the unzipped version of the .zip deployment
+        /// package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption">
+        /// Specifying a customer managed key for Lambda</a>.</para></li><li><para>The optimized version of the container image that's used for function invocations.
+        /// Note that this is not the same key that's used to protect your container image in
+        /// the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function
+        /// lifecycle</a>.</para></li></ul><para>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
+        /// Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// Web Services managed key</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

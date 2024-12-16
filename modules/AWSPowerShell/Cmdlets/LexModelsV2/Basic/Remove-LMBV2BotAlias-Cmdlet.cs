@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.DeleteBotAliasResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DeleteBotAlias API operation.", Operation = new[] {"DeleteBotAlias"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DeleteBotAliasResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.DeleteBotAliasResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteBotAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.DeleteBotAliasResponse object containing multiple properties."
     )]
     public partial class RemoveLMBV2BotAliasCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

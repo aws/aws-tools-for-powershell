@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore PutMetricPolicy API operation.", Operation = new[] {"PutMetricPolicy"}, SelectReturnType = typeof(Amazon.MediaStore.Model.PutMetricPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStore.Model.PutMetricPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStore.Model.PutMetricPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStore.Model.PutMetricPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteEMSMetricPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

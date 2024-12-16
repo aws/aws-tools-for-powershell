@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.GetPackageVersionReadmeResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact GetPackageVersionReadme API operation.", Operation = new[] {"GetPackageVersionReadme"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetPackageVersionReadmeResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.GetPackageVersionReadmeResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.GetPackageVersionReadmeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.GetPackageVersionReadmeResponse object containing multiple properties."
     )]
     public partial class GetCAPackageVersionReadmeCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

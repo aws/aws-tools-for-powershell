@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups PutGroupConfiguration API operation.", Operation = new[] {"PutGroupConfiguration"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.PutGroupConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ResourceGroups.Model.PutGroupConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResourceGroups.Model.PutGroupConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResourceGroups.Model.PutGroupConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteRGGroupConfigurationCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the resource group with the configuration that you want to update.</para>
+        /// <para>The name or Amazon resource name (ARN) of the resource group with the configuration
+        /// that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

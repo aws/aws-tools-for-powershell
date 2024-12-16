@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.DocDBElastic.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DocDBElastic.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DocDBElastic.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCEResourceTagCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {

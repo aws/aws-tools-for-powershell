@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCH
     [AWSCmdlet("Calls the Amazon EventBridge Scheduler CreateSchedule API operation.", Operation = new[] {"CreateSchedule"}, SelectReturnType = typeof(Amazon.Scheduler.Model.CreateScheduleResponse))]
     [AWSCmdletOutput("System.String or Amazon.Scheduler.Model.CreateScheduleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Scheduler.Model.CreateScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Scheduler.Model.CreateScheduleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSCHScheduleCmdlet : AmazonSchedulerClientCmdlet, IExecutor
     {

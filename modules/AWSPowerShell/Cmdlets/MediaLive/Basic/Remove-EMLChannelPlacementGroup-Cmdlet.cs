@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DeleteChannelPlacementGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteChannelPlacementGroup API operation.", Operation = new[] {"DeleteChannelPlacementGroup"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteChannelPlacementGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DeleteChannelPlacementGroupResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DeleteChannelPlacementGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DeleteChannelPlacementGroupResponse object containing multiple properties."
     )]
     public partial class RemoveEMLChannelPlacementGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateFieldLevelEncryptionConfig API operation.", Operation = new[] {"UpdateFieldLevelEncryptionConfig"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateFieldLevelEncryptionConfigResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.FieldLevelEncryption or Amazon.CloudFront.Model.UpdateFieldLevelEncryptionConfigResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.FieldLevelEncryption object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateFieldLevelEncryptionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateFieldLevelEncryptionConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFFieldLevelEncryptionConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

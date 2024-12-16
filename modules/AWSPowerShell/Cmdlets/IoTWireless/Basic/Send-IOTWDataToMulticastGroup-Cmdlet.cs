@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless SendDataToMulticastGroup API operation.", Operation = new[] {"SendDataToMulticastGroup"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.SendDataToMulticastGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTWireless.Model.SendDataToMulticastGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTWireless.Model.SendDataToMulticastGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.SendDataToMulticastGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendIOTWDataToMulticastGroupCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

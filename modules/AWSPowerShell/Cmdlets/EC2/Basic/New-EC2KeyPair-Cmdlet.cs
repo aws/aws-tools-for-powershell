@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the specified
-    /// PEM or PPK format. Amazon EC2 stores the public key and displays the private key for
-    /// you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#1
-    /// private key or an unencrypted PPK formatted private key for use with PuTTY. If a key
-    /// with the specified name already exists, Amazon EC2 returns an error.
+    /// format. Amazon EC2 stores the public key and displays the private key for you to save
+    /// to a file. The private key is returned as an unencrypted PEM encoded PKCS#1 private
+    /// key or an unencrypted PPK formatted private key for use with PuTTY. If a key with
+    /// the specified name already exists, Amazon EC2 returns an error.
     /// 
     ///  
     /// <para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can have up to 5,000 key pairs per Amazon Web Services Region.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-    /// EC2 key pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// EC2 key pairs</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateKeyPair API operation.", Operation = new[] {"CreateKeyPair"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateKeyPairResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.KeyPair or Amazon.EC2.Model.CreateKeyPairResponse",
         "This cmdlet returns an Amazon.EC2.Model.KeyPair object.",
-        "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

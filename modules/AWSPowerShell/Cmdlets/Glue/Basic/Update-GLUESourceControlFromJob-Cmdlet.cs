@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateSourceControlFromJob API operation.", Operation = new[] {"UpdateSourceControlFromJob"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateSourceControlFromJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.UpdateSourceControlFromJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.UpdateSourceControlFromJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.UpdateSourceControlFromJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUESourceControlFromJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

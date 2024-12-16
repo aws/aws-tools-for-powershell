@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights CreateApplication API operation.", Operation = new[] {"CreateApplication"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.CreateApplicationResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.ApplicationInfo or Amazon.ApplicationInsights.Model.CreateApplicationResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.ApplicationInfo object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.CreateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -132,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
+        #region Parameter SNSNotificationArn
+        /// <summary>
+        /// <para>
+        /// <para> The SNS notification topic ARN. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SNSNotificationArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -195,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
             context.ResourceGroupName = this.ResourceGroupName;
+            context.SNSNotificationArn = this.SNSNotificationArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ApplicationInsights.Model.Tag>(this.Tag);
@@ -246,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
+            }
+            if (cmdletContext.SNSNotificationArn != null)
+            {
+                request.SNSNotificationArn = cmdletContext.SNSNotificationArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -320,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.String ResourceGroupName { get; set; }
+            public System.String SNSNotificationArn { get; set; }
             public List<Amazon.ApplicationInsights.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.CreateApplicationResponse, NewCWAIApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationInfo;

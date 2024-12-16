@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver ListFirewallRules API operation.", Operation = new[] {"ListFirewallRules"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.ListFirewallRulesResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallRule or Amazon.Route53Resolver.Model.ListFirewallRulesResponse",
         "This cmdlet returns a collection of Amazon.Route53Resolver.Model.FirewallRule objects.",
-        "The service call response (type Amazon.Route53Resolver.Model.ListFirewallRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.ListFirewallRulesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RFirewallRuleListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>Optional additional filter for the rules to retrieve.</para><para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through.</para></li><li><para><c>ALERT</c> - Permit the request to go through but send an alert to the logs.</para></li><li><para><c>BLOCK</c> - Disallow the request. If this is specified, additional handling details
+        /// domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through. Not availabe for DNS Firewall Advanced
+        /// rules.</para></li><li><para><c>ALERT</c> - Permit the request to go through but send an alert to the logs.</para></li><li><para><c>BLOCK</c> - Disallow the request. If this is specified, additional handling details
         /// are provided in the rule's <c>BlockResponse</c> setting. </para></li></ul>
         /// </para>
         /// </summary>
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

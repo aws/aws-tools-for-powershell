@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     [AWSCmdlet("Calls the AWS Marketplace Commerce Analytics StartSupportDataExport API operation.", Operation = new[] {"StartSupportDataExport"}, SelectReturnType = typeof(Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.")]
     public partial class StartMCASupportDataExportCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor

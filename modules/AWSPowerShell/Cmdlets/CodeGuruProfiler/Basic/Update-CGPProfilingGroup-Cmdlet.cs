@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler UpdateProfilingGroup API operation.", Operation = new[] {"UpdateProfilingGroup"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.UpdateProfilingGroupResponse))]
     [AWSCmdletOutput("Amazon.CodeGuruProfiler.Model.ProfilingGroupDescription or Amazon.CodeGuruProfiler.Model.UpdateProfilingGroupResponse",
         "This cmdlet returns an Amazon.CodeGuruProfiler.Model.ProfilingGroupDescription object.",
-        "The service call response (type Amazon.CodeGuruProfiler.Model.UpdateProfilingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeGuruProfiler.Model.UpdateProfilingGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCGPProfilingGroupCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

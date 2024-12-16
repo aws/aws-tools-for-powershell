@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 CreateEnvironmentMembership API operation.", Operation = new[] {"CreateEnvironmentMembership"}, SelectReturnType = typeof(Amazon.Cloud9.Model.CreateEnvironmentMembershipResponse))]
     [AWSCmdletOutput("Amazon.Cloud9.Model.EnvironmentMember or Amazon.Cloud9.Model.CreateEnvironmentMembershipResponse",
         "This cmdlet returns an Amazon.Cloud9.Model.EnvironmentMember object.",
-        "The service call response (type Amazon.Cloud9.Model.CreateEnvironmentMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Cloud9.Model.CreateEnvironmentMembershipResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewC9EnvironmentMembershipCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

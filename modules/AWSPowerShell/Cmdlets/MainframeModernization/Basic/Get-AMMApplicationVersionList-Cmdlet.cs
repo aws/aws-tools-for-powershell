@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListApplicationVersions API operation.", Operation = new[] {"ListApplicationVersions"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListApplicationVersionsResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.ApplicationVersionSummary or Amazon.MainframeModernization.Model.ListApplicationVersionsResponse",
         "This cmdlet returns a collection of Amazon.MainframeModernization.Model.ApplicationVersionSummary objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListApplicationVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMApplicationVersionListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

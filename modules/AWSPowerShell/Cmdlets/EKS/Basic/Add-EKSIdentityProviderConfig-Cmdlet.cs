@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [OutputType("Amazon.EKS.Model.AssociateIdentityProviderConfigResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes AssociateIdentityProviderConfig API operation.", Operation = new[] {"AssociateIdentityProviderConfig"}, SelectReturnType = typeof(Amazon.EKS.Model.AssociateIdentityProviderConfigResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.AssociateIdentityProviderConfigResponse",
-        "This cmdlet returns an Amazon.EKS.Model.AssociateIdentityProviderConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EKS.Model.AssociateIdentityProviderConfigResponse object containing multiple properties."
     )]
     public partial class AddEKSIdentityProviderConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

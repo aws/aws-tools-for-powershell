@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DismissUserContact API operation.", Operation = new[] {"DismissUserContact"}, SelectReturnType = typeof(Amazon.Connect.Model.DismissUserContactResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DismissUserContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DismissUserContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DismissUserContactResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCONNUserContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

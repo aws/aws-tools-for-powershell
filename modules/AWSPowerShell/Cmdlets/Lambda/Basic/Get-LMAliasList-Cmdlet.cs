@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Calls the AWS Lambda ListAliases API operation.", Operation = new[] {"ListAliases"}, SelectReturnType = typeof(Amazon.Lambda.Model.ListAliasesResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.AliasConfiguration or Amazon.Lambda.Model.ListAliasesResponse",
         "This cmdlet returns a collection of Amazon.Lambda.Model.AliasConfiguration objects.",
-        "The service call response (type Amazon.Lambda.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.ListAliasesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMAliasListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

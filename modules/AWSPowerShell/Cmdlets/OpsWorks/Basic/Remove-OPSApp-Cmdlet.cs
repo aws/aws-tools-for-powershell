@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks DeleteApp API operation.", Operation = new[] {"DeleteApp"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.DeleteAppResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.DeleteAppResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteAppResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

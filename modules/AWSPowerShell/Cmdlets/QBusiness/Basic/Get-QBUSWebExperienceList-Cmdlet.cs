@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness ListWebExperiences API operation.", Operation = new[] {"ListWebExperiences"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ListWebExperiencesResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.WebExperience or Amazon.QBusiness.Model.ListWebExperiencesResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.WebExperience objects.",
-        "The service call response (type Amazon.QBusiness.Model.ListWebExperiencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.ListWebExperiencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSWebExperienceListCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

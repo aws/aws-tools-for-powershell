@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     [AWSCmdlet("Calls the IAM Roles Anywhere ResetNotificationSettings API operation.", Operation = new[] {"ResetNotificationSettings"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.ResetNotificationSettingsResponse))]
     [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail or Amazon.IAMRolesAnywhere.Model.ResetNotificationSettingsResponse",
         "This cmdlet returns an Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail object.",
-        "The service call response (type Amazon.IAMRolesAnywhere.Model.ResetNotificationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.ResetNotificationSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ResetIAMRANotificationSettingCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {

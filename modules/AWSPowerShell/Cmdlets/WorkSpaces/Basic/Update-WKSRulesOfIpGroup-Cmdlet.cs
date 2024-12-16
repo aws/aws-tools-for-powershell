@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces UpdateRulesOfIpGroup API operation.", Operation = new[] {"UpdateRulesOfIpGroup"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.UpdateRulesOfIpGroupResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.UpdateRulesOfIpGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.UpdateRulesOfIpGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.UpdateRulesOfIpGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWKSRulesOfIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service CreateMlflowTrackingServer API operation.", Operation = new[] {"CreateMlflowTrackingServer"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateMlflowTrackingServerResponse))]
     [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateMlflowTrackingServerResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateMlflowTrackingServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.CreateMlflowTrackingServerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSMMlflowTrackingServerCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

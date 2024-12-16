@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteOpenIDConnectProvider API operation.", Operation = new[] {"DeleteOpenIDConnectProvider"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

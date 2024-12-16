@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DisassociateEnvironmentOperationsRole API operation.", Operation = new[] {"DisassociateEnvironmentOperationsRole"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DisassociateEnvironmentOperationsRoleResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.DisassociateEnvironmentOperationsRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.DisassociateEnvironmentOperationsRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.DisassociateEnvironmentOperationsRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEBEnvironmentOperationsRoleCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

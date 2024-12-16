@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness DeleteReadinessCheck API operation.", Operation = new[] {"DeleteReadinessCheck"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.DeleteReadinessCheckResponse))]
     [AWSCmdletOutput("None or Amazon.Route53RecoveryReadiness.Model.DeleteReadinessCheckResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteReadinessCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53RecoveryReadiness.Model.DeleteReadinessCheckResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePDReadinessCheckCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

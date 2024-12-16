@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP GetResourcePermission API operation.", Operation = new[] {"GetResourcePermission"}, SelectReturnType = typeof(Amazon.SsmSap.Model.GetResourcePermissionResponse))]
     [AWSCmdletOutput("System.String or Amazon.SsmSap.Model.GetResourcePermissionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SsmSap.Model.GetResourcePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.GetResourcePermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSAPResourcePermissionCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

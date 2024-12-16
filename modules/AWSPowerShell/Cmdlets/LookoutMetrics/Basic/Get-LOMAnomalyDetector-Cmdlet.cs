@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     [OutputType("Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse")]
     [AWSCmdlet("Calls the Amazon Lookout for Metrics DescribeAnomalyDetector API operation.", Operation = new[] {"DescribeAnomalyDetector"}, SelectReturnType = typeof(Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse))]
     [AWSCmdletOutput("Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse",
-        "This cmdlet returns an Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LookoutMetrics.Model.DescribeAnomalyDetectorResponse object containing multiple properties."
     )]
     public partial class GetLOMAnomalyDetectorCmdlet : AmazonLookoutMetricsClientCmdlet, IExecutor
     {

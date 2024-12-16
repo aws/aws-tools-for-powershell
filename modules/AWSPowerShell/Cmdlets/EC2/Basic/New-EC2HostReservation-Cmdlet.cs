@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.PurchaseHostReservationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseHostReservation API operation.", Operation = new[] {"PurchaseHostReservation"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseHostReservationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.PurchaseHostReservationResponse",
-        "This cmdlet returns an Amazon.EC2.Model.PurchaseHostReservationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.PurchaseHostReservationResponse object containing multiple properties."
     )]
     public partial class NewEC2HostReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

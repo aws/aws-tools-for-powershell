@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.DescribeGlobalSettingsResponse")]
     [AWSCmdlet("Calls the AWS Backup DescribeGlobalSettings API operation.", Operation = new[] {"DescribeGlobalSettings"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeGlobalSettingsResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.DescribeGlobalSettingsResponse",
-        "This cmdlet returns an Amazon.Backup.Model.DescribeGlobalSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.DescribeGlobalSettingsResponse object containing multiple properties."
     )]
     public partial class GetBAKGlobalSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

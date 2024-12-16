@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh CreateRoute API operation.", Operation = new[] {"CreateRoute"}, SelectReturnType = typeof(Amazon.AppMesh.Model.CreateRouteResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.RouteData or Amazon.AppMesh.Model.CreateRouteResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.RouteData object.",
-        "The service call response (type Amazon.AppMesh.Model.CreateRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.CreateRouteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMSHRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

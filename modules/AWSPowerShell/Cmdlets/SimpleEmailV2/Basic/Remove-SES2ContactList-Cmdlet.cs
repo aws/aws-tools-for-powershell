@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteContactList API operation.", Operation = new[] {"DeleteContactList"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteContactListResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteContactListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.DeleteContactListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.DeleteContactListResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSES2ContactListCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateResourceDataSync API operation.", Operation = new[] {"UpdateResourceDataSync"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateResourceDataSyncResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

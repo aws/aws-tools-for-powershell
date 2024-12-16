@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.UpdateConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.UpdateConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.UpdateConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

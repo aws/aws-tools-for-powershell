@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
     [OutputType("Amazon.Artifact.Model.GetTermForReportResponse")]
     [AWSCmdlet("Calls the AWS Artifact GetTermForReport API operation.", Operation = new[] {"GetTermForReport"}, SelectReturnType = typeof(Amazon.Artifact.Model.GetTermForReportResponse))]
     [AWSCmdletOutput("Amazon.Artifact.Model.GetTermForReportResponse",
-        "This cmdlet returns an Amazon.Artifact.Model.GetTermForReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Artifact.Model.GetTermForReportResponse object containing multiple properties."
     )]
     public partial class GetARTTermForReportCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {

@@ -274,6 +274,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.MigrationTypeValue
         {
+            ($_ -eq "Edit-DMSDataMigration/DataMigrationType") -Or
+            ($_ -eq "New-DMSDataMigration/DataMigrationType") -Or
             ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
             ($_ -eq "Get-DMSApplicableIndividualAssessment/MigrationType") -Or
             ($_ -eq "New-DMSReplicationTask/MigrationType") -Or
@@ -384,6 +386,13 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.StartReplicationMigrationTypeValue
+        "Start-DMSDataMigration/StartType"
+        {
+            $v = "reload-target","resume-processing","start-replication"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.StartReplicationTaskTypeValue
         "Start-DMSReplicationTask/StartReplicationTaskType"
         {
@@ -422,6 +431,7 @@ $DMS_Completers = {
 }
 
 $DMS_map = @{
+    "DataMigrationType"=@("Edit-DMSDataMigration","New-DMSDataMigration")
     "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "DocDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -465,6 +475,7 @@ $DMS_map = @{
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
+    "StartType"=@("Start-DMSDataMigration")
 }
 
 _awsArgumentCompleterRegistration $DMS_Completers $DMS_map
@@ -521,6 +532,7 @@ $DMS_SelectMap = @{
                "Complete-DMSPendingMaintenanceAction",
                "Start-DMSBatchRecommendation",
                "Stop-DMSReplicationTaskAssessmentRun",
+               "New-DMSDataMigration",
                "New-DMSDataProvider",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
@@ -533,6 +545,7 @@ $DMS_SelectMap = @{
                "New-DMSReplicationTask",
                "Remove-DMSCertificate",
                "Remove-DMSConnection",
+               "Remove-DMSDataMigration",
                "Remove-DMSDataProvider",
                "Remove-DMSEndpoint",
                "Remove-DMSEventSubscription",
@@ -550,6 +563,7 @@ $DMS_SelectMap = @{
                "Get-DMSCertificate",
                "Get-DMSConnection",
                "Get-DMSConversionConfiguration",
+               "Get-DMSDataMigration",
                "Get-DMSDataProvider",
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
@@ -592,6 +606,7 @@ $DMS_SelectMap = @{
                "Import-DMSCertificate",
                "Get-DMSResourceTag",
                "Edit-DMSConversionConfiguration",
+               "Edit-DMSDataMigration",
                "Edit-DMSDataProvider",
                "Edit-DMSEndpoint",
                "Edit-DMSEventSubscription",
@@ -608,6 +623,7 @@ $DMS_SelectMap = @{
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
                "Start-DMSFleetAdvisorLsaAnalysis",
+               "Start-DMSDataMigration",
                "Start-DMSExtensionPackAssociation",
                "Start-DMSMetadataModelAssessment",
                "Start-DMSMetadataModelConversion",
@@ -619,6 +635,7 @@ $DMS_SelectMap = @{
                "Start-DMSReplicationTask",
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
+               "Stop-DMSDataMigration",
                "Stop-DMSReplication",
                "Stop-DMSReplicationTask",
                "Test-DMSConnection",

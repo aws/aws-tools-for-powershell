@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeleteParameter API operation.", Operation = new[] {"DeleteParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [OutputType("Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging BatchCreateChannelMembership API operation.", Operation = new[] {"BatchCreateChannelMembership"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse object containing multiple properties."
     )]
     public partial class NewCHMMGCreateChannelMembershipCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

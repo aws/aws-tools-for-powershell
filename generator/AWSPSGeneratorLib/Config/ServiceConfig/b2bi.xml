@@ -30,8 +30,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransformer" OutputProperty="*" Verb="New" Noun="Transformer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateStarterMappingTemplate" OutputProperty="MappingTemplate" Verb="New" Noun="StarterMappingTemplate" ShouldProcessTarget="OutputSampleLocation_BucketName" PipelineParameter="MappingType" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransformer" OutputProperty="*" Verb="New" Noun="Transformer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="InputConversion_FormatOptions_X12_TransactionSet" NewName="InputConversion_FormatOptions_X12_TransactionSet" />
+                <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />
+                <Param Name="OutputConversion_FormatOptions_X12_TransactionSet" NewName="OutputConversion_FormatOptions_X12_TransactionSet" />
+                <Param Name="OutputConversion_FormatOptions_X12_Version" NewName="OutputConversion_FormatOptions_X12_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCapability" Verb="Remove" Noun="Capability" ShouldProcessTarget="CapabilityId" PipelineParameter="CapabilityId" NoPipelineParameter="false">
@@ -47,6 +56,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateMapping" OutputProperty="*" Verb="Get" Noun="GeneratedMapping" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -98,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TestConversion" OutputProperty="*" Verb="Test" Noun="Conversion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TestMapping" OutputProperty="MappedFileContent" Verb="Test" Noun="Mapping" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -123,7 +140,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTransformer" OutputProperty="*" Verb="Update" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="InputConversion_FormatOptions_X12_TransactionSet" NewName="InputConversion_FormatOptions_X12_TransactionSet" />
+                <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />
+                <Param Name="OutputConversion_FormatOptions_X12_TransactionSet" NewName="OutputConversion_FormatOptions_X12_TransactionSet" />
+                <Param Name="OutputConversion_FormatOptions_X12_Version" NewName="OutputConversion_FormatOptions_X12_Version" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

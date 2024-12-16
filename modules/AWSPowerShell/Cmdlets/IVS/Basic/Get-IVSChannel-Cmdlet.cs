@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service GetChannel API operation.", Operation = new[] {"GetChannel"}, SelectReturnType = typeof(Amazon.IVS.Model.GetChannelResponse))]
     [AWSCmdletOutput("Amazon.IVS.Model.Channel or Amazon.IVS.Model.GetChannelResponse",
         "This cmdlet returns an Amazon.IVS.Model.Channel object.",
-        "The service call response (type Amazon.IVS.Model.GetChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVS.Model.GetChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSChannelCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

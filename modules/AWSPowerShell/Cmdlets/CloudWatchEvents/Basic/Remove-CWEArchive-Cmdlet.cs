@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdlet("Calls the Amazon CloudWatch Events DeleteArchive API operation.", Operation = new[] {"DeleteArchive"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DeleteArchiveResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvents.Model.DeleteArchiveResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvents.Model.DeleteArchiveResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvents.Model.DeleteArchiveResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEArchiveCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

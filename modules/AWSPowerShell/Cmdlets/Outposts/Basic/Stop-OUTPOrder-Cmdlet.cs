@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts CancelOrder API operation.", Operation = new[] {"CancelOrder"}, SelectReturnType = typeof(Amazon.Outposts.Model.CancelOrderResponse))]
     [AWSCmdletOutput("None or Amazon.Outposts.Model.CancelOrderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Outposts.Model.CancelOrderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Outposts.Model.CancelOrderResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopOUTPOrderCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

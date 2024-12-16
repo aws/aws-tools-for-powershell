@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise UpdateAssetModel API operation.", Operation = new[] {"UpdateAssetModel"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.UpdateAssetModelResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AssetModelStatus or Amazon.IoTSiteWise.Model.UpdateAssetModelResponse",
         "This cmdlet returns an Amazon.IoTSiteWise.Model.AssetModelStatus object.",
-        "The service call response (type Amazon.IoTSiteWise.Model.UpdateAssetModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.UpdateAssetModelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTSWAssetModelCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

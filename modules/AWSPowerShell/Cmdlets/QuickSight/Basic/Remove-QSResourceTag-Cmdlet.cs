@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.UntagResourceResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UntagResourceResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.UntagResourceResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.UntagResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.UntagResourceResponse object containing multiple properties."
     )]
     public partial class RemoveQSResourceTagCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

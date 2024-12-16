@@ -28,16 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new script record for your Realtime Servers script. Realtime scripts are
-    /// JavaScript that provide configuration settings and optional custom game logic for
-    /// your game. The script is deployed when you create a Realtime Servers fleet to host
-    /// your game sessions. Script logic is executed during an active game session. 
+    /// Creates a script resource for your Realtime Servers script. Realtime scripts are JavaScript
+    /// files that provide configuration settings and optional custom game logic for your
+    /// game. Script logic is executed during an active game session. To deploy Realtime Servers
+    /// for hosting, create an Amazon GameLift managed fleet with the script.
     /// 
     ///  
     /// <para>
-    /// To create a new script record, specify a script name and provide the script file(s).
-    /// The script files and all dependencies must be zipped into a single file. You can pull
-    /// the zip file from either of these locations: 
+    /// To create a script resource, specify a script name and provide the script file(s).
+    /// The script files and all dependencies must be combined into a single .zip file. You
+    /// can upload the .zip file from either of these locations: 
     /// </para><ul><li><para>
     /// A locally available directory. Use the <i>ZipFile</i> parameter for this option.
     /// </para></li><li><para>
@@ -46,11 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// have an Identity Access Management (IAM) role that allows the Amazon GameLift service
     /// to access your S3 bucket. 
     /// </para></li></ul><para>
-    /// If the call is successful, a new script record is created with a unique script ID.
-    /// If the script file is provided as a local file, the file is uploaded to an Amazon
-    /// GameLift-owned S3 bucket and the script record's storage location reflects this location.
-    /// If the script file is provided as an S3 bucket, Amazon GameLift accesses the file
-    /// at this storage location as needed for deployment.
+    /// If the call is successful, Amazon GameLift creates a new script resource with a unique
+    /// script ID. The script is uploaded to an Amazon S3 bucket that is owned by Amazon GameLift.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
     /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
     /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -61,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service CreateScript API operation.", Operation = new[] {"CreateScript"}, SelectReturnType = typeof(Amazon.GameLift.Model.CreateScriptResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Script or Amazon.GameLift.Model.CreateScriptResponse",
         "This cmdlet returns an Amazon.GameLift.Model.Script object.",
-        "The service call response (type Amazon.GameLift.Model.CreateScriptResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.CreateScriptResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewGMLScriptCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -92,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with a script. Script names don't need to be
-        /// unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
+        /// <para>A descriptive label that is associated with a script. Script names do not need to
+        /// be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
         /// to change this value later. </para>
         /// </para>
         /// </summary>
@@ -147,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information associated with a build or script. Version strings don't need
-        /// to be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
+        /// <para>Version information that is associated with a build or script. Version strings do
+        /// not need to be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
         /// to change this value later. </para>
         /// </para>
         /// </summary>

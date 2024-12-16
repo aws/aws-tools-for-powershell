@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     [AWSCmdlet("Calls the EMR Serverless DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.DeleteApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.EMRServerless.Model.DeleteApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EMRServerless.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EMRServerless.Model.DeleteApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMRServerlessApplicationCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {

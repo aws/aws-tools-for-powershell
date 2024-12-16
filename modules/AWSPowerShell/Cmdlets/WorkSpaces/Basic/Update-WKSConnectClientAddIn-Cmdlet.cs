@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces UpdateConnectClientAddIn API operation.", Operation = new[] {"UpdateConnectClientAddIn"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.UpdateConnectClientAddInResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.UpdateConnectClientAddInResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.UpdateConnectClientAddInResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.UpdateConnectClientAddInResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateWKSConnectClientAddInCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

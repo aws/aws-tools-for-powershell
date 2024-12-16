@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management TagSAMLProvider API operation.", Operation = new[] {"TagSAMLProvider"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.TagSAMLProviderResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.TagSAMLProviderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.TagSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.TagSAMLProviderResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMSAMLProviderTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

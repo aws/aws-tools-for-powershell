@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service ListMaps API operation.", Operation = new[] {"ListMaps"}, SelectReturnType = typeof(Amazon.LocationService.Model.ListMapsResponse))]
     [AWSCmdletOutput("Amazon.LocationService.Model.ListMapsResponseEntry or Amazon.LocationService.Model.ListMapsResponse",
         "This cmdlet returns a collection of Amazon.LocationService.Model.ListMapsResponseEntry objects.",
-        "The service call response (type Amazon.LocationService.Model.ListMapsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LocationService.Model.ListMapsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLOCMapListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

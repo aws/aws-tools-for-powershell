@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DeleteConnectionResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect DeleteConnection API operation.", Operation = new[] {"DeleteConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DeleteConnectionResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.DeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.DeleteConnectionResponse object containing multiple properties."
     )]
     public partial class RemoveDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

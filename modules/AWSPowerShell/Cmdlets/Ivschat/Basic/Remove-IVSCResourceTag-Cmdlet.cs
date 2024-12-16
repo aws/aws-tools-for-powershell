@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Ivschat.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Ivschat.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Ivschat.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Ivschat.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSCResourceTagCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

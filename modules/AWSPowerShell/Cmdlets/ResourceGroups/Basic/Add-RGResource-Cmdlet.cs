@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// Adds the specified resources to the specified group.
     /// 
     ///  <important><para>
-    /// You can use this operation with only resource groups that are configured with the
-    /// following types:
-    /// </para><ul><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li></ul><para>
-    /// Other resource group type and resource types aren't currently supported by this operation.
+    /// You can only use this operation with the following groups:
+    /// </para><ul><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::ResourceGroups::ApplicationGroup</c></para></li></ul><para>
+    /// Other resource group types and resource types are not currently supported by this
+    /// operation.
     /// </para></important><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para><c>resource-groups:GroupResources</c></para></li></ul>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.GroupResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups GroupResources API operation.", Operation = new[] {"GroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GroupResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.GroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.GroupResourcesResponse object containing multiple properties."
     )]
     public partial class AddRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to add resources to.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group to add resources
+        /// to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The list of ARNs of the resources to be added to the group. </para>
+        /// <para>The list of Amazon resource names (ARNs) of the resources to be added to the group.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

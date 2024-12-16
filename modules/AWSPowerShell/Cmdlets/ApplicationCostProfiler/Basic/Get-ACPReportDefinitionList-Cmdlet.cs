@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     [AWSCmdlet("Calls the Amazon ApplicationCostProfiler ListReportDefinitions API operation.", Operation = new[] {"ListReportDefinitions"}, SelectReturnType = typeof(Amazon.ApplicationCostProfiler.Model.ListReportDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.ApplicationCostProfiler.Model.ReportDefinition or Amazon.ApplicationCostProfiler.Model.ListReportDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.ApplicationCostProfiler.Model.ReportDefinition objects.",
-        "The service call response (type Amazon.ApplicationCostProfiler.Model.ListReportDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationCostProfiler.Model.ListReportDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACPReportDefinitionListCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {

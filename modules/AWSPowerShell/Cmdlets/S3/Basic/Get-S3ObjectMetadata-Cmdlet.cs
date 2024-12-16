@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <c>s3:GetObject</c> permission. You need the relevant read object (or version) permission
     /// for this operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
     /// resources, and condition keys for Amazon S3</a> in the <i>Amazon S3 User Guide</i>.
+    /// For more information about the permissions to S3 API operations by S3 resource types,
+    /// see <a href="/AmazonS3/latest/userguide/using-with-s3-policy-actions.html">Required
+    /// permissions for Amazon S3 API operations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// If the object you request doesn't exist, the error that Amazon S3 returns depends
     /// on whether you also have the <c>s3:ListBucket</c> permission.
@@ -117,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetObjectMetadata API operation.", Operation = new[] {"GetObjectMetadata"}, SelectReturnType = typeof(Amazon.S3.Model.GetObjectMetadataResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.GetObjectMetadataResponse",
-        "This cmdlet returns an Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties."
     )]
     public partial class GetS3ObjectMetadataCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

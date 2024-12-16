@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BedrockAgent.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BedrockAgent.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BedrockAgent.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAABResourceTagCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {

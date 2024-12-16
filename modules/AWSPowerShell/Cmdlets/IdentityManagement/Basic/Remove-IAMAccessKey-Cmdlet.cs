@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteAccessKey API operation.", Operation = new[] {"DeleteAccessKey"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteAccessKeyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteAccessKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteAccessKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteAccessKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DOCEClusterList', 
         'Get-DOCEClusterSnapshot', 
         'Get-DOCEClusterSnapshotList', 
+        'Get-DOCEPendingMaintenanceAction', 
+        'Get-DOCEPendingMaintenanceActionList', 
         'Get-DOCEResourceTag', 
         'New-DOCECluster', 
         'New-DOCEClusterSnapshot', 
@@ -95,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DOCEClusterSnapshot', 
         'Remove-DOCEResourceTag', 
         'Restore-DOCEClusterFromSnapshot', 
+        'Set-DOCEPendingMaintenanceAction', 
         'Start-DOCECluster', 
         'Stop-DOCECluster', 
         'Update-DOCECluster')

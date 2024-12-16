@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Calls the Amazon Kinesis StartStreamEncryption API operation.", Operation = new[] {"StartStreamEncryption"}, SelectReturnType = typeof(Amazon.Kinesis.Model.StartStreamEncryptionResponse))]
     [AWSCmdletOutput("None or Amazon.Kinesis.Model.StartStreamEncryptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.StartStreamEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.StartStreamEncryptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartKINStreamEncryptionCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     [AWSCmdlet("Calls the AWS Budgets ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Budgets.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.Budgets.Model.ResourceTag or Amazon.Budgets.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.Budgets.Model.ResourceTag objects.",
-        "The service call response (type Amazon.Budgets.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Budgets.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBGTResourceTagCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {

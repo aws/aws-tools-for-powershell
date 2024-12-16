@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     [AWSCmdlet("Calls the AWS Systems Manager for SAP StartApplicationRefresh API operation.", Operation = new[] {"StartApplicationRefresh"}, SelectReturnType = typeof(Amazon.SsmSap.Model.StartApplicationRefreshResponse))]
     [AWSCmdletOutput("System.String or Amazon.SsmSap.Model.StartApplicationRefreshResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SsmSap.Model.StartApplicationRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SsmSap.Model.StartApplicationRefreshResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartSMSAPApplicationRefreshCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {

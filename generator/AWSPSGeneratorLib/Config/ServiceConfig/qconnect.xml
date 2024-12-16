@@ -18,6 +18,22 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAIAgent" OutputProperty="AiAgent" Verb="New" Noun="AIAgent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIAgentVersion" OutputProperty="*" Verb="New" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIPrompt" OutputProperty="AiPrompt" Verb="New" Noun="AIPrompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIPromptVersion" OutputProperty="*" Verb="New" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAssistant" OutputProperty="Assistant" Verb="New" Noun="Assistant" ShouldProcessTarget="Name" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -46,6 +62,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIAgent" Verb="Remove" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIAgentVersion" Verb="Remove" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIPrompt" Verb="Remove" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIPromptVersion" Verb="Remove" Noun="AIPromptVersion" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssistant" Verb="Remove" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,6 +103,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAIAgent" OutputProperty="*" Verb="Get" Noun="AIAgent" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAIPrompt" OutputProperty="*" Verb="Get" Noun="AIPrompt" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +151,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIAgents" OutputProperty="AiAgentSummaries" Verb="Get" Noun="AIAgentList" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIAgentVersions" OutputProperty="AiAgentVersionSummaries" Verb="Get" Noun="AIAgentVersionList" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIPrompts" OutputProperty="AiPromptSummaries" Verb="Get" Noun="AIPromptList" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIPromptVersions" OutputProperty="AiPromptVersionSummaries" Verb="Get" Noun="AIPromptVersionList" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -158,6 +214,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAssistantAIAgent" Verb="Remove" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveKnowledgeBaseTemplateUri" Verb="Remove" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -190,6 +250,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAIAgent" OutputProperty="AiAgent" Verb="Update" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAIPrompt" OutputProperty="AiPrompt" Verb="Update" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssistantAIAgent" OutputProperty="Assistant" Verb="Update" Noun="AssistantAIAgent" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateContent" OutputProperty="Content" Verb="Update" Noun="Content" ShouldProcessTarget="ContentId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +275,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSession" OutputProperty="Session" Verb="Update" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSessionData" OutputProperty="*" Verb="Update" Noun="SessionData" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

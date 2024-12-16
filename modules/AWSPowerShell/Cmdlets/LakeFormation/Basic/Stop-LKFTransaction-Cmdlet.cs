@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [AWSCmdlet("Calls the AWS Lake Formation CancelTransaction API operation.", Operation = new[] {"CancelTransaction"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.CancelTransactionResponse))]
     [AWSCmdletOutput("None or Amazon.LakeFormation.Model.CancelTransactionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.CancelTransactionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.CancelTransactionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopLKFTransactionCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

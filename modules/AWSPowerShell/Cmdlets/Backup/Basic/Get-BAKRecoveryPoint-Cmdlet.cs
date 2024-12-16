@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.DescribeRecoveryPointResponse")]
     [AWSCmdlet("Calls the AWS Backup DescribeRecoveryPoint API operation.", Operation = new[] {"DescribeRecoveryPoint"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeRecoveryPointResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.DescribeRecoveryPointResponse",
-        "This cmdlet returns an Amazon.Backup.Model.DescribeRecoveryPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.DescribeRecoveryPointResponse object containing multiple properties."
     )]
     public partial class GetBAKRecoveryPointCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

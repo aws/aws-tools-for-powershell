@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [OutputType("Amazon.MQ.Model.UpdateBrokerResponse")]
     [AWSCmdlet("Calls the Amazon MQ UpdateBroker API operation.", Operation = new[] {"UpdateBroker"}, SelectReturnType = typeof(Amazon.MQ.Model.UpdateBrokerResponse))]
     [AWSCmdletOutput("Amazon.MQ.Model.UpdateBrokerResponse",
-        "This cmdlet returns an Amazon.MQ.Model.UpdateBrokerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MQ.Model.UpdateBrokerResponse object containing multiple properties."
     )]
     public partial class UpdateMQBrokerCmdlet : AmazonMQClientCmdlet, IExecutor
     {

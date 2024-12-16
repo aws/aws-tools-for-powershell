@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.GetIamPortalLoginUrlResponse")]
     [AWSCmdlet("Calls the Amazon DataZone GetIamPortalLoginUrl API operation.", Operation = new[] {"GetIamPortalLoginUrl"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetIamPortalLoginUrlResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.GetIamPortalLoginUrlResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetIamPortalLoginUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.GetIamPortalLoginUrlResponse object containing multiple properties."
     )]
     public partial class GetDZIamPortalLoginUrlCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

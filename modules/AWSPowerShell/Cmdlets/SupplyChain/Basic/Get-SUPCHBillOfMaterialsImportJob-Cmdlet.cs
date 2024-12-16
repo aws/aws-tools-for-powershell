@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain GetBillOfMaterialsImportJob API operation.", Operation = new[] {"GetBillOfMaterialsImportJob"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetBillOfMaterialsImportJobResponse))]
     [AWSCmdletOutput("Amazon.SupplyChain.Model.BillOfMaterialsImportJob or Amazon.SupplyChain.Model.GetBillOfMaterialsImportJobResponse",
         "This cmdlet returns an Amazon.SupplyChain.Model.BillOfMaterialsImportJob object.",
-        "The service call response (type Amazon.SupplyChain.Model.GetBillOfMaterialsImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupplyChain.Model.GetBillOfMaterialsImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSUPCHBillOfMaterialsImportJobCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

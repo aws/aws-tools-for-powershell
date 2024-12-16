@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateOpenIDConnectProviderThumbprint API operation.", Operation = new[] {"UpdateOpenIDConnectProviderThumbprint"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMOpenIDConnectProviderThumbprintCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

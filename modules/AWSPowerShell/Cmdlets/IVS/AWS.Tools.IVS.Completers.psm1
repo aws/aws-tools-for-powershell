@@ -100,6 +100,36 @@ $IVS_Completers = {
             break
         }
 
+        # Amazon.IVS.ContainerFormat
+        {
+            ($_ -eq "New-IVSChannel/ContainerFormat") -Or
+            ($_ -eq "Update-IVSChannel/ContainerFormat")
+        }
+        {
+            $v = "FRAGMENTED_MP4","TS"
+            break
+        }
+
+        # Amazon.IVS.MultitrackMaximumResolution
+        {
+            ($_ -eq "New-IVSChannel/MultitrackInputConfiguration_MaximumResolution") -Or
+            ($_ -eq "Update-IVSChannel/MultitrackInputConfiguration_MaximumResolution")
+        }
+        {
+            $v = "FULL_HD","HD","SD"
+            break
+        }
+
+        # Amazon.IVS.MultitrackPolicy
+        {
+            ($_ -eq "New-IVSChannel/MultitrackInputConfiguration_Policy") -Or
+            ($_ -eq "Update-IVSChannel/MultitrackInputConfiguration_Policy")
+        }
+        {
+            $v = "ALLOW","REQUIRE"
+            break
+        }
+
         # Amazon.IVS.RecordingMode
         "New-IVSRecordingConfiguration/ThumbnailConfiguration_RecordingMode"
         {
@@ -147,8 +177,11 @@ $IVS_Completers = {
 }
 
 $IVS_map = @{
+    "ContainerFormat"=@("New-IVSChannel","Update-IVSChannel")
     "FilterBy_Health"=@("Get-IVSStreamList")
     "LatencyMode"=@("New-IVSChannel","Update-IVSChannel")
+    "MultitrackInputConfiguration_MaximumResolution"=@("New-IVSChannel","Update-IVSChannel")
+    "MultitrackInputConfiguration_Policy"=@("New-IVSChannel","Update-IVSChannel")
     "Preset"=@("New-IVSChannel","Update-IVSChannel")
     "RenditionConfiguration_RenditionSelection"=@("New-IVSRecordingConfiguration")
     "ThumbnailConfiguration_RecordingMode"=@("New-IVSRecordingConfiguration")

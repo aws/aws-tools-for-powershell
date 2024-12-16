@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     [AWSCmdlet("Calls the Amazon CloudWatch Evidently DeleteProject API operation.", Operation = new[] {"DeleteProject"}, SelectReturnType = typeof(Amazon.CloudWatchEvidently.Model.DeleteProjectResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchEvidently.Model.DeleteProjectResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchEvidently.Model.DeleteProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchEvidently.Model.DeleteProjectResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWEVDProjectCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     [AWSCmdlet("Calls the Application Auto Scaling PutScheduledAction API operation.", Operation = new[] {"PutScheduledAction"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.PutScheduledActionResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.PutScheduledActionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationAutoScaling.Model.PutScheduledActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationAutoScaling.Model.PutScheduledActionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetAASScheduledActionCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     [AWSCmdlet("Calls the AWS Cloud9 CreateEnvironmentEC2 API operation.", Operation = new[] {"CreateEnvironmentEC2"}, SelectReturnType = typeof(Amazon.Cloud9.Model.CreateEnvironmentEC2Response))]
     [AWSCmdletOutput("System.String or Amazon.Cloud9.Model.CreateEnvironmentEC2Response",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Cloud9.Model.CreateEnvironmentEC2Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Cloud9.Model.CreateEnvironmentEC2Response) can be returned by specifying '-Select *'."
     )]
     public partial class NewC9EnvironmentEC2Cmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {

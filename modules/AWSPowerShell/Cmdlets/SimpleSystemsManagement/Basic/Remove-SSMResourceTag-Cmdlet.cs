@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMResourceTagCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config DeleteRetentionConfiguration API operation.", Operation = new[] {"DeleteRetentionConfiguration"}, SelectReturnType = typeof(Amazon.ConfigService.Model.DeleteRetentionConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ConfigService.Model.DeleteRetentionConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConfigService.Model.DeleteRetentionConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteRetentionConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFGRetentionConfigurationCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

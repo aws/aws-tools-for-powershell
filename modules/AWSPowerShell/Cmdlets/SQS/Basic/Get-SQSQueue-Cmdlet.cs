@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Calls the Amazon Simple Queue Service (SQS) ListQueues API operation.", Operation = new[] {"ListQueues"}, SelectReturnType = typeof(Amazon.SQS.Model.ListQueuesResponse))]
     [AWSCmdletOutput("System.String or Amazon.SQS.Model.ListQueuesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SQS.Model.ListQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ListQueuesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

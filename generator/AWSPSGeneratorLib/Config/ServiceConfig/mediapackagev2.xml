@@ -18,11 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelHarvestJob" Verb="Stop" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannelGroup" OutputProperty="*" Verb="New" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHarvestJob" OutputProperty="*" Verb="New" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -62,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetHarvestJob" OutputProperty="*" Verb="Get" Noun="HarvestJob" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOriginEndpoint" OutputProperty="*" Verb="Get" Noun="OriginEndpoint" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +87,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListChannels" OutputProperty="Items" Verb="Get" Noun="ChannelList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="Items" Verb="Get" Noun="HarvestJobList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

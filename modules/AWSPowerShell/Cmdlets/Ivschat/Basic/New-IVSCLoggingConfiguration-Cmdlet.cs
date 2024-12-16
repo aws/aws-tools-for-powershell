@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [OutputType("Amazon.Ivschat.Model.CreateLoggingConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat CreateLoggingConfiguration API operation.", Operation = new[] {"CreateLoggingConfiguration"}, SelectReturnType = typeof(Amazon.Ivschat.Model.CreateLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Ivschat.Model.CreateLoggingConfigurationResponse",
-        "This cmdlet returns an Amazon.Ivschat.Model.CreateLoggingConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Ivschat.Model.CreateLoggingConfigurationResponse object containing multiple properties."
     )]
     public partial class NewIVSCLoggingConfigurationCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

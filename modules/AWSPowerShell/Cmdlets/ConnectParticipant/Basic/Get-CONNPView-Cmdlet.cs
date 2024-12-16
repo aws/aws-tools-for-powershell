@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [AWSCmdlet("Calls the Amazon Connect Participant Service DescribeView API operation.", Operation = new[] {"DescribeView"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DescribeViewResponse))]
     [AWSCmdletOutput("Amazon.ConnectParticipant.Model.View or Amazon.ConnectParticipant.Model.DescribeViewResponse",
         "This cmdlet returns an Amazon.ConnectParticipant.Model.View object.",
-        "The service call response (type Amazon.ConnectParticipant.Model.DescribeViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectParticipant.Model.DescribeViewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNPViewCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

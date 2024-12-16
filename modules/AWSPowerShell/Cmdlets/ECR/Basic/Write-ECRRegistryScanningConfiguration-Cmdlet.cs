@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [AWSCmdlet("Calls the Amazon EC2 Container Registry PutRegistryScanningConfiguration API operation.", Operation = new[] {"PutRegistryScanningConfiguration"}, SelectReturnType = typeof(Amazon.ECR.Model.PutRegistryScanningConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.RegistryScanningConfiguration or Amazon.ECR.Model.PutRegistryScanningConfigurationResponse",
         "This cmdlet returns an Amazon.ECR.Model.RegistryScanningConfiguration object.",
-        "The service call response (type Amazon.ECR.Model.PutRegistryScanningConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECR.Model.PutRegistryScanningConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteECRRegistryScanningConfigurationCmdlet : AmazonECRClientCmdlet, IExecutor
     {

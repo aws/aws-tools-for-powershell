@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetJourneyRunExecutionMetrics API operation.", Operation = new[] {"GetJourneyRunExecutionMetrics"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.JourneyRunExecutionMetricsResponse or Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.JourneyRunExecutionMetricsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINJourneyRunExecutionMetricCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

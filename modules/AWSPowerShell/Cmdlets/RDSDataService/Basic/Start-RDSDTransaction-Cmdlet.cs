@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     [AWSCmdlet("Calls the AWS RDS DataService BeginTransaction API operation.", Operation = new[] {"BeginTransaction"}, SelectReturnType = typeof(Amazon.RDSDataService.Model.BeginTransactionResponse), LegacyAlias="Begin-RDSDTransaction")]
     [AWSCmdletOutput("System.String or Amazon.RDSDataService.Model.BeginTransactionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.RDSDataService.Model.BeginTransactionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDSDataService.Model.BeginTransactionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartRDSDTransactionCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.RemoveTagsResponse), LegacyAlias="Remove-ESTag")]
     [AWSCmdletOutput("None or Amazon.OpenSearchService.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpenSearchService.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpenSearchService.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSResourceTagCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock GetKnowledgeBase API operation.", Operation = new[] {"GetKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.GetKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.KnowledgeBase or Amazon.BedrockAgent.Model.GetKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.KnowledgeBase object.",
-        "The service call response (type Amazon.BedrockAgent.Model.GetKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.GetKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAABKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base for which to get information.</para>
+        /// <para>The unique identifier of the knowledge base you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

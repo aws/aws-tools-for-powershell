@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMCResourceTagCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

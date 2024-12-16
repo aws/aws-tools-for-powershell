@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk ListAvailableSolutionStacks API operation.", Operation = new[] {"ListAvailableSolutionStacks"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse), LegacyAlias="Get-EBAvailableSolutionStack")]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse object containing multiple properties."
     )]
     public partial class GetEBAvailableSolutionStackListCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

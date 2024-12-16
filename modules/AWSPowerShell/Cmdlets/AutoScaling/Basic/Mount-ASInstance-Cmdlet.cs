@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachInstancesResponse), LegacyAlias="Add-ASInstances")]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachInstancesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) be returned by specifying '-Select *'."
     )]
     public partial class MountASInstanceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool DisassociateProfiles API operation.", Operation = new[] {"DisassociateProfiles"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.DisassociateProfilesResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.DisassociateProfilesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.DisassociateProfilesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.DisassociateProfilesResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWATProfileCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

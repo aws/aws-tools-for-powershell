@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Connect.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Connect.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Connect.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNResourceTagCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

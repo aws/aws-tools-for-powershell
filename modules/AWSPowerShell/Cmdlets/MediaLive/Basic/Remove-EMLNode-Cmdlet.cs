@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.DeleteNodeResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive DeleteNode API operation.", Operation = new[] {"DeleteNode"}, SelectReturnType = typeof(Amazon.MediaLive.Model.DeleteNodeResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.DeleteNodeResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.DeleteNodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.DeleteNodeResponse object containing multiple properties."
     )]
     public partial class RemoveEMLNodeCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

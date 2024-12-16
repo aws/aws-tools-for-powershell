@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector GetKMSEncryptionKey API operation.", Operation = new[] {"GetKMSEncryptionKey"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.GetKMSEncryptionKeyResponse))]
     [AWSCmdletOutput("Amazon.FraudDetector.Model.KMSKey or Amazon.FraudDetector.Model.GetKMSEncryptionKeyResponse",
         "This cmdlet returns an Amazon.FraudDetector.Model.KMSKey object.",
-        "The service call response (type Amazon.FraudDetector.Model.GetKMSEncryptionKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FraudDetector.Model.GetKMSEncryptionKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFDKMSEncryptionKeyCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness GetUser API operation.", Operation = new[] {"GetUser"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetUserResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.UserAlias or Amazon.QBusiness.Model.GetUserResponse",
         "This cmdlet returns a collection of Amazon.QBusiness.Model.UserAlias objects.",
-        "The service call response (type Amazon.QBusiness.Model.GetUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QBusiness.Model.GetUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQBUSUserCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

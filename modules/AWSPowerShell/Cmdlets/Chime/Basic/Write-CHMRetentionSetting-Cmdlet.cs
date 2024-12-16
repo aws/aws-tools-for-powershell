@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.PutRetentionSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Chime PutRetentionSettings API operation.", Operation = new[] {"PutRetentionSettings"}, SelectReturnType = typeof(Amazon.Chime.Model.PutRetentionSettingsResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.PutRetentionSettingsResponse",
-        "This cmdlet returns an Amazon.Chime.Model.PutRetentionSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.PutRetentionSettingsResponse object containing multiple properties."
     )]
     public partial class WriteCHMRetentionSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

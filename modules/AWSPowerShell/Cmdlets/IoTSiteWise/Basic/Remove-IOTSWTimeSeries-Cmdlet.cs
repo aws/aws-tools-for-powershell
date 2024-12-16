@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise DeleteTimeSeries API operation.", Operation = new[] {"DeleteTimeSeries"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DeleteTimeSeriesResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.DeleteTimeSeriesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.DeleteTimeSeriesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.DeleteTimeSeriesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTSWTimeSeriesCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

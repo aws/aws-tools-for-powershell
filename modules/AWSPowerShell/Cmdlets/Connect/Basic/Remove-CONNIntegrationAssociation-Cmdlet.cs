@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteIntegrationAssociation API operation.", Operation = new[] {"DeleteIntegrationAssociation"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteIntegrationAssociationResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteIntegrationAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteIntegrationAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteIntegrationAssociationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNIntegrationAssociationCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

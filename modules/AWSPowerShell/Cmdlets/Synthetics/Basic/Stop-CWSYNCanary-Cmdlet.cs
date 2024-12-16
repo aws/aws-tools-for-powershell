@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     [AWSCmdlet("Calls the Amazon CloudWatch Synthetics StopCanary API operation.", Operation = new[] {"StopCanary"}, SelectReturnType = typeof(Amazon.Synthetics.Model.StopCanaryResponse))]
     [AWSCmdletOutput("None or Amazon.Synthetics.Model.StopCanaryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.StopCanaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Synthetics.Model.StopCanaryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {

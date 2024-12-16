@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     [AWSCmdlet("Calls the AWS Health DescribeEntityAggregatesForOrganization API operation.", Operation = new[] {"DescribeEntityAggregatesForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse))]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.OrganizationEntityAggregate or Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse",
         "This cmdlet returns a collection of Amazon.AWSHealth.Model.OrganizationEntityAggregate objects.",
-        "The service call response (type Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSHealth.Model.DescribeEntityAggregatesForOrganizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetHLTHEntityAggregatesForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [OutputType("Amazon.Kendra.Model.DescribePrincipalMappingResponse")]
     [AWSCmdlet("Calls the Amazon Kendra DescribePrincipalMapping API operation.", Operation = new[] {"DescribePrincipalMapping"}, SelectReturnType = typeof(Amazon.Kendra.Model.DescribePrincipalMappingResponse))]
     [AWSCmdletOutput("Amazon.Kendra.Model.DescribePrincipalMappingResponse",
-        "This cmdlet returns an Amazon.Kendra.Model.DescribePrincipalMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kendra.Model.DescribePrincipalMappingResponse object containing multiple properties."
     )]
     public partial class GetKNDRPrincipalMappingCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

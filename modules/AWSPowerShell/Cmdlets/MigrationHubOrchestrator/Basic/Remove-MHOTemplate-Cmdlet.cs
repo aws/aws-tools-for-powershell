@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator DeleteTemplate API operation.", Operation = new[] {"DeleteTemplate"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveMHOTemplateCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

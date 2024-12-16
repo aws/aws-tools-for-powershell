@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.UpdateDimensionResponse")]
     [AWSCmdlet("Calls the AWS IoT UpdateDimension API operation.", Operation = new[] {"UpdateDimension"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdateDimensionResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.UpdateDimensionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.UpdateDimensionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.UpdateDimensionResponse object containing multiple properties."
     )]
     public partial class UpdateIOTDimensionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

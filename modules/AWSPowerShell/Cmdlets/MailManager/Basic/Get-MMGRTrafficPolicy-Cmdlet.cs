@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [OutputType("Amazon.MailManager.Model.GetTrafficPolicyResponse")]
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetTrafficPolicy API operation.", Operation = new[] {"GetTrafficPolicy"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetTrafficPolicyResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.GetTrafficPolicyResponse",
-        "This cmdlet returns an Amazon.MailManager.Model.GetTrafficPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MailManager.Model.GetTrafficPolicyResponse object containing multiple properties."
     )]
     public partial class GetMMGRTrafficPolicyCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateLocationObjectStorage API operation.", Operation = new[] {"CreateLocationObjectStorage"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationObjectStorageResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationObjectStorageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateLocationObjectStorageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateLocationObjectStorageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNLocationObjectStorageCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely
-        /// connect with your location.</para>
+        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect
+        /// with your object storage system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

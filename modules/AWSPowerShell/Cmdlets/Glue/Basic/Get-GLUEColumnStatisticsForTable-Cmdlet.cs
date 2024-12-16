@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetColumnStatisticsForTableResponse")]
     [AWSCmdlet("Calls the AWS Glue GetColumnStatisticsForTable API operation.", Operation = new[] {"GetColumnStatisticsForTable"}, SelectReturnType = typeof(Amazon.Glue.Model.GetColumnStatisticsForTableResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetColumnStatisticsForTableResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetColumnStatisticsForTableResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetColumnStatisticsForTableResponse object containing multiple properties."
     )]
     public partial class GetGLUEColumnStatisticsForTableCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

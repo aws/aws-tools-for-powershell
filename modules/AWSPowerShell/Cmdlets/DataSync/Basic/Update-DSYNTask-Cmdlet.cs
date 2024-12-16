@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync UpdateTask API operation.", Operation = new[] {"UpdateTask"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateTaskResponse))]
     [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateTaskResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateTaskResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateTaskResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
@@ -82,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring
-        /// your task.</para>
+        /// your task.</para><para>For Enhanced mode tasks, you must use <c>/aws/datasync</c> as your log group name.
+        /// For example:</para><para><c>arn:aws:logs:us-east-1:111222333444:log-group:/aws/datasync:*</c></para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-logging.html">Monitoring
+        /// data transfers with CloudWatch Logs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,8 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>Specifies your task schedule by using a cron expression in UTC time. For information
-        /// about cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html"><i>Amazon EventBridge User Guide</i></a>.</para>
+        /// <para>Specifies your task schedule by using a cron or rate expression.</para><para>Use cron expressions for task schedules that run on a specific time and day. For example,
+        /// the following cron expression creates a task schedule that runs at 8 AM on the first
+        /// Wednesday of every month:</para><para><c>cron(0 8 * * 3#1)</c></para><para>Use rate expressions for task schedules that run on a regular interval. For example,
+        /// the following rate expression creates a task schedule that runs every 12 hours:</para><para><c>rate(12 hours)</c></para><para>For information about cron and rate expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html"><i>Amazon EventBridge User Guide</i></a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

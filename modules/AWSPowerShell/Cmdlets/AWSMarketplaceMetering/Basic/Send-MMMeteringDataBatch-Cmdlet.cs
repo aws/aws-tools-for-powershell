@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     [OutputType("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse")]
     [AWSCmdlet("Calls the AWS Marketplace Metering BatchMeterUsage API operation.", Operation = new[] {"BatchMeterUsage"}, SelectReturnType = typeof(Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse))]
     [AWSCmdletOutput("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse",
-        "This cmdlet returns an Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse object containing multiple properties."
     )]
     public partial class SendMMMeteringDataBatchCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteContactMethod API operation.", Operation = new[] {"DeleteContactMethod"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteContactMethodResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteContactMethodResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteContactMethodResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteContactMethodResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

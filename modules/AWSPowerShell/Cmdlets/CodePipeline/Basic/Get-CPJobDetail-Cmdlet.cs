@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Calls the AWS CodePipeline GetJobDetails API operation.", Operation = new[] {"GetJobDetails"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.GetJobDetailsResponse), LegacyAlias="Get-CPJobDetails")]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.JobDetails or Amazon.CodePipeline.Model.GetJobDetailsResponse",
         "This cmdlet returns an Amazon.CodePipeline.Model.JobDetails object.",
-        "The service call response (type Amazon.CodePipeline.Model.GetJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.GetJobDetailsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCPJobDetailCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {

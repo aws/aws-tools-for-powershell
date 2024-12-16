@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.RAM.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.RAM.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RAM.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RAM.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddRAMResourceTagCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.Rekognition.Model.CreateUserResponse))]
     [AWSCmdletOutput("None or Amazon.Rekognition.Model.CreateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.CreateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Rekognition.Model.CreateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewREKUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

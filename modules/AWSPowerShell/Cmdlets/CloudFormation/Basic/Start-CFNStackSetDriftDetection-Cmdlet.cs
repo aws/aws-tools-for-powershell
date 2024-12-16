@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DetectStackSetDrift API operation.", Operation = new[] {"DetectStackSetDrift"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DetectStackSetDriftResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.DetectStackSetDriftResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.DetectStackSetDriftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DetectStackSetDriftResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCFNStackSetDriftDetectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The user-specified preferences for how CloudFormation performs a stack set operation.</para><para>For more information about maximum concurrent accounts and failure tolerance, see
-        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack
         /// set operation options</a>.</para>
         /// </para>
         /// </summary>

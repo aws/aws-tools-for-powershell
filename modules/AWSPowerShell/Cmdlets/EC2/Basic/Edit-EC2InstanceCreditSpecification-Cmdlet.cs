@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceCreditSpecification API operation.", Operation = new[] {"ModifyInstanceCreditSpecification"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceCreditSpecificationResponse object containing multiple properties."
     )]
     public partial class EditEC2InstanceCreditSpecificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

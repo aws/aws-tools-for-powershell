@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateFirewallDomainList API operation.", Operation = new[] {"CreateFirewallDomainList"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateFirewallDomainListResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallDomainList or Amazon.Route53Resolver.Model.CreateFirewallDomainListResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.FirewallDomainList object.",
-        "The service call response (type Amazon.Route53Resolver.Model.CreateFirewallDomainListResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.CreateFirewallDomainListResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewR53RFirewallDomainListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

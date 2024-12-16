@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness CreateUser API operation.", Operation = new[] {"CreateUser"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateUserResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.CreateUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.CreateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.CreateUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewQBUSUserCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

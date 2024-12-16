@@ -28,15 +28,15 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Removes the log-level overrides for all resources; both wireless devices and wireless
-    /// gateways.
+    /// Removes the log-level overrides for all resources; wireless devices, wireless gateways,
+    /// and fuota tasks.
     /// </summary>
     [Cmdlet("Reset", "IOTWAllResourceLogLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS IoT Wireless ResetAllResourceLogLevels API operation.", Operation = new[] {"ResetAllResourceLogLevels"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ResetAllResourceLogLevelsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.ResetAllResourceLogLevelsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.ResetAllResourceLogLevelsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.ResetAllResourceLogLevelsResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetIOTWAllResourceLogLevelCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

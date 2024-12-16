@@ -41,16 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// For more information about using predictive scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html">Predictive
     /// scaling for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// You can view the scaling policies for an Auto Scaling group using the <a>DescribePolicies</a>
+    /// You can view the scaling policies for an Auto Scaling group using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a>
     /// API call. If you are no longer using a scaling policy, you can delete it by calling
-    /// the <a>DeletePolicy</a> API.
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DeletePolicy.html">DeletePolicy</a>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.PutScalingPolicyResponse")]
     [AWSCmdlet("Calls the AWS Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.PutScalingPolicyResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.PutScalingPolicyResponse",
-        "This cmdlet returns an Amazon.AutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AutoScaling.Model.PutScalingPolicyResponse object containing multiple properties."
     )]
     public partial class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

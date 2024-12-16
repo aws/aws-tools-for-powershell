@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management AddClientIDToOpenIDConnectProvider API operation.", Operation = new[] {"AddClientIDToOpenIDConnectProvider"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMClientIDToOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

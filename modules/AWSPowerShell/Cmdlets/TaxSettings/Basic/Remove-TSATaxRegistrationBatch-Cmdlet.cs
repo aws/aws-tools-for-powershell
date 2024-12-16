@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     [AWSCmdlet("Calls the AWS Tax Settings BatchDeleteTaxRegistration API operation.", Operation = new[] {"BatchDeleteTaxRegistration"}, SelectReturnType = typeof(Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse))]
     [AWSCmdletOutput("Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationError or Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse",
         "This cmdlet returns a collection of Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationError objects.",
-        "The service call response (type Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TaxSettings.Model.BatchDeleteTaxRegistrationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveTSATaxRegistrationBatchCmdlet : AmazonTaxSettingsClientCmdlet, IExecutor
     {

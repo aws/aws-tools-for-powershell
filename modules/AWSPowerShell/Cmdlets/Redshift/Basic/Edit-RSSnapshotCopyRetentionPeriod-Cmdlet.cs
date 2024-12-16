@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ModifySnapshotCopyRetentionPeriod API operation.", Operation = new[] {"ModifySnapshotCopyRetentionPeriod"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRSSnapshotCopyRetentionPeriodCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

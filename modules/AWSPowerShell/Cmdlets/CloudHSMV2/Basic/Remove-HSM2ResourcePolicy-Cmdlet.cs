@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [OutputType("Amazon.CloudHSMV2.Model.DeleteResourcePolicyResponse")]
     [AWSCmdlet("Calls the AWS CloudHSM V2 DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.DeleteResourcePolicyResponse",
-        "This cmdlet returns an Amazon.CloudHSMV2.Model.DeleteResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudHSMV2.Model.DeleteResourcePolicyResponse object containing multiple properties."
     )]
     public partial class RemoveHSM2ResourcePolicyCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

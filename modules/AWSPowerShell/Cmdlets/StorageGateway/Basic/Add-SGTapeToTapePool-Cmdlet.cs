@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway AssignTapePool API operation.", Operation = new[] {"AssignTapePool"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.AssignTapePoolResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.AssignTapePoolResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.AssignTapePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AssignTapePoolResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddSGTapeToTapePoolCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

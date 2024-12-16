@@ -28,20 +28,28 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Returns a list of robots. You can optionally provide filters to retrieve specific
-    /// robots.
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
     /// 
-    ///  <important><para>
-    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
-    /// that were created for Deployment Service.
-    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
+    /// </para></important><important><para>
+    /// This API is no longer supported. For more information, see the May 2, 2022 update
+    /// in the <a href="https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022">Support
+    /// policy</a> page.
+    /// </para></important><para>
+    ///  Returns a list of robots. You can optionally provide filters to retrieve specific
+    /// robots. 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ROBORobotList")]
     [OutputType("Amazon.RoboMaker.Model.Robot")]
     [AWSCmdlet("Calls the AWS RoboMaker ListRobots API operation.", Operation = new[] {"ListRobots"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.ListRobotsResponse))]
     [AWSCmdletOutput("Amazon.RoboMaker.Model.Robot or Amazon.RoboMaker.Model.ListRobotsResponse",
         "This cmdlet returns a collection of Amazon.RoboMaker.Model.Robot objects.",
-        "The service call response (type Amazon.RoboMaker.Model.ListRobotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.ListRobotsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.")]
     public partial class GetROBORobotListCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
@@ -96,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

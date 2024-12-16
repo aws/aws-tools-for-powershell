@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetAccessPreview API operation.", Operation = new[] {"GetAccessPreview"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetAccessPreviewResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.AccessPreview or Amazon.AccessAnalyzer.Model.GetAccessPreviewResponse",
         "This cmdlet returns an Amazon.AccessAnalyzer.Model.AccessPreview object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.GetAccessPreviewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.GetAccessPreviewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAAAccessPreviewCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

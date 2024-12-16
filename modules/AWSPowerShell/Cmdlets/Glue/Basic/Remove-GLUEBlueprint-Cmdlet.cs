@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue DeleteBlueprint API operation.", Operation = new[] {"DeleteBlueprint"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteBlueprintResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.DeleteBlueprintResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.DeleteBlueprintResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.DeleteBlueprintResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLUEBlueprintCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

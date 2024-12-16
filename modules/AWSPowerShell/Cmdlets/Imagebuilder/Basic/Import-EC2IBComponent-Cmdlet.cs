@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder ImportComponent API operation.", Operation = new[] {"ImportComponent"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.ImportComponentResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.ImportComponentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.ImportComponentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.ImportComponentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportEC2IBComponentCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     [AWSCmdlet("Calls the AWS App Mesh DescribeGatewayRoute API operation.", Operation = new[] {"DescribeGatewayRoute"}, SelectReturnType = typeof(Amazon.AppMesh.Model.DescribeGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.AppMesh.Model.GatewayRouteData or Amazon.AppMesh.Model.DescribeGatewayRouteResponse",
         "This cmdlet returns an Amazon.AppMesh.Model.GatewayRouteData object.",
-        "The service call response (type Amazon.AppMesh.Model.DescribeGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppMesh.Model.DescribeGatewayRouteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMSHGatewayRouteCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {

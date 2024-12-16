@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync GetCognitoEvents API operation.", Operation = new[] {"GetCognitoEvents"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.GetCognitoEventsResponse))]
     [AWSCmdletOutput("System.String or Amazon.CognitoSync.Model.GetCognitoEventsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CognitoSync.Model.GetCognitoEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.GetCognitoEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGISCognitoEventCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

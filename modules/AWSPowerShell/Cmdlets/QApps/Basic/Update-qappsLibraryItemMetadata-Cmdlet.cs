@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps UpdateLibraryItemMetadata API operation.", Operation = new[] {"UpdateLibraryItemMetadata"}, SelectReturnType = typeof(Amazon.QApps.Model.UpdateLibraryItemMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.QApps.Model.UpdateLibraryItemMetadataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QApps.Model.UpdateLibraryItemMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QApps.Model.UpdateLibraryItemMetadataResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateqappsLibraryItemMetadataCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 DeleteUtterances API operation.", Operation = new[] {"DeleteUtterances"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.DeleteUtterancesResponse))]
     [AWSCmdletOutput("None or Amazon.LexModelsV2.Model.DeleteUtterancesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LexModelsV2.Model.DeleteUtterancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LexModelsV2.Model.DeleteUtterancesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLMBV2UtteranceCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

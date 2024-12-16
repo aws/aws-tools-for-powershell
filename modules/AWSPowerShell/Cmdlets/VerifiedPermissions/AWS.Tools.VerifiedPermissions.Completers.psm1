@@ -160,7 +160,8 @@ $AVP_SelectCompleters = {
 }
 
 $AVP_SelectMap = @{
-    "Select"=@("Test-AVPBatchAuthorization",
+    "Select"=@("Get-AVPBatchGetPolicy",
+               "Test-AVPBatchAuthorization",
                "Get-AVPBatchIsAuthorizedWithToken",
                "New-AVPIdentitySource",
                "New-AVPPolicy",

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.ResourcePendingMaintenanceActions or Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.ResourcePendingMaintenanceActions object.",
-        "The service call response (type Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.ApplyPendingMaintenanceActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CompleteDOCPendingMaintenanceActionCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DescribeFlywheel API operation.", Operation = new[] {"DescribeFlywheel"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DescribeFlywheelResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.FlywheelProperties or Amazon.Comprehend.Model.DescribeFlywheelResponse",
         "This cmdlet returns an Amazon.Comprehend.Model.FlywheelProperties object.",
-        "The service call response (type Amazon.Comprehend.Model.DescribeFlywheelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Comprehend.Model.DescribeFlywheelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCOMPFlywheelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

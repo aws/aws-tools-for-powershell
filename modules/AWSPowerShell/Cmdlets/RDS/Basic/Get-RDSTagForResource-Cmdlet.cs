@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.RDS.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.Tag or Amazon.RDS.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.RDS.Model.Tag objects.",
-        "The service call response (type Amazon.RDS.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRDSTagForResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

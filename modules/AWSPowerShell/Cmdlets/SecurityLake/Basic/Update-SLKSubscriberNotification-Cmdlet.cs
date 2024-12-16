@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake UpdateSubscriberNotification API operation.", Operation = new[] {"UpdateSubscriberNotification"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateSubscriberNotificationResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityLake.Model.UpdateSubscriberNotificationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityLake.Model.UpdateSubscriberNotificationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.UpdateSubscriberNotificationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSLKSubscriberNotificationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

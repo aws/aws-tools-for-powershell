@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// operation detects whether a stack's actual configuration differs, or has <i>drifted</i>,
     /// from its expected configuration, as defined in the stack template and any values specified
     /// as template parameters. A stack is considered to have drifted if one or more of its
-    /// resources have drifted. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
-    /// Unregulated Configuration Changes to Stacks and Resources</a>.
+    /// resources have drifted. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
+    /// unmanaged configuration changes to stacks and resources with drift detection</a>.
     /// 
     ///  
     /// <para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackDriftDetectionStatus API operation.", Operation = new[] {"DescribeStackDriftDetectionStatus"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackDriftDetectionStatusResponse object containing multiple properties."
     )]
     public partial class GetCFNStackDriftDetectionStatusCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

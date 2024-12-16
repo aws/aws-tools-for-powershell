@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DeleteGlossary API operation.", Operation = new[] {"DeleteGlossary"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteGlossaryResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteGlossaryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteGlossaryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.DeleteGlossaryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZGlossaryCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.Tag or Amazon.ElasticFileSystem.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.Tag objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEFSResourceTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminUserGlobalSignOut API operation.", Operation = new[] {"AdminUserGlobalSignOut"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisconnectCGIPUserGlobalAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

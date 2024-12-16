@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateFlow API operation.", Operation = new[] {"DisassociateFlow"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateFlowResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateFlowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateFlowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateFlowResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNFlowCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

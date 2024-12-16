@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVerifiedAccessTrustProvider API operation.", Operation = new[] {"CreateVerifiedAccessTrustProvider"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVerifiedAccessTrustProviderResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VerifiedAccessTrustProvider or Amazon.EC2.Model.CreateVerifiedAccessTrustProviderResponse",
         "This cmdlet returns an Amazon.EC2.Model.VerifiedAccessTrustProvider object.",
-        "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessTrustProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVerifiedAccessTrustProviderResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway AssociateFileSystem API operation.", Operation = new[] {"AssociateFileSystem"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.AssociateFileSystemResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.AssociateFileSystemResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.AssociateFileSystemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AssociateFileSystemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSGSGFileSystemAssociationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

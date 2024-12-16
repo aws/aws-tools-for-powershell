@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles DeleteProfileKey API operation.", Operation = new[] {"DeleteProfileKey"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.DeleteProfileKeyResponse))]
     [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.DeleteProfileKeyResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CustomerProfiles.Model.DeleteProfileKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CustomerProfiles.Model.DeleteProfileKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCPFProfileKeyCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

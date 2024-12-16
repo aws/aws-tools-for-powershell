@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     [OutputType("Amazon.ChimeSDKIdentity.Model.PutAppInstanceUserExpirationSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Identity PutAppInstanceUserExpirationSettings API operation.", Operation = new[] {"PutAppInstanceUserExpirationSettings"}, SelectReturnType = typeof(Amazon.ChimeSDKIdentity.Model.PutAppInstanceUserExpirationSettingsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKIdentity.Model.PutAppInstanceUserExpirationSettingsResponse",
-        "This cmdlet returns an Amazon.ChimeSDKIdentity.Model.PutAppInstanceUserExpirationSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKIdentity.Model.PutAppInstanceUserExpirationSettingsResponse object containing multiple properties."
     )]
     public partial class WriteCHMIDAppInstanceUserExpirationSettingCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ListPreviewRotationShifts API operation.", Operation = new[] {"ListPreviewRotationShifts"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListPreviewRotationShiftsResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.RotationShift or Amazon.SSMContacts.Model.ListPreviewRotationShiftsResponse",
         "This cmdlet returns a collection of Amazon.SSMContacts.Model.RotationShift objects.",
-        "The service call response (type Amazon.SSMContacts.Model.ListPreviewRotationShiftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMContacts.Model.ListPreviewRotationShiftsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMCPreviewRotationShiftListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

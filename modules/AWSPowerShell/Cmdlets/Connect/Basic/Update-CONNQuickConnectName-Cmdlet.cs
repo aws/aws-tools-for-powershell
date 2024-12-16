@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateQuickConnectName API operation.", Operation = new[] {"UpdateQuickConnectName"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateQuickConnectNameResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateQuickConnectNameResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateQuickConnectNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateQuickConnectNameResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNQuickConnectNameCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Calls the AWS Support DescribeSupportedLanguages API operation.", Operation = new[] {"DescribeSupportedLanguages"}, SelectReturnType = typeof(Amazon.AWSSupport.Model.DescribeSupportedLanguagesResponse))]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.SupportedLanguage or Amazon.AWSSupport.Model.DescribeSupportedLanguagesResponse",
         "This cmdlet returns a collection of Amazon.AWSSupport.Model.SupportedLanguage objects.",
-        "The service call response (type Amazon.AWSSupport.Model.DescribeSupportedLanguagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeSupportedLanguagesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASASupportedLanguageCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

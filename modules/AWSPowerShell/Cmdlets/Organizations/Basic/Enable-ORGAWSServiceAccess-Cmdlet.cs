@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations EnableAWSServiceAccess API operation.", Operation = new[] {"EnableAWSServiceAccess"}, SelectReturnType = typeof(Amazon.Organizations.Model.EnableAWSServiceAccessResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.EnableAWSServiceAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.EnableAWSServiceAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.EnableAWSServiceAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableORGAWSServiceAccessCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

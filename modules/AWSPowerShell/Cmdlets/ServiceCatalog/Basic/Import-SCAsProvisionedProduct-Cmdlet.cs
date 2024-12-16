@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog ImportAsProvisionedProduct API operation.", Operation = new[] {"ImportAsProvisionedProduct"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.ImportAsProvisionedProductResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail or Amazon.ServiceCatalog.Model.ImportAsProvisionedProductResponse",
         "This cmdlet returns an Amazon.ServiceCatalog.Model.RecordDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ImportAsProvisionedProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.ImportAsProvisionedProductResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportSCAsProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

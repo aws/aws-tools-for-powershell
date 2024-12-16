@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DisassociateWebACL API operation.", Operation = new[] {"DisassociateWebACL"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DisassociateWebACLResponse))]
     [AWSCmdletOutput("None or Amazon.WAFRegional.Model.DisassociateWebACLResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFRegional.Model.DisassociateWebACLResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WAFRegional.Model.DisassociateWebACLResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWAFRWebACLCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

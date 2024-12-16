@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateLambdaFunction API operation.", Operation = new[] {"AssociateLambdaFunction"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateLambdaFunctionResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateLambdaFunctionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateLambdaFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateLambdaFunctionResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNLambdaFunctionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

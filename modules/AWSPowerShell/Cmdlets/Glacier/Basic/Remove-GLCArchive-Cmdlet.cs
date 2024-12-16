@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
     [AWSCmdlet("Calls the Amazon Glacier DeleteArchive API operation.", Operation = new[] {"DeleteArchive"}, SelectReturnType = typeof(Amazon.Glacier.Model.DeleteArchiveResponse))]
     [AWSCmdletOutput("None or Amazon.Glacier.Model.DeleteArchiveResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glacier.Model.DeleteArchiveResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glacier.Model.DeleteArchiveResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGLCArchiveCmdlet : AmazonGlacierClientCmdlet, IExecutor
     {

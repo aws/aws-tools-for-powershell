@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts ListPagesByContact API operation.", Operation = new[] {"ListPagesByContact"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListPagesByContactResponse))]
     [AWSCmdletOutput("Amazon.SSMContacts.Model.Page or Amazon.SSMContacts.Model.ListPagesByContactResponse",
         "This cmdlet returns a collection of Amazon.SSMContacts.Model.Page objects.",
-        "The service call response (type Amazon.SSMContacts.Model.ListPagesByContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SSMContacts.Model.ListPagesByContactResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMCPagesByContactListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager GetLicenseManagerReportGenerator API operation.", Operation = new[] {"GetLicenseManagerReportGenerator"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.GetLicenseManagerReportGeneratorResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.ReportGenerator or Amazon.LicenseManager.Model.GetLicenseManagerReportGeneratorResponse",
         "This cmdlet returns an Amazon.LicenseManager.Model.ReportGenerator object.",
-        "The service call response (type Amazon.LicenseManager.Model.GetLicenseManagerReportGeneratorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManager.Model.GetLicenseManagerReportGeneratorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLICMLicenseManagerReportGeneratorCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

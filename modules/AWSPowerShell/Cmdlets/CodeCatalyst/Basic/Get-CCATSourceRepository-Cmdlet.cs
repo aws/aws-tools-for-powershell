@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [OutputType("Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse")]
     [AWSCmdlet("Calls the AWS CodeCatalyst GetSourceRepository API operation.", Operation = new[] {"GetSourceRepository"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse",
-        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse object containing multiple properties."
     )]
     public partial class GetCCATSourceRepositoryCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain ListMembers API operation.", Operation = new[] {"ListMembers"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.ListMembersResponse))]
     [AWSCmdletOutput("Amazon.ManagedBlockchain.Model.MemberSummary or Amazon.ManagedBlockchain.Model.ListMembersResponse",
         "This cmdlet returns a collection of Amazon.ManagedBlockchain.Model.MemberSummary objects.",
-        "The service call response (type Amazon.ManagedBlockchain.Model.ListMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedBlockchain.Model.ListMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMBCMemberListCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteVoiceConnector API operation.", Operation = new[] {"DeleteVoiceConnector"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteVoiceConnectorResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteVoiceConnectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteVoiceConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteVoiceConnectorResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteVoiceConnector in the Amazon Chime SDK Voice Namespace")]
     public partial class RemoveCHMVoiceConnectorCmdlet : AmazonChimeClientCmdlet, IExecutor

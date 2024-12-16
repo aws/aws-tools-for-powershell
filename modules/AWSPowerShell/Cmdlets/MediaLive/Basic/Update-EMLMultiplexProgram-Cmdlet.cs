@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateMultiplexProgram API operation.", Operation = new[] {"UpdateMultiplexProgram"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateMultiplexProgramResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.MultiplexProgram or Amazon.MediaLive.Model.UpdateMultiplexProgramResponse",
         "This cmdlet returns an Amazon.MediaLive.Model.MultiplexProgram object.",
-        "The service call response (type Amazon.MediaLive.Model.UpdateMultiplexProgramResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.UpdateMultiplexProgramResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEMLMultiplexProgramCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

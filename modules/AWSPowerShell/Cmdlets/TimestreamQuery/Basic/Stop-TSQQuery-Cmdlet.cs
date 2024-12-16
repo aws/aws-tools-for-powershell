@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.CancelQueryResponse))]
     [AWSCmdletOutput("System.String or Amazon.TimestreamQuery.Model.CancelQueryResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.TimestreamQuery.Model.CancelQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamQuery.Model.CancelQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopTSQQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

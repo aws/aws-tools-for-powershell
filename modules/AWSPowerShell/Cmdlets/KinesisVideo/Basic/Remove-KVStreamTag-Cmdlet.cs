@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams UntagStream API operation.", Operation = new[] {"UntagStream"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.UntagStreamResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.UntagStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideo.Model.UntagStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.UntagStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKVStreamTagCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

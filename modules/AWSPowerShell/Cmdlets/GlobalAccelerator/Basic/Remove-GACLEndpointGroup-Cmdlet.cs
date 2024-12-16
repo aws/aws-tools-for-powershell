@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator DeleteEndpointGroup API operation.", Operation = new[] {"DeleteEndpointGroup"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.DeleteEndpointGroupResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.DeleteEndpointGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.DeleteEndpointGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.DeleteEndpointGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGACLEndpointGroupCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

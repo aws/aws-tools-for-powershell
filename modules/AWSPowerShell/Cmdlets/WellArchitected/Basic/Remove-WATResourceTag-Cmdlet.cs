@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WellArchitected.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WellArchitected.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWATResourceTagCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

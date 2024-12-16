@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.CreateTemplateResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight CreateTemplate API operation.", Operation = new[] {"CreateTemplate"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateTemplateResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.CreateTemplateResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CreateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.CreateTemplateResponse object containing multiple properties."
     )]
     public partial class NewQSTemplateCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

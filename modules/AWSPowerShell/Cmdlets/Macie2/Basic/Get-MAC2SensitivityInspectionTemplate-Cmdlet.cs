@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.GetSensitivityInspectionTemplateResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 GetSensitivityInspectionTemplate API operation.", Operation = new[] {"GetSensitivityInspectionTemplate"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetSensitivityInspectionTemplateResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.GetSensitivityInspectionTemplateResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.GetSensitivityInspectionTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.GetSensitivityInspectionTemplateResponse object containing multiple properties."
     )]
     public partial class GetMAC2SensitivityInspectionTemplateCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

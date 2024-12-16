@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.B2bi.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.Tag or Amazon.B2bi.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.B2bi.Model.Tag objects.",
-        "The service call response (type Amazon.B2bi.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetB2BIResourceTagCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

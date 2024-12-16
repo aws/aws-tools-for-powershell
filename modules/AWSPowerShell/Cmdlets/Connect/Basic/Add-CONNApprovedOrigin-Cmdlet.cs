@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service AssociateApprovedOrigin API operation.", Operation = new[] {"AssociateApprovedOrigin"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateApprovedOriginResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateApprovedOriginResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateApprovedOriginResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.AssociateApprovedOriginResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCONNApprovedOriginCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

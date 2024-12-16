@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
     [OutputType("Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse")]
     [AWSCmdlet("Calls the AWS IoT Jobs Data Plane GetPendingJobExecutions API operation.", Operation = new[] {"GetPendingJobExecutions"}, SelectReturnType = typeof(Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse))]
     [AWSCmdletOutput("Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse",
-        "This cmdlet returns an Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTJobsDataPlane.Model.GetPendingJobExecutionsResponse object containing multiple properties."
     )]
     public partial class GetIOTJPendingJobExecutionCmdlet : AmazonIoTJobsDataPlaneClientCmdlet, IExecutor
     {

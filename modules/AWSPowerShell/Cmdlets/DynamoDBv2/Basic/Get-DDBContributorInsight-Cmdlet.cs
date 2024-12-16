@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.DescribeContributorInsightsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeContributorInsights API operation.", Operation = new[] {"DescribeContributorInsights"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeContributorInsightsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DescribeContributorInsightsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeContributorInsightsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeContributorInsightsResponse object containing multiple properties."
     )]
     public partial class GetDDBContributorInsightCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

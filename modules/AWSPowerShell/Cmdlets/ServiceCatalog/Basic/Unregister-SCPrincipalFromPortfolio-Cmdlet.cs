@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DisassociatePrincipalFromPortfolio API operation.", Operation = new[] {"DisassociatePrincipalFromPortfolio"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterSCPrincipalFromPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

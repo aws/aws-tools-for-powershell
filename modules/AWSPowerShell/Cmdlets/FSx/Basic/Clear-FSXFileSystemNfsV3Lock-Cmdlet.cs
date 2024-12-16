@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx ReleaseFileSystemNfsV3Locks API operation.", Operation = new[] {"ReleaseFileSystemNfsV3Locks"}, SelectReturnType = typeof(Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.FileSystem or Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse",
         "This cmdlet returns an Amazon.FSx.Model.FileSystem object.",
-        "The service call response (type Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.ReleaseFileSystemNfsV3LocksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ClearFSXFileSystemNfsV3LockCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

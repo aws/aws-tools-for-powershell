@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service PutMetadata API operation.", Operation = new[] {"PutMetadata"}, SelectReturnType = typeof(Amazon.IVS.Model.PutMetadataResponse))]
     [AWSCmdletOutput("None or Amazon.IVS.Model.PutMetadataResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVS.Model.PutMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVS.Model.PutMetadataResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIVSMetadataCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

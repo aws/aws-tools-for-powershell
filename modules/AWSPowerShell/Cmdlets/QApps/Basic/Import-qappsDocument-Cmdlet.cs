@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps ImportDocument API operation.", Operation = new[] {"ImportDocument"}, SelectReturnType = typeof(Amazon.QApps.Model.ImportDocumentResponse))]
     [AWSCmdletOutput("System.String or Amazon.QApps.Model.ImportDocumentResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QApps.Model.ImportDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QApps.Model.ImportDocumentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportqappsDocumentCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

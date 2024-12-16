@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild BatchGetReports API operation.", Operation = new[] {"BatchGetReports"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.BatchGetReportsResponse))]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Report or Amazon.CodeBuild.Model.BatchGetReportsResponse",
         "This cmdlet returns a collection of Amazon.CodeBuild.Model.Report objects.",
-        "The service call response (type Amazon.CodeBuild.Model.BatchGetReportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeBuild.Model.BatchGetReportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCBReportBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

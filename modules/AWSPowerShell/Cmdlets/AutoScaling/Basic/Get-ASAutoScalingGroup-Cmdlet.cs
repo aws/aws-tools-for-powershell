@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     /// </para><para>
     /// This operation also returns information about instances in Auto Scaling groups. To
-    /// retrieve information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a>
+    /// retrieve information about the instances in a warm pool, you must call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html">DescribeWarmPool</a>
     /// API. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeAutoScalingGroups API operation.", Operation = new[] {"DescribeAutoScalingGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.AutoScalingGroup or Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.AutoScalingGroup objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

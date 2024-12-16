@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag
     /// Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.
     /// </para><para>
-    /// CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified
+    /// CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified
     /// tags to log groups using the <c>aws:Resource/<i>key-name</i></c> or <c>aws:TagKeys</c>
     /// condition keys. For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling
     /// access to Amazon Web Services resources using tags</a>.
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs TagLogGroup API operation.", Operation = new[] {"TagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.TagLogGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.TagLogGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.TagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.TagLogGroupResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Please use the generic tagging API TagResource")]
     public partial class AddCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor

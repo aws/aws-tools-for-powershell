@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateComponent API operation.", Operation = new[] {"UpdateComponent"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateComponentResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationInsights.Model.UpdateComponentResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationInsights.Model.UpdateComponentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationInsights.Model.UpdateComponentResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWAIComponentCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

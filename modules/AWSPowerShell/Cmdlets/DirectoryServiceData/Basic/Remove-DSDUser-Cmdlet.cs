@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
     [AWSCmdlet("Calls the AWS Directory Service Data DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryServiceData.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryServiceData.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryServiceData.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSDUserCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {

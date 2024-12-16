@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot DeleteChimeWebhookConfiguration API operation.", Operation = new[] {"DeleteChimeWebhookConfiguration"}, SelectReturnType = typeof(Amazon.Chatbot.Model.DeleteChimeWebhookConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Chatbot.Model.DeleteChimeWebhookConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.DeleteChimeWebhookConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.DeleteChimeWebhookConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHATChimeWebhookConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

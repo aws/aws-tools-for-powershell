@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.CleanRooms.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSResourceTagCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

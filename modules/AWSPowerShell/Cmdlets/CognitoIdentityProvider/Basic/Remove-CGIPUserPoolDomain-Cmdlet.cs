@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider DeleteUserPoolDomain API operation.", Operation = new[] {"DeleteUserPoolDomain"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.DeleteUserPoolDomainResponse))]
     [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.DeleteUserPoolDomainResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteUserPoolDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteUserPoolDomainResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCGIPUserPoolDomainCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

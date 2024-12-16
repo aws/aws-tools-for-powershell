@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service DisassociateTrackerConsumer API operation.", Operation = new[] {"DisassociateTrackerConsumer"}, SelectReturnType = typeof(Amazon.LocationService.Model.DisassociateTrackerConsumerResponse))]
     [AWSCmdletOutput("None or Amazon.LocationService.Model.DisassociateTrackerConsumerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LocationService.Model.DisassociateTrackerConsumerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LocationService.Model.DisassociateTrackerConsumerResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterLOCTrackerConsumerCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

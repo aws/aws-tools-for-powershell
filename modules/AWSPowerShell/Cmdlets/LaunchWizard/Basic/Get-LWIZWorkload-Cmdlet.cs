@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
     [AWSCmdlet("Calls the AWS Launch Wizard GetWorkload API operation.", Operation = new[] {"GetWorkload"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.GetWorkloadResponse))]
     [AWSCmdletOutput("Amazon.LaunchWizard.Model.WorkloadData or Amazon.LaunchWizard.Model.GetWorkloadResponse",
         "This cmdlet returns an Amazon.LaunchWizard.Model.WorkloadData object.",
-        "The service call response (type Amazon.LaunchWizard.Model.GetWorkloadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LaunchWizard.Model.GetWorkloadResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLWIZWorkloadCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {

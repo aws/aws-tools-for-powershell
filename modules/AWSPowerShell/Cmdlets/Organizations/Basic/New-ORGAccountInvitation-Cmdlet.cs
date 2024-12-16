@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations InviteAccountToOrganization API operation.", Operation = new[] {"InviteAccountToOrganization"}, SelectReturnType = typeof(Amazon.Organizations.Model.InviteAccountToOrganizationResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake or Amazon.Organizations.Model.InviteAccountToOrganizationResponse",
         "This cmdlet returns an Amazon.Organizations.Model.Handshake object.",
-        "The service call response (type Amazon.Organizations.Model.InviteAccountToOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.InviteAccountToOrganizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewORGAccountInvitationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

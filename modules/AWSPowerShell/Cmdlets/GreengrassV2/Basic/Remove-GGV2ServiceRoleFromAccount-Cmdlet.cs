@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 DisassociateServiceRoleFromAccount API operation.", Operation = new[] {"DisassociateServiceRoleFromAccount"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.DisassociateServiceRoleFromAccountResponse))]
     [AWSCmdletOutput("System.String or Amazon.GreengrassV2.Model.DisassociateServiceRoleFromAccountResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GreengrassV2.Model.DisassociateServiceRoleFromAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.DisassociateServiceRoleFromAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGV2ServiceRoleFromAccountCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit BatchDisassociateApprovalRuleTemplateFromRepositories API operation.", Operation = new[] {"BatchDisassociateApprovalRuleTemplateFromRepositories"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse object containing multiple properties."
     )]
     public partial class RemoveCCApprovalRuleTemplateFromRepositoryBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

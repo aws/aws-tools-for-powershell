@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager GetServicesInScope API operation.", Operation = new[] {"GetServicesInScope"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetServicesInScopeResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.ServiceMetadata or Amazon.AuditManager.Model.GetServicesInScopeResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.ServiceMetadata objects.",
-        "The service call response (type Amazon.AuditManager.Model.GetServicesInScopeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.GetServicesInScopeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMServiceInScopeCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

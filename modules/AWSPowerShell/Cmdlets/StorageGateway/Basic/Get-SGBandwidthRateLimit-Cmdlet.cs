@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway DescribeBandwidthRateLimit API operation.", Operation = new[] {"DescribeBandwidthRateLimit"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse object containing multiple properties."
     )]
     public partial class GetSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise BatchDisassociateProjectAssets API operation.", Operation = new[] {"BatchDisassociateProjectAssets"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.BatchDisassociateProjectAssetsResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AssetErrorDetails or Amazon.IoTSiteWise.Model.BatchDisassociateProjectAssetsResponse",
         "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.AssetErrorDetails objects.",
-        "The service call response (type Amazon.IoTSiteWise.Model.BatchDisassociateProjectAssetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTSiteWise.Model.BatchDisassociateProjectAssetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DisconnectIOTSWDisassociateProjectAssetCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

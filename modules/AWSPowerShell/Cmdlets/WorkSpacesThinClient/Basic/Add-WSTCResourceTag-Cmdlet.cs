@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesThinClient.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesThinClient.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesThinClient.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWSTCResourceTagCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

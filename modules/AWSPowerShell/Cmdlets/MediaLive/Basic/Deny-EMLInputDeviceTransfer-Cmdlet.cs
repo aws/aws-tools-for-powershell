@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive RejectInputDeviceTransfer API operation.", Operation = new[] {"RejectInputDeviceTransfer"}, SelectReturnType = typeof(Amazon.MediaLive.Model.RejectInputDeviceTransferResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.RejectInputDeviceTransferResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.RejectInputDeviceTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.RejectInputDeviceTransferResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyEMLInputDeviceTransferCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

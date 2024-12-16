@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
     [AWSCmdlet("Calls the Cost Optimization Hub UpdateEnrollmentStatus API operation.", Operation = new[] {"UpdateEnrollmentStatus"}, SelectReturnType = typeof(Amazon.CostOptimizationHub.Model.UpdateEnrollmentStatusResponse))]
     [AWSCmdletOutput("System.String or Amazon.CostOptimizationHub.Model.UpdateEnrollmentStatusResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CostOptimizationHub.Model.UpdateEnrollmentStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostOptimizationHub.Model.UpdateEnrollmentStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCOHEnrollmentStatusCmdlet : AmazonCostOptimizationHubClientCmdlet, IExecutor
     {

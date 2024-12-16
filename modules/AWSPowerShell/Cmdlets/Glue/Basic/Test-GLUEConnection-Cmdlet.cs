@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue TestConnection API operation.", Operation = new[] {"TestConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.TestConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.TestConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.TestConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.TestConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class TestGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

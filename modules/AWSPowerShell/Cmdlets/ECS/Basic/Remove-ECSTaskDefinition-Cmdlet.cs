@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DeleteTaskDefinitionsResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteTaskDefinitions API operation.", Operation = new[] {"DeleteTaskDefinitions"}, SelectReturnType = typeof(Amazon.ECS.Model.DeleteTaskDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.DeleteTaskDefinitionsResponse",
-        "This cmdlet returns an Amazon.ECS.Model.DeleteTaskDefinitionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.DeleteTaskDefinitionsResponse object containing multiple properties."
     )]
     public partial class RemoveECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {

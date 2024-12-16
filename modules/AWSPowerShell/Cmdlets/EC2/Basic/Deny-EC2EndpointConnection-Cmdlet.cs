@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) RejectVpcEndpointConnections API operation.", Operation = new[] {"RejectVpcEndpointConnections"}, SelectReturnType = typeof(Amazon.EC2.Model.RejectVpcEndpointConnectionsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.RejectVpcEndpointConnectionsResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
-        "The service call response (type Amazon.EC2.Model.RejectVpcEndpointConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RejectVpcEndpointConnectionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyEC2EndpointConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

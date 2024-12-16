@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     [AWSCmdlet("Calls the Amazon Timestream Write ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.TimestreamWrite.Model.Tag or Amazon.TimestreamWrite.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.TimestreamWrite.Model.Tag objects.",
-        "The service call response (type Amazon.TimestreamWrite.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamWrite.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTSWResourceTagListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {

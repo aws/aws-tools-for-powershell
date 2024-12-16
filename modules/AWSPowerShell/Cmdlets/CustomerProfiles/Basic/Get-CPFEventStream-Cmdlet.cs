@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetEventStreamResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetEventStream API operation.", Operation = new[] {"GetEventStream"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetEventStreamResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetEventStreamResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetEventStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetEventStreamResponse object containing multiple properties."
     )]
     public partial class GetCPFEventStreamCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

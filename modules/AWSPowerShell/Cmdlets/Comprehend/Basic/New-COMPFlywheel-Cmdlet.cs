@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.CreateFlywheelResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend CreateFlywheel API operation.", Operation = new[] {"CreateFlywheel"}, SelectReturnType = typeof(Amazon.Comprehend.Model.CreateFlywheelResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.CreateFlywheelResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.CreateFlywheelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.CreateFlywheelResponse object containing multiple properties."
     )]
     public partial class NewCOMPFlywheelCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

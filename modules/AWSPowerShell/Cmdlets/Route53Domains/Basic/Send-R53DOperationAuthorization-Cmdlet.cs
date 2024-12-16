@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains ResendOperationAuthorization API operation.", Operation = new[] {"ResendOperationAuthorization"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse))]
     [AWSCmdletOutput("None or Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendR53DOperationAuthorizationCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

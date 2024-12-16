@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless AssociateAwsAccountWithPartnerAccount API operation.", Operation = new[] {"AssociateAwsAccountWithPartnerAccount"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.AssociateAwsAccountWithPartnerAccountResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.SidewalkAccountInfo or Amazon.IoTWireless.Model.AssociateAwsAccountWithPartnerAccountResponse",
         "This cmdlet returns an Amazon.IoTWireless.Model.SidewalkAccountInfo object.",
-        "The service call response (type Amazon.IoTWireless.Model.AssociateAwsAccountWithPartnerAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.AssociateAwsAccountWithPartnerAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class JoinIOTWAwsAccountWithPartnerAccountCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

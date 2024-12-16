@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     [AWSCmdlet("Calls the AWS IoT Fleet Hub ListApplications API operation.", Operation = new[] {"ListApplications"}, SelectReturnType = typeof(Amazon.IoTFleetHub.Model.ListApplicationsResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetHub.Model.ApplicationSummary or Amazon.IoTFleetHub.Model.ListApplicationsResponse",
         "This cmdlet returns a collection of Amazon.IoTFleetHub.Model.ApplicationSummary objects.",
-        "The service call response (type Amazon.IoTFleetHub.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTFleetHub.Model.ListApplicationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTFHApplicationListCmdlet : AmazonIoTFleetHubClientCmdlet, IExecutor
     {

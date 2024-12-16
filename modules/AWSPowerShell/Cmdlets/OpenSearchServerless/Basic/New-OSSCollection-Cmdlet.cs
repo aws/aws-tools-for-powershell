@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless CreateCollection API operation.", Operation = new[] {"CreateCollection"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.CreateCollectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.CreateCollectionDetail or Amazon.OpenSearchServerless.Model.CreateCollectionResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.CreateCollectionDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.CreateCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.CreateCollectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewOSSCollectionCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

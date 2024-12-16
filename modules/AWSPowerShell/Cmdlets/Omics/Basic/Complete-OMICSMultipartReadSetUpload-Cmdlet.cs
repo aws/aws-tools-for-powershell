@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics CompleteMultipartReadSetUpload API operation.", Operation = new[] {"CompleteMultipartReadSetUpload"}, SelectReturnType = typeof(Amazon.Omics.Model.CompleteMultipartReadSetUploadResponse))]
     [AWSCmdletOutput("System.String or Amazon.Omics.Model.CompleteMultipartReadSetUploadResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Omics.Model.CompleteMultipartReadSetUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.CompleteMultipartReadSetUploadResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CompleteOMICSMultipartReadSetUploadCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

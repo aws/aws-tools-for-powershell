@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx CreateFileCache API operation.", Operation = new[] {"CreateFileCache"}, SelectReturnType = typeof(Amazon.FSx.Model.CreateFileCacheResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.FileCacheCreating or Amazon.FSx.Model.CreateFileCacheResponse",
         "This cmdlet returns an Amazon.FSx.Model.FileCacheCreating object.",
-        "The service call response (type Amazon.FSx.Model.CreateFileCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.CreateFileCacheResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewFSXFileCacheCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

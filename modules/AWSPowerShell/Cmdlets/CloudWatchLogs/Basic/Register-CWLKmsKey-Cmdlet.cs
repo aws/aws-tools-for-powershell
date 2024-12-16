@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs AssociateKmsKey API operation.", Operation = new[] {"AssociateKmsKey"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.AssociateKmsKeyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.AssociateKmsKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.AssociateKmsKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.AssociateKmsKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterCWLKmsKeyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

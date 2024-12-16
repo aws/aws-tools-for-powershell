@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AllocateAddress API operation.", Operation = new[] {"AllocateAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AllocateAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AllocateAddressResponse object containing multiple properties."
     )]
     public partial class NewEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -101,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of an IPAM pool.</para>
+        /// <para>The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned
+        /// to it. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html">Allocate
+        /// sequential Elastic IP addresses from an IPAM pool</a> in the <i>Amazon VPC IPAM User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

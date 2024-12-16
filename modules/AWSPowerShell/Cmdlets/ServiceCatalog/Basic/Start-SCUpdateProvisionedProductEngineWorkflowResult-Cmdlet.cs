@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog NotifyUpdateProvisionedProductEngineWorkflowResult API operation.", Operation = new[] {"NotifyUpdateProvisionedProductEngineWorkflowResult"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.NotifyUpdateProvisionedProductEngineWorkflowResultResponse))]
     [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.NotifyUpdateProvisionedProductEngineWorkflowResultResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServiceCatalog.Model.NotifyUpdateProvisionedProductEngineWorkflowResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServiceCatalog.Model.NotifyUpdateProvisionedProductEngineWorkflowResultResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartSCUpdateProvisionedProductEngineWorkflowResultCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

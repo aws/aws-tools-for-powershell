@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     [OutputType("Amazon.MigrationHub.Model.DescribeApplicationStateResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub DescribeApplicationState API operation.", Operation = new[] {"DescribeApplicationState"}, SelectReturnType = typeof(Amazon.MigrationHub.Model.DescribeApplicationStateResponse))]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.DescribeApplicationStateResponse",
-        "This cmdlet returns an Amazon.MigrationHub.Model.DescribeApplicationStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHub.Model.DescribeApplicationStateResponse object containing multiple properties."
     )]
     public partial class GetMHApplicationStateCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {

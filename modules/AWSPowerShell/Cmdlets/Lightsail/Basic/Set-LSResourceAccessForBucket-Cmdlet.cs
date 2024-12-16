@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail SetResourceAccessForBucket API operation.", Operation = new[] {"SetResourceAccessForBucket"}, SelectReturnType = typeof(Amazon.Lightsail.Model.SetResourceAccessForBucketResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.SetResourceAccessForBucketResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.SetResourceAccessForBucketResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.SetResourceAccessForBucketResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetLSResourceAccessForBucketCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

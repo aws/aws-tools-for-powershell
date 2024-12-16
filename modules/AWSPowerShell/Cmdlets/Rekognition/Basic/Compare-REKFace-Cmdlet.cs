@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.CompareFacesResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition CompareFaces API operation.", Operation = new[] {"CompareFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.CompareFacesResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.CompareFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.CompareFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.CompareFacesResponse object containing multiple properties."
     )]
     public partial class CompareREKFaceCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

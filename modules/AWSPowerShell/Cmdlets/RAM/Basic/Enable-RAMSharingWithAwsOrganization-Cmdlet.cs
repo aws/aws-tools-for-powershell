@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) EnableSharingWithAwsOrganization API operation.", Operation = new[] {"EnableSharingWithAwsOrganization"}, SelectReturnType = typeof(Amazon.RAM.Model.EnableSharingWithAwsOrganizationResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.RAM.Model.EnableSharingWithAwsOrganizationResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.RAM.Model.EnableSharingWithAwsOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.RAM.Model.EnableSharingWithAwsOrganizationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableRAMSharingWithAwsOrganizationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

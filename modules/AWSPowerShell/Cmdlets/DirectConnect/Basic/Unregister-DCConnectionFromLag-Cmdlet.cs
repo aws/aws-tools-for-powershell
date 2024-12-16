@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect DisassociateConnectionFromLag API operation.", Operation = new[] {"DisassociateConnectionFromLag"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse object containing multiple properties."
     )]
     public partial class UnregisterDCConnectionFromLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

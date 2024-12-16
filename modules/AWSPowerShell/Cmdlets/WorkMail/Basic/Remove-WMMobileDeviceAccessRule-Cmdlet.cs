@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteMobileDeviceAccessRule API operation.", Operation = new[] {"DeleteMobileDeviceAccessRule"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteMobileDeviceAccessRuleResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteMobileDeviceAccessRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteMobileDeviceAccessRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteMobileDeviceAccessRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMMobileDeviceAccessRuleCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

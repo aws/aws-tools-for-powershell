@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// require MFA authentication. An incorrect MFA code causes the API to return an access
     /// denied error. For a comparison of <c>GetSessionToken</c> with the other API operations
     /// that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
-    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
-    /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
+    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare
+    /// STS credentials</a> in the <i>IAM User Guide</i>.
     /// </para><note><para>
     /// No permissions are required for users to perform this operation. The purpose of the
     /// <c>sts:GetSessionToken</c> operation is to authenticate the user using MFA. You cannot
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdlet("Calls the AWS Security Token Service (STS) GetSessionToken API operation.", Operation = new[] {"GetSessionToken"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.GetSessionTokenResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.Credentials or Amazon.SecurityToken.Model.GetSessionTokenResponse",
         "This cmdlet returns an Amazon.SecurityToken.Model.Credentials object.",
-        "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

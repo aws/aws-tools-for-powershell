@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver CreateFirewallRule API operation.", Operation = new[] {"CreateFirewallRule"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.CreateFirewallRuleResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallRule or Amazon.Route53Resolver.Model.CreateFirewallRuleResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.FirewallRule object.",
-        "The service call response (type Amazon.Route53Resolver.Model.CreateFirewallRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.CreateFirewallRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewR53RFirewallRuleCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {
@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>The action that DNS Firewall should take on a DNS query when it matches one of the
-        /// domains in the rule's domain list:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through.</para></li><li><para><c>ALERT</c> - Permit the request and send metrics and logs to Cloud Watch.</para></li><li><para><c>BLOCK</c> - Disallow the request. This option requires additional details in the
+        /// domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</para><ul><li><para><c>ALLOW</c> - Permit the request to go through. Not available for DNS Firewall Advanced
+        /// rules.</para></li><li><para><c>ALERT</c> - Permit the request and send metrics and logs to Cloud Watch.</para></li><li><para><c>BLOCK</c> - Disallow the request. This option requires additional details in the
         /// rule's <c>BlockResponse</c>. </para></li></ul>
         /// </para>
         /// </summary>
@@ -113,6 +114,20 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public Amazon.Route53Resolver.BlockResponse BlockResponse { get; set; }
         #endregion
         
+        #region Parameter ConfidenceThreshold
+        /// <summary>
+        /// <para>
+        /// <para> The confidence threshold for DNS Firewall Advanced. You must provide this value when
+        /// you create a DNS Firewall Advanced rule. The confidence level values mean: </para><ul><li><para><c>LOW</c>: Provides the highest detection rate for threats, but also increases false
+        /// positives.</para></li><li><para><c>MEDIUM</c>: Provides a balance between detecting threats and false positives.</para></li><li><para><c>HIGH</c>: Detects only the most well corroborated threats with a low rate of false
+        /// positives. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.ConfidenceThreshold")]
+        public Amazon.Route53Resolver.ConfidenceThreshold ConfidenceThreshold { get; set; }
+        #endregion
+        
         #region Parameter CreatorRequestId
         /// <summary>
         /// <para>
@@ -125,20 +140,25 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String CreatorRequestId { get; set; }
         #endregion
         
+        #region Parameter DnsThreatProtection
+        /// <summary>
+        /// <para>
+        /// <para> Use to create a DNS Firewall Advanced rule. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.DnsThreatProtection")]
+        public Amazon.Route53Resolver.DnsThreatProtection DnsThreatProtection { get; set; }
+        #endregion
+        
         #region Parameter FirewallDomainListId
         /// <summary>
         /// <para>
-        /// <para>The ID of the domain list that you want to use in the rule. </para>
+        /// <para>The ID of the domain list that you want to use in the rule. Can't be used together
+        /// with <c>DnsThreatProtecton</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FirewallDomainListId { get; set; }
         #endregion
         
@@ -146,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para> How you want the the rule to evaluate DNS redirection in the DNS redirection chain,
-        /// such as CNAME or DNAME. </para><para><c>Inspect_Redirection_Domain </c>(Default) inspects all domains in the redirection
+        /// such as CNAME or DNAME. </para><para><c>INSPECT_REDIRECTION_DOMAIN</c>: (Default) inspects all domains in the redirection
         /// chain. The individual domains in the redirection chain must be added to the domain
-        /// list.</para><para><c>Trust_Redirection_Domain </c> inspects only the first domain in the redirection
+        /// list.</para><para><c>TRUST_REDIRECTION_DOMAIN</c>: Inspects only the first domain in the redirection
         /// chain. You don't need to add the subsequent domains in the domain in the redirection
         /// list to the domain list.</para>
         /// </para>
@@ -280,14 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             context.BlockOverrideDomain = this.BlockOverrideDomain;
             context.BlockOverrideTtl = this.BlockOverrideTtl;
             context.BlockResponse = this.BlockResponse;
+            context.ConfidenceThreshold = this.ConfidenceThreshold;
             context.CreatorRequestId = this.CreatorRequestId;
+            context.DnsThreatProtection = this.DnsThreatProtection;
             context.FirewallDomainListId = this.FirewallDomainListId;
-            #if MODULAR
-            if (this.FirewallDomainListId == null && ParameterWasBound(nameof(this.FirewallDomainListId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FirewallDomainListId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.FirewallDomainRedirectionAction = this.FirewallDomainRedirectionAction;
             context.FirewallRuleGroupId = this.FirewallRuleGroupId;
             #if MODULAR
@@ -347,9 +363,17 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             {
                 request.BlockResponse = cmdletContext.BlockResponse;
             }
+            if (cmdletContext.ConfidenceThreshold != null)
+            {
+                request.ConfidenceThreshold = cmdletContext.ConfidenceThreshold;
+            }
             if (cmdletContext.CreatorRequestId != null)
             {
                 request.CreatorRequestId = cmdletContext.CreatorRequestId;
+            }
+            if (cmdletContext.DnsThreatProtection != null)
+            {
+                request.DnsThreatProtection = cmdletContext.DnsThreatProtection;
             }
             if (cmdletContext.FirewallDomainListId != null)
             {
@@ -441,7 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.String BlockOverrideDomain { get; set; }
             public System.Int32? BlockOverrideTtl { get; set; }
             public Amazon.Route53Resolver.BlockResponse BlockResponse { get; set; }
+            public Amazon.Route53Resolver.ConfidenceThreshold ConfidenceThreshold { get; set; }
             public System.String CreatorRequestId { get; set; }
+            public Amazon.Route53Resolver.DnsThreatProtection DnsThreatProtection { get; set; }
             public System.String FirewallDomainListId { get; set; }
             public Amazon.Route53Resolver.FirewallDomainRedirectionAction FirewallDomainRedirectionAction { get; set; }
             public System.String FirewallRuleGroupId { get; set; }

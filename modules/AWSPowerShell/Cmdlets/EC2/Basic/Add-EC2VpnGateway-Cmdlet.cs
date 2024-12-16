@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Attaches a virtual private gateway to a VPC. You can attach one virtual private gateway
-    /// to one VPC at a time.
+    /// Attaches an available virtual private gateway to a VPC. You can attach one virtual
+    /// private gateway to one VPC at a time.
     /// 
     ///  
     /// <para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AttachVpnGateway API operation.", Operation = new[] {"AttachVpnGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.AttachVpnGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcAttachment or Amazon.EC2.Model.AttachVpnGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.VpcAttachment object.",
-        "The service call response (type Amazon.EC2.Model.AttachVpnGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AttachVpnGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

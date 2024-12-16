@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift ModifyCluster API operation.", Operation = new[] {"ModifyCluster"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyClusterResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster or Amazon.Redshift.Model.ModifyClusterResponse",
         "This cmdlet returns an Amazon.Redshift.Model.Cluster object.",
-        "The service call response (type Amazon.Redshift.Model.ModifyClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifyClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -350,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The new node type of the cluster. If you specify a new node type, you must also specify
         /// the number of nodes parameter.</para><para> For more information about resizing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing
-        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c>
-        /// | <c>ra3.16xlarge</c></para>
+        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.large</c> | <c>ra3.xlplus</c>
+        /// | <c>ra3.4xlarge</c> | <c>ra3.16xlarge</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     [AWSCmdlet("Calls the AWS Parallel Computing Service CreateQueue API operation.", Operation = new[] {"CreateQueue"}, SelectReturnType = typeof(Amazon.PCS.Model.CreateQueueResponse))]
     [AWSCmdletOutput("Amazon.PCS.Model.Queue or Amazon.PCS.Model.CreateQueueResponse",
         "This cmdlet returns an Amazon.PCS.Model.Queue object.",
-        "The service call response (type Amazon.PCS.Model.CreateQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PCS.Model.CreateQueueResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPCSQueueCmdlet : AmazonPCSClientCmdlet, IExecutor
     {

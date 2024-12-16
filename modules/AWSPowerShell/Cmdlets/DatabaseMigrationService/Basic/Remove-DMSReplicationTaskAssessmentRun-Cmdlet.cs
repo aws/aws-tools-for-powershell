@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DeleteReplicationTaskAssessmentRun API operation.", Operation = new[] {"DeleteReplicationTaskAssessmentRun"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DeleteReplicationTaskAssessmentRunResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun or Amazon.DatabaseMigrationService.Model.DeleteReplicationTaskAssessmentRunResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationTaskAssessmentRun object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteReplicationTaskAssessmentRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteReplicationTaskAssessmentRunResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDMSReplicationTaskAssessmentRunCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager DeleteOpsItem API operation.", Operation = new[] {"DeleteOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteOpsItemResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

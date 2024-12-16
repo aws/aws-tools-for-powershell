@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless SendDataToWirelessDevice API operation.", Operation = new[] {"SendDataToWirelessDevice"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.SendDataToWirelessDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendIOTWDataToWirelessDeviceCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

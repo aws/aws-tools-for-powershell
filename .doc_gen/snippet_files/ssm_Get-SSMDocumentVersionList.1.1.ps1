@@ -1,1 +1,1 @@
-Get-SSMDocumentPermission -Name "RunShellScript" -PermissionType "Share"
+Get-SSMDocumentVersionList -Name "AWS-UpdateSSMAgent"

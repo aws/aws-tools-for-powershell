@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [OutputType("Amazon.SecurityLake.Model.CreateCustomLogSourceResponse")]
     [AWSCmdlet("Calls the Amazon Security Lake CreateCustomLogSource API operation.", Operation = new[] {"CreateCustomLogSource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.CreateCustomLogSourceResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.CreateCustomLogSourceResponse",
-        "This cmdlet returns an Amazon.SecurityLake.Model.CreateCustomLogSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityLake.Model.CreateCustomLogSourceResponse object containing multiple properties."
     )]
     public partial class NewSLKCustomLogSourceCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ProviderIdentity_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
+        /// <para>The external ID used to establish trust relationship with the Amazon Web Services
+        /// identity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ProviderIdentity_Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS identity principal.</para>
+        /// <para>The Amazon Web Services identity principal.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <summary>
         /// <para>
         /// <para>Specify the name for a third-party custom source. This must be a Regionally unique
-        /// value.</para>
+        /// value. The <c>sourceName</c> you enter here, is used in the <c>LogProviderRole</c>
+        /// name which follows the convention <c>AmazonSecurityLake-Provider-{name of the custom
+        /// source}-{region}</c>. You must use a <c>CustomLogSource</c> name that is shorter than
+        /// or equal to 20 characters. This ensures that the <c>LogProviderRole</c> name is below
+        /// the 64 character limit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

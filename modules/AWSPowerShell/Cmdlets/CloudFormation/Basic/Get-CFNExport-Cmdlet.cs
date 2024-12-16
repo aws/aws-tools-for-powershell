@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">
-    /// CloudFormation export stack output values</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">Get
+    /// exported outputs from a deployed CloudFormation stack</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNExport")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation ListExports API operation.", Operation = new[] {"ListExports"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ListExportsResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.Export or Amazon.CloudFormation.Model.ListExportsResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.Export objects.",
-        "The service call response (type Amazon.CloudFormation.Model.ListExportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.ListExportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNExportCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

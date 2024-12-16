@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [AWSCmdlet("Calls the Amazon Managed Grafana DisassociateLicense API operation.", Operation = new[] {"DisassociateLicense"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DisassociateLicenseResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.WorkspaceDescription or Amazon.ManagedGrafana.Model.DisassociateLicenseResponse",
         "This cmdlet returns an Amazon.ManagedGrafana.Model.WorkspaceDescription object.",
-        "The service call response (type Amazon.ManagedGrafana.Model.DisassociateLicenseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ManagedGrafana.Model.DisassociateLicenseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGRFLicenseCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud StartSessionsStatisticsAggregation API operation.", Operation = new[] {"StartSessionsStatisticsAggregation"}, SelectReturnType = typeof(Amazon.Deadline.Model.StartSessionsStatisticsAggregationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Deadline.Model.StartSessionsStatisticsAggregationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Deadline.Model.StartSessionsStatisticsAggregationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.StartSessionsStatisticsAggregationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartADCSessionsStatisticsAggregationCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

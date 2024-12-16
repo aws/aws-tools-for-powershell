@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service StopSourceNetworkReplication API operation.", Operation = new[] {"StopSourceNetworkReplication"}, SelectReturnType = typeof(Amazon.Drs.Model.StopSourceNetworkReplicationResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.SourceNetwork or Amazon.Drs.Model.StopSourceNetworkReplicationResponse",
         "This cmdlet returns an Amazon.Drs.Model.SourceNetwork object.",
-        "The service call response (type Amazon.Drs.Model.StopSourceNetworkReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.StopSourceNetworkReplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopEDRSSourceNetworkReplicationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

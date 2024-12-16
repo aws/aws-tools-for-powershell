@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service CreateAnalysisTemplate API operation.", Operation = new[] {"CreateAnalysisTemplate"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.AnalysisTemplate or Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.AnalysisTemplate object.",
-        "The service call response (type Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCRSAnalysisTemplateCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management DeleteRolePolicy API operation.", Operation = new[] {"DeleteRolePolicy"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.DeleteRolePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.DeleteRolePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteRolePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

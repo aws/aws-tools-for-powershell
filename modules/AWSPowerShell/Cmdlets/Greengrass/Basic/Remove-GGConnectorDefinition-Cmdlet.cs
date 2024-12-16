@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass DeleteConnectorDefinition API operation.", Operation = new[] {"DeleteConnectorDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.DeleteConnectorDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.DeleteConnectorDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.DeleteConnectorDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.DeleteConnectorDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGConnectorDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

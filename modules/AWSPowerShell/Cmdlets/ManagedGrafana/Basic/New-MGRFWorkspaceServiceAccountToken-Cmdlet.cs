@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     [OutputType("Amazon.ManagedGrafana.Model.CreateWorkspaceServiceAccountTokenResponse")]
     [AWSCmdlet("Calls the Amazon Managed Grafana CreateWorkspaceServiceAccountToken API operation.", Operation = new[] {"CreateWorkspaceServiceAccountToken"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.CreateWorkspaceServiceAccountTokenResponse))]
     [AWSCmdletOutput("Amazon.ManagedGrafana.Model.CreateWorkspaceServiceAccountTokenResponse",
-        "This cmdlet returns an Amazon.ManagedGrafana.Model.CreateWorkspaceServiceAccountTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ManagedGrafana.Model.CreateWorkspaceServiceAccountTokenResponse object containing multiple properties."
     )]
     public partial class NewMGRFWorkspaceServiceAccountTokenCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {

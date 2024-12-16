@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API operation is superseded by <a>AttachTrafficSources</a>, which can attach
-    /// multiple traffic sources types. We recommend using <c>AttachTrafficSources</c> to
-    /// simplify how you manage traffic sources. However, we continue to support <c>AttachLoadBalancerTargetGroups</c>.
+    /// This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>,
+    /// which can attach multiple traffic sources types. We recommend using <c>AttachTrafficSources</c>
+    /// to simplify how you manage traffic sources. However, we continue to support <c>AttachLoadBalancerTargetGroups</c>.
     /// You can use both the original <c>AttachLoadBalancerTargetGroups</c> API operation
     /// and <c>AttachTrafficSources</c> on the same Auto Scaling group.
     /// </para></note><para>
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para>
     /// Gateway Load Balancer - Operates at the network layer (layer 3).
     /// </para></li></ul><para>
-    /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
-    /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
+    /// To describe the target groups for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
+    /// API. To detach the target group from the Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a>
     /// API.
     /// </para><para>
     /// This operation is additive and does not detach existing target groups or Classic Load
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachLoadBalancerTargetGroups API operation.", Operation = new[] {"AttachLoadBalancerTargetGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddASLoadBalancerTargetGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

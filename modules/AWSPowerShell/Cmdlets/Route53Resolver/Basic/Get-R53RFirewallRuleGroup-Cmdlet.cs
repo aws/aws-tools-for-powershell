@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver GetFirewallRuleGroup API operation.", Operation = new[] {"GetFirewallRuleGroup"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.GetFirewallRuleGroupResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallRuleGroup or Amazon.Route53Resolver.Model.GetFirewallRuleGroupResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.FirewallRuleGroup object.",
-        "The service call response (type Amazon.Route53Resolver.Model.GetFirewallRuleGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.GetFirewallRuleGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RFirewallRuleGroupCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetFunctionEventInvokeConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda GetFunctionEventInvokeConfig API operation.", Operation = new[] {"GetFunctionEventInvokeConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetFunctionEventInvokeConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionEventInvokeConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetFunctionEventInvokeConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.GetFunctionEventInvokeConfigResponse object containing multiple properties."
     )]
     public partial class GetLMFunctionEventInvokeConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

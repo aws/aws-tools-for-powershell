@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DeregisterEventTopic API operation.", Operation = new[] {"DeregisterEventTopic"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeregisterEventTopicResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DeregisterEventTopicResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DeregisterEventTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DeregisterEventTopicResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterDSEventTopicCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

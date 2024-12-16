@@ -451,6 +451,7 @@ $ADC_SelectMap = @{
                "Get-ADCFleetMemberList",
                "Get-ADCFleetList",
                "Get-ADCJobMemberList",
+               "Get-ADCJobParameterDefinitionList",
                "Get-ADCJobList",
                "Get-ADCLicenseEndpointList",
                "Get-ADCMeteredProductList",

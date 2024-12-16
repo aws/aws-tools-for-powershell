@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight GenerateEmbedUrlForAnonymousUser API operation.", Operation = new[] {"GenerateEmbedUrlForAnonymousUser"}, SelectReturnType = typeof(Amazon.QuickSight.Model.GenerateEmbedUrlForAnonymousUserResponse))]
     [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.GenerateEmbedUrlForAnonymousUserResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QuickSight.Model.GenerateEmbedUrlForAnonymousUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.GenerateEmbedUrlForAnonymousUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewQSEmbedUrlForAnonymousUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

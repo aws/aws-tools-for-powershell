@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager DisassociateAssessmentReportEvidenceFolder API operation.", Operation = new[] {"DisassociateAssessmentReportEvidenceFolder"}, SelectReturnType = typeof(Amazon.AuditManager.Model.DisassociateAssessmentReportEvidenceFolderResponse))]
     [AWSCmdletOutput("None or Amazon.AuditManager.Model.DisassociateAssessmentReportEvidenceFolderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AuditManager.Model.DisassociateAssessmentReportEvidenceFolderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AuditManager.Model.DisassociateAssessmentReportEvidenceFolderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAUDMAssessmentReportEvidenceFolderCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

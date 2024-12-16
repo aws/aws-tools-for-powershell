@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [OutputType("Amazon.ConfigService.Model.BatchGetAggregateResourceConfigResponse")]
     [AWSCmdlet("Calls the AWS Config BatchGetAggregateResourceConfig API operation.", Operation = new[] {"BatchGetAggregateResourceConfig"}, SelectReturnType = typeof(Amazon.ConfigService.Model.BatchGetAggregateResourceConfigResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.BatchGetAggregateResourceConfigResponse",
-        "This cmdlet returns an Amazon.ConfigService.Model.BatchGetAggregateResourceConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ConfigService.Model.BatchGetAggregateResourceConfigResponse object containing multiple properties."
     )]
     public partial class GetCFGAggregateResourceConfigBatchCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

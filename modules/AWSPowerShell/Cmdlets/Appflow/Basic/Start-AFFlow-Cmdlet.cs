@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     [OutputType("Amazon.Appflow.Model.StartFlowResponse")]
     [AWSCmdlet("Calls the Amazon Appflow StartFlow API operation.", Operation = new[] {"StartFlow"}, SelectReturnType = typeof(Amazon.Appflow.Model.StartFlowResponse))]
     [AWSCmdletOutput("Amazon.Appflow.Model.StartFlowResponse",
-        "This cmdlet returns an Amazon.Appflow.Model.StartFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Appflow.Model.StartFlowResponse object containing multiple properties."
     )]
     public partial class StartAFFlowCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {

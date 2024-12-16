@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot DescribeChimeWebhookConfigurations API operation.", Operation = new[] {"DescribeChimeWebhookConfigurations"}, SelectReturnType = typeof(Amazon.Chatbot.Model.DescribeChimeWebhookConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.Chatbot.Model.ChimeWebhookConfiguration or Amazon.Chatbot.Model.DescribeChimeWebhookConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.Chatbot.Model.ChimeWebhookConfiguration objects.",
-        "The service call response (type Amazon.Chatbot.Model.DescribeChimeWebhookConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chatbot.Model.DescribeChimeWebhookConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHATChimeWebhookConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

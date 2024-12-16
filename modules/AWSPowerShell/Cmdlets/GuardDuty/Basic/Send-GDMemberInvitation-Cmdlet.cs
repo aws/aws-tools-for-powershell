@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty InviteMembers API operation.", Operation = new[] {"InviteMembers"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.InviteMembersResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UnprocessedAccount or Amazon.GuardDuty.Model.InviteMembersResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.GuardDuty.Model.InviteMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.InviteMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendGDMemberInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -100,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The unique ID of the detector of the GuardDuty account with which you want to invite
-        /// members.</para>
+        /// members.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

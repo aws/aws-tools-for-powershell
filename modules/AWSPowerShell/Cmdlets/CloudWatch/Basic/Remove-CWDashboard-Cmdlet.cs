@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch DeleteDashboards API operation.", Operation = new[] {"DeleteDashboards"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DeleteDashboardsResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.DeleteDashboardsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.DeleteDashboardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.DeleteDashboardsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWDashboardCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

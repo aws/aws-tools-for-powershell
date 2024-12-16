@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service CreateBlueGreenDeployment API operation.", Operation = new[] {"CreateBlueGreenDeployment"}, SelectReturnType = typeof(Amazon.RDS.Model.CreateBlueGreenDeploymentResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.BlueGreenDeployment or Amazon.RDS.Model.CreateBlueGreenDeploymentResponse",
         "This cmdlet returns an Amazon.RDS.Model.BlueGreenDeployment object.",
-        "The service call response (type Amazon.RDS.Model.CreateBlueGreenDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateBlueGreenDeploymentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRDSBlueGreenDeploymentCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

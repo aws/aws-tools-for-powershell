@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder ExportForms API operation.", Operation = new[] {"ExportForms"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.ExportFormsResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.Form or Amazon.AmplifyUIBuilder.Model.ExportFormsResponse",
         "This cmdlet returns a collection of Amazon.AmplifyUIBuilder.Model.Form objects.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.ExportFormsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.ExportFormsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportAMPUIFormCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

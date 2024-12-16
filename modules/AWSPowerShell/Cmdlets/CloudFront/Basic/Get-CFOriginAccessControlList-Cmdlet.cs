@@ -28,7 +28,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets the list of CloudFront origin access controls in this Amazon Web Services account.
+    /// Gets the list of CloudFront origin access controls (OACs) in this Amazon Web Services
+    /// account.
     /// 
     ///  
     /// <para>
@@ -37,14 +38,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the default maximum, the response is paginated. To get the next page of items, send
     /// another request that specifies the <c>NextMarker</c> value from the current response
     /// as the <c>Marker</c> value in the next request.
-    /// </para>
+    /// </para><note><para>
+    /// If you're not using origin access controls for your Amazon Web Services account, the
+    /// <c>ListOriginAccessControls</c> operation doesn't return the <c>Items</c> element
+    /// in the response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFOriginAccessControlList")]
     [OutputType("Amazon.CloudFront.Model.OriginAccessControlList")]
     [AWSCmdlet("Calls the Amazon CloudFront ListOriginAccessControls API operation.", Operation = new[] {"ListOriginAccessControls"}, SelectReturnType = typeof(Amazon.CloudFront.Model.ListOriginAccessControlsResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.OriginAccessControlList or Amazon.CloudFront.Model.ListOriginAccessControlsResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.OriginAccessControlList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListOriginAccessControlsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListOriginAccessControlsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFOriginAccessControlListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

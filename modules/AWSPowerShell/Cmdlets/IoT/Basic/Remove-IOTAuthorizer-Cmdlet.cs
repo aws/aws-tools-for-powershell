@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteAuthorizer API operation.", Operation = new[] {"DeleteAuthorizer"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteAuthorizerResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteAuthorizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteAuthorizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteAuthorizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTAuthorizerCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

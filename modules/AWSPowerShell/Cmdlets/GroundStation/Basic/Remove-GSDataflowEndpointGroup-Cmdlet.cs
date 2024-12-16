@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station DeleteDataflowEndpointGroup API operation.", Operation = new[] {"DeleteDataflowEndpointGroup"}, SelectReturnType = typeof(Amazon.GroundStation.Model.DeleteDataflowEndpointGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.DeleteDataflowEndpointGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.DeleteDataflowEndpointGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GroundStation.Model.DeleteDataflowEndpointGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGSDataflowEndpointGroupCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

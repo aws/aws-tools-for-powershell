@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Calls the Amazon Elastic File System DescribeReplicationConfigurations API operation.", Operation = new[] {"DescribeReplicationConfigurations"}, SelectReturnType = typeof(Amazon.ElasticFileSystem.Model.DescribeReplicationConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.ReplicationConfigurationDescription or Amazon.ElasticFileSystem.Model.DescribeReplicationConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.ReplicationConfigurationDescription objects.",
-        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeReplicationConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeReplicationConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEFSReplicationConfigurationCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {

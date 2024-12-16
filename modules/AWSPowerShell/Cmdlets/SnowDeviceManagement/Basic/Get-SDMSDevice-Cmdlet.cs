@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     [OutputType("Amazon.SnowDeviceManagement.Model.DescribeDeviceResponse")]
     [AWSCmdlet("Calls the AWS Snow Device Management DescribeDevice API operation.", Operation = new[] {"DescribeDevice"}, SelectReturnType = typeof(Amazon.SnowDeviceManagement.Model.DescribeDeviceResponse))]
     [AWSCmdletOutput("Amazon.SnowDeviceManagement.Model.DescribeDeviceResponse",
-        "This cmdlet returns an Amazon.SnowDeviceManagement.Model.DescribeDeviceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SnowDeviceManagement.Model.DescribeDeviceResponse object containing multiple properties."
     )]
     public partial class GetSDMSDeviceCmdlet : AmazonSnowDeviceManagementClientCmdlet, IExecutor
     {

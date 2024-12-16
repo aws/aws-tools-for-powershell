@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KVWS
     [AWSCmdlet("Calls the Amazon Kinesis Video WebRTC Storage JoinStorageSession API operation.", Operation = new[] {"JoinStorageSession"}, SelectReturnType = typeof(Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionResponse) be returned by specifying '-Select *'."
     )]
     public partial class JoinKVWSStorageSessionCmdlet : AmazonKinesisVideoWebRTCStorageClientCmdlet, IExecutor
     {

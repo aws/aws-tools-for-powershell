@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager GetCoreNetwork API operation.", Operation = new[] {"GetCoreNetwork"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetCoreNetworkResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.CoreNetwork or Amazon.NetworkManager.Model.GetCoreNetworkResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.CoreNetwork object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetCoreNetworkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.GetCoreNetworkResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNMGRCoreNetworkCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.StartConfigurationPolicyAssociationResponse")]
     [AWSCmdlet("Calls the AWS Security Hub StartConfigurationPolicyAssociation API operation.", Operation = new[] {"StartConfigurationPolicyAssociation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.StartConfigurationPolicyAssociationResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.StartConfigurationPolicyAssociationResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.StartConfigurationPolicyAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.StartConfigurationPolicyAssociationResponse object containing multiple properties."
     )]
     public partial class StartSHUBConfigurationPolicyAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

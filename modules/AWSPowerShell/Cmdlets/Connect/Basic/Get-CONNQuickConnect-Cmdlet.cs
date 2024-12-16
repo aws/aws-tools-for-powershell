@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeQuickConnect API operation.", Operation = new[] {"DescribeQuickConnect"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeQuickConnectResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.QuickConnect or Amazon.Connect.Model.DescribeQuickConnectResponse",
         "This cmdlet returns an Amazon.Connect.Model.QuickConnect object.",
-        "The service call response (type Amazon.Connect.Model.DescribeQuickConnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeQuickConnectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNQuickConnectCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

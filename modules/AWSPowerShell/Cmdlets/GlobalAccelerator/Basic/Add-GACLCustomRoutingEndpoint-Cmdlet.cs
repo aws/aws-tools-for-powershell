@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [OutputType("Amazon.GlobalAccelerator.Model.AddCustomRoutingEndpointsResponse")]
     [AWSCmdlet("Calls the AWS Global Accelerator AddCustomRoutingEndpoints API operation.", Operation = new[] {"AddCustomRoutingEndpoints"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.AddCustomRoutingEndpointsResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.AddCustomRoutingEndpointsResponse",
-        "This cmdlet returns an Amazon.GlobalAccelerator.Model.AddCustomRoutingEndpointsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GlobalAccelerator.Model.AddCustomRoutingEndpointsResponse object containing multiple properties."
     )]
     public partial class AddGACLCustomRoutingEndpointCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

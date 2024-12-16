@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub UpdateStandardsControl API operation.", Operation = new[] {"UpdateStandardsControl"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateStandardsControlResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UpdateStandardsControlResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.UpdateStandardsControlResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.UpdateStandardsControlResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSHUBStandardsControlCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

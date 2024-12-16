@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [OutputType("Amazon.Finspace.Model.CreateKxClusterResponse")]
     [AWSCmdlet("Calls the FinSpace User Environment Management Service CreateKxCluster API operation.", Operation = new[] {"CreateKxCluster"}, SelectReturnType = typeof(Amazon.Finspace.Model.CreateKxClusterResponse))]
     [AWSCmdletOutput("Amazon.Finspace.Model.CreateKxClusterResponse",
-        "This cmdlet returns an Amazon.Finspace.Model.CreateKxClusterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Finspace.Model.CreateKxClusterResponse object containing multiple properties."
     )]
     public partial class NewFINSPKxClusterCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

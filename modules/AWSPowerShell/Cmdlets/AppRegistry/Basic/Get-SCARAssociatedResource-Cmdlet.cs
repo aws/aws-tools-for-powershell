@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry GetAssociatedResource API operation.", Operation = new[] {"GetAssociatedResource"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.GetAssociatedResourceResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.Resource or Amazon.AppRegistry.Model.GetAssociatedResourceResponse",
         "This cmdlet returns an Amazon.AppRegistry.Model.Resource object.",
-        "The service call response (type Amazon.AppRegistry.Model.GetAssociatedResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.GetAssociatedResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCARAssociatedResourceCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

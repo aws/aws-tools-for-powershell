@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIOTSWResourceTagCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

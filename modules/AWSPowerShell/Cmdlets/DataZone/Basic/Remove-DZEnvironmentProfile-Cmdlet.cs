@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [AWSCmdlet("Calls the Amazon DataZone DeleteEnvironmentProfile API operation.", Operation = new[] {"DeleteEnvironmentProfile"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteEnvironmentProfileResponse))]
     [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteEnvironmentProfileResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteEnvironmentProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataZone.Model.DeleteEnvironmentProfileResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDZEnvironmentProfileCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

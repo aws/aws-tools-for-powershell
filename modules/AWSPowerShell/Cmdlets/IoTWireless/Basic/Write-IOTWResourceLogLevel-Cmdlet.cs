@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless PutResourceLogLevel API operation.", Operation = new[] {"PutResourceLogLevel"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.PutResourceLogLevelResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.PutResourceLogLevelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.PutResourceLogLevelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.PutResourceLogLevelResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIOTWResourceLogLevelCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource, which can be <c>WirelessDevice</c> or <c>WirelessGateway</c>.</para>
+        /// <para>The type of the resource, which can be <c>WirelessDevice</c>, <c>WirelessGateway</c>,
+        /// or <c>FuotaTask</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.WorkMail.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddWMResourceTagCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

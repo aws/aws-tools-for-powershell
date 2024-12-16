@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [AWSCmdlet("Calls the Amazon Forecast Service DeleteExplainability API operation.", Operation = new[] {"DeleteExplainability"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DeleteExplainabilityResponse))]
     [AWSCmdletOutput("None or Amazon.ForecastService.Model.DeleteExplainabilityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ForecastService.Model.DeleteExplainabilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ForecastService.Model.DeleteExplainabilityResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFRCExplainabilityCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

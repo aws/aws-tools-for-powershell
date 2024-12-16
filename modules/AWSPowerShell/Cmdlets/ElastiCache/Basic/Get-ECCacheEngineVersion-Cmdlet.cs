@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DescribeCacheEngineVersions API operation.", Operation = new[] {"DescribeCacheEngineVersions"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse), LegacyAlias="Get-ECCacheEngineVersions")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheEngineVersion or Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse",
         "This cmdlet returns a collection of Amazon.ElastiCache.Model.CacheEngineVersion objects.",
-        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECCacheEngineVersionCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of a specific cache parameter group family to return details for.</para><para>Valid values are: <c>memcached1.4</c> | <c>memcached1.5</c> | <c>memcached1.6</c>
         /// | <c>redis2.6</c> | <c>redis2.8</c> | <c>redis3.2</c> | <c>redis4.0</c> | <c>redis5.0</c>
-        /// | <c>redis6.x</c> | <c>redis6.2</c> | <c>redis7</c></para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// | <c>redis6.x</c> | <c>redis6.2</c> | <c>redis7</c> | <c>valkey7</c></para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// <br/>'Marker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-Marker' to null for the first call then set the 'Marker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

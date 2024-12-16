@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder GetComponent API operation.", Operation = new[] {"GetComponent"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.GetComponentResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.Component or Amazon.Imagebuilder.Model.GetComponentResponse",
         "This cmdlet returns an Amazon.Imagebuilder.Model.Component object.",
-        "The service call response (type Amazon.Imagebuilder.Model.GetComponentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.GetComponentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2IBComponentCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

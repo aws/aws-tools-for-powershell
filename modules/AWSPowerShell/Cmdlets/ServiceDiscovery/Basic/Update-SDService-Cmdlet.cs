@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [AWSCmdlet("Calls the AWS Cloud Map UpdateService API operation.", Operation = new[] {"UpdateService"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.UpdateServiceResponse))]
     [AWSCmdletOutput("System.String or Amazon.ServiceDiscovery.Model.UpdateServiceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ServiceDiscovery.Model.UpdateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceDiscovery.Model.UpdateServiceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSDServiceCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact PutPackageOriginConfiguration API operation.", Operation = new[] {"PutPackageOriginConfiguration"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.PutPackageOriginConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageOriginConfiguration or Amazon.CodeArtifact.Model.PutPackageOriginConfigurationResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.PackageOriginConfiguration object.",
-        "The service call response (type Amazon.CodeArtifact.Model.PutPackageOriginConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.PutPackageOriginConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCAPackageOriginConfigurationCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [AWSCmdlet("Calls the AWS Step Functions DeleteStateMachine API operation.", Operation = new[] {"DeleteStateMachine"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.DeleteStateMachineResponse))]
     [AWSCmdletOutput("None or Amazon.StepFunctions.Model.DeleteStateMachineResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.StepFunctions.Model.DeleteStateMachineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StepFunctions.Model.DeleteStateMachineResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSFNStateMachineCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

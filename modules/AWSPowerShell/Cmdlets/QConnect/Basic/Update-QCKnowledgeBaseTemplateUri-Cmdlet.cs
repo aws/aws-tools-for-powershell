@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect UpdateKnowledgeBaseTemplateUri API operation.", Operation = new[] {"UpdateKnowledgeBaseTemplateUri"}, SelectReturnType = typeof(Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.KnowledgeBaseData or Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse",
         "This cmdlet returns an Amazon.QConnect.Model.KnowledgeBaseData object.",
-        "The service call response (type Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateQCKnowledgeBaseTemplateUriCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         

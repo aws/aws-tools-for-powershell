@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail OpenInstancePublicPorts API operation.", Operation = new[] {"OpenInstancePublicPorts"}, SelectReturnType = typeof(Amazon.Lightsail.Model.OpenInstancePublicPortsResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.OpenInstancePublicPortsResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.OpenInstancePublicPortsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.OpenInstancePublicPortsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class OpenLSInstancePublicPortCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

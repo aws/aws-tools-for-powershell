@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 CancelBatchJobExecution API operation.", Operation = new[] {"CancelBatchJobExecution"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopAMMBatchJobExecutionCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {
@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter AuthSecretsManagerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Secrets Manager containing user's credentials for authentication
+        /// and authorization for Cancel Batch Job Execution operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthSecretsManagerArn { get; set; }
         #endregion
         
         #region Parameter ExecutionId
@@ -124,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthSecretsManagerArn = this.AuthSecretsManagerArn;
             context.ExecutionId = this.ExecutionId;
             #if MODULAR
             if (this.ExecutionId == null && ParameterWasBound(nameof(this.ExecutionId)))
@@ -150,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.AuthSecretsManagerArn != null)
+            {
+                request.AuthSecretsManagerArn = cmdletContext.AuthSecretsManagerArn;
             }
             if (cmdletContext.ExecutionId != null)
             {
@@ -217,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String AuthSecretsManagerArn { get; set; }
             public System.String ExecutionId { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.CancelBatchJobExecutionResponse, StopAMMBatchJobExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

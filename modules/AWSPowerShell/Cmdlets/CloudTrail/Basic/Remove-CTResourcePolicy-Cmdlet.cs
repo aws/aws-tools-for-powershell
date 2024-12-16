@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCTResourcePolicyCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

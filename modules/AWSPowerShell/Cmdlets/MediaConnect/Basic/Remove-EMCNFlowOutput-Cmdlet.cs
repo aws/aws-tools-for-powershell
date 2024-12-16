@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     [OutputType("Amazon.MediaConnect.Model.RemoveFlowOutputResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaConnect RemoveFlowOutput API operation.", Operation = new[] {"RemoveFlowOutput"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.RemoveFlowOutputResponse))]
     [AWSCmdletOutput("Amazon.MediaConnect.Model.RemoveFlowOutputResponse",
-        "This cmdlet returns an Amazon.MediaConnect.Model.RemoveFlowOutputResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaConnect.Model.RemoveFlowOutputResponse object containing multiple properties."
     )]
     public partial class RemoveEMCNFlowOutputCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {

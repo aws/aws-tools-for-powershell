@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling DescribeTerminationPolicyTypes API operation.", Operation = new[] {"DescribeTerminationPolicyTypes"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse))]
     [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

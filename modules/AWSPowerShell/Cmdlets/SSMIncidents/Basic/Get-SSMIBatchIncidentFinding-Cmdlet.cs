@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     [OutputType("Amazon.SSMIncidents.Model.BatchGetIncidentFindingsResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager BatchGetIncidentFindings API operation.", Operation = new[] {"BatchGetIncidentFindings"}, SelectReturnType = typeof(Amazon.SSMIncidents.Model.BatchGetIncidentFindingsResponse))]
     [AWSCmdletOutput("Amazon.SSMIncidents.Model.BatchGetIncidentFindingsResponse",
-        "This cmdlet returns an Amazon.SSMIncidents.Model.BatchGetIncidentFindingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SSMIncidents.Model.BatchGetIncidentFindingsResponse object containing multiple properties."
     )]
     public partial class GetSSMIBatchIncidentFindingCmdlet : AmazonSSMIncidentsClientCmdlet, IExecutor
     {

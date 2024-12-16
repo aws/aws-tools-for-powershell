@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) DeleteIdentityPolicy API operation.", Operation = new[] {"DeleteIdentityPolicy"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

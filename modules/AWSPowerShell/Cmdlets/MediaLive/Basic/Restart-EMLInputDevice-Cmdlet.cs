@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive RebootInputDevice API operation.", Operation = new[] {"RebootInputDevice"}, SelectReturnType = typeof(Amazon.MediaLive.Model.RebootInputDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaLive.Model.RebootInputDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaLive.Model.RebootInputDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaLive.Model.RebootInputDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RestartEMLInputDeviceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

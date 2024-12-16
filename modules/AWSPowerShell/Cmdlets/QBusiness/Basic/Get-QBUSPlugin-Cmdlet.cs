@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.GetPluginResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness GetPlugin API operation.", Operation = new[] {"GetPlugin"}, SelectReturnType = typeof(Amazon.QBusiness.Model.GetPluginResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.GetPluginResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.GetPluginResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.GetPluginResponse object containing multiple properties."
     )]
     public partial class GetQBUSPluginCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

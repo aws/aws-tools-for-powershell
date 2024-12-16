@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateContinuousDeploymentPolicyResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateContinuousDeploymentPolicy API operation.", Operation = new[] {"CreateContinuousDeploymentPolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateContinuousDeploymentPolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateContinuousDeploymentPolicyResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateContinuousDeploymentPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateContinuousDeploymentPolicyResponse object containing multiple properties."
     )]
     public partial class NewCFContinuousDeploymentPolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

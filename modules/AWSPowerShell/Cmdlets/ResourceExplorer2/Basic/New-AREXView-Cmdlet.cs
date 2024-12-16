@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer CreateView API operation.", Operation = new[] {"CreateView"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.CreateViewResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.View or Amazon.ResourceExplorer2.Model.CreateViewResponse",
         "This cmdlet returns an Amazon.ResourceExplorer2.Model.View object.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.CreateViewResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.CreateViewResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAREXViewCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

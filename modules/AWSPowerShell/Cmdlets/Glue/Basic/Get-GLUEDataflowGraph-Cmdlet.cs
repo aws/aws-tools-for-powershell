@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetDataflowGraphResponse")]
     [AWSCmdlet("Calls the AWS Glue GetDataflowGraph API operation.", Operation = new[] {"GetDataflowGraph"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataflowGraphResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetDataflowGraphResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetDataflowGraphResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetDataflowGraphResponse object containing multiple properties."
     )]
     public partial class GetGLUEDataflowGraphCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

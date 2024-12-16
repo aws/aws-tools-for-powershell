@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.GetBlockPublicAccessConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce GetBlockPublicAccessConfiguration API operation.", Operation = new[] {"GetBlockPublicAccessConfiguration"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.GetBlockPublicAccessConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.GetBlockPublicAccessConfigurationResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.GetBlockPublicAccessConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.GetBlockPublicAccessConfigurationResponse object containing multiple properties."
     )]
     public partial class GetEMRBlockPublicAccessConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

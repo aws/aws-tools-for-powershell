@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.CreateCustomDomainAssociationResponse")]
     [AWSCmdlet("Calls the Amazon Redshift CreateCustomDomainAssociation API operation.", Operation = new[] {"CreateCustomDomainAssociation"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateCustomDomainAssociationResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.CreateCustomDomainAssociationResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.CreateCustomDomainAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.CreateCustomDomainAssociationResponse object containing multiple properties."
     )]
     public partial class NewRSCustomDomainAssociationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

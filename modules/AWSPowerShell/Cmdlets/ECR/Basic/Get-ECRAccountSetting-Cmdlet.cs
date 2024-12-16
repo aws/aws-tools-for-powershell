@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.GetAccountSettingResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry GetAccountSetting API operation.", Operation = new[] {"GetAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.GetAccountSettingResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.GetAccountSettingResponse",
-        "This cmdlet returns an Amazon.ECR.Model.GetAccountSettingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.GetAccountSettingResponse object containing multiple properties."
     )]
     public partial class GetECRAccountSettingCmdlet : AmazonECRClientCmdlet, IExecutor
     {

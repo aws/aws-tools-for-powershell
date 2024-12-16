@@ -80,6 +80,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.QueryInsightsMode
+        "Invoke-TSQQuery/QueryInsights_Mode"
+        {
+            $v = "DISABLED","ENABLED_WITH_RATE_CONTROL"
+            break
+        }
+
         # Amazon.TimestreamQuery.QueryPricingModel
         "Update-TSQAccountSetting/QueryPricingModel"
         {
@@ -91,6 +98,13 @@ $TSQ_Completers = {
         "New-TSQScheduledQuery/S3Configuration_EncryptionOption"
         {
             $v = "SSE_KMS","SSE_S3"
+            break
+        }
+
+        # Amazon.TimestreamQuery.ScheduledQueryInsightsMode
+        "Start-TSQScheduledQuery/QueryInsights_Mode"
+        {
+            $v = "DISABLED","ENABLED_WITH_RATE_CONTROL"
             break
         }
 
@@ -110,6 +124,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryInsights_Mode"=@("Invoke-TSQQuery","Start-TSQScheduledQuery")
     "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
     "State"=@("Update-TSQScheduledQuery")

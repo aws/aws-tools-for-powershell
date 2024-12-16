@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
     [AWSCmdlet("Calls the Trusted Advisor BatchUpdateRecommendationResourceExclusion API operation.", Operation = new[] {"BatchUpdateRecommendationResourceExclusion"}, SelectReturnType = typeof(Amazon.TrustedAdvisor.Model.BatchUpdateRecommendationResourceExclusionResponse))]
     [AWSCmdletOutput("Amazon.TrustedAdvisor.Model.UpdateRecommendationResourceExclusionError or Amazon.TrustedAdvisor.Model.BatchUpdateRecommendationResourceExclusionResponse",
         "This cmdlet returns a collection of Amazon.TrustedAdvisor.Model.UpdateRecommendationResourceExclusionError objects.",
-        "The service call response (type Amazon.TrustedAdvisor.Model.BatchUpdateRecommendationResourceExclusionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TrustedAdvisor.Model.BatchUpdateRecommendationResourceExclusionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateTAUpdateRecommendationResourceExclusionBatchCmdlet : AmazonTrustedAdvisorClientCmdlet, IExecutor
     {

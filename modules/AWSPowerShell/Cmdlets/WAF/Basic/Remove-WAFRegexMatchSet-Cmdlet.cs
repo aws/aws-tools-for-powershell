@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF DeleteRegexMatchSet API operation.", Operation = new[] {"DeleteRegexMatchSet"}, SelectReturnType = typeof(Amazon.WAF.Model.DeleteRegexMatchSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAF.Model.DeleteRegexMatchSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAF.Model.DeleteRegexMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.DeleteRegexMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRegexMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

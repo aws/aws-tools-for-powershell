@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [OutputType("Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse")]
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging ListSubChannels API operation.", Operation = new[] {"ListSubChannels"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ChimeSDKMessaging.Model.ListSubChannelsResponse object containing multiple properties."
     )]
     public partial class GetCHMMGSubChannelListCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract StartLendingAnalysis API operation.", Operation = new[] {"StartLendingAnalysis"}, SelectReturnType = typeof(Amazon.Textract.Model.StartLendingAnalysisResponse))]
     [AWSCmdletOutput("System.String or Amazon.Textract.Model.StartLendingAnalysisResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Textract.Model.StartLendingAnalysisResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.StartLendingAnalysisResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartTXTLendingAnalysisCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

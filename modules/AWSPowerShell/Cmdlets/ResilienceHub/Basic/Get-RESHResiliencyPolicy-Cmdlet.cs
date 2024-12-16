@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub DescribeResiliencyPolicy API operation.", Operation = new[] {"DescribeResiliencyPolicy"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.DescribeResiliencyPolicyResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.ResiliencyPolicy or Amazon.ResilienceHub.Model.DescribeResiliencyPolicyResponse",
         "This cmdlet returns an Amazon.ResilienceHub.Model.ResiliencyPolicy object.",
-        "The service call response (type Amazon.ResilienceHub.Model.DescribeResiliencyPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.DescribeResiliencyPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRESHResiliencyPolicyCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {

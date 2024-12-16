@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service CreateMicrosoftAD API operation.", Operation = new[] {"CreateMicrosoftAD"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.CreateMicrosoftADResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.CreateMicrosoftADResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateMicrosoftADResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateMicrosoftADResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSMicrosoftADCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

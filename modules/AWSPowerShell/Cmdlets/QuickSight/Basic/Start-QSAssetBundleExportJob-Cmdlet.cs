@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.StartAssetBundleExportJobResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight StartAssetBundleExportJob API operation.", Operation = new[] {"StartAssetBundleExportJob"}, SelectReturnType = typeof(Amazon.QuickSight.Model.StartAssetBundleExportJobResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.StartAssetBundleExportJobResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.StartAssetBundleExportJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.StartAssetBundleExportJobResponse object containing multiple properties."
     )]
     public partial class StartQSAssetBundleExportJobCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
@@ -153,6 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.AssetBundleExportFormat ExportFormat { get; set; }
         #endregion
         
+        #region Parameter CloudFormationOverridePropertyConfiguration_Folder
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of structures that controls how <c>Folder</c> resources are parameterized
+        /// in the returned CloudFormation template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CloudFormationOverridePropertyConfiguration_Folders")]
+        public Amazon.QuickSight.Model.AssetBundleExportJobFolderOverrideProperties[] CloudFormationOverridePropertyConfiguration_Folder { get; set; }
+        #endregion
+        
         #region Parameter IncludeAllDependency
         /// <summary>
         /// <para>
@@ -165,6 +177,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IncludeAllDependencies")]
         public System.Boolean? IncludeAllDependency { get; set; }
+        #endregion
+        
+        #region Parameter IncludeFolderMember
+        /// <summary>
+        /// <para>
+        /// <para>A setting that indicates whether you want to include folder assets. You can also use
+        /// this setting to recusrsively include all subfolders of an exported folder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeFolderMembers")]
+        [AWSConstantClassSource("Amazon.QuickSight.IncludeFolderMembers")]
+        public Amazon.QuickSight.IncludeFolderMembers IncludeFolderMember { get; set; }
+        #endregion
+        
+        #region Parameter IncludeFolderMembership
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that determines if the exported asset carries over information about the
+        /// folders that the asset is a member of. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeFolderMemberships")]
+        public System.Boolean? IncludeFolderMembership { get; set; }
         #endregion
         
         #region Parameter IncludePermission
@@ -345,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.CloudFormationOverridePropertyConfiguration_DataSource = new List<Amazon.QuickSight.Model.AssetBundleExportJobDataSourceOverrideProperties>(this.CloudFormationOverridePropertyConfiguration_DataSource);
             }
+            if (this.CloudFormationOverridePropertyConfiguration_Folder != null)
+            {
+                context.CloudFormationOverridePropertyConfiguration_Folder = new List<Amazon.QuickSight.Model.AssetBundleExportJobFolderOverrideProperties>(this.CloudFormationOverridePropertyConfiguration_Folder);
+            }
             if (this.CloudFormationOverridePropertyConfiguration_RefreshSchedule != null)
             {
                 context.CloudFormationOverridePropertyConfiguration_RefreshSchedule = new List<Amazon.QuickSight.Model.AssetBundleExportJobRefreshScheduleOverrideProperties>(this.CloudFormationOverridePropertyConfiguration_RefreshSchedule);
@@ -366,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.IncludeAllDependency = this.IncludeAllDependency;
+            context.IncludeFolderMember = this.IncludeFolderMember;
+            context.IncludeFolderMembership = this.IncludeFolderMembership;
             context.IncludePermission = this.IncludePermission;
             context.IncludeTag = this.IncludeTag;
             if (this.ResourceArn != null)
@@ -447,6 +490,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.CloudFormationOverridePropertyConfiguration.DataSources = requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_DataSource;
                 requestCloudFormationOverridePropertyConfigurationIsNull = false;
             }
+            List<Amazon.QuickSight.Model.AssetBundleExportJobFolderOverrideProperties> requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Folder = null;
+            if (cmdletContext.CloudFormationOverridePropertyConfiguration_Folder != null)
+            {
+                requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Folder = cmdletContext.CloudFormationOverridePropertyConfiguration_Folder;
+            }
+            if (requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Folder != null)
+            {
+                request.CloudFormationOverridePropertyConfiguration.Folders = requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_Folder;
+                requestCloudFormationOverridePropertyConfigurationIsNull = false;
+            }
             List<Amazon.QuickSight.Model.AssetBundleExportJobRefreshScheduleOverrideProperties> requestCloudFormationOverridePropertyConfiguration_cloudFormationOverridePropertyConfiguration_RefreshSchedule = null;
             if (cmdletContext.CloudFormationOverridePropertyConfiguration_RefreshSchedule != null)
             {
@@ -514,6 +567,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.IncludeAllDependency != null)
             {
                 request.IncludeAllDependencies = cmdletContext.IncludeAllDependency.Value;
+            }
+            if (cmdletContext.IncludeFolderMember != null)
+            {
+                request.IncludeFolderMembers = cmdletContext.IncludeFolderMember;
+            }
+            if (cmdletContext.IncludeFolderMembership != null)
+            {
+                request.IncludeFolderMemberships = cmdletContext.IncludeFolderMembership.Value;
             }
             if (cmdletContext.IncludePermission != null)
             {
@@ -613,12 +674,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleExportJobDashboardOverrideProperties> CloudFormationOverridePropertyConfiguration_Dashboard { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobDataSetOverrideProperties> CloudFormationOverridePropertyConfiguration_DataSet { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobDataSourceOverrideProperties> CloudFormationOverridePropertyConfiguration_DataSource { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleExportJobFolderOverrideProperties> CloudFormationOverridePropertyConfiguration_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobRefreshScheduleOverrideProperties> CloudFormationOverridePropertyConfiguration_RefreshSchedule { get; set; }
             public System.Boolean? ResourceIdOverrideConfiguration_PrefixForAllResource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobThemeOverrideProperties> CloudFormationOverridePropertyConfiguration_Theme { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleExportJobVPCConnectionOverrideProperties> CloudFormationOverridePropertyConfiguration_VPCConnection { get; set; }
             public Amazon.QuickSight.AssetBundleExportFormat ExportFormat { get; set; }
             public System.Boolean? IncludeAllDependency { get; set; }
+            public Amazon.QuickSight.IncludeFolderMembers IncludeFolderMember { get; set; }
+            public System.Boolean? IncludeFolderMembership { get; set; }
             public System.Boolean? IncludePermission { get; set; }
             public System.Boolean? IncludeTag { get; set; }
             public List<System.String> ResourceArn { get; set; }

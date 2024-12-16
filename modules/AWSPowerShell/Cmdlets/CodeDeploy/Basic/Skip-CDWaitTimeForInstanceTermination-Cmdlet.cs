@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy SkipWaitTimeForInstanceTermination API operation.", Operation = new[] {"SkipWaitTimeForInstanceTermination"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.")]
     public partial class SkipCDWaitTimeForInstanceTerminationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor

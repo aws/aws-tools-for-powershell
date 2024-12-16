@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     [AWSCmdlet("Calls the AWS Identity Store GetUserId API operation.", Operation = new[] {"GetUserId"}, SelectReturnType = typeof(Amazon.IdentityStore.Model.GetUserIdResponse))]
     [AWSCmdletOutput("System.String or Amazon.IdentityStore.Model.GetUserIdResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IdentityStore.Model.GetUserIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityStore.Model.GetUserIdResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIDSUserIdCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {

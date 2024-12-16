@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DescribeEventTopics API operation.", Operation = new[] {"DescribeEventTopics"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeEventTopicsResponse))]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.EventTopic or Amazon.DirectoryService.Model.DescribeEventTopicsResponse",
         "This cmdlet returns a collection of Amazon.DirectoryService.Model.EventTopic objects.",
-        "The service call response (type Amazon.DirectoryService.Model.DescribeEventTopicsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.DescribeEventTopicsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDSEventTopicCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

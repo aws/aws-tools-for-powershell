@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteContactFlow API operation.", Operation = new[] {"DeleteContactFlow"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteContactFlowResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteContactFlowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteContactFlowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteContactFlowResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNContactFlowCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -28,16 +28,16 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis OSS engine version 6.0 onwards: Deletes a user group. The user group must
-    /// first be disassociated from the replication group before it can be deleted. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user group.
+    /// The user group must first be disassociated from the replication group before it can
+    /// be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.
     /// </summary>
     [Cmdlet("Remove", "ECUserGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.DeleteUserGroupResponse")]
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteUserGroup API operation.", Operation = new[] {"DeleteUserGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteUserGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.DeleteUserGroupResponse",
-        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElastiCache.Model.DeleteUserGroupResponse object containing multiple properties."
     )]
     public partial class RemoveECUserGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

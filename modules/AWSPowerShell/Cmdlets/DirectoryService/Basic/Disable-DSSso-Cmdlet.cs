@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DisableSso API operation.", Operation = new[] {"DisableSso"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DisableSsoResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DisableSsoResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DisableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DisableSsoResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableDSSsoCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

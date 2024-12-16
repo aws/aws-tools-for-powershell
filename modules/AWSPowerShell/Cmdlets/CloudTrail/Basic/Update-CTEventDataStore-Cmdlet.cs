@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.UpdateEventDataStoreResponse")]
     [AWSCmdlet("Calls the AWS CloudTrail UpdateEventDataStore API operation.", Operation = new[] {"UpdateEventDataStore"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.UpdateEventDataStoreResponse))]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.UpdateEventDataStoreResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.UpdateEventDataStoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudTrail.Model.UpdateEventDataStoreResponse object containing multiple properties."
     )]
     public partial class UpdateCTEventDataStoreCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway PutHypervisorPropertyMappings API operation.", Operation = new[] {"PutHypervisorPropertyMappings"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse))]
     [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteBUGWHypervisorPropertyMappingCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

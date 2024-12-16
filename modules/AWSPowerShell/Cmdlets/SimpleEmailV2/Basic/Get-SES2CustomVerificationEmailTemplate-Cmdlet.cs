@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.GetCustomVerificationEmailTemplateResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetCustomVerificationEmailTemplate API operation.", Operation = new[] {"GetCustomVerificationEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetCustomVerificationEmailTemplateResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetCustomVerificationEmailTemplateResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetCustomVerificationEmailTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetCustomVerificationEmailTemplateResponse object containing multiple properties."
     )]
     public partial class GetSES2CustomVerificationEmailTemplateCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

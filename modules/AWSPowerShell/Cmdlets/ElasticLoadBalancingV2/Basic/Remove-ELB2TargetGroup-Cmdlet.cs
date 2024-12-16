@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteTargetGroup API operation.", Operation = new[] {"DeleteTargetGroup"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteTargetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteTargetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteTargetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteTargetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

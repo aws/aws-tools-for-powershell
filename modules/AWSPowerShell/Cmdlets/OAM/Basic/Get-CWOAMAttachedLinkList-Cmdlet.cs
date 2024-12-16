@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     [AWSCmdlet("Calls the CloudWatch Observability Access Manager ListAttachedLinks API operation.", Operation = new[] {"ListAttachedLinks"}, SelectReturnType = typeof(Amazon.OAM.Model.ListAttachedLinksResponse))]
     [AWSCmdletOutput("Amazon.OAM.Model.ListAttachedLinksItem or Amazon.OAM.Model.ListAttachedLinksResponse",
         "This cmdlet returns a collection of Amazon.OAM.Model.ListAttachedLinksItem objects.",
-        "The service call response (type Amazon.OAM.Model.ListAttachedLinksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OAM.Model.ListAttachedLinksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWOAMAttachedLinkListCmdlet : AmazonOAMClientCmdlet, IExecutor
     {

@@ -28,12 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
-    /// which is currently in public preview.</b><para>
     /// Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region.
     /// Properties include the computing hardware and deployment configuration for instances
     /// in the fleet.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You can use this operation in the following ways: 
     /// </para><ul><li><para>
     /// To get attributes for specific fleets, provide a list of fleet IDs or fleet ARNs.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service DescribeFleetAttributes API operation.", Operation = new[] {"DescribeFleetAttributes"}, SelectReturnType = typeof(Amazon.GameLift.Model.DescribeFleetAttributesResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.FleetAttributes or Amazon.GameLift.Model.DescribeFleetAttributesResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.FleetAttributes objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.DescribeFleetAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLFleetAttributeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

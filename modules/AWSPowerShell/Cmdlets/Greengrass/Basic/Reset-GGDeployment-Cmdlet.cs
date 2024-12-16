@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.ResetDeploymentsResponse")]
     [AWSCmdlet("Calls the AWS Greengrass ResetDeployments API operation.", Operation = new[] {"ResetDeployments"}, SelectReturnType = typeof(Amazon.Greengrass.Model.ResetDeploymentsResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.ResetDeploymentsResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.ResetDeploymentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.ResetDeploymentsResponse object containing multiple properties."
     )]
     public partial class ResetGGDeploymentCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.CreateMetadataTransferJobResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker CreateMetadataTransferJob API operation.", Operation = new[] {"CreateMetadataTransferJob"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.CreateMetadataTransferJobResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.CreateMetadataTransferJobResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateMetadataTransferJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.CreateMetadataTransferJobResponse object containing multiple properties."
     )]
     public partial class NewIOTTMMetadataTransferJobCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

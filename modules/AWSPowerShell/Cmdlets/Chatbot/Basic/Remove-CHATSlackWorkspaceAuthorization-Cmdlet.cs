@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot DeleteSlackWorkspaceAuthorization API operation.", Operation = new[] {"DeleteSlackWorkspaceAuthorization"}, SelectReturnType = typeof(Amazon.Chatbot.Model.DeleteSlackWorkspaceAuthorizationResponse))]
     [AWSCmdletOutput("None or Amazon.Chatbot.Model.DeleteSlackWorkspaceAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.DeleteSlackWorkspaceAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.DeleteSlackWorkspaceAuthorizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHATSlackWorkspaceAuthorizationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

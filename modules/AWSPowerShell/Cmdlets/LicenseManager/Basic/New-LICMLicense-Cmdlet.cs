@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.CreateLicenseResponse")]
     [AWSCmdlet("Calls the AWS License Manager CreateLicense API operation.", Operation = new[] {"CreateLicense"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.CreateLicenseResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.CreateLicenseResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.CreateLicenseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.CreateLicenseResponse object containing multiple properties."
     )]
     public partial class NewLICMLicenseCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

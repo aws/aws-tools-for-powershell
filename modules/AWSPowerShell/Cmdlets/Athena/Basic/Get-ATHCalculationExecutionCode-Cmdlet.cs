@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena GetCalculationExecutionCode API operation.", Operation = new[] {"GetCalculationExecutionCode"}, SelectReturnType = typeof(Amazon.Athena.Model.GetCalculationExecutionCodeResponse))]
     [AWSCmdletOutput("System.String or Amazon.Athena.Model.GetCalculationExecutionCodeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Athena.Model.GetCalculationExecutionCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Athena.Model.GetCalculationExecutionCodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetATHCalculationExecutionCodeCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

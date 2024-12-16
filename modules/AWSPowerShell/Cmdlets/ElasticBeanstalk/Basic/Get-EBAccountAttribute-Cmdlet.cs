@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ResourceQuotas or Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse",
         "This cmdlet returns an Amazon.ElasticBeanstalk.Model.ResourceQuotas object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeAccountAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEBAccountAttributeCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

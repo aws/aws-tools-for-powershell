@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations LeaveOrganization API operation.", Operation = new[] {"LeaveOrganization"}, SelectReturnType = typeof(Amazon.Organizations.Model.LeaveOrganizationResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.LeaveOrganizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveORGOrganizationAssociationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteResponseHeadersPolicy API operation.", Operation = new[] {"DeleteResponseHeadersPolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteResponseHeadersPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteResponseHeadersPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteResponseHeadersPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteResponseHeadersPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFResponseHeadersPolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

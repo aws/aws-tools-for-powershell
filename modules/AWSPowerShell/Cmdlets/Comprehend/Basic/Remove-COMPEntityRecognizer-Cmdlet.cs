@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend DeleteEntityRecognizer API operation.", Operation = new[] {"DeleteEntityRecognizer"}, SelectReturnType = typeof(Amazon.Comprehend.Model.DeleteEntityRecognizerResponse))]
     [AWSCmdletOutput("None or Amazon.Comprehend.Model.DeleteEntityRecognizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.DeleteEntityRecognizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Comprehend.Model.DeleteEntityRecognizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCOMPEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

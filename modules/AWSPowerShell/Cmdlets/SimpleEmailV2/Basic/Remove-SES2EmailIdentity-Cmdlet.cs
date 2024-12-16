@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteEmailIdentity API operation.", Operation = new[] {"DeleteEmailIdentity"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteEmailIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteEmailIdentityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.DeleteEmailIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.DeleteEmailIdentityResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSES2EmailIdentityCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudHSMV2.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudHSMV2.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudHSMV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddHSM2ResourceTagCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

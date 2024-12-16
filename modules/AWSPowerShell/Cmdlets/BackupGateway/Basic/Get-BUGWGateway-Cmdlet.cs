@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     [AWSCmdlet("Calls the AWS Backup Gateway GetGateway API operation.", Operation = new[] {"GetGateway"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.GetGatewayResponse))]
     [AWSCmdletOutput("Amazon.BackupGateway.Model.GatewayDetails or Amazon.BackupGateway.Model.GetGatewayResponse",
         "This cmdlet returns an Amazon.BackupGateway.Model.GatewayDetails object.",
-        "The service call response (type Amazon.BackupGateway.Model.GetGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BackupGateway.Model.GetGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBUGWGatewayCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {

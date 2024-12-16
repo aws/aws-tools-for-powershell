@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DeleteRoleAlias API operation.", Operation = new[] {"DeleteRoleAlias"}, SelectReturnType = typeof(Amazon.IoT.Model.DeleteRoleAliasResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.DeleteRoleAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DeleteRoleAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteRoleAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTRoleAliasCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

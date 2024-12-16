@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Calls the AWS CloudTrail DeregisterOrganizationDelegatedAdmin API operation.", Operation = new[] {"DeregisterOrganizationDelegatedAdmin"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse))]
     [AWSCmdletOutput("None or Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCTOrganizationDelegatedAdminCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

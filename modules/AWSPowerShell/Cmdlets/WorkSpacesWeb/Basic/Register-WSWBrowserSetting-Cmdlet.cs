@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [OutputType("Amazon.WorkSpacesWeb.Model.AssociateBrowserSettingsResponse")]
     [AWSCmdlet("Calls the Amazon WorkSpaces Web AssociateBrowserSettings API operation.", Operation = new[] {"AssociateBrowserSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.AssociateBrowserSettingsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesWeb.Model.AssociateBrowserSettingsResponse",
-        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.AssociateBrowserSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WorkSpacesWeb.Model.AssociateBrowserSettingsResponse object containing multiple properties."
     )]
     public partial class RegisterWSWBrowserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [OutputType("Amazon.GameLift.Model.RequestUploadCredentialsResponse")]
     [AWSCmdlet("Calls the Amazon GameLift Service RequestUploadCredentials API operation.", Operation = new[] {"RequestUploadCredentials"}, SelectReturnType = typeof(Amazon.GameLift.Model.RequestUploadCredentialsResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.RequestUploadCredentialsResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.RequestUploadCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GameLift.Model.RequestUploadCredentialsResponse object containing multiple properties."
     )]
     public partial class RequestGMLUploadCredentialCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

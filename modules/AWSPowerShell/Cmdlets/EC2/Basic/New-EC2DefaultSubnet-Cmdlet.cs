@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a default subnet with a size <c>/20</c> IPv4 CIDR block in the specified Availability
     /// Zone in your default VPC. You can have only one default subnet per Availability Zone.
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Create
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet">Create
     /// a default subnet</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2DefaultSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateDefaultSubnet API operation.", Operation = new[] {"CreateDefaultSubnet"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateDefaultSubnetResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet or Amazon.EC2.Model.CreateDefaultSubnetResponse",
         "This cmdlet returns an Amazon.EC2.Model.Subnet object.",
-        "The service call response (type Amazon.EC2.Model.CreateDefaultSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateDefaultSubnetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2DefaultSubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

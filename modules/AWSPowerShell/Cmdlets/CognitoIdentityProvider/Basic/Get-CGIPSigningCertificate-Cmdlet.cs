@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetSigningCertificate API operation.", Operation = new[] {"GetSigningCertificate"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse))]
     [AWSCmdletOutput("System.String or Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetSigningCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGIPSigningCertificateCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync GetSourceApiAssociation API operation.", Operation = new[] {"GetSourceApiAssociation"}, SelectReturnType = typeof(Amazon.AppSync.Model.GetSourceApiAssociationResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.SourceApiAssociation or Amazon.AppSync.Model.GetSourceApiAssociationResponse",
         "This cmdlet returns an Amazon.AppSync.Model.SourceApiAssociation object.",
-        "The service call response (type Amazon.AppSync.Model.GetSourceApiAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.GetSourceApiAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetASYNSourceApiAssociationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

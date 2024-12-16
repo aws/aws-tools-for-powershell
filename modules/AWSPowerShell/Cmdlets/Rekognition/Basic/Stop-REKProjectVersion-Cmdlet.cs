@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition StopProjectVersion API operation.", Operation = new[] {"StopProjectVersion"}, SelectReturnType = typeof(Amazon.Rekognition.Model.StopProjectVersionResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.ProjectVersionStatus or Amazon.Rekognition.Model.StopProjectVersionResponse",
         "This cmdlet returns an Amazon.Rekognition.ProjectVersionStatus object.",
-        "The service call response (type Amazon.Rekognition.Model.StopProjectVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.StopProjectVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

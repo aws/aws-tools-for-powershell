@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake UpdateSubscriber API operation.", Operation = new[] {"UpdateSubscriber"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.UpdateSubscriberResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.SubscriberResource or Amazon.SecurityLake.Model.UpdateSubscriberResponse",
         "This cmdlet returns an Amazon.SecurityLake.Model.SubscriberResource object.",
-        "The service call response (type Amazon.SecurityLake.Model.UpdateSubscriberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.UpdateSubscriberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSLKSubscriberCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {
@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberIdentity_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
+        /// <para>The external ID used to establish trust relationship with the Amazon Web Services
+        /// identity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberIdentity_Principal
         /// <summary>
         /// <para>
-        /// <para>The AWS identity principal.</para>
+        /// <para>The Amazon Web Services identity principal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The supported Amazon Web Services from which logs and events are collected. For the
-        /// list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon
+        /// <para>The supported Amazon Web Services services from which logs and events are collected.
+        /// For the list of supported Amazon Web Services services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon
         /// Security Lake User Guide</a>.</para>
         /// </para>
         /// </summary>

@@ -90,7 +90,7 @@ $PAYCC_Completers = {
             ($_ -eq "Get-PAYCCParametersForImport/WrappingKeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
             break
         }
 

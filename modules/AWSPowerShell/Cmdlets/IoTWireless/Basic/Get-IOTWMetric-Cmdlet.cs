@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless GetMetrics API operation.", Operation = new[] {"GetMetrics"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.GetMetricsResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.SummaryMetricQueryResult or Amazon.IoTWireless.Model.GetMetricsResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.SummaryMetricQueryResult objects.",
-        "The service call response (type Amazon.IoTWireless.Model.GetMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.GetMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWMetricCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

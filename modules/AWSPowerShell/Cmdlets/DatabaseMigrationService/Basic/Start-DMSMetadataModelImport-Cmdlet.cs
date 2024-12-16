@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service StartMetadataModelImport API operation.", Operation = new[] {"StartMetadataModelImport"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.StartMetadataModelImportResponse))]
     [AWSCmdletOutput("System.String or Amazon.DatabaseMigrationService.Model.StartMetadataModelImportResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.StartMetadataModelImportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.StartMetadataModelImportResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDMSMetadataModelImportCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

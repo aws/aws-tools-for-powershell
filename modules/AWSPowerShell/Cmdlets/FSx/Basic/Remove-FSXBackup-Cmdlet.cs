@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [OutputType("Amazon.FSx.Model.DeleteBackupResponse")]
     [AWSCmdlet("Calls the Amazon FSx DeleteBackup API operation.", Operation = new[] {"DeleteBackup"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteBackupResponse))]
     [AWSCmdletOutput("Amazon.FSx.Model.DeleteBackupResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteBackupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.FSx.Model.DeleteBackupResponse object containing multiple properties."
     )]
     public partial class RemoveFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

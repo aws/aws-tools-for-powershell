@@ -82,12 +82,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-RESPBatchRole', 
         'Add-RESPResourceTag', 
         'Get-RESPResourceTag', 
         'Get-RESPSpace', 
         'Get-RESPSpaceList', 
         'New-RESPSpace', 
         'Register-RESPAdmin', 
+        'Remove-RESPBatchRole', 
         'Remove-RESPResourceTag', 
         'Remove-RESPSpace', 
         'Send-RESPInvite', 

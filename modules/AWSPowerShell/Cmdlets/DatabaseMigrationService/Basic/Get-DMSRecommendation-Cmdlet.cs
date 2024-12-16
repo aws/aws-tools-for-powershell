@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service DescribeRecommendations API operation.", Operation = new[] {"DescribeRecommendations"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.DescribeRecommendationsResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Recommendation or Amazon.DatabaseMigrationService.Model.DescribeRecommendationsResponse",
         "This cmdlet returns a collection of Amazon.DatabaseMigrationService.Model.Recommendation objects.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeRecommendationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeRecommendationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDMSRecommendationCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

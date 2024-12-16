@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.DescribeIpRestrictionResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight DescribeIpRestriction API operation.", Operation = new[] {"DescribeIpRestriction"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeIpRestrictionResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DescribeIpRestrictionResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.DescribeIpRestrictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.DescribeIpRestrictionResponse object containing multiple properties."
     )]
     public partial class GetQSIpRestrictionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

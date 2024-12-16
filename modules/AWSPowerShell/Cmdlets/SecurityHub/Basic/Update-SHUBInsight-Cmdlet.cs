@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub UpdateInsight API operation.", Operation = new[] {"UpdateInsight"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.UpdateInsightResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityHub.Model.UpdateInsightResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.UpdateInsightResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityHub.Model.UpdateInsightResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSHUBInsightCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

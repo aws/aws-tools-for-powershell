@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     [AWSCmdlet("Calls the AWS Resource Groups Tagging API StartReportCreation API operation.", Operation = new[] {"StartReportCreation"}, SelectReturnType = typeof(Amazon.ResourceGroupsTaggingAPI.Model.StartReportCreationResponse))]
     [AWSCmdletOutput("None or Amazon.ResourceGroupsTaggingAPI.Model.StartReportCreationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ResourceGroupsTaggingAPI.Model.StartReportCreationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ResourceGroupsTaggingAPI.Model.StartReportCreationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartRGTReportCreationCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync UpdateGraphqlApi API operation.", Operation = new[] {"UpdateGraphqlApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.UpdateGraphqlApiResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.GraphqlApi or Amazon.AppSync.Model.UpdateGraphqlApiResponse",
         "This cmdlet returns an Amazon.AppSync.Model.GraphqlApi object.",
-        "The service call response (type Amazon.AppSync.Model.UpdateGraphqlApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.UpdateGraphqlApiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateASYNGraphqlApiCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
@@ -76,13 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>The new authentication type for the <c>GraphqlApi</c> object.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AppSync.AuthenticationType")]
         public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
         #endregion
@@ -179,11 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LogConfig_FieldLogLevel
         /// <summary>
         /// <para>
-        /// <para>The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.</para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information <b>only</b> for the fields that are
-        /// in the error category:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>INFO</b>: Logs the following information <b>only</b> for the fields that are in
-        /// the info and error categories:</para><ul><li><para>Info-level messages.</para></li><li><para>The user messages sent through <c>$util.log.info</c> and <c>console.log</c>.</para></li><li><para>Field-level tracing and mapping logs are not shown.</para></li></ul></li><li><para><b>DEBUG</b>: Logs the following information <b>only</b> for the fields that are
-        /// in the debug, info, and error categories:</para><ul><li><para>Debug-level messages.</para></li><li><para>The user messages sent through <c>$util.log.info</c>, <c>$util.log.debug</c>, <c>console.log</c>,
-        /// and <c>console.debug</c>.</para></li><li><para>Field-level tracing and mapping logs are not shown.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that were resolved for each field.</para></li></ul></li></ul>
+        /// <para>The field logging level. Values can be NONE, ERROR, or ALL.</para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -407,12 +397,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.AuthenticationType = this.AuthenticationType;
-            #if MODULAR
-            if (this.AuthenticationType == null && ParameterWasBound(nameof(this.AuthenticationType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AuthenticationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EnhancedMetricsConfig_DataSourceLevelMetricsBehavior = this.EnhancedMetricsConfig_DataSourceLevelMetricsBehavior;
             context.EnhancedMetricsConfig_OperationLevelMetricsConfig = this.EnhancedMetricsConfig_OperationLevelMetricsConfig;
             context.EnhancedMetricsConfig_ResolverLevelMetricsBehavior = this.EnhancedMetricsConfig_ResolverLevelMetricsBehavior;

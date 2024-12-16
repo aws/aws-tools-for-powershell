@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     [AWSCmdlet("Calls the AWS Health DisableHealthServiceAccessForOrganization API operation.", Operation = new[] {"DisableHealthServiceAccessForOrganization"}, SelectReturnType = typeof(Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse))]
     [AWSCmdletOutput("None or Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AWSHealth.Model.DisableHealthServiceAccessForOrganizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableHLTHHealthServiceAccessForOrganizationCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {

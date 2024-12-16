@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream DisassociateFleet API operation.", Operation = new[] {"DisassociateFleet"}, SelectReturnType = typeof(Amazon.AppStream.Model.DisassociateFleetResponse))]
     [AWSCmdletOutput("None or Amazon.AppStream.Model.DisassociateFleetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppStream.Model.DisassociateFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppStream.Model.DisassociateFleetResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

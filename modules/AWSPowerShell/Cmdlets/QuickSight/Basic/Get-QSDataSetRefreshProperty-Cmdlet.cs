@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeDataSetRefreshProperties API operation.", Operation = new[] {"DescribeDataSetRefreshProperties"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeDataSetRefreshPropertiesResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.DataSetRefreshProperties or Amazon.QuickSight.Model.DescribeDataSetRefreshPropertiesResponse",
         "This cmdlet returns an Amazon.QuickSight.Model.DataSetRefreshProperties object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeDataSetRefreshPropertiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeDataSetRefreshPropertiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSDataSetRefreshPropertyCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

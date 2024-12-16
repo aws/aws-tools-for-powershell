@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetPolicy" OutputProperty="*" Verb="Get" Noun="BatchGetPolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchIsAuthorized" OutputProperty="Results" Verb="Test" Noun="BatchAuthorization" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

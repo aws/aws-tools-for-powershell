@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     [AWSCmdlet("Calls the Amazon CodeGuru Profiler SubmitFeedback API operation.", Operation = new[] {"SubmitFeedback"}, SelectReturnType = typeof(Amazon.CodeGuruProfiler.Model.SubmitFeedbackResponse))]
     [AWSCmdletOutput("None or Amazon.CodeGuruProfiler.Model.SubmitFeedbackResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeGuruProfiler.Model.SubmitFeedbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeGuruProfiler.Model.SubmitFeedbackResponse) be returned by specifying '-Select *'."
     )]
     public partial class SubmitCGPFeedbackCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {

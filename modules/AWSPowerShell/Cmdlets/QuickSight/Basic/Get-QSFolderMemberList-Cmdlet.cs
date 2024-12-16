@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight ListFolderMembers API operation.", Operation = new[] {"ListFolderMembers"}, SelectReturnType = typeof(Amazon.QuickSight.Model.ListFolderMembersResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.MemberIdArnPair or Amazon.QuickSight.Model.ListFolderMembersResponse",
         "This cmdlet returns a collection of Amazon.QuickSight.Model.MemberIdArnPair objects.",
-        "The service call response (type Amazon.QuickSight.Model.ListFolderMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.ListFolderMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSFolderMemberListCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

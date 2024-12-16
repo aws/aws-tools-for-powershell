@@ -31,10 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// Deletes a data catalog.
     /// </summary>
     [Cmdlet("Remove", "ATHDataCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Athena.Model.DeleteDataCatalogResponse")]
+    [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Athena DeleteDataCatalog API operation.", Operation = new[] {"DeleteDataCatalog"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteDataCatalogResponse))]
-    [AWSCmdletOutput("Amazon.Athena.Model.DeleteDataCatalogResponse",
-        "This cmdlet returns an Amazon.Athena.Model.DeleteDataCatalogResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteDataCatalogResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Athena.Model.DeleteDataCatalogResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHDataCatalogCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
@@ -60,9 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.DeleteDataCatalogResponse).
-        /// Specifying the name of a property of type Amazon.Athena.Model.DeleteDataCatalogResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public System.String Name { get; set; }
             public System.Func<Amazon.Athena.Model.DeleteDataCatalogResponse, RemoveATHDataCatalogCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+                (response, cmdlet) => null;
         }
         
     }

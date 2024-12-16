@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass DeleteDeviceDefinition API operation.", Operation = new[] {"DeleteDeviceDefinition"}, SelectReturnType = typeof(Amazon.Greengrass.Model.DeleteDeviceDefinitionResponse))]
     [AWSCmdletOutput("None or Amazon.Greengrass.Model.DeleteDeviceDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Greengrass.Model.DeleteDeviceDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Greengrass.Model.DeleteDeviceDefinitionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGDeviceDefinitionCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

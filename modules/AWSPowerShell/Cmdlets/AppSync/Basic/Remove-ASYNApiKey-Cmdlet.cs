@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync DeleteApiKey API operation.", Operation = new[] {"DeleteApiKey"}, SelectReturnType = typeof(Amazon.AppSync.Model.DeleteApiKeyResponse))]
     [AWSCmdletOutput("None or Amazon.AppSync.Model.DeleteApiKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppSync.Model.DeleteApiKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppSync.Model.DeleteApiKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveASYNApiKeyCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

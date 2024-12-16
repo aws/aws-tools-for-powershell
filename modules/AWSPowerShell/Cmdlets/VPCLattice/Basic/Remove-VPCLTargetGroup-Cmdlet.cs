@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.DeleteTargetGroupResponse")]
     [AWSCmdlet("Calls the VPC Lattice DeleteTargetGroup API operation.", Operation = new[] {"DeleteTargetGroup"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeleteTargetGroupResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeleteTargetGroupResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.DeleteTargetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.DeleteTargetGroupResponse object containing multiple properties."
     )]
     public partial class RemoveVPCLTargetGroupCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

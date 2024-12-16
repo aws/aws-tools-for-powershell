@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.PowerShell.Common.AWSWebIdentityCredentials")]
     [AWSCmdlet("Calls the AWS Security Token Service AssumeRoleWithWebIdentity API operation.", Operation = new[] { "AssumeRoleWithWebIdentity" }, SelectReturnType = typeof(Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse))]
     [AWSCmdletOutput("Amazon.PowerShell.Common.AWSWebIdentityCredentials or Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse",
-        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse instance. The service response (type Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack.")]
+        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse instance. The service call response(s) (type Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse) can be returned by specifying '-Select *'.")]
     [AWSClientCmdlet("AWS Security Token Service", "STS", null, "SecurityToken")]
     public class UseSTSWebIdentityRoleCmdlet : BaseCmdlet, IExecutor
     {

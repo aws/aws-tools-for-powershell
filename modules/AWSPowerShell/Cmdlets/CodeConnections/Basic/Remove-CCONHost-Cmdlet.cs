@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections DeleteHost API operation.", Operation = new[] {"DeleteHost"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.DeleteHostResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.DeleteHostResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.DeleteHostResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.DeleteHostResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCONHostCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

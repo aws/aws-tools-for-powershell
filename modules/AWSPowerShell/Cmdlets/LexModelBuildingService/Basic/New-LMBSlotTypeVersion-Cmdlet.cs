@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     [OutputType("Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building Service CreateSlotTypeVersion API operation.", Operation = new[] {"CreateSlotTypeVersion"}, SelectReturnType = typeof(Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse))]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse",
-        "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelBuildingService.Model.CreateSlotTypeVersionResponse object containing multiple properties."
     )]
     public partial class NewLMBSlotTypeVersionCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {

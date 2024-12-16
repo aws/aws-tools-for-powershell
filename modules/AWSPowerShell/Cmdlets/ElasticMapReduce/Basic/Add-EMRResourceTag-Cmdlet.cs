@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce AddTags API operation.", Operation = new[] {"AddTags"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.AddTagsResponse), LegacyAlias="Add-EMRTag")]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.AddTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.AddTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEMRResourceTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

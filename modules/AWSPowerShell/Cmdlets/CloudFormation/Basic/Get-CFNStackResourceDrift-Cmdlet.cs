@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// and any values specified as template parameters. This information includes actual
     /// and expected property values for resources in which CloudFormation detects drift.
     /// Only resource properties explicitly defined in the stack template are checked for
-    /// drift. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
-    /// Unregulated Configuration Changes to Stacks and Resources</a>.
+    /// drift. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect
+    /// unmanaged configuration changes to stacks and resources with drift detection</a>.
     /// 
     ///  
     /// <para>
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// to detect drift on all resources in a given stack that support drift detection.
     /// </para><para>
     /// Resources that don't currently support drift detection can't be checked. For a list
-    /// of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
-    /// that Support Drift Detection</a>.
+    /// of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
+    /// type support for imports and drift detection</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFNStackResourceDrift")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DetectStackResourceDrift API operation.", Operation = new[] {"DetectStackResourceDrift"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DetectStackResourceDriftResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceDrift or Amazon.CloudFormation.Model.DetectStackResourceDriftResponse",
         "This cmdlet returns an Amazon.CloudFormation.Model.StackResourceDrift object.",
-        "The service call response (type Amazon.CloudFormation.Model.DetectStackResourceDriftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DetectStackResourceDriftResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNStackResourceDriftCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

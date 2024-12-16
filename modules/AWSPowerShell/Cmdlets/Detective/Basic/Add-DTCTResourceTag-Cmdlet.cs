@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Detective.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Detective.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Detective.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Detective.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddDTCTResourceTagCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

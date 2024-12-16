@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     [AWSCmdlet("Calls the AWS Network Firewall DeleteRuleGroup API operation.", Operation = new[] {"DeleteRuleGroup"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DeleteRuleGroupResponse))]
     [AWSCmdletOutput("Amazon.NetworkFirewall.Model.RuleGroupResponse or Amazon.NetworkFirewall.Model.DeleteRuleGroupResponse",
         "This cmdlet returns an Amazon.NetworkFirewall.Model.RuleGroupResponse object.",
-        "The service call response (type Amazon.NetworkFirewall.Model.DeleteRuleGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkFirewall.Model.DeleteRuleGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNWFWRuleGroupCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {

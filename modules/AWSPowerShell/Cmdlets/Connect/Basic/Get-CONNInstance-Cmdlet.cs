@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeInstance API operation.", Operation = new[] {"DescribeInstance"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeInstanceResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.Instance or Amazon.Connect.Model.DescribeInstanceResponse",
         "This cmdlet returns an Amazon.Connect.Model.Instance object.",
-        "The service call response (type Amazon.Connect.Model.DescribeInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNInstanceCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

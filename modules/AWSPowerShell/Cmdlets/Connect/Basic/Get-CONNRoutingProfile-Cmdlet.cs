@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeRoutingProfile API operation.", Operation = new[] {"DescribeRoutingProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeRoutingProfileResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.RoutingProfile or Amazon.Connect.Model.DescribeRoutingProfileResponse",
         "This cmdlet returns an Amazon.Connect.Model.RoutingProfile object.",
-        "The service call response (type Amazon.Connect.Model.DescribeRoutingProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeRoutingProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNRoutingProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

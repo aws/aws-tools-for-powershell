@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
     [OutputType("Amazon.KendraRanking.Model.CreateRescoreExecutionPlanResponse")]
     [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking CreateRescoreExecutionPlan API operation.", Operation = new[] {"CreateRescoreExecutionPlan"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.CreateRescoreExecutionPlanResponse))]
     [AWSCmdletOutput("Amazon.KendraRanking.Model.CreateRescoreExecutionPlanResponse",
-        "This cmdlet returns an Amazon.KendraRanking.Model.CreateRescoreExecutionPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KendraRanking.Model.CreateRescoreExecutionPlanResponse object containing multiple properties."
     )]
     public partial class NewKNRKRescoreExecutionPlanCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {

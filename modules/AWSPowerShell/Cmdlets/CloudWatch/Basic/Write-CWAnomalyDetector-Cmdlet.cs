@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch PutAnomalyDetector API operation.", Operation = new[] {"PutAnomalyDetector"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.PutAnomalyDetectorResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.PutAnomalyDetectorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.PutAnomalyDetectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutAnomalyDetectorResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCWAnomalyDetectorCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

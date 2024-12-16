@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator DeleteCustomRoutingAccelerator API operation.", Operation = new[] {"DeleteCustomRoutingAccelerator"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.DeleteCustomRoutingAcceleratorResponse))]
     [AWSCmdletOutput("None or Amazon.GlobalAccelerator.Model.DeleteCustomRoutingAcceleratorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GlobalAccelerator.Model.DeleteCustomRoutingAcceleratorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GlobalAccelerator.Model.DeleteCustomRoutingAcceleratorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGACLCustomRoutingAcceleratorCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

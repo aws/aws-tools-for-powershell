@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.FSx.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.FSx.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FSx.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FSx.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFSXResourceTagCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

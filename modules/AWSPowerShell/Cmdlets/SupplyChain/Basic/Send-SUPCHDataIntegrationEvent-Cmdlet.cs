@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     [AWSCmdlet("Calls the AWS Supply Chain SendDataIntegrationEvent API operation.", Operation = new[] {"SendDataIntegrationEvent"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.SendDataIntegrationEventResponse))]
     [AWSCmdletOutput("System.String or Amazon.SupplyChain.Model.SendDataIntegrationEventResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SupplyChain.Model.SendDataIntegrationEventResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SupplyChain.Model.SendDataIntegrationEventResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SendSUPCHDataIntegrationEventCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {

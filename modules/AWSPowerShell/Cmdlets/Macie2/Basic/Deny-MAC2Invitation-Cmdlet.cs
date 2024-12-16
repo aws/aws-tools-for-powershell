@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 DeclineInvitations API operation.", Operation = new[] {"DeclineInvitations"}, SelectReturnType = typeof(Amazon.Macie2.Model.DeclineInvitationsResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.UnprocessedAccount or Amazon.Macie2.Model.DeclineInvitationsResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.Macie2.Model.DeclineInvitationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.DeclineInvitationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DenyMAC2InvitationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

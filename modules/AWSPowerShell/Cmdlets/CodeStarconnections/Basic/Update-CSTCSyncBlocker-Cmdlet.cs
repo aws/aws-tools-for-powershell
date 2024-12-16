@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [OutputType("Amazon.CodeStarconnections.Model.UpdateSyncBlockerResponse")]
     [AWSCmdlet("Calls the AWS CodeStar Connections UpdateSyncBlocker API operation.", Operation = new[] {"UpdateSyncBlocker"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.UpdateSyncBlockerResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.UpdateSyncBlockerResponse",
-        "This cmdlet returns an Amazon.CodeStarconnections.Model.UpdateSyncBlockerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeStarconnections.Model.UpdateSyncBlockerResponse object containing multiple properties."
     )]
     public partial class UpdateCSTCSyncBlockerCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

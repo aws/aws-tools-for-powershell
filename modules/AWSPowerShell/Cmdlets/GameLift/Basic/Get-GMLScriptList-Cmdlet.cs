@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service ListScripts API operation.", Operation = new[] {"ListScripts"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListScriptsResponse))]
     [AWSCmdletOutput("Amazon.GameLift.Model.Script or Amazon.GameLift.Model.ListScriptsResponse",
         "This cmdlet returns a collection of Amazon.GameLift.Model.Script objects.",
-        "The service call response (type Amazon.GameLift.Model.ListScriptsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.ListScriptsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGMLScriptListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
@@ -70,11 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
-        /// of the result set, don't specify a value.</para>
+        /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

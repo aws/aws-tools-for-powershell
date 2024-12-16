@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.GetLineageGroupPolicyResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service GetLineageGroupPolicy API operation.", Operation = new[] {"GetLineageGroupPolicy"}, SelectReturnType = typeof(Amazon.SageMaker.Model.GetLineageGroupPolicyResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.GetLineageGroupPolicyResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.GetLineageGroupPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.GetLineageGroupPolicyResponse object containing multiple properties."
     )]
     public partial class GetSMLineageGroupPolicyCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

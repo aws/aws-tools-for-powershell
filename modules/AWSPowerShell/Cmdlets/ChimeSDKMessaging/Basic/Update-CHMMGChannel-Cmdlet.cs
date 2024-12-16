@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     [AWSCmdlet("Calls the Amazon Chime SDK Messaging UpdateChannel API operation.", Operation = new[] {"UpdateChannel"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse))]
     [AWSCmdletOutput("System.String or Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMessaging.Model.UpdateChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCHMMGChannelCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {

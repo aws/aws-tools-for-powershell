@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DetachCertificateFromDistribution API operation.", Operation = new[] {"DetachCertificateFromDistribution"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DetachCertificateFromDistributionResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DetachCertificateFromDistributionResponse",
         "This cmdlet returns an Amazon.Lightsail.Model.Operation object.",
-        "The service call response (type Amazon.Lightsail.Model.DetachCertificateFromDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DetachCertificateFromDistributionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class DismountLSCertificateFromDistributionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

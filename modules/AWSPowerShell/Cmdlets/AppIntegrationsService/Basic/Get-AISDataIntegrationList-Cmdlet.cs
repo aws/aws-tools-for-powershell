@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     [AWSCmdlet("Calls the Amazon AppIntegrations Service ListDataIntegrations API operation.", Operation = new[] {"ListDataIntegrations"}, SelectReturnType = typeof(Amazon.AppIntegrationsService.Model.ListDataIntegrationsResponse))]
     [AWSCmdletOutput("Amazon.AppIntegrationsService.Model.DataIntegrationSummary or Amazon.AppIntegrationsService.Model.ListDataIntegrationsResponse",
         "This cmdlet returns a collection of Amazon.AppIntegrationsService.Model.DataIntegrationSummary objects.",
-        "The service call response (type Amazon.AppIntegrationsService.Model.ListDataIntegrationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppIntegrationsService.Model.ListDataIntegrationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAISDataIntegrationListCmdlet : AmazonAppIntegrationsServiceClientCmdlet, IExecutor
     {

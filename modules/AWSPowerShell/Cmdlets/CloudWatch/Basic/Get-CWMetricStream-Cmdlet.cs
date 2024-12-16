@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [OutputType("Amazon.CloudWatch.Model.GetMetricStreamResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch GetMetricStream API operation.", Operation = new[] {"GetMetricStream"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.GetMetricStreamResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.GetMetricStreamResponse",
-        "This cmdlet returns an Amazon.CloudWatch.Model.GetMetricStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatch.Model.GetMetricStreamResponse object containing multiple properties."
     )]
     public partial class GetCWMetricStreamCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

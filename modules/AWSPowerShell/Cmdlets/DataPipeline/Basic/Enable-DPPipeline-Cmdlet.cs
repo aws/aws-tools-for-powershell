@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Calls the AWS Data Pipeline ActivatePipeline API operation.", Operation = new[] {"ActivatePipeline"}, SelectReturnType = typeof(Amazon.DataPipeline.Model.ActivatePipelineResponse))]
     [AWSCmdletOutput("None or Amazon.DataPipeline.Model.ActivatePipelineResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataPipeline.Model.ActivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.ActivatePipelineResponse) be returned by specifying '-Select *'."
     )]
     public partial class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

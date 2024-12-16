@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events CreateInput API operation.", Operation = new[] {"CreateInput"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.CreateInputResponse))]
     [AWSCmdletOutput("Amazon.IoTEvents.Model.InputConfiguration or Amazon.IoTEvents.Model.CreateInputResponse",
         "This cmdlet returns an Amazon.IoTEvents.Model.InputConfiguration object.",
-        "The service call response (type Amazon.IoTEvents.Model.CreateInputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEvents.Model.CreateInputResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewIOTEInputCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

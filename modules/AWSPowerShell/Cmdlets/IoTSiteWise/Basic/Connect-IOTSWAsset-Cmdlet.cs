@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [AWSCmdlet("Calls the AWS IoT SiteWise AssociateAssets API operation.", Operation = new[] {"AssociateAssets"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.AssociateAssetsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTSiteWise.Model.AssociateAssetsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTSiteWise.Model.AssociateAssetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTSiteWise.Model.AssociateAssetsResponse) be returned by specifying '-Select *'."
     )]
     public partial class ConnectIOTSWAssetCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

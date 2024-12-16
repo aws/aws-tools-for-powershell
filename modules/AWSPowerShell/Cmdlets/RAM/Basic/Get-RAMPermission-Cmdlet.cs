@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) GetPermission API operation.", Operation = new[] {"GetPermission"}, SelectReturnType = typeof(Amazon.RAM.Model.GetPermissionResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionDetail or Amazon.RAM.Model.GetPermissionResponse",
         "This cmdlet returns an Amazon.RAM.Model.ResourceSharePermissionDetail object.",
-        "The service call response (type Amazon.RAM.Model.GetPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.GetPermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRAMPermissionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

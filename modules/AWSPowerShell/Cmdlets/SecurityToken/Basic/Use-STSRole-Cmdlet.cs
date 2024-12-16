@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// secret access key, and a security token. Typically, you use <c>AssumeRole</c> within
     /// your account or for cross-account access. For a comparison of <c>AssumeRole</c> with
     /// other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
-    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
-    /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
+    /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare
+    /// STS credentials</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para><b>Permissions</b></para><para>
@@ -43,17 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// call the Amazon Web Services STS <c>GetFederationToken</c> or <c>GetSessionToken</c>
     /// API operations.
     /// </para><para>
-    /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
-    /// policies</a> to this operation. You can pass a single JSON policy document to use
-    /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
-    /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
-    /// inline and managed session policies can't exceed 2,048 characters. Passing policies
-    /// to this operation returns new temporary credentials. The resulting session's permissions
-    /// are the intersection of the role's identity-based policy and the session policies.
-    /// You can use the role's temporary credentials in subsequent Amazon Web Services API
-    /// calls to access resources in the account that owns the role. You cannot use session
-    /// policies to grant more permissions than those allowed by the identity-based policy
-    /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+    /// (Optional) You can pass inline or managed session policies to this operation. You
+    /// can pass a single JSON policy document to use as an inline session policy. You can
+    /// also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as managed
+    /// session policies. The plaintext that you use for both inline and managed session policies
+    /// can't exceed 2,048 characters. Passing policies to this operation returns new temporary
+    /// credentials. The resulting session's permissions are the intersection of the role's
+    /// identity-based policy and the session policies. You can use the role's temporary credentials
+    /// in subsequent Amazon Web Services API calls to access resources in the account that
+    /// owns the role. You cannot use session policies to grant more permissions than those
+    /// allowed by the identity-based policy of the role that is being assumed. For more information,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
     /// Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// When you create a role, you create two policies: a role trust policy that specifies
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleResponse")]
     [AWSCmdlet("Calls the AWS Security Token Service (STS) AssumeRole API operation.", Operation = new[] {"AssumeRole"}, SelectReturnType = typeof(Amazon.SecurityToken.Model.AssumeRoleResponse))]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleResponse",
-        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties."
     )]
     public partial class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// on the maximum session duration setting for your role. However, if you assume a role
         /// using role chaining and provide a <c>DurationSeconds</c> parameter value greater than
         /// one hour, the operation fails. To learn how to view the maximum value for your role,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View
-        /// the Maximum Session Duration Setting for a Role</a> in the <i>IAM User Guide</i>.</para><para>By default, the value is set to <c>3600</c> seconds. </para><note><para>The <c>DurationSeconds</c> parameter is separate from the duration of a console session
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-settings.html#id_roles_update-session-duration">Update
+        /// the maximum session duration for a role</a>.</para><para>By default, the value is set to <c>3600</c> seconds. </para><note><para>The <c>DurationSeconds</c> parameter is separate from the duration of a console session
         /// that you might request using the returned credentials. The request to the federation
         /// endpoint for a console sign-in token takes a <c>SessionDuration</c> parameter that
         /// specifies the maximum length of the console session. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating
@@ -193,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// policy ARNs, and session tags into a packed binary format that has a separate limit.
         /// Your request can fail for this limit even if your plaintext meets the other requirements.
         /// The <c>PackedPolicySize</c> response element indicates by percentage how close the
-        /// policies and tags for your request are to the upper size limit.</para></note>
+        /// policies and tags for your request are to the upper size limit.</para></note><para>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// policies</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -265,7 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// role session name is visible to, and can be logged by the account that owns the role.
         /// The role session name is also used in the ARN of the assumed role principal. This
         /// means that subsequent cross-account API requests that use the temporary security credentials
-        /// will expose the role session name to the external account in their CloudTrail logs.</para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// will expose the role session name to the external account in their CloudTrail logs.</para><para>For security purposes, administrators can view this field in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html#cloudtrail-integration_signin-tempcreds">CloudTrail
+        /// logs</a> to help identify who performed an action in Amazon Web Services. Your administrator
+        /// might require that you specify your user name as the session name when you assume
+        /// the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname"><c>sts:RoleSessionName</c></a>.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
         /// underscores or any of the following characters: =,.@-</para>
         /// </para>
@@ -301,12 +305,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <summary>
         /// <para>
         /// <para>The source identity specified by the principal that is calling the <c>AssumeRole</c>
-        /// operation.</para><para>You can require users to specify a source identity when they assume a role. You do
-        /// this by using the <c>sts:SourceIdentity</c> condition key in a role trust policy.
-        /// You can use source identity information in CloudTrail logs to determine who took actions
-        /// with a role. You can use the <c>aws:SourceIdentity</c> condition key to further control
-        /// access to Amazon Web Services resources based on the value of source identity. For
-        /// more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor
+        /// operation. The source identity value persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-role-chaining">chained
+        /// role</a> sessions.</para><para>You can require users to specify a source identity when they assume a role. You do
+        /// this by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceidentity"><c>sts:SourceIdentity</c></a> condition key in a role trust policy. You can use source
+        /// identity information in CloudTrail logs to determine who took actions with a role.
+        /// You can use the <c>aws:SourceIdentity</c> condition key to further control access
+        /// to Amazon Web Services resources based on the value of source identity. For more information
+        /// about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor
         /// and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
         /// underscores or any of the following characters: =,.@-. You cannot use a value that
@@ -368,8 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <para>A list of keys for session tags that you want to set as transitive. If you set a tag
         /// key as transitive, the corresponding key and value passes to subsequent sessions in
         /// a role chain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining">Chaining
-        /// Roles with Session Tags</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. When you set session tags as transitive, the session policy
-        /// and session tags packed binary limit is not affected.</para><para>If you choose not to specify a transitive tag key, then no tags are passed from this
+        /// Roles with Session Tags</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. The transitive status of a session tag does not impact
+        /// its packed binary size.</para><para>If you choose not to specify a transitive tag key, then no tags are passed from this
         /// session to any subsequent sessions.</para>
         /// </para>
         /// </summary>

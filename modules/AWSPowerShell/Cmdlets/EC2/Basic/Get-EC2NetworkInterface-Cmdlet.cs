@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeNetworkInterfaces API operation.", Operation = new[] {"DescribeNetworkInterfaces"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeNetworkInterfacesResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface or Amazon.EC2.Model.DescribeNetworkInterfacesResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.NetworkInterface objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>detaching</c> | <c>detached</c>).</para></li><li><para><c>availability-zone</c> - The Availability Zone of the network interface.</para></li><li><para><c>description</c> - The description of the network interface.</para></li><li><para><c>group-id</c> - The ID of a security group associated with the network interface.</para></li><li><para><c>ipv6-addresses.ipv6-address</c> - An IPv6 address associated with the network
         /// interface.</para></li><li><para><c>interface-type</c> - The type of network interface (<c>api_gateway_managed</c>
         /// | <c>aws_codestar_connections_managed</c> | <c>branch</c> | <c>ec2_instance_connect_endpoint</c>
-        /// | <c>efa</c> | <c>efs</c> | <c>gateway_load_balancer</c> | <c>gateway_load_balancer_endpoint</c>
+        /// | <c>efa</c> | <c>efa-only</c> | <c>efs</c> | <c>gateway_load_balancer</c> | <c>gateway_load_balancer_endpoint</c>
         /// | <c>global_accelerator_managed</c> | <c>interface</c> | <c>iot_rules_managed</c>
         /// | <c>lambda</c> | <c>load_balancer</c> | <c>nat_gateway</c> | <c>network_load_balancer</c>
         /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

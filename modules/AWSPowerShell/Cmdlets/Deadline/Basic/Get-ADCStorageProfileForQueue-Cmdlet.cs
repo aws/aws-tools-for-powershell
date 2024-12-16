@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [OutputType("Amazon.Deadline.Model.GetStorageProfileForQueueResponse")]
     [AWSCmdlet("Calls the AWSDeadlineCloud GetStorageProfileForQueue API operation.", Operation = new[] {"GetStorageProfileForQueue"}, SelectReturnType = typeof(Amazon.Deadline.Model.GetStorageProfileForQueueResponse))]
     [AWSCmdletOutput("Amazon.Deadline.Model.GetStorageProfileForQueueResponse",
-        "This cmdlet returns an Amazon.Deadline.Model.GetStorageProfileForQueueResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Deadline.Model.GetStorageProfileForQueueResponse object containing multiple properties."
     )]
     public partial class GetADCStorageProfileForQueueCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

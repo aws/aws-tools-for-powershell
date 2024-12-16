@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights CreateLogPattern API operation.", Operation = new[] {"CreateLogPattern"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.CreateLogPatternResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.LogPattern or Amazon.ApplicationInsights.Model.CreateLogPatternResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.LogPattern object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.CreateLogPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.CreateLogPatternResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCWAILogPatternCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// translates to a <c>750,000</c> rank. A <c>Medium</c> severity pattern translates to
         /// a <c>500,000</c> rank. And a <c>High</c> severity pattern translates to a <c>250,000</c>
         /// rank. Rank values less than <c>1</c> or greater than <c>1,000,000</c> are reserved
-        /// for AWS-provided patterns. </para>
+        /// for Amazon Web Services provided patterns. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

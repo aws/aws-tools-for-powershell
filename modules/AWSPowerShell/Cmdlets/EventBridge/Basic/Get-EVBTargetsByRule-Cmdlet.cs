@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [AWSCmdlet("Calls the Amazon EventBridge ListTargetsByRule API operation.", Operation = new[] {"ListTargetsByRule"}, SelectReturnType = typeof(Amazon.EventBridge.Model.ListTargetsByRuleResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.Target or Amazon.EventBridge.Model.ListTargetsByRuleResponse",
         "This cmdlet returns a collection of Amazon.EventBridge.Model.Target objects.",
-        "The service call response (type Amazon.EventBridge.Model.ListTargetsByRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EventBridge.Model.ListTargetsByRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEVBTargetsByRuleCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

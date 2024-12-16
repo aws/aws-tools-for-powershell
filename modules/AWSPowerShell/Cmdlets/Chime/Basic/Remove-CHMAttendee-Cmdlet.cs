@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime DeleteAttendee API operation.", Operation = new[] {"DeleteAttendee"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteAttendeeResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteAttendeeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteAttendeeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.DeleteAttendeeResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace")]
     public partial class RemoveCHMAttendeeCmdlet : AmazonChimeClientCmdlet, IExecutor

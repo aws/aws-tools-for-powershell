@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.DeregisterTargetsResponse")]
     [AWSCmdlet("Calls the VPC Lattice DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.DeregisterTargetsResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.DeregisterTargetsResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.DeregisterTargetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.DeregisterTargetsResponse object containing multiple properties."
     )]
     public partial class UnregisterVPCLTargetCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

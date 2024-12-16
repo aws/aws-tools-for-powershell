@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.SecurityLake.Model.Tag or Amazon.SecurityLake.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.SecurityLake.Model.Tag objects.",
-        "The service call response (type Amazon.SecurityLake.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityLake.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSLKResourceTagCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

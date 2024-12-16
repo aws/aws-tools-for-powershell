@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ListManagedJobTemplates API operation.", Operation = new[] {"ListManagedJobTemplates"}, SelectReturnType = typeof(Amazon.IoT.Model.ListManagedJobTemplatesResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.ManagedJobTemplateSummary or Amazon.IoT.Model.ListManagedJobTemplatesResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.ManagedJobTemplateSummary objects.",
-        "The service call response (type Amazon.IoT.Model.ListManagedJobTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListManagedJobTemplatesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTManagedJobTemplateListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

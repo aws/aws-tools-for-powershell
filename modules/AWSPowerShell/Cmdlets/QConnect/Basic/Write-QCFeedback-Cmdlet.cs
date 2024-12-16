@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.PutFeedbackResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect PutFeedback API operation.", Operation = new[] {"PutFeedback"}, SelectReturnType = typeof(Amazon.QConnect.Model.PutFeedbackResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.PutFeedbackResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.PutFeedbackResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.PutFeedbackResponse object containing multiple properties."
     )]
     public partial class WriteQCFeedbackCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

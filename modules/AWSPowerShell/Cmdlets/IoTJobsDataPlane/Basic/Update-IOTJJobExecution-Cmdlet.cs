@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
     [OutputType("Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse")]
     [AWSCmdlet("Calls the AWS IoT Jobs Data Plane UpdateJobExecution API operation.", Operation = new[] {"UpdateJobExecution"}, SelectReturnType = typeof(Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse))]
     [AWSCmdletOutput("Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse",
-        "This cmdlet returns an Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTJobsDataPlane.Model.UpdateJobExecutionResponse object containing multiple properties."
     )]
     public partial class UpdateIOTJJobExecutionCmdlet : AmazonIoTJobsDataPlaneClientCmdlet, IExecutor
     {

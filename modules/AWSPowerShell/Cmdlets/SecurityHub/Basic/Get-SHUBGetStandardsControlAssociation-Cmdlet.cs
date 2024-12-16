@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [OutputType("Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse")]
     [AWSCmdlet("Calls the AWS Security Hub BatchGetStandardsControlAssociations API operation.", Operation = new[] {"BatchGetStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse))]
     [AWSCmdletOutput("Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse object containing multiple properties."
     )]
     public partial class GetSHUBGetStandardsControlAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

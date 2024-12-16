@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ModifyAuthenticationProfileResponse")]
     [AWSCmdlet("Calls the Amazon Redshift ModifyAuthenticationProfile API operation.", Operation = new[] {"ModifyAuthenticationProfile"}, SelectReturnType = typeof(Amazon.Redshift.Model.ModifyAuthenticationProfileResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.ModifyAuthenticationProfileResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.ModifyAuthenticationProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Redshift.Model.ModifyAuthenticationProfileResponse object containing multiple properties."
     )]
     public partial class EditRSAuthenticationProfileCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

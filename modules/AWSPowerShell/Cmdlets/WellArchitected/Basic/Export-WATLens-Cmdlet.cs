@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool ExportLens API operation.", Operation = new[] {"ExportLens"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ExportLensResponse))]
     [AWSCmdletOutput("System.String or Amazon.WellArchitected.Model.ExportLensResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WellArchitected.Model.ExportLensResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.ExportLensResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ExportWATLensCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

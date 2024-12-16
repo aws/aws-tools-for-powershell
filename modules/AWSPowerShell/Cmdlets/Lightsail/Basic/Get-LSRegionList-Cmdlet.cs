@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetRegions API operation.", Operation = new[] {"GetRegions"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetRegionsResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Region or Amazon.Lightsail.Model.GetRegionsResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Region objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetRegionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSRegionListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

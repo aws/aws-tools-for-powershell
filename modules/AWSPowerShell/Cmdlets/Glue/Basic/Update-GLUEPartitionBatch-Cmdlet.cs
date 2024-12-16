@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue BatchUpdatePartition API operation.", Operation = new[] {"BatchUpdatePartition"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchUpdatePartitionResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchUpdatePartitionFailureEntry or Amazon.Glue.Model.BatchUpdatePartitionResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.BatchUpdatePartitionFailureEntry objects.",
-        "The service call response (type Amazon.Glue.Model.BatchUpdatePartitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.BatchUpdatePartitionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEPartitionBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

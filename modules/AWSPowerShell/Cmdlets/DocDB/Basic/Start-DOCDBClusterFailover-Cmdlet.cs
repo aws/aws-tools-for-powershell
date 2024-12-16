@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) FailoverDBCluster API operation.", Operation = new[] {"FailoverDBCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.FailoverDBClusterResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.DBCluster or Amazon.DocDB.Model.FailoverDBClusterResponse",
         "This cmdlet returns an Amazon.DocDB.Model.DBCluster object.",
-        "The service call response (type Amazon.DocDB.Model.FailoverDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.FailoverDBClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartDOCDBClusterFailoverCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

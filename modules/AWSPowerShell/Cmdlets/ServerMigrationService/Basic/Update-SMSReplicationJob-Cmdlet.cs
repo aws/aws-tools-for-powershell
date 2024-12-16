@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service UpdateReplicationJob API operation.", Operation = new[] {"UpdateReplicationJob"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.UpdateReplicationJobResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.UpdateReplicationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.UpdateReplicationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.UpdateReplicationJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSMSReplicationJobCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

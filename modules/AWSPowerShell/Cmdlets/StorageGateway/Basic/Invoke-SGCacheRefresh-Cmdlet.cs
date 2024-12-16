@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.RefreshCacheResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway RefreshCache API operation.", Operation = new[] {"RefreshCache"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.RefreshCacheResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.RefreshCacheResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.RefreshCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.RefreshCacheResponse object containing multiple properties."
     )]
     public partial class InvokeSGCacheRefreshCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

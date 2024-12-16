@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer StartPolicyGeneration API operation.", Operation = new[] {"StartPolicyGeneration"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.StartPolicyGenerationResponse))]
     [AWSCmdletOutput("System.String or Amazon.AccessAnalyzer.Model.StartPolicyGenerationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.StartPolicyGenerationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.StartPolicyGenerationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartIAMAAPolicyGenerationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

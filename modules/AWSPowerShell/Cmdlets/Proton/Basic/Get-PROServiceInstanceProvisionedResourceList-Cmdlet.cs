@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListServiceInstanceProvisionedResources API operation.", Operation = new[] {"ListServiceInstanceProvisionedResources"}, SelectReturnType = typeof(Amazon.Proton.Model.ListServiceInstanceProvisionedResourcesResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ProvisionedResource or Amazon.Proton.Model.ListServiceInstanceProvisionedResourcesResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.ProvisionedResource objects.",
-        "The service call response (type Amazon.Proton.Model.ListServiceInstanceProvisionedResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListServiceInstanceProvisionedResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROServiceInstanceProvisionedResourceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateSigningCertificate API operation.", Operation = new[] {"UpdateSigningCertificate"}, SelectReturnType = typeof(Amazon.IdentityManagement.Model.UpdateSigningCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.IdentityManagement.Model.UpdateSigningCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IdentityManagement.Model.UpdateSigningCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateSigningCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIAMSigningCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

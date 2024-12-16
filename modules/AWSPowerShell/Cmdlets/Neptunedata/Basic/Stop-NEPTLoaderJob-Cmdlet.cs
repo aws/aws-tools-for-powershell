@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [AWSCmdlet("Calls the Amazon NeptuneData CancelLoaderJob API operation.", Operation = new[] {"CancelLoaderJob"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.CancelLoaderJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Neptunedata.Model.CancelLoaderJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Neptunedata.Model.CancelLoaderJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptunedata.Model.CancelLoaderJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopNEPTLoaderJobCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

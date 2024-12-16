@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"}, SelectReturnType = typeof(Amazon.Neptune.Model.AddTagsToResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Neptune.Model.AddTagsToResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Neptune.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Neptune.Model.AddTagsToResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddNPTResourceTagCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

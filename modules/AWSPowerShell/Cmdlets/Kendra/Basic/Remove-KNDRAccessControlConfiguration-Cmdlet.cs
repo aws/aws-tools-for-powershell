@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeleteAccessControlConfiguration API operation.", Operation = new[] {"DeleteAccessControlConfiguration"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteAccessControlConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRAccessControlConfigurationCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

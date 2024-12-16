@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service VerifyTrust API operation.", Operation = new[] {"VerifyTrust"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.VerifyTrustResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.VerifyTrustResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.VerifyTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.VerifyTrustResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

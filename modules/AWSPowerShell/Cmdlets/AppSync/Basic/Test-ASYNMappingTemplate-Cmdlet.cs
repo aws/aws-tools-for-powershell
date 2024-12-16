@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [OutputType("Amazon.AppSync.Model.EvaluateMappingTemplateResponse")]
     [AWSCmdlet("Calls the AWS AppSync EvaluateMappingTemplate API operation.", Operation = new[] {"EvaluateMappingTemplate"}, SelectReturnType = typeof(Amazon.AppSync.Model.EvaluateMappingTemplateResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.EvaluateMappingTemplateResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.EvaluateMappingTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppSync.Model.EvaluateMappingTemplateResponse object containing multiple properties."
     )]
     public partial class TestASYNMappingTemplateCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

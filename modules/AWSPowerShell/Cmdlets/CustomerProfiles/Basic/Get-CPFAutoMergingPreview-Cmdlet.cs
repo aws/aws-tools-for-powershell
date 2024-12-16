@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles GetAutoMergingPreview API operation.", Operation = new[] {"GetAutoMergingPreview"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.GetAutoMergingPreviewResponse object containing multiple properties."
     )]
     public partial class GetCPFAutoMergingPreviewCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

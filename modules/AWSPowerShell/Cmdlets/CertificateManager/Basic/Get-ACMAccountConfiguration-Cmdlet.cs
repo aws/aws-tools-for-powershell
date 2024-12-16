@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [AWSCmdlet("Calls the AWS Certificate Manager GetAccountConfiguration API operation.", Operation = new[] {"GetAccountConfiguration"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.GetAccountConfigurationResponse))]
     [AWSCmdletOutput("Amazon.CertificateManager.Model.ExpiryEventsConfiguration or Amazon.CertificateManager.Model.GetAccountConfigurationResponse",
         "This cmdlet returns an Amazon.CertificateManager.Model.ExpiryEventsConfiguration object.",
-        "The service call response (type Amazon.CertificateManager.Model.GetAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CertificateManager.Model.GetAccountConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACMAccountConfigurationCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

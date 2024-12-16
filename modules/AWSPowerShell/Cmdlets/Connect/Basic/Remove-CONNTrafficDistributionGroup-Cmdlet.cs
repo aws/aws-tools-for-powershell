@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteTrafficDistributionGroup API operation.", Operation = new[] {"DeleteTrafficDistributionGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteTrafficDistributionGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNTrafficDistributionGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TrafficDistributionGroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN if
-        /// the API is being called in the Region where the traffic distribution group was created.
-        /// The ARN must be provided if the call is from the replicated Region.</para>
+        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN of
+        /// the traffic distribution group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

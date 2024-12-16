@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder ImportVmImage API operation.", Operation = new[] {"ImportVmImage"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.ImportVmImageResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.ImportVmImageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.ImportVmImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.ImportVmImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportEC2IBVmImageCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

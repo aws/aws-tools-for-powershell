@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [AWSCmdlet("Calls the Amazon Q Connect ListQuickResponses API operation.", Operation = new[] {"ListQuickResponses"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListQuickResponsesResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.QuickResponseSummary or Amazon.QConnect.Model.ListQuickResponsesResponse",
         "This cmdlet returns a collection of Amazon.QConnect.Model.QuickResponseSummary objects.",
-        "The service call response (type Amazon.QConnect.Model.ListQuickResponsesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QConnect.Model.ListQuickResponsesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQCQuickResponseListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

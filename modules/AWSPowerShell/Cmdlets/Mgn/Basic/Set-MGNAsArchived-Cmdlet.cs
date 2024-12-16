@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [OutputType("Amazon.Mgn.Model.MarkAsArchivedResponse")]
     [AWSCmdlet("Calls the Application Migration Service MarkAsArchived API operation.", Operation = new[] {"MarkAsArchived"}, SelectReturnType = typeof(Amazon.Mgn.Model.MarkAsArchivedResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.MarkAsArchivedResponse",
-        "This cmdlet returns an Amazon.Mgn.Model.MarkAsArchivedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Mgn.Model.MarkAsArchivedResponse object containing multiple properties."
     )]
     public partial class SetMGNAsArchivedCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

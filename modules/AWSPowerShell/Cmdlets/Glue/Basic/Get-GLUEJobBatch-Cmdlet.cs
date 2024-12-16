@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.BatchGetJobsResponse")]
     [AWSCmdlet("Calls the AWS Glue BatchGetJobs API operation.", Operation = new[] {"BatchGetJobs"}, SelectReturnType = typeof(Amazon.Glue.Model.BatchGetJobsResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.BatchGetJobsResponse",
-        "This cmdlet returns an Amazon.Glue.Model.BatchGetJobsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.BatchGetJobsResponse object containing multiple properties."
     )]
     public partial class GetGLUEJobBatchCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

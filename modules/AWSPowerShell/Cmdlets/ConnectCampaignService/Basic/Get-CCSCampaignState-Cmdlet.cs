@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     [AWSCmdlet("Calls the Amazon Connect Campaign Service GetCampaignState API operation.", Operation = new[] {"GetCampaignState"}, SelectReturnType = typeof(Amazon.ConnectCampaignService.Model.GetCampaignStateResponse))]
     [AWSCmdletOutput("Amazon.ConnectCampaignService.CampaignState or Amazon.ConnectCampaignService.Model.GetCampaignStateResponse",
         "This cmdlet returns an Amazon.ConnectCampaignService.CampaignState object.",
-        "The service call response (type Amazon.ConnectCampaignService.Model.GetCampaignStateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCampaignService.Model.GetCampaignStateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCSCampaignStateCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {

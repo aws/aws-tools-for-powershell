@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     [AWSCmdlet("Calls the Amazon Security Lake DeleteDataLakeOrganizationConfiguration API operation.", Operation = new[] {"DeleteDataLakeOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecurityLake.Model.DeleteDataLakeOrganizationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSLKDataLakeOrganizationConfigurationCmdlet : AmazonSecurityLakeClientCmdlet, IExecutor
     {

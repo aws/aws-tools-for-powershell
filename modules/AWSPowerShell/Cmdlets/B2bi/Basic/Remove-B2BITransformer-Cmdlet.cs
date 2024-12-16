@@ -28,15 +28,16 @@ using Amazon.B2bi.Model;
 namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
-    /// Deletes the specified transformer. A transformer describes how to process the incoming
-    /// EDI documents and extract the necessary information to the output file.
+    /// Deletes the specified transformer. A transformer can take an EDI file as input and
+    /// transform it into a JSON-or XML-formatted document. Alternatively, a transformer can
+    /// take a JSON-or XML-formatted document as input and transform it into an EDI file.
     /// </summary>
     [Cmdlet("Remove", "B2BITransformer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
     [AWSCmdlet("Calls the AWS B2B Data Interchange DeleteTransformer API operation.", Operation = new[] {"DeleteTransformer"}, SelectReturnType = typeof(Amazon.B2bi.Model.DeleteTransformerResponse))]
     [AWSCmdletOutput("None or Amazon.B2bi.Model.DeleteTransformerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.B2bi.Model.DeleteTransformerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.B2bi.Model.DeleteTransformerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveB2BITransformerCmdlet : AmazonB2biClientCmdlet, IExecutor
     {

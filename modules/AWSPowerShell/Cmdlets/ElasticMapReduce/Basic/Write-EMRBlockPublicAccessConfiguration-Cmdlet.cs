@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Calls the Amazon Elastic MapReduce PutBlockPublicAccessConfiguration API operation.", Operation = new[] {"PutBlockPublicAccessConfiguration"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.PutBlockPublicAccessConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.PutBlockPublicAccessConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticMapReduce.Model.PutBlockPublicAccessConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.PutBlockPublicAccessConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteEMRBlockPublicAccessConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

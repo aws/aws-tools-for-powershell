@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessPointPolicy API operation.", Operation = new[] {"DeleteAccessPointPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessPointPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessPointPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteAccessPointPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DeleteAccessPointPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CAccessPointPolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

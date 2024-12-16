@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web UpdateTrustStore API operation.", Operation = new[] {"UpdateTrustStore"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse))]
     [AWSCmdletOutput("System.String or Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateWSWTrustStoreCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

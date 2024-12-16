@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetTrigger API operation.", Operation = new[] {"GetTrigger"}, SelectReturnType = typeof(Amazon.Glue.Model.GetTriggerResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.Trigger or Amazon.Glue.Model.GetTriggerResponse",
         "This cmdlet returns an Amazon.Glue.Model.Trigger object.",
-        "The service call response (type Amazon.Glue.Model.GetTriggerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetTriggerResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUETriggerCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

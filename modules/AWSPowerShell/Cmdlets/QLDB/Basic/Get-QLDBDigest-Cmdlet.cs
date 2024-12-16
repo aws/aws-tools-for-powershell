@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [OutputType("Amazon.QLDB.Model.GetDigestResponse")]
     [AWSCmdlet("Calls the Amazon QLDB GetDigest API operation.", Operation = new[] {"GetDigest"}, SelectReturnType = typeof(Amazon.QLDB.Model.GetDigestResponse))]
     [AWSCmdletOutput("Amazon.QLDB.Model.GetDigestResponse",
-        "This cmdlet returns an Amazon.QLDB.Model.GetDigestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QLDB.Model.GetDigestResponse object containing multiple properties."
     )]
     public partial class GetQLDBDigestCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

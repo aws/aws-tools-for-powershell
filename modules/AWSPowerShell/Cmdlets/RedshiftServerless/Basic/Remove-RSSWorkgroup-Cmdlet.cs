@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless DeleteWorkgroup API operation.", Operation = new[] {"DeleteWorkgroup"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.DeleteWorkgroupResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Workgroup or Amazon.RedshiftServerless.Model.DeleteWorkgroupResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.Workgroup object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.DeleteWorkgroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.DeleteWorkgroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveRSSWorkgroupCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

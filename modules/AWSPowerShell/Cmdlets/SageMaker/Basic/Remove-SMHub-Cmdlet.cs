@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHub API operation.", Operation = new[] {"DeleteHub"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHubResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHubResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteHubResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteHubResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMHubCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

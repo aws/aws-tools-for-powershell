@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager StartAssessmentFrameworkShare API operation.", Operation = new[] {"StartAssessmentFrameworkShare"}, SelectReturnType = typeof(Amazon.AuditManager.Model.StartAssessmentFrameworkShareResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.AssessmentFrameworkShareRequest or Amazon.AuditManager.Model.StartAssessmentFrameworkShareResponse",
         "This cmdlet returns an Amazon.AuditManager.Model.AssessmentFrameworkShareRequest object.",
-        "The service call response (type Amazon.AuditManager.Model.StartAssessmentFrameworkShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.StartAssessmentFrameworkShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartAUDMAssessmentFrameworkShareCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

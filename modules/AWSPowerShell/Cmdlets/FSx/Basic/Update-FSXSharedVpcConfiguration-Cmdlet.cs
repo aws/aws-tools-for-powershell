@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     [AWSCmdlet("Calls the Amazon FSx UpdateSharedVpcConfiguration API operation.", Operation = new[] {"UpdateSharedVpcConfiguration"}, SelectReturnType = typeof(Amazon.FSx.Model.UpdateSharedVpcConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.FSx.Model.UpdateSharedVpcConfigurationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.FSx.Model.UpdateSharedVpcConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FSx.Model.UpdateSharedVpcConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateFSXSharedVpcConfigurationCmdlet : AmazonFSxClientCmdlet, IExecutor
     {

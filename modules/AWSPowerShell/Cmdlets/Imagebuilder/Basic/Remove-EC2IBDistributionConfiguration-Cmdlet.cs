@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [OutputType("Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse")]
     [AWSCmdlet("Calls the EC2 Image Builder DeleteDistributionConfiguration API operation.", Operation = new[] {"DeleteDistributionConfiguration"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse",
-        "This cmdlet returns an Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Imagebuilder.Model.DeleteDistributionConfigurationResponse object containing multiple properties."
     )]
     public partial class RemoveEC2IBDistributionConfigurationCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

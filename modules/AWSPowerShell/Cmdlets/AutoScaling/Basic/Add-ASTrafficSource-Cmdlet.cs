@@ -47,9 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// This operation is additive and does not detach existing traffic sources from the Auto
     /// Scaling group. 
     /// </para><para>
-    /// After the operation completes, use the <a>DescribeTrafficSources</a> API to return
-    /// details about the state of the attachments between traffic sources and your Auto Scaling
-    /// group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
+    /// After the operation completes, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>
+    /// API to return details about the state of the attachments between traffic sources and
+    /// your Auto Scaling group. To detach a traffic source from the Auto Scaling group, call
+    /// the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a>
     /// API.
     /// </para>
     /// </summary>
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling AttachTrafficSources API operation.", Operation = new[] {"AttachTrafficSources"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachTrafficSourcesResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachTrafficSourcesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachTrafficSourcesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachTrafficSourcesResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddASTrafficSourceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponentConfigurationRecommendation API operation.", Operation = new[] {"DescribeComponentConfigurationRecommendation"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWAIComponentConfigurationRecommendationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>The name of the workload.</para>
+        /// <para>The name of the workload. The name of the workload is required when the tier of the
+        /// application component is <c>SAP_ASE_SINGLE_NODE</c> or <c>SAP_ASE_HIGH_AVAILABILITY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

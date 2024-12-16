@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     [AWSCmdlet("Calls the Amazon Connect Cases ListLayouts API operation.", Operation = new[] {"ListLayouts"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.ListLayoutsResponse))]
     [AWSCmdletOutput("Amazon.ConnectCases.Model.LayoutSummary or Amazon.ConnectCases.Model.ListLayoutsResponse",
         "This cmdlet returns a collection of Amazon.ConnectCases.Model.LayoutSummary objects.",
-        "The service call response (type Amazon.ConnectCases.Model.ListLayoutsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConnectCases.Model.ListLayoutsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCASLayoutListCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {

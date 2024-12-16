@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [AWSCmdlet("Calls the Amazon NeptuneData ListMLModelTrainingJobs API operation.", Operation = new[] {"ListMLModelTrainingJobs"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ListMLModelTrainingJobsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Neptunedata.Model.ListMLModelTrainingJobsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Neptunedata.Model.ListMLModelTrainingJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptunedata.Model.ListMLModelTrainingJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNEPTMLModelTrainingJobListCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

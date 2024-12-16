@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     [AWSCmdlet("Calls the AWS Marketplace Commerce Analytics GenerateDataSet API operation.", Operation = new[] {"GenerateDataSet"}, SelectReturnType = typeof(Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {

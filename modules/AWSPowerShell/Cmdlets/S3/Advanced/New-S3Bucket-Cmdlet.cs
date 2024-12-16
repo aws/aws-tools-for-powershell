@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Creates a new bucket in Amazon S3.", Operation = new [] {"PutBucket"}, SelectReturnType = typeof(Amazon.S3.Model.PutBucketResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket or Amazon.S3.Model.PutBucketResponse",
         "Returns an Amazon.S3.Model.S3Bucket instance representing the new bucket.",
-        "The service response (type Amazon.S3.Model.PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "The service call response(s) (type Amazon.S3.Model.PutBucketResponse) can be returned by specifying '-Select *'."
     )]
     public class NewS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

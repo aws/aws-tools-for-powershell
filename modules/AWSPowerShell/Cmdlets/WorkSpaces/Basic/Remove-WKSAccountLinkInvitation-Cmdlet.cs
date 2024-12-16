@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DeleteAccountLinkInvitation API operation.", Operation = new[] {"DeleteAccountLinkInvitation"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DeleteAccountLinkInvitationResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.AccountLink or Amazon.WorkSpaces.Model.DeleteAccountLinkInvitationResponse",
         "This cmdlet returns an Amazon.WorkSpaces.Model.AccountLink object.",
-        "The service call response (type Amazon.WorkSpaces.Model.DeleteAccountLinkInvitationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DeleteAccountLinkInvitationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSAccountLinkInvitationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

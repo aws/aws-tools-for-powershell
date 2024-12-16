@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit UpdateRepositoryEncryptionKey API operation.", Operation = new[] {"UpdateRepositoryEncryptionKey"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.UpdateRepositoryEncryptionKeyResponse object containing multiple properties."
     )]
     public partial class UpdateCCRepositoryEncryptionKeyCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

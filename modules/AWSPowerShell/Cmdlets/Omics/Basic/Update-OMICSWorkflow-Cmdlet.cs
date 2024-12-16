@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics UpdateWorkflow API operation.", Operation = new[] {"UpdateWorkflow"}, SelectReturnType = typeof(Amazon.Omics.Model.UpdateWorkflowResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.UpdateWorkflowResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.UpdateWorkflowResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.UpdateWorkflowResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateOMICSWorkflowCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

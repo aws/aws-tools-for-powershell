@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     [AWSCmdlet("Calls the Amazon Cognito Sync DescribeDataset API operation.", Operation = new[] {"DescribeDataset"}, SelectReturnType = typeof(Amazon.CognitoSync.Model.DescribeDatasetResponse))]
     [AWSCmdletOutput("Amazon.CognitoSync.Model.Dataset or Amazon.CognitoSync.Model.DescribeDatasetResponse",
         "This cmdlet returns an Amazon.CognitoSync.Model.Dataset object.",
-        "The service call response (type Amazon.CognitoSync.Model.DescribeDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CognitoSync.Model.DescribeDatasetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCGISDatasetCmdlet : AmazonCognitoSyncClientCmdlet, IExecutor
     {

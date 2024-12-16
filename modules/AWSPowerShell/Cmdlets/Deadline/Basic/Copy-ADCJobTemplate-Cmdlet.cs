@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud CopyJobTemplate API operation.", Operation = new[] {"CopyJobTemplate"}, SelectReturnType = typeof(Amazon.Deadline.Model.CopyJobTemplateResponse))]
     [AWSCmdletOutput("Amazon.Deadline.JobTemplateType or Amazon.Deadline.Model.CopyJobTemplateResponse",
         "This cmdlet returns an Amazon.Deadline.JobTemplateType object.",
-        "The service call response (type Amazon.Deadline.Model.CopyJobTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.CopyJobTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyADCJobTemplateCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {

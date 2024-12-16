@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateFpgaImageResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateFpgaImage API operation.", Operation = new[] {"CreateFpgaImage"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateFpgaImageResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFpgaImageResponse",
-        "This cmdlet returns an Amazon.EC2.Model.CreateFpgaImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.CreateFpgaImageResponse object containing multiple properties."
     )]
     public partial class NewEC2FpgaImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

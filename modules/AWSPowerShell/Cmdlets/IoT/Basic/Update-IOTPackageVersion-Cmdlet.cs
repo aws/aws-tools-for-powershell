@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT UpdatePackageVersion API operation.", Operation = new[] {"UpdatePackageVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.UpdatePackageVersionResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.UpdatePackageVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.UpdatePackageVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.UpdatePackageVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateIOTPackageVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The inline job document associated with a software package version used for a quick
-        /// job deployment via IoT Jobs.</para>
+        /// job deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

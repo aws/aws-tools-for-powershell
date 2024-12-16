@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ResetEncryptionKey API operation.", Operation = new[] {"ResetEncryptionKey"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ResetEncryptionKeyResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector2.Model.ResetEncryptionKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector2.Model.ResetEncryptionKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector2.Model.ResetEncryptionKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class ResetINS2EncryptionKeyCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

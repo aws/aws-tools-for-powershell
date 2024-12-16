@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs AbortDocumentVersionUpload API operation.", Operation = new[] {"AbortDocumentVersionUpload"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopWDDocumentVersionUploadCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

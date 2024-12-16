@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.RemoveSchemaVersionMetadataResponse")]
     [AWSCmdlet("Calls the AWS Glue RemoveSchemaVersionMetadata API operation.", Operation = new[] {"RemoveSchemaVersionMetadata"}, SelectReturnType = typeof(Amazon.Glue.Model.RemoveSchemaVersionMetadataResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.RemoveSchemaVersionMetadataResponse",
-        "This cmdlet returns an Amazon.Glue.Model.RemoveSchemaVersionMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.RemoveSchemaVersionMetadataResponse object containing multiple properties."
     )]
     public partial class RemoveGLUESchemaVersionMetadataCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

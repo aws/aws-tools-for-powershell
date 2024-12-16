@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton CreateRepository API operation.", Operation = new[] {"CreateRepository"}, SelectReturnType = typeof(Amazon.Proton.Model.CreateRepositoryResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.Repository or Amazon.Proton.Model.CreateRepositoryResponse",
         "This cmdlet returns an Amazon.Proton.Model.Repository object.",
-        "The service call response (type Amazon.Proton.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.CreateRepositoryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPRORepositoryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

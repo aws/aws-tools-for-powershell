@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBSubnetGroupResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.DeleteDBSubnetGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeleteDBSubnetGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

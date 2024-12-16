@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse")]
     [AWSCmdlet("Calls the AWS Systems Manager UnlabelParameterVersion API operation.", Operation = new[] {"UnlabelParameterVersion"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.UnlabelParameterVersionResponse object containing multiple properties."
     )]
     public partial class ResetSSMParameterVersionLabelCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

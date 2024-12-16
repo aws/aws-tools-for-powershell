@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdlet("Calls the AWS Service Catalog DescribeServiceActionExecutionParameters API operation.", Operation = new[] {"DescribeServiceActionExecutionParameters"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.DescribeServiceActionExecutionParametersResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ExecutionParameter or Amazon.ServiceCatalog.Model.DescribeServiceActionExecutionParametersResponse",
         "This cmdlet returns a collection of Amazon.ServiceCatalog.Model.ExecutionParameter objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.DescribeServiceActionExecutionParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServiceCatalog.Model.DescribeServiceActionExecutionParametersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCServiceActionExecutionParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

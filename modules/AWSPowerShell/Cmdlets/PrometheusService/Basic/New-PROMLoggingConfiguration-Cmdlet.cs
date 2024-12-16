@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service CreateLoggingConfiguration API operation.", Operation = new[] {"CreateLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.LoggingConfigurationStatus or Amazon.PrometheusService.Model.CreateLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.PrometheusService.Model.LoggingConfigurationStatus object.",
-        "The service call response (type Amazon.PrometheusService.Model.CreateLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.CreateLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         /// <summary>
         /// <para>
         /// <para>The ARN of the CloudWatch log group to which the vended log data will be published.
-        /// This log group must exist prior to calling this API.</para>
+        /// This log group must exist prior to calling this operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
     [AWSCmdlet("Calls the AWS IoT Events PutLoggingOptions API operation.", Operation = new[] {"PutLoggingOptions"}, SelectReturnType = typeof(Amazon.IoTEvents.Model.PutLoggingOptionsResponse))]
     [AWSCmdletOutput("None or Amazon.IoTEvents.Model.PutLoggingOptionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTEvents.Model.PutLoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTEvents.Model.PutLoggingOptionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteIOTELoggingOptionCmdlet : AmazonIoTEventsClientCmdlet, IExecutor
     {

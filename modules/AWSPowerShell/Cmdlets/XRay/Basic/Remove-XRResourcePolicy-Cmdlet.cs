@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.XRay.Model.DeleteResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.XRay.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.XRay.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.XRay.Model.DeleteResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveXRResourcePolicyCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

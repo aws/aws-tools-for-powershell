@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache IncreaseNodeGroupsInGlobalReplicationGroup API operation.", Operation = new[] {"IncreaseNodeGroupsInGlobalReplicationGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.IncreaseNodeGroupsInGlobalReplicationGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.GlobalReplicationGroup or Amazon.ElastiCache.Model.IncreaseNodeGroupsInGlobalReplicationGroupResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.GlobalReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.IncreaseNodeGroupsInGlobalReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.IncreaseNodeGroupsInGlobalReplicationGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestECNodeGroupIncreaseInGlobalReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

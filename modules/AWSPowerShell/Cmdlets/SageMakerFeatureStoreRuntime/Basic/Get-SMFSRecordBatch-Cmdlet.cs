@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     [OutputType("Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Feature Store Runtime BatchGetRecord API operation.", Operation = new[] {"BatchGetRecord"}, SelectReturnType = typeof(Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse))]
     [AWSCmdletOutput("Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse",
-        "This cmdlet returns an Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMakerFeatureStoreRuntime.Model.BatchGetRecordResponse object containing multiple properties."
     )]
     public partial class GetSMFSRecordBatchCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {

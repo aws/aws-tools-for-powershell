@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     [AWSCmdlet("Calls the AWS Fault Injection Simulator GetExperimentTargetAccountConfiguration API operation.", Operation = new[] {"GetExperimentTargetAccountConfiguration"}, SelectReturnType = typeof(Amazon.FIS.Model.GetExperimentTargetAccountConfigurationResponse))]
     [AWSCmdletOutput("Amazon.FIS.Model.ExperimentTargetAccountConfiguration or Amazon.FIS.Model.GetExperimentTargetAccountConfigurationResponse",
         "This cmdlet returns an Amazon.FIS.Model.ExperimentTargetAccountConfiguration object.",
-        "The service call response (type Amazon.FIS.Model.GetExperimentTargetAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FIS.Model.GetExperimentTargetAccountConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFISExperimentTargetAccountConfigurationCmdlet : AmazonFISClientCmdlet, IExecutor
     {

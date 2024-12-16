@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DeleteRule API operation.", Operation = new[] {"DeleteRule"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteRuleResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DeleteRuleResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCONNRuleCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

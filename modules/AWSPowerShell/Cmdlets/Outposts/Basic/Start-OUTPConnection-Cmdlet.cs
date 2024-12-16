@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [OutputType("Amazon.Outposts.Model.StartConnectionResponse")]
     [AWSCmdlet("Calls the AWS Outposts StartConnection API operation.", Operation = new[] {"StartConnection"}, SelectReturnType = typeof(Amazon.Outposts.Model.StartConnectionResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.StartConnectionResponse",
-        "This cmdlet returns an Amazon.Outposts.Model.StartConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Outposts.Model.StartConnectionResponse object containing multiple properties."
     )]
     public partial class StartOUTPConnectionCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

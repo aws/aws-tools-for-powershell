@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListDataSets API operation.", Operation = new[] {"ListDataSets"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListDataSetsResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.DataSetSummary or Amazon.MainframeModernization.Model.ListDataSetsResponse",
         "This cmdlet returns a collection of Amazon.MainframeModernization.Model.DataSetSummary objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListDataSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListDataSetsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMDataSetListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

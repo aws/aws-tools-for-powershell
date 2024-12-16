@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [OutputType("Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse")]
     [AWSCmdlet("Calls the AWS Application Discovery Service StartContinuousExport API operation.", Operation = new[] {"StartContinuousExport"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse))]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse",
-        "This cmdlet returns an Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationDiscoveryService.Model.StartContinuousExportResponse object containing multiple properties."
     )]
     public partial class StartADSContinuousExportCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

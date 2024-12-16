@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeleteAddon API operation.", Operation = new[] {"DeleteAddon"}, SelectReturnType = typeof(Amazon.EKS.Model.DeleteAddonResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Addon or Amazon.EKS.Model.DeleteAddonResponse",
         "This cmdlet returns an Amazon.EKS.Model.Addon object.",
-        "The service call response (type Amazon.EKS.Model.DeleteAddonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.DeleteAddonResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveEKSAddonCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

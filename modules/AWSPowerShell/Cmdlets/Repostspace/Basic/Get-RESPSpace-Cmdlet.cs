@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     [OutputType("Amazon.Repostspace.Model.GetSpaceResponse")]
     [AWSCmdlet("Calls the AWS re:Post Private GetSpace API operation.", Operation = new[] {"GetSpace"}, SelectReturnType = typeof(Amazon.Repostspace.Model.GetSpaceResponse))]
     [AWSCmdletOutput("Amazon.Repostspace.Model.GetSpaceResponse",
-        "This cmdlet returns an Amazon.Repostspace.Model.GetSpaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Repostspace.Model.GetSpaceResponse object containing multiple properties."
     )]
     public partial class GetRESPSpaceCmdlet : AmazonRepostspaceClientCmdlet, IExecutor
     {

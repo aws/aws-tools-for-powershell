@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateColumnStatisticsForTable API operation.", Operation = new[] {"UpdateColumnStatisticsForTable"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateColumnStatisticsForTableResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.ColumnStatisticsError or Amazon.Glue.Model.UpdateColumnStatisticsForTableResponse",
         "This cmdlet returns a collection of Amazon.Glue.Model.ColumnStatisticsError objects.",
-        "The service call response (type Amazon.Glue.Model.UpdateColumnStatisticsForTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.UpdateColumnStatisticsForTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUEColumnStatisticsForTableCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

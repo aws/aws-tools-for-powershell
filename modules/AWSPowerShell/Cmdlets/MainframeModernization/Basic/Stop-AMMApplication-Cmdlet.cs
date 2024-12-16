@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 StopApplication API operation.", Operation = new[] {"StopApplication"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.StopApplicationResponse))]
     [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.StopApplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.StopApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MainframeModernization.Model.StopApplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopAMMApplicationCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics StartAnnotationImportJob API operation.", Operation = new[] {"StartAnnotationImportJob"}, SelectReturnType = typeof(Amazon.Omics.Model.StartAnnotationImportJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Omics.Model.StartAnnotationImportJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Omics.Model.StartAnnotationImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Omics.Model.StartAnnotationImportJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartOMICSAnnotationImportJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

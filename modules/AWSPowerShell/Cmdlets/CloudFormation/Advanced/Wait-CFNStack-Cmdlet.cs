@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Pauses execution of a script until a stack reaches a specified status or timeout occurs. The DescribeStacks API is used to obtain the status of the stack.", Operation = new[] { "DescribeStacks" })]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.Stack",
         "If the stack exists when one of the requested states is reached the cmdlet returns an Amazon.CloudFormation.Model.Stack object, otherwise it returns nothing.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WaitCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

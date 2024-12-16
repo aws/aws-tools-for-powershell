@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 GetClassificationExportConfiguration API operation.", Operation = new[] {"GetClassificationExportConfiguration"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetClassificationExportConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.ClassificationExportConfiguration or Amazon.Macie2.Model.GetClassificationExportConfigurationResponse",
         "This cmdlet returns an Amazon.Macie2.Model.ClassificationExportConfiguration object.",
-        "The service call response (type Amazon.Macie2.Model.GetClassificationExportConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.GetClassificationExportConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2ClassificationExportConfigurationCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

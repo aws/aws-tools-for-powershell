@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     [AWSCmdlet("Calls the AWS X-Ray DeleteGroup API operation.", Operation = new[] {"DeleteGroup"}, SelectReturnType = typeof(Amazon.XRay.Model.DeleteGroupResponse))]
     [AWSCmdletOutput("None or Amazon.XRay.Model.DeleteGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.XRay.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.XRay.Model.DeleteGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveXRGroupCmdlet : AmazonXRayClientCmdlet, IExecutor
     {

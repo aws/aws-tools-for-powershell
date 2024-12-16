@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.RestoreAnalysisResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight RestoreAnalysis API operation.", Operation = new[] {"RestoreAnalysis"}, SelectReturnType = typeof(Amazon.QuickSight.Model.RestoreAnalysisResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.RestoreAnalysisResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.RestoreAnalysisResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.RestoreAnalysisResponse object containing multiple properties."
     )]
     public partial class RestoreQSAnalysisCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
@@ -73,6 +73,21 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter RestoreToFolder
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that determines if the analysis will be restored to folders that it
+        /// previously resided in. A <c>True</c> value restores analysis back to all folders that
+        /// it previously resided in. A <c>False</c> value restores the analysis but does not
+        /// restore the analysis back to all previously resided folders. Restoring a restricted
+        /// analysis requires this parameter to be set to <c>True</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RestoreToFolders")]
+        public System.Boolean? RestoreToFolder { get; set; }
         #endregion
         
         #region Parameter Select
@@ -131,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RestoreToFolder = this.RestoreToFolder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.RestoreToFolder != null)
+            {
+                request.RestoreToFolders = cmdletContext.RestoreToFolder.Value;
             }
             
             CmdletOutput output;
@@ -218,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AnalysisId { get; set; }
             public System.String AwsAccountId { get; set; }
+            public System.Boolean? RestoreToFolder { get; set; }
             public System.Func<Amazon.QuickSight.Model.RestoreAnalysisResponse, RestoreQSAnalysisCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

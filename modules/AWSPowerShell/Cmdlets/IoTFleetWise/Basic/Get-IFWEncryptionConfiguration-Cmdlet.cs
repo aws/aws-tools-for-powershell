@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     [OutputType("Amazon.IoTFleetWise.Model.GetEncryptionConfigurationResponse")]
     [AWSCmdlet("Calls the AWS IoT FleetWise GetEncryptionConfiguration API operation.", Operation = new[] {"GetEncryptionConfiguration"}, SelectReturnType = typeof(Amazon.IoTFleetWise.Model.GetEncryptionConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IoTFleetWise.Model.GetEncryptionConfigurationResponse",
-        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetEncryptionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTFleetWise.Model.GetEncryptionConfigurationResponse object containing multiple properties."
     )]
     public partial class GetIFWEncryptionConfigurationCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {

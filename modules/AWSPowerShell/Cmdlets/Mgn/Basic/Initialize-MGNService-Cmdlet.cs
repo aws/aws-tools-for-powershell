@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service InitializeService API operation.", Operation = new[] {"InitializeService"}, SelectReturnType = typeof(Amazon.Mgn.Model.InitializeServiceResponse))]
     [AWSCmdletOutput("None or Amazon.Mgn.Model.InitializeServiceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Mgn.Model.InitializeServiceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Mgn.Model.InitializeServiceResponse) be returned by specifying '-Select *'."
     )]
     public partial class InitializeMGNServiceCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

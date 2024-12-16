@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager GetDelegations API operation.", Operation = new[] {"GetDelegations"}, SelectReturnType = typeof(Amazon.AuditManager.Model.GetDelegationsResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.DelegationMetadata or Amazon.AuditManager.Model.GetDelegationsResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.DelegationMetadata objects.",
-        "The service call response (type Amazon.AuditManager.Model.GetDelegationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.GetDelegationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAUDMDelegationCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

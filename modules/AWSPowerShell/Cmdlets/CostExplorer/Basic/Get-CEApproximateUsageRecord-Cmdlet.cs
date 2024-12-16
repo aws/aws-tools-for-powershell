@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [OutputType("Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse")]
     [AWSCmdlet("Calls the AWS Cost Explorer GetApproximateUsageRecords API operation.", Operation = new[] {"GetApproximateUsageRecords"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse",
-        "This cmdlet returns an Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostExplorer.Model.GetApproximateUsageRecordsResponse object containing multiple properties."
     )]
     public partial class GetCEApproximateUsageRecordCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

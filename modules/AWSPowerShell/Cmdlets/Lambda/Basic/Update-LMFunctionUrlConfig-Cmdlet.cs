@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse")]
     [AWSCmdlet("Calls the AWS Lambda UpdateFunctionUrlConfig API operation.", Operation = new[] {"UpdateFunctionUrlConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse))]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.UpdateFunctionUrlConfigResponse object containing multiple properties."
     )]
     public partial class UpdateLMFunctionUrlConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

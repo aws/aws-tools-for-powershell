@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis ListTagsForStream API operation.", Operation = new[] {"ListTagsForStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.ListTagsForStreamResponse))]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListTagsForStreamResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.ListTagsForStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Kinesis.Model.ListTagsForStreamResponse object containing multiple properties."
     )]
     public partial class GetKINTagsForStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

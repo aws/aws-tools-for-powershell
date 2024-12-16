@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Kendra.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRResourceTagCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

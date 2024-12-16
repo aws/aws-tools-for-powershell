@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [OutputType("Amazon.Lightsail.Model.CreateDistributionResponse")]
     [AWSCmdlet("Calls the Amazon Lightsail CreateDistribution API operation.", Operation = new[] {"CreateDistribution"}, SelectReturnType = typeof(Amazon.Lightsail.Model.CreateDistributionResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.CreateDistributionResponse",
-        "This cmdlet returns an Amazon.Lightsail.Model.CreateDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lightsail.Model.CreateDistributionResponse object containing multiple properties."
     )]
     public partial class NewLSDistributionCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

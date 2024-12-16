@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications CreateNotificationRule API operation.", Operation = new[] {"CreateNotificationRule"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.CreateNotificationRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeStarNotifications.Model.CreateNotificationRuleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeStarNotifications.Model.CreateNotificationRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarNotifications.Model.CreateNotificationRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewCSTNNotificationRuleCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config ListControlPanels API operation.", Operation = new[] {"ListControlPanels"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.ListControlPanelsResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.ControlPanel or Amazon.Route53RecoveryControlConfig.Model.ListControlPanelsResponse",
         "This cmdlet returns a collection of Amazon.Route53RecoveryControlConfig.Model.ControlPanel objects.",
-        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.ListControlPanelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.ListControlPanelsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53RCControlPanelListCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

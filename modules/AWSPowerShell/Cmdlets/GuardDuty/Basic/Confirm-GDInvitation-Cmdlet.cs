@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty AcceptInvitation API operation.", Operation = new[] {"AcceptInvitation"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.AcceptInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.GuardDuty.Model.AcceptInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GuardDuty.Model.AcceptInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GuardDuty.Model.AcceptInvitationResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This operation is deprecated, use AcceptAdministratorInvitation instead")]
     public partial class ConfirmGDInvitationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty member account.</para>
+        /// <para>The unique ID of the detector of the GuardDuty member account.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

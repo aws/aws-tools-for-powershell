@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     [AWSCmdlet("Calls the AWS Ground Station UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.GroundStation.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.GroundStation.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GroundStation.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GroundStation.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveGSResourceTagCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {

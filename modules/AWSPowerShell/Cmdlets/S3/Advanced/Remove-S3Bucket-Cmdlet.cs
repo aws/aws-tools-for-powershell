@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     Operation = new [] {"DeleteBucket"}, SelectReturnType = typeof(Amazon.S3.Model.DeleteBucketResponse)
     )]
     [AWSCmdletOutput("Amazon.S3.Model.DeleteBucketResponse",
-        "This cmdlet returns an Amazon.S3.Model.DeleteBucketResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3.Model.DeleteBucketResponse object containing multiple properties. The object can be returned by specifying '-Select *'."
     )]
     public class RemoveS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

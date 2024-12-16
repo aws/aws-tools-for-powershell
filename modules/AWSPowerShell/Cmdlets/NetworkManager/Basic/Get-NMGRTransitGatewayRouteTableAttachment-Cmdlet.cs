@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager GetTransitGatewayRouteTableAttachment API operation.", Operation = new[] {"GetTransitGatewayRouteTableAttachment"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetTransitGatewayRouteTableAttachmentResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.TransitGatewayRouteTableAttachment or Amazon.NetworkManager.Model.GetTransitGatewayRouteTableAttachmentResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.TransitGatewayRouteTableAttachment object.",
-        "The service call response (type Amazon.NetworkManager.Model.GetTransitGatewayRouteTableAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.GetTransitGatewayRouteTableAttachmentResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetNMGRTransitGatewayRouteTableAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

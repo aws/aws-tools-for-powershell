@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.GetTaskTemplateResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service GetTaskTemplate API operation.", Operation = new[] {"GetTaskTemplate"}, SelectReturnType = typeof(Amazon.Connect.Model.GetTaskTemplateResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.GetTaskTemplateResponse",
-        "This cmdlet returns an Amazon.Connect.Model.GetTaskTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.GetTaskTemplateResponse object containing multiple properties."
     )]
     public partial class GetCONNTaskTemplateCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync CreateDomainName API operation.", Operation = new[] {"CreateDomainName"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateDomainNameResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.DomainNameConfig or Amazon.AppSync.Model.CreateDomainNameResponse",
         "This cmdlet returns an Amazon.AppSync.Model.DomainNameConfig object.",
-        "The service call response (type Amazon.AppSync.Model.CreateDomainNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.CreateDomainNameResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASYNDomainNameCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

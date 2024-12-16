@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"DeleteAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse))]
     [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

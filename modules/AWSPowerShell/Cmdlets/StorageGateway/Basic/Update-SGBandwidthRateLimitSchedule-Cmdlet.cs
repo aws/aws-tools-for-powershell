@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateBandwidthRateLimitSchedule API operation.", Operation = new[] {"UpdateBandwidthRateLimitSchedule"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.UpdateBandwidthRateLimitScheduleResponse))]
     [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.UpdateBandwidthRateLimitScheduleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.StorageGateway.Model.UpdateBandwidthRateLimitScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateBandwidthRateLimitScheduleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateSGBandwidthRateLimitScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutDedicatedIpInPool API operation.", Operation = new[] {"PutDedicatedIpInPool"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutDedicatedIpInPoolResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutDedicatedIpInPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpInPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.PutDedicatedIpInPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSES2DedicatedIpInPoolCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

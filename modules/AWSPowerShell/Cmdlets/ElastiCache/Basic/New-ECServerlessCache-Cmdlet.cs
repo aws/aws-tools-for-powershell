@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache CreateServerlessCache API operation.", Operation = new[] {"CreateServerlessCache"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.CreateServerlessCacheResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCache or Amazon.ElastiCache.Model.CreateServerlessCacheResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCache object.",
-        "The service call response (type Amazon.ElastiCache.Model.CreateServerlessCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateServerlessCacheResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewECServerlessCacheCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The daily time that snapshots will be created from the new serverless cache. By default
         /// this number is populated with 0, i.e. no snapshots will be created on an automatic
-        /// daily basis. Available for Redis OSS and Serverless Memcached only.</para>
+        /// daily basis. Available for Valkey, Redis OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The ARN(s) of the snapshot that the new serverless cache will be created from. Available
-        /// for Redis OSS and Serverless Memcached only.</para>
+        /// for Valkey, Redis OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of snapshots that will be retained for the serverless cache that is being
         /// created. As new snapshots beyond this limit are added, the oldest snapshots will be
-        /// deleted on a rolling basis. Available for Redis OSS and Serverless Memcached only.</para>
+        /// deleted on a rolling basis. Available for Valkey, Redis OSS and Serverless Memcached
+        /// only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the UserGroup to be associated with the serverless cache. Available
-        /// for Redis OSS only. Default is NULL.</para>
+        /// for Valkey and Redis OSS only. Default is NULL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

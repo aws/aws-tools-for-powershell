@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail GetContainerAPIMetadata API operation.", Operation = new[] {"GetContainerAPIMetadata"}, SelectReturnType = typeof(Amazon.Lightsail.Model.GetContainerAPIMetadataResponse))]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary<System.String, System.String> or Amazon.Lightsail.Model.GetContainerAPIMetadataResponse",
         "This cmdlet returns a collection of Dictionary<System.String, System.String> objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetContainerAPIMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.GetContainerAPIMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLSContainerAPIMetadataCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

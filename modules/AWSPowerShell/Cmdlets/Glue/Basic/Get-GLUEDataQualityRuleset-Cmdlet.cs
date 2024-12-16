@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [OutputType("Amazon.Glue.Model.GetDataQualityRulesetResponse")]
     [AWSCmdlet("Calls the AWS Glue GetDataQualityRuleset API operation.", Operation = new[] {"GetDataQualityRuleset"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataQualityRulesetResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.GetDataQualityRulesetResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetDataQualityRulesetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Glue.Model.GetDataQualityRulesetResponse object containing multiple properties."
     )]
     public partial class GetGLUEDataQualityRulesetCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

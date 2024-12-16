@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service UpdateUserHierarchyStructure API operation.", Operation = new[] {"UpdateUserHierarchyStructure"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateUserHierarchyStructureResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateUserHierarchyStructureResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateUserHierarchyStructureResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.UpdateUserHierarchyStructureResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateCONNUserHierarchyStructureCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

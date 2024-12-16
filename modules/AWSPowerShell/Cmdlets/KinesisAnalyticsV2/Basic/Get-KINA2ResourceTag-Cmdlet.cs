@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.Tag or Amazon.KinesisAnalyticsV2.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of Amazon.KinesisAnalyticsV2.Model.Tag objects.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisAnalyticsV2.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINA2ResourceTagCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

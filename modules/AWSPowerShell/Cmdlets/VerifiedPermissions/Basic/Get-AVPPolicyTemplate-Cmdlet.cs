@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.GetPolicyTemplateResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions GetPolicyTemplate API operation.", Operation = new[] {"GetPolicyTemplate"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetPolicyTemplateResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetPolicyTemplateResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetPolicyTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetPolicyTemplateResponse object containing multiple properties."
     )]
     public partial class GetAVPPolicyTemplateCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

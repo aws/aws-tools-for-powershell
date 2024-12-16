@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless CreateSecurityPolicy API operation.", Operation = new[] {"CreateSecurityPolicy"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.CreateSecurityPolicyResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.SecurityPolicyDetail or Amazon.OpenSearchServerless.Model.CreateSecurityPolicyResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.SecurityPolicyDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.CreateSecurityPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.CreateSecurityPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewOSSSecurityPolicyCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

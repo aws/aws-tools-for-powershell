@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective ListGraphs API operation.", Operation = new[] {"ListGraphs"}, SelectReturnType = typeof(Amazon.Detective.Model.ListGraphsResponse))]
     [AWSCmdletOutput("Amazon.Detective.Model.Graph or Amazon.Detective.Model.ListGraphsResponse",
         "This cmdlet returns a collection of Amazon.Detective.Model.Graph objects.",
-        "The service call response (type Amazon.Detective.Model.ListGraphsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Detective.Model.ListGraphsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDTCTGraphListCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

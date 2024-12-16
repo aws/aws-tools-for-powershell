@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock DeleteImportedModel API operation.", Operation = new[] {"DeleteImportedModel"}, SelectReturnType = typeof(Amazon.Bedrock.Model.DeleteImportedModelResponse))]
     [AWSCmdletOutput("None or Amazon.Bedrock.Model.DeleteImportedModelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Bedrock.Model.DeleteImportedModelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Bedrock.Model.DeleteImportedModelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveBDRImportedModelCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

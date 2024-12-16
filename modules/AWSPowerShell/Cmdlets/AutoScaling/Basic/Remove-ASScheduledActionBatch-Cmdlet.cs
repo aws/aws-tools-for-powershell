@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling BatchDeleteScheduledAction API operation.", Operation = new[] {"BatchDeleteScheduledAction"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse))]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest or Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse",
         "This cmdlet returns a collection of Amazon.AutoScaling.Model.FailedScheduledUpdateGroupActionRequest objects.",
-        "The service call response (type Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.BatchDeleteScheduledActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveASScheduledActionBatchCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

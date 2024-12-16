@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateTask API operation.", Operation = new[] {"CreateTask"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNTaskCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring
-        /// your task.</para>
+        /// your task.</para><para>For Enhanced mode tasks, you don't need to specify anything. DataSync automatically
+        /// sends logs to a CloudWatch log group named <c>/aws/datasync</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Specifies include filters define the files, objects, and folders in your source location
-        /// that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying
+        /// <para>Specifies include filters that define the files, objects, and folders in your source
+        /// location that you want DataSync to transfer. For more information and examples, see
+        /// <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying
         /// what DataSync transfers by using filters</a>.</para>
         /// </para>
         /// </summary>
@@ -330,8 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>Specifies your task schedule by using a cron expression in UTC time. For information
-        /// about cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html"><i>Amazon EventBridge User Guide</i></a>.</para>
+        /// <para>Specifies your task schedule by using a cron or rate expression.</para><para>Use cron expressions for task schedules that run on a specific time and day. For example,
+        /// the following cron expression creates a task schedule that runs at 8 AM on the first
+        /// Wednesday of every month:</para><para><c>cron(0 8 * * 3#1)</c></para><para>Use rate expressions for task schedules that run on a regular interval. For example,
+        /// the following rate expression creates a task schedule that runs every 12 hours:</para><para><c>rate(12 hours)</c></para><para>For information about cron and rate expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html"><i>Amazon EventBridge User Guide</i></a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,6 +395,26 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.DataSync.Model.TagListEntry[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TaskMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies one of the following task modes for your data transfer:</para><ul><li><para><c>ENHANCED</c> - Transfer virtually unlimited numbers of objects with higher performance
+        /// than Basic mode. Enhanced mode tasks optimize the data transfer process by listing,
+        /// preparing, transferring, and verifying data in parallel. Enhanced mode is currently
+        /// available for transfers between Amazon S3 locations.</para><note><para>To create an Enhanced mode task, the IAM role that you use to call the <c>CreateTask</c>
+        /// operation must have the <c>iam:CreateServiceLinkedRole</c> permission.</para></note></li><li><para><c>BASIC</c> (default) - Transfer files or objects between Amazon Web Services storage
+        /// and all other supported DataSync locations. Basic mode tasks are subject to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a>
+        /// on the number of files, objects, and directories in a dataset. Basic mode sequentially
+        /// prepares, transfers, and verifies data, making it slower than Enhanced mode for most
+        /// workloads.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding
+        /// task mode differences</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.TaskMode")]
+        public Amazon.DataSync.TaskMode TaskMode { get; set; }
         #endregion
         
         #region Parameter Select
@@ -472,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 context.Tag = new List<Amazon.DataSync.Model.TagListEntry>(this.Tag);
             }
+            context.TaskMode = this.TaskMode;
             context.TaskReportConfig_Destination_S3_BucketAccessRoleArn = this.TaskReportConfig_Destination_S3_BucketAccessRoleArn;
             context.TaskReportConfig_Destination_S3_S3BucketArn = this.TaskReportConfig_Destination_S3_S3BucketArn;
             context.S3_Subdirectory = this.S3_Subdirectory;
@@ -657,6 +682,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TaskMode != null)
+            {
+                request.TaskMode = cmdletContext.TaskMode;
             }
             
              // populate TaskReportConfig
@@ -949,6 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public Amazon.DataSync.ScheduleStatus Schedule_Status { get; set; }
             public System.String SourceLocationArn { get; set; }
             public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }
+            public Amazon.DataSync.TaskMode TaskMode { get; set; }
             public System.String TaskReportConfig_Destination_S3_BucketAccessRoleArn { get; set; }
             public System.String TaskReportConfig_Destination_S3_S3BucketArn { get; set; }
             public System.String S3_Subdirectory { get; set; }

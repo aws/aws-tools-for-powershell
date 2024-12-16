@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [OutputType("Amazon.AppRegistry.Model.SyncResourceResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog App Registry SyncResource API operation.", Operation = new[] {"SyncResource"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.SyncResourceResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.SyncResourceResponse",
-        "This cmdlet returns an Amazon.AppRegistry.Model.SyncResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AppRegistry.Model.SyncResourceResponse object containing multiple properties."
     )]
     public partial class SyncSCARResourceCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     [OutputType("Amazon.IoTSiteWise.Model.DescribePortalResponse")]
     [AWSCmdlet("Calls the AWS IoT SiteWise DescribePortal API operation.", Operation = new[] {"DescribePortal"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.DescribePortalResponse))]
     [AWSCmdletOutput("Amazon.IoTSiteWise.Model.DescribePortalResponse",
-        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribePortalResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTSiteWise.Model.DescribePortalResponse object containing multiple properties."
     )]
     public partial class GetIOTSWPortalCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {

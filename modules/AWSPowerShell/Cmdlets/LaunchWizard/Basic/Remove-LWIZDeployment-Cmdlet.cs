@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
     [OutputType("Amazon.LaunchWizard.Model.DeleteDeploymentResponse")]
     [AWSCmdlet("Calls the AWS Launch Wizard DeleteDeployment API operation.", Operation = new[] {"DeleteDeployment"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.DeleteDeploymentResponse))]
     [AWSCmdletOutput("Amazon.LaunchWizard.Model.DeleteDeploymentResponse",
-        "This cmdlet returns an Amazon.LaunchWizard.Model.DeleteDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LaunchWizard.Model.DeleteDeploymentResponse object containing multiple properties."
     )]
     public partial class RemoveLWIZDeploymentCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {

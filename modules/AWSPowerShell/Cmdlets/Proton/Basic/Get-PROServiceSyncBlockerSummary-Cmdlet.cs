@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton GetServiceSyncBlockerSummary API operation.", Operation = new[] {"GetServiceSyncBlockerSummary"}, SelectReturnType = typeof(Amazon.Proton.Model.GetServiceSyncBlockerSummaryResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServiceSyncBlockerSummary or Amazon.Proton.Model.GetServiceSyncBlockerSummaryResponse",
         "This cmdlet returns an Amazon.Proton.Model.ServiceSyncBlockerSummary object.",
-        "The service call response (type Amazon.Proton.Model.GetServiceSyncBlockerSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.GetServiceSyncBlockerSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROServiceSyncBlockerSummaryCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector UpdateAssessmentTarget API operation.", Operation = new[] {"UpdateAssessmentTarget"}, SelectReturnType = typeof(Amazon.Inspector.Model.UpdateAssessmentTargetResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.UpdateAssessmentTargetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.UpdateAssessmentTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.UpdateAssessmentTargetResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateINSAssessmentTargetCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

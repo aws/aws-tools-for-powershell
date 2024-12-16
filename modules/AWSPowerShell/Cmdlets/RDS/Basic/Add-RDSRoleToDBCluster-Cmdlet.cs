@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service AddRoleToDBCluster API operation.", Operation = new[] {"AddRoleToDBCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.AddRoleToDBClusterResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.AddRoleToDBClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.AddRoleToDBClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.AddRoleToDBClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddRDSRoleToDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

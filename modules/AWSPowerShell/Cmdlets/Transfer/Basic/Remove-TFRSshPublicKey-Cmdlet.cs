@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteSshPublicKey API operation.", Operation = new[] {"DeleteSshPublicKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteSshPublicKeyResponse))]
     [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteSshPublicKeyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteSshPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Transfer.Model.DeleteSshPublicKeyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveTFRSshPublicKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

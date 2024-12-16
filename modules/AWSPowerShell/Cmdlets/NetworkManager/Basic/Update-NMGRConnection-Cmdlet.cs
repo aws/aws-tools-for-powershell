@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     [AWSCmdlet("Calls the AWS Network Manager UpdateConnection API operation.", Operation = new[] {"UpdateConnection"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.UpdateConnectionResponse))]
     [AWSCmdletOutput("Amazon.NetworkManager.Model.Connection or Amazon.NetworkManager.Model.UpdateConnectionResponse",
         "This cmdlet returns an Amazon.NetworkManager.Model.Connection object.",
-        "The service call response (type Amazon.NetworkManager.Model.UpdateConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.NetworkManager.Model.UpdateConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateNMGRConnectionCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {

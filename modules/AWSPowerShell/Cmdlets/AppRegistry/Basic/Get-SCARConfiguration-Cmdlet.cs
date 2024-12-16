@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry GetConfiguration API operation.", Operation = new[] {"GetConfiguration"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.GetConfigurationResponse))]
     [AWSCmdletOutput("Amazon.AppRegistry.Model.AppRegistryConfiguration or Amazon.AppRegistry.Model.GetConfigurationResponse",
         "This cmdlet returns an Amazon.AppRegistry.Model.AppRegistryConfiguration object.",
-        "The service call response (type Amazon.AppRegistry.Model.GetConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppRegistry.Model.GetConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSCARConfigurationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

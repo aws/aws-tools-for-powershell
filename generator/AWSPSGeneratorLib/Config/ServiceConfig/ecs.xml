@@ -93,6 +93,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceDeployments" OutputProperty="*" Verb="Get" Noun="ServiceDeploymentDetail" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceRevisions" OutputProperty="*" Verb="Get" Noun="ServiceRevision" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeServices" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListContainerInstances" OutputProperty="ContainerInstanceArns" Verb="Get" Noun="ContainerInstanceList" PipelineParameter="Cluster" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSContainerInstances">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceDeployments" OutputProperty="ServiceDeployments" Verb="Get" Noun="ServiceDeploymentList" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

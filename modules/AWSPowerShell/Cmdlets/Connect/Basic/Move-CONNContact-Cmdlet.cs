@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.TransferContactResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service TransferContact API operation.", Operation = new[] {"TransferContact"}, SelectReturnType = typeof(Amazon.Connect.Model.TransferContactResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.TransferContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.TransferContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.TransferContactResponse object containing multiple properties."
     )]
     public partial class MoveCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

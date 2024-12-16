@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     [AWSCmdlet("Calls the AWS Compute Optimizer GetRDSDatabaseRecommendationProjectedMetrics API operation.", Operation = new[] {"GetRDSDatabaseRecommendationProjectedMetrics"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationProjectedMetricsResponse))]
     [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.RDSDatabaseRecommendedOptionProjectedMetric or Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationProjectedMetricsResponse",
         "This cmdlet returns a collection of Amazon.ComputeOptimizer.Model.RDSDatabaseRecommendedOptionProjectedMetric objects.",
-        "The service call response (type Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationProjectedMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationProjectedMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCORDSDatabaseRecommendationProjectedMetricCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {

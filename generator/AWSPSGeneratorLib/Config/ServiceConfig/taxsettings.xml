@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSupplementalTaxRegistration" Verb="Remove" Noun="SupplementalTaxRegistration" ShouldProcessTarget="AuthorityId" PipelineParameter="AuthorityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTaxRegistration" Verb="Remove" Noun="TaxRegistration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -38,7 +42,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSupplementalTaxRegistrations" OutputProperty="TaxRegistrations" Verb="Get" Noun="SupplementalTaxRegistrationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTaxRegistrations" OutputProperty="AccountDetails" Verb="Get" Noun="TaxRegistrationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSupplementalTaxRegistration" OutputProperty="*" Verb="Write" Noun="SupplementalTaxRegistration" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

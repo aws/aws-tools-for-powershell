@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DescribeRegionSettings API operation.", Operation = new[] {"DescribeRegionSettings"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeRegionSettingsResponse))]
     [AWSCmdletOutput("System.String or Amazon.Backup.Model.DescribeRegionSettingsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Backup.Model.DescribeRegionSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Backup.Model.DescribeRegionSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBAKRegionSettingCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

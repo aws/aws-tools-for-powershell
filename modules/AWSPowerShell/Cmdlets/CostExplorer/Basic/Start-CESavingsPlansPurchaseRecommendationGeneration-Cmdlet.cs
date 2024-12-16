@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [OutputType("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse")]
     [AWSCmdlet("Calls the AWS Cost Explorer StartSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"StartSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse",
-        "This cmdlet returns an Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse object containing multiple properties."
     )]
     public partial class StartCESavingsPlansPurchaseRecommendationGenerationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config GetComplianceDetailsByResource API operation.", Operation = new[] {"GetComplianceDetailsByResource"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.EvaluationResult or Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse",
         "This cmdlet returns a collection of Amazon.ConfigService.Model.EvaluationResult objects.",
-        "The service call response (type Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [OutputType("Amazon.VPCLattice.Model.CreateListenerResponse")]
     [AWSCmdlet("Calls the VPC Lattice CreateListener API operation.", Operation = new[] {"CreateListener"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.CreateListenerResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.CreateListenerResponse",
-        "This cmdlet returns an Amazon.VPCLattice.Model.CreateListenerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VPCLattice.Model.CreateListenerResponse object containing multiple properties."
     )]
     public partial class NewVPCLListenerCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

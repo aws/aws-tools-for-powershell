@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Assigns private IPv4 addresses to a private NAT gateway. For more information, see
-    /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
+    /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Work
     /// with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("Register", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssignPrivateNatGatewayAddress API operation.", Operation = new[] {"AssignPrivateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.AssignPrivateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class RegisterEC2PrivateNatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

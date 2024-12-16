@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch GetMetricWidgetImage API operation.", Operation = new[] {"GetMetricWidgetImage"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.GetMetricWidgetImageResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.CloudWatch.Model.GetMetricWidgetImageResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.CloudWatch.Model.GetMetricWidgetImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.GetMetricWidgetImageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCWMetricWidgetImageCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// field. For example:</para><para><c> &lt;GetMetricWidgetImageResponse xmlns=&lt;URLstring&gt;&gt;</c></para><para><c> &lt;GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;MetricWidgetImage&gt;</c></para><para><c> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</c></para><para><c> &lt;/MetricWidgetImage&gt;</c></para><para><c> &lt;/GetMetricWidgetImageResult&gt;</c></para><para><c> &lt;ResponseMetadata&gt;</c></para><para><c> &lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&lt;/RequestId&gt;</c></para><para><c> &lt;/ResponseMetadata&gt;</c></para><para><c>&lt;/GetMetricWidgetImageResponse&gt;</c></para><para>The <c>image/png</c> setting is intended only for custom HTTP requests. For most use
         /// cases, and all actions using an Amazon Web Services SDK, you should use <c>png</c>.
         /// If you specify <c>image/png</c>, the HTTP response has a content-type set to <c>image/png</c>,
-        /// and the body of the response is a PNG image. </para>
+        /// and the body of the response is a PNG image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

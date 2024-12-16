@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     [AWSCmdlet("Calls the AWS Account GetRegionOptStatus API operation.", Operation = new[] {"GetRegionOptStatus"}, SelectReturnType = typeof(Amazon.Account.Model.GetRegionOptStatusResponse))]
     [AWSCmdletOutput("Amazon.Account.RegionOptStatus or Amazon.Account.Model.GetRegionOptStatusResponse",
         "This cmdlet returns an Amazon.Account.RegionOptStatus object.",
-        "The service call response (type Amazon.Account.Model.GetRegionOptStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Account.Model.GetRegionOptStatusResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACCTRegionOptStatusCmdlet : AmazonAccountClientCmdlet, IExecutor
     {

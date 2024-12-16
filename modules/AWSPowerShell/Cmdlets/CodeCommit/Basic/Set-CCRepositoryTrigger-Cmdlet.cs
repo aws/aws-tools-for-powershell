@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit PutRepositoryTriggers API operation.", Operation = new[] {"PutRepositoryTriggers"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.PutRepositoryTriggersResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeCommit.Model.PutRepositoryTriggersResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeCommit.Model.PutRepositoryTriggersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.PutRepositoryTriggersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetCCRepositoryTriggerCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

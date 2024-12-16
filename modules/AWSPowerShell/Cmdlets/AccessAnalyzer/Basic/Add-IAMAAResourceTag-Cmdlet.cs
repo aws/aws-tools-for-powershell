@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.AccessAnalyzer.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AccessAnalyzer.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AccessAnalyzer.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddIAMAAResourceTagCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

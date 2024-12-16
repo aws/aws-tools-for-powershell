@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Calls the Amazon Redshift CreateSnapshotCopyGrant API operation.", Operation = new[] {"CreateSnapshotCopyGrant"}, SelectReturnType = typeof(Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse))]
     [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant or Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse",
         "This cmdlet returns an Amazon.Redshift.Model.SnapshotCopyGrant object.",
-        "The service call response (type Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

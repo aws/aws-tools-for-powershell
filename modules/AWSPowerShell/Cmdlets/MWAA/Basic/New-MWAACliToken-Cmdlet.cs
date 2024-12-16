@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     [OutputType("Amazon.MWAA.Model.CreateCliTokenResponse")]
     [AWSCmdlet("Calls the AmazonMWAA CreateCliToken API operation.", Operation = new[] {"CreateCliToken"}, SelectReturnType = typeof(Amazon.MWAA.Model.CreateCliTokenResponse))]
     [AWSCmdletOutput("Amazon.MWAA.Model.CreateCliTokenResponse",
-        "This cmdlet returns an Amazon.MWAA.Model.CreateCliTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MWAA.Model.CreateCliTokenResponse object containing multiple properties."
     )]
     public partial class NewMWAACliTokenCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {

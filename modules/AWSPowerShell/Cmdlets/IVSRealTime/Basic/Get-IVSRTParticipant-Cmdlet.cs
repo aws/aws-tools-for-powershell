@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime GetParticipant API operation.", Operation = new[] {"GetParticipant"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.GetParticipantResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.Participant or Amazon.IVSRealTime.Model.GetParticipantResponse",
         "This cmdlet returns an Amazon.IVSRealTime.Model.Participant object.",
-        "The service call response (type Amazon.IVSRealTime.Model.GetParticipantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.GetParticipantResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIVSRTParticipantCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

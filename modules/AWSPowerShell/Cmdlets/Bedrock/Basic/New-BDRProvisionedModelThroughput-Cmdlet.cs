@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     [AWSCmdlet("Calls the Amazon Bedrock CreateProvisionedModelThroughput API operation.", Operation = new[] {"CreateProvisionedModelThroughput"}, SelectReturnType = typeof(Amazon.Bedrock.Model.CreateProvisionedModelThroughputResponse))]
     [AWSCmdletOutput("System.String or Amazon.Bedrock.Model.CreateProvisionedModelThroughputResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Bedrock.Model.CreateProvisionedModelThroughputResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Bedrock.Model.CreateProvisionedModelThroughputResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewBDRProvisionedModelThroughputCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {

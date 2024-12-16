@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation SetTypeDefaultVersion API operation.", Operation = new[] {"SetTypeDefaultVersion"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.SetTypeDefaultVersionResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.SetTypeDefaultVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.SetTypeDefaultVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.SetTypeDefaultVersionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetCFNTypeDefaultVersionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

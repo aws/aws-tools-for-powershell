@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [OutputType("Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse")]
     [AWSCmdlet("Calls the EC2 Image Builder StartResourceStateUpdate API operation.", Operation = new[] {"StartResourceStateUpdate"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse",
-        "This cmdlet returns an Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Imagebuilder.Model.StartResourceStateUpdateResponse object containing multiple properties."
     )]
     public partial class StartEC2IBResourceStateUpdateCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [OutputType("Amazon.WAFV2.Model.ListAPIKeysResponse")]
     [AWSCmdlet("Calls the AWS WAF V2 ListAPIKeys API operation.", Operation = new[] {"ListAPIKeys"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListAPIKeysResponse))]
     [AWSCmdletOutput("Amazon.WAFV2.Model.ListAPIKeysResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.ListAPIKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFV2.Model.ListAPIKeysResponse object containing multiple properties."
     )]
     public partial class GetWAF2APIKeyListCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
+        /// <br/>'NextMarker' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextMarker' to null for the first call then set the 'NextMarker' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

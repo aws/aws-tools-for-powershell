@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [OutputType("Amazon.QLDB.Model.GetRevisionResponse")]
     [AWSCmdlet("Calls the Amazon QLDB GetRevision API operation.", Operation = new[] {"GetRevision"}, SelectReturnType = typeof(Amazon.QLDB.Model.GetRevisionResponse))]
     [AWSCmdletOutput("Amazon.QLDB.Model.GetRevisionResponse",
-        "This cmdlet returns an Amazon.QLDB.Model.GetRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QLDB.Model.GetRevisionResponse object containing multiple properties."
     )]
     public partial class GetQLDBRevisionCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

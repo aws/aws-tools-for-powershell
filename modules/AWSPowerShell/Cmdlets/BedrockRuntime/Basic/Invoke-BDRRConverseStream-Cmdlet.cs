@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// Amazon Bedrock doesn't store any text, images, or documents that you provide as content.
     /// The data is only used to generate the response.
     /// </para><para>
+    /// You can submit a prompt by including it in the <c>messages</c> field, specifying the
+    /// <c>modelId</c> of a foundation model or inference profile to run inference on it,
+    /// and including any other fields that are relevant to your use case.
+    /// </para><para>
+    /// You can also submit a prompt from Prompt management by specifying the ARN of the prompt
+    /// version and including a map of variables to values in the <c>promptVariables</c> field.
+    /// You can append more messages to the prompt by using the <c>messages</c> field. If
+    /// you use a prompt from Prompt management, you can't include the following fields in
+    /// the request: <c>additionalModelRequestFields</c>, <c>inferenceConfig</c>, <c>system</c>,
+    /// or <c>toolConfig</c>. Instead, these fields must be defined through Prompt management.
+    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-use.html">Use
+    /// a prompt from Prompt management</a>.
+    /// </para><para>
     /// For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon
     /// Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse
     /// API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool
@@ -60,10 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     [AWSCmdlet("Calls the Amazon Bedrock Runtime ConverseStream API operation.", Operation = new[] {"ConverseStream"}, SelectReturnType = typeof(Amazon.BedrockRuntime.Model.ConverseStreamResponse))]
     [AWSCmdletOutput("Amazon.BedrockRuntime.Model.ConverseStreamOutput or Amazon.BedrockRuntime.Model.ConverseStreamResponse",
         "This cmdlet returns an Amazon.BedrockRuntime.Model.ConverseStreamOutput object.",
-        "The service call response (type Amazon.BedrockRuntime.Model.ConverseStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockRuntime.Model.ConverseStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeBDRRConverseStreamCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -71,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>Additional inference parameters that the model supports, beyond the base set of inference
-        /// parameters that <c>ConverseStream</c> supports in the <c>inferenceConfig</c> field.</para>
+        /// parameters that <c>Converse</c> and <c>ConverseStream</c> support in the <c>inferenceConfig</c>
+        /// field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model
+        /// parameters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,12 +99,13 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter AdditionalModelResponseFieldPath
         /// <summary>
         /// <para>
-        /// <para>Additional model parameters field paths to return in the response. <c>ConverseStream</c>
-        /// returns the requested fields as a JSON Pointer object in the <c>additionalModelResponseFields</c>
-        /// field. The following is example JSON for <c>additionalModelResponseFieldPaths</c>.</para><para><c>[ "/stop_sequence" ]</c></para><para>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet
-        /// Engineering Task Force (IETF)</a> documentation.</para><para><c>ConverseStream</c> rejects an empty JSON Pointer or incorrectly structured JSON
-        /// Pointer with a <c>400</c> error code. if the JSON Pointer is valid, but the requested
-        /// field is not in the model response, it is ignored by <c>ConverseStream</c>.</para>
+        /// <para>Additional model parameters field paths to return in the response. <c>Converse</c>
+        /// and <c>ConverseStream</c> return the requested fields as a JSON Pointer object in
+        /// the <c>additionalModelResponseFields</c> field. The following is example JSON for
+        /// <c>additionalModelResponseFieldPaths</c>.</para><para><c>[ "/stop_sequence" ]</c></para><para>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet
+        /// Engineering Task Force (IETF)</a> documentation.</para><para><c>Converse</c> and <c>ConverseStream</c> reject an empty JSON Pointer or incorrectly
+        /// structured JSON Pointer with a <c>400</c> error code. if the JSON Pointer is valid,
+        /// but the requested field is not in the model response, it is ignored by <c>Converse</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,14 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <para>The messages that you want to send to the model.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Messages")]
         public Amazon.BedrockRuntime.Model.Message[] Message { get; set; }
         #endregion
@@ -173,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The ID for the model.</para><para>The <c>modelId</c> to provide depends on the type of model or throughput that you
-        /// use:</para><ul><li><para>If you use a base model, specify the model ID or its ARN. For a list of model IDs
+        /// <para>Specifies the model or throughput with which to run inference, or the prompt resource
+        /// to use in inference. The value depends on the resource that you use:</para><ul><li><para>If you use a base model, specify the model ID or its ARN. For a list of model IDs
         /// for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon
         /// Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use an inference profile, specify the inference profile ID or its ARN. For
         /// a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported
@@ -182,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run
         /// inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a custom model, first purchase Provisioned Throughput for it. Then specify
         /// the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use
-        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li></ul><para>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
+        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li><li><para>To include a prompt that was defined in Prompt management, specify the ARN of the
+        /// prompt version to use.</para></li></ul><para>The Converse API doesn't support <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
         /// models</a>.</para>
         /// </para>
         /// </summary>
@@ -206,6 +218,19 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ToolConfig_ToolChoice_Tool_Name")]
         public System.String Tool_Name { get; set; }
+        #endregion
+        
+        #region Parameter PromptVariable
+        /// <summary>
+        /// <para>
+        /// <para>Contains a map of variables in a prompt from Prompt management to objects containing
+        /// the values to fill in for them when running model invocation. This field is ignored
+        /// if you don't specify a prompt resource in the <c>modelId</c> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PromptVariables")]
+        public System.Collections.Hashtable PromptVariable { get; set; }
         #endregion
         
         #region Parameter InferenceConfig_StopSequence
@@ -235,7 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter System
         /// <summary>
         /// <para>
-        /// <para>A system prompt to send to the model.</para>
+        /// <para>A prompt that provides instructions or context to the model about the task it should
+        /// perform, or the persona it should adopt during the conversation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,12 +381,6 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             {
                 context.Message = new List<Amazon.BedrockRuntime.Model.Message>(this.Message);
             }
-            #if MODULAR
-            if (this.Message == null && ParameterWasBound(nameof(this.Message)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Message which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ModelId = this.ModelId;
             #if MODULAR
             if (this.ModelId == null && ParameterWasBound(nameof(this.ModelId)))
@@ -368,6 +388,14 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PromptVariable != null)
+            {
+                context.PromptVariable = new Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PromptVariable.Keys)
+                {
+                    context.PromptVariable.Add((String)hashKey, (Amazon.BedrockRuntime.Model.PromptVariableValues)(this.PromptVariable[hashKey]));
+                }
+            }
             if (this.System != null)
             {
                 context.System = new List<Amazon.BedrockRuntime.Model.SystemContentBlock>(this.System);
@@ -508,6 +536,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (cmdletContext.ModelId != null)
             {
                 request.ModelId = cmdletContext.ModelId;
+            }
+            if (cmdletContext.PromptVariable != null)
+            {
+                request.PromptVariables = cmdletContext.PromptVariable;
             }
             if (cmdletContext.System != null)
             {
@@ -665,6 +697,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.Single? InferenceConfig_TopP { get; set; }
             public List<Amazon.BedrockRuntime.Model.Message> Message { get; set; }
             public System.String ModelId { get; set; }
+            public Dictionary<System.String, Amazon.BedrockRuntime.Model.PromptVariableValues> PromptVariable { get; set; }
             public List<Amazon.BedrockRuntime.Model.SystemContentBlock> System { get; set; }
             public Amazon.BedrockRuntime.Model.AnyToolChoice ToolChoice_Any { get; set; }
             public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }

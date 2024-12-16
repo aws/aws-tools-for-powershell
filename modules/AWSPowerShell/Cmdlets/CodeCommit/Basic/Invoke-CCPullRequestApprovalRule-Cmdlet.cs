@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit EvaluatePullRequestApprovalRules API operation.", Operation = new[] {"EvaluatePullRequestApprovalRules"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.EvaluatePullRequestApprovalRulesResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.Evaluation or Amazon.CodeCommit.Model.EvaluatePullRequestApprovalRulesResponse",
         "This cmdlet returns an Amazon.CodeCommit.Model.Evaluation object.",
-        "The service call response (type Amazon.CodeCommit.Model.EvaluatePullRequestApprovalRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.EvaluatePullRequestApprovalRulesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeCCPullRequestApprovalRuleCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

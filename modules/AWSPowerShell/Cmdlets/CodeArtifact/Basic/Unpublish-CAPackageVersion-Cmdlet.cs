@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.DisposePackageVersionsResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact DisposePackageVersions API operation.", Operation = new[] {"DisposePackageVersions"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DisposePackageVersionsResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.DisposePackageVersionsResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.DisposePackageVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.DisposePackageVersionsResponse object containing multiple properties."
     )]
     public partial class UnpublishCAPackageVersionCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

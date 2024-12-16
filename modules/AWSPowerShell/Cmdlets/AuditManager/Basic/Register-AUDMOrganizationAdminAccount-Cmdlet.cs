@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [OutputType("Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse")]
     [AWSCmdlet("Calls the AWS Audit Manager RegisterOrganizationAdminAccount API operation.", Operation = new[] {"RegisterOrganizationAdminAccount"}, SelectReturnType = typeof(Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse",
-        "This cmdlet returns an Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AuditManager.Model.RegisterOrganizationAdminAccountResponse object containing multiple properties."
     )]
     public partial class RegisterAUDMOrganizationAdminAccountCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

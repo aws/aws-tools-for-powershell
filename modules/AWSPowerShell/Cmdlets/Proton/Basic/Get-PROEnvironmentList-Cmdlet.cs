@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListEnvironments API operation.", Operation = new[] {"ListEnvironments"}, SelectReturnType = typeof(Amazon.Proton.Model.ListEnvironmentsResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.EnvironmentSummary or Amazon.Proton.Model.ListEnvironmentsResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.EnvironmentSummary objects.",
-        "The service call response (type Amazon.Proton.Model.ListEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListEnvironmentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROEnvironmentListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

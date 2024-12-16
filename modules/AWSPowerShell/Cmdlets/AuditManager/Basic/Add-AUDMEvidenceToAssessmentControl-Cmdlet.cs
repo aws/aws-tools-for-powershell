@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager BatchImportEvidenceToAssessmentControl API operation.", Operation = new[] {"BatchImportEvidenceToAssessmentControl"}, SelectReturnType = typeof(Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlResponse))]
     [AWSCmdletOutput("Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlError or Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlResponse",
         "This cmdlet returns a collection of Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlError objects.",
-        "The service call response (type Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddAUDMEvidenceToAssessmentControlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

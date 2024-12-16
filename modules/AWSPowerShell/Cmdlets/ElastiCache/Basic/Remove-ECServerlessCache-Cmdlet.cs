@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteServerlessCache API operation.", Operation = new[] {"DeleteServerlessCache"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteServerlessCacheResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ServerlessCache or Amazon.ElastiCache.Model.DeleteServerlessCacheResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ServerlessCache object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteServerlessCacheResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECServerlessCacheCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Name of the final snapshot to be taken before the serverless cache is deleted. Available
-        /// for Redis OSS and Serverless Memcached only. Default: NULL, i.e. a final snapshot
+        /// for Valkey, Redis OSS and Serverless Memcached only. Default: NULL, i.e. a final snapshot
         /// is not taken.</para>
         /// </para>
         /// </summary>

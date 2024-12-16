@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory DeleteSchema API operation.", Operation = new[] {"DeleteSchema"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.DeleteSchemaResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.DeleteSchemaResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.DeleteSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.DeleteSchemaResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDIRSchemaCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [AWSCmdlet("Calls the AWS Greengrass DisassociateServiceRoleFromAccount API operation.", Operation = new[] {"DisassociateServiceRoleFromAccount"}, SelectReturnType = typeof(Amazon.Greengrass.Model.DisassociateServiceRoleFromAccountResponse))]
     [AWSCmdletOutput("System.String or Amazon.Greengrass.Model.DisassociateServiceRoleFromAccountResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Greengrass.Model.DisassociateServiceRoleFromAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Greengrass.Model.DisassociateServiceRoleFromAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveGGServiceRoleFromAccountCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.MediaStore.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStore.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStore.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStore.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMSResourceTagCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

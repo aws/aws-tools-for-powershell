@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder UpdateForm API operation.", Operation = new[] {"UpdateForm"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.UpdateFormResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.Form or Amazon.AmplifyUIBuilder.Model.UpdateFormResponse",
         "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.Form object.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.UpdateFormResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.UpdateFormResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAMPUIFormCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

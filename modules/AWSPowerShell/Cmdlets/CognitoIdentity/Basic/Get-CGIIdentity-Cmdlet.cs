@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.DescribeIdentityResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity DescribeIdentity API operation.", Operation = new[] {"DescribeIdentity"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.DescribeIdentityResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.DescribeIdentityResponse",
-        "This cmdlet returns an Amazon.CognitoIdentity.Model.DescribeIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentity.Model.DescribeIdentityResponse object containing multiple properties."
     )]
     public partial class GetCGIIdentityCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {

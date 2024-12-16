@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [OutputType("Amazon.WAFRegional.Model.CreateSizeConstraintSetResponse")]
     [AWSCmdlet("Calls the AWS WAF Regional CreateSizeConstraintSet API operation.", Operation = new[] {"CreateSizeConstraintSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.CreateSizeConstraintSetResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateSizeConstraintSetResponse",
-        "This cmdlet returns an Amazon.WAFRegional.Model.CreateSizeConstraintSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WAFRegional.Model.CreateSizeConstraintSetResponse object containing multiple properties."
     )]
     public partial class NewWAFRSizeConstraintSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

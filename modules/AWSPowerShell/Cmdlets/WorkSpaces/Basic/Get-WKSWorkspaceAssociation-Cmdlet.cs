@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces DescribeWorkspaceAssociations API operation.", Operation = new[] {"DescribeWorkspaceAssociations"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeWorkspaceAssociationsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceResourceAssociation or Amazon.WorkSpaces.Model.DescribeWorkspaceAssociationsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpaces.Model.WorkspaceResourceAssociation objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWKSWorkspaceAssociationCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

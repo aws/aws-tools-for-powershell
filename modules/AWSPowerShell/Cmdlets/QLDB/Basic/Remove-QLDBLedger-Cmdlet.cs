@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     [AWSCmdlet("Calls the Amazon QLDB DeleteLedger API operation.", Operation = new[] {"DeleteLedger"}, SelectReturnType = typeof(Amazon.QLDB.Model.DeleteLedgerResponse))]
     [AWSCmdletOutput("None or Amazon.QLDB.Model.DeleteLedgerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QLDB.Model.DeleteLedgerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QLDB.Model.DeleteLedgerResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQLDBLedgerCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {

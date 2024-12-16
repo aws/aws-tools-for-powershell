@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DescribeEndpoint API operation.", Operation = new[] {"DescribeEndpoint"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeEndpointResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoT.Model.DescribeEndpointResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoT.Model.DescribeEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTEndpointCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

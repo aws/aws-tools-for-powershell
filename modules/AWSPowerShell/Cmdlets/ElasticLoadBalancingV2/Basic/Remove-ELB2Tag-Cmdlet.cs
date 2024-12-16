@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 RemoveTags API operation.", Operation = new[] {"RemoveTags"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveELB2TagCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

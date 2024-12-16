@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor ListAccountAssociations API operation.", Operation = new[] {"ListAccountAssociations"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.ListAccountAssociationsResponse))]
     [AWSCmdletOutput("Amazon.BillingConductor.Model.AccountAssociationsListElement or Amazon.BillingConductor.Model.ListAccountAssociationsResponse",
         "This cmdlet returns a collection of Amazon.BillingConductor.Model.AccountAssociationsListElement objects.",
-        "The service call response (type Amazon.BillingConductor.Model.ListAccountAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BillingConductor.Model.ListAccountAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetABCAccountAssociationListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

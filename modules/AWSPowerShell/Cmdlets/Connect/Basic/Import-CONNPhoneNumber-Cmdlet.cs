@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.ImportPhoneNumberResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service ImportPhoneNumber API operation.", Operation = new[] {"ImportPhoneNumber"}, SelectReturnType = typeof(Amazon.Connect.Model.ImportPhoneNumberResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.ImportPhoneNumberResponse",
-        "This cmdlet returns an Amazon.Connect.Model.ImportPhoneNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.ImportPhoneNumberResponse object containing multiple properties."
     )]
     public partial class ImportCONNPhoneNumberCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

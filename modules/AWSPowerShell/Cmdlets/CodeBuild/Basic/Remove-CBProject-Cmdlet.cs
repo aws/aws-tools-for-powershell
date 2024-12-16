@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild DeleteProject API operation.", Operation = new[] {"DeleteProject"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteProjectResponse))]
     [AWSCmdletOutput("None or Amazon.CodeBuild.Model.DeleteProjectResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeBuild.Model.DeleteProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeBuild.Model.DeleteProjectResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

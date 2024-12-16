@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [AWSCmdlet("Calls the Amazon Translate DescribeTextTranslationJob API operation.", Operation = new[] {"DescribeTextTranslationJob"}, SelectReturnType = typeof(Amazon.Translate.Model.DescribeTextTranslationJobResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.TextTranslationJobProperties or Amazon.Translate.Model.DescribeTextTranslationJobResponse",
         "This cmdlet returns an Amazon.Translate.Model.TextTranslationJobProperties object.",
-        "The service call response (type Amazon.Translate.Model.DescribeTextTranslationJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Translate.Model.DescribeTextTranslationJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTRNTextTranslationJobCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield DeleteSubscription API operation.", Operation = new[] {"DeleteSubscription"}, SelectReturnType = typeof(Amazon.Shield.Model.DeleteSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.DeleteSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.DeleteSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.DeleteSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Use UpdateSubscription operation to disable automatic subscription renewal instead.")]
     public partial class RemoveSHLDSubscriptionCmdlet : AmazonShieldClientCmdlet, IExecutor

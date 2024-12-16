@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     [AWSCmdlet("Calls the AWS IAM Access Analyzer GetArchiveRule API operation.", Operation = new[] {"GetArchiveRule"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetArchiveRuleResponse))]
     [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.ArchiveRuleSummary or Amazon.AccessAnalyzer.Model.GetArchiveRuleResponse",
         "This cmdlet returns an Amazon.AccessAnalyzer.Model.ArchiveRuleSummary object.",
-        "The service call response (type Amazon.AccessAnalyzer.Model.GetArchiveRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AccessAnalyzer.Model.GetArchiveRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIAMAAArchiveRuleCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {

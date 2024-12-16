@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory DetachTypedLink API operation.", Operation = new[] {"DetachTypedLink"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.DetachTypedLinkResponse))]
     [AWSCmdletOutput("None or Amazon.CloudDirectory.Model.DetachTypedLinkResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudDirectory.Model.DetachTypedLinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.DetachTypedLinkResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountCDIRTypedLinkCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

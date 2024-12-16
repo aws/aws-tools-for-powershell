@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     [AWSCmdlet("Calls the Amazon Omics CancelVariantImportJob API operation.", Operation = new[] {"CancelVariantImportJob"}, SelectReturnType = typeof(Amazon.Omics.Model.CancelVariantImportJobResponse))]
     [AWSCmdletOutput("None or Amazon.Omics.Model.CancelVariantImportJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Omics.Model.CancelVariantImportJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Omics.Model.CancelVariantImportJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopOMICSVariantImportJobCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {

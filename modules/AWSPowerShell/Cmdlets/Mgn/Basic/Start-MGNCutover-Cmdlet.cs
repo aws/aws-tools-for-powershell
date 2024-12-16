@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service StartCutover API operation.", Operation = new[] {"StartCutover"}, SelectReturnType = typeof(Amazon.Mgn.Model.StartCutoverResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.Job or Amazon.Mgn.Model.StartCutoverResponse",
         "This cmdlet returns an Amazon.Mgn.Model.Job object.",
-        "The service call response (type Amazon.Mgn.Model.StartCutoverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.StartCutoverResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartMGNCutoverCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

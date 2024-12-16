@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     [OutputType("Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse")]
     [AWSCmdlet("Calls the AWS ARC - Zonal Shift DeletePracticeRunConfiguration API operation.", Operation = new[] {"DeletePracticeRunConfiguration"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ARCZonalShift.Model.DeletePracticeRunConfigurationResponse object containing multiple properties."
     )]
     public partial class RemoveAZSPracticeRunConfigurationCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {

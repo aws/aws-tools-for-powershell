@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteBucketAccessKey API operation.", Operation = new[] {"DeleteBucketAccessKey"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteBucketAccessKeyResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteBucketAccessKeyResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteBucketAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteBucketAccessKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSBucketAccessKeyCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

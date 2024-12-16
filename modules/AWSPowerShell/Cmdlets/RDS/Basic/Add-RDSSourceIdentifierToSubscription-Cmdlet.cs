@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service AddSourceIdentifierToSubscription API operation.", Operation = new[] {"AddSourceIdentifierToSubscription"}, SelectReturnType = typeof(Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription or Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse",
         "This cmdlet returns an Amazon.RDS.Model.EventSubscription object.",
-        "The service call response (type Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddRDSSourceIdentifierToSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

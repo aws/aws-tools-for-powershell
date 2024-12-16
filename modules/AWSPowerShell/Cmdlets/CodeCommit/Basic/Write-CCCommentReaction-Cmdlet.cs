@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Calls the AWS CodeCommit PutCommentReaction API operation.", Operation = new[] {"PutCommentReaction"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.PutCommentReactionResponse))]
     [AWSCmdletOutput("None or Amazon.CodeCommit.Model.PutCommentReactionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeCommit.Model.PutCommentReactionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.PutCommentReactionResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteCCCommentReactionCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

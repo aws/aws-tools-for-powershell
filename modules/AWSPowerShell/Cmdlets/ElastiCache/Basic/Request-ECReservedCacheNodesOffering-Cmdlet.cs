@@ -30,15 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// Allows you to purchase a reserved cache node offering. Reserved nodes are not eligible
     /// for cancellation and are non-refundable. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing
-    /// Costs with Reserved Nodes</a> for Redis OSS or <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing
-    /// Costs with Reserved Nodes</a> for Memcached.
+    /// Costs with Reserved Nodes</a>.
     /// </summary>
     [Cmdlet("Request", "ECReservedCacheNodesOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReservedCacheNode")]
     [AWSCmdlet("Calls the Amazon ElastiCache PurchaseReservedCacheNodesOffering API operation.", Operation = new[] {"PurchaseReservedCacheNodesOffering"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReservedCacheNode or Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.ReservedCacheNode object.",
-        "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

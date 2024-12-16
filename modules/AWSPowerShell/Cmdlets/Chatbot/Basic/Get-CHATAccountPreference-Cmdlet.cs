@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot GetAccountPreferences API operation.", Operation = new[] {"GetAccountPreferences"}, SelectReturnType = typeof(Amazon.Chatbot.Model.GetAccountPreferencesResponse))]
     [AWSCmdletOutput("Amazon.Chatbot.Model.AccountPreferences or Amazon.Chatbot.Model.GetAccountPreferencesResponse",
         "This cmdlet returns an Amazon.Chatbot.Model.AccountPreferences object.",
-        "The service call response (type Amazon.Chatbot.Model.GetAccountPreferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chatbot.Model.GetAccountPreferencesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHATAccountPreferenceCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

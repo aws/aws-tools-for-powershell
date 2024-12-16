@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("Amazon.Macie2.Model.DescribeClassificationJobResponse")]
     [AWSCmdlet("Calls the Amazon Macie 2 DescribeClassificationJob API operation.", Operation = new[] {"DescribeClassificationJob"}, SelectReturnType = typeof(Amazon.Macie2.Model.DescribeClassificationJobResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.DescribeClassificationJobResponse",
-        "This cmdlet returns an Amazon.Macie2.Model.DescribeClassificationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Macie2.Model.DescribeClassificationJobResponse object containing multiple properties."
     )]
     public partial class GetMAC2ClassificationJobCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

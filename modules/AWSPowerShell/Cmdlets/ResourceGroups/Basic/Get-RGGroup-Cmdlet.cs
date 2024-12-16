@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups GetGroup API operation.", Operation = new[] {"GetGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.GetGroupResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.Group or Amazon.ResourceGroups.Model.GetGroupResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.Group object.",
-        "The service call response (type Amazon.ResourceGroups.Model.GetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.GetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to retrieve.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

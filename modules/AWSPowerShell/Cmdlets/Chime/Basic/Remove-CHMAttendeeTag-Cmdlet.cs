@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime UntagAttendee API operation.", Operation = new[] {"UntagAttendee"}, SelectReturnType = typeof(Amazon.Chime.Model.UntagAttendeeResponse))]
     [AWSCmdletOutput("None or Amazon.Chime.Model.UntagAttendeeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.UntagAttendeeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chime.Model.UntagAttendeeResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
     public partial class RemoveCHMAttendeeTagCmdlet : AmazonChimeClientCmdlet, IExecutor

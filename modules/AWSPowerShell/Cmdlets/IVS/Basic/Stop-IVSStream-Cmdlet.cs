@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service StopStream API operation.", Operation = new[] {"StopStream"}, SelectReturnType = typeof(Amazon.IVS.Model.StopStreamResponse))]
     [AWSCmdletOutput("None or Amazon.IVS.Model.StopStreamResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVS.Model.StopStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVS.Model.StopStreamResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopIVSStreamCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

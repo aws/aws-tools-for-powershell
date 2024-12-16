@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.ChatSyncResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness ChatSync API operation.", Operation = new[] {"ChatSync"}, SelectReturnType = typeof(Amazon.QBusiness.Model.ChatSyncResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.ChatSyncResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.ChatSyncResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.ChatSyncResponse object containing multiple properties."
     )]
     public partial class SetQBUSChatSyncCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter UserGroup
         /// <summary>
         /// <para>
-        /// <para>The groups that a user associated with the chat input belongs to.</para>
+        /// <para>The group names that a user associated with the chat input belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

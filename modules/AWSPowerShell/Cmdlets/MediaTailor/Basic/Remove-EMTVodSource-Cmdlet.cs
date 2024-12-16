@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor DeleteVodSource API operation.", Operation = new[] {"DeleteVodSource"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.DeleteVodSourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.DeleteVodSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.DeleteVodSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.DeleteVodSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMTVodSourceCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

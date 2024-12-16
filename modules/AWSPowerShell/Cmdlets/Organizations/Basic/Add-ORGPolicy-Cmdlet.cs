@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// How the policy affects accounts depends on the type of policy. Refer to the <i>Organizations
     /// User Guide</i> for information about each policy type:
     /// 
-    ///  <ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li></ul><para>
+    ///  <ul><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_chatbot.html">CHATBOT_POLICY</a></para></li><li><para><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li></ul><para>
     /// This operation can be called only from the organization's management account or by
     /// a member account that is a delegated administrator for an Amazon Web Services service.
     /// </para>
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations AttachPolicy API operation.", Operation = new[] {"AttachPolicy"}, SelectReturnType = typeof(Amazon.Organizations.Model.AttachPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.Organizations.Model.AttachPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Organizations.Model.AttachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Organizations.Model.AttachPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddORGPolicyCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

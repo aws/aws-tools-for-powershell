@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless DeregisterWirelessDevice API operation.", Operation = new[] {"DeregisterWirelessDevice"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.DeregisterWirelessDeviceResponse))]
     [AWSCmdletOutput("None or Amazon.IoTWireless.Model.DeregisterWirelessDeviceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoTWireless.Model.DeregisterWirelessDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoTWireless.Model.DeregisterWirelessDeviceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterIOTWWirelessDeviceCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

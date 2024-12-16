@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
     /// </para><para>
-    /// To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.
+    /// To resume processes that have been suspended, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Suspend", "ASProcess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Calls the AWS Auto Scaling SuspendProcesses API operation.", Operation = new[] {"SuspendProcesses"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.SuspendProcessesResponse))]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.SuspendProcessesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.SuspendProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SuspendProcessesResponse) be returned by specifying '-Select *'."
     )]
     public partial class SuspendASProcessCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {

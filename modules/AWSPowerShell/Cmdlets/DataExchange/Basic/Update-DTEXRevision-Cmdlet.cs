@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [OutputType("Amazon.DataExchange.Model.UpdateRevisionResponse")]
     [AWSCmdlet("Calls the AWS Data Exchange UpdateRevision API operation.", Operation = new[] {"UpdateRevision"}, SelectReturnType = typeof(Amazon.DataExchange.Model.UpdateRevisionResponse))]
     [AWSCmdletOutput("Amazon.DataExchange.Model.UpdateRevisionResponse",
-        "This cmdlet returns an Amazon.DataExchange.Model.UpdateRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataExchange.Model.UpdateRevisionResponse object containing multiple properties."
     )]
     public partial class UpdateDTEXRevisionCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

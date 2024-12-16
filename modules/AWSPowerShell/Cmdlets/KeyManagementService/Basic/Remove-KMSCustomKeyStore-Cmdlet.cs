@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service DeleteCustomKeyStore API operation.", Operation = new[] {"DeleteCustomKeyStore"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DeleteCustomKeyStoreResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DeleteCustomKeyStoreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DeleteCustomKeyStoreResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.DeleteCustomKeyStoreResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKMSCustomKeyStoreCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

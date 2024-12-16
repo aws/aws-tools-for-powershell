@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableEbsEncryptionByDefault API operation.", Operation = new[] {"EnableEbsEncryptionByDefault"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableEbsEncryptionByDefaultResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableEbsEncryptionByDefaultResponse",
-        "This cmdlet returns a collection of System.Boolean objects.",
-        "The service call response (type Amazon.EC2.Model.EnableEbsEncryptionByDefaultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Boolean object.",
+        "The service call response (type Amazon.EC2.Model.EnableEbsEncryptionByDefaultResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableEC2EbsEncryptionByDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

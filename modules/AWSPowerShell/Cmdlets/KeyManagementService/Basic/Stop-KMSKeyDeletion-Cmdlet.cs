@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service CancelKeyDeletion API operation.", Operation = new[] {"CancelKeyDeletion"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.CancelKeyDeletionResponse))]
     [AWSCmdletOutput("System.String or Amazon.KeyManagementService.Model.CancelKeyDeletionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KeyManagementService.Model.CancelKeyDeletionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.CancelKeyDeletionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

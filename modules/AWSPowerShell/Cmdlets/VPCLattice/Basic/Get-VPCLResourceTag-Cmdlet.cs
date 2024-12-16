@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.VPCLattice.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.VPCLattice.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VPCLattice.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVPCLResourceTagCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

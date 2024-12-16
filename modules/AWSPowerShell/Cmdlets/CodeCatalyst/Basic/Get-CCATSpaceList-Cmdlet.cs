@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     [AWSCmdlet("Calls the AWS CodeCatalyst ListSpaces API operation.", Operation = new[] {"ListSpaces"}, SelectReturnType = typeof(Amazon.CodeCatalyst.Model.ListSpacesResponse))]
     [AWSCmdletOutput("Amazon.CodeCatalyst.Model.SpaceSummary or Amazon.CodeCatalyst.Model.ListSpacesResponse",
         "This cmdlet returns a collection of Amazon.CodeCatalyst.Model.SpaceSummary objects.",
-        "The service call response (type Amazon.CodeCatalyst.Model.ListSpacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCatalyst.Model.ListSpacesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCATSpaceListCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {

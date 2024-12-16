@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm DeleteUpload API operation.", Operation = new[] {"DeleteUpload"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.DeleteUploadResponse))]
     [AWSCmdletOutput("None or Amazon.DeviceFarm.Model.DeleteUploadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DeviceFarm.Model.DeleteUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DeviceFarm.Model.DeleteUploadResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore GetCorsPolicy API operation.", Operation = new[] {"GetCorsPolicy"}, SelectReturnType = typeof(Amazon.MediaStore.Model.GetCorsPolicyResponse))]
     [AWSCmdletOutput("Amazon.MediaStore.Model.CorsRule or Amazon.MediaStore.Model.GetCorsPolicyResponse",
         "This cmdlet returns a collection of Amazon.MediaStore.Model.CorsRule objects.",
-        "The service call response (type Amazon.MediaStore.Model.GetCorsPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaStore.Model.GetCorsPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMSCorsPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

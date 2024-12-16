@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications ListNotificationRules API operation.", Operation = new[] {"ListNotificationRules"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.ListNotificationRulesResponse))]
     [AWSCmdletOutput("Amazon.CodeStarNotifications.Model.NotificationRuleSummary or Amazon.CodeStarNotifications.Model.ListNotificationRulesResponse",
         "This cmdlet returns a collection of Amazon.CodeStarNotifications.Model.NotificationRuleSummary objects.",
-        "The service call response (type Amazon.CodeStarNotifications.Model.ListNotificationRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarNotifications.Model.ListNotificationRulesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSTNNotificationRuleListCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

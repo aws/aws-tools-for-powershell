@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT ListFleetMetrics API operation.", Operation = new[] {"ListFleetMetrics"}, SelectReturnType = typeof(Amazon.IoT.Model.ListFleetMetricsResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.FleetMetricNameAndArn or Amazon.IoT.Model.ListFleetMetricsResponse",
         "This cmdlet returns a collection of Amazon.IoT.Model.FleetMetricNameAndArn objects.",
-        "The service call response (type Amazon.IoT.Model.ListFleetMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListFleetMetricsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTFleetMetricListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

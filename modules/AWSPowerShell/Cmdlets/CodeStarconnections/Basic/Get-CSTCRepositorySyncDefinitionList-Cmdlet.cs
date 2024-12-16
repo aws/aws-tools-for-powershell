@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [AWSCmdlet("Calls the AWS CodeStar Connections ListRepositorySyncDefinitions API operation.", Operation = new[] {"ListRepositorySyncDefinitions"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.ListRepositorySyncDefinitionsResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.RepositorySyncDefinition or Amazon.CodeStarconnections.Model.ListRepositorySyncDefinitionsResponse",
         "This cmdlet returns a collection of Amazon.CodeStarconnections.Model.RepositorySyncDefinition objects.",
-        "The service call response (type Amazon.CodeStarconnections.Model.ListRepositorySyncDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarconnections.Model.ListRepositorySyncDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCSTCRepositorySyncDefinitionListCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

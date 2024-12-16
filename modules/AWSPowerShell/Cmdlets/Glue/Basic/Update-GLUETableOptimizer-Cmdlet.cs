@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue UpdateTableOptimizer API operation.", Operation = new[] {"UpdateTableOptimizer"}, SelectReturnType = typeof(Amazon.Glue.Model.UpdateTableOptimizerResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.UpdateTableOptimizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.UpdateTableOptimizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.UpdateTableOptimizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateGLUETableOptimizerCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

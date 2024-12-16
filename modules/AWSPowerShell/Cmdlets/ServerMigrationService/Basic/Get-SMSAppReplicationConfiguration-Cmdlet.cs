@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service GetAppReplicationConfiguration API operation.", Operation = new[] {"GetAppReplicationConfiguration"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.GetAppReplicationConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.ServerGroupReplicationConfiguration or Amazon.ServerMigrationService.Model.GetAppReplicationConfigurationResponse",
         "This cmdlet returns a collection of Amazon.ServerMigrationService.Model.ServerGroupReplicationConfiguration objects.",
-        "The service call response (type Amazon.ServerMigrationService.Model.GetAppReplicationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ServerMigrationService.Model.GetAppReplicationConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMSAppReplicationConfigurationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

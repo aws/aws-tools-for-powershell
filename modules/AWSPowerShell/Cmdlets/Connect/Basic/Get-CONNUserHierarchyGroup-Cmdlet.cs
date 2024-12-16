@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [AWSCmdlet("Calls the Amazon Connect Service DescribeUserHierarchyGroup API operation.", Operation = new[] {"DescribeUserHierarchyGroup"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeUserHierarchyGroupResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.HierarchyGroup or Amazon.Connect.Model.DescribeUserHierarchyGroupResponse",
         "This cmdlet returns an Amazon.Connect.Model.HierarchyGroup object.",
-        "The service call response (type Amazon.Connect.Model.DescribeUserHierarchyGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Connect.Model.DescribeUserHierarchyGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCONNUserHierarchyGroupCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

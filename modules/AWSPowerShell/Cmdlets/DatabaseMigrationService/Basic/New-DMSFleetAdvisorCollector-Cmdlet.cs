@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service CreateFleetAdvisorCollector API operation.", Operation = new[] {"CreateFleetAdvisorCollector"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.CreateFleetAdvisorCollectorResponse))]
     [AWSCmdletOutput("System.String or Amazon.DatabaseMigrationService.Model.CreateFleetAdvisorCollectorResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateFleetAdvisorCollectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateFleetAdvisorCollectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDMSFleetAdvisorCollectorCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

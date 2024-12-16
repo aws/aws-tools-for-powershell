@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [OutputType("Amazon.Comprehend.Model.StopSentimentDetectionJobResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend StopSentimentDetectionJob API operation.", Operation = new[] {"StopSentimentDetectionJob"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StopSentimentDetectionJobResponse))]
     [AWSCmdletOutput("Amazon.Comprehend.Model.StopSentimentDetectionJobResponse",
-        "This cmdlet returns an Amazon.Comprehend.Model.StopSentimentDetectionJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Comprehend.Model.StopSentimentDetectionJobResponse object containing multiple properties."
     )]
     public partial class StopCOMPSentimentDetectionJobCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

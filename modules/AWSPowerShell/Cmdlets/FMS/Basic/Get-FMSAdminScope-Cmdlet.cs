@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service GetAdminScope API operation.", Operation = new[] {"GetAdminScope"}, SelectReturnType = typeof(Amazon.FMS.Model.GetAdminScopeResponse))]
     [AWSCmdletOutput("Amazon.FMS.Model.AdminScope or Amazon.FMS.Model.GetAdminScopeResponse",
         "This cmdlet returns an Amazon.FMS.Model.AdminScope object.",
-        "The service call response (type Amazon.FMS.Model.GetAdminScopeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FMS.Model.GetAdminScopeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFMSAdminScopeCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

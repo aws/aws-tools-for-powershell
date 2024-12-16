@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts UpdateSiteRackPhysicalProperties API operation.", Operation = new[] {"UpdateSiteRackPhysicalProperties"}, SelectReturnType = typeof(Amazon.Outposts.Model.UpdateSiteRackPhysicalPropertiesResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.Site or Amazon.Outposts.Model.UpdateSiteRackPhysicalPropertiesResponse",
         "This cmdlet returns an Amazon.Outposts.Model.Site object.",
-        "The service call response (type Amazon.Outposts.Model.UpdateSiteRackPhysicalPropertiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Outposts.Model.UpdateSiteRackPhysicalPropertiesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOUTPSiteRackPhysicalPropertyCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

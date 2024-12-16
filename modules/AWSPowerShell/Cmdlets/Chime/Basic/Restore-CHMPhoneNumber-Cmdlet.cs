@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime RestorePhoneNumber API operation.", Operation = new[] {"RestorePhoneNumber"}, SelectReturnType = typeof(Amazon.Chime.Model.RestorePhoneNumberResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.PhoneNumber or Amazon.Chime.Model.RestorePhoneNumberResponse",
         "This cmdlet returns an Amazon.Chime.Model.PhoneNumber object.",
-        "The service call response (type Amazon.Chime.Model.RestorePhoneNumberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.RestorePhoneNumberResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreCHMPhoneNumberCmdlet : AmazonChimeClientCmdlet, IExecutor
     {

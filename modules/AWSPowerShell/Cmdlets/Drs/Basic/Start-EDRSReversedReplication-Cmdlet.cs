@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service ReverseReplication API operation.", Operation = new[] {"ReverseReplication"}, SelectReturnType = typeof(Amazon.Drs.Model.ReverseReplicationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Drs.Model.ReverseReplicationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Drs.Model.ReverseReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Drs.Model.ReverseReplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartEDRSReversedReplicationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

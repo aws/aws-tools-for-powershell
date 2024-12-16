@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config PutOrganizationConformancePack API operation.", Operation = new[] {"PutOrganizationConformancePack"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutOrganizationConformancePackResponse))]
     [AWSCmdletOutput("System.String or Amazon.ConfigService.Model.PutOrganizationConformancePackResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ConfigService.Model.PutOrganizationConformancePackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutOrganizationConformancePackResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteCFGOrganizationConformancePackCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Calls the AWS OpsWorks UnassignInstance API operation.", Operation = new[] {"UnassignInstance"}, SelectReturnType = typeof(Amazon.OpsWorks.Model.UnassignInstanceResponse))]
     [AWSCmdletOutput("None or Amazon.OpsWorks.Model.UnassignInstanceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.OpsWorks.Model.UnassignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UnassignInstanceResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

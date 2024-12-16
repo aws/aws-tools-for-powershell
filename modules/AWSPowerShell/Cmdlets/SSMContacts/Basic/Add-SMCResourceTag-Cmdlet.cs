@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     [AWSCmdlet("Calls the AWS Systems Manager Incident Manager Contacts TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SSMContacts.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddSMCResourceTagCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {

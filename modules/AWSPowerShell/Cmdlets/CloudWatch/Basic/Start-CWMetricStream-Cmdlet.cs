@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Calls the Amazon CloudWatch StartMetricStreams API operation.", Operation = new[] {"StartMetricStreams"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.StartMetricStreamsResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatch.Model.StartMetricStreamsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatch.Model.StartMetricStreamsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.StartMetricStreamsResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCWMetricStreamCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

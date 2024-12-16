@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation UpdateGeneratedTemplate API operation.", Operation = new[] {"UpdateGeneratedTemplate"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.UpdateGeneratedTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.UpdateGeneratedTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.UpdateGeneratedTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.UpdateGeneratedTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFNGeneratedTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

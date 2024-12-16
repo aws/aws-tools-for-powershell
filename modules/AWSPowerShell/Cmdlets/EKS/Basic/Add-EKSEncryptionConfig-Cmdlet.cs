@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes AssociateEncryptionConfig API operation.", Operation = new[] {"AssociateEncryptionConfig"}, SelectReturnType = typeof(Amazon.EKS.Model.AssociateEncryptionConfigResponse))]
     [AWSCmdletOutput("Amazon.EKS.Model.Update or Amazon.EKS.Model.AssociateEncryptionConfigResponse",
         "This cmdlet returns an Amazon.EKS.Model.Update object.",
-        "The service call response (type Amazon.EKS.Model.AssociateEncryptionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EKS.Model.AssociateEncryptionConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddEKSEncryptionConfigCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

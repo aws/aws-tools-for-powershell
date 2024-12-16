@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [OutputType("Amazon.Backup.Model.CreateRestoreTestingSelectionResponse")]
     [AWSCmdlet("Calls the AWS Backup CreateRestoreTestingSelection API operation.", Operation = new[] {"CreateRestoreTestingSelection"}, SelectReturnType = typeof(Amazon.Backup.Model.CreateRestoreTestingSelectionResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.CreateRestoreTestingSelectionResponse",
-        "This cmdlet returns an Amazon.Backup.Model.CreateRestoreTestingSelectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Backup.Model.CreateRestoreTestingSelectionResponse object containing multiple properties."
     )]
     public partial class NewBAKRestoreTestingSelectionCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

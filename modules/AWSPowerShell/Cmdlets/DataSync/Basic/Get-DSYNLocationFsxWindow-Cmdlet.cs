@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [OutputType("Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse")]
     [AWSCmdlet("Calls the AWS DataSync DescribeLocationFsxWindows API operation.", Operation = new[] {"DescribeLocationFsxWindows"}, SelectReturnType = typeof(Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse))]
     [AWSCmdletOutput("Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse",
-        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse object containing multiple properties."
     )]
     public partial class GetDSYNLocationFsxWindowCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {

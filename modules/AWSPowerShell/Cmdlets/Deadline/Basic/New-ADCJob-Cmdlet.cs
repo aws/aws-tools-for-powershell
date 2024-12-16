@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     [AWSCmdlet("Calls the AWSDeadlineCloud CreateJob API operation.", Operation = new[] {"CreateJob"}, SelectReturnType = typeof(Amazon.Deadline.Model.CreateJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Deadline.Model.CreateJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Deadline.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Deadline.Model.CreateJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewADCJobCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
@@ -148,6 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String QueueId { get; set; }
         #endregion
         
+        #region Parameter SourceJobId
+        /// <summary>
+        /// <para>
+        /// <para>The job ID for the source job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceJobId { get; set; }
+        #endregion
+        
         #region Parameter StorageProfileId
         /// <summary>
         /// <para>
@@ -176,14 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// <para>The job template to use for this job.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Template { get; set; }
         #endregion
         
@@ -193,13 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// <para>The file type for the job template.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Deadline.JobTemplateType")]
         public Amazon.Deadline.JobTemplateType TemplateType { get; set; }
         #endregion
@@ -293,22 +290,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceJobId = this.SourceJobId;
             context.StorageProfileId = this.StorageProfileId;
             context.TargetTaskRunStatus = this.TargetTaskRunStatus;
             context.Template = this.Template;
-            #if MODULAR
-            if (this.Template == null && ParameterWasBound(nameof(this.Template)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Template which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TemplateType = this.TemplateType;
-            #if MODULAR
-            if (this.TemplateType == null && ParameterWasBound(nameof(this.TemplateType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -381,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.QueueId != null)
             {
                 request.QueueId = cmdletContext.QueueId;
+            }
+            if (cmdletContext.SourceJobId != null)
+            {
+                request.SourceJobId = cmdletContext.SourceJobId;
             }
             if (cmdletContext.StorageProfileId != null)
             {
@@ -468,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public Dictionary<System.String, Amazon.Deadline.Model.JobParameter> Parameter { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String QueueId { get; set; }
+            public System.String SourceJobId { get; set; }
             public System.String StorageProfileId { get; set; }
             public Amazon.Deadline.CreateJobTargetTaskRunStatus TargetTaskRunStatus { get; set; }
             public System.String Template { get; set; }

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra CreateExperience API operation.", Operation = new[] {"CreateExperience"}, SelectReturnType = typeof(Amazon.Kendra.Model.CreateExperienceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kendra.Model.CreateExperienceResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kendra.Model.CreateExperienceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.CreateExperienceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKNDRExperienceCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

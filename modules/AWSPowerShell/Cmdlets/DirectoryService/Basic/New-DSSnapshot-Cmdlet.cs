@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.CreateSnapshotResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectoryService.Model.CreateSnapshotResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [OutputType("Amazon.MailManager.Model.GetIngressPointResponse")]
     [AWSCmdlet("Calls the Amazon SES Mail Manager GetIngressPoint API operation.", Operation = new[] {"GetIngressPoint"}, SelectReturnType = typeof(Amazon.MailManager.Model.GetIngressPointResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.GetIngressPointResponse",
-        "This cmdlet returns an Amazon.MailManager.Model.GetIngressPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MailManager.Model.GetIngressPointResponse object containing multiple properties."
     )]
     public partial class GetMMGRIngressPointCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

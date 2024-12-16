@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     [AWSCmdlet("Calls the Amazon SageMaker Feature Store Runtime PutRecord API operation.", Operation = new[] {"PutRecord"}, SelectReturnType = typeof(Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse))]
     [AWSCmdletOutput("None or Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {

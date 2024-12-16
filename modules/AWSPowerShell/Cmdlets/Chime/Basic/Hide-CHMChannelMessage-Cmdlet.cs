@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.RedactChannelMessageResponse")]
     [AWSCmdlet("Calls the Amazon Chime RedactChannelMessage API operation.", Operation = new[] {"RedactChannelMessage"}, SelectReturnType = typeof(Amazon.Chime.Model.RedactChannelMessageResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.RedactChannelMessageResponse",
-        "This cmdlet returns an Amazon.Chime.Model.RedactChannelMessageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.RedactChannelMessageResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace")]
     public partial class HideCHMChannelMessageCmdlet : AmazonChimeClientCmdlet, IExecutor

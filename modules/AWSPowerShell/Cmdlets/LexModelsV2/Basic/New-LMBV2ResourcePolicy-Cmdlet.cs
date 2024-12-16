@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.CreateResourcePolicyResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 CreateResourcePolicy API operation.", Operation = new[] {"CreateResourcePolicy"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.CreateResourcePolicyResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.CreateResourcePolicyResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.CreateResourcePolicyResponse object containing multiple properties."
     )]
     public partial class NewLMBV2ResourcePolicyCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

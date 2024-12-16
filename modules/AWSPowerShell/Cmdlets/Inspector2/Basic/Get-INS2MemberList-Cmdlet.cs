@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 ListMembers API operation.", Operation = new[] {"ListMembers"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListMembersResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.Member or Amazon.Inspector2.Model.ListMembersResponse",
         "This cmdlet returns a collection of Amazon.Inspector2.Model.Member objects.",
-        "The service call response (type Amazon.Inspector2.Model.ListMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.ListMembersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetINS2MemberListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

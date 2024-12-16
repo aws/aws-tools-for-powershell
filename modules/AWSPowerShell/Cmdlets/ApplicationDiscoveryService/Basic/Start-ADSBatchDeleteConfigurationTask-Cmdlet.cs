@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service StartBatchDeleteConfigurationTask API operation.", Operation = new[] {"StartBatchDeleteConfigurationTask"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartBatchDeleteConfigurationTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartADSBatchDeleteConfigurationTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {

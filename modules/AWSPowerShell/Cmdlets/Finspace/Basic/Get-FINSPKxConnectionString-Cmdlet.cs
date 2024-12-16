@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [AWSCmdlet("Calls the FinSpace User Environment Management Service GetKxConnectionString API operation.", Operation = new[] {"GetKxConnectionString"}, SelectReturnType = typeof(Amazon.Finspace.Model.GetKxConnectionStringResponse))]
     [AWSCmdletOutput("System.String or Amazon.Finspace.Model.GetKxConnectionStringResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Finspace.Model.GetKxConnectionStringResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Finspace.Model.GetKxConnectionStringResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFINSPKxConnectionStringCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

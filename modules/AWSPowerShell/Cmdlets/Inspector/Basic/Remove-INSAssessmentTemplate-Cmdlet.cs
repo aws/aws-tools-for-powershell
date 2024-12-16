@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector DeleteAssessmentTemplate API operation.", Operation = new[] {"DeleteAssessmentTemplate"}, SelectReturnType = typeof(Amazon.Inspector.Model.DeleteAssessmentTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.DeleteAssessmentTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.DeleteAssessmentTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.DeleteAssessmentTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveINSAssessmentTemplateCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

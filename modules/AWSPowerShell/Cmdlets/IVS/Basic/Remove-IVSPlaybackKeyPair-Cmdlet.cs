@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service DeletePlaybackKeyPair API operation.", Operation = new[] {"DeletePlaybackKeyPair"}, SelectReturnType = typeof(Amazon.IVS.Model.DeletePlaybackKeyPairResponse))]
     [AWSCmdletOutput("None or Amazon.IVS.Model.DeletePlaybackKeyPairResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVS.Model.DeletePlaybackKeyPairResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVS.Model.DeletePlaybackKeyPairResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSPlaybackKeyPairCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ECRPublic.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ECRPublic.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ECRPublic.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveECRPResourceTagCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

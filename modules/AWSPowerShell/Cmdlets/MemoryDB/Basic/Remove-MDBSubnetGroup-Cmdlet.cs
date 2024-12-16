@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DeleteSubnetGroup API operation.", Operation = new[] {"DeleteSubnetGroup"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DeleteSubnetGroupResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.SubnetGroup or Amazon.MemoryDB.Model.DeleteSubnetGroupResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.SubnetGroup object.",
-        "The service call response (type Amazon.MemoryDB.Model.DeleteSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DeleteSubnetGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBSubnetGroupCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

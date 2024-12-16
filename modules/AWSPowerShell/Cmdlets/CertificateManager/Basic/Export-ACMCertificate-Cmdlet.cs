@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     [OutputType("Amazon.CertificateManager.Model.ExportCertificateResponse")]
     [AWSCmdlet("Calls the AWS Certificate Manager ExportCertificate API operation.", Operation = new[] {"ExportCertificate"}, SelectReturnType = typeof(Amazon.CertificateManager.Model.ExportCertificateResponse))]
     [AWSCmdletOutput("Amazon.CertificateManager.Model.ExportCertificateResponse",
-        "This cmdlet returns an Amazon.CertificateManager.Model.ExportCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CertificateManager.Model.ExportCertificateResponse object containing multiple properties."
     )]
     public partial class ExportACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {

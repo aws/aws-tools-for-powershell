@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [AWSCmdlet("Calls the Payment Cryptography Control Plane CreateKey API operation.", Operation = new[] {"CreateKey"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.CreateKeyResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.Key or Amazon.PaymentCryptography.Model.CreateKeyResponse",
         "This cmdlet returns an Amazon.PaymentCryptography.Model.Key object.",
-        "The service call response (type Amazon.PaymentCryptography.Model.CreateKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PaymentCryptography.Model.CreateKeyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPAYCCKeyCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [AWSCmdlet("Calls the Amazon Rekognition CopyProjectVersion API operation.", Operation = new[] {"CopyProjectVersion"}, SelectReturnType = typeof(Amazon.Rekognition.Model.CopyProjectVersionResponse))]
     [AWSCmdletOutput("System.String or Amazon.Rekognition.Model.CopyProjectVersionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Rekognition.Model.CopyProjectVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Rekognition.Model.CopyProjectVersionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class CopyREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

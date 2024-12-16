@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     [OutputType("Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse")]
     [AWSCmdlet("Calls the Payment Cryptography Control Plane GetPublicKeyCertificate API operation.", Operation = new[] {"GetPublicKeyCertificate"}, SelectReturnType = typeof(Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse))]
     [AWSCmdletOutput("Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse",
-        "This cmdlet returns an Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PaymentCryptography.Model.GetPublicKeyCertificateResponse object containing multiple properties."
     )]
     public partial class GetPAYCCPublicKeyCertificateCmdlet : AmazonPaymentCryptographyClientCmdlet, IExecutor
     {

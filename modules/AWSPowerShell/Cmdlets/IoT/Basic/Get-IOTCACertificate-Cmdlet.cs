@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.DescribeCACertificateResponse")]
     [AWSCmdlet("Calls the AWS IoT DescribeCACertificate API operation.", Operation = new[] {"DescribeCACertificate"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeCACertificateResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.DescribeCACertificateResponse",
-        "This cmdlet returns an Amazon.IoT.Model.DescribeCACertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoT.Model.DescribeCACertificateResponse object containing multiple properties."
     )]
     public partial class GetIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

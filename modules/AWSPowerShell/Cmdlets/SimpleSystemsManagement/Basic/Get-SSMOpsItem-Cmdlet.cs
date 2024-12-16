@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Calls the AWS Systems Manager GetOpsItem API operation.", Operation = new[] {"GetOpsItem"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse))]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItem or Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse",
         "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.OpsItem object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

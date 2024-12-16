@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteAlias API operation.", Operation = new[] {"DeleteAlias"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteAliasResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteAliasResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteAliasResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMAliasCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

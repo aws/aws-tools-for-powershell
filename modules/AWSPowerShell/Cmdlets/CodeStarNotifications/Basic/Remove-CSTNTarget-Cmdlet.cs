@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications DeleteTarget API operation.", Operation = new[] {"DeleteTarget"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.DeleteTargetResponse))]
     [AWSCmdletOutput("None or Amazon.CodeStarNotifications.Model.DeleteTargetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeStarNotifications.Model.DeleteTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeStarNotifications.Model.DeleteTargetResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCSTNTargetCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

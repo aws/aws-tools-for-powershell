@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service CreateInstanceProfile API operation.", Operation = new[] {"CreateInstanceProfile"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.CreateInstanceProfileResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.InstanceProfile or Amazon.DatabaseMigrationService.Model.CreateInstanceProfileResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.InstanceProfile object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateInstanceProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDMSInstanceProfileCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

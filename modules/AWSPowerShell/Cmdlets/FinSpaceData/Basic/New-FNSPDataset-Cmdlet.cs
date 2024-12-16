@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [AWSCmdlet("Calls the FinSpace Public API CreateDataset API operation.", Operation = new[] {"CreateDataset"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.CreateDatasetResponse))]
     [AWSCmdletOutput("System.String or Amazon.FinSpaceData.Model.CreateDatasetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.FinSpaceData.Model.CreateDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FinSpaceData.Model.CreateDatasetResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
     public partial class NewFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor

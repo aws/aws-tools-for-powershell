@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [AWSCmdlet("Calls the Amazon Translate ImportTerminology API operation.", Operation = new[] {"ImportTerminology"}, SelectReturnType = typeof(Amazon.Translate.Model.ImportTerminologyResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.TerminologyProperties or Amazon.Translate.Model.ImportTerminologyResponse",
         "This cmdlet returns an Amazon.Translate.Model.TerminologyProperties object.",
-        "The service call response (type Amazon.Translate.Model.ImportTerminologyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Translate.Model.ImportTerminologyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportTRNTerminologyCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

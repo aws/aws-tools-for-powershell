@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     [OutputType("Amazon.MigrationHubOrchestrator.Model.GetTemplateStepResponse")]
     [AWSCmdlet("Calls the AWS Migration Hub Orchestrator GetTemplateStep API operation.", Operation = new[] {"GetTemplateStep"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.GetTemplateStepResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubOrchestrator.Model.GetTemplateStepResponse",
-        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.GetTemplateStepResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.GetTemplateStepResponse object containing multiple properties."
     )]
     public partial class GetMHOTemplateStepCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {

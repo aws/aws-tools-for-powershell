@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse")]
     [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateEnvironment API operation.", Operation = new[] {"UpdateEnvironment"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse",
-        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse object containing multiple properties."
     )]
     public partial class UpdateEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

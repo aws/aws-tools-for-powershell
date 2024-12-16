@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeInstanceTypeLimits API operation.", Operation = new[] {"DescribeInstanceTypeLimits"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeInstanceTypeLimitsResponse))]
     [AWSCmdletOutput("System.String or Amazon.OpenSearchService.Model.DescribeInstanceTypeLimitsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.OpenSearchService.Model.DescribeInstanceTypeLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.DescribeInstanceTypeLimitsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetOSInstanceTypeLimitCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

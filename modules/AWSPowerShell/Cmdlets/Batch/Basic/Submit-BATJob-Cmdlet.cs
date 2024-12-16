@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     [OutputType("Amazon.Batch.Model.SubmitJobResponse")]
     [AWSCmdlet("Calls the AWS Batch SubmitJob API operation.", Operation = new[] {"SubmitJob"}, SelectReturnType = typeof(Amazon.Batch.Model.SubmitJobResponse))]
     [AWSCmdletOutput("Amazon.Batch.Model.SubmitJobResponse",
-        "This cmdlet returns an Amazon.Batch.Model.SubmitJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Batch.Model.SubmitJobResponse object containing multiple properties."
     )]
     public partial class SubmitBATJobCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
@@ -133,12 +133,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_InitContainer
         /// <summary>
         /// <para>
-        /// <para>The overrides for the conatainers defined in the Amazon EKS pod. These containers
+        /// <para>The overrides for the <c>initContainers</c> defined in the Amazon EKS pod. These containers
         /// run before application containers, always runs to completion, and must complete successfully
         /// before the next container starts. These containers are registered with the Amazon
         /// EKS Connector agent and persists the registration information in the Kubernetes backend
         /// data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
-        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><note><para>This object is limited to 10 elements</para></note>
+        /// Containers</a> in the <i>Kubernetes documentation</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

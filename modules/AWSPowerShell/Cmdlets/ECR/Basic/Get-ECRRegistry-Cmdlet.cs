@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     [OutputType("Amazon.ECR.Model.DescribeRegistryResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeRegistry API operation.", Operation = new[] {"DescribeRegistry"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRegistryResponse))]
     [AWSCmdletOutput("Amazon.ECR.Model.DescribeRegistryResponse",
-        "This cmdlet returns an Amazon.ECR.Model.DescribeRegistryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECR.Model.DescribeRegistryResponse object containing multiple properties."
     )]
     public partial class GetECRRegistryCmdlet : AmazonECRClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     [AWSCmdlet("Calls the AWS Server Migration Service StartOnDemandAppReplication API operation.", Operation = new[] {"StartOnDemandAppReplication"}, SelectReturnType = typeof(Amazon.ServerMigrationService.Model.StartOnDemandAppReplicationResponse))]
     [AWSCmdletOutput("None or Amazon.ServerMigrationService.Model.StartOnDemandAppReplicationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ServerMigrationService.Model.StartOnDemandAppReplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ServerMigrationService.Model.StartOnDemandAppReplicationResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartSMSOnDemandAppReplicationCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {

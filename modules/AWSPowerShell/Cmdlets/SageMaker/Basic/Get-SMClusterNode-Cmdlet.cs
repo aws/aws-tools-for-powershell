@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeClusterNode API operation.", Operation = new[] {"DescribeClusterNode"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeClusterNodeResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.ClusterNodeDetails or Amazon.SageMaker.Model.DescribeClusterNodeResponse",
         "This cmdlet returns an Amazon.SageMaker.Model.ClusterNodeDetails object.",
-        "The service call response (type Amazon.SageMaker.Model.DescribeClusterNodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.DescribeClusterNodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSMClusterNodeCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ControlTower.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ControlTower.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ControlTower.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ControlTower.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddACTResourceTagCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

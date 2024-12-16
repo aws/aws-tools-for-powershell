@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     [OutputType("Amazon.ApplicationCostProfiler.Model.GetReportDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon ApplicationCostProfiler GetReportDefinition API operation.", Operation = new[] {"GetReportDefinition"}, SelectReturnType = typeof(Amazon.ApplicationCostProfiler.Model.GetReportDefinitionResponse))]
     [AWSCmdletOutput("Amazon.ApplicationCostProfiler.Model.GetReportDefinitionResponse",
-        "This cmdlet returns an Amazon.ApplicationCostProfiler.Model.GetReportDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationCostProfiler.Model.GetReportDefinitionResponse object containing multiple properties."
     )]
     public partial class GetACPReportDefinitionCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     [AWSCmdlet("Calls the Amazon Chime SDK Voice StartSpeakerSearchTask API operation.", Operation = new[] {"StartSpeakerSearchTask"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.StartSpeakerSearchTaskResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.SpeakerSearchTask or Amazon.ChimeSDKVoice.Model.StartSpeakerSearchTaskResponse",
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.SpeakerSearchTask object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.StartSpeakerSearchTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKVoice.Model.StartSpeakerSearchTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartCHMVOSpeakerSearchTaskCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {

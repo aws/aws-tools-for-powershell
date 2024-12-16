@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     [OutputType("Amazon.Connect.Model.MonitorContactResponse")]
     [AWSCmdlet("Calls the Amazon Connect Service MonitorContact API operation.", Operation = new[] {"MonitorContact"}, SelectReturnType = typeof(Amazon.Connect.Model.MonitorContactResponse))]
     [AWSCmdletOutput("Amazon.Connect.Model.MonitorContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.MonitorContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Connect.Model.MonitorContactResponse object containing multiple properties."
     )]
     public partial class StartCONNContactMonitoringCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

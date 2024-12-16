@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     [AWSCmdlet("Calls the AWSBillingConductor TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.BillingConductor.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.BillingConductor.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.BillingConductor.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.BillingConductor.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddABCResourceTagCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {

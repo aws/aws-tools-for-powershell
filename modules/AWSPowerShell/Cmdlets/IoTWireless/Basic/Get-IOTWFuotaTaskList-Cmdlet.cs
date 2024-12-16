@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     [AWSCmdlet("Calls the AWS IoT Wireless ListFuotaTasks API operation.", Operation = new[] {"ListFuotaTasks"}, SelectReturnType = typeof(Amazon.IoTWireless.Model.ListFuotaTasksResponse))]
     [AWSCmdletOutput("Amazon.IoTWireless.Model.FuotaTask or Amazon.IoTWireless.Model.ListFuotaTasksResponse",
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.FuotaTask objects.",
-        "The service call response (type Amazon.IoTWireless.Model.ListFuotaTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTWireless.Model.ListFuotaTasksResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTWFuotaTaskListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {

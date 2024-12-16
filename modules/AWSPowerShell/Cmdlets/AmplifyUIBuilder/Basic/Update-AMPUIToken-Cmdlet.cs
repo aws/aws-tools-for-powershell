@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [OutputType("Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse")]
     [AWSCmdlet("Calls the AWS Amplify UI Builder RefreshToken API operation.", Operation = new[] {"RefreshToken"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse",
-        "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse object containing multiple properties."
     )]
     public partial class UpdateAMPUITokenCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

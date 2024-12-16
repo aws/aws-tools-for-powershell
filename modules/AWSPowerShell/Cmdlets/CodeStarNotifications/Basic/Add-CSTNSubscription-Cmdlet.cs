@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     [AWSCmdlet("Calls the AWS CodeStar Notifications Subscribe API operation.", Operation = new[] {"Subscribe"}, SelectReturnType = typeof(Amazon.CodeStarNotifications.Model.SubscribeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CodeStarNotifications.Model.SubscribeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeStarNotifications.Model.SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeStarNotifications.Model.SubscribeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddCSTNSubscriptionCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {

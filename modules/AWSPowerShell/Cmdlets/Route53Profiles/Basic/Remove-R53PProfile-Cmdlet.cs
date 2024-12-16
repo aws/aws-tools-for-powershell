@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
     [AWSCmdlet("Calls the Amazon Route 53 Profiles DeleteProfile API operation.", Operation = new[] {"DeleteProfile"}, SelectReturnType = typeof(Amazon.Route53Profiles.Model.DeleteProfileResponse))]
     [AWSCmdletOutput("Amazon.Route53Profiles.Model.Profile or Amazon.Route53Profiles.Model.DeleteProfileResponse",
         "This cmdlet returns an Amazon.Route53Profiles.Model.Profile object.",
-        "The service call response (type Amazon.Route53Profiles.Model.DeleteProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Profiles.Model.DeleteProfileResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53PProfileCmdlet : AmazonRoute53ProfilesClientCmdlet, IExecutor
     {

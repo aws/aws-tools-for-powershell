@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections GetSyncBlockerSummary API operation.", Operation = new[] {"GetSyncBlockerSummary"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.GetSyncBlockerSummaryResponse))]
     [AWSCmdletOutput("Amazon.CodeConnections.Model.SyncBlockerSummary or Amazon.CodeConnections.Model.GetSyncBlockerSummaryResponse",
         "This cmdlet returns an Amazon.CodeConnections.Model.SyncBlockerSummary object.",
-        "The service call response (type Amazon.CodeConnections.Model.GetSyncBlockerSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeConnections.Model.GetSyncBlockerSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCCONSyncBlockerSummaryCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

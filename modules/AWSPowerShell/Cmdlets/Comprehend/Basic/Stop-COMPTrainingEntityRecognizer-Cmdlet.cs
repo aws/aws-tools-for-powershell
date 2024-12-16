@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     [AWSCmdlet("Calls the Amazon Comprehend StopTrainingEntityRecognizer API operation.", Operation = new[] {"StopTrainingEntityRecognizer"}, SelectReturnType = typeof(Amazon.Comprehend.Model.StopTrainingEntityRecognizerResponse))]
     [AWSCmdletOutput("None or Amazon.Comprehend.Model.StopTrainingEntityRecognizerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.StopTrainingEntityRecognizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Comprehend.Model.StopTrainingEntityRecognizerResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopCOMPTrainingEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {

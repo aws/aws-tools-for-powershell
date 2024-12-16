@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     [AWSCmdlet("Calls the Amazon Route 53 Resolver DeleteFirewallDomainList API operation.", Operation = new[] {"DeleteFirewallDomainList"}, SelectReturnType = typeof(Amazon.Route53Resolver.Model.DeleteFirewallDomainListResponse))]
     [AWSCmdletOutput("Amazon.Route53Resolver.Model.FirewallDomainList or Amazon.Route53Resolver.Model.DeleteFirewallDomainListResponse",
         "This cmdlet returns an Amazon.Route53Resolver.Model.FirewallDomainList object.",
-        "The service call response (type Amazon.Route53Resolver.Model.DeleteFirewallDomainListResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Resolver.Model.DeleteFirewallDomainListResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveR53RFirewallDomainListCmdlet : AmazonRoute53ResolverClientCmdlet, IExecutor
     {

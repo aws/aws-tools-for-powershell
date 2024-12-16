@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Calls the AWS Config GetComplianceSummaryByConfigRule API operation.", Operation = new[] {"GetComplianceSummaryByConfigRule"}, SelectReturnType = typeof(Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleResponse))]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceSummary or Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleResponse",
         "This cmdlet returns an Amazon.ConfigService.Model.ComplianceSummary object.",
-        "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFGComplianceSummaryByConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {

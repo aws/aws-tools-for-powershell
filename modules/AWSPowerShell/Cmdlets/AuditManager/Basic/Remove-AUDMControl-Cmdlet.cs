@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     [AWSCmdlet("Calls the AWS Audit Manager DeleteControl API operation.", Operation = new[] {"DeleteControl"}, SelectReturnType = typeof(Amazon.AuditManager.Model.DeleteControlResponse))]
     [AWSCmdletOutput("None or Amazon.AuditManager.Model.DeleteControlResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AuditManager.Model.DeleteControlResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AuditManager.Model.DeleteControlResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAUDMControlCmdlet : AmazonAuditManagerClientCmdlet, IExecutor
     {

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams CreateSignalingChannel API operation.", Operation = new[] {"CreateSignalingChannel"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.CreateSignalingChannelResponse))]
     [AWSCmdletOutput("System.String or Amazon.KinesisVideo.Model.CreateSignalingChannelResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.KinesisVideo.Model.CreateSignalingChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisVideo.Model.CreateSignalingChannelResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKVSignalingChannelCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     [AWSCmdlet("Calls the Amazon AppStream UpdateDirectoryConfig API operation.", Operation = new[] {"UpdateDirectoryConfig"}, SelectReturnType = typeof(Amazon.AppStream.Model.UpdateDirectoryConfigResponse))]
     [AWSCmdletOutput("Amazon.AppStream.Model.DirectoryConfig or Amazon.AppStream.Model.UpdateDirectoryConfigResponse",
         "This cmdlet returns an Amazon.AppStream.Model.DirectoryConfig object.",
-        "The service call response (type Amazon.AppStream.Model.UpdateDirectoryConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppStream.Model.UpdateDirectoryConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAPSDirectoryConfigCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {

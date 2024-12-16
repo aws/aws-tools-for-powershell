@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams DeleteEdgeConfiguration API operation.", Operation = new[] {"DeleteEdgeConfiguration"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.DeleteEdgeConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.DeleteEdgeConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisVideo.Model.DeleteEdgeConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.DeleteEdgeConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKVEdgeConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {

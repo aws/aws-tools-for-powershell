@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     [AWSCmdlet("Calls the Amazon MemoryDB DeleteACL API operation.", Operation = new[] {"DeleteACL"}, SelectReturnType = typeof(Amazon.MemoryDB.Model.DeleteACLResponse))]
     [AWSCmdletOutput("Amazon.MemoryDB.Model.ACL or Amazon.MemoryDB.Model.DeleteACLResponse",
         "This cmdlet returns an Amazon.MemoryDB.Model.ACL object.",
-        "The service call response (type Amazon.MemoryDB.Model.DeleteACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MemoryDB.Model.DeleteACLResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMDBACLCmdlet : AmazonMemoryDBClientCmdlet, IExecutor
     {

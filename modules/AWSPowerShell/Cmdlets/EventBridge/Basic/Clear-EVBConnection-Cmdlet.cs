@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     [OutputType("Amazon.EventBridge.Model.DeauthorizeConnectionResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge DeauthorizeConnection API operation.", Operation = new[] {"DeauthorizeConnection"}, SelectReturnType = typeof(Amazon.EventBridge.Model.DeauthorizeConnectionResponse))]
     [AWSCmdletOutput("Amazon.EventBridge.Model.DeauthorizeConnectionResponse",
-        "This cmdlet returns an Amazon.EventBridge.Model.DeauthorizeConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EventBridge.Model.DeauthorizeConnectionResponse object containing multiple properties."
     )]
     public partial class ClearEVBConnectionCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {

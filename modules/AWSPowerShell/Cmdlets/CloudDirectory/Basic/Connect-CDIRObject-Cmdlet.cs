@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     [AWSCmdlet("Calls the Amazon Cloud Directory AttachObject API operation.", Operation = new[] {"AttachObject"}, SelectReturnType = typeof(Amazon.CloudDirectory.Model.AttachObjectResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudDirectory.Model.AttachObjectResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.AttachObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudDirectory.Model.AttachObjectResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConnectCDIRObjectCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {

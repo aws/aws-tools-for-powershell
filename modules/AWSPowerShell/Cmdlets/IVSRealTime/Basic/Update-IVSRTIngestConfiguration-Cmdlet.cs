@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime UpdateIngestConfiguration API operation.", Operation = new[] {"UpdateIngestConfiguration"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.UpdateIngestConfigurationResponse))]
     [AWSCmdletOutput("Amazon.IVSRealTime.Model.IngestConfiguration or Amazon.IVSRealTime.Model.UpdateIngestConfigurationResponse",
         "This cmdlet returns an Amazon.IVSRealTime.Model.IngestConfiguration object.",
-        "The service call response (type Amazon.IVSRealTime.Model.UpdateIngestConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IVSRealTime.Model.UpdateIngestConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateIVSRTIngestConfigurationCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {

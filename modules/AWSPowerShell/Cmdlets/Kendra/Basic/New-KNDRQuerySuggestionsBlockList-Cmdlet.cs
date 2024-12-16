@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra CreateQuerySuggestionsBlockList API operation.", Operation = new[] {"CreateQuerySuggestionsBlockList"}, SelectReturnType = typeof(Amazon.Kendra.Model.CreateQuerySuggestionsBlockListResponse))]
     [AWSCmdletOutput("System.String or Amazon.Kendra.Model.CreateQuerySuggestionsBlockListResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kendra.Model.CreateQuerySuggestionsBlockListResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kendra.Model.CreateQuerySuggestionsBlockListResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewKNDRQuerySuggestionsBlockListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

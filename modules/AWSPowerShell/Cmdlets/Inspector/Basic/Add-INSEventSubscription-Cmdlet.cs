@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector SubscribeToEvent API operation.", Operation = new[] {"SubscribeToEvent"}, SelectReturnType = typeof(Amazon.Inspector.Model.SubscribeToEventResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector.Model.SubscribeToEventResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector.Model.SubscribeToEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector.Model.SubscribeToEventResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddINSEventSubscriptionCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

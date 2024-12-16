@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     [OutputType("Amazon.Schemas.Model.PutCodeBindingResponse")]
     [AWSCmdlet("Calls the Amazon EventBridge Schema Registry PutCodeBinding API operation.", Operation = new[] {"PutCodeBinding"}, SelectReturnType = typeof(Amazon.Schemas.Model.PutCodeBindingResponse))]
     [AWSCmdletOutput("Amazon.Schemas.Model.PutCodeBindingResponse",
-        "This cmdlet returns an Amazon.Schemas.Model.PutCodeBindingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Schemas.Model.PutCodeBindingResponse object containing multiple properties."
     )]
     public partial class WriteSCHMCodeBindingCmdlet : AmazonSchemasClientCmdlet, IExecutor
     {

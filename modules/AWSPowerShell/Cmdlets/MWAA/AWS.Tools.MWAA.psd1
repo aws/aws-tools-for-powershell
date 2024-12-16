@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MWAAEnvironment', 
         'Get-MWAAEnvironmentList', 
         'Get-MWAAResourceTag', 
+        'Invoke-MWAARestApi', 
         'New-MWAACliToken', 
         'New-MWAAEnvironment', 
         'New-MWAAWebLoginToken', 

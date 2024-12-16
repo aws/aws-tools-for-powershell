@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [AWSCmdlet("Calls the AWS License Manager DeleteToken API operation.", Operation = new[] {"DeleteToken"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.DeleteTokenResponse))]
     [AWSCmdletOutput("None or Amazon.LicenseManager.Model.DeleteTokenResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LicenseManager.Model.DeleteTokenResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LicenseManager.Model.DeleteTokenResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLICMTokenCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

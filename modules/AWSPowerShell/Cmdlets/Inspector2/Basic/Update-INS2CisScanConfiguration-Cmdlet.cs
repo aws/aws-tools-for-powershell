@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [AWSCmdlet("Calls the Inspector2 UpdateCisScanConfiguration API operation.", Operation = new[] {"UpdateCisScanConfiguration"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateCisScanConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector2.Model.UpdateCisScanConfigurationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector2.Model.UpdateCisScanConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector2.Model.UpdateCisScanConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateINS2CisScanConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

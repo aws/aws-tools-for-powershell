@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DisableFastSnapshotRestoresResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableFastSnapshotRestores API operation.", Operation = new[] {"DisableFastSnapshotRestores"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableFastSnapshotRestoresResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisableFastSnapshotRestoresResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DisableFastSnapshotRestoresResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DisableFastSnapshotRestoresResponse object containing multiple properties."
     )]
     public partial class DisableEC2FastSnapshotRestoreCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

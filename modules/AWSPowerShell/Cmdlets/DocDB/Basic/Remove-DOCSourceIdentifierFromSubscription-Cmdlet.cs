@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) RemoveSourceIdentifierFromSubscription API operation.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"}, SelectReturnType = typeof(Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse))]
     [AWSCmdletOutput("Amazon.DocDB.Model.EventSubscription or Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse",
         "This cmdlet returns an Amazon.DocDB.Model.EventSubscription object.",
-        "The service call response (type Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DocDB.Model.RemoveSourceIdentifierFromSubscriptionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveDOCSourceIdentifierFromSubscriptionCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {

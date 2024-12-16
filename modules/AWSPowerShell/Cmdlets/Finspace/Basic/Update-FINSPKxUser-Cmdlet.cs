@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     [OutputType("Amazon.Finspace.Model.UpdateKxUserResponse")]
     [AWSCmdlet("Calls the FinSpace User Environment Management Service UpdateKxUser API operation.", Operation = new[] {"UpdateKxUser"}, SelectReturnType = typeof(Amazon.Finspace.Model.UpdateKxUserResponse))]
     [AWSCmdletOutput("Amazon.Finspace.Model.UpdateKxUserResponse",
-        "This cmdlet returns an Amazon.Finspace.Model.UpdateKxUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Finspace.Model.UpdateKxUserResponse object containing multiple properties."
     )]
     public partial class UpdateFINSPKxUserCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {

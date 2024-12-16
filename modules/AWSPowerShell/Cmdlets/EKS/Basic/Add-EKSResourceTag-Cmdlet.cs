@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.EKS.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.EKS.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EKS.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EKS.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEKSResourceTagCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

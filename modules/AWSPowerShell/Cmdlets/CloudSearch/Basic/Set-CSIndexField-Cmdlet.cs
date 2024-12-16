@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DefineIndexField API operation.", Operation = new[] {"DefineIndexField"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DefineIndexFieldResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.IndexFieldStatus or Amazon.CloudSearch.Model.DefineIndexFieldResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.IndexFieldStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DefineIndexFieldResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineIndexFieldResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

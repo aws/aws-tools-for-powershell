@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse")]
     [AWSCmdlet("Calls the AWS Route53 Recovery Control Config UpdateSafetyRule API operation.", Operation = new[] {"UpdateSafetyRule"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse))]
     [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse",
-        "This cmdlet returns an Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Route53RecoveryControlConfig.Model.UpdateSafetyRuleResponse object containing multiple properties."
     )]
     public partial class UpdateR53RCSafetyRuleCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {

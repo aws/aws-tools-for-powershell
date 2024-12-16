@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs DeleteNotificationSubscription API operation.", Operation = new[] {"DeleteNotificationSubscription"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse))]
     [AWSCmdletOutput("None or Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWDNotificationSubscriptionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

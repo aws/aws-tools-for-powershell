@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CustomerProfiles.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CustomerProfiles.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CustomerProfiles.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCPFResourceTagCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

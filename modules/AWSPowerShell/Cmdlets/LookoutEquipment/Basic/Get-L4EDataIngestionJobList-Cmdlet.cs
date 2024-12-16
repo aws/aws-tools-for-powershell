@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     [AWSCmdlet("Calls the Amazon Lookout for Equipment ListDataIngestionJobs API operation.", Operation = new[] {"ListDataIngestionJobs"}, SelectReturnType = typeof(Amazon.LookoutEquipment.Model.ListDataIngestionJobsResponse))]
     [AWSCmdletOutput("Amazon.LookoutEquipment.Model.DataIngestionJobSummary or Amazon.LookoutEquipment.Model.ListDataIngestionJobsResponse",
         "This cmdlet returns a collection of Amazon.LookoutEquipment.Model.DataIngestionJobSummary objects.",
-        "The service call response (type Amazon.LookoutEquipment.Model.ListDataIngestionJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LookoutEquipment.Model.ListDataIngestionJobsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetL4EDataIngestionJobListCmdlet : AmazonLookoutEquipmentClientCmdlet, IExecutor
     {
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations UpdateApplicationComponentConfig API operation.", Operation = new[] {"UpdateApplicationComponentConfig"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigResponse))]
     [AWSCmdletOutput("None or Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MigrationHubStrategyRecommendations.Model.UpdateApplicationComponentConfigResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateMHSApplicationComponentConfigCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

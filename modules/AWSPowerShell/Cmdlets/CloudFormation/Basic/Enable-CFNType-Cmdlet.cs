@@ -29,23 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Activates a public third-party extension, making it available for use in stack templates.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using
-    /// public extensions</a> in the <i>CloudFormation User Guide</i>.
-    /// 
-    ///  
-    /// <para>
     /// Once you have activated a public third-party extension in your account and Region,
     /// use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
-    /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring
-    /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
-    /// </para>
+    /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using
+    /// public extensions</a> in the <i>CloudFormation User Guide</i>.
     /// </summary>
     [Cmdlet("Enable", "CFNType")]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the AWS CloudFormation ActivateType API operation.", Operation = new[] {"ActivateType"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ActivateTypeResponse))]
     [AWSCmdletOutput("System.String or Amazon.CloudFormation.Model.ActivateTypeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CloudFormation.Model.ActivateTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.ActivateTypeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EnableCFNTypeCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

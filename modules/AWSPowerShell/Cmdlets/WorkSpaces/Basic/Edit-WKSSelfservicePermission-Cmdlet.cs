@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifySelfservicePermissions API operation.", Operation = new[] {"ModifySelfservicePermissions"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifySelfservicePermissionsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifySelfservicePermissionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.ModifySelfservicePermissionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.ModifySelfservicePermissionsResponse) be returned by specifying '-Select *'."
     )]
     public partial class EditWKSSelfservicePermissionCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

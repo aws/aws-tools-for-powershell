@@ -28,7 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of ARNs of the resources that are members of a specified resource group.
+    /// Returns a list of Amazon resource names (ARNs) of the resources that are members of
+    /// a specified resource group.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -39,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [OutputType("Amazon.ResourceGroups.Model.ListGroupResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups ListGroupResources API operation.", Operation = new[] {"ListGroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.ListGroupResourcesResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.ListGroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.ListGroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ResourceGroups.Model.ListGroupResourcesResponse object containing multiple properties."
     )]
     public partial class GetRGGroupResourceListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ResourceGroups module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

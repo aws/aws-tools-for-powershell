@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     [OutputType("Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse")]
     [AWSCmdlet("Calls the AWS IoT TwinMaker UpdateComponentType API operation.", Operation = new[] {"UpdateComponentType"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse))]
     [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse object containing multiple properties."
     )]
     public partial class UpdateIOTTMComponentTypeCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {

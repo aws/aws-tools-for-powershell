@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You
-    /// cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
+    /// cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit
     /// secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.
     /// 
     ///  
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisassociateNatGatewayAddress API operation.", Operation = new[] {"DisassociateNatGatewayAddress"}, SelectReturnType = typeof(Amazon.EC2.Model.DisassociateNatGatewayAddressResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateNatGatewayAddressResponse",
-        "This cmdlet returns an Amazon.EC2.Model.DisassociateNatGatewayAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.DisassociateNatGatewayAddressResponse object containing multiple properties."
     )]
     public partial class UnregisterEC2NatGatewayAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

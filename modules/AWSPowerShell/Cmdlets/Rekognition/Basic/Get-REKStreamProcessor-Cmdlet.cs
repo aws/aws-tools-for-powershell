@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.DescribeStreamProcessorResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition DescribeStreamProcessor API operation.", Operation = new[] {"DescribeStreamProcessor"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DescribeStreamProcessorResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.DescribeStreamProcessorResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.DescribeStreamProcessorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.DescribeStreamProcessorResponse object containing multiple properties."
     )]
     public partial class GetREKStreamProcessorCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetSchemaVersionsDiff API operation.", Operation = new[] {"GetSchemaVersionsDiff"}, SelectReturnType = typeof(Amazon.Glue.Model.GetSchemaVersionsDiffResponse))]
     [AWSCmdletOutput("System.String or Amazon.Glue.Model.GetSchemaVersionsDiffResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Glue.Model.GetSchemaVersionsDiffResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetSchemaVersionsDiffResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUESchemaVersionsDiffCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

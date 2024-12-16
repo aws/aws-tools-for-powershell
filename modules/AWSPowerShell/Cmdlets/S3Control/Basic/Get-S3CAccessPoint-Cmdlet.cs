@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.GetAccessPointResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control GetAccessPoint API operation.", Operation = new[] {"GetAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetAccessPointResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.GetAccessPointResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.GetAccessPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.GetAccessPointResponse object containing multiple properties."
     )]
     public partial class GetS3CAccessPointCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

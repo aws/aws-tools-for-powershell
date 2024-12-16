@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional DeleteByteMatchSet API operation.", Operation = new[] {"DeleteByteMatchSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.DeleteByteMatchSetResponse))]
     [AWSCmdletOutput("System.String or Amazon.WAFRegional.Model.DeleteByteMatchSetResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WAFRegional.Model.DeleteByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.DeleteByteMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveWAFRByteMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

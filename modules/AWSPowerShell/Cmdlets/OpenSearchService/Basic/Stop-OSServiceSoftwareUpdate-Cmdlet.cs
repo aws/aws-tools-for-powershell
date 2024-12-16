@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service CancelServiceSoftwareUpdate API operation.", Operation = new[] {"CancelServiceSoftwareUpdate"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.CancelServiceSoftwareUpdateResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.ServiceSoftwareOptions or Amazon.OpenSearchService.Model.CancelServiceSoftwareUpdateResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.ServiceSoftwareOptions object.",
-        "The service call response (type Amazon.OpenSearchService.Model.CancelServiceSoftwareUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.CancelServiceSoftwareUpdateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StopOSServiceSoftwareUpdateCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

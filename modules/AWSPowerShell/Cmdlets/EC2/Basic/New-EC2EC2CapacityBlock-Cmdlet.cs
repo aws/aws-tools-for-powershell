@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseCapacityBlock API operation.", Operation = new[] {"PurchaseCapacityBlock"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseCapacityBlockResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CapacityReservation or Amazon.EC2.Model.PurchaseCapacityBlockResponse",
         "This cmdlet returns an Amazon.EC2.Model.CapacityReservation object.",
-        "The service call response (type Amazon.EC2.Model.PurchaseCapacityBlockResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.PurchaseCapacityBlockResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2EC2CapacityBlockCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

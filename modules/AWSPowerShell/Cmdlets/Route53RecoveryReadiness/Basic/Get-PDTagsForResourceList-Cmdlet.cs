@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     [AWSCmdlet("Calls the AWS Route53 Recovery Readiness ListTagsForResources API operation.", Operation = new[] {"ListTagsForResources"}, SelectReturnType = typeof(Amazon.Route53RecoveryReadiness.Model.ListTagsForResourcesResponse))]
     [AWSCmdletOutput("System.String or Amazon.Route53RecoveryReadiness.Model.ListTagsForResourcesResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Route53RecoveryReadiness.Model.ListTagsForResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53RecoveryReadiness.Model.ListTagsForResourcesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPDTagsForResourceListCmdlet : AmazonRoute53RecoveryReadinessClientCmdlet, IExecutor
     {

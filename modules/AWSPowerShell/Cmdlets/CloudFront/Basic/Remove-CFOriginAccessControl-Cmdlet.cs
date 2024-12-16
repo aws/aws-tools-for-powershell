@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteOriginAccessControl API operation.", Operation = new[] {"DeleteOriginAccessControl"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteOriginAccessControlResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteOriginAccessControlResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteOriginAccessControlResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteOriginAccessControlResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFOriginAccessControlCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

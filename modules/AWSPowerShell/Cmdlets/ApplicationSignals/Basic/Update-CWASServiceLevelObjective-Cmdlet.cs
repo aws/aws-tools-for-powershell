@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals UpdateServiceLevelObjective API operation.", Operation = new[] {"UpdateServiceLevelObjective"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveResponse))]
     [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ServiceLevelObjective or Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveResponse",
         "This cmdlet returns an Amazon.ApplicationSignals.Model.ServiceLevelObjective object.",
-        "The service call response (type Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWASServiceLevelObjectiveCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {
@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_BadCountMetric")]
         public Amazon.ApplicationSignals.Model.MetricDataQuery[] MonitoredRequestCountMetric_BadCountMetric { get; set; }
+        #endregion
+        
+        #region Parameter BurnRateConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Use this array to create <i>burn rates</i> for this SLO. Each burn rate is a metric
+        /// that indicates how fast the service is consuming the error budget, relative to the
+        /// attainment goal of the SLO.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BurnRateConfigurations")]
+        public Amazon.ApplicationSignals.Model.BurnRateConfiguration[] BurnRateConfiguration { get; set; }
         #endregion
         
         #region Parameter RequestBasedSliConfig_ComparisonOperator
@@ -384,6 +397,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public string Select { get; set; } = "Slo";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -410,10 +433,24 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveResponse, UpdateCWASServiceLevelObjectiveCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Id;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BurnRateConfiguration != null)
+            {
+                context.BurnRateConfiguration = new List<Amazon.ApplicationSignals.Model.BurnRateConfiguration>(this.BurnRateConfiguration);
             }
             context.Description = this.Description;
             context.Goal_AttainmentGoal = this.Goal_AttainmentGoal;
@@ -488,6 +525,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request
             var request = new Amazon.ApplicationSignals.Model.UpdateServiceLevelObjectiveRequest();
             
+            if (cmdletContext.BurnRateConfiguration != null)
+            {
+                request.BurnRateConfigurations = cmdletContext.BurnRateConfiguration;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -904,6 +945,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ApplicationSignals.Model.BurnRateConfiguration> BurnRateConfiguration { get; set; }
             public System.String Description { get; set; }
             public System.Double? Goal_AttainmentGoal { get; set; }
             public System.Int32? CalendarInterval_Duration { get; set; }

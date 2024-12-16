@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public GetAuthorizationToken API operation.", Operation = new[] {"GetAuthorizationToken"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.GetAuthorizationTokenResponse))]
     [AWSCmdletOutput("Amazon.ECRPublic.Model.AuthorizationData or Amazon.ECRPublic.Model.GetAuthorizationTokenResponse",
         "This cmdlet returns an Amazon.ECRPublic.Model.AuthorizationData object.",
-        "The service call response (type Amazon.ECRPublic.Model.GetAuthorizationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECRPublic.Model.GetAuthorizationTokenResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetECRPAuthorizationTokenCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

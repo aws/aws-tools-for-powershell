@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("Amazon.CloudWatchLogs.Model.GetQueryResultsResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Logs GetQueryResults API operation.", Operation = new[] {"GetQueryResults"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetQueryResultsResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetQueryResultsResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetQueryResultsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetQueryResultsResponse object containing multiple properties."
     )]
     public partial class GetCWLQueryResultCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {

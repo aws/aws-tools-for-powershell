@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DescribeInterconnects API operation.", Operation = new[] {"DescribeInterconnects"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeInterconnectsResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Interconnect or Amazon.DirectConnect.Model.DescribeInterconnectsResponse",
         "This cmdlet returns a collection of Amazon.DirectConnect.Model.Interconnect objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

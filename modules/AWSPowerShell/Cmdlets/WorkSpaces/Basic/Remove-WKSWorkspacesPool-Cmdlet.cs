@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Calls the Amazon WorkSpaces TerminateWorkspacesPool API operation.", Operation = new[] {"TerminateWorkspacesPool"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWKSWorkspacesPoolCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {

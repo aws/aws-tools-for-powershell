@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptTransitGatewayMulticastDomainAssociations API operation.", Operation = new[] {"AcceptTransitGatewayMulticastDomainAssociations"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptTransitGatewayMulticastDomainAssociationsResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations or Amazon.EC2.Model.AcceptTransitGatewayMulticastDomainAssociationsResponse",
         "This cmdlet returns an Amazon.EC2.Model.TransitGatewayMulticastDomainAssociations object.",
-        "The service call response (type Amazon.EC2.Model.AcceptTransitGatewayMulticastDomainAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AcceptTransitGatewayMulticastDomainAssociationsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveEC2TransitGatewayMulticastDomainAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

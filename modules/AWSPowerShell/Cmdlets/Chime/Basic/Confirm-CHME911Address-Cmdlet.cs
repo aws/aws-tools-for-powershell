@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [OutputType("Amazon.Chime.Model.ValidateE911AddressResponse")]
     [AWSCmdlet("Calls the Amazon Chime ValidateE911Address API operation.", Operation = new[] {"ValidateE911Address"}, SelectReturnType = typeof(Amazon.Chime.Model.ValidateE911AddressResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.ValidateE911AddressResponse",
-        "This cmdlet returns an Amazon.Chime.Model.ValidateE911AddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Chime.Model.ValidateE911AddressResponse object containing multiple properties."
     )]
     [System.ObsoleteAttribute("Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace")]
     public partial class ConfirmCHME911AddressCmdlet : AmazonChimeClientCmdlet, IExecutor

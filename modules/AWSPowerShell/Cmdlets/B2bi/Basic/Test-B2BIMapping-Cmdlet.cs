@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [AWSCmdlet("Calls the AWS B2B Data Interchange TestMapping API operation.", Operation = new[] {"TestMapping"}, SelectReturnType = typeof(Amazon.B2bi.Model.TestMappingResponse))]
     [AWSCmdletOutput("System.String or Amazon.B2bi.Model.TestMappingResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.B2bi.Model.TestMappingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.B2bi.Model.TestMappingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestB2BIMappingCmdlet : AmazonB2biClientCmdlet, IExecutor
     {
@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// <summary>
         /// <para>
         /// <para>Specifies the mapping template for the transformer. This template is used to map the
-        /// parsed EDI file using JSONata or XSLT.</para>
+        /// parsed EDI file using JSONata or XSLT.</para><note><para>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a>
+        /// data type instead.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

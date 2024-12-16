@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeFeatureMetadataResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeFeatureMetadata API operation.", Operation = new[] {"DescribeFeatureMetadata"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeFeatureMetadataResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeFeatureMetadataResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeFeatureMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeFeatureMetadataResponse object containing multiple properties."
     )]
     public partial class GetSMFeatureMetadataCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

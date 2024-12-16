@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront GetResponseHeadersPolicy API operation.", Operation = new[] {"GetResponseHeadersPolicy"}, SelectReturnType = typeof(Amazon.CloudFront.Model.GetResponseHeadersPolicyResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.ResponseHeadersPolicy or Amazon.CloudFront.Model.GetResponseHeadersPolicyResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.ResponseHeadersPolicy object.",
-        "The service call response (type Amazon.CloudFront.Model.GetResponseHeadersPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetResponseHeadersPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFResponseHeadersPolicyCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

@@ -28,13 +28,13 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Describes the specified delivery stream and its status. For example, after your delivery
-    /// stream is created, call <c>DescribeDeliveryStream</c> to see whether the delivery
+    /// Describes the specified Firehose stream and its status. For example, after your Firehose
+    /// stream is created, call <c>DescribeDeliveryStream</c> to see whether the Firehose
     /// stream is <c>ACTIVE</c> and therefore ready for data to be sent to it. 
     /// 
     ///  
     /// <para>
-    /// If the status of a delivery stream is <c>CREATING_FAILED</c>, this status doesn't
+    /// If the status of a Firehose stream is <c>CREATING_FAILED</c>, this status doesn't
     /// change, and you can't invoke <a>CreateDeliveryStream</a> again on it. However, you
     /// can invoke the <a>DeleteDeliveryStream</a> operation to delete it. If the status is
     /// <c>DELETING_FAILED</c>, you can force deletion by invoking <a>DeleteDeliveryStream</a>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Calls the Amazon Kinesis Firehose DescribeDeliveryStream API operation.", Operation = new[] {"DescribeDeliveryStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse))]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.DeliveryStreamDescription or Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse",
         "This cmdlet returns an Amazon.KinesisFirehose.Model.DeliveryStreamDescription object.",
-        "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream.</para>
+        /// <para>The name of the Firehose stream.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ID of the destination to start returning the destination information. Firehose
-        /// supports one destination per delivery stream.</para>
+        /// supports one destination per Firehose stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The limit on the number of destinations to return. You can have one destination per
-        /// delivery stream.</para>
+        /// Firehose stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

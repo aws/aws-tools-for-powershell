@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.DisassociateFacesResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition DisassociateFaces API operation.", Operation = new[] {"DisassociateFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DisassociateFacesResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.DisassociateFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.DisassociateFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.DisassociateFacesResponse object containing multiple properties."
     )]
     public partial class RemoveREKREKFacesFromUserCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

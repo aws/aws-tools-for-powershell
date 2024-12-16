@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact ListSubPackageGroups API operation.", Operation = new[] {"ListSubPackageGroups"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListSubPackageGroupsResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageGroupSummary or Amazon.CodeArtifact.Model.ListSubPackageGroupsResponse",
         "This cmdlet returns a collection of Amazon.CodeArtifact.Model.PackageGroupSummary objects.",
-        "The service call response (type Amazon.CodeArtifact.Model.ListSubPackageGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.ListSubPackageGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCASubPackageGroupListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

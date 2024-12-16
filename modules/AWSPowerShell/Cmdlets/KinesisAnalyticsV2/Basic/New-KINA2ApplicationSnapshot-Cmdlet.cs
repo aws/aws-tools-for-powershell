@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 CreateApplicationSnapshot API operation.", Operation = new[] {"CreateApplicationSnapshot"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.CreateApplicationSnapshotResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisAnalyticsV2.Model.CreateApplicationSnapshotResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalyticsV2.Model.CreateApplicationSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisAnalyticsV2.Model.CreateApplicationSnapshotResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewKINA2ApplicationSnapshotCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

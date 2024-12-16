@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     [OutputType("Amazon.RDSDataService.Model.ExecuteStatementResponse")]
     [AWSCmdlet("Calls the AWS RDS DataService ExecuteStatement API operation.", Operation = new[] {"ExecuteStatement"}, SelectReturnType = typeof(Amazon.RDSDataService.Model.ExecuteStatementResponse))]
     [AWSCmdletOutput("Amazon.RDSDataService.Model.ExecuteStatementResponse",
-        "This cmdlet returns an Amazon.RDSDataService.Model.ExecuteStatementResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.RDSDataService.Model.ExecuteStatementResponse object containing multiple properties."
     )]
     public partial class InvokeRDSDStatementCmdlet : AmazonRDSDataServiceClientCmdlet, IExecutor
     {

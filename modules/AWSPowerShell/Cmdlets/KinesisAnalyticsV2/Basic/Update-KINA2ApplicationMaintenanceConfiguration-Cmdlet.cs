@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [OutputType("Amazon.KinesisAnalyticsV2.Model.UpdateApplicationMaintenanceConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 UpdateApplicationMaintenanceConfiguration API operation.", Operation = new[] {"UpdateApplicationMaintenanceConfiguration"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.UpdateApplicationMaintenanceConfigurationResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.UpdateApplicationMaintenanceConfigurationResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.UpdateApplicationMaintenanceConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.UpdateApplicationMaintenanceConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateKINA2ApplicationMaintenanceConfigurationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

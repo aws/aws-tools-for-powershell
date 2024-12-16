@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service RemoveRoleFromDBCluster API operation.", Operation = new[] {"RemoveRoleFromDBCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.RemoveRoleFromDBClusterResponse))]
     [AWSCmdletOutput("None or Amazon.RDS.Model.RemoveRoleFromDBClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.RemoveRoleFromDBClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.RemoveRoleFromDBClusterResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveRDSRoleFromDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Calls the Elastic Load Balancing CreateAppCookieStickinessPolicy API operation.", Operation = new[] {"CreateAppCookieStickinessPolicy"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewELBAppCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [OutputType("Amazon.GuardDuty.Model.GetFilterResponse")]
     [AWSCmdlet("Calls the Amazon GuardDuty GetFilter API operation.", Operation = new[] {"GetFilter"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetFilterResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.GetFilterResponse",
-        "This cmdlet returns an Amazon.GuardDuty.Model.GetFilterResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.GuardDuty.Model.GetFilterResponse object containing multiple properties."
     )]
     public partial class GetGDFilterCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector that is associated with this filter.</para>
+        /// <para>The unique ID of the detector that is associated with this filter.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

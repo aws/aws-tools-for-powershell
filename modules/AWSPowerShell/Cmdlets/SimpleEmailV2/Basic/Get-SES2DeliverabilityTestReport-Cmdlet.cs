@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.GetDeliverabilityTestReportResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDeliverabilityTestReport API operation.", Operation = new[] {"GetDeliverabilityTestReport"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDeliverabilityTestReportResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetDeliverabilityTestReportResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDeliverabilityTestReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetDeliverabilityTestReportResponse object containing multiple properties."
     )]
     public partial class GetSES2DeliverabilityTestReportCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

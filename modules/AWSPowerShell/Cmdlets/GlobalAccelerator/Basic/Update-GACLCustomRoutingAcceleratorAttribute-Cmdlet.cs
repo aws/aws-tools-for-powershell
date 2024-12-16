@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     [AWSCmdlet("Calls the AWS Global Accelerator UpdateCustomRoutingAcceleratorAttributes API operation.", Operation = new[] {"UpdateCustomRoutingAcceleratorAttributes"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.UpdateCustomRoutingAcceleratorAttributesResponse))]
     [AWSCmdletOutput("Amazon.GlobalAccelerator.Model.CustomRoutingAcceleratorAttributes or Amazon.GlobalAccelerator.Model.UpdateCustomRoutingAcceleratorAttributesResponse",
         "This cmdlet returns an Amazon.GlobalAccelerator.Model.CustomRoutingAcceleratorAttributes object.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateCustomRoutingAcceleratorAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GlobalAccelerator.Model.UpdateCustomRoutingAcceleratorAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGACLCustomRoutingAcceleratorAttributeCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
     {

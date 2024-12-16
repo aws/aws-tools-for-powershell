@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Calls the AWS Key Management Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKMSResourceTagCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {

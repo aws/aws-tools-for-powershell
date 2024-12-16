@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service GetDefaultScraperConfiguration API operation.", Operation = new[] {"GetDefaultScraperConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.GetDefaultScraperConfigurationResponse))]
     [AWSCmdletOutput("System.IO.MemoryStream or Amazon.PrometheusService.Model.GetDefaultScraperConfigurationResponse",
         "This cmdlet returns a System.IO.MemoryStream object.",
-        "The service call response (type Amazon.PrometheusService.Model.GetDefaultScraperConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.GetDefaultScraperConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMDefaultScraperConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

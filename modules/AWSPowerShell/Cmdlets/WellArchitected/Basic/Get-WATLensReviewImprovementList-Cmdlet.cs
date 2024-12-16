@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool ListLensReviewImprovements API operation.", Operation = new[] {"ListLensReviewImprovements"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.ListLensReviewImprovementsResponse object containing multiple properties."
     )]
     public partial class GetWATLensReviewImprovementListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

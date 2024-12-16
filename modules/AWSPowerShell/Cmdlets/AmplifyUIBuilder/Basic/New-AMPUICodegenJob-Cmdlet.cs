@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     [AWSCmdlet("Calls the AWS Amplify UI Builder StartCodegenJob API operation.", Operation = new[] {"StartCodegenJob"}, SelectReturnType = typeof(Amazon.AmplifyUIBuilder.Model.StartCodegenJobResponse))]
     [AWSCmdletOutput("Amazon.AmplifyUIBuilder.Model.CodegenJob or Amazon.AmplifyUIBuilder.Model.StartCodegenJobResponse",
         "This cmdlet returns an Amazon.AmplifyUIBuilder.Model.CodegenJob object.",
-        "The service call response (type Amazon.AmplifyUIBuilder.Model.StartCodegenJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AmplifyUIBuilder.Model.StartCodegenJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewAMPUICodegenJobCmdlet : AmazonAmplifyUIBuilderClientCmdlet, IExecutor
     {

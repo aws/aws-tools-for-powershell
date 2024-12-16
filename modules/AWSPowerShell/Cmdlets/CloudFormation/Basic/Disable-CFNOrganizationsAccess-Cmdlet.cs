@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DeactivateOrganizationsAccess API operation.", Operation = new[] {"DeactivateOrganizationsAccess"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DeactivateOrganizationsAccessResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFormation.Model.DeactivateOrganizationsAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFormation.Model.DeactivateOrganizationsAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.DeactivateOrganizationsAccessResponse) be returned by specifying '-Select *'."
     )]
     public partial class DisableCFNOrganizationsAccessCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

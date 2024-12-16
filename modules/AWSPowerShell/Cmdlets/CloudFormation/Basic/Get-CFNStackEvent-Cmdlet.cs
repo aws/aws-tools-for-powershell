@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns all stack related events for a specified stack in reverse chronological order.
-    /// For more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">CloudFormation
-    /// stack creation events</a> in the <i>CloudFormation User Guide</i>.
+    /// For more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand
+    /// CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.
     /// 
     ///  <note><para>
     /// You can list events for stacks that have failed to create or have been deleted by
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Calls the AWS CloudFormation DescribeStackEvents API operation.", Operation = new[] {"DescribeStackEvents"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackEventsResponse), LegacyAlias="Get-CFNStackEvents")]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackEvent or Amazon.CloudFormation.Model.DescribeStackEventsResponse",
         "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackEvent objects.",
-        "The service call response (type Amazon.CloudFormation.Model.DescribeStackEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackEventsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCFNStackEventCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

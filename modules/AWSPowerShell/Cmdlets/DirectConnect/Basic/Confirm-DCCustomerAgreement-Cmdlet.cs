@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect ConfirmCustomerAgreement API operation.", Operation = new[] {"ConfirmCustomerAgreement"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.ConfirmCustomerAgreementResponse))]
     [AWSCmdletOutput("System.String or Amazon.DirectConnect.Model.ConfirmCustomerAgreementResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DirectConnect.Model.ConfirmCustomerAgreementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.ConfirmCustomerAgreementResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ConfirmDCCustomerAgreementCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

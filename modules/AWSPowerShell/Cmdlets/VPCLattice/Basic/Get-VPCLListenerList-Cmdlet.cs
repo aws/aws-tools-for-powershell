@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
     [AWSCmdlet("Calls the VPC Lattice ListListeners API operation.", Operation = new[] {"ListListeners"}, SelectReturnType = typeof(Amazon.VPCLattice.Model.ListListenersResponse))]
     [AWSCmdletOutput("Amazon.VPCLattice.Model.ListenerSummary or Amazon.VPCLattice.Model.ListListenersResponse",
         "This cmdlet returns a collection of Amazon.VPCLattice.Model.ListenerSummary objects.",
-        "The service call response (type Amazon.VPCLattice.Model.ListListenersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VPCLattice.Model.ListListenersResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetVPCLListenerListCmdlet : AmazonVPCLatticeClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena DeleteWorkGroup API operation.", Operation = new[] {"DeleteWorkGroup"}, SelectReturnType = typeof(Amazon.Athena.Model.DeleteWorkGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.DeleteWorkGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.DeleteWorkGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.DeleteWorkGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveATHWorkGroupCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

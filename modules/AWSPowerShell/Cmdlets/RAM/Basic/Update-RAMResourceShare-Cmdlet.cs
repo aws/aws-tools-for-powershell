@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) UpdateResourceShare API operation.", Operation = new[] {"UpdateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.UpdateResourceShareResponse))]
     [AWSCmdletOutput("Amazon.RAM.Model.ResourceShare or Amazon.RAM.Model.UpdateResourceShareResponse",
         "This cmdlet returns an Amazon.RAM.Model.ResourceShare object.",
-        "The service call response (type Amazon.RAM.Model.UpdateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RAM.Model.UpdateResourceShareResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {

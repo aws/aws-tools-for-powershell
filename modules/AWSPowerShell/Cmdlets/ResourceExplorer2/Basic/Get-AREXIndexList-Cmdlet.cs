@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     [AWSCmdlet("Calls the AWS Resource Explorer ListIndexes API operation.", Operation = new[] {"ListIndexes"}, SelectReturnType = typeof(Amazon.ResourceExplorer2.Model.ListIndexesResponse))]
     [AWSCmdletOutput("Amazon.ResourceExplorer2.Model.Index or Amazon.ResourceExplorer2.Model.ListIndexesResponse",
         "This cmdlet returns a collection of Amazon.ResourceExplorer2.Model.Index objects.",
-        "The service call response (type Amazon.ResourceExplorer2.Model.ListIndexesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceExplorer2.Model.ListIndexesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAREXIndexListCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {

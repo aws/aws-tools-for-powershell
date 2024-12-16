@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DisassociateNetworkSettings API operation.", Operation = new[] {"DisassociateNetworkSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DisassociateNetworkSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DisassociateNetworkSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateNetworkSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateNetworkSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWSWNetworkSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

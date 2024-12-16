@@ -28,13 +28,13 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Retrieves the specified verified destiona numbers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the specified verified destination numbers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVVerifiedDestinationNumber")]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DescribeVerifiedDestinationNumbers API operation.", Operation = new[] {"DescribeVerifiedDestinationNumbers"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse))]
     [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DescribeVerifiedDestinationNumbersResponse object containing multiple properties."
     )]
     public partial class GetSMSVVerifiedDestinationNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter VerifiedDestinationNumberId
         /// <summary>
         /// <para>
-        /// <para>An array of VerifiedDestinationNumberid to retreive.</para>
+        /// <para>An array of VerifiedDestinationNumberid to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

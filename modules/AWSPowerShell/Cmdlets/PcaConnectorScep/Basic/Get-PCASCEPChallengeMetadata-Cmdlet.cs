@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
     [AWSCmdlet("Calls the Private CA Connector for SCEP GetChallengeMetadata API operation.", Operation = new[] {"GetChallengeMetadata"}, SelectReturnType = typeof(Amazon.PcaConnectorScep.Model.GetChallengeMetadataResponse))]
     [AWSCmdletOutput("Amazon.PcaConnectorScep.Model.ChallengeMetadata or Amazon.PcaConnectorScep.Model.GetChallengeMetadataResponse",
         "This cmdlet returns an Amazon.PcaConnectorScep.Model.ChallengeMetadata object.",
-        "The service call response (type Amazon.PcaConnectorScep.Model.GetChallengeMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorScep.Model.GetChallengeMetadataResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCASCEPChallengeMetadataCmdlet : AmazonPcaConnectorScepClientCmdlet, IExecutor
     {

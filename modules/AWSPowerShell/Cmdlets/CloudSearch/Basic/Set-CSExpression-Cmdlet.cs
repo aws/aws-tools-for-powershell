@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Calls the Amazon CloudSearch DefineExpression API operation.", Operation = new[] {"DefineExpression"}, SelectReturnType = typeof(Amazon.CloudSearch.Model.DefineExpressionResponse))]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus or Amazon.CloudSearch.Model.DefineExpressionResponse",
         "This cmdlet returns an Amazon.CloudSearch.Model.ExpressionStatus object.",
-        "The service call response (type Amazon.CloudSearch.Model.DefineExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineExpressionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {

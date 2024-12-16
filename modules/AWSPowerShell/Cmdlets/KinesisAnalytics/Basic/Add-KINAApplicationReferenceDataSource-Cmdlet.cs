@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdlet("Calls the Amazon Kinesis Analytics AddApplicationReferenceDataSource API operation.", Operation = new[] {"AddApplicationReferenceDataSource"}, SelectReturnType = typeof(Amazon.KinesisAnalytics.Model.AddApplicationReferenceDataSourceResponse))]
     [AWSCmdletOutput("None or Amazon.KinesisAnalytics.Model.AddApplicationReferenceDataSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationReferenceDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationReferenceDataSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddKINAApplicationReferenceDataSourceCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {

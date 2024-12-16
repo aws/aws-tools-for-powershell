@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     [AWSCmdlet("Calls the Agents for Amazon Bedrock UpdateKnowledgeBase API operation.", Operation = new[] {"UpdateKnowledgeBase"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.UpdateKnowledgeBaseResponse))]
     [AWSCmdletOutput("Amazon.BedrockAgent.Model.KnowledgeBase or Amazon.BedrockAgent.Model.UpdateKnowledgeBaseResponse",
         "This cmdlet returns an Amazon.BedrockAgent.Model.KnowledgeBase object.",
-        "The service call response (type Amazon.BedrockAgent.Model.UpdateKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.BedrockAgent.Model.UpdateKnowledgeBaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateAABKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the
-        /// knowledge base.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model or inference profile used to create vector
+        /// embeddings for the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

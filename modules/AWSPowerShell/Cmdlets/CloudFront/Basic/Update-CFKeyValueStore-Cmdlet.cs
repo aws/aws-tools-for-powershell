@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront UpdateKeyValueStore API operation.", Operation = new[] {"UpdateKeyValueStore"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateKeyValueStoreResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.KeyValueStore or Amazon.CloudFront.Model.UpdateKeyValueStoreResponse",
         "This cmdlet returns an Amazon.CloudFront.Model.KeyValueStore object.",
-        "The service call response (type Amazon.CloudFront.Model.UpdateKeyValueStoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.UpdateKeyValueStoreResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCFKeyValueStoreCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     [AWSCmdlet("Calls the Amazon Kendra DeleteIndex API operation.", Operation = new[] {"DeleteIndex"}, SelectReturnType = typeof(Amazon.Kendra.Model.DeleteIndexResponse))]
     [AWSCmdletOutput("None or Amazon.Kendra.Model.DeleteIndexResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kendra.Model.DeleteIndexResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kendra.Model.DeleteIndexResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNDRIndexCmdlet : AmazonKendraClientCmdlet, IExecutor
     {

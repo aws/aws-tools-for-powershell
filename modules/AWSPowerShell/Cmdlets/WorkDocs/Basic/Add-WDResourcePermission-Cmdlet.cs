@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     [AWSCmdlet("Calls the Amazon WorkDocs AddResourcePermissions API operation.", Operation = new[] {"AddResourcePermissions"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.AddResourcePermissionsResponse))]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.ShareResult or Amazon.WorkDocs.Model.AddResourcePermissionsResponse",
         "This cmdlet returns a collection of Amazon.WorkDocs.Model.ShareResult objects.",
-        "The service call response (type Amazon.WorkDocs.Model.AddResourcePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkDocs.Model.AddResourcePermissionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddWDResourcePermissionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {

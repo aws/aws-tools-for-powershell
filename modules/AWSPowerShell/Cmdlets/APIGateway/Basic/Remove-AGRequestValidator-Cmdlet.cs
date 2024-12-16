@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteRequestValidator API operation.", Operation = new[] {"DeleteRequestValidator"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteRequestValidatorResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteRequestValidatorResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteRequestValidatorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteRequestValidatorResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGRequestValidatorCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

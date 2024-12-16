@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AGM
     [AWSCmdlet("Calls the Amazon API Gateway Management API PostToConnection API operation.", Operation = new[] {"PostToConnection"}, SelectReturnType = typeof(Amazon.ApiGatewayManagementApi.Model.PostToConnectionResponse))]
     [AWSCmdletOutput("None or Amazon.ApiGatewayManagementApi.Model.PostToConnectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApiGatewayManagementApi.Model.PostToConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApiGatewayManagementApi.Model.PostToConnectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class SendAGMDataToConnectionCmdlet : AmazonApiGatewayManagementApiClientCmdlet, IExecutor
     {

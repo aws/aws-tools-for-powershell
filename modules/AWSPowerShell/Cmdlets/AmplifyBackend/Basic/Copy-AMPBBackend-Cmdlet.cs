@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
     [OutputType("Amazon.AmplifyBackend.Model.CloneBackendResponse")]
     [AWSCmdlet("Calls the Amplify Backend CloneBackend API operation.", Operation = new[] {"CloneBackend"}, SelectReturnType = typeof(Amazon.AmplifyBackend.Model.CloneBackendResponse))]
     [AWSCmdletOutput("Amazon.AmplifyBackend.Model.CloneBackendResponse",
-        "This cmdlet returns an Amazon.AmplifyBackend.Model.CloneBackendResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.AmplifyBackend.Model.CloneBackendResponse object containing multiple properties."
     )]
     public partial class CopyAMPBBackendCmdlet : AmazonAmplifyBackendClientCmdlet, IExecutor
     {

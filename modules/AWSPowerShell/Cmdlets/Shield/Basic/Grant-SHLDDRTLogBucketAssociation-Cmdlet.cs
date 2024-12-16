@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield AssociateDRTLogBucket API operation.", Operation = new[] {"AssociateDRTLogBucket"}, SelectReturnType = typeof(Amazon.Shield.Model.AssociateDRTLogBucketResponse))]
     [AWSCmdletOutput("None or Amazon.Shield.Model.AssociateDRTLogBucketResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Shield.Model.AssociateDRTLogBucketResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Shield.Model.AssociateDRTLogBucketResponse) be returned by specifying '-Select *'."
     )]
     public partial class GrantSHLDDRTLogBucketAssociationCmdlet : AmazonShieldClientCmdlet, IExecutor
     {

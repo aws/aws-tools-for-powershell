@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) GetSendStatistics API operation.", Operation = new[] {"GetSendStatistics"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.GetSendStatisticsResponse), LegacyAlias="Get-SESSendStatistics")]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.SendDataPoint or Amazon.SimpleEmail.Model.GetSendStatisticsResponse",
         "This cmdlet returns a collection of Amazon.SimpleEmail.Model.SendDataPoint objects.",
-        "The service call response (type Amazon.SimpleEmail.Model.GetSendStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetSendStatisticsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSESSendStatisticCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

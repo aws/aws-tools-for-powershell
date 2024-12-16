@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     [AWSCmdlet("Calls the AWS IoT Core Device Advisor ListSuiteRuns API operation.", Operation = new[] {"ListSuiteRuns"}, SelectReturnType = typeof(Amazon.IoTDeviceAdvisor.Model.ListSuiteRunsResponse))]
     [AWSCmdletOutput("Amazon.IoTDeviceAdvisor.Model.SuiteRunInformation or Amazon.IoTDeviceAdvisor.Model.ListSuiteRunsResponse",
         "This cmdlet returns a collection of Amazon.IoTDeviceAdvisor.Model.SuiteRunInformation objects.",
-        "The service call response (type Amazon.IoTDeviceAdvisor.Model.ListSuiteRunsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTDeviceAdvisor.Model.ListSuiteRunsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTDASuiteRunListCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals StartDiscovery API operation.", Operation = new[] {"StartDiscovery"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.StartDiscoveryResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationSignals.Model.StartDiscoveryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationSignals.Model.StartDiscoveryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationSignals.Model.StartDiscoveryResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartCWASDiscoveryCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

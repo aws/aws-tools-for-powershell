@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
     [AWSCmdlet("Calls the Private CA Connector for SCEP DeleteChallenge API operation.", Operation = new[] {"DeleteChallenge"}, SelectReturnType = typeof(Amazon.PcaConnectorScep.Model.DeleteChallengeResponse))]
     [AWSCmdletOutput("None or Amazon.PcaConnectorScep.Model.DeleteChallengeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PcaConnectorScep.Model.DeleteChallengeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PcaConnectorScep.Model.DeleteChallengeResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemovePCASCEPChallengeCmdlet : AmazonPcaConnectorScepClientCmdlet, IExecutor
     {

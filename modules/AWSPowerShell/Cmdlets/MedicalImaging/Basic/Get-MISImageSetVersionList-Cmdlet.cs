@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     [AWSCmdlet("Calls the Amazon Medical Imaging Service ListImageSetVersions API operation.", Operation = new[] {"ListImageSetVersions"}, SelectReturnType = typeof(Amazon.MedicalImaging.Model.ListImageSetVersionsResponse))]
     [AWSCmdletOutput("Amazon.MedicalImaging.Model.ImageSetProperties or Amazon.MedicalImaging.Model.ListImageSetVersionsResponse",
         "This cmdlet returns a collection of Amazon.MedicalImaging.Model.ImageSetProperties objects.",
-        "The service call response (type Amazon.MedicalImaging.Model.ListImageSetVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MedicalImaging.Model.ListImageSetVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMISImageSetVersionListCmdlet : AmazonMedicalImagingClientCmdlet, IExecutor
     {

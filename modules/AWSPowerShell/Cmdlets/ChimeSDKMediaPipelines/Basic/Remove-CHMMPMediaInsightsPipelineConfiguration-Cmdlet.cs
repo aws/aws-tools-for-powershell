@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines DeleteMediaInsightsPipelineConfiguration API operation.", Operation = new[] {"DeleteMediaInsightsPipelineConfiguration"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.DeleteMediaInsightsPipelineConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.ChimeSDKMediaPipelines.Model.DeleteMediaInsightsPipelineConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ChimeSDKMediaPipelines.Model.DeleteMediaInsightsPipelineConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ChimeSDKMediaPipelines.Model.DeleteMediaInsightsPipelineConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHMMPMediaInsightsPipelineConfigurationCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {

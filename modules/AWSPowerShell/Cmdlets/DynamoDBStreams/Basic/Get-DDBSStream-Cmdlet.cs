@@ -22,10 +22,10 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DynamoDBStreams;
-using Amazon.DynamoDBStreams.Model;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DDBS
+namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Returns information about a stream, including the current status of the stream, its
@@ -42,14 +42,14 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
     /// longer receive more data.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "DDBSStream")]
-    [OutputType("Amazon.DynamoDBStreams.Model.StreamDescription")]
-    [AWSCmdlet("Calls the Amazon DynamoDB Streams DescribeStream API operation.", Operation = new[] {"DescribeStream"}, SelectReturnType = typeof(Amazon.DynamoDBStreams.Model.DescribeStreamResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBStreams.Model.StreamDescription or Amazon.DynamoDBStreams.Model.DescribeStreamResponse",
-        "This cmdlet returns an Amazon.DynamoDBStreams.Model.StreamDescription object.",
-        "The service call response (type Amazon.DynamoDBStreams.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DDBStream")]
+    [OutputType("Amazon.DynamoDBv2.Model.StreamDescription")]
+    [AWSCmdlet("Calls the Amazon DynamoDB DescribeStream API operation.", Operation = new[] {"DescribeStream"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeStreamResponse))]
+    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.StreamDescription or Amazon.DynamoDBv2.Model.DescribeStreamResponse",
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.StreamDescription object.",
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeStreamResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDDBSStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
+    public partial class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -95,12 +95,22 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'StreamDescription'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBStreams.Model.DescribeStreamResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBStreams.Model.DescribeStreamResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DescribeStreamResponse).
+        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DescribeStreamResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "StreamDescription";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the StreamArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StreamArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -113,11 +123,21 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBStreams.Model.DescribeStreamResponse, GetDDBSStreamCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DescribeStreamResponse, GetDDBStreamCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.StreamArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExclusiveStartShardId = this.ExclusiveStartShardId;
             context.Limit = this.Limit;
             context.StreamArn = this.StreamArn;
@@ -141,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBStreams.Model.DescribeStreamRequest();
+            var request = new Amazon.DynamoDBv2.Model.DescribeStreamRequest();
             
             if (cmdletContext.ExclusiveStartShardId != null)
             {
@@ -188,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBStreams.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBStreams.Model.DescribeStreamRequest request)
+        private Amazon.DynamoDBv2.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBv2.Model.DescribeStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB Streams", "DescribeStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeStream");
             try
             {
                 #if DESKTOP
@@ -219,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
             public System.String ExclusiveStartShardId { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String StreamArn { get; set; }
-            public System.Func<Amazon.DynamoDBStreams.Model.DescribeStreamResponse, GetDDBSStreamCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DynamoDBv2.Model.DescribeStreamResponse, GetDDBStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StreamDescription;
         }
         

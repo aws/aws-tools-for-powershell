@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Chatbot.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Chatbot.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddCHATResourceTagCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

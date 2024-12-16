@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     [AWSCmdlet("Calls the Amazon Prometheus Service DescribeLoggingConfiguration API operation.", Operation = new[] {"DescribeLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.PrometheusService.Model.LoggingConfigurationMetadata or Amazon.PrometheusService.Model.DescribeLoggingConfigurationResponse",
         "This cmdlet returns an Amazon.PrometheusService.Model.LoggingConfigurationMetadata object.",
-        "The service call response (type Amazon.PrometheusService.Model.DescribeLoggingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PrometheusService.Model.DescribeLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {

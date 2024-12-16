@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     [AWSCmdlet("Calls the Amazon Chime PutAppInstanceStreamingConfigurations API operation.", Operation = new[] {"PutAppInstanceStreamingConfigurations"}, SelectReturnType = typeof(Amazon.Chime.Model.PutAppInstanceStreamingConfigurationsResponse))]
     [AWSCmdletOutput("Amazon.Chime.Model.AppInstanceStreamingConfiguration or Amazon.Chime.Model.PutAppInstanceStreamingConfigurationsResponse",
         "This cmdlet returns a collection of Amazon.Chime.Model.AppInstanceStreamingConfiguration objects.",
-        "The service call response (type Amazon.Chime.Model.PutAppInstanceStreamingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Chime.Model.PutAppInstanceStreamingConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
     public partial class WriteCHMAppInstanceStreamingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor

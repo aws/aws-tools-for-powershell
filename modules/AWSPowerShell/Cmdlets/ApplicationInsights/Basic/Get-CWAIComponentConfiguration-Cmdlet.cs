@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [OutputType("Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights DescribeComponentConfiguration API operation.", Operation = new[] {"DescribeComponentConfiguration"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse",
-        "This cmdlet returns an Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationInsights.Model.DescribeComponentConfigurationResponse object containing multiple properties."
     )]
     public partial class GetCWAIComponentConfigurationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID for the resource group owner.</para>
+        /// <para>The Amazon Web Services account ID for the resource group owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

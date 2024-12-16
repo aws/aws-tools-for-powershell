@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     [AWSCmdlet("Calls the EC2 Image Builder CreateContainerRecipe API operation.", Operation = new[] {"CreateContainerRecipe"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.CreateContainerRecipeResponse))]
     [AWSCmdletOutput("System.String or Amazon.Imagebuilder.Model.CreateContainerRecipeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Imagebuilder.Model.CreateContainerRecipeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.CreateContainerRecipeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2IBContainerRecipeCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies which KMS key is used to encrypt the container image.</para>
+        /// <para>Identifies which KMS key is used to encrypt the Dockerfile template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

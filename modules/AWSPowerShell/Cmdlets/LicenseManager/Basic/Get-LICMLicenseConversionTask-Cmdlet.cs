@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.GetLicenseConversionTaskResponse")]
     [AWSCmdlet("Calls the AWS License Manager GetLicenseConversionTask API operation.", Operation = new[] {"GetLicenseConversionTask"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.GetLicenseConversionTaskResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.GetLicenseConversionTaskResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.GetLicenseConversionTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.GetLicenseConversionTaskResponse object containing multiple properties."
     )]
     public partial class GetLICMLicenseConversionTaskCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

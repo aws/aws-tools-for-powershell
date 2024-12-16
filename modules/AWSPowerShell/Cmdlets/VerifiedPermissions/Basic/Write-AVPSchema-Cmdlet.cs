@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [OutputType("Amazon.VerifiedPermissions.Model.PutSchemaResponse")]
     [AWSCmdlet("Calls the Amazon Verified Permissions PutSchema API operation.", Operation = new[] {"PutSchema"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.PutSchemaResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PutSchemaResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.PutSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.PutSchemaResponse object containing multiple properties."
     )]
     public partial class WriteAVPSchemaCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>A JSON string representation of the schema supported by applications that use this
-        /// policy store. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy
+        /// policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a>
+        /// with <c>{}</c> for this parameter. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy
         /// store schema</a> in the <i>Amazon Verified Permissions User Guide</i>.</para>
         /// </para>
         /// </summary>

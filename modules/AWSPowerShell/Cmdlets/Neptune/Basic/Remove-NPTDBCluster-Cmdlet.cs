@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     [AWSCmdlet("Calls the Amazon Neptune DeleteDBCluster API operation.", Operation = new[] {"DeleteDBCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.DeleteDBClusterResponse))]
     [AWSCmdletOutput("Amazon.Neptune.Model.DBCluster or Amazon.Neptune.Model.DeleteDBClusterResponse",
         "This cmdlet returns an Amazon.Neptune.Model.DBCluster object.",
-        "The service call response (type Amazon.Neptune.Model.DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptune.Model.DeleteDBClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveNPTDBClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     [AWSCmdlet("Calls the AWS CloudHSM V2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.CloudHSMV2.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudHSMV2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudHSMV2.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveHSM2ResourceTagCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {

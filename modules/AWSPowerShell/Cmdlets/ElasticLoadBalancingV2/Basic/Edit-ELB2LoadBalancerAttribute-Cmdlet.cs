@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyLoadBalancerAttributes API operation.", Operation = new[] {"ModifyLoadBalancerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse))]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute or Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse",
         "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditELB2LoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

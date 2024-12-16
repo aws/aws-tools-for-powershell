@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway GetModelTemplate API operation.", Operation = new[] {"GetModelTemplate"}, SelectReturnType = typeof(Amazon.APIGateway.Model.GetModelTemplateResponse))]
     [AWSCmdletOutput("System.String or Amazon.APIGateway.Model.GetModelTemplateResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.APIGateway.Model.GetModelTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.APIGateway.Model.GetModelTemplateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAGModelTemplateCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

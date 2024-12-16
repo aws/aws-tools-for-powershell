@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Calls the AWS Directory Service DeleteConditionalForwarder API operation.", Operation = new[] {"DeleteConditionalForwarder"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse))]
     [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.DescribeLimitsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB DescribeLimits API operation.", Operation = new[] {"DescribeLimits"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeLimitsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DescribeLimitsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.DescribeLimitsResponse object containing multiple properties."
     )]
     public partial class GetDDBProvisionLimitCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

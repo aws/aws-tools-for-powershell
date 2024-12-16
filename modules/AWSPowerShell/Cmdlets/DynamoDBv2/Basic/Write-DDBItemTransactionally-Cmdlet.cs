@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.TransactWriteItemsResponse")]
     [AWSCmdlet("Calls the Amazon DynamoDB TransactWriteItems API operation.", Operation = new[] {"TransactWriteItems"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.TransactWriteItemsResponse))]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TransactWriteItemsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.TransactWriteItemsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.TransactWriteItemsResponse object containing multiple properties."
     )]
     public partial class WriteDDBItemTransactionallyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {

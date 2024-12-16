@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     [AWSCmdlet("Calls the AWS Security Hub CreateAutomationRule API operation.", Operation = new[] {"CreateAutomationRule"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.CreateAutomationRuleResponse))]
     [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.CreateAutomationRuleResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityHub.Model.CreateAutomationRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityHub.Model.CreateAutomationRuleResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewSHUBAutomationRuleCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {

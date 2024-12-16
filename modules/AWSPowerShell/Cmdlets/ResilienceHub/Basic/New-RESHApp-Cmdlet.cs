@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     [AWSCmdlet("Calls the AWS Resilience Hub CreateApp API operation.", Operation = new[] {"CreateApp"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.CreateAppResponse))]
     [AWSCmdletOutput("Amazon.ResilienceHub.Model.App or Amazon.ResilienceHub.Model.CreateAppResponse",
         "This cmdlet returns an Amazon.ResilienceHub.Model.App object.",
-        "The service call response (type Amazon.ResilienceHub.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResilienceHub.Model.CreateAppResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewRESHAppCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
@@ -68,6 +68,19 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ResilienceHub.AppAssessmentScheduleType")]
         public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
+        #endregion
+        
+        #region Parameter AwsApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of Resource Groups group that is integrated with an AppRegistry
+        /// application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>
+        /// guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsApplicationArn { get; set; }
         #endregion
         
         #region Parameter PermissionModel_CrossAccountRoleArn
@@ -232,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AssessmentSchedule = this.AssessmentSchedule;
+            context.AwsApplicationArn = this.AwsApplicationArn;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.EventSubscription != null)
@@ -279,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AssessmentSchedule != null)
             {
                 request.AssessmentSchedule = cmdletContext.AssessmentSchedule;
+            }
+            if (cmdletContext.AwsApplicationArn != null)
+            {
+                request.AwsApplicationArn = cmdletContext.AwsApplicationArn;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -405,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ResilienceHub.AppAssessmentScheduleType AssessmentSchedule { get; set; }
+            public System.String AwsApplicationArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.ResilienceHub.Model.EventSubscription> EventSubscription { get; set; }

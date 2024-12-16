@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Calls the AWS WAF GetGeoMatchSet API operation.", Operation = new[] {"GetGeoMatchSet"}, SelectReturnType = typeof(Amazon.WAF.Model.GetGeoMatchSetResponse))]
     [AWSCmdletOutput("Amazon.WAF.Model.GeoMatchSet or Amazon.WAF.Model.GetGeoMatchSetResponse",
         "This cmdlet returns an Amazon.WAF.Model.GeoMatchSet object.",
-        "The service call response (type Amazon.WAF.Model.GetGeoMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetGeoMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFGeoMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {

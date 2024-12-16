@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     [AWSCmdlet("Calls the AWS Elemental MediaStore DeleteContainerPolicy API operation.", Operation = new[] {"DeleteContainerPolicy"}, SelectReturnType = typeof(Amazon.MediaStore.Model.DeleteContainerPolicyResponse))]
     [AWSCmdletOutput("None or Amazon.MediaStore.Model.DeleteContainerPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaStore.Model.DeleteContainerPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaStore.Model.DeleteContainerPolicyResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMSContainerPolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {

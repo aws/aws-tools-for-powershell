@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeSecurityPolicy API operation.", Operation = new[] {"DescribeSecurityPolicy"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeSecurityPolicyResponse))]
     [AWSCmdletOutput("Amazon.Transfer.Model.DescribedSecurityPolicy or Amazon.Transfer.Model.DescribeSecurityPolicyResponse",
         "This cmdlet returns an Amazon.Transfer.Model.DescribedSecurityPolicy object.",
-        "The service call response (type Amazon.Transfer.Model.DescribeSecurityPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Transfer.Model.DescribeSecurityPolicyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTFRSecurityPolicyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {

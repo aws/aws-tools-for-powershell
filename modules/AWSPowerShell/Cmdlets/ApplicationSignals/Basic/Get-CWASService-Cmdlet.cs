@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     [OutputType("Amazon.ApplicationSignals.Model.GetServiceResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Application Signals GetService API operation.", Operation = new[] {"GetService"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.GetServiceResponse))]
     [AWSCmdletOutput("Amazon.ApplicationSignals.Model.GetServiceResponse",
-        "This cmdlet returns an Amazon.ApplicationSignals.Model.GetServiceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ApplicationSignals.Model.GetServiceResponse object containing multiple properties."
     )]
     public partial class GetCWASServiceCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
     {

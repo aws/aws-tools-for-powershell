@@ -101,6 +101,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.ClusterScalabilityType
+        "New-RDSDBCluster/ClusterScalabilityType"
+        {
+            $v = "limitless","standard"
+            break
+        }
+
         # Amazon.RDS.CustomEngineVersionStatus
         "Edit-RDSCustomDBEngineVersion/Status"
         {
@@ -160,6 +167,7 @@ $RDS_Completers = {
 $RDS_map = @{
     "AuditPolicyState"=@("Edit-RDSActivityStream")
     "AutomationMode"=@("Edit-RDSDBInstance")
+    "ClusterScalabilityType"=@("New-RDSDBCluster")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     [AWSCmdlet("Calls the AWS Service Catalog App Registry PutConfiguration API operation.", Operation = new[] {"PutConfiguration"}, SelectReturnType = typeof(Amazon.AppRegistry.Model.PutConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AppRegistry.Model.PutConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppRegistry.Model.PutConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppRegistry.Model.PutConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class WriteSCARConfigurationCmdlet : AmazonAppRegistryClientCmdlet, IExecutor
     {

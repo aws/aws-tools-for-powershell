@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateContactList API operation.", Operation = new[] {"UpdateContactList"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateContactListResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateContactListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.UpdateContactListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmailV2.Model.UpdateContactListResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateSES2ContactListCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

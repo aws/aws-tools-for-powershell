@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [AWSCmdlet("Calls the AWS Well-Architected Tool ListCheckSummaries API operation.", Operation = new[] {"ListCheckSummaries"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.ListCheckSummariesResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.CheckSummary or Amazon.WellArchitected.Model.ListCheckSummariesResponse",
         "This cmdlet returns a collection of Amazon.WellArchitected.Model.CheckSummary objects.",
-        "The service call response (type Amazon.WellArchitected.Model.ListCheckSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WellArchitected.Model.ListCheckSummariesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWATCheckSummaryListCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

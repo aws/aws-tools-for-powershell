@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     [AWSCmdlet("Calls the AWS IoT Events Data BatchDeleteDetector API operation.", Operation = new[] {"BatchDeleteDetector"}, SelectReturnType = typeof(Amazon.IoTEventsData.Model.BatchDeleteDetectorResponse))]
     [AWSCmdletOutput("Amazon.IoTEventsData.Model.BatchDeleteDetectorErrorEntry or Amazon.IoTEventsData.Model.BatchDeleteDetectorResponse",
         "This cmdlet returns a collection of Amazon.IoTEventsData.Model.BatchDeleteDetectorErrorEntry objects.",
-        "The service call response (type Amazon.IoTEventsData.Model.BatchDeleteDetectorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTEventsData.Model.BatchDeleteDetectorResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveIOTEDDetectorBatchCmdlet : AmazonIoTEventsDataClientCmdlet, IExecutor
     {

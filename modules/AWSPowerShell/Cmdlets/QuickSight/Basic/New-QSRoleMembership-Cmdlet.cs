@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [OutputType("Amazon.QuickSight.Model.CreateRoleMembershipResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight CreateRoleMembership API operation.", Operation = new[] {"CreateRoleMembership"}, SelectReturnType = typeof(Amazon.QuickSight.Model.CreateRoleMembershipResponse))]
     [AWSCmdletOutput("Amazon.QuickSight.Model.CreateRoleMembershipResponse",
-        "This cmdlet returns an Amazon.QuickSight.Model.CreateRoleMembershipResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QuickSight.Model.CreateRoleMembershipResponse object containing multiple properties."
     )]
     public partial class NewQSRoleMembershipCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

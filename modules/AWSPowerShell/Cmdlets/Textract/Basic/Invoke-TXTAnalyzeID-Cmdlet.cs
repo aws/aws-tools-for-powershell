@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [OutputType("Amazon.Textract.Model.AnalyzeIDResponse")]
     [AWSCmdlet("Calls the Amazon Textract AnalyzeID API operation.", Operation = new[] {"AnalyzeID"}, SelectReturnType = typeof(Amazon.Textract.Model.AnalyzeIDResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.AnalyzeIDResponse",
-        "This cmdlet returns an Amazon.Textract.Model.AnalyzeIDResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Textract.Model.AnalyzeIDResponse object containing multiple properties."
     )]
     public partial class InvokeTXTAnalyzeIDCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

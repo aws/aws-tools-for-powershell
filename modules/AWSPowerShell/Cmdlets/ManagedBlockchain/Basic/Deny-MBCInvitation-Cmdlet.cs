@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     [AWSCmdlet("Calls the Amazon Managed Blockchain RejectInvitation API operation.", Operation = new[] {"RejectInvitation"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.RejectInvitationResponse))]
     [AWSCmdletOutput("None or Amazon.ManagedBlockchain.Model.RejectInvitationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ManagedBlockchain.Model.RejectInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ManagedBlockchain.Model.RejectInvitationResponse) be returned by specifying '-Select *'."
     )]
     public partial class DenyMBCInvitationCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight DescribeRoleCustomPermission API operation.", Operation = new[] {"DescribeRoleCustomPermission"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeRoleCustomPermissionResponse))]
     [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.DescribeRoleCustomPermissionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QuickSight.Model.DescribeRoleCustomPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.DescribeRoleCustomPermissionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetQSRoleCustomPermissionCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

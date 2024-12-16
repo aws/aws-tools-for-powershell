@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Calls the Amazon Elasticsearch DeleteInboundCrossClusterSearchConnection API operation.", Operation = new[] {"DeleteInboundCrossClusterSearchConnection"}, SelectReturnType = typeof(Amazon.Elasticsearch.Model.DeleteInboundCrossClusterSearchConnectionResponse))]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection or Amazon.Elasticsearch.Model.DeleteInboundCrossClusterSearchConnectionResponse",
         "This cmdlet returns an Amazon.Elasticsearch.Model.InboundCrossClusterSearchConnection object.",
-        "The service call response (type Amazon.Elasticsearch.Model.DeleteInboundCrossClusterSearchConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DeleteInboundCrossClusterSearchConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveESInboundCrossClusterSearchConnectionCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {

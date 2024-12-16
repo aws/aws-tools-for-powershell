@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [OutputType("Amazon.QBusiness.Model.UpdateUserResponse")]
     [AWSCmdlet("Calls the Amazon QBusiness UpdateUser API operation.", Operation = new[] {"UpdateUser"}, SelectReturnType = typeof(Amazon.QBusiness.Model.UpdateUserResponse))]
     [AWSCmdletOutput("Amazon.QBusiness.Model.UpdateUserResponse",
-        "This cmdlet returns an Amazon.QBusiness.Model.UpdateUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QBusiness.Model.UpdateUserResponse object containing multiple properties."
     )]
     public partial class UpdateQBUSUserCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

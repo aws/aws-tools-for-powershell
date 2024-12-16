@@ -30,14 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     /// <summary>
     /// Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to communicate
     /// with the Amazon Inspector service. The Amazon Inspector SSM plugin calls this API
-    /// to start a CIS scan session for the scan ID supplied by the service.
+    /// to stop a CIS scan session for the scan ID supplied by the service.
     /// </summary>
     [Cmdlet("Stop", "INS2CisSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the Inspector2 StopCisSession API operation.", Operation = new[] {"StopCisSession"}, SelectReturnType = typeof(Amazon.Inspector2.Model.StopCisSessionResponse))]
     [AWSCmdletOutput("None or Amazon.Inspector2.Model.StopCisSessionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Inspector2.Model.StopCisSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector2.Model.StopCisSessionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopINS2CisSessionCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

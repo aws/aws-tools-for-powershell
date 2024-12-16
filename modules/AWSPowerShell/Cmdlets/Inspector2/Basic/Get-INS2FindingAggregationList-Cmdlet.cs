@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     [OutputType("Amazon.Inspector2.Model.ListFindingAggregationsResponse")]
     [AWSCmdlet("Calls the Inspector2 ListFindingAggregations API operation.", Operation = new[] {"ListFindingAggregations"}, SelectReturnType = typeof(Amazon.Inspector2.Model.ListFindingAggregationsResponse))]
     [AWSCmdletOutput("Amazon.Inspector2.Model.ListFindingAggregationsResponse",
-        "This cmdlet returns an Amazon.Inspector2.Model.ListFindingAggregationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Inspector2.Model.ListFindingAggregationsResponse object containing multiple properties."
     )]
     public partial class GetINS2FindingAggregationListCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {

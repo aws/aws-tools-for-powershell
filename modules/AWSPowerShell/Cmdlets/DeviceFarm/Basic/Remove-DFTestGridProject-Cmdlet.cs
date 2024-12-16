@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm DeleteTestGridProject API operation.", Operation = new[] {"DeleteTestGridProject"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.DeleteTestGridProjectResponse))]
     [AWSCmdletOutput("None or Amazon.DeviceFarm.Model.DeleteTestGridProjectResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DeviceFarm.Model.DeleteTestGridProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DeviceFarm.Model.DeleteTestGridProjectResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveDFTestGridProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

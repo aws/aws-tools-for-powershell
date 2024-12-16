@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     [OutputType("Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse")]
     [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) BatchGetMetricData API operation.", Operation = new[] {"BatchGetMetricData"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse))]
     [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.BatchGetMetricDataResponse object containing multiple properties."
     )]
     public partial class GetSES2BatchMetricDataCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {

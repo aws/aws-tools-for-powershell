@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue GetDatabase API operation.", Operation = new[] {"GetDatabase"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDatabaseResponse))]
     [AWSCmdletOutput("Amazon.Glue.Model.Database or Amazon.Glue.Model.GetDatabaseResponse",
         "This cmdlet returns an Amazon.Glue.Model.Database object.",
-        "The service call response (type Amazon.Glue.Model.GetDatabaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Glue.Model.GetDatabaseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGLUEDatabaseCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

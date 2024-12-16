@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector CreateBatchPredictionJob API operation.", Operation = new[] {"CreateBatchPredictionJob"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.CreateBatchPredictionJobResponse))]
     [AWSCmdletOutput("None or Amazon.FraudDetector.Model.CreateBatchPredictionJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.CreateBatchPredictionJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.CreateBatchPredictionJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewFDBatchPredictionJobCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateOriginAccessControlResponse")]
     [AWSCmdlet("Calls the Amazon CloudFront CreateOriginAccessControl API operation.", Operation = new[] {"CreateOriginAccessControl"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateOriginAccessControlResponse))]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateOriginAccessControlResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.CreateOriginAccessControlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFront.Model.CreateOriginAccessControlResponse object containing multiple properties."
     )]
     public partial class NewCFOriginAccessControlCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

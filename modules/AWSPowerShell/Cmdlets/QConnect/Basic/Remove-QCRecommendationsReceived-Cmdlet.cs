@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     [OutputType("Amazon.QConnect.Model.NotifyRecommendationsReceivedResponse")]
     [AWSCmdlet("Calls the Amazon Q Connect NotifyRecommendationsReceived API operation.", Operation = new[] {"NotifyRecommendationsReceived"}, SelectReturnType = typeof(Amazon.QConnect.Model.NotifyRecommendationsReceivedResponse))]
     [AWSCmdletOutput("Amazon.QConnect.Model.NotifyRecommendationsReceivedResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.NotifyRecommendationsReceivedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.QConnect.Model.NotifyRecommendationsReceivedResponse object containing multiple properties."
     )]
     public partial class RemoveQCRecommendationsReceivedCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.ResetCacheResponse")]
     [AWSCmdlet("Calls the AWS Storage Gateway ResetCache API operation.", Operation = new[] {"ResetCache"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.ResetCacheResponse))]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.ResetCacheResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.ResetCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StorageGateway.Model.ResetCacheResponse object containing multiple properties."
     )]
     public partial class ResetSGCacheCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

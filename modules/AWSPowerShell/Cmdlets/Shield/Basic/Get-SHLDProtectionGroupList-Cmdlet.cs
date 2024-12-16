@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     [AWSCmdlet("Calls the AWS Shield ListProtectionGroups API operation.", Operation = new[] {"ListProtectionGroups"}, SelectReturnType = typeof(Amazon.Shield.Model.ListProtectionGroupsResponse))]
     [AWSCmdletOutput("Amazon.Shield.Model.ProtectionGroup or Amazon.Shield.Model.ListProtectionGroupsResponse",
         "This cmdlet returns a collection of Amazon.Shield.Model.ProtectionGroup objects.",
-        "The service call response (type Amazon.Shield.Model.ListProtectionGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Shield.Model.ListProtectionGroupsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSHLDProtectionGroupListCmdlet : AmazonShieldClientCmdlet, IExecutor
     {
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

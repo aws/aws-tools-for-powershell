@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     [OutputType("Amazon.CodeStarconnections.Model.GetHostResponse")]
     [AWSCmdlet("Calls the AWS CodeStar Connections GetHost API operation.", Operation = new[] {"GetHost"}, SelectReturnType = typeof(Amazon.CodeStarconnections.Model.GetHostResponse))]
     [AWSCmdletOutput("Amazon.CodeStarconnections.Model.GetHostResponse",
-        "This cmdlet returns an Amazon.CodeStarconnections.Model.GetHostResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeStarconnections.Model.GetHostResponse object containing multiple properties."
     )]
     public partial class GetCSTCHostCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {

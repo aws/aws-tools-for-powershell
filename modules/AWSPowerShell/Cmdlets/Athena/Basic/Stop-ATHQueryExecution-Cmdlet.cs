@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena StopQueryExecution API operation.", Operation = new[] {"StopQueryExecution"}, SelectReturnType = typeof(Amazon.Athena.Model.StopQueryExecutionResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.StopQueryExecutionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.StopQueryExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.StopQueryExecutionResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopATHQueryExecutionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

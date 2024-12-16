@@ -159,6 +159,9 @@ $qapps_SelectCompleters = {
 $qapps_SelectMap = @{
     "Select"=@("Register-qappsLibraryItemReview",
                "Register-qappsQAppWithUser",
+               "New-qappsCreateCategory",
+               "Remove-qappsDeleteCategory",
+               "Set-qappsUpdateCategory",
                "New-qappsLibraryItem",
                "New-qappsQApp",
                "Remove-qappsLibraryItem",
@@ -169,6 +172,7 @@ $qapps_SelectMap = @{
                "Get-qappsQApp",
                "Get-qappsQAppSession",
                "Import-qappsDocument",
+               "Get-qappsCategoryList",
                "Get-qappsLibraryItemList",
                "Get-qappsQAppList",
                "Get-qappsResourceTag",

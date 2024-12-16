@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations ListCollectors API operation.", Operation = new[] {"ListCollectors"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.ListCollectorsResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubStrategyRecommendations.Model.Collector or Amazon.MigrationHubStrategyRecommendations.Model.ListCollectorsResponse",
         "This cmdlet returns a collection of Amazon.MigrationHubStrategyRecommendations.Model.Collector objects.",
-        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.ListCollectorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.ListCollectorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHSCollectorListCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

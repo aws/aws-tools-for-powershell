@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     [AWSCmdlet("Calls the Amazon Location Service DeleteGeofenceCollection API operation.", Operation = new[] {"DeleteGeofenceCollection"}, SelectReturnType = typeof(Amazon.LocationService.Model.DeleteGeofenceCollectionResponse))]
     [AWSCmdletOutput("None or Amazon.LocationService.Model.DeleteGeofenceCollectionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LocationService.Model.DeleteGeofenceCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LocationService.Model.DeleteGeofenceCollectionResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveLOCGeofenceCollectionCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
     /// To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// </para><para>
-    /// CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified
+    /// CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified
     /// tags to log groups using the <c>aws:Resource/<i>key-name</i></c> or <c>aws:TagKeys</c>
     /// condition keys. 
     /// </para><br/><br/>This operation is deprecated.
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UntagLogGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UntagLogGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Please use the generic tagging API UntagResource")]
     public partial class RemoveCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor

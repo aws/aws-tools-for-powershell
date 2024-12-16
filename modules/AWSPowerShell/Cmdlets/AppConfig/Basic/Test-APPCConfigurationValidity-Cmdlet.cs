@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     [AWSCmdlet("Calls the AWS AppConfig ValidateConfiguration API operation.", Operation = new[] {"ValidateConfiguration"}, SelectReturnType = typeof(Amazon.AppConfig.Model.ValidateConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.AppConfig.Model.ValidateConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.ValidateConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppConfig.Model.ValidateConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class TestAPPCConfigurationValidityCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {

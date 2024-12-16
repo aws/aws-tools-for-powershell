@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
     [AWSCmdlet("Calls the Amazon Kinesis Video Signaling Channels GetIceServerConfig API operation.", Operation = new[] {"GetIceServerConfig"}, SelectReturnType = typeof(Amazon.KinesisVideoSignalingChannels.Model.GetIceServerConfigResponse))]
     [AWSCmdletOutput("Amazon.KinesisVideoSignalingChannels.Model.IceServer or Amazon.KinesisVideoSignalingChannels.Model.GetIceServerConfigResponse",
         "This cmdlet returns a collection of Amazon.KinesisVideoSignalingChannels.Model.IceServer objects.",
-        "The service call response (type Amazon.KinesisVideoSignalingChannels.Model.GetIceServerConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisVideoSignalingChannels.Model.GetIceServerConfigResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetKVSCIceServerConfigCmdlet : AmazonKinesisVideoSignalingChannelsClientCmdlet, IExecutor
     {

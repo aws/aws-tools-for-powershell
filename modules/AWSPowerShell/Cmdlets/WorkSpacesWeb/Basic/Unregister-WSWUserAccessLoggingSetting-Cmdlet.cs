@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     [AWSCmdlet("Calls the Amazon WorkSpaces Web DisassociateUserAccessLoggingSettings API operation.", Operation = new[] {"DisassociateUserAccessLoggingSettings"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.DisassociateUserAccessLoggingSettingsResponse))]
     [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.DisassociateUserAccessLoggingSettingsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateUserAccessLoggingSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.DisassociateUserAccessLoggingSettingsResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterWSWUserAccessLoggingSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.GetTaskProtectionResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service GetTaskProtection API operation.", Operation = new[] {"GetTaskProtection"}, SelectReturnType = typeof(Amazon.ECS.Model.GetTaskProtectionResponse))]
     [AWSCmdletOutput("Amazon.ECS.Model.GetTaskProtectionResponse",
-        "This cmdlet returns an Amazon.ECS.Model.GetTaskProtectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ECS.Model.GetTaskProtectionResponse object containing multiple properties."
     )]
     public partial class GetECSTaskProtectionCmdlet : AmazonECSClientCmdlet, IExecutor
     {

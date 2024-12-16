@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCarrierGateway API operation.", Operation = new[] {"CreateCarrierGateway"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCarrierGatewayResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.CarrierGateway or Amazon.EC2.Model.CreateCarrierGatewayResponse",
         "This cmdlet returns an Amazon.EC2.Model.CarrierGateway object.",
-        "The service call response (type Amazon.EC2.Model.CreateCarrierGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateCarrierGatewayResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2CarrierGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

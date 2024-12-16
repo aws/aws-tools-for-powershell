@@ -124,6 +124,7 @@ $STS_SelectCompleters = {
 
 $STS_SelectMap = @{
     "Select"=@("Use-STSRole",
+               "Use-STSRoot",
                "Convert-STSAuthorizationMessage",
                "Get-STSAccessKeyInfo",
                "Get-STSCallerIdentity",

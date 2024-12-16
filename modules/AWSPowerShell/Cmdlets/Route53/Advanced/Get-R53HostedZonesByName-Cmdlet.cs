@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 ListHostedZonesByName API operation.", Operation = new[] { "ListHostedZonesByName" }, SelectReturnType = typeof(Amazon.Route53.Model.ListHostedZonesByNameResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone or Amazon.Route53.Model.ListHostedZonesByNameResponse",
         "This cmdlet returns a collection of Amazon.Route53.Model.HostedZone objects.",
-        "The service call response (type Amazon.Route53.Model.ListHostedZonesByNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListHostedZonesByNameResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53HostedZonesByNameCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-HostedZoneId $null' for the first call and '-HostedZoneId $AWSHistory.LastServiceResponse.NextHostedZoneId' for subsequent calls.
+        /// <br/>HostedZoneId is only output from the cmdlet when <code>-Select *</code> is specified. In order to manually control output pagination, set '-HostedZoneId' to null for the first call then input the 'NextHostedZoneId' output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

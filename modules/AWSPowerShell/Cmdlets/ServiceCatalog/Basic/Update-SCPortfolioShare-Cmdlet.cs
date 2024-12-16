@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [OutputType("Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse")]
     [AWSCmdlet("Calls the AWS Service Catalog UpdatePortfolioShare API operation.", Operation = new[] {"UpdatePortfolioShare"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse))]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse object containing multiple properties."
     )]
     public partial class UpdateSCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {

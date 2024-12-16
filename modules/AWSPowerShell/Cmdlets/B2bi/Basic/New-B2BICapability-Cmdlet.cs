@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     [OutputType("Amazon.B2bi.Model.CreateCapabilityResponse")]
     [AWSCmdlet("Calls the AWS B2B Data Interchange CreateCapability API operation.", Operation = new[] {"CreateCapability"}, SelectReturnType = typeof(Amazon.B2bi.Model.CreateCapabilityResponse))]
     [AWSCmdletOutput("Amazon.B2bi.Model.CreateCapabilityResponse",
-        "This cmdlet returns an Amazon.B2bi.Model.CreateCapabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.B2bi.Model.CreateCapabilityResponse object containing multiple properties."
     )]
     public partial class NewB2BICapabilityCmdlet : AmazonB2biClientCmdlet, IExecutor
     {
@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_Edi_OutputLocation_BucketName")]
         public System.String OutputLocation_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter Edi_CapabilityDirection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this is capability is for inbound or outbound transformations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Edi_CapabilityDirection")]
+        [AWSConstantClassSource("Amazon.B2bi.CapabilityDirection")]
+        public Amazon.B2bi.CapabilityDirection Edi_CapabilityDirection { get; set; }
         #endregion
         
         #region Parameter InstructionsDocument
@@ -174,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter X12Details_Version
         /// <summary>
         /// <para>
-        /// Amazon.B2bi.Model.X12Details.Version
+        /// <para>Returns the version to use for the specified X12 transaction set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.Edi_CapabilityDirection = this.Edi_CapabilityDirection;
             context.InputLocation_BucketName = this.InputLocation_BucketName;
             context.InputLocation_Key = this.InputLocation_Key;
             context.OutputLocation_BucketName = this.OutputLocation_BucketName;
@@ -294,6 +307,16 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
              // populate Edi
             var requestConfiguration_configuration_EdiIsNull = true;
             requestConfiguration_configuration_Edi = new Amazon.B2bi.Model.EdiConfiguration();
+            Amazon.B2bi.CapabilityDirection requestConfiguration_configuration_Edi_edi_CapabilityDirection = null;
+            if (cmdletContext.Edi_CapabilityDirection != null)
+            {
+                requestConfiguration_configuration_Edi_edi_CapabilityDirection = cmdletContext.Edi_CapabilityDirection;
+            }
+            if (requestConfiguration_configuration_Edi_edi_CapabilityDirection != null)
+            {
+                requestConfiguration_configuration_Edi.CapabilityDirection = requestConfiguration_configuration_Edi_edi_CapabilityDirection;
+                requestConfiguration_configuration_EdiIsNull = false;
+            }
             System.String requestConfiguration_configuration_Edi_edi_TransformerId = null;
             if (cmdletContext.Edi_TransformerId != null)
             {
@@ -517,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.B2bi.CapabilityDirection Edi_CapabilityDirection { get; set; }
             public System.String InputLocation_BucketName { get; set; }
             public System.String InputLocation_Key { get; set; }
             public System.String OutputLocation_BucketName { get; set; }

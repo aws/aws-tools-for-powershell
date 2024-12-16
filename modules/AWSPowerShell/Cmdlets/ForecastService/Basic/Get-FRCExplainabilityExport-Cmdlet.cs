@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     [OutputType("Amazon.ForecastService.Model.DescribeExplainabilityExportResponse")]
     [AWSCmdlet("Calls the Amazon Forecast Service DescribeExplainabilityExport API operation.", Operation = new[] {"DescribeExplainabilityExport"}, SelectReturnType = typeof(Amazon.ForecastService.Model.DescribeExplainabilityExportResponse))]
     [AWSCmdletOutput("Amazon.ForecastService.Model.DescribeExplainabilityExportResponse",
-        "This cmdlet returns an Amazon.ForecastService.Model.DescribeExplainabilityExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ForecastService.Model.DescribeExplainabilityExportResponse object containing multiple properties."
     )]
     public partial class GetFRCExplainabilityExportCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {

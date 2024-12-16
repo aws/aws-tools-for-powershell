@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     [AWSCmdlet("Calls the AWS License Manager User Subscription ListInstances API operation.", Operation = new[] {"ListInstances"}, SelectReturnType = typeof(Amazon.LicenseManagerUserSubscriptions.Model.ListInstancesResponse))]
     [AWSCmdletOutput("Amazon.LicenseManagerUserSubscriptions.Model.InstanceSummary or Amazon.LicenseManagerUserSubscriptions.Model.ListInstancesResponse",
         "This cmdlet returns a collection of Amazon.LicenseManagerUserSubscriptions.Model.InstanceSummary objects.",
-        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.ListInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.LicenseManagerUserSubscriptions.Model.ListInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetLMUSInstanceListCmdlet : AmazonLicenseManagerUserSubscriptionsClientCmdlet, IExecutor
     {
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of structures that you can use to filter the results to those that match
-        /// one or more sets of key-value pairs that you specify.</para>
+        /// <para>You can use the following filters to streamline results:</para><ul><li><para>Status</para></li><li><para>InstanceId</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call.</para>
+        /// <para>The maximum number of results to return from a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,11 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for the next set of results.</para>
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

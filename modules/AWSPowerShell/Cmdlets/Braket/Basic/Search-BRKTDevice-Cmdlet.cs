@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     [AWSCmdlet("Calls the Amazon Braket SearchDevices API operation.", Operation = new[] {"SearchDevices"}, SelectReturnType = typeof(Amazon.Braket.Model.SearchDevicesResponse))]
     [AWSCmdletOutput("Amazon.Braket.Model.DeviceSummary or Amazon.Braket.Model.SearchDevicesResponse",
         "This cmdlet returns a collection of Amazon.Braket.Model.DeviceSummary objects.",
-        "The service call response (type Amazon.Braket.Model.SearchDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Braket.Model.SearchDevicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SearchBRKTDeviceCmdlet : AmazonBraketClientCmdlet, IExecutor
     {

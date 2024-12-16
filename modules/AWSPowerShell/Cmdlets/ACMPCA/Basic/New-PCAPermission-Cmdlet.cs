@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority CreatePermission API operation.", Operation = new[] {"CreatePermission"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.CreatePermissionResponse))]
     [AWSCmdletOutput("None or Amazon.ACMPCA.Model.CreatePermissionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ACMPCA.Model.CreatePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.CreatePermissionResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewPCAPermissionCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 ListResourceProfileArtifacts API operation.", Operation = new[] {"ListResourceProfileArtifacts"}, SelectReturnType = typeof(Amazon.Macie2.Model.ListResourceProfileArtifactsResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.ResourceProfileArtifact or Amazon.Macie2.Model.ListResourceProfileArtifactsResponse",
         "This cmdlet returns a collection of Amazon.Macie2.Model.ResourceProfileArtifact objects.",
-        "The service call response (type Amazon.Macie2.Model.ListResourceProfileArtifactsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.ListResourceProfileArtifactsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2ResourceProfileArtifactListCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

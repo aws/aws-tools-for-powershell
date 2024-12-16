@@ -28,14 +28,23 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
     /// Deletes one or more worlds in a batch operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ROBODeleteWorld", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
     [AWSCmdlet("Calls the AWS RoboMaker BatchDeleteWorlds API operation.", Operation = new[] {"BatchDeleteWorlds"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.BatchDeleteWorldsResponse))]
     [AWSCmdletOutput("System.String or Amazon.RoboMaker.Model.BatchDeleteWorldsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.RoboMaker.Model.BatchDeleteWorldsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RoboMaker.Model.BatchDeleteWorldsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveROBODeleteWorldCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
     {

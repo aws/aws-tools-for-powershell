@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
     [OutputType("Amazon.MediaPackageV2.Model.CreateChannelGroupResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 CreateChannelGroup API operation.", Operation = new[] {"CreateChannelGroup"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.CreateChannelGroupResponse))]
     [AWSCmdletOutput("Amazon.MediaPackageV2.Model.CreateChannelGroupResponse",
-        "This cmdlet returns an Amazon.MediaPackageV2.Model.CreateChannelGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.CreateChannelGroupResponse object containing multiple properties."
     )]
     public partial class NewMPV2ChannelGroupCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {

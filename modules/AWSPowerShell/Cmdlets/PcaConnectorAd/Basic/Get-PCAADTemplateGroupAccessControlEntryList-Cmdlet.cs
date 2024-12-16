@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     [AWSCmdlet("Calls the Pca Connector Ad ListTemplateGroupAccessControlEntries API operation.", Operation = new[] {"ListTemplateGroupAccessControlEntries"}, SelectReturnType = typeof(Amazon.PcaConnectorAd.Model.ListTemplateGroupAccessControlEntriesResponse))]
     [AWSCmdletOutput("Amazon.PcaConnectorAd.Model.AccessControlEntrySummary or Amazon.PcaConnectorAd.Model.ListTemplateGroupAccessControlEntriesResponse",
         "This cmdlet returns a collection of Amazon.PcaConnectorAd.Model.AccessControlEntrySummary objects.",
-        "The service call response (type Amazon.PcaConnectorAd.Model.ListTemplateGroupAccessControlEntriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.PcaConnectorAd.Model.ListTemplateGroupAccessControlEntriesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPCAADTemplateGroupAccessControlEntryListCmdlet : AmazonPcaConnectorAdClientCmdlet, IExecutor
     {

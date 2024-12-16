@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdlet("Calls the Amazon API Gateway DeleteBasePathMapping API operation.", Operation = new[] {"DeleteBasePathMapping"}, SelectReturnType = typeof(Amazon.APIGateway.Model.DeleteBasePathMappingResponse))]
     [AWSCmdletOutput("None or Amazon.APIGateway.Model.DeleteBasePathMappingResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.APIGateway.Model.DeleteBasePathMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.DeleteBasePathMappingResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

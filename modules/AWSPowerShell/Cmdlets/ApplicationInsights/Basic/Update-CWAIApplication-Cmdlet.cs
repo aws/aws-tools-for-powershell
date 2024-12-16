@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("Amazon.ApplicationInsights.Model.ApplicationInfo or Amazon.ApplicationInsights.Model.UpdateApplicationResponse",
         "This cmdlet returns an Amazon.ApplicationInsights.Model.ApplicationInfo object.",
-        "The service call response (type Amazon.ApplicationInsights.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationInsights.Model.UpdateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
@@ -124,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
+        #region Parameter SNSNotificationArn
+        /// <summary>
+        /// <para>
+        /// <para> The SNS topic ARN. Allows you to receive SNS notifications for updates and issues
+        /// with an application. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SNSNotificationArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationInfo'.
@@ -179,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ResourceGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SNSNotificationArn = this.SNSNotificationArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
+            }
+            if (cmdletContext.SNSNotificationArn != null)
+            {
+                request.SNSNotificationArn = cmdletContext.SNSNotificationArn;
             }
             
             CmdletOutput output;
@@ -291,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.Boolean? RemoveSNSTopic { get; set; }
             public System.String ResourceGroupName { get; set; }
+            public System.String SNSNotificationArn { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.UpdateApplicationResponse, UpdateCWAIApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationInfo;
         }

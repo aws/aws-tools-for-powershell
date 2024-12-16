@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.SearchFacesResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition SearchFaces API operation.", Operation = new[] {"SearchFaces"}, SelectReturnType = typeof(Amazon.Rekognition.Model.SearchFacesResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.SearchFacesResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.SearchFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.SearchFacesResponse object containing multiple properties."
     )]
     public partial class SearchREKFaceCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"}, SelectReturnType = typeof(Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse))]
     [AWSCmdletOutput("Amazon.RDS.Model.ResourcePendingMaintenanceActions or Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse",
         "This cmdlet returns an Amazon.RDS.Model.ResourcePendingMaintenanceActions object.",
-        "The service call response (type Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SubmitRDSPendingMaintenanceActionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid Values: <c>system-update</c>, <c>db-upgrade</c>, <c>hardware-maintenance</c>,
-        /// <c>ca-certificate-rotation</c></para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid Values:</para><ul><li><para><c>ca-certificate-rotation</c></para></li><li><para><c>db-upgrade</c></para></li><li><para><c>hardware-maintenance</c></para></li><li><para><c>os-upgrade</c></para></li><li><para><c>system-update</c></para></li></ul><para>For more information about these actions, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-aurora">Maintenance
+        /// actions for Amazon Aurora</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#maintenance-actions-rds">Maintenance
+        /// actions for Amazon RDS</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

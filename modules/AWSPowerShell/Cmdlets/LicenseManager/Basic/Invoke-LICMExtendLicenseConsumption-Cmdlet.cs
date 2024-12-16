@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.ExtendLicenseConsumptionResponse")]
     [AWSCmdlet("Calls the AWS License Manager ExtendLicenseConsumption API operation.", Operation = new[] {"ExtendLicenseConsumption"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.ExtendLicenseConsumptionResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.ExtendLicenseConsumptionResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.ExtendLicenseConsumptionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.ExtendLicenseConsumptionResponse object containing multiple properties."
     )]
     public partial class InvokeLICMExtendLicenseConsumptionCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

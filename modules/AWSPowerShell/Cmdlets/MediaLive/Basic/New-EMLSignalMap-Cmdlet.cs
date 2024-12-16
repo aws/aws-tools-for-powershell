@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [OutputType("Amazon.MediaLive.Model.CreateSignalMapResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaLive CreateSignalMap API operation.", Operation = new[] {"CreateSignalMap"}, SelectReturnType = typeof(Amazon.MediaLive.Model.CreateSignalMapResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.CreateSignalMapResponse",
-        "This cmdlet returns an Amazon.MediaLive.Model.CreateSignalMapResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaLive.Model.CreateSignalMapResponse object containing multiple properties."
     )]
     public partial class NewEMLSignalMapCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {

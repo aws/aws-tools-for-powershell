@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.Ivschat.Model.DeleteLoggingConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Ivschat.Model.DeleteLoggingConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Ivschat.Model.DeleteLoggingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Ivschat.Model.DeleteLoggingConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSCLoggingConfigurationCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

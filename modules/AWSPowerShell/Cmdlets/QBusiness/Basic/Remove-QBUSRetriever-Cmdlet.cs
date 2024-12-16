@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     [AWSCmdlet("Calls the Amazon QBusiness DeleteRetriever API operation.", Operation = new[] {"DeleteRetriever"}, SelectReturnType = typeof(Amazon.QBusiness.Model.DeleteRetrieverResponse))]
     [AWSCmdletOutput("None or Amazon.QBusiness.Model.DeleteRetrieverResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QBusiness.Model.DeleteRetrieverResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QBusiness.Model.DeleteRetrieverResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveQBUSRetrieverCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {

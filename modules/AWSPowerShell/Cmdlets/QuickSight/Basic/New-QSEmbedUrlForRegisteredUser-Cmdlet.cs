@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     [AWSCmdlet("Calls the Amazon QuickSight GenerateEmbedUrlForRegisteredUser API operation.", Operation = new[] {"GenerateEmbedUrlForRegisteredUser"}, SelectReturnType = typeof(Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserResponse))]
     [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.QuickSight.Model.GenerateEmbedUrlForRegisteredUserResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewQSEmbedUrlForRegisteredUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetServiceRoleForAccountResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetServiceRoleForAccount API operation.", Operation = new[] {"GetServiceRoleForAccount"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetServiceRoleForAccountResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetServiceRoleForAccountResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetServiceRoleForAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetServiceRoleForAccountResponse object containing multiple properties."
     )]
     public partial class GetGGServiceRoleForAccountCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

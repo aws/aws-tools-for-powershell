@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty GetUsageStatistics API operation.", Operation = new[] {"GetUsageStatistics"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.GetUsageStatisticsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UsageStatistics or Amazon.GuardDuty.Model.GetUsageStatisticsResponse",
         "This cmdlet returns an Amazon.GuardDuty.Model.UsageStatistics object.",
-        "The service call response (type Amazon.GuardDuty.Model.GetUsageStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.GetUsageStatisticsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetGDUsageStatisticCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The ID of the detector that specifies the GuardDuty service whose usage statistics
-        /// you want to retrieve.</para>
+        /// you want to retrieve.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

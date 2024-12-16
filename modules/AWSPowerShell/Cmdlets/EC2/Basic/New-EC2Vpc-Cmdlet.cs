@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateVpc API operation.", Operation = new[] {"CreateVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateVpcResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.Vpc or Amazon.EC2.Model.CreateVpcResponse",
         "This cmdlet returns an Amazon.EC2.Model.Vpc object.",
-        "The service call response (type Amazon.EC2.Model.CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpcResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

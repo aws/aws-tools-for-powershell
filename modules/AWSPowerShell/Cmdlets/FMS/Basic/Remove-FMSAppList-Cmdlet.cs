@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     [AWSCmdlet("Calls the Firewall Management Service DeleteAppsList API operation.", Operation = new[] {"DeleteAppsList"}, SelectReturnType = typeof(Amazon.FMS.Model.DeleteAppsListResponse))]
     [AWSCmdletOutput("None or Amazon.FMS.Model.DeleteAppsListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.DeleteAppsListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FMS.Model.DeleteAppsListResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveFMSAppListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {

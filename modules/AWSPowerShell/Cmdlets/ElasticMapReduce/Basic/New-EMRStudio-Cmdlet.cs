@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.CreateStudioResponse")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce CreateStudio API operation.", Operation = new[] {"CreateStudio"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.CreateStudioResponse))]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CreateStudioResponse",
-        "This cmdlet returns an Amazon.ElasticMapReduce.Model.CreateStudioResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.ElasticMapReduce.Model.CreateStudioResponse object containing multiple properties."
     )]
     public partial class NewEMRStudioCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

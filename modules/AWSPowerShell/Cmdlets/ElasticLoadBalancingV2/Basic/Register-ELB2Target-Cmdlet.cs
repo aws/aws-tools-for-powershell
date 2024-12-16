@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// when you register it. You can register each EC2 instance or IP address with the same
     /// target group multiple times using different ports.
     /// </para><para>
-    /// With a Network Load Balancer, you cannot register instances by instance ID if they
+    /// With a Network Load Balancer, you can't register instances by instance ID if they
     /// have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
     /// HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.
     /// </para>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     [AWSCmdlet("Calls the Elastic Load Balancing V2 RegisterTargets API operation.", Operation = new[] {"RegisterTargets"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterELB2TargetCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {

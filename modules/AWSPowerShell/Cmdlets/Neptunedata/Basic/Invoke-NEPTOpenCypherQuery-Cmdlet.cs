@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     [AWSCmdlet("Calls the Amazon NeptuneData ExecuteOpenCypherQuery API operation.", Operation = new[] {"ExecuteOpenCypherQuery"}, SelectReturnType = typeof(Amazon.Neptunedata.Model.ExecuteOpenCypherQueryResponse))]
     [AWSCmdletOutput("Amazon.Runtime.Documents.Document or Amazon.Neptunedata.Model.ExecuteOpenCypherQueryResponse",
         "This cmdlet returns an Amazon.Runtime.Documents.Document object.",
-        "The service call response (type Amazon.Neptunedata.Model.ExecuteOpenCypherQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Neptunedata.Model.ExecuteOpenCypherQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeNEPTOpenCypherQueryCmdlet : AmazonNeptunedataClientCmdlet, IExecutor
     {

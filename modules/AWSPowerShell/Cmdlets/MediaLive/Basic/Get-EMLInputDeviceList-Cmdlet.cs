@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     [AWSCmdlet("Calls the AWS Elemental MediaLive ListInputDevices API operation.", Operation = new[] {"ListInputDevices"}, SelectReturnType = typeof(Amazon.MediaLive.Model.ListInputDevicesResponse))]
     [AWSCmdletOutput("Amazon.MediaLive.Model.InputDeviceSummary or Amazon.MediaLive.Model.ListInputDevicesResponse",
         "This cmdlet returns a collection of Amazon.MediaLive.Model.InputDeviceSummary objects.",
-        "The service call response (type Amazon.MediaLive.Model.ListInputDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaLive.Model.ListInputDevicesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMLInputDeviceListCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

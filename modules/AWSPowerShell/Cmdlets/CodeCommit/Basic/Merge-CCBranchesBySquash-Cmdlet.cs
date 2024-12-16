@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.MergeBranchesBySquashResponse")]
     [AWSCmdlet("Calls the AWS CodeCommit MergeBranchesBySquash API operation.", Operation = new[] {"MergeBranchesBySquash"}, SelectReturnType = typeof(Amazon.CodeCommit.Model.MergeBranchesBySquashResponse))]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.MergeBranchesBySquashResponse",
-        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesBySquashResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeCommit.Model.MergeBranchesBySquashResponse object containing multiple properties."
     )]
     public partial class MergeCCBranchesBySquashCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {

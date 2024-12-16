@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [AWSCmdlet("Calls the Amazon API Gateway V2 GetTags API operation.", Operation = new[] {"GetTags"}, SelectReturnType = typeof(Amazon.ApiGatewayV2.Model.GetTagsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApiGatewayV2.Model.GetTagsResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.ApiGatewayV2.Model.GetTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApiGatewayV2.Model.GetTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAG2TagCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {

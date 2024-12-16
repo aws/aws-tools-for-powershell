@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     [AWSCmdlet("Calls the AWS Secrets Manager UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SecretsManager.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SecretsManager.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecretsManager.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SecretsManager.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSECResourceTagCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {

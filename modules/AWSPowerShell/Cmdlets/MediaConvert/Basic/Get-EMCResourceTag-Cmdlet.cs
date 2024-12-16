@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("Amazon.MediaConvert.Model.ResourceTags or Amazon.MediaConvert.Model.ListTagsForResourceResponse",
         "This cmdlet returns an Amazon.MediaConvert.Model.ResourceTags object.",
-        "The service call response (type Amazon.MediaConvert.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MediaConvert.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEMCResourceTagCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

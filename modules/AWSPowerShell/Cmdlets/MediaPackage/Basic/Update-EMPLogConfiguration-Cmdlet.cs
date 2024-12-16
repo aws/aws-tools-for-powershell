@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     [OutputType("Amazon.MediaPackage.Model.ConfigureLogsResponse")]
     [AWSCmdlet("Calls the AWS Elemental MediaPackage ConfigureLogs API operation.", Operation = new[] {"ConfigureLogs"}, SelectReturnType = typeof(Amazon.MediaPackage.Model.ConfigureLogsResponse))]
     [AWSCmdletOutput("Amazon.MediaPackage.Model.ConfigureLogsResponse",
-        "This cmdlet returns an Amazon.MediaPackage.Model.ConfigureLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.MediaPackage.Model.ConfigureLogsResponse object containing multiple properties."
     )]
     public partial class UpdateEMPLogConfigurationCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {

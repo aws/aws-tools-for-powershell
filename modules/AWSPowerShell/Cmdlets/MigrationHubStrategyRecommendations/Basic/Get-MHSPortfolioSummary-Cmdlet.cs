@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     [AWSCmdlet("Calls the Migration Hub Strategy Recommendations GetPortfolioSummary API operation.", Operation = new[] {"GetPortfolioSummary"}, SelectReturnType = typeof(Amazon.MigrationHubStrategyRecommendations.Model.GetPortfolioSummaryResponse))]
     [AWSCmdletOutput("Amazon.MigrationHubStrategyRecommendations.Model.AssessmentSummary or Amazon.MigrationHubStrategyRecommendations.Model.GetPortfolioSummaryResponse",
         "This cmdlet returns an Amazon.MigrationHubStrategyRecommendations.Model.AssessmentSummary object.",
-        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.GetPortfolioSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MigrationHubStrategyRecommendations.Model.GetPortfolioSummaryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMHSPortfolioSummaryCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {

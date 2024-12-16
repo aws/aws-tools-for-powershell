@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     [AWSCmdlet("Calls the AWS Cost Explorer GetSavingsPlansCoverage API operation.", Operation = new[] {"GetSavingsPlansCoverage"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.GetSavingsPlansCoverageResponse))]
     [AWSCmdletOutput("Amazon.CostExplorer.Model.SavingsPlansCoverage or Amazon.CostExplorer.Model.GetSavingsPlansCoverageResponse",
         "This cmdlet returns a collection of Amazon.CostExplorer.Model.SavingsPlansCoverage objects.",
-        "The service call response (type Amazon.CostExplorer.Model.GetSavingsPlansCoverageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CostExplorer.Model.GetSavingsPlansCoverageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCESavingsPlansCoverageCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

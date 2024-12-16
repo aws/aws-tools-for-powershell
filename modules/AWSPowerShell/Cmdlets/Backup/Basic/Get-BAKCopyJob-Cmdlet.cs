@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     [AWSCmdlet("Calls the AWS Backup DescribeCopyJob API operation.", Operation = new[] {"DescribeCopyJob"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeCopyJobResponse))]
     [AWSCmdletOutput("Amazon.Backup.Model.CopyJob or Amazon.Backup.Model.DescribeCopyJobResponse",
         "This cmdlet returns an Amazon.Backup.Model.CopyJob object.",
-        "The service call response (type Amazon.Backup.Model.DescribeCopyJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Backup.Model.DescribeCopyJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetBAKCopyJobCmdlet : AmazonBackupClientCmdlet, IExecutor
     {

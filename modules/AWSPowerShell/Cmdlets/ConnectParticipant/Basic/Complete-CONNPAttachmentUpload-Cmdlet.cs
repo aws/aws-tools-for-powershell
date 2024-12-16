@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     [AWSCmdlet("Calls the Amazon Connect Participant Service CompleteAttachmentUpload API operation.", Operation = new[] {"CompleteAttachmentUpload"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse))]
     [AWSCmdletOutput("None or Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse) be returned by specifying '-Select *'."
     )]
     public partial class CompleteCONNPAttachmentUploadCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {

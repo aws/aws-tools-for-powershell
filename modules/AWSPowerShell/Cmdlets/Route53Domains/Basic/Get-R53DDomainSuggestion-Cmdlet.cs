@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Calls the Amazon Route 53 Domains GetDomainSuggestions API operation.", Operation = new[] {"GetDomainSuggestions"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.GetDomainSuggestionsResponse))]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainSuggestion or Amazon.Route53Domains.Model.GetDomainSuggestionsResponse",
         "This cmdlet returns a collection of Amazon.Route53Domains.Model.DomainSuggestion objects.",
-        "The service call response (type Amazon.Route53Domains.Model.GetDomainSuggestionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.GetDomainSuggestionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53DDomainSuggestionCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

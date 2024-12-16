@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [AWSCmdlet("Calls the Amazon Timestream Query DescribeEndpoints API operation.", Operation = new[] {"DescribeEndpoints"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.DescribeEndpointsResponse))]
     [AWSCmdletOutput("Amazon.TimestreamQuery.Model.Endpoint or Amazon.TimestreamQuery.Model.DescribeEndpointsResponse",
         "This cmdlet returns a collection of Amazon.TimestreamQuery.Model.Endpoint objects.",
-        "The service call response (type Amazon.TimestreamQuery.Model.DescribeEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.TimestreamQuery.Model.DescribeEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetTSQEndpointListCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

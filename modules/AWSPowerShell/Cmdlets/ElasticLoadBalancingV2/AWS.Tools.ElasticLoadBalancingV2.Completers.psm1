@@ -80,6 +80,16 @@ $ELB2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticLoadBalancingV2.EnablePrefixForIpv6SourceNatEnum
+        {
+            ($_ -eq "New-ELB2LoadBalancer/EnablePrefixForIpv6SourceNat") -Or
+            ($_ -eq "Set-ELB2Subnet/EnablePrefixForIpv6SourceNat")
+        }
+        {
+            $v = "off","on"
+            break
+        }
+
         # Amazon.ElasticLoadBalancingV2.EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
         "Set-ELB2SecurityGroup/EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"
         {
@@ -161,6 +171,7 @@ $ELB2_Completers = {
 }
 
 $ELB2_map = @{
+    "EnablePrefixForIpv6SourceNat"=@("New-ELB2LoadBalancer","Set-ELB2Subnet")
     "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"=@("Set-ELB2SecurityGroup")
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
     "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")

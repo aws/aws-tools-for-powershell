@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail DeleteUser API operation.", Operation = new[] {"DeleteUser"}, SelectReturnType = typeof(Amazon.WorkMail.Model.DeleteUserResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.DeleteUserResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.DeleteUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.DeleteUserResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveWMUserCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

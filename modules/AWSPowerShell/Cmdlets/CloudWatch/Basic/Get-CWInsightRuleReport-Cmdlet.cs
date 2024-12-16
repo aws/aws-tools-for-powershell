@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [OutputType("Amazon.CloudWatch.Model.GetInsightRuleReportResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch GetInsightRuleReport API operation.", Operation = new[] {"GetInsightRuleReport"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.GetInsightRuleReportResponse))]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.GetInsightRuleReportResponse",
-        "This cmdlet returns an Amazon.CloudWatch.Model.GetInsightRuleReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatch.Model.GetInsightRuleReportResponse object containing multiple properties."
     )]
     public partial class GetCWInsightRuleReportCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

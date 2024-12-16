@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     [OutputType("Amazon.CloudControlApi.Model.GetResourceResponse")]
     [AWSCmdlet("Calls the AWS Cloud Control API GetResource API operation.", Operation = new[] {"GetResource"}, SelectReturnType = typeof(Amazon.CloudControlApi.Model.GetResourceResponse))]
     [AWSCmdletOutput("Amazon.CloudControlApi.Model.GetResourceResponse",
-        "This cmdlet returns an Amazon.CloudControlApi.Model.GetResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudControlApi.Model.GetResourceResponse object containing multiple properties."
     )]
     public partial class GetCCAResourceCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {

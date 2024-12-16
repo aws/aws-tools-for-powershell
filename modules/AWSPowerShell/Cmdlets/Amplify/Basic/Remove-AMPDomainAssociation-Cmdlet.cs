@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     [AWSCmdlet("Calls the AWS Amplify DeleteDomainAssociation API operation.", Operation = new[] {"DeleteDomainAssociation"}, SelectReturnType = typeof(Amazon.Amplify.Model.DeleteDomainAssociationResponse))]
     [AWSCmdletOutput("Amazon.Amplify.Model.DomainAssociation or Amazon.Amplify.Model.DeleteDomainAssociationResponse",
         "This cmdlet returns an Amazon.Amplify.Model.DomainAssociation object.",
-        "The service call response (type Amazon.Amplify.Model.DeleteDomainAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Amplify.Model.DeleteDomainAssociationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveAMPDomainAssociationCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {

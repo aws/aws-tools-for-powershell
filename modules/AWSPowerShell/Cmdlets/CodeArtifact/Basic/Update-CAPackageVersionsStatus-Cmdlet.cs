@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [OutputType("Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse")]
     [AWSCmdlet("Calls the AWS CodeArtifact UpdatePackageVersionsStatus API operation.", Operation = new[] {"UpdatePackageVersionsStatus"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CodeArtifact.Model.UpdatePackageVersionsStatusResponse object containing multiple properties."
     )]
     public partial class UpdateCAPackageVersionsStatusCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

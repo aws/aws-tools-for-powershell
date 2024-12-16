@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketOwnershipControls API operation.", Operation = new[] {"GetBucketOwnershipControls"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketOwnershipControlsResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.OwnershipControls or Amazon.S3.Model.GetBucketOwnershipControlsResponse",
         "This cmdlet returns an Amazon.S3.Model.OwnershipControls object.",
-        "The service call response (type Amazon.S3.Model.GetBucketOwnershipControlsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketOwnershipControlsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3BucketOwnershipControlCmdlet : AmazonS3ClientCmdlet, IExecutor
     {

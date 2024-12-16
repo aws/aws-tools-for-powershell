@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     [AWSCmdlet("Calls the AWS DataSync CreateLocationEfs API operation.", Operation = new[] {"CreateLocationEfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.CreateLocationEfsResponse))]
     [AWSCmdletOutput("System.String or Amazon.DataSync.Model.CreateLocationEfsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataSync.Model.CreateLocationEfsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataSync.Model.CreateLocationEfsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDSYNLocationEfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to
-        /// access the Amazon EFS file system.</para>
+        /// mount your Amazon EFS file system.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing
+        /// restricted file systems</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter EfsFilesystemArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN for the Amazon EFS file system.</para>
+        /// <para>Specifies the ARN for your Amazon EFS file system.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter FileSystemAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>Specifies an Identity and Access Management (IAM) role that DataSync assumes when
-        /// mounting the Amazon EFS file system.</para>
+        /// <para>Specifies an Identity and Access Management (IAM) role that allows DataSync to access
+        /// your Amazon EFS file system.</para><para>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating
+        /// a DataSync IAM role for file system access</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption
-        /// when it copies data to or from the Amazon EFS file system.</para><para>If you specify an access point using <c>AccessPointArn</c> or an IAM role using <c>FileSystemAccessRoleArn</c>,
+        /// when it transfers data to or from your Amazon EFS file system.</para><para>If you specify an access point using <c>AccessPointArn</c> or an IAM role using <c>FileSystemAccessRoleArn</c>,
         /// you must set this parameter to <c>TLS1_2</c>.</para>
         /// </para>
         /// </summary>
@@ -124,8 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads
-        /// or writes data (depending on if this is a source or destination location). By default,
-        /// DataSync uses the root directory, but you can also include subdirectories.</para><note><para>You must specify a value with forward slashes (for example, <c>/path/to/folder</c>).</para></note>
+        /// or writes data (depending on if this is a source or destination location) on your
+        /// file system.</para><para>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access
+        /// point</a> if you provide one by using <c>AccessPointArn</c>). You can also include
+        /// subdirectories using forward slashes (for example, <c>/path/to/folder</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

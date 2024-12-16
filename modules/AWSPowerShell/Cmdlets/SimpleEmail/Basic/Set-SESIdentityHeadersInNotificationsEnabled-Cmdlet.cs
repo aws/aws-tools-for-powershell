@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Calls the Amazon Simple Email Service (SES) SetIdentityHeadersInNotificationsEnabled API operation.", Operation = new[] {"SetIdentityHeadersInNotificationsEnabled"}, SelectReturnType = typeof(Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse))]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse) be returned by specifying '-Select *'."
     )]
     public partial class SetSESIdentityHeadersInNotificationsEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {

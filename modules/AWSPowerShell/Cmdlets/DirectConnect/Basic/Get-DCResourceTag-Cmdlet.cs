@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Calls the AWS Direct Connect DescribeTags API operation.", Operation = new[] {"DescribeTags"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.DescribeTagsResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.ResourceTag or Amazon.DirectConnect.Model.DescribeTagsResponse",
         "This cmdlet returns a collection of Amazon.DirectConnect.Model.ResourceTag objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeTagsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetDCResourceTagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

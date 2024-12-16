@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     [OutputType("Amazon.LicenseManager.Model.DeleteGrantResponse")]
     [AWSCmdlet("Calls the AWS License Manager DeleteGrant API operation.", Operation = new[] {"DeleteGrant"}, SelectReturnType = typeof(Amazon.LicenseManager.Model.DeleteGrantResponse))]
     [AWSCmdletOutput("Amazon.LicenseManager.Model.DeleteGrantResponse",
-        "This cmdlet returns an Amazon.LicenseManager.Model.DeleteGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LicenseManager.Model.DeleteGrantResponse object containing multiple properties."
     )]
     public partial class RemoveLICMGrantCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {

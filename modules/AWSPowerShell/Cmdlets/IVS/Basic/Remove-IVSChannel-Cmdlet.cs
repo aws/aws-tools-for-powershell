@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     [AWSCmdlet("Calls the Amazon Interactive Video Service DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.IVS.Model.DeleteChannelResponse))]
     [AWSCmdletOutput("None or Amazon.IVS.Model.DeleteChannelResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVS.Model.DeleteChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IVS.Model.DeleteChannelResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveIVSChannelCmdlet : AmazonIVSClientCmdlet, IExecutor
     {

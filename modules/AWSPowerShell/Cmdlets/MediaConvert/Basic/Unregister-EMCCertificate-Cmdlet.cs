@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     [AWSCmdlet("Calls the AWS Elemental MediaConvert DisassociateCertificate API operation.", Operation = new[] {"DisassociateCertificate"}, SelectReturnType = typeof(Amazon.MediaConvert.Model.DisassociateCertificateResponse))]
     [AWSCmdletOutput("None or Amazon.MediaConvert.Model.DisassociateCertificateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaConvert.Model.DisassociateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaConvert.Model.DisassociateCertificateResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterEMCCertificateCmdlet : AmazonMediaConvertClientCmdlet, IExecutor
     {

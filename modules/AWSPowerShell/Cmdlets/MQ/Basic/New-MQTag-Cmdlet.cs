@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     [AWSCmdlet("Calls the Amazon MQ CreateTags API operation.", Operation = new[] {"CreateTags"}, SelectReturnType = typeof(Amazon.MQ.Model.CreateTagsResponse))]
     [AWSCmdletOutput("None or Amazon.MQ.Model.CreateTagsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MQ.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MQ.Model.CreateTagsResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewMQTagCmdlet : AmazonMQClientCmdlet, IExecutor
     {

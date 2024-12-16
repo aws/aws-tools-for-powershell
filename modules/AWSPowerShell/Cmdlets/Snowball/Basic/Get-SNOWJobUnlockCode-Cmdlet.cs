@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdlet("Calls the AWS Import/Export Snowball GetJobUnlockCode API operation.", Operation = new[] {"GetJobUnlockCode"}, SelectReturnType = typeof(Amazon.Snowball.Model.GetJobUnlockCodeResponse))]
     [AWSCmdletOutput("System.String or Amazon.Snowball.Model.GetJobUnlockCodeResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Snowball.Model.GetJobUnlockCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Snowball.Model.GetJobUnlockCodeResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSNOWJobUnlockCodeCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {

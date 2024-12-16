@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [AWSCmdlet("Calls the Amazon Athena CreateWorkGroup API operation.", Operation = new[] {"CreateWorkGroup"}, SelectReturnType = typeof(Amazon.Athena.Model.CreateWorkGroupResponse))]
     [AWSCmdletOutput("None or Amazon.Athena.Model.CreateWorkGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.CreateWorkGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.CreateWorkGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewATHWorkGroupCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
@@ -306,11 +306,12 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter AclConfiguration_S3AclOption
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results. Currently
-        /// the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a query runs
-        /// in a workgroup and the workgroup overrides client-side settings, then the Amazon S3
-        /// canned ACL specified in the workgroup's settings is used for all queries that run
-        /// in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
+        /// <para>The Amazon S3 canned ACL that Athena should specify when storing query results, including
+        /// data files inserted by Athena as the result of statements like CTAS or INSERT INTO.
+        /// Currently the only supported canned ACL is <c>BUCKET_OWNER_FULL_CONTROL</c>. If a
+        /// query runs in a workgroup and the workgroup overrides client-side settings, then the
+        /// Amazon S3 canned ACL specified in the workgroup's settings is used for all queries
+        /// that run in the workgroup. For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned
         /// ACL</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>

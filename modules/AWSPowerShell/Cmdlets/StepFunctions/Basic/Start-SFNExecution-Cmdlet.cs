@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     [OutputType("Amazon.StepFunctions.Model.StartExecutionResponse")]
     [AWSCmdlet("Calls the AWS Step Functions StartExecution API operation.", Operation = new[] {"StartExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.StartExecutionResponse))]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.StartExecutionResponse",
-        "This cmdlet returns an Amazon.StepFunctions.Model.StartExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.StepFunctions.Model.StartExecutionResponse object containing multiple properties."
     )]
     public partial class StartSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {

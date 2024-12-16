@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
     [AWSCmdlet("Calls the AWS IoT Things Graph UploadEntityDefinitions API operation.", Operation = new[] {"UploadEntityDefinitions"}, SelectReturnType = typeof(Amazon.IoTThingsGraph.Model.UploadEntityDefinitionsResponse))]
     [AWSCmdletOutput("System.String or Amazon.IoTThingsGraph.Model.UploadEntityDefinitionsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.IoTThingsGraph.Model.UploadEntityDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoTThingsGraph.Model.UploadEntityDefinitionsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("since: 2022-08-30")]
     public partial class SetIOTTGEntityDefinitionCmdlet : AmazonIoTThingsGraphClientCmdlet, IExecutor

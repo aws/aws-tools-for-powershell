@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync CreateDataSource API operation.", Operation = new[] {"CreateDataSource"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateDataSourceResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.DataSource or Amazon.AppSync.Model.CreateDataSourceResponse",
         "This cmdlet returns an Amazon.AppSync.Model.DataSource object.",
-        "The service call response (type Amazon.AppSync.Model.CreateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.CreateDataSourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewASYNDataSourceCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

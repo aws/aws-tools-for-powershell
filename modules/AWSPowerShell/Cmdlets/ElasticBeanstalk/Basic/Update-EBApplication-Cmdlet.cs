@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription or Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse",
         "This cmdlet returns an Amazon.ElasticBeanstalk.Model.ApplicationDescription object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

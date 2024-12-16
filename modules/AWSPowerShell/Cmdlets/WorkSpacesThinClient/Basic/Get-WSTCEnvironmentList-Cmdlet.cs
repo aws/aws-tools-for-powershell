@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
     [AWSCmdlet("Calls the Amazon WorkSpaces Thin Client ListEnvironments API operation.", Operation = new[] {"ListEnvironments"}, SelectReturnType = typeof(Amazon.WorkSpacesThinClient.Model.ListEnvironmentsResponse))]
     [AWSCmdletOutput("Amazon.WorkSpacesThinClient.Model.EnvironmentSummary or Amazon.WorkSpacesThinClient.Model.ListEnvironmentsResponse",
         "This cmdlet returns a collection of Amazon.WorkSpacesThinClient.Model.EnvironmentSummary objects.",
-        "The service call response (type Amazon.WorkSpacesThinClient.Model.ListEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpacesThinClient.Model.ListEnvironmentsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWSTCEnvironmentListCmdlet : AmazonWorkSpacesThinClientClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     [AWSCmdlet("Calls the Amazon Elastic Container Registry Public TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.ECRPublic.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ECRPublic.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ECRPublic.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddECRPResourceTagCmdlet : AmazonECRPublicClientCmdlet, IExecutor
     {

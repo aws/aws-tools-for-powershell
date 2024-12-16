@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Calls the Amazon CloudFront DeleteKeyGroup API operation.", Operation = new[] {"DeleteKeyGroup"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteKeyGroupResponse))]
     [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteKeyGroupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudFront.Model.DeleteKeyGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFront.Model.DeleteKeyGroupResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCFKeyGroupCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     [AWSCmdlet("Calls the M2 ListEngineVersions API operation.", Operation = new[] {"ListEngineVersions"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.ListEngineVersionsResponse))]
     [AWSCmdletOutput("Amazon.MainframeModernization.Model.EngineVersionsSummary or Amazon.MainframeModernization.Model.ListEngineVersionsResponse",
         "This cmdlet returns a collection of Amazon.MainframeModernization.Model.EngineVersionsSummary objects.",
-        "The service call response (type Amazon.MainframeModernization.Model.ListEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MainframeModernization.Model.ListEngineVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAMMEngineVersionListCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
     {

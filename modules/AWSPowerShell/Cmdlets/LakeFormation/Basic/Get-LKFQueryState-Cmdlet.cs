@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     [OutputType("Amazon.LakeFormation.Model.GetQueryStateResponse")]
     [AWSCmdlet("Calls the AWS Lake Formation GetQueryState API operation.", Operation = new[] {"GetQueryState"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.GetQueryStateResponse))]
     [AWSCmdletOutput("Amazon.LakeFormation.Model.GetQueryStateResponse",
-        "This cmdlet returns an Amazon.LakeFormation.Model.GetQueryStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LakeFormation.Model.GetQueryStateResponse object containing multiple properties."
     )]
     public partial class GetLKFQueryStateCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {

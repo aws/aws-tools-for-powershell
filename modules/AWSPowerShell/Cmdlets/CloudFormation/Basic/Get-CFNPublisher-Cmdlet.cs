@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </para><para>
     /// For more information about registering as a publisher, see:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
-    /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
-    /// User Guide</i></para></li></ul>
+    /// extensions to make them available for public use</a> in the <i>CloudFormation Command
+    /// Line Interface (CLI) User Guide</i></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CFNPublisher")]
     [OutputType("Amazon.CloudFormation.Model.DescribePublisherResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribePublisher API operation.", Operation = new[] {"DescribePublisher"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribePublisherResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribePublisherResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribePublisherResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribePublisherResponse object containing multiple properties."
     )]
     public partial class GetCFNPublisherCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {

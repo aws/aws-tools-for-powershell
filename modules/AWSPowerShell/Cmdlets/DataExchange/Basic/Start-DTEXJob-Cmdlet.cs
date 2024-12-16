@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     [AWSCmdlet("Calls the AWS Data Exchange StartJob API operation.", Operation = new[] {"StartJob"}, SelectReturnType = typeof(Amazon.DataExchange.Model.StartJobResponse))]
     [AWSCmdletOutput("None or Amazon.DataExchange.Model.StartJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.StartJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataExchange.Model.StartJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class StartDTEXJobCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
     {

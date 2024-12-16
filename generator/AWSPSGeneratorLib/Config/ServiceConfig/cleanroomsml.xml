@@ -18,11 +18,35 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelTrainedModel" Verb="Stop" Noun="TrainedModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelTrainedModelInferenceJob" Verb="Stop" Noun="TrainedModelInferenceJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAudienceModel" OutputProperty="AudienceModelArn" Verb="New" Noun="AudienceModel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConfiguredAudienceModel" OutputProperty="ConfiguredAudienceModelArn" Verb="New" Noun="ConfiguredAudienceModel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredModelAlgorithm" OutputProperty="ConfiguredModelAlgorithmArn" Verb="New" Noun="ConfiguredModelAlgorithm" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredModelAlgorithmAssociation" OutputProperty="ConfiguredModelAlgorithmAssociationArn" Verb="New" Noun="ConfiguredModelAlgorithmAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMLInputChannel" OutputProperty="MlInputChannelArn" Verb="New" Noun="MLInputChannel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainedModel" OutputProperty="TrainedModelArn" Verb="New" Noun="TrainedModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -46,6 +70,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredModelAlgorithm" Verb="Remove" Noun="ConfiguredModelAlgorithm" ShouldProcessTarget="ConfiguredModelAlgorithmArn" PipelineParameter="ConfiguredModelAlgorithmArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredModelAlgorithmAssociation" Verb="Remove" Noun="ConfiguredModelAlgorithmAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMLConfiguration" Verb="Remove" Noun="MLConfiguration" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMLInputChannelData" Verb="Remove" Noun="MLInputChannelData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrainedModelOutput" Verb="Remove" Noun="TrainedModelOutput" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrainingDataset" Verb="Remove" Noun="TrainingDataset" ShouldProcessTarget="TrainingDatasetArn" PipelineParameter="TrainingDatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,11 +102,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationConfiguredModelAlgorithmAssociation" OutputProperty="*" Verb="Get" Noun="CollaborationConfiguredModelAlgorithmAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationMLInputChannel" OutputProperty="*" Verb="Get" Noun="CollaborationMLInputChannel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationTrainedModel" OutputProperty="*" Verb="Get" Noun="CollaborationTrainedModel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfiguredAudienceModel" OutputProperty="*" Verb="Get" Noun="ConfiguredAudienceModel" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConfiguredAudienceModelPolicy" OutputProperty="*" Verb="Get" Noun="ConfiguredAudienceModelPolicy" PipelineParameter="ConfiguredAudienceModelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredModelAlgorithm" OutputProperty="*" Verb="Get" Noun="ConfiguredModelAlgorithm" PipelineParameter="ConfiguredModelAlgorithmArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredModelAlgorithmAssociation" OutputProperty="*" Verb="Get" Noun="ConfiguredModelAlgorithmAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLConfiguration" OutputProperty="*" Verb="Get" Noun="MLConfiguration" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLInputChannel" OutputProperty="*" Verb="Get" Noun="MLInputChannel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrainedModel" OutputProperty="*" Verb="Get" Noun="TrainedModel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrainedModelInferenceJob" OutputProperty="*" Verb="Get" Noun="TrainedModelInferenceJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,11 +162,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationConfiguredModelAlgorithmAssociations" OutputProperty="CollaborationConfiguredModelAlgorithmAssociations" Verb="Get" Noun="CollaborationConfiguredModelAlgorithmAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationMLInputChannels" OutputProperty="CollaborationMLInputChannelsList" Verb="Get" Noun="CollaborationMLInputChannelList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationTrainedModelExportJobs" OutputProperty="CollaborationTrainedModelExportJobs" Verb="Get" Noun="CollaborationTrainedModelExportJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationTrainedModelInferenceJobs" OutputProperty="CollaborationTrainedModelInferenceJobs" Verb="Get" Noun="CollaborationTrainedModelInferenceJobList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationTrainedModels" OutputProperty="CollaborationTrainedModels" Verb="Get" Noun="CollaborationTrainedModelList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConfiguredAudienceModels" OutputProperty="ConfiguredAudienceModels" Verb="Get" Noun="ConfiguredAudienceModelList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredModelAlgorithmAssociations" OutputProperty="ConfiguredModelAlgorithmAssociations" Verb="Get" Noun="ConfiguredModelAlgorithmAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredModelAlgorithms" OutputProperty="ConfiguredModelAlgorithms" Verb="Get" Noun="ConfiguredModelAlgorithmList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMLInputChannels" OutputProperty="MlInputChannelsList" Verb="Get" Noun="MLInputChannelList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainedModelInferenceJobs" OutputProperty="TrainedModelInferenceJobs" Verb="Get" Noun="TrainedModelInferenceJobList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainedModels" OutputProperty="TrainedModels" Verb="Get" Noun="TrainedModelList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -98,11 +218,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutMLConfiguration" Verb="Write" Noun="MLConfiguration" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartAudienceExportJob" Verb="Start" Noun="AudienceExportJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAudienceGenerationJob" OutputProperty="AudienceGenerationJobArn" Verb="Start" Noun="AudienceGenerationJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrainedModelExportJob" Verb="Start" Noun="TrainedModelExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrainedModelInferenceJob" OutputProperty="TrainedModelInferenceJobArn" Verb="Start" Noun="TrainedModelInferenceJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

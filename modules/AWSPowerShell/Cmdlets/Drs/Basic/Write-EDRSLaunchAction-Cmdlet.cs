@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [OutputType("Amazon.Drs.Model.PutLaunchActionResponse")]
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service PutLaunchAction API operation.", Operation = new[] {"PutLaunchAction"}, SelectReturnType = typeof(Amazon.Drs.Model.PutLaunchActionResponse))]
     [AWSCmdletOutput("Amazon.Drs.Model.PutLaunchActionResponse",
-        "This cmdlet returns an Amazon.Drs.Model.PutLaunchActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Drs.Model.PutLaunchActionResponse object containing multiple properties."
     )]
     public partial class WriteEDRSLaunchActionCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

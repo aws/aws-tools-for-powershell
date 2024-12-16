@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Calls the Amazon Route 53 GetReusableDelegationSet API operation.", Operation = new[] {"GetReusableDelegationSet"}, SelectReturnType = typeof(Amazon.Route53.Model.GetReusableDelegationSetResponse))]
     [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet or Amazon.Route53.Model.GetReusableDelegationSetResponse",
         "This cmdlet returns an Amazon.Route53.Model.DelegationSet object.",
-        "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

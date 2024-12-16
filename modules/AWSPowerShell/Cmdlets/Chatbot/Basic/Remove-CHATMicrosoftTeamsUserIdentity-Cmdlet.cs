@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     [AWSCmdlet("Calls the AWS Chatbot DeleteMicrosoftTeamsUserIdentity API operation.", Operation = new[] {"DeleteMicrosoftTeamsUserIdentity"}, SelectReturnType = typeof(Amazon.Chatbot.Model.DeleteMicrosoftTeamsUserIdentityResponse))]
     [AWSCmdletOutput("None or Amazon.Chatbot.Model.DeleteMicrosoftTeamsUserIdentityResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.DeleteMicrosoftTeamsUserIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.DeleteMicrosoftTeamsUserIdentityResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCHATMicrosoftTeamsUserIdentityCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {

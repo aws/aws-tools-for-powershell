@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Supported instance types
     /// </para><ul><li><para><c>hpc6a.48xlarge</c> | <c>hpc6id.32xlarge</c> | <c>hpc7a.12xlarge</c> | <c>hpc7a.24xlarge</c>
     /// | <c>hpc7a.48xlarge</c> | <c>hpc7a.96xlarge</c> | <c>hpc7g.4xlarge</c> | <c>hpc7g.8xlarge</c>
-    /// | <c>hpc7g.16xlarge</c></para></li><li><para><c>p3dn.24xlarge</c> | <c>p4d.24xlarge</c> | <c>p4de.24xlarge</c> | <c>p5.48xlarge</c></para></li><li><para><c>trn1.2xlarge</c> | <c>trn1.32xlarge</c> | <c>trn1n.32xlarge</c></para></li></ul></li></ul><para>
+    /// | <c>hpc7g.16xlarge</c></para></li><li><para><c>p3dn.24xlarge</c> | <c>p4d.24xlarge</c> | <c>p4de.24xlarge</c> | <c>p5.48xlarge</c>
+    /// | <c>p5e.48xlarge</c></para></li><li><para><c>trn1.2xlarge</c> | <c>trn1.32xlarge</c> | <c>trn1n.32xlarge</c></para></li></ul></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-topology.html">Amazon
     /// EC2 instance topology</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeInstanceTopology API operation.", Operation = new[] {"DescribeInstanceTopology"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeInstanceTopologyResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceTopology or Amazon.EC2.Model.DescribeInstanceTopologyResponse",
         "This cmdlet returns a collection of Amazon.EC2.Model.InstanceTopology objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeInstanceTopologyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceTopologyResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2InstanceTopologyCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -119,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

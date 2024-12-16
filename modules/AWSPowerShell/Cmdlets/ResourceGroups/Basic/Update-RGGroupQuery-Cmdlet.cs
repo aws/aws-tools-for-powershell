@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
     [AWSCmdlet("Calls the AWS Resource Groups UpdateGroupQuery API operation.", Operation = new[] {"UpdateGroupQuery"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateGroupQueryResponse))]
     [AWSCmdletOutput("Amazon.ResourceGroups.Model.GroupQuery or Amazon.ResourceGroups.Model.UpdateGroupQueryResponse",
         "This cmdlet returns an Amazon.ResourceGroups.Model.GroupQuery object.",
-        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateGroupQueryResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRGGroupQueryCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to query.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group to query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

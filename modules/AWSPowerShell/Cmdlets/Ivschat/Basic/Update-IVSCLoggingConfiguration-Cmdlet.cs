@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     [OutputType("Amazon.Ivschat.Model.UpdateLoggingConfigurationResponse")]
     [AWSCmdlet("Calls the Amazon Interactive Video Service Chat UpdateLoggingConfiguration API operation.", Operation = new[] {"UpdateLoggingConfiguration"}, SelectReturnType = typeof(Amazon.Ivschat.Model.UpdateLoggingConfigurationResponse))]
     [AWSCmdletOutput("Amazon.Ivschat.Model.UpdateLoggingConfigurationResponse",
-        "This cmdlet returns an Amazon.Ivschat.Model.UpdateLoggingConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Ivschat.Model.UpdateLoggingConfigurationResponse object containing multiple properties."
     )]
     public partial class UpdateIVSCLoggingConfigurationCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {

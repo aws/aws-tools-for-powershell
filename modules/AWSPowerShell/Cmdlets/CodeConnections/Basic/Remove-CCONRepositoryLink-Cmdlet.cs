@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     [AWSCmdlet("Calls the AWS CodeConnections DeleteRepositoryLink API operation.", Operation = new[] {"DeleteRepositoryLink"}, SelectReturnType = typeof(Amazon.CodeConnections.Model.DeleteRepositoryLinkResponse))]
     [AWSCmdletOutput("None or Amazon.CodeConnections.Model.DeleteRepositoryLinkResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeConnections.Model.DeleteRepositoryLinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeConnections.Model.DeleteRepositoryLinkResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCCONRepositoryLinkCmdlet : AmazonCodeConnectionsClientCmdlet, IExecutor
     {

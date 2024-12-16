@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     [AWSCmdlet("Calls the Amazon ApplicationCostProfiler ImportApplicationUsage API operation.", Operation = new[] {"ImportApplicationUsage"}, SelectReturnType = typeof(Amazon.ApplicationCostProfiler.Model.ImportApplicationUsageResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationCostProfiler.Model.ImportApplicationUsageResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationCostProfiler.Model.ImportApplicationUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationCostProfiler.Model.ImportApplicationUsageResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ImportACPApplicationUsageCmdlet : AmazonApplicationCostProfilerClientCmdlet, IExecutor
     {

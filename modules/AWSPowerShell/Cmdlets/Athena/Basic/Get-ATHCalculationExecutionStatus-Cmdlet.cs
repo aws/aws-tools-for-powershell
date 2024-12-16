@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     [OutputType("Amazon.Athena.Model.GetCalculationExecutionStatusResponse")]
     [AWSCmdlet("Calls the Amazon Athena GetCalculationExecutionStatus API operation.", Operation = new[] {"GetCalculationExecutionStatus"}, SelectReturnType = typeof(Amazon.Athena.Model.GetCalculationExecutionStatusResponse))]
     [AWSCmdletOutput("Amazon.Athena.Model.GetCalculationExecutionStatusResponse",
-        "This cmdlet returns an Amazon.Athena.Model.GetCalculationExecutionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Athena.Model.GetCalculationExecutionStatusResponse object containing multiple properties."
     )]
     public partial class GetATHCalculationExecutionStatusCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {

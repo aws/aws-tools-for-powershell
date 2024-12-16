@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     [OutputType("Amazon.DataZone.Model.DeleteSubscriptionGrantResponse")]
     [AWSCmdlet("Calls the Amazon DataZone DeleteSubscriptionGrant API operation.", Operation = new[] {"DeleteSubscriptionGrant"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteSubscriptionGrantResponse))]
     [AWSCmdletOutput("Amazon.DataZone.Model.DeleteSubscriptionGrantResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.DeleteSubscriptionGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DataZone.Model.DeleteSubscriptionGrantResponse object containing multiple properties."
     )]
     public partial class RemoveDZSubscriptionGrantCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {

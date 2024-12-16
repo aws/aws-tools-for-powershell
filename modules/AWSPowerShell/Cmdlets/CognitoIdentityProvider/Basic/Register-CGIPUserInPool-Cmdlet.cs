@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [OutputType("Amazon.CognitoIdentityProvider.Model.SignUpResponse")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider SignUp API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"SignUp"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.SignUpResponse))]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.SignUpResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.SignUpResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.SignUpResponse object containing multiple properties."
     )]
     public partial class RegisterCGIPUserInPoolCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {

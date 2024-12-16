@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     [AWSCmdlet("Calls the AWS Control Tower GetLandingZoneOperation API operation.", Operation = new[] {"GetLandingZoneOperation"}, SelectReturnType = typeof(Amazon.ControlTower.Model.GetLandingZoneOperationResponse))]
     [AWSCmdletOutput("Amazon.ControlTower.Model.LandingZoneOperationDetail or Amazon.ControlTower.Model.GetLandingZoneOperationResponse",
         "This cmdlet returns an Amazon.ControlTower.Model.LandingZoneOperationDetail object.",
-        "The service call response (type Amazon.ControlTower.Model.GetLandingZoneOperationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ControlTower.Model.GetLandingZoneOperationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetACTLandingZoneOperationCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {

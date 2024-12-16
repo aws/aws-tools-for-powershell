@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
     [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.KendraRanking.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KendraRanking.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KendraRanking.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveKNRKResourceTagCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {

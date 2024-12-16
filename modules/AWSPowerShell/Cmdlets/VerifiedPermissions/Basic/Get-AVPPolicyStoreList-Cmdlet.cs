@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     [AWSCmdlet("Calls the Amazon Verified Permissions ListPolicyStores API operation.", Operation = new[] {"ListPolicyStores"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.ListPolicyStoresResponse))]
     [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.PolicyStoreItem or Amazon.VerifiedPermissions.Model.ListPolicyStoresResponse",
         "This cmdlet returns a collection of Amazon.VerifiedPermissions.Model.PolicyStoreItem objects.",
-        "The service call response (type Amazon.VerifiedPermissions.Model.ListPolicyStoresResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.VerifiedPermissions.Model.ListPolicyStoresResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetAVPPolicyStoreListCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {

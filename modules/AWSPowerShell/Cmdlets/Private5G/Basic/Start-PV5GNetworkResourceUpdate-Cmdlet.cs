@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     [AWSCmdlet("Calls the AWS Private 5G StartNetworkResourceUpdate API operation.", Operation = new[] {"StartNetworkResourceUpdate"}, SelectReturnType = typeof(Amazon.Private5G.Model.StartNetworkResourceUpdateResponse))]
     [AWSCmdletOutput("Amazon.Private5G.Model.NetworkResource or Amazon.Private5G.Model.StartNetworkResourceUpdateResponse",
         "This cmdlet returns an Amazon.Private5G.Model.NetworkResource object.",
-        "The service call response (type Amazon.Private5G.Model.StartNetworkResourceUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Private5G.Model.StartNetworkResourceUpdateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartPV5GNetworkResourceUpdateCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {

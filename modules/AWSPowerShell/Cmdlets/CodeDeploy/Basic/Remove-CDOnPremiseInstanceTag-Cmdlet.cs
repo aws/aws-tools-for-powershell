@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Calls the AWS CodeDeploy RemoveTagsFromOnPremisesInstances API operation.", Operation = new[] {"RemoveTagsFromOnPremisesInstances"}, SelectReturnType = typeof(Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse))]
     [AWSCmdletOutput("None or Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

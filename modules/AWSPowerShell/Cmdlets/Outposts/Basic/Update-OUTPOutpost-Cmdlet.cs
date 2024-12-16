@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     [AWSCmdlet("Calls the AWS Outposts UpdateOutpost API operation.", Operation = new[] {"UpdateOutpost"}, SelectReturnType = typeof(Amazon.Outposts.Model.UpdateOutpostResponse))]
     [AWSCmdletOutput("Amazon.Outposts.Model.Outpost or Amazon.Outposts.Model.UpdateOutpostResponse",
         "This cmdlet returns an Amazon.Outposts.Model.Outpost object.",
-        "The service call response (type Amazon.Outposts.Model.UpdateOutpostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Outposts.Model.UpdateOutpostResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateOUTPOutpostCmdlet : AmazonOutpostsClientCmdlet, IExecutor
     {

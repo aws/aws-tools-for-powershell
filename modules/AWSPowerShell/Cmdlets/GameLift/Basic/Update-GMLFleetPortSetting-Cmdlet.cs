@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdlet("Calls the Amazon GameLift Service UpdateFleetPortSettings API operation.", Operation = new[] {"UpdateFleetPortSettings"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateFleetPortSettingsResponse))]
     [AWSCmdletOutput("System.String or Amazon.GameLift.Model.UpdateFleetPortSettingsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GameLift.Model.UpdateFleetPortSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GameLift.Model.UpdateFleetPortSettingsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGMLFleetPortSettingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {

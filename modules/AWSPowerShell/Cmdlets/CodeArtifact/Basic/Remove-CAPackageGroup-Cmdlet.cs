@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     [AWSCmdlet("Calls the AWS CodeArtifact DeletePackageGroup API operation.", Operation = new[] {"DeletePackageGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DeletePackageGroupResponse))]
     [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageGroupDescription or Amazon.CodeArtifact.Model.DeletePackageGroupResponse",
         "This cmdlet returns an Amazon.CodeArtifact.Model.PackageGroupDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DeletePackageGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeArtifact.Model.DeletePackageGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveCAPackageGroupCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {

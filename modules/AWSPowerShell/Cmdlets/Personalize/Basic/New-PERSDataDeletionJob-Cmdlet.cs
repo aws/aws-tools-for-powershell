@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     [AWSCmdlet("Calls the AWS Personalize CreateDataDeletionJob API operation.", Operation = new[] {"CreateDataDeletionJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateDataDeletionJobResponse))]
     [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateDataDeletionJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.CreateDataDeletionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.CreateDataDeletionJobResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewPERSDataDeletionJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {

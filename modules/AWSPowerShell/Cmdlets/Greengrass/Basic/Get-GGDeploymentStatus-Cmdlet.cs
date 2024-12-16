@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     [OutputType("Amazon.Greengrass.Model.GetDeploymentStatusResponse")]
     [AWSCmdlet("Calls the AWS Greengrass GetDeploymentStatus API operation.", Operation = new[] {"GetDeploymentStatus"}, SelectReturnType = typeof(Amazon.Greengrass.Model.GetDeploymentStatusResponse))]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetDeploymentStatusResponse",
-        "This cmdlet returns an Amazon.Greengrass.Model.GetDeploymentStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Greengrass.Model.GetDeploymentStatusResponse object containing multiple properties."
     )]
     public partial class GetGGDeploymentStatusCmdlet : AmazonGreengrassClientCmdlet, IExecutor
     {

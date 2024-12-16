@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     [AWSCmdlet("Calls the AWS Glue CreateUserDefinedFunction API operation.", Operation = new[] {"CreateUserDefinedFunction"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateUserDefinedFunctionResponse))]
     [AWSCmdletOutput("None or Amazon.Glue.Model.CreateUserDefinedFunctionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateUserDefinedFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Glue.Model.CreateUserDefinedFunctionResponse) be returned by specifying '-Select *'."
     )]
     public partial class NewGLUEUserDefinedFunctionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {

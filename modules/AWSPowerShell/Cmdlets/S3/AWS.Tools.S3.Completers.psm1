@@ -345,6 +345,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.TransitionDefaultMinimumObjectSize
+        "Write-S3LifecycleConfiguration/TransitionDefaultMinimumObjectSize"
+        {
+            $v = "all_storage_classes_128K","varies_by_storage_class"
+            break
+        }
+
         # Amazon.S3.VersionStatus
         "Write-S3BucketVersioning/VersioningConfig_Status"
         {
@@ -398,6 +405,7 @@ $S3_map = @{
     "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
     "StorageClass"=@("Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
+    "TransitionDefaultMinimumObjectSize"=@("Write-S3LifecycleConfiguration")
     "VersioningConfig_Status"=@("Write-S3BucketVersioning")
 }
 

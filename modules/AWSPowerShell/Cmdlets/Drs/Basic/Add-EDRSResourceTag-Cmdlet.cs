@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdlet("Calls the Elastic Disaster Recovery Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Drs.Model.TagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.Drs.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Drs.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Drs.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class AddEDRSResourceTagCmdlet : AmazonDrsClientCmdlet, IExecutor
     {

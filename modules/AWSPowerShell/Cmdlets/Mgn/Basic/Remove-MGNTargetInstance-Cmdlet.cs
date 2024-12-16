@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service TerminateTargetInstances API operation.", Operation = new[] {"TerminateTargetInstances"}, SelectReturnType = typeof(Amazon.Mgn.Model.TerminateTargetInstancesResponse))]
     [AWSCmdletOutput("Amazon.Mgn.Model.Job or Amazon.Mgn.Model.TerminateTargetInstancesResponse",
         "This cmdlet returns an Amazon.Mgn.Model.Job object.",
-        "The service call response (type Amazon.Mgn.Model.TerminateTargetInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.TerminateTargetInstancesResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveMGNTargetInstanceCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

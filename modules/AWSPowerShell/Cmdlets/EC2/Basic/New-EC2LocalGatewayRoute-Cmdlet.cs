@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateLocalGatewayRoute API operation.", Operation = new[] {"CreateLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateLocalGatewayRouteResponse))]
     [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.CreateLocalGatewayRouteResponse",
         "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
-        "The service call response (type Amazon.EC2.Model.CreateLocalGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateLocalGatewayRouteResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewEC2LocalGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

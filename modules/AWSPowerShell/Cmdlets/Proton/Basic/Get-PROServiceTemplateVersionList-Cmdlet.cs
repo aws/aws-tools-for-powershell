@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     [AWSCmdlet("Calls the AWS Proton ListServiceTemplateVersions API operation.", Operation = new[] {"ListServiceTemplateVersions"}, SelectReturnType = typeof(Amazon.Proton.Model.ListServiceTemplateVersionsResponse))]
     [AWSCmdletOutput("Amazon.Proton.Model.ServiceTemplateVersionSummary or Amazon.Proton.Model.ListServiceTemplateVersionsResponse",
         "This cmdlet returns a collection of Amazon.Proton.Model.ServiceTemplateVersionSummary objects.",
-        "The service call response (type Amazon.Proton.Model.ListServiceTemplateVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Proton.Model.ListServiceTemplateVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPROServiceTemplateVersionListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {

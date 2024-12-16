@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     [AWSCmdlet("Calls the OpenSearch Serverless DeleteVpcEndpoint API operation.", Operation = new[] {"DeleteVpcEndpoint"}, SelectReturnType = typeof(Amazon.OpenSearchServerless.Model.DeleteVpcEndpointResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchServerless.Model.DeleteVpcEndpointDetail or Amazon.OpenSearchServerless.Model.DeleteVpcEndpointResponse",
         "This cmdlet returns an Amazon.OpenSearchServerless.Model.DeleteVpcEndpointDetail object.",
-        "The service call response (type Amazon.OpenSearchServerless.Model.DeleteVpcEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchServerless.Model.DeleteVpcEndpointResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveOSSVpcEndpointCmdlet : AmazonOpenSearchServerlessClientCmdlet, IExecutor
     {

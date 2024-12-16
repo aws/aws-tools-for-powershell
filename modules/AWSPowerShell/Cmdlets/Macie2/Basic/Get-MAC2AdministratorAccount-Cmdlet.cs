@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [AWSCmdlet("Calls the Amazon Macie 2 GetAdministratorAccount API operation.", Operation = new[] {"GetAdministratorAccount"}, SelectReturnType = typeof(Amazon.Macie2.Model.GetAdministratorAccountResponse))]
     [AWSCmdletOutput("Amazon.Macie2.Model.Invitation or Amazon.Macie2.Model.GetAdministratorAccountResponse",
         "This cmdlet returns an Amazon.Macie2.Model.Invitation object.",
-        "The service call response (type Amazon.Macie2.Model.GetAdministratorAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Macie2.Model.GetAdministratorAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMAC2AdministratorAccountCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {

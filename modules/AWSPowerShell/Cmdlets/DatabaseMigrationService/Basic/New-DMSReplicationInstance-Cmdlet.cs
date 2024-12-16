@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     [AWSCmdlet("Calls the AWS Database Migration Service CreateReplicationInstance API operation.", Operation = new[] {"CreateReplicationInstance"}, SelectReturnType = typeof(Amazon.DatabaseMigrationService.Model.CreateReplicationInstanceResponse))]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationInstance or Amazon.DatabaseMigrationService.Model.CreateReplicationInstanceResponse",
         "This cmdlet returns an Amazon.DatabaseMigrationService.Model.ReplicationInstance object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateReplicationInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateReplicationInstanceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDMSReplicationInstanceCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {

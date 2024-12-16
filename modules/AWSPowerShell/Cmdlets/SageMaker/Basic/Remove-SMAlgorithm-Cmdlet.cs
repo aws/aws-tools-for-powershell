@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteAlgorithm API operation.", Operation = new[] {"DeleteAlgorithm"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteAlgorithmResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteAlgorithmResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteAlgorithmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteAlgorithmResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMAlgorithmCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

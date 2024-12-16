@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     [AWSCmdlet("Calls the AWS Elemental MediaTailor DeleteLiveSource API operation.", Operation = new[] {"DeleteLiveSource"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.DeleteLiveSourceResponse))]
     [AWSCmdletOutput("None or Amazon.MediaTailor.Model.DeleteLiveSourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MediaTailor.Model.DeleteLiveSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaTailor.Model.DeleteLiveSourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEMTLiveSourceCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
     {

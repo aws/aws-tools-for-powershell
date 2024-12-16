@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     [AWSCmdlet("Calls the AWS GreengrassV2 BatchAssociateClientDeviceWithCoreDevice API operation.", Operation = new[] {"BatchAssociateClientDeviceWithCoreDevice"}, SelectReturnType = typeof(Amazon.GreengrassV2.Model.BatchAssociateClientDeviceWithCoreDeviceResponse))]
     [AWSCmdletOutput("Amazon.GreengrassV2.Model.AssociateClientDeviceWithCoreDeviceErrorEntry or Amazon.GreengrassV2.Model.BatchAssociateClientDeviceWithCoreDeviceResponse",
         "This cmdlet returns a collection of Amazon.GreengrassV2.Model.AssociateClientDeviceWithCoreDeviceErrorEntry objects.",
-        "The service call response (type Amazon.GreengrassV2.Model.BatchAssociateClientDeviceWithCoreDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GreengrassV2.Model.BatchAssociateClientDeviceWithCoreDeviceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class AddGGV2BatchClientDeviceWithCoreDeviceCmdlet : AmazonGreengrassV2ClientCmdlet, IExecutor
     {

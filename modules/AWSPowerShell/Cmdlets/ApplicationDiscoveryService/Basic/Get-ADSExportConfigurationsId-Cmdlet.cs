@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     [AWSCmdlet("Calls the AWS Application Discovery Service ExportConfigurations API operation.", Operation = new[] {"ExportConfigurations"}, SelectReturnType = typeof(Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse))]
     [AWSCmdletOutput("System.String or Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("Deprecated in favor of StartExportTask.")]
     public partial class GetADSExportConfigurationsIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor

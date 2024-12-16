@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     [AWSCmdlet("Calls the Amazon SES Mail Manager ListArchiveExports API operation.", Operation = new[] {"ListArchiveExports"}, SelectReturnType = typeof(Amazon.MailManager.Model.ListArchiveExportsResponse))]
     [AWSCmdletOutput("Amazon.MailManager.Model.ExportSummary or Amazon.MailManager.Model.ListArchiveExportsResponse",
         "This cmdlet returns a collection of Amazon.MailManager.Model.ExportSummary objects.",
-        "The service call response (type Amazon.MailManager.Model.ListArchiveExportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MailManager.Model.ListArchiveExportsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMMGRArchiveExportListCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Calls the Amazon Inspector CreateResourceGroup API operation.", Operation = new[] {"CreateResourceGroup"}, SelectReturnType = typeof(Amazon.Inspector.Model.CreateResourceGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.Inspector.Model.CreateResourceGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Inspector.Model.CreateResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.CreateResourceGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {

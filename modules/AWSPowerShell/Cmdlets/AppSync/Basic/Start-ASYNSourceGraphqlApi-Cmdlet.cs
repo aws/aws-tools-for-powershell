@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     [AWSCmdlet("Calls the AWS AppSync AssociateSourceGraphqlApi API operation.", Operation = new[] {"AssociateSourceGraphqlApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.AssociateSourceGraphqlApiResponse))]
     [AWSCmdletOutput("Amazon.AppSync.Model.SourceApiAssociation or Amazon.AppSync.Model.AssociateSourceGraphqlApiResponse",
         "This cmdlet returns an Amazon.AppSync.Model.SourceApiAssociation object.",
-        "The service call response (type Amazon.AppSync.Model.AssociateSourceGraphqlApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AppSync.Model.AssociateSourceGraphqlApiResponse) can be returned by specifying '-Select *'."
     )]
     public partial class StartASYNSourceGraphqlApiCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {

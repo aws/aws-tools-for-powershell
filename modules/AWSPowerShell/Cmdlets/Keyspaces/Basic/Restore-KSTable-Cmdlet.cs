@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     [AWSCmdlet("Calls the Amazon Keyspaces RestoreTable API operation.", Operation = new[] {"RestoreTable"}, SelectReturnType = typeof(Amazon.Keyspaces.Model.RestoreTableResponse))]
     [AWSCmdletOutput("System.String or Amazon.Keyspaces.Model.RestoreTableResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Keyspaces.Model.RestoreTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Keyspaces.Model.RestoreTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RestoreKSTableCmdlet : AmazonKeyspacesClientCmdlet, IExecutor
     {

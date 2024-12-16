@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     [AWSCmdlet("Calls the Application Migration Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Mgn.Model.ListTagsForResourceResponse))]
     [AWSCmdletOutput("System.String or Amazon.Mgn.Model.ListTagsForResourceResponse",
         "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.Mgn.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Mgn.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetMGNResourceTagCmdlet : AmazonMgnClientCmdlet, IExecutor
     {

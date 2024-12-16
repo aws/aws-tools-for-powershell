@@ -28,23 +28,15 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of component build versions for the specified semantic version.
-    /// 
-    ///  <note><para>
-    /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
-    /// You can assign values for the first three, and can filter on all of them.
-    /// </para><para><b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards
-    /// (x) to specify the most recent versions or nodes when selecting the base image or
-    /// components for your recipe. When you use a wildcard in any node, all nodes to the
-    /// right of the first wildcard must also be wildcards.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of component build versions for the specified component version Amazon
+    /// Resource Name (ARN).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IBComponentBuildVersionList")]
     [OutputType("Amazon.Imagebuilder.Model.ComponentSummary")]
     [AWSCmdlet("Calls the EC2 Image Builder ListComponentBuildVersions API operation.", Operation = new[] {"ListComponentBuildVersions"}, SelectReturnType = typeof(Amazon.Imagebuilder.Model.ListComponentBuildVersionsResponse))]
     [AWSCmdletOutput("Amazon.Imagebuilder.Model.ComponentSummary or Amazon.Imagebuilder.Model.ListComponentBuildVersionsResponse",
         "This cmdlet returns a collection of Amazon.Imagebuilder.Model.ComponentSummary objects.",
-        "The service call response (type Amazon.Imagebuilder.Model.ListComponentBuildVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Imagebuilder.Model.ListComponentBuildVersionsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2IBComponentBuildVersionListCmdlet : AmazonImagebuilderClientCmdlet, IExecutor
     {
@@ -87,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

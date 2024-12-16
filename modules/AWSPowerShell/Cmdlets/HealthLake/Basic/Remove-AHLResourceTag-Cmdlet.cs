@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     [AWSCmdlet("Calls the Amazon HealthLake UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.HealthLake.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.HealthLake.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.HealthLake.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.HealthLake.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAHLResourceTagCmdlet : AmazonHealthLakeClientCmdlet, IExecutor
     {

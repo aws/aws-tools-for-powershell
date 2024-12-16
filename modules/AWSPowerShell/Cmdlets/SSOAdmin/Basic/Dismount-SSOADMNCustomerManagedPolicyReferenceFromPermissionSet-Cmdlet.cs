@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
     [AWSCmdlet("Calls the AWS Single Sign-On Admin DetachCustomerManagedPolicyReferenceFromPermissionSet API operation.", Operation = new[] {"DetachCustomerManagedPolicyReferenceFromPermissionSet"}, SelectReturnType = typeof(Amazon.SSOAdmin.Model.DetachCustomerManagedPolicyReferenceFromPermissionSetResponse))]
     [AWSCmdletOutput("None or Amazon.SSOAdmin.Model.DetachCustomerManagedPolicyReferenceFromPermissionSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSOAdmin.Model.DetachCustomerManagedPolicyReferenceFromPermissionSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSOAdmin.Model.DetachCustomerManagedPolicyReferenceFromPermissionSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class DismountSSOADMNCustomerManagedPolicyReferenceFromPermissionSetCmdlet : AmazonSSOAdminClientCmdlet, IExecutor
     {

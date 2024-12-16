@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [OutputType("Amazon.APIGateway.Model.UpdateVpcLinkResponse")]
     [AWSCmdlet("Calls the Amazon API Gateway UpdateVpcLink API operation.", Operation = new[] {"UpdateVpcLink"}, SelectReturnType = typeof(Amazon.APIGateway.Model.UpdateVpcLinkResponse))]
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateVpcLinkResponse",
-        "This cmdlet returns an Amazon.APIGateway.Model.UpdateVpcLinkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.APIGateway.Model.UpdateVpcLinkResponse object containing multiple properties."
     )]
     public partial class UpdateAGVpcLinkCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {

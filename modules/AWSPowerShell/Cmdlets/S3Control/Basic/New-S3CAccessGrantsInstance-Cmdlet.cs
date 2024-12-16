@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     [OutputType("Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse")]
     [AWSCmdlet("Calls the Amazon S3 Control CreateAccessGrantsInstance API operation.", Operation = new[] {"CreateAccessGrantsInstance"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse))]
     [AWSCmdletOutput("Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse",
-        "This cmdlet returns an Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.S3Control.Model.CreateAccessGrantsInstanceResponse object containing multiple properties."
     )]
     public partial class NewS3CAccessGrantsInstanceCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {

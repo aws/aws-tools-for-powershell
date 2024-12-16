@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     [AWSCmdlet("Calls the Amazon Web Services AppFabric DeleteAppAuthorization API operation.", Operation = new[] {"DeleteAppAuthorization"}, SelectReturnType = typeof(Amazon.AppFabric.Model.DeleteAppAuthorizationResponse))]
     [AWSCmdletOutput("None or Amazon.AppFabric.Model.DeleteAppAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppFabric.Model.DeleteAppAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AppFabric.Model.DeleteAppAuthorizationResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveAFABAppAuthorizationCmdlet : AmazonAppFabricClientCmdlet, IExecutor
     {

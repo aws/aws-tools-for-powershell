@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     [AWSCmdlet("Calls the AWS CodeBuild DeleteWebhook API operation.", Operation = new[] {"DeleteWebhook"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.DeleteWebhookResponse))]
     [AWSCmdletOutput("None or Amazon.CodeBuild.Model.DeleteWebhookResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CodeBuild.Model.DeleteWebhookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeBuild.Model.DeleteWebhookResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {

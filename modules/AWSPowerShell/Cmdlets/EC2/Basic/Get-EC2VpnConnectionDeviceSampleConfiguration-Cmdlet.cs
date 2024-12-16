@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVpnConnectionDeviceSampleConfiguration API operation.", Operation = new[] {"GetVpnConnectionDeviceSampleConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse))]
     [AWSCmdletOutput("System.String or Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2VpnConnectionDeviceSampleConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

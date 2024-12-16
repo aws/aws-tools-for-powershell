@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     [AWSCmdlet("Calls the Amazon Lightsail DeleteCertificate API operation.", Operation = new[] {"DeleteCertificate"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteCertificateResponse))]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteCertificateResponse",
         "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lightsail.Model.DeleteCertificateResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveLSCertificateCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {

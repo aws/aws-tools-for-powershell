@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     [AWSCmdlet("Calls the Amazon Pinpoint GetUserEndpoints API operation.", Operation = new[] {"GetUserEndpoints"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetUserEndpointsResponse))]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.EndpointsResponse or Amazon.Pinpoint.Model.GetUserEndpointsResponse",
         "This cmdlet returns an Amazon.Pinpoint.Model.EndpointsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetUserEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Pinpoint.Model.GetUserEndpointsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetPINUserEndpointCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {

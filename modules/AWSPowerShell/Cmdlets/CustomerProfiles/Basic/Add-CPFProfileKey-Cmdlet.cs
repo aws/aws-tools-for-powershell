@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     [OutputType("Amazon.CustomerProfiles.Model.AddProfileKeyResponse")]
     [AWSCmdlet("Calls the Amazon Connect Customer Profiles AddProfileKey API operation.", Operation = new[] {"AddProfileKey"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.AddProfileKeyResponse))]
     [AWSCmdletOutput("Amazon.CustomerProfiles.Model.AddProfileKeyResponse",
-        "This cmdlet returns an Amazon.CustomerProfiles.Model.AddProfileKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CustomerProfiles.Model.AddProfileKeyResponse object containing multiple properties."
     )]
     public partial class AddCPFProfileKeyCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {

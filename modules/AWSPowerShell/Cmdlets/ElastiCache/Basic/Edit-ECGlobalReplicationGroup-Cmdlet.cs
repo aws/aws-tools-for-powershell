@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache ModifyGlobalReplicationGroup API operation.", Operation = new[] {"ModifyGlobalReplicationGroup"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.ModifyGlobalReplicationGroupResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.GlobalReplicationGroup or Amazon.ElastiCache.Model.ModifyGlobalReplicationGroupResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.GlobalReplicationGroup object.",
-        "The service call response (type Amazon.ElastiCache.Model.ModifyGlobalReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ModifyGlobalReplicationGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditECGlobalReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>Modifies the engine listed in a global replication group message. The options are
+        /// redis, memcached or valkey.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
         #endregion
         
         #region Parameter EngineVersion
@@ -182,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             context.CacheNodeType = this.CacheNodeType;
             context.CacheParameterGroupName = this.CacheParameterGroupName;
+            context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.GlobalReplicationGroupDescription = this.GlobalReplicationGroupDescription;
             context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
@@ -222,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheParameterGroupName != null)
             {
                 request.CacheParameterGroupName = cmdletContext.CacheParameterGroupName;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -300,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.String CacheNodeType { get; set; }
             public System.String CacheParameterGroupName { get; set; }
+            public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalReplicationGroupDescription { get; set; }
             public System.String GlobalReplicationGroupId { get; set; }

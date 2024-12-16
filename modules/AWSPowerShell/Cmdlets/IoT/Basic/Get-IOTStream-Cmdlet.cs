@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT DescribeStream API operation.", Operation = new[] {"DescribeStream"}, SelectReturnType = typeof(Amazon.IoT.Model.DescribeStreamResponse))]
     [AWSCmdletOutput("Amazon.IoT.Model.StreamInfo or Amazon.IoT.Model.DescribeStreamResponse",
         "This cmdlet returns an Amazon.IoT.Model.StreamInfo object.",
-        "The service call response (type Amazon.IoT.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeStreamResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetIOTStreamCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

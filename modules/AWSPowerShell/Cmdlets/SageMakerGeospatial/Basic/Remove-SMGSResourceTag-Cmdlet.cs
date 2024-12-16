@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     [AWSCmdlet("Calls the SageMaker Geospatial UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.SageMakerGeospatial.Model.UntagResourceResponse))]
     [AWSCmdletOutput("None or Amazon.SageMakerGeospatial.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMakerGeospatial.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMakerGeospatial.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMGSResourceTagCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {

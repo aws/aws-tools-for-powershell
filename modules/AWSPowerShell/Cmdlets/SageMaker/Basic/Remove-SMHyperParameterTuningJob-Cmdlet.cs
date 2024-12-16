@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHyperParameterTuningJob API operation.", Operation = new[] {"DeleteHyperParameterTuningJob"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse))]
     [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SageMaker.Model.DeleteHyperParameterTuningJobResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMHyperParameterTuningJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

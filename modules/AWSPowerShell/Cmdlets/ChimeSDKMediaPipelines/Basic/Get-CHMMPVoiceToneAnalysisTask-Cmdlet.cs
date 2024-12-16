@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetVoiceToneAnalysisTask API operation.", Operation = new[] {"GetVoiceToneAnalysisTask"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse))]
     [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.VoiceToneAnalysisTask or Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse",
         "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.VoiceToneAnalysisTask object.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetVoiceToneAnalysisTaskResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCHMMPVoiceToneAnalysisTaskCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {

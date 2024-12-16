@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     [AWSCmdlet("Calls the AWS Clean Rooms Service GetIdMappingTable API operation.", Operation = new[] {"GetIdMappingTable"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.GetIdMappingTableResponse))]
     [AWSCmdletOutput("Amazon.CleanRooms.Model.IdMappingTable or Amazon.CleanRooms.Model.GetIdMappingTableResponse",
         "This cmdlet returns an Amazon.CleanRooms.Model.IdMappingTable object.",
-        "The service call response (type Amazon.CleanRooms.Model.GetIdMappingTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CleanRooms.Model.GetIdMappingTableResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetCRSIdMappingTableCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {

@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns the inputs for the change set and a list of changes that CloudFormation will
-    /// make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating
-    /// Stacks Using Change Sets</a> in the <i>CloudFormation User Guide</i>.<br/><br/>In the AWS.Tools.CloudFormation module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// make if you execute the change set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Update
+    /// CloudFormation stacks using change sets</a> in the <i>CloudFormation User Guide</i>.<br/><br/>In the AWS.Tools.CloudFormation module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNChangeSet")]
     [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetResponse")]
     [AWSCmdlet("Calls the AWS CloudFormation DescribeChangeSet API operation.", Operation = new[] {"DescribeChangeSet"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeChangeSetResponse))]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeChangeSetResponse object containing multiple properties."
     )]
     public partial class GetCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.CloudFormation module, this parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

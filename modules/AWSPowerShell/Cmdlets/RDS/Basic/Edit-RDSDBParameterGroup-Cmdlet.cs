@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBParameterGroup API operation.", Operation = new[] {"ModifyDBParameterGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.ModifyDBParameterGroupResponse))]
     [AWSCmdletOutput("System.String or Amazon.RDS.Model.ModifyDBParameterGroupResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.RDS.Model.ModifyDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBParameterGroupResponse) can be returned by specifying '-Select *'."
     )]
     public partial class EditRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

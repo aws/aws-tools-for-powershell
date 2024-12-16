@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Calls the AWS Device Farm PurchaseOffering API operation.", Operation = new[] {"PurchaseOffering"}, SelectReturnType = typeof(Amazon.DeviceFarm.Model.PurchaseOfferingResponse))]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.OfferingTransaction or Amazon.DeviceFarm.Model.PurchaseOfferingResponse",
         "This cmdlet returns an Amazon.DeviceFarm.Model.OfferingTransaction object.",
-        "The service call response (type Amazon.DeviceFarm.Model.PurchaseOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.PurchaseOfferingResponse) can be returned by specifying '-Select *'."
     )]
     public partial class NewDFOfferingPurchaseCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 UpdateApplication API operation.", Operation = new[] {"UpdateApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.UpdateApplicationResponse))]
     [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail or Amazon.KinesisAnalyticsV2.Model.UpdateApplicationResponse",
         "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationDetail object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisAnalyticsV2.Model.UpdateApplicationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {

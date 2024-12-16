@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.DescribeContextResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service DescribeContext API operation.", Operation = new[] {"DescribeContext"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeContextResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeContextResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeContextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeContextResponse object containing multiple properties."
     )]
     public partial class GetSMContextCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

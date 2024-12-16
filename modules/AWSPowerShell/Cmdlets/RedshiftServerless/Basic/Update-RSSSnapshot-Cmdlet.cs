@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     [AWSCmdlet("Calls the Redshift Serverless UpdateSnapshot API operation.", Operation = new[] {"UpdateSnapshot"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.UpdateSnapshotResponse))]
     [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Snapshot or Amazon.RedshiftServerless.Model.UpdateSnapshotResponse",
         "This cmdlet returns an Amazon.RedshiftServerless.Model.Snapshot object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.UpdateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RedshiftServerless.Model.UpdateSnapshotResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateRSSSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {

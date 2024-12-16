@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.RenderUiTemplateResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service RenderUiTemplate API operation.", Operation = new[] {"RenderUiTemplate"}, SelectReturnType = typeof(Amazon.SageMaker.Model.RenderUiTemplateResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.RenderUiTemplateResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.RenderUiTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.RenderUiTemplateResponse object containing multiple properties."
     )]
     public partial class InvokeSMUiTemplateRenderingCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

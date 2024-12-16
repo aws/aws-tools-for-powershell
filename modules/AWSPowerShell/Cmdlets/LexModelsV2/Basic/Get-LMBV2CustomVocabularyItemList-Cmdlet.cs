@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     [OutputType("Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse")]
     [AWSCmdlet("Calls the Amazon Lex Model Building V2 ListCustomVocabularyItems API operation.", Operation = new[] {"ListCustomVocabularyItems"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse))]
     [AWSCmdletOutput("Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse object containing multiple properties."
     )]
     public partial class GetLMBV2CustomVocabularyItemListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {

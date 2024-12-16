@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Calls the AWS Elastic Beanstalk DeleteConfigurationTemplate API operation.", Operation = new[] {"DeleteConfigurationTemplate"}, SelectReturnType = typeof(Amazon.ElasticBeanstalk.Model.DeleteConfigurationTemplateResponse))]
     [AWSCmdletOutput("None or Amazon.ElasticBeanstalk.Model.DeleteConfigurationTemplateResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteConfigurationTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteConfigurationTemplateResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

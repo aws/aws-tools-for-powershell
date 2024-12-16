@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     [AWSCmdlet("Calls the Amazon WorkMail RegisterToWorkMail API operation.", Operation = new[] {"RegisterToWorkMail"}, SelectReturnType = typeof(Amazon.WorkMail.Model.RegisterToWorkMailResponse))]
     [AWSCmdletOutput("None or Amazon.WorkMail.Model.RegisterToWorkMailResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WorkMail.Model.RegisterToWorkMailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkMail.Model.RegisterToWorkMailResponse) be returned by specifying '-Select *'."
     )]
     public partial class RegisterWMToWorkMailCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {

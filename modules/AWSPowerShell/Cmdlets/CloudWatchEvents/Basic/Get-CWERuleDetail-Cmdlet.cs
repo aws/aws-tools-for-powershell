@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [OutputType("Amazon.CloudWatchEvents.Model.DescribeRuleResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch Events DescribeRule API operation.", Operation = new[] {"DescribeRule"}, SelectReturnType = typeof(Amazon.CloudWatchEvents.Model.DescribeRuleResponse))]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DescribeRuleResponse",
-        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DescribeRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudWatchEvents.Model.DescribeRuleResponse object containing multiple properties."
     )]
     public partial class GetCWERuleDetailCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {

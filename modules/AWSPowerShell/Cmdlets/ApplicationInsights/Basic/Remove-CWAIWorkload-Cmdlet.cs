@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     [AWSCmdlet("Calls the Amazon CloudWatch Application Insights RemoveWorkload API operation.", Operation = new[] {"RemoveWorkload"}, SelectReturnType = typeof(Amazon.ApplicationInsights.Model.RemoveWorkloadResponse))]
     [AWSCmdletOutput("None or Amazon.ApplicationInsights.Model.RemoveWorkloadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationInsights.Model.RemoveWorkloadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ApplicationInsights.Model.RemoveWorkloadResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveCWAIWorkloadCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {

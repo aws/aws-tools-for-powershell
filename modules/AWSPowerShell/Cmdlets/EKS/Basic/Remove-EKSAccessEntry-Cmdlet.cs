@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DeleteAccessEntry API operation.", Operation = new[] {"DeleteAccessEntry"}, SelectReturnType = typeof(Amazon.EKS.Model.DeleteAccessEntryResponse))]
     [AWSCmdletOutput("None or Amazon.EKS.Model.DeleteAccessEntryResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EKS.Model.DeleteAccessEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EKS.Model.DeleteAccessEntryResponse) be returned by specifying '-Select *'."
     )]
     public partial class RemoveEKSAccessEntryCmdlet : AmazonEKSClientCmdlet, IExecutor
     {

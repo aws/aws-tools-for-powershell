@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     [OutputType("Amazon.TimestreamQuery.Model.DescribeAccountSettingsResponse")]
     [AWSCmdlet("Calls the Amazon Timestream Query DescribeAccountSettings API operation.", Operation = new[] {"DescribeAccountSettings"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.DescribeAccountSettingsResponse))]
     [AWSCmdletOutput("Amazon.TimestreamQuery.Model.DescribeAccountSettingsResponse",
-        "This cmdlet returns an Amazon.TimestreamQuery.Model.DescribeAccountSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.TimestreamQuery.Model.DescribeAccountSettingsResponse object containing multiple properties."
     )]
     public partial class GetTSQAccountSettingCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {

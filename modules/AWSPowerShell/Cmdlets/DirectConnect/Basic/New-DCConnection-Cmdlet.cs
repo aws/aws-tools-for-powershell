@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.CreateConnectionResponse")]
     [AWSCmdlet("Calls the AWS Direct Connect CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.DirectConnect.Model.CreateConnectionResponse))]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResponse",
-        "This cmdlet returns an Amazon.DirectConnect.Model.CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.DirectConnect.Model.CreateConnectionResponse object containing multiple properties."
     )]
     public partial class NewDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

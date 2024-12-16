@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     [OutputType("Amazon.SageMaker.Model.AddAssociationResponse")]
     [AWSCmdlet("Calls the Amazon SageMaker Service AddAssociation API operation.", Operation = new[] {"AddAssociation"}, SelectReturnType = typeof(Amazon.SageMaker.Model.AddAssociationResponse))]
     [AWSCmdletOutput("Amazon.SageMaker.Model.AddAssociationResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.AddAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.SageMaker.Model.AddAssociationResponse object containing multiple properties."
     )]
     public partial class AddSMAssociationCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {

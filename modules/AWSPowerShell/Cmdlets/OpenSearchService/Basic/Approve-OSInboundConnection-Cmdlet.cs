@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
     [AWSCmdlet("Calls the Amazon OpenSearch Service AcceptInboundConnection API operation.", Operation = new[] {"AcceptInboundConnection"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.AcceptInboundConnectionResponse))]
     [AWSCmdletOutput("Amazon.OpenSearchService.Model.InboundConnection or Amazon.OpenSearchService.Model.AcceptInboundConnectionResponse",
         "This cmdlet returns an Amazon.OpenSearchService.Model.InboundConnection object.",
-        "The service call response (type Amazon.OpenSearchService.Model.AcceptInboundConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpenSearchService.Model.AcceptInboundConnectionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class ApproveOSInboundConnectionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {

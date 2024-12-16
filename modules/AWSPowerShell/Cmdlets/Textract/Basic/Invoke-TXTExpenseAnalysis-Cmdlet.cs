@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     [AWSCmdlet("Calls the Amazon Textract AnalyzeExpense API operation.", Operation = new[] {"AnalyzeExpense"}, SelectReturnType = typeof(Amazon.Textract.Model.AnalyzeExpenseResponse))]
     [AWSCmdletOutput("Amazon.Textract.Model.ExpenseDocument or Amazon.Textract.Model.AnalyzeExpenseResponse",
         "This cmdlet returns a collection of Amazon.Textract.Model.ExpenseDocument objects.",
-        "The service call response (type Amazon.Textract.Model.AnalyzeExpenseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Textract.Model.AnalyzeExpenseResponse) can be returned by specifying '-Select *'."
     )]
     public partial class InvokeTXTExpenseAnalysisCmdlet : AmazonTextractClientCmdlet, IExecutor
     {

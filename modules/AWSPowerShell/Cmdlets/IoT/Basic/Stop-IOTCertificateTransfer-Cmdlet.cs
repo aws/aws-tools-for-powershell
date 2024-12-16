@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Calls the AWS IoT CancelCertificateTransfer API operation.", Operation = new[] {"CancelCertificateTransfer"}, SelectReturnType = typeof(Amazon.IoT.Model.CancelCertificateTransferResponse))]
     [AWSCmdletOutput("None or Amazon.IoT.Model.CancelCertificateTransferResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.CancelCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.CancelCertificateTransferResponse) be returned by specifying '-Select *'."
     )]
     public partial class StopIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
     {

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     [AWSCmdlet("Calls the Amazon Detective UpdateOrganizationConfiguration API operation.", Operation = new[] {"UpdateOrganizationConfiguration"}, SelectReturnType = typeof(Amazon.Detective.Model.UpdateOrganizationConfigurationResponse))]
     [AWSCmdletOutput("None or Amazon.Detective.Model.UpdateOrganizationConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Detective.Model.UpdateOrganizationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Detective.Model.UpdateOrganizationConfigurationResponse) be returned by specifying '-Select *'."
     )]
     public partial class UpdateDTCTOrganizationConfigurationCmdlet : AmazonDetectiveClientCmdlet, IExecutor
     {

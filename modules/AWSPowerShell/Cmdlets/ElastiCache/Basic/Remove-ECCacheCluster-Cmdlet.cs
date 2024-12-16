@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <para>
     /// This operation is not valid for:
     /// </para><ul><li><para>
-    /// Redis OSS (cluster mode enabled) clusters
+    /// Valkey or Redis OSS (cluster mode enabled) clusters
     /// </para></li><li><para>
-    /// Redis OSS (cluster mode disabled) clusters
+    /// Valkey or Redis OSS (cluster mode disabled) clusters
     /// </para></li><li><para>
     /// A cluster that is the last read replica of a replication group
     /// </para></li><li><para>
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para></li><li><para>
     /// A node group (shard) that has Multi-AZ mode enabled
     /// </para></li><li><para>
-    /// A cluster from a Redis OSS (cluster mode enabled) replication group
+    /// A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group
     /// </para></li><li><para>
     /// A cluster that is not in the <c>available</c> state
     /// </para></li></ul>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Calls the Amazon ElastiCache DeleteCacheCluster API operation.", Operation = new[] {"DeleteCacheCluster"}, SelectReturnType = typeof(Amazon.ElastiCache.Model.DeleteCacheClusterResponse))]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster or Amazon.ElastiCache.Model.DeleteCacheClusterResponse",
         "This cmdlet returns an Amazon.ElastiCache.Model.CacheCluster object.",
-        "The service call response (type Amazon.ElastiCache.Model.DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteCacheClusterResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

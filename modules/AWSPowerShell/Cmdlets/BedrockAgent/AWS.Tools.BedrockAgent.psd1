@@ -83,6 +83,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-AABResourceTag', 
+        'Confirm-AABFlowDefinition', 
         'Get-AABAgent', 
         'Get-AABAgentActionGroup', 
         'Get-AABAgentActionGroupList', 
@@ -133,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AABPrompt', 
         'Remove-AABResourceTag', 
         'Start-AABIngestionJob', 
+        'Stop-AABIngestionJob', 
         'Unregister-AABAgentKnowledgeBase', 
         'Update-AABAgent', 
         'Update-AABAgentActionGroup', 

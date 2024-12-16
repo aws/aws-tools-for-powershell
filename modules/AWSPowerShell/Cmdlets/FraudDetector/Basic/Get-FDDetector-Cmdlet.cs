@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
     [AWSCmdlet("Calls the Amazon Fraud Detector GetDetectors API operation.", Operation = new[] {"GetDetectors"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.GetDetectorsResponse))]
     [AWSCmdletOutput("Amazon.FraudDetector.Model.Detector or Amazon.FraudDetector.Model.GetDetectorsResponse",
         "This cmdlet returns a collection of Amazon.FraudDetector.Model.Detector objects.",
-        "The service call response (type Amazon.FraudDetector.Model.GetDetectorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.FraudDetector.Model.GetDetectorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetFDDetectorCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

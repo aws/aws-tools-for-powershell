@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     [AWSCmdlet("Calls the Amazon GuardDuty UpdateMemberDetectors API operation.", Operation = new[] {"UpdateMemberDetectors"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse))]
     [AWSCmdletOutput("Amazon.GuardDuty.Model.UnprocessedAccount or Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse",
         "This cmdlet returns a collection of Amazon.GuardDuty.Model.UnprocessedAccount objects.",
-        "The service call response (type Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse) can be returned by specifying '-Select *'."
     )]
     public partial class UpdateGDMemberDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
@@ -77,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The detector ID of the administrator account.</para>
+        /// <para>The detector ID of the administrator account.</para><para>To find the <c>detectorId</c> in the current Region, see the Settings page in the
+        /// GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

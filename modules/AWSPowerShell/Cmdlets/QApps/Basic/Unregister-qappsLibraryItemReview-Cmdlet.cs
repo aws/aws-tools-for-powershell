@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
     [AWSCmdlet("Calls the Amazon Q Apps DisassociateLibraryItemReview API operation.", Operation = new[] {"DisassociateLibraryItemReview"}, SelectReturnType = typeof(Amazon.QApps.Model.DisassociateLibraryItemReviewResponse))]
     [AWSCmdletOutput("None or Amazon.QApps.Model.DisassociateLibraryItemReviewResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.QApps.Model.DisassociateLibraryItemReviewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QApps.Model.DisassociateLibraryItemReviewResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterqappsLibraryItemReviewCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {

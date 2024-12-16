@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     [AWSCmdlet("Calls the AWS WAF Regional GetByteMatchSet API operation.", Operation = new[] {"GetByteMatchSet"}, SelectReturnType = typeof(Amazon.WAFRegional.Model.GetByteMatchSetResponse))]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.ByteMatchSet or Amazon.WAFRegional.Model.GetByteMatchSetResponse",
         "This cmdlet returns an Amazon.WAFRegional.Model.ByteMatchSet object.",
-        "The service call response (type Amazon.WAFRegional.Model.GetByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAFRegional.Model.GetByteMatchSetResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetWAFRByteMatchSetCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     [OutputType("Amazon.WellArchitected.Model.CreateTemplateShareResponse")]
     [AWSCmdlet("Calls the AWS Well-Architected Tool CreateTemplateShare API operation.", Operation = new[] {"CreateTemplateShare"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.CreateTemplateShareResponse))]
     [AWSCmdletOutput("Amazon.WellArchitected.Model.CreateTemplateShareResponse",
-        "This cmdlet returns an Amazon.WellArchitected.Model.CreateTemplateShareResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.WellArchitected.Model.CreateTemplateShareResponse object containing multiple properties."
     )]
     public partial class NewWATTemplateShareCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
     {

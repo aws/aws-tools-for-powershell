@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     [OutputType("Amazon.Translate.Model.TranslateDocumentResponse")]
     [AWSCmdlet("Calls the Amazon Translate TranslateDocument API operation.", Operation = new[] {"TranslateDocument"}, SelectReturnType = typeof(Amazon.Translate.Model.TranslateDocumentResponse))]
     [AWSCmdletOutput("Amazon.Translate.Model.TranslateDocumentResponse",
-        "This cmdlet returns an Amazon.Translate.Model.TranslateDocumentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Translate.Model.TranslateDocumentResponse object containing multiple properties."
     )]
     public partial class ConvertToTRNDocumentCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {

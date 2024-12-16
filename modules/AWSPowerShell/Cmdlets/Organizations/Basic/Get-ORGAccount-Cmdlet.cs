@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     [AWSCmdlet("Calls the AWS Organizations DescribeAccount API operation.", Operation = new[] {"DescribeAccount"}, SelectReturnType = typeof(Amazon.Organizations.Model.DescribeAccountResponse))]
     [AWSCmdletOutput("Amazon.Organizations.Model.Account or Amazon.Organizations.Model.DescribeAccountResponse",
         "This cmdlet returns an Amazon.Organizations.Model.Account object.",
-        "The service call response (type Amazon.Organizations.Model.DescribeAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.DescribeAccountResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {

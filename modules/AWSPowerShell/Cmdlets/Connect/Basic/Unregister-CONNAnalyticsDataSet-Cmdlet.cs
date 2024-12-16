@@ -28,19 +28,14 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Removes the dataset ID associated with a given Amazon Connect instance.
-    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "CONNAnalyticsDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Connect Service DisassociateAnalyticsDataSet API operation.", Operation = new[] {"DisassociateAnalyticsDataSet"}, SelectReturnType = typeof(Amazon.Connect.Model.DisassociateAnalyticsDataSetResponse))]
     [AWSCmdletOutput("None or Amazon.Connect.Model.DisassociateAnalyticsDataSetResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DisassociateAnalyticsDataSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DisassociateAnalyticsDataSetResponse) be returned by specifying '-Select *'."
     )]
     public partial class UnregisterCONNAnalyticsDataSetCmdlet : AmazonConnectClientCmdlet, IExecutor
     {

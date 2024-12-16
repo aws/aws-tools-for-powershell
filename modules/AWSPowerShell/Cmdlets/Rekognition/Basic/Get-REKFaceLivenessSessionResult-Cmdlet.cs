@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     [OutputType("Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition GetFaceLivenessSessionResults API operation.", Operation = new[] {"GetFaceLivenessSessionResults"}, SelectReturnType = typeof(Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse))]
     [AWSCmdletOutput("Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse",
-        "This cmdlet returns an Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse object containing multiple properties."
     )]
     public partial class GetREKFaceLivenessSessionResultCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
