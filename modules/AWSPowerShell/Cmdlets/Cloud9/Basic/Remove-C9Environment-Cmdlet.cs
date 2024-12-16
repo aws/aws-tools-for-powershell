@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
     /// <summary>
     /// Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected
     /// to the environment, also terminates the instance.
+    /// 
+    ///  <important><para>
+    /// Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue
+    /// to use the service as normal. <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn
+    /// more"</a></para></important>
     /// </summary>
     [Cmdlet("Remove", "C9Environment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

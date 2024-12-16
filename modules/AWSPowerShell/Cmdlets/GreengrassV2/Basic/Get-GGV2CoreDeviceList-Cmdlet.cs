@@ -43,7 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// </para></li><li><para>
     /// When the core device receives a deployment from the Amazon Web Services Cloud
     /// </para></li><li><para>
-    /// When the status of any component on the core device becomes <c>BROKEN</c></para></li><li><para>
+    /// For Greengrass nucleus 2.12.2 and earlier, the core device sends status updates when
+    /// the status of any component on the core device becomes <c>ERRORED</c> or <c>BROKEN</c>.
+    /// </para></li><li><para>
+    /// For Greengrass nucleus 2.12.3 and later, the core device sends status updates when
+    /// the status of any component on the core device becomes <c>ERRORED</c>, <c>BROKEN</c>,
+    /// <c>RUNNING</c>, or <c>FINISHED</c>.
+    /// </para></li><li><para>
     /// At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular
     /// interval that you can configure</a>, which defaults to 24 hours
     /// </para></li><li><para>
@@ -62,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Runtime
+        /// <summary>
+        /// <para>
+        /// <para>The runtime to be used by the core device. The runtime can be:</para><ul><li><para><c>aws_nucleus_classic</c></para></li><li><para><c>aws_nucleus_lite</c></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Runtime { get; set; }
+        #endregion
         
         #region Parameter Status
         /// <summary>
@@ -140,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Runtime = this.Runtime;
             context.Status = this.Status;
             context.ThingGroupArn = this.ThingGroupArn;
             
@@ -165,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Runtime != null)
+            {
+                request.Runtime = cmdletContext.Runtime;
             }
             if (cmdletContext.Status != null)
             {
@@ -237,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String Runtime { get; set; }
             public Amazon.GreengrassV2.CoreDeviceStatus Status { get; set; }
             public System.String ThingGroupArn { get; set; }
             public System.Func<Amazon.GreengrassV2.Model.ListCoreDevicesResponse, GetGGV2CoreDeviceListCmdlet, object> Select { get; set; } =

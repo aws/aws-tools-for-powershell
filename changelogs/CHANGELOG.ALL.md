@@ -1,4 +1,12 @@
-﻿### 4.1.718 (2024-12-13 21:52Z)
+﻿### 4.1.719 (2024-12-16 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.947.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Snapshot: added parameter Location.
+    * Modified cmdlet New-EC2SnapshotBatch: added parameter Location.
+  * Amazon GreengrassV2
+    * Modified cmdlet Get-GGV2CoreDeviceList: added parameter Runtime.
+
+### 4.1.718 (2024-12-13 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.946.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cloud Map
     * Added cmdlet Get-SDServiceAttribute leveraging the GetServiceAttributes service API.

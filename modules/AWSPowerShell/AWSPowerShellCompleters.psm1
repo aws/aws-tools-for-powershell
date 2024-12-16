@@ -25786,6 +25786,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.SnapshotLocationEnum
+        {
+            ($_ -eq "New-EC2Snapshot/Location") -Or
+            ($_ -eq "New-EC2SnapshotBatch/Location")
+        }
+        {
+            $v = "local","regional"
+            break
+        }
+
         # Amazon.EC2.SpotAllocationStrategy
         "New-EC2Fleet/SpotOptions_AllocationStrategy"
         {
@@ -26090,6 +26100,7 @@ $EC2_map = @{
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
+    "Location"=@("New-EC2Snapshot","New-EC2SnapshotBatch")
     "LocationType"=@("Get-EC2InstanceTypeOffering")
     "LockMode"=@("Lock-EC2Snapshot")
     "LogDestinationType"=@("New-EC2FlowLog")

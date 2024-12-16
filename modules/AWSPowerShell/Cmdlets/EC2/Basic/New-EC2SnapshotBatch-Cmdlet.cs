@@ -28,22 +28,26 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates crash-consistent snapshots of multiple EBS volumes and stores the data in
-    /// S3. Volumes are chosen by specifying an instance. Any attached volumes will produce
-    /// one snapshot each that is crash-consistent across the instance.
-    /// 
-    ///  
-    /// <para>
+    /// Creates crash-consistent snapshots of multiple EBS volumes attached to an Amazon EC2
+    /// instance. Volumes are chosen by specifying an instance. Each volume attached to the
+    /// specified instance will produce one snapshot that is crash-consistent across the instance.
     /// You can include all of the volumes currently attached to the instance, or you can
     /// exclude the root volume or specific data (non-root) volumes from the multi-volume
     /// snapshot set.
-    /// </para><para>
-    /// You can create multi-volume snapshots of instances in a Region and instances on an
-    /// Outpost. If you create snapshots from an instance in a Region, the snapshots must
-    /// be stored in the same Region as the instance. If you create snapshots from an instance
-    /// on an Outpost, the snapshots can be stored on the same Outpost as the instance, or
-    /// in the Region for that Outpost.
-    /// </para>
+    /// 
+    ///  
+    /// <para>
+    /// The location of the source instance determines where you can create the snapshots.
+    /// </para><ul><li><para>
+    /// If the source instance is in a Region, you must create the snapshots in the same Region
+    /// as the instance.
+    /// </para></li><li><para>
+    /// If the source instance is in a Local Zone, you can create the snapshots in the same
+    /// Local Zone or in parent Amazon Web Services Region.
+    /// </para></li><li><para>
+    /// If the source instance is on an Outpost, you can create the snapshots on the same
+    /// Outpost or in its parent Amazon Web Services Region.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "EC2SnapshotBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SnapshotInfo")]
@@ -118,16 +122,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String InstanceSpecification_InstanceId { get; set; }
         #endregion
         
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <note><para>Only supported for instances in Local Zones. If the source instance is not in a Local
+        /// Zone, omit this parameter.</para></note><ul><li><para>To create local snapshots in the same Local Zone as the source instance, specify <c>local</c>.</para></li><li><para>To create a regional snapshots in the parent Region of the Local Zone, specify <c>regional</c>
+        /// or omit this parameter.</para></li></ul><para>Default value: <c>regional</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotLocationEnum")]
+        public Amazon.EC2.SnapshotLocationEnum Location { get; set; }
+        #endregion
+        
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Outpost on which to create the local snapshots.</para><ul><li><para>To create snapshots from an instance in a Region, omit this parameter. The snapshots
-        /// are created in the same Region as the instance.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots in the
-        /// Region, omit this parameter. The snapshots are created in the Region for the Outpost.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost,
-        /// specify the ARN of the destination Outpost. The snapshots must be created on the same
-        /// Outpost as the instance.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-multivol-snapshot">
-        /// Create multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon
-        /// EBS User Guide</i>.</para>
+        /// <note><para>Only supported for instances on Outposts. If the source instance is not on an Outpost,
+        /// omit this parameter.</para></note><ul><li><para>To create the snapshots on the same Outpost as the source instance, specify the ARN
+        /// of that Outpost. The snapshots must be created on the same Outpost as the instance.</para></li><li><para>To create the snapshots in the parent Region of the Outpost, omit this parameter.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">
+        /// Create local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceSpecification_InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Location = this.Location;
             context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
@@ -288,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceSpecificationIsNull)
             {
                 request.InstanceSpecification = null;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -363,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? InstanceSpecification_ExcludeBootVolume { get; set; }
             public List<System.String> InstanceSpecification_ExcludeDataVolumeId { get; set; }
             public System.String InstanceSpecification_InstanceId { get; set; }
+            public Amazon.EC2.SnapshotLocationEnum Location { get; set; }
             public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateSnapshotsResponse, NewEC2SnapshotBatchCmdlet, object> Select { get; set; } =
