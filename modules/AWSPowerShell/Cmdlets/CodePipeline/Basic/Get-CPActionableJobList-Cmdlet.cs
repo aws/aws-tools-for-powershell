@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>A category defines what kind of action can be taken in the stage, and constrains the
         /// provider type for the action. Valid categories are limited to one of the following
-        /// values. </para><ul><li><para>Source</para></li><li><para>Build</para></li><li><para>Test</para></li><li><para>Deploy</para></li><li><para>Invoke</para></li><li><para>Approval</para></li></ul>
+        /// values. </para><ul><li><para>Source</para></li><li><para>Build</para></li><li><para>Test</para></li><li><para>Deploy</para></li><li><para>Invoke</para></li><li><para>Approval</para></li><li><para>Compute</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -93,6 +93,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.B2bi.dll',
         'AWSSDK.Backup.dll',
         'AWSSDK.BackupGateway.dll',
+        'AWSSDK.BackupSearch.dll',
         'AWSSDK.Batch.dll',
         'AWSSDK.BCMDataExports.dll',
         'AWSSDK.BCMPricingCalculator.dll',

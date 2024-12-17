@@ -1,4 +1,25 @@
-﻿### 4.1.719 (2024-12-16 21:36Z)
+﻿### 4.1.720 (2024-12-17 22:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.948.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Added cmdlet Get-BAKIndexedRecoveryPointList leveraging the ListIndexedRecoveryPoints service API.
+    * Added cmdlet Get-BAKRecoveryPointIndexDetail leveraging the GetRecoveryPointIndexDetails service API.
+    * Added cmdlet Update-BAKRecoveryPointIndexSetting leveraging the UpdateRecoveryPointIndexSettings service API.
+    * Modified cmdlet Start-BAKBackupJob: added parameter Index.
+  * Amazon Backup Search. Added cmdlets to support the service. Cmdlets for the service have the noun prefix BAKS and can be listed using the command 'Get-AWSCmdletName -Service BAKS'.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameters Metadata_Annotation and Metadata_Namespace.
+    * Modified cmdlet Submit-BATJob: added parameters Metadata_Annotation and Metadata_Namespace.
+  * Amazon CleanRoomsML
+    * Modified cmdlet Start-CRMLAudienceGenerationJob: added parameters Worker_Number and Worker_Type.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter VpcConfig_Ipv6AllowedForDualStack.
+    * Modified cmdlet Update-CWSYNCanary: added parameter VpcConfig_Ipv6AllowedForDualStack.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Register-ECSTaskDefinition: added parameter EnableFaultInjection.
+  * Amazon M2
+    * Modified cmdlet New-AMMEnvironment: added parameter NetworkType.
+
+### 4.1.719 (2024-12-16 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.947.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2Snapshot: added parameter Location.

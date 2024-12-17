@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Worker_Number
+        /// <summary>
+        /// <para>
+        /// <para>The number of compute workers that are used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SeedAudience_SqlComputeConfiguration_Worker_Number")]
+        public System.Int32? Worker_Number { get; set; }
+        #endregion
+        
         #region Parameter SqlParameters_Parameter
         /// <summary>
         /// <para>
@@ -190,6 +201,18 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Worker_Type
+        /// <summary>
+        /// <para>
+        /// <para>The instance type of the compute workers that are used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SeedAudience_SqlComputeConfiguration_Worker_Type")]
+        [AWSConstantClassSource("Amazon.CleanRoomsML.WorkerComputeType")]
+        public Amazon.CleanRoomsML.WorkerComputeType Worker_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -279,6 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
                 WriteWarning("You are passing $null as a value for parameter SeedAudience_RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Worker_Number = this.Worker_Number;
+            context.Worker_Type = this.Worker_Type;
             context.SqlParameters_AnalysisTemplateArn = this.SqlParameters_AnalysisTemplateArn;
             if (this.SqlParameters_Parameter != null)
             {
@@ -370,6 +395,56 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             if (requestSeedAudience_seedAudience_DataSource != null)
             {
                 request.SeedAudience.DataSource = requestSeedAudience_seedAudience_DataSource;
+                requestSeedAudienceIsNull = false;
+            }
+            Amazon.CleanRoomsML.Model.ComputeConfiguration requestSeedAudience_seedAudience_SqlComputeConfiguration = null;
+            
+             // populate SqlComputeConfiguration
+            var requestSeedAudience_seedAudience_SqlComputeConfigurationIsNull = true;
+            requestSeedAudience_seedAudience_SqlComputeConfiguration = new Amazon.CleanRoomsML.Model.ComputeConfiguration();
+            Amazon.CleanRoomsML.Model.WorkerComputeConfiguration requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker = null;
+            
+             // populate Worker
+            var requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_WorkerIsNull = true;
+            requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker = new Amazon.CleanRoomsML.Model.WorkerComputeConfiguration();
+            System.Int32? requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Number = null;
+            if (cmdletContext.Worker_Number != null)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Number = cmdletContext.Worker_Number.Value;
+            }
+            if (requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Number != null)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker.Number = requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Number.Value;
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_WorkerIsNull = false;
+            }
+            Amazon.CleanRoomsML.WorkerComputeType requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Type = null;
+            if (cmdletContext.Worker_Type != null)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Type = cmdletContext.Worker_Type;
+            }
+            if (requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Type != null)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker.Type = requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker_worker_Type;
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_WorkerIsNull = false;
+            }
+             // determine if requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker should be set to null
+            if (requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_WorkerIsNull)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker = null;
+            }
+            if (requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker != null)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration.Worker = requestSeedAudience_seedAudience_SqlComputeConfiguration_seedAudience_SqlComputeConfiguration_Worker;
+                requestSeedAudience_seedAudience_SqlComputeConfigurationIsNull = false;
+            }
+             // determine if requestSeedAudience_seedAudience_SqlComputeConfiguration should be set to null
+            if (requestSeedAudience_seedAudience_SqlComputeConfigurationIsNull)
+            {
+                requestSeedAudience_seedAudience_SqlComputeConfiguration = null;
+            }
+            if (requestSeedAudience_seedAudience_SqlComputeConfiguration != null)
+            {
+                request.SeedAudience.SqlComputeConfiguration = requestSeedAudience_seedAudience_SqlComputeConfiguration;
                 requestSeedAudienceIsNull = false;
             }
             Amazon.CleanRoomsML.Model.ProtectedQuerySQLParameters requestSeedAudience_seedAudience_SqlParameters = null;
@@ -494,6 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             public System.String Name { get; set; }
             public System.String DataSource_S3Uri { get; set; }
             public System.String SeedAudience_RoleArn { get; set; }
+            public System.Int32? Worker_Number { get; set; }
+            public Amazon.CleanRoomsML.WorkerComputeType Worker_Type { get; set; }
             public System.String SqlParameters_AnalysisTemplateArn { get; set; }
             public Dictionary<System.String, System.String> SqlParameters_Parameter { get; set; }
             public System.String SqlParameters_QueryString { get; set; }

@@ -72,37 +72,25 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service M2
+# Argument completions for service AWS Backup Search
 
 
-$AMM_Completers = {
+$BAKS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.MainframeModernization.BatchJobExecutionStatus
-        "Get-AMMBatchJobExecutionList/Status"
+        # Amazon.BackupSearch.ExportJobStatus
+        "Get-BAKSSearchResultExportJobList/Status"
         {
-            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Purged","Running","Submitting","Succeeded","Succeeded With Warning"
+            $v = "COMPLETED","FAILED","RUNNING"
             break
         }
 
-        # Amazon.MainframeModernization.EngineType
+        # Amazon.BackupSearch.SearchJobState
+        "Get-BAKSSearchJobList/ByStatus"
         {
-            ($_ -eq "Get-AMMEngineVersionList/EngineType") -Or
-            ($_ -eq "Get-AMMEnvironmentList/EngineType") -Or
-            ($_ -eq "New-AMMApplication/EngineType") -Or
-            ($_ -eq "New-AMMEnvironment/EngineType")
-        }
-        {
-            $v = "bluage","microfocus"
-            break
-        }
-
-        # Amazon.MainframeModernization.NetworkType
-        "New-AMMEnvironment/NetworkType"
-        {
-            $v = "dual","ipv4"
+            $v = "COMPLETED","FAILED","RUNNING","STOPPED","STOPPING"
             break
         }
 
@@ -114,18 +102,17 @@ $AMM_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$AMM_map = @{
-    "EngineType"=@("Get-AMMEngineVersionList","Get-AMMEnvironmentList","New-AMMApplication","New-AMMEnvironment")
-    "NetworkType"=@("New-AMMEnvironment")
-    "Status"=@("Get-AMMBatchJobExecutionList")
+$BAKS_map = @{
+    "ByStatus"=@("Get-BAKSSearchJobList")
+    "Status"=@("Get-BAKSSearchResultExportJobList")
 }
 
-_awsArgumentCompleterRegistration $AMM_Completers $AMM_map
+_awsArgumentCompleterRegistration $BAKS_Completers $BAKS_map
 
-$AMM_SelectCompleters = {
+$BAKS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AMM.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BAKS.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -169,42 +156,20 @@ $AMM_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$AMM_SelectMap = @{
-    "Select"=@("Stop-AMMBatchJobExecution",
-               "New-AMMApplication",
-               "New-AMMDataSetImportTask",
-               "New-AMMDeployment",
-               "New-AMMEnvironment",
-               "Remove-AMMApplication",
-               "Remove-AMMApplicationFromEnvironment",
-               "Remove-AMMEnvironment",
-               "Get-AMMApplication",
-               "Get-AMMApplicationVersion",
-               "Get-AMMBatchJobExecution",
-               "Get-AMMDataSetDetail",
-               "Get-AMMDataSetImportTask",
-               "Get-AMMDeployment",
-               "Get-AMMEnvironment",
-               "Get-AMMSignedBluinsightsUrl",
-               "Get-AMMApplicationList",
-               "Get-AMMApplicationVersionList",
-               "Get-AMMBatchJobDefinitionList",
-               "Get-AMMBatchJobExecutionList",
-               "Get-AMMBatchJobRestartPointList",
-               "Get-AMMDataSetImportHistoryList",
-               "Get-AMMDataSetList",
-               "Get-AMMDeploymentList",
-               "Get-AMMEngineVersionList",
-               "Get-AMMEnvironmentList",
-               "Get-AMMResourceTag",
-               "Start-AMMApplication",
-               "Start-AMMBatchJob",
-               "Stop-AMMApplication",
-               "Add-AMMResourceTag",
-               "Remove-AMMResourceTag",
-               "Update-AMMApplication",
-               "Update-AMMEnvironment")
+$BAKS_SelectMap = @{
+    "Select"=@("Get-BAKSSearchJob",
+               "Get-BAKSSearchResultExportJob",
+               "Get-BAKSSearchJobBackupList",
+               "Get-BAKSSearchJobResultList",
+               "Get-BAKSSearchJobList",
+               "Get-BAKSSearchResultExportJobList",
+               "Get-BAKSResourceTag",
+               "Start-BAKSSearchJob",
+               "Start-BAKSSearchResultExportJob",
+               "Stop-BAKSSearchJob",
+               "Add-BAKSResourceTag",
+               "Remove-BAKSResourceTag")
 }
 
-_awsArgumentCompleterRegistration $AMM_SelectCompleters $AMM_SelectMap
+_awsArgumentCompleterRegistration $BAKS_SelectCompleters $BAKS_SelectMap
 

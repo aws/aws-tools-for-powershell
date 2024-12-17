@@ -405,8 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// in the <c>RUNNING</c> state while the container instances are in the <c>DRAINING</c>
         /// state.</para><note><para>You can't specify a custom <c>maximumPercent</c> value for a service that uses either
         /// the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment types and has tasks
-        /// that use the EC2 launch type.</para></note><para>If the tasks in the service use the Fargate launch type, the maximum percent value
-        /// is not used, although it is returned when describing your service.</para>
+        /// that use the EC2 launch type.</para></note><para>If the service uses either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
+        /// deployment types, and the tasks in the service use the Fargate launch type, the maximum
+        /// percent value is not used. The value is still returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -535,7 +536,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Amazon Web Services Region with <c>region</c> and a name for the log stream with <c>delivery_stream</c>.</para><para>When you export logs to Amazon Kinesis Data Streams, you can specify an Amazon Web
         /// Services Region with <c>region</c> and a data stream name with <c>stream</c>.</para><para> When you export logs to Amazon OpenSearch Service, you can specify options like <c>Name</c>,
         /// <c>Host</c> (OpenSearch Service endpoint without protocol), <c>Port</c>, <c>Index</c>,
-        /// <c>Type</c>, <c>Aws_auth</c>, <c>Aws_region</c>, <c>Suppress_Type_Name</c>, and <c>tls</c>.</para><para>When you export logs to Amazon S3, you can specify the bucket using the <c>bucket</c>
+        /// <c>Type</c>, <c>Aws_auth</c>, <c>Aws_region</c>, <c>Suppress_Type_Name</c>, and <c>tls</c>.
+        /// For more information, see <a href="http://aws.amazon.com/blogs/containers/under-the-hood-firelens-for-amazon-ecs-tasks/">Under
+        /// the hood: FireLens for Amazon ECS Tasks</a>.</para><para>When you export logs to Amazon S3, you can specify the bucket using the <c>bucket</c>
         /// option. You can also specify <c>region</c>, <c>total_file_size</c>, <c>upload_timeout</c>,
         /// and <c>use_put_object</c> as options.</para><para>This parameter requires version 1.19 of the Docker Remote API or greater on your container
         /// instance. To check the Docker Remote API version on your container instance, log in

@@ -216,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String Code_Handler { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_Ipv6AllowedForDualStack
+        /// <summary>
+        /// <para>
+        /// <para>Set this to <c>true</c> to allow outbound IPv6 traffic on VPC canaries that are connected
+        /// to dual-stack subnets. The default is <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
+        #endregion
+        
         #region Parameter S3Encryption_KmsKeyArn
         /// <summary>
         /// <para>
@@ -554,6 +565,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.VpcConfig_Ipv6AllowedForDualStack = this.VpcConfig_Ipv6AllowedForDualStack;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -804,6 +816,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate VpcConfig
                 var requestVpcConfigIsNull = true;
                 request.VpcConfig = new Amazon.Synthetics.Model.VpcConfigInput();
+                System.Boolean? requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = null;
+                if (cmdletContext.VpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = cmdletContext.VpcConfig_Ipv6AllowedForDualStack.Value;
+                }
+                if (requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    request.VpcConfig.Ipv6AllowedForDualStack = requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack.Value;
+                    requestVpcConfigIsNull = false;
+                }
                 List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
                 if (cmdletContext.VpcConfig_SecurityGroupId != null)
                 {
@@ -920,6 +942,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String Schedule_Expression { get; set; }
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.Synthetics.Model.CreateCanaryResponse, NewCWSYNCanaryCmdlet, object> Select { get; set; } =

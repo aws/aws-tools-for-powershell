@@ -1,0 +1,3 @@
+﻿# BackupSearch
+
+Export-ModuleMember -Alias *

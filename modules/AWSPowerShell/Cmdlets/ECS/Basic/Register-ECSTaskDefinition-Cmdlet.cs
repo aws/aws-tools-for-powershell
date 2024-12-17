@@ -125,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.CPUArchitecture RuntimePlatform_CpuArchitecture { get; set; }
         #endregion
         
+        #region Parameter EnableFaultInjection
+        /// <summary>
+        /// <para>
+        /// <para>Enables fault injection when you register your task definition and allows for fault
+        /// injection requests to be accepted from the task's containers. The default value is
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableFaultInjection { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -465,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             #endif
             context.Cpu = this.Cpu;
+            context.EnableFaultInjection = this.EnableFaultInjection;
             context.EphemeralStorage_SizeInGiB = this.EphemeralStorage_SizeInGiB;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Family = this.Family;
@@ -530,6 +543,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cpu != null)
             {
                 request.Cpu = cmdletContext.Cpu;
+            }
+            if (cmdletContext.EnableFaultInjection != null)
+            {
+                request.EnableFaultInjection = cmdletContext.EnableFaultInjection.Value;
             }
             
              // populate EphemeralStorage
@@ -729,6 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinition { get; set; }
             public System.String Cpu { get; set; }
+            public System.Boolean? EnableFaultInjection { get; set; }
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Family { get; set; }

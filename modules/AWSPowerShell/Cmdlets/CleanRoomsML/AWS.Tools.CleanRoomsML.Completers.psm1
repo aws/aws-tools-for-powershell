@@ -141,7 +141,10 @@ $CRML_Completers = {
         }
 
         # Amazon.CleanRoomsML.WorkerComputeType
-        "New-CRMLMLInputChannel/Worker_Type"
+        {
+            ($_ -eq "New-CRMLMLInputChannel/Worker_Type") -Or
+            ($_ -eq "Start-CRMLAudienceGenerationJob/Worker_Type")
+        }
         {
             $v = "CR.1X","CR.4X"
             break
@@ -164,7 +167,7 @@ $CRML_map = @{
     "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
     "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
-    "Worker_Type"=@("New-CRMLMLInputChannel")
+    "Worker_Type"=@("New-CRMLMLInputChannel","Start-CRMLAudienceGenerationJob")
 }
 
 _awsArgumentCompleterRegistration $CRML_Completers $CRML_map

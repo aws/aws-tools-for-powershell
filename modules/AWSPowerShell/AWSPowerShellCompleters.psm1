@@ -5785,6 +5785,23 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.Index
+        {
+            ($_ -eq "Start-BAKBackupJob/Index") -Or
+            ($_ -eq "Update-BAKRecoveryPointIndexSetting/Index")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Backup.IndexStatus
+        "Get-BAKIndexedRecoveryPointList/IndexStatus"
+        {
+            $v = "ACTIVE","DELETING","FAILED","PENDING"
+            break
+        }
+
         # Amazon.Backup.RestoreJobState
         "Get-BAKRestoreJobSummaryList/State"
         {
@@ -5839,6 +5856,8 @@ $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
+    "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")
@@ -5936,6 +5955,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultAccessPolicy",
                "Get-BAKBackupVaultNotification",
                "Get-BAKLegalHold",
+               "Get-BAKRecoveryPointIndexDetail",
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKRestoreJobMetadata",
                "Get-BAKRestoreTestingInferredMetadata",
@@ -5952,6 +5972,7 @@ $BAK_SelectMap = @{
                "Get-BAKCopyJobList",
                "Get-BAKCopyJobSummaryList",
                "Get-BAKFrameworkList",
+               "Get-BAKIndexedRecoveryPointList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
                "Get-BAKProtectedResourcesByBackupVaultList",
@@ -5980,6 +6001,7 @@ $BAK_SelectMap = @{
                "Update-BAKBackupPlan",
                "Update-BAKFramework",
                "Update-BAKGlobalSetting",
+               "Update-BAKRecoveryPointIndexSetting",
                "Update-BAKRecoveryPointLifecycle",
                "Update-BAKRegionSetting",
                "Update-BAKReportPlan",
@@ -6093,6 +6115,106 @@ $BUGW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $BUGW_SelectCompleters $BUGW_SelectMap
+# Argument completions for service AWS Backup Search
+
+
+$BAKS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BackupSearch.ExportJobStatus
+        "Get-BAKSSearchResultExportJobList/Status"
+        {
+            $v = "COMPLETED","FAILED","RUNNING"
+            break
+        }
+
+        # Amazon.BackupSearch.SearchJobState
+        "Get-BAKSSearchJobList/ByStatus"
+        {
+            $v = "COMPLETED","FAILED","RUNNING","STOPPED","STOPPING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAKS_map = @{
+    "ByStatus"=@("Get-BAKSSearchJobList")
+    "Status"=@("Get-BAKSSearchResultExportJobList")
+}
+
+_awsArgumentCompleterRegistration $BAKS_Completers $BAKS_map
+
+$BAKS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.BAKS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAKS_SelectMap = @{
+    "Select"=@("Get-BAKSSearchJob",
+               "Get-BAKSSearchResultExportJob",
+               "Get-BAKSSearchJobBackupList",
+               "Get-BAKSSearchJobResultList",
+               "Get-BAKSSearchJobList",
+               "Get-BAKSSearchResultExportJobList",
+               "Get-BAKSResourceTag",
+               "Start-BAKSSearchJob",
+               "Start-BAKSSearchResultExportJob",
+               "Stop-BAKSSearchJob",
+               "Add-BAKSResourceTag",
+               "Remove-BAKSResourceTag")
+}
+
+_awsArgumentCompleterRegistration $BAKS_SelectCompleters $BAKS_SelectMap
 # Argument completions for service AWS Batch
 
 
@@ -11043,7 +11165,10 @@ $CRML_Completers = {
         }
 
         # Amazon.CleanRoomsML.WorkerComputeType
-        "New-CRMLMLInputChannel/Worker_Type"
+        {
+            ($_ -eq "New-CRMLMLInputChannel/Worker_Type") -Or
+            ($_ -eq "Start-CRMLAudienceGenerationJob/Worker_Type")
+        }
         {
             $v = "CR.1X","CR.4X"
             break
@@ -11066,7 +11191,7 @@ $CRML_map = @{
     "MaxSize_Unit"=@("New-CRMLConfiguredModelAlgorithmAssociation")
     "PolicyExistenceCondition"=@("Write-CRMLConfiguredAudienceModelPolicy")
     "ResourceConfig_InstanceType"=@("New-CRMLTrainedModel","Start-CRMLTrainedModelInferenceJob")
-    "Worker_Type"=@("New-CRMLMLInputChannel")
+    "Worker_Type"=@("New-CRMLMLInputChannel","Start-CRMLAudienceGenerationJob")
 }
 
 _awsArgumentCompleterRegistration $CRML_Completers $CRML_map
@@ -45346,6 +45471,13 @@ $AMM_Completers = {
             break
         }
 
+        # Amazon.MainframeModernization.NetworkType
+        "New-AMMEnvironment/NetworkType"
+        {
+            $v = "dual","ipv4"
+            break
+        }
+
 
     }
 
@@ -45356,6 +45488,7 @@ $AMM_Completers = {
 
 $AMM_map = @{
     "EngineType"=@("Get-AMMEngineVersionList","Get-AMMEnvironmentList","New-AMMApplication","New-AMMEnvironment")
+    "NetworkType"=@("New-AMMEnvironment")
     "Status"=@("Get-AMMBatchJobExecutionList")
 }
 
