@@ -28,45 +28,69 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Modifies the following configuration parameters of the Network File System (NFS) transfer
-    /// location that you're using with DataSync.
+    /// Modifies the following configuration parameters of the Amazon EFS transfer location
+    /// that you're using with DataSync.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring
-    /// transfers with an NFS file server</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Configuring
+    /// DataSync transfers with Amazon EFS</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DSYNLocationEfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS DataSync UpdateLocationNfs API operation.", Operation = new[] {"UpdateLocationNfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationNfsResponse))]
-    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationNfsResponse",
+    [AWSCmdlet("Calls the AWS DataSync UpdateLocationEfs API operation.", Operation = new[] {"UpdateLocationEfs"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationEfsResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationEfsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateLocationNfsResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationEfsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateDSYNLocationNfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class UpdateDSYNLocationEfsCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OnPremConfig_AgentArn
+        #region Parameter AccessPointArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the DataSync agents that can connect to your NFS
-        /// file server.</para><para>You can specify more than one agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#multiple-agents">Using
-        /// multiple DataSync agents</a>.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to
+        /// mount your Amazon EFS file system.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam">Accessing
+        /// restricted Amazon EFS file systems</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OnPremConfig_AgentArns")]
-        public System.String[] OnPremConfig_AgentArn { get; set; }
+        public System.String AccessPointArn { get; set; }
+        #endregion
+        
+        #region Parameter FileSystemAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an Identity and Access Management (IAM) role that allows DataSync to access
+        /// your Amazon EFS file system.</para><para>For information on creating this role, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html#create-efs-location-iam-role">Creating
+        /// a DataSync IAM role for Amazon EFS file system access</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileSystemAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter InTransitEncryption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want DataSync to use Transport Layer Security (TLS) 1.2 encryption
+        /// when it transfers data to or from your Amazon EFS file system.</para><para>If you specify an access point using <c>AccessPointArn</c> or an IAM role using <c>FileSystemAccessRoleArn</c>,
+        /// you must set this parameter to <c>TLS1_2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.EfsInTransitEncryption")]
+        public Amazon.DataSync.EfsInTransitEncryption InTransitEncryption { get; set; }
         #endregion
         
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the NFS transfer location that you want
-        /// to update.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon EFS transfer location that
+        /// you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,35 +107,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the export path in your NFS file server that you want DataSync to mount.</para><para>This path (or a subdirectory of the path) is where DataSync transfers data to or from.
-        /// For information on configuring an export for DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs">Accessing
-        /// NFS file servers</a>.</para>
+        /// <para>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads
+        /// or writes data on your file system (depending on if this is a source or destination
+        /// location).</para><para>By default, DataSync uses the root directory (or <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">access
+        /// point</a> if you provide one by using <c>AccessPointArn</c>). You can also include
+        /// subdirectories using forward slashes (for example, <c>/path/to/folder</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Subdirectory { get; set; }
         #endregion
         
-        #region Parameter MountOptions_Version
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the NFS version that you want DataSync to use when mounting your NFS share.
-        /// If the server refuses to use the version specified, the task fails.</para><para>You can specify the following options:</para><ul><li><para><c>AUTOMATIC</c> (default): DataSync chooses NFS version 4.1.</para></li><li><para><c>NFS3</c>: Stateless protocol version that allows for asynchronous writes on the
-        /// server.</para></li><li><para><c>NFSv4_0</c>: Stateful, firewall-friendly protocol version that supports delegations
-        /// and pseudo file systems.</para></li><li><para><c>NFSv4_1</c>: Stateful protocol version that supports sessions, directory delegations,
-        /// and parallel data processing. NFS version 4.1 also includes all features available
-        /// in version 4.0.</para></li></ul><note><para>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.DataSync.NfsVersion")]
-        public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationNfsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationEfsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocationArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationNfs (UpdateLocationNfs)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationEfs (UpdateLocationEfs)"))
             {
                 return;
             }
@@ -157,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationNfsResponse, UpdateDSYNLocationNfsCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationEfsResponse, UpdateDSYNLocationEfsCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -169,6 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = (response, cmdlet) => this.LocationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessPointArn = this.AccessPointArn;
+            context.FileSystemAccessRoleArn = this.FileSystemAccessRoleArn;
+            context.InTransitEncryption = this.InTransitEncryption;
             context.LocationArn = this.LocationArn;
             #if MODULAR
             if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
@@ -176,11 +189,6 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MountOptions_Version = this.MountOptions_Version;
-            if (this.OnPremConfig_AgentArn != null)
-            {
-                context.OnPremConfig_AgentArn = new List<System.String>(this.OnPremConfig_AgentArn);
-            }
             context.Subdirectory = this.Subdirectory;
             
             // allow further manipulation of loaded context prior to processing
@@ -196,49 +204,23 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.UpdateLocationNfsRequest();
+            var request = new Amazon.DataSync.Model.UpdateLocationEfsRequest();
             
+            if (cmdletContext.AccessPointArn != null)
+            {
+                request.AccessPointArn = cmdletContext.AccessPointArn;
+            }
+            if (cmdletContext.FileSystemAccessRoleArn != null)
+            {
+                request.FileSystemAccessRoleArn = cmdletContext.FileSystemAccessRoleArn;
+            }
+            if (cmdletContext.InTransitEncryption != null)
+            {
+                request.InTransitEncryption = cmdletContext.InTransitEncryption;
+            }
             if (cmdletContext.LocationArn != null)
             {
                 request.LocationArn = cmdletContext.LocationArn;
-            }
-            
-             // populate MountOptions
-            var requestMountOptionsIsNull = true;
-            request.MountOptions = new Amazon.DataSync.Model.NfsMountOptions();
-            Amazon.DataSync.NfsVersion requestMountOptions_mountOptions_Version = null;
-            if (cmdletContext.MountOptions_Version != null)
-            {
-                requestMountOptions_mountOptions_Version = cmdletContext.MountOptions_Version;
-            }
-            if (requestMountOptions_mountOptions_Version != null)
-            {
-                request.MountOptions.Version = requestMountOptions_mountOptions_Version;
-                requestMountOptionsIsNull = false;
-            }
-             // determine if request.MountOptions should be set to null
-            if (requestMountOptionsIsNull)
-            {
-                request.MountOptions = null;
-            }
-            
-             // populate OnPremConfig
-            var requestOnPremConfigIsNull = true;
-            request.OnPremConfig = new Amazon.DataSync.Model.OnPremConfig();
-            List<System.String> requestOnPremConfig_onPremConfig_AgentArn = null;
-            if (cmdletContext.OnPremConfig_AgentArn != null)
-            {
-                requestOnPremConfig_onPremConfig_AgentArn = cmdletContext.OnPremConfig_AgentArn;
-            }
-            if (requestOnPremConfig_onPremConfig_AgentArn != null)
-            {
-                request.OnPremConfig.AgentArns = requestOnPremConfig_onPremConfig_AgentArn;
-                requestOnPremConfigIsNull = false;
-            }
-             // determine if request.OnPremConfig should be set to null
-            if (requestOnPremConfigIsNull)
-            {
-                request.OnPremConfig = null;
             }
             if (cmdletContext.Subdirectory != null)
             {
@@ -277,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.UpdateLocationNfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationNfsRequest request)
+        private Amazon.DataSync.Model.UpdateLocationEfsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationEfsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationNfs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationEfs");
             try
             {
                 #if DESKTOP
-                return client.UpdateLocationNfs(request);
+                return client.UpdateLocationEfs(request);
                 #elif CORECLR
-                return client.UpdateLocationNfsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLocationEfsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -305,11 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessPointArn { get; set; }
+            public System.String FileSystemAccessRoleArn { get; set; }
+            public Amazon.DataSync.EfsInTransitEncryption InTransitEncryption { get; set; }
             public System.String LocationArn { get; set; }
-            public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
-            public List<System.String> OnPremConfig_AgentArn { get; set; }
             public System.String Subdirectory { get; set; }
-            public System.Func<Amazon.DataSync.Model.UpdateLocationNfsResponse, UpdateDSYNLocationNfsCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DataSync.Model.UpdateLocationEfsResponse, UpdateDSYNLocationEfsCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

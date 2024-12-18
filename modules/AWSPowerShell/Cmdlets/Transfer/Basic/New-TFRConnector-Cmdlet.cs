@@ -199,6 +199,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String As2Config_PartnerProfileId { get; set; }
         #endregion
         
+        #region Parameter As2Config_PreserveContentType
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to use the Amazon S3 <c>Content-Type</c> that is associated with objects
+        /// in S3 instead of having the content type mapped based on the file extension. This
+        /// parameter is enabled by default when you create an AS2 connector from the console,
+        /// but disabled by default when you create an AS2 connector by calling the API directly.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.PreserveContentType")]
+        public Amazon.Transfer.PreserveContentType As2Config_PreserveContentType { get; set; }
+        #endregion
+        
         #region Parameter SecurityPolicyName
         /// <summary>
         /// <para>
@@ -338,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.As2Config_MdnSigningAlgorithm = this.As2Config_MdnSigningAlgorithm;
             context.As2Config_MessageSubject = this.As2Config_MessageSubject;
             context.As2Config_PartnerProfileId = this.As2Config_PartnerProfileId;
+            context.As2Config_PreserveContentType = this.As2Config_PreserveContentType;
             context.As2Config_SigningAlgorithm = this.As2Config_SigningAlgorithm;
             context.LoggingRole = this.LoggingRole;
             context.SecurityPolicyName = this.SecurityPolicyName;
@@ -459,6 +474,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestAs2Config_as2Config_PartnerProfileId != null)
             {
                 request.As2Config.PartnerProfileId = requestAs2Config_as2Config_PartnerProfileId;
+                requestAs2ConfigIsNull = false;
+            }
+            Amazon.Transfer.PreserveContentType requestAs2Config_as2Config_PreserveContentType = null;
+            if (cmdletContext.As2Config_PreserveContentType != null)
+            {
+                requestAs2Config_as2Config_PreserveContentType = cmdletContext.As2Config_PreserveContentType;
+            }
+            if (requestAs2Config_as2Config_PreserveContentType != null)
+            {
+                request.As2Config.PreserveContentType = requestAs2Config_as2Config_PreserveContentType;
                 requestAs2ConfigIsNull = false;
             }
             Amazon.Transfer.SigningAlg requestAs2Config_as2Config_SigningAlgorithm = null;
@@ -591,6 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.MdnSigningAlg As2Config_MdnSigningAlgorithm { get; set; }
             public System.String As2Config_MessageSubject { get; set; }
             public System.String As2Config_PartnerProfileId { get; set; }
+            public Amazon.Transfer.PreserveContentType As2Config_PreserveContentType { get; set; }
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String SecurityPolicyName { get; set; }

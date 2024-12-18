@@ -782,6 +782,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersion",
                "Get-IOTRegistrationCode",
                "Get-IOTStatistic",
+               "Get-IOTThingConnectivityData",
                "Get-IOTTopicRule",
                "Get-IOTTopicRuleDestination",
                "Get-IOTV2LoggingOption",

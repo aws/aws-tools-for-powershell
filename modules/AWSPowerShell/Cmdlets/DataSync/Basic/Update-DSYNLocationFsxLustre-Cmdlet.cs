@@ -22,40 +22,38 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectParticipant;
-using Amazon.ConnectParticipant.Model;
+using Amazon.DataSync;
+using Amazon.DataSync.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONNP
+namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Disconnects a participant. 
+    /// Modifies the following configuration parameters of the Amazon FSx for Lustre transfer
+    /// location that you're using with DataSync.
     /// 
     ///  
     /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
-    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
-    /// </para></note><para>
-    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4 authentication</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html">Configuring
+    /// DataSync transfers with FSx for Lustre</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Disconnect", "CONNPParticipant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DSYNLocationFsxLustre", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Participant Service DisconnectParticipant API operation.", Operation = new[] {"DisconnectParticipant"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DisconnectParticipantResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectParticipant.Model.DisconnectParticipantResponse",
+    [AWSCmdlet("Calls the AWS DataSync UpdateLocationFsxLustre API operation.", Operation = new[] {"UpdateLocationFsxLustre"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationFsxLustreResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationFsxLustreResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectParticipant.Model.DisconnectParticipantResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationFsxLustreResponse) be returned by specifying '-Select *'."
     )]
-    public partial class DisconnectCONNPParticipantCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
+    public partial class UpdateDSYNLocationFsxLustreCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectionToken
+        #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The authentication token associated with the participant's connection.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre transfer location that
+        /// you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +64,25 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionToken { get; set; }
+        public System.String LocationArn { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
-        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-        /// retries safe with idempotent APIs</a>.</para>
+        /// <para>Specifies a mount path for your FSx for Lustre file system. The path can include subdirectories.</para><para>When the location is used as a source, DataSync reads data from the mount path. When
+        /// the location is used as a destination, DataSync writes data to the mount path. If
+        /// you don't include this parameter, DataSync uses the file system's root directory (<c>/</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String Subdirectory { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.DisconnectParticipantResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationFsxLustreResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LocationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-CONNPParticipant (DisconnectParticipant)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationFsxLustre (UpdateLocationFsxLustre)"))
             {
                 return;
             }
@@ -131,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.DisconnectParticipantResponse, DisconnectCONNPParticipantCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationFsxLustreResponse, UpdateDSYNLocationFsxLustreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,17 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionToken;
+                context.Select = (response, cmdlet) => this.LocationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.ConnectionToken = this.ConnectionToken;
+            context.LocationArn = this.LocationArn;
             #if MODULAR
-            if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
+            if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Subdirectory = this.Subdirectory;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectParticipant.Model.DisconnectParticipantRequest();
+            var request = new Amazon.DataSync.Model.UpdateLocationFsxLustreRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.LocationArn != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.LocationArn = cmdletContext.LocationArn;
             }
-            if (cmdletContext.ConnectionToken != null)
+            if (cmdletContext.Subdirectory != null)
             {
-                request.ConnectionToken = cmdletContext.ConnectionToken;
+                request.Subdirectory = cmdletContext.Subdirectory;
             }
             
             CmdletOutput output;
@@ -208,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectParticipant.Model.DisconnectParticipantResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.DisconnectParticipantRequest request)
+        private Amazon.DataSync.Model.UpdateLocationFsxLustreResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationFsxLustreRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "DisconnectParticipant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationFsxLustre");
             try
             {
                 #if DESKTOP
-                return client.DisconnectParticipant(request);
+                return client.UpdateLocationFsxLustre(request);
                 #elif CORECLR
-                return client.DisconnectParticipantAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLocationFsxLustreAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,9 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String ConnectionToken { get; set; }
-            public System.Func<Amazon.ConnectParticipant.Model.DisconnectParticipantResponse, DisconnectCONNPParticipantCmdlet, object> Select { get; set; } =
+            public System.String LocationArn { get; set; }
+            public System.String Subdirectory { get; set; }
+            public System.Func<Amazon.DataSync.Model.UpdateLocationFsxLustreResponse, UpdateDSYNLocationFsxLustreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

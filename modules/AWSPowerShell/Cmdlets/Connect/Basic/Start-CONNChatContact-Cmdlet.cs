@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class StartCONNChatContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Attribute
@@ -136,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InitialMessage_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter CustomerId
+        /// <summary>
+        /// <para>
+        /// <para>The customer's identification number. For example, the <c>CustomerId</c> may be a
+        /// customer number from your CRM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerId { get; set; }
         #endregion
         
         #region Parameter ParticipantDetails_DisplayName
@@ -339,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomerId = this.CustomerId;
             context.InitialMessage_Content = this.InitialMessage_Content;
             context.InitialMessage_ContentType = this.InitialMessage_ContentType;
             context.InstanceId = this.InstanceId;
@@ -401,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ContactFlowId != null)
             {
                 request.ContactFlowId = cmdletContext.ContactFlowId;
+            }
+            if (cmdletContext.CustomerId != null)
+            {
+                request.CustomerId = cmdletContext.CustomerId;
             }
             
              // populate InitialMessage
@@ -560,6 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.Int32? ChatDurationInMinute { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ContactFlowId { get; set; }
+            public System.String CustomerId { get; set; }
             public System.String InitialMessage_Content { get; set; }
             public System.String InitialMessage_ContentType { get; set; }
             public System.String InstanceId { get; set; }

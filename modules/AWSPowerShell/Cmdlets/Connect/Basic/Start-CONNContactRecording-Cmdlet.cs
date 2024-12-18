@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter VoiceRecordingConfiguration_IvrRecordingTrack
         /// <summary>
         /// <para>
-        /// <para>Identifies which IVR track is being recorded.</para>
+        /// <para>Identifies which IVR track is being recorded.</para><para>One and only one of the track configurations should be presented in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

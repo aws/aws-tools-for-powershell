@@ -7032,6 +7032,7 @@ Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
 Set-Alias -Name CONN-UpdateHoursOfOperationOverride -Value Update-CONNHoursOfOperationOverride
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
+Set-Alias -Name CONN-UpdateParticipantAuthentication -Value Update-CONNParticipantAuthentication
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
 Set-Alias -Name CONN-UpdatePhoneNumberMetadata -Value Update-CONNPhoneNumberMetadata
@@ -7217,6 +7218,8 @@ Set-Alias -Name CCAS-UpdateTemplate -Value Update-CCASTemplate
 Set-Alias -Name List-CCLRealtimeContactAnalysisSegments -Value Get-CCLRealtimeContactAnalysisSegmentList
 Set-Alias -Name List-CCLRealtimeContactAnalysisSegmentList -Value Get-CCLRealtimeContactAnalysisSegmentList
 Set-Alias -Name CCL-ListRealtimeContactAnalysisSegments -Value Get-CCLRealtimeContactAnalysisSegmentList
+Set-Alias -Name Cancel-CONNPParticipantAuthentication -Value Stop-CONNPParticipantAuthentication
+Set-Alias -Name CONNP-CancelParticipantAuthentication -Value Stop-CONNPParticipantAuthentication
 Set-Alias -Name CONNP-CompleteAttachmentUpload -Value Complete-CONNPAttachmentUpload
 Set-Alias -Name Create-CONNPParticipantConnection -Value New-CONNPParticipantConnection
 Set-Alias -Name CONNP-CreateParticipantConnection -Value New-CONNPParticipantConnection
@@ -7224,6 +7227,7 @@ Set-Alias -Name Describe-CONNPView -Value Get-CONNPView
 Set-Alias -Name CONNP-DescribeView -Value Get-CONNPView
 Set-Alias -Name CONNP-DisconnectParticipant -Value Disconnect-CONNPParticipant
 Set-Alias -Name CONNP-GetAttachment -Value Get-CONNPAttachment
+Set-Alias -Name CONNP-GetAuthenticationUrl -Value Get-CONNPAuthenticationUrl
 Set-Alias -Name CONNP-GetTranscript -Value Get-CONNPTranscript
 Set-Alias -Name CONNP-SendEvent -Value Send-CONNPEvent
 Set-Alias -Name CONNP-SendMessage -Value Send-CONNPMessage
@@ -7739,10 +7743,18 @@ Set-Alias -Name DSYN-UntagResource -Value Remove-DSYNResourceTag
 Set-Alias -Name DSYN-UpdateAgent -Value Update-DSYNAgent
 Set-Alias -Name DSYN-UpdateDiscoveryJob -Value Update-DSYNDiscoveryJob
 Set-Alias -Name DSYN-UpdateLocationAzureBlob -Value Update-DSYNLocationAzureBlob
+Set-Alias -Name DSYN-UpdateLocationEfs -Value Update-DSYNLocationEfs
+Set-Alias -Name DSYN-UpdateLocationFsxLustre -Value Update-DSYNLocationFsxLustre
+Set-Alias -Name DSYN-UpdateLocationFsxOntap -Value Update-DSYNLocationFsxOntap
+Set-Alias -Name Update-DSYNLocationFsxOpenZfs -Value Update-DSYNLocationFsxOpenZf
+Set-Alias -Name DSYN-UpdateLocationFsxOpenZfs -Value Update-DSYNLocationFsxOpenZf
+Set-Alias -Name Update-DSYNLocationFsxWindows -Value Update-DSYNLocationFsxWindow
+Set-Alias -Name DSYN-UpdateLocationFsxWindows -Value Update-DSYNLocationFsxWindow
 Set-Alias -Name Update-DSYNLocationHdfs -Value Update-DSYNLocationHdf
 Set-Alias -Name DSYN-UpdateLocationHdfs -Value Update-DSYNLocationHdf
 Set-Alias -Name DSYN-UpdateLocationNfs -Value Update-DSYNLocationNfs
 Set-Alias -Name DSYN-UpdateLocationObjectStorage -Value Update-DSYNLocationObjectStorage
+Set-Alias -Name DSYN-UpdateLocationS3 -Value Update-DSYNLocationS3
 Set-Alias -Name DSYN-UpdateLocationSmb -Value Update-DSYNLocationSmb
 Set-Alias -Name DSYN-UpdateStorageSystem -Value Update-DSYNStorageSystem
 Set-Alias -Name DSYN-UpdateTask -Value Update-DSYNTask
@@ -15822,6 +15834,7 @@ Set-Alias -Name IOT-GetPolicyVersion -Value Get-IOTPolicyVersion
 Set-Alias -Name IOT-GetRegistrationCode -Value Get-IOTRegistrationCode
 Set-Alias -Name Get-IOTStatistics -Value Get-IOTStatistic
 Set-Alias -Name IOT-GetStatistics -Value Get-IOTStatistic
+Set-Alias -Name IOT-GetThingConnectivityData -Value Get-IOTThingConnectivityData
 Set-Alias -Name IOT-GetTopicRule -Value Get-IOTTopicRule
 Set-Alias -Name IOT-GetTopicRuleDestination -Value Get-IOTTopicRuleDestination
 Set-Alias -Name Get-IOTV2LoggingOptions -Value Get-IOTV2LoggingOption

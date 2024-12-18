@@ -113,6 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnforceMessageSigning
+        /// <summary>
+        /// <para>
+        /// <para> Determines whether or not unsigned messages from your trading partners will be accepted.
+        /// </para><ul><li><para><c>ENABLED</c>: Transfer Family rejects unsigned messages from your trading partner.</para></li><li><para><c>DISABLED</c> (default value): Transfer Family accepts unsigned messages from your
+        /// trading partner.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.EnforceMessageSigningType")]
+        public Amazon.Transfer.EnforceMessageSigningType EnforceMessageSigning { get; set; }
+        #endregion
+        
         #region Parameter LocalProfileId
         /// <summary>
         /// <para>
@@ -145,6 +158,21 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PartnerProfileId { get; set; }
+        #endregion
+        
+        #region Parameter PreserveFilename
+        /// <summary>
+        /// <para>
+        /// <para> Determines whether or not Transfer Family appends a unique string of characters to
+        /// the end of the AS2 message payload filename when saving it. </para><ul><li><para><c>ENABLED</c>: the filename provided by your trading parter is preserved when the
+        /// file is saved.</para></li><li><para><c>DISABLED</c> (default value): when Transfer Family saves the file, the filename
+        /// is adjusted, as described in <a href="https://docs.aws.amazon.com/transfer/latest/userguide/send-as2-messages.html#file-names-as2">File
+        /// names and locations</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.PreserveFilenameType")]
+        public Amazon.Transfer.PreserveFilenameType PreserveFilename { get; set; }
         #endregion
         
         #region Parameter ServerId
@@ -264,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             #endif
             context.Description = this.Description;
+            context.EnforceMessageSigning = this.EnforceMessageSigning;
             context.LocalProfileId = this.LocalProfileId;
             #if MODULAR
             if (this.LocalProfileId == null && ParameterWasBound(nameof(this.LocalProfileId)))
@@ -278,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter PartnerProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PreserveFilename = this.PreserveFilename;
             context.ServerId = this.ServerId;
             #if MODULAR
             if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
@@ -318,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.EnforceMessageSigning != null)
+            {
+                request.EnforceMessageSigning = cmdletContext.EnforceMessageSigning;
+            }
             if (cmdletContext.LocalProfileId != null)
             {
                 request.LocalProfileId = cmdletContext.LocalProfileId;
@@ -325,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.PartnerProfileId != null)
             {
                 request.PartnerProfileId = cmdletContext.PartnerProfileId;
+            }
+            if (cmdletContext.PreserveFilename != null)
+            {
+                request.PreserveFilename = cmdletContext.PreserveFilename;
             }
             if (cmdletContext.ServerId != null)
             {
@@ -402,8 +440,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String AccessRole { get; set; }
             public System.String BaseDirectory { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Transfer.EnforceMessageSigningType EnforceMessageSigning { get; set; }
             public System.String LocalProfileId { get; set; }
             public System.String PartnerProfileId { get; set; }
+            public Amazon.Transfer.PreserveFilenameType PreserveFilename { get; set; }
             public System.String ServerId { get; set; }
             public Amazon.Transfer.AgreementStatusType Status { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }

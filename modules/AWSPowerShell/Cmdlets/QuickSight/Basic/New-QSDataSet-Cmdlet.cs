@@ -338,6 +338,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter PerformanceConfiguration_UniqueKey
+        /// <summary>
+        /// <para>
+        /// <para>A <c>UniqueKey</c> configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PerformanceConfiguration_UniqueKeys")]
+        public Amazon.QuickSight.Model.UniqueKey[] PerformanceConfiguration_UniqueKey { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -462,6 +473,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PerformanceConfiguration_UniqueKey != null)
+            {
+                context.PerformanceConfiguration_UniqueKey = new List<Amazon.QuickSight.Model.UniqueKey>(this.PerformanceConfiguration_UniqueKey);
+            }
             if (this.Permission != null)
             {
                 context.Permission = new List<Amazon.QuickSight.Model.ResourcePermission>(this.Permission);
@@ -586,6 +601,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate PerformanceConfiguration
+            var requestPerformanceConfigurationIsNull = true;
+            request.PerformanceConfiguration = new Amazon.QuickSight.Model.PerformanceConfiguration();
+            List<Amazon.QuickSight.Model.UniqueKey> requestPerformanceConfiguration_performanceConfiguration_UniqueKey = null;
+            if (cmdletContext.PerformanceConfiguration_UniqueKey != null)
+            {
+                requestPerformanceConfiguration_performanceConfiguration_UniqueKey = cmdletContext.PerformanceConfiguration_UniqueKey;
+            }
+            if (requestPerformanceConfiguration_performanceConfiguration_UniqueKey != null)
+            {
+                request.PerformanceConfiguration.UniqueKeys = requestPerformanceConfiguration_performanceConfiguration_UniqueKey;
+                requestPerformanceConfigurationIsNull = false;
+            }
+             // determine if request.PerformanceConfiguration should be set to null
+            if (requestPerformanceConfigurationIsNull)
+            {
+                request.PerformanceConfiguration = null;
             }
             if (cmdletContext.Permission != null)
             {
@@ -770,6 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DataSetImportMode ImportMode { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable> LogicalTableMap { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.QuickSight.Model.UniqueKey> PerformanceConfiguration_UniqueKey { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> Permission { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.PhysicalTable> PhysicalTableMap { get; set; }
             public System.String RowLevelPermissionDataSet_Arn { get; set; }

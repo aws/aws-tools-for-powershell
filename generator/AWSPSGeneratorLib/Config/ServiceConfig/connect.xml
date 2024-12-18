@@ -1086,6 +1086,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateParticipantAuthentication" Verb="Update" Noun="ParticipantAuthentication" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

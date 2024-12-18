@@ -89,12 +89,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Complete-CONNPAttachmentUpload', 
         'Disconnect-CONNPParticipant', 
         'Get-CONNPAttachment', 
+        'Get-CONNPAuthenticationUrl', 
         'Get-CONNPTranscript', 
         'Get-CONNPView', 
         'New-CONNPParticipantConnection', 
         'Send-CONNPEvent', 
         'Send-CONNPMessage', 
-        'Start-CONNPAttachmentUpload')
+        'Start-CONNPAttachmentUpload', 
+        'Stop-CONNPParticipantAuthentication')
 
     # Variables to export from this module
     VariablesToExport = '*'

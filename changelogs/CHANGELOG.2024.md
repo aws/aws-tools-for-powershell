@@ -1,4 +1,31 @@
-﻿### 4.1.720 (2024-12-17 22:08Z)
+﻿### 4.1.721 (2024-12-18 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.949.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Participant Service
+    * Added cmdlet Get-CONNPAuthenticationUrl leveraging the GetAuthenticationUrl service API.
+    * Added cmdlet Stop-CONNPParticipantAuthentication leveraging the CancelParticipantAuthentication service API.
+    * Modified cmdlet Get-CONNPAttachment: added parameter UrlExpiryInSecond.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNParticipantAuthentication leveraging the UpdateParticipantAuthentication service API.
+    * Modified cmdlet Start-CONNChatContact: added parameter CustomerId.
+  * Amazon DataSync
+    * Added cmdlet Update-DSYNLocationEfs leveraging the UpdateLocationEfs service API.
+    * Added cmdlet Update-DSYNLocationFsxLustre leveraging the UpdateLocationFsxLustre service API.
+    * Added cmdlet Update-DSYNLocationFsxOntap leveraging the UpdateLocationFsxOntap service API.
+    * Added cmdlet Update-DSYNLocationFsxOpenZf leveraging the UpdateLocationFsxOpenZfs service API.
+    * Added cmdlet Update-DSYNLocationFsxWindow leveraging the UpdateLocationFsxWindows service API.
+    * Added cmdlet Update-DSYNLocationS3 leveraging the UpdateLocationS3 service API.
+  * Amazon IoT
+    * Added cmdlet Get-IOTThingConnectivityData leveraging the GetThingConnectivityData service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSet: added parameter PerformanceConfiguration_UniqueKey.
+    * Modified cmdlet Update-QSDataSet: added parameter PerformanceConfiguration_UniqueKey.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRAgreement: added parameters EnforceMessageSigning and PreserveFilename.
+    * Modified cmdlet New-TFRConnector: added parameter As2Config_PreserveContentType.
+    * Modified cmdlet Update-TFRAgreement: added parameters EnforceMessageSigning and PreserveFilename.
+    * Modified cmdlet Update-TFRConnector: added parameter As2Config_PreserveContentType.
+
+### 4.1.720 (2024-12-17 22:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.948.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Added cmdlet Get-BAKIndexedRecoveryPointList leveraging the ListIndexedRecoveryPoints service API.

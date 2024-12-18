@@ -151,6 +151,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.EnforceMessageSigningType
+        {
+            ($_ -eq "New-TFRAgreement/EnforceMessageSigning") -Or
+            ($_ -eq "Update-TFRAgreement/EnforceMessageSigning")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Transfer.HomeDirectoryType
         {
             ($_ -eq "New-TFRAccess/HomeDirectoryType") -Or
@@ -187,6 +197,26 @@ $TFR_Completers = {
         }
         {
             $v = "DEFAULT","NONE","SHA1","SHA256","SHA384","SHA512"
+            break
+        }
+
+        # Amazon.Transfer.PreserveContentType
+        {
+            ($_ -eq "New-TFRConnector/As2Config_PreserveContentType") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_PreserveContentType")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Transfer.PreserveFilenameType
+        {
+            ($_ -eq "New-TFRAgreement/PreserveFilename") -Or
+            ($_ -eq "Update-TFRAgreement/PreserveFilename")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -260,12 +290,15 @@ $TFR_map = @{
     "As2Config_EncryptionAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_MdnResponse"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_MdnSigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_PreserveContentType"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_SigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
+    "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer")
+    "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")

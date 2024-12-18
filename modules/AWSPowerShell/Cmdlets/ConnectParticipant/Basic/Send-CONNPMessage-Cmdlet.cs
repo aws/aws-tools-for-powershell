@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Sends a message.
     /// 
-    ///  <note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
+    ///  
+    /// <para>
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
+    /// Connect Chat security best practices</a>.
+    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.

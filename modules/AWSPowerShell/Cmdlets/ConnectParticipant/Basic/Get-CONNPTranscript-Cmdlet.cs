@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// 
     ///  
     /// <para>
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
+    /// Connect Chat security best practices</a>.
+    /// </para><para>
     /// If you have a process that consumes events in the transcript of an chat that has ended,
     /// note that chat transcripts contain the following event content types if the event
     /// has occurred during the chat session:

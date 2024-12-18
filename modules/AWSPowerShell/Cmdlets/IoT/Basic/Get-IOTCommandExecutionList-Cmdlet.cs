@@ -30,11 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// List all command executions.
     /// 
-    ///  <important><para>
+    ///  <important><ul><li><para>
     /// You must provide only the <c>startedTimeFilter</c> or the <c>completedTimeFilter</c>
     /// information. If you provide both time filters, the API will generate an error. You
-    /// can use this information to find command executions that started within a specific
+    /// can use this information to retrieve a list of command executions within a specific
     /// timeframe.
+    /// </para></li><li><para>
+    /// You must provide only the <c>commandArn</c> or the <c>thingArn</c> information depending
+    /// on whether you want to list executions for a specific command or an IoT thing. If
+    /// you provide both fields, the API will generate an error.
+    /// </para></li></ul><para>
+    /// For more information about considerations for using this API, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-execution-start-monitor.html#iot-remote-command-execution-list-cli">List
+    /// command executions in your account (CLI)</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "IOTCommandExecutionList")]

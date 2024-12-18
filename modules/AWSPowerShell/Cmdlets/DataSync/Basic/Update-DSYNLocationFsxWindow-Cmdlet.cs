@@ -22,60 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectParticipant;
-using Amazon.ConnectParticipant.Model;
+using Amazon.DataSync;
+using Amazon.DataSync.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONNP
+namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Allows you to confirm that the attachment has been uploaded using the pre-signed URL
-    /// provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
-    /// with that identifier is already being uploaded.
+    /// Modifies the following configuration parameters of the Amazon FSx for Windows File
+    /// Server transfer location that you're using with DataSync.
     /// 
     ///  
     /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
-    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
-    /// </para></note><para>
-    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4 authentication</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html">Configuring
+    /// DataSync transfers with FSx for Windows File Server</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Complete", "CONNPAttachmentUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DSYNLocationFsxWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Participant Service CompleteAttachmentUpload API operation.", Operation = new[] {"CompleteAttachmentUpload"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse",
+    [AWSCmdlet("Calls the AWS DataSync UpdateLocationFsxWindows API operation.", Operation = new[] {"UpdateLocationFsxWindows"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class CompleteCONNPAttachmentUploadCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
+    public partial class UpdateDSYNLocationFsxWindowCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AttachmentId
+        #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>A list of unique identifiers for the attachments.</para>
+        /// <para>Specifies the name of the Windows domain that your FSx for Windows File Server file
+        /// system belongs to.</para><para>If you have multiple Active Directory domains in your environment, configuring this
+        /// parameter makes sure that DataSync connects to the right file system.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("AttachmentIds")]
-        public System.String[] AttachmentId { get; set; }
+        public System.String Domain { get; set; }
         #endregion
         
-        #region Parameter ConnectionToken
+        #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The authentication token associated with the participant's connection.</para>
+        /// <para>Specifies the ARN of the FSx for Windows File Server transfer location that you're
+        /// updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,26 +78,49 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionToken { get; set; }
+        public System.String LocationArn { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
-        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-        /// retries safe with idempotent APIs</a>.</para>
+        /// <para>Specifies the password of the user with the permissions to mount and access the files,
+        /// folders, and file metadata in your FSx for Windows File Server file system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter Subdirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a mount path for your file system using forward slashes. DataSync uses this
+        /// subdirectory to read or write data (depending on whether the file system is a source
+        /// or destination location).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Subdirectory { get; set; }
+        #endregion
+        
+        #region Parameter User
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the user with the permissions to mount and access the files, folders, and
+        /// file metadata in your FSx for Windows File Server file system.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required
+        /// permissions</a> for FSx for Windows File Server locations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String User { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ConnectionToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ConnectionToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LocationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectionToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -137,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectionToken), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Complete-CONNPAttachmentUpload (CompleteAttachmentUpload)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNLocationFsxWindow (UpdateLocationFsxWindows)"))
             {
                 return;
             }
@@ -151,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse, CompleteCONNPAttachmentUploadCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse, UpdateDSYNLocationFsxWindowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -160,27 +175,20 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ConnectionToken;
+                context.Select = (response, cmdlet) => this.LocationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AttachmentId != null)
-            {
-                context.AttachmentId = new List<System.String>(this.AttachmentId);
-            }
+            context.Domain = this.Domain;
+            context.LocationArn = this.LocationArn;
             #if MODULAR
-            if (this.AttachmentId == null && ParameterWasBound(nameof(this.AttachmentId)))
+            if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LocationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            context.ConnectionToken = this.ConnectionToken;
-            #if MODULAR
-            if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Password = this.Password;
+            context.Subdirectory = this.Subdirectory;
+            context.User = this.User;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,19 +203,27 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectParticipant.Model.CompleteAttachmentUploadRequest();
+            var request = new Amazon.DataSync.Model.UpdateLocationFsxWindowsRequest();
             
-            if (cmdletContext.AttachmentId != null)
+            if (cmdletContext.Domain != null)
             {
-                request.AttachmentIds = cmdletContext.AttachmentId;
+                request.Domain = cmdletContext.Domain;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.LocationArn != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.LocationArn = cmdletContext.LocationArn;
             }
-            if (cmdletContext.ConnectionToken != null)
+            if (cmdletContext.Password != null)
             {
-                request.ConnectionToken = cmdletContext.ConnectionToken;
+                request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.Subdirectory != null)
+            {
+                request.Subdirectory = cmdletContext.Subdirectory;
+            }
+            if (cmdletContext.User != null)
+            {
+                request.User = cmdletContext.User;
             }
             
             CmdletOutput output;
@@ -242,15 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.CompleteAttachmentUploadRequest request)
+        private Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateLocationFsxWindowsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "CompleteAttachmentUpload");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateLocationFsxWindows");
             try
             {
                 #if DESKTOP
-                return client.CompleteAttachmentUpload(request);
+                return client.UpdateLocationFsxWindows(request);
                 #elif CORECLR
-                return client.CompleteAttachmentUploadAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLocationFsxWindowsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -270,10 +286,12 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AttachmentId { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String ConnectionToken { get; set; }
-            public System.Func<Amazon.ConnectParticipant.Model.CompleteAttachmentUploadResponse, CompleteCONNPAttachmentUploadCmdlet, object> Select { get; set; } =
+            public System.String Domain { get; set; }
+            public System.String LocationArn { get; set; }
+            public System.String Password { get; set; }
+            public System.String Subdirectory { get; set; }
+            public System.String User { get; set; }
+            public System.Func<Amazon.DataSync.Model.UpdateLocationFsxWindowsResponse, UpdateDSYNLocationFsxWindowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -17708,7 +17708,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -17731,7 +17731,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -18399,6 +18399,7 @@ $CONN_SelectMap = @{
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
                "Update-CONNPhoneNumberMetadata",
@@ -18976,11 +18977,13 @@ $CONNP_SelectCompleters = {
 }
 
 $CONNP_SelectMap = @{
-    "Select"=@("Complete-CONNPAttachmentUpload",
+    "Select"=@("Stop-CONNPParticipantAuthentication",
+               "Complete-CONNPAttachmentUpload",
                "New-CONNPParticipantConnection",
                "Get-CONNPView",
                "Disconnect-CONNPParticipant",
                "Get-CONNPAttachment",
+               "Get-CONNPAuthenticationUrl",
                "Get-CONNPTranscript",
                "Send-CONNPEvent",
                "Send-CONNPMessage",
@@ -20242,7 +20245,10 @@ $DSYN_Completers = {
         }
 
         # Amazon.DataSync.EfsInTransitEncryption
-        "New-DSYNLocationEfs/InTransitEncryption"
+        {
+            ($_ -eq "New-DSYNLocationEfs/InTransitEncryption") -Or
+            ($_ -eq "Update-DSYNLocationEfs/InTransitEncryption")
+        }
         {
             $v = "NONE","TLS1_2"
             break
@@ -20305,7 +20311,9 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationFsxOpenZf/MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version")
+            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
@@ -20368,7 +20376,10 @@ $DSYN_Completers = {
         }
 
         # Amazon.DataSync.S3StorageClass
-        "New-DSYNLocationS3/S3StorageClass"
+        {
+            ($_ -eq "New-DSYNLocationS3/S3StorageClass") -Or
+            ($_ -eq "Update-DSYNLocationS3/S3StorageClass")
+        }
         {
             $v = "DEEP_ARCHIVE","GLACIER","GLACIER_INSTANT_RETRIEVAL","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","STANDARD","STANDARD_IA"
             break
@@ -20389,7 +20400,9 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationSmb/MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationFsxOntap/Protocol_SMB_MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
+            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOntap/Protocol_SMB_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","SMB1","SMB2","SMB2_0","SMB3"
@@ -20416,16 +20429,16 @@ $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "InTransitEncryption"=@("New-DSYNLocationEfs")
+    "InTransitEncryption"=@("New-DSYNLocationEfs","Update-DSYNLocationEfs")
     "ManifestConfig_Action"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "ManifestConfig_Format"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "MountOptions_Version"=@("New-DSYNLocationFsxOpenZf","New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
-    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap")
-    "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
+    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
+    "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
-    "S3StorageClass"=@("New-DSYNLocationS3")
+    "S3StorageClass"=@("New-DSYNLocationS3","Update-DSYNLocationS3")
     "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
@@ -20541,9 +20554,15 @@ $DSYN_SelectMap = @{
                "Update-DSYNAgent",
                "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationAzureBlob",
+               "Update-DSYNLocationEfs",
+               "Update-DSYNLocationFsxLustre",
+               "Update-DSYNLocationFsxOntap",
+               "Update-DSYNLocationFsxOpenZf",
+               "Update-DSYNLocationFsxWindow",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
+               "Update-DSYNLocationS3",
                "Update-DSYNLocationSmb",
                "Update-DSYNStorageSystem",
                "Update-DSYNTask",
@@ -38215,6 +38234,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersion",
                "Get-IOTRegistrationCode",
                "Get-IOTStatistic",
+               "Get-IOTThingConnectivityData",
                "Get-IOTTopicRule",
                "Get-IOTTopicRuleDestination",
                "Get-IOTV2LoggingOption",
@@ -74296,6 +74316,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.EnforceMessageSigningType
+        {
+            ($_ -eq "New-TFRAgreement/EnforceMessageSigning") -Or
+            ($_ -eq "Update-TFRAgreement/EnforceMessageSigning")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Transfer.HomeDirectoryType
         {
             ($_ -eq "New-TFRAccess/HomeDirectoryType") -Or
@@ -74332,6 +74362,26 @@ $TFR_Completers = {
         }
         {
             $v = "DEFAULT","NONE","SHA1","SHA256","SHA384","SHA512"
+            break
+        }
+
+        # Amazon.Transfer.PreserveContentType
+        {
+            ($_ -eq "New-TFRConnector/As2Config_PreserveContentType") -Or
+            ($_ -eq "Update-TFRConnector/As2Config_PreserveContentType")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Transfer.PreserveFilenameType
+        {
+            ($_ -eq "New-TFRAgreement/PreserveFilename") -Or
+            ($_ -eq "Update-TFRAgreement/PreserveFilename")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -74405,12 +74455,15 @@ $TFR_map = @{
     "As2Config_EncryptionAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_MdnResponse"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_MdnSigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
+    "As2Config_PreserveContentType"=@("New-TFRConnector","Update-TFRConnector")
     "As2Config_SigningAlgorithm"=@("New-TFRConnector","Update-TFRConnector")
     "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
+    "EnforceMessageSigning"=@("New-TFRAgreement","Update-TFRAgreement")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
     "IdentityProviderDetails_SftpAuthenticationMethod"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer")
+    "PreserveFilename"=@("New-TFRAgreement","Update-TFRAgreement")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")
     "ProtocolDetails_TlsSessionResumptionMode"=@("New-TFRServer","Update-TFRServer")

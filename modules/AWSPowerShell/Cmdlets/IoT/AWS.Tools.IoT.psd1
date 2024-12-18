@@ -202,6 +202,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTTargetsForSecurityProfileList', 
         'Get-IOTTaskList', 
         'Get-IOTThing', 
+        'Get-IOTThingConnectivityData', 
         'Get-IOTThingGroup', 
         'Get-IOTThingGroupList', 
         'Get-IOTThingGroupsForThingList', 

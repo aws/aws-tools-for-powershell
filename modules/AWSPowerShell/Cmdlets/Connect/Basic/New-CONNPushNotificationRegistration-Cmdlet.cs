@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Creates registration for a device token and a chat contact to receive real-time push
-    /// notifications. For more information about push notifications, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-up-push-notifications-for-mobile-chat.html">Set
+    /// notifications. For more information about push notifications, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-push-notifications-for-mobile-chat.html">Set
     /// up push notifications in Amazon Connect for mobile chat</a> in the <i>Amazon Connect
     /// Administrator Guide</i>.
     /// </summary>

@@ -304,7 +304,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CHAT_MONITORING","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CHAT_CONFERENCE","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -327,7 +327,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
+            $v = "ANALYTICS_CONNECTOR","APPLICATION","CALL_TRANSFER_CONNECTOR","CASES_DOMAIN","COGNITO_USER_POOL","EVENT","FILE_SCANNER","PINPOINT_APP","Q_MESSAGE_TEMPLATES","SES_IDENTITY","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE","WISDOM_QUICK_RESPONSES"
             break
         }
 
@@ -995,6 +995,7 @@ $CONN_SelectMap = @{
                "Update-CONNHoursOfOperationOverride",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNParticipantAuthentication",
                "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
                "Update-CONNPhoneNumberMetadata",

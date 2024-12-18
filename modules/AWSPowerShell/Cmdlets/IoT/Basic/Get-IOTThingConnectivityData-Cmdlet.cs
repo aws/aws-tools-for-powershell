@@ -22,56 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectParticipant;
-using Amazon.ConnectParticipant.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONNP
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Retrieves the view for the specified view token.
-    /// 
-    ///  
-    /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
-    /// </para>
+    /// Retrieves the live connectivity status per device.
     /// </summary>
-    [Cmdlet("Get", "CONNPView")]
-    [OutputType("Amazon.ConnectParticipant.Model.View")]
-    [AWSCmdlet("Calls the Amazon Connect Participant Service DescribeView API operation.", Operation = new[] {"DescribeView"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.DescribeViewResponse))]
-    [AWSCmdletOutput("Amazon.ConnectParticipant.Model.View or Amazon.ConnectParticipant.Model.DescribeViewResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.View object.",
-        "The service call response (type Amazon.ConnectParticipant.Model.DescribeViewResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "IOTThingConnectivityData")]
+    [OutputType("Amazon.IoT.Model.GetThingConnectivityDataResponse")]
+    [AWSCmdlet("Calls the AWS IoT GetThingConnectivityData API operation.", Operation = new[] {"GetThingConnectivityData"}, SelectReturnType = typeof(Amazon.IoT.Model.GetThingConnectivityDataResponse))]
+    [AWSCmdletOutput("Amazon.IoT.Model.GetThingConnectivityDataResponse",
+        "This cmdlet returns an Amazon.IoT.Model.GetThingConnectivityDataResponse object containing multiple properties."
     )]
-    public partial class GetCONNPViewCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
+    public partial class GetIOTThingConnectivityDataCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ConnectionToken
+        #region Parameter ThingName
         /// <summary>
         /// <para>
-        /// <para>The connection token.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ConnectionToken { get; set; }
-        #endregion
-        
-        #region Parameter ViewToken
-        /// <summary>
-        /// <para>
-        /// <para>An encrypted token originating from the interactive message of a ShowView block operation.
-        /// Represents the desired view.</para>
+        /// <para>The name of your IoT thing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,26 +59,26 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ViewToken { get; set; }
+        public System.String ThingName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'View'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.DescribeViewResponse).
-        /// Specifying the name of a property of type Amazon.ConnectParticipant.Model.DescribeViewResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.GetThingConnectivityDataResponse).
+        /// Specifying the name of a property of type Amazon.IoT.Model.GetThingConnectivityDataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "View";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ViewToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ViewToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ThingName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ThingName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ViewToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ThingName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,21 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ViewToken;
+                context.Select = (response, cmdlet) => this.ThingName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ConnectionToken = this.ConnectionToken;
+            context.ThingName = this.ThingName;
             #if MODULAR
-            if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
+            if (this.ThingName == null && ParameterWasBound(nameof(this.ThingName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ViewToken = this.ViewToken;
-            #if MODULAR
-            if (this.ViewToken == null && ParameterWasBound(nameof(this.ViewToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ViewToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ThingName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectParticipant.Model.DescribeViewRequest();
+            var request = new Amazon.IoT.Model.GetThingConnectivityDataRequest();
             
-            if (cmdletContext.ConnectionToken != null)
+            if (cmdletContext.ThingName != null)
             {
-                request.ConnectionToken = cmdletContext.ConnectionToken;
-            }
-            if (cmdletContext.ViewToken != null)
-            {
-                request.ViewToken = cmdletContext.ViewToken;
+                request.ThingName = cmdletContext.ThingName;
             }
             
             CmdletOutput output;
@@ -202,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectParticipant.Model.DescribeViewResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.DescribeViewRequest request)
+        private Amazon.IoT.Model.GetThingConnectivityDataResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetThingConnectivityDataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "DescribeView");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetThingConnectivityData");
             try
             {
                 #if DESKTOP
-                return client.DescribeView(request);
+                return client.GetThingConnectivityData(request);
                 #elif CORECLR
-                return client.DescribeViewAsync(request).GetAwaiter().GetResult();
+                return client.GetThingConnectivityDataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,10 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionToken { get; set; }
-            public System.String ViewToken { get; set; }
-            public System.Func<Amazon.ConnectParticipant.Model.DescribeViewResponse, GetCONNPViewCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.View;
+            public System.String ThingName { get; set; }
+            public System.Func<Amazon.IoT.Model.GetThingConnectivityDataResponse, GetIOTThingConnectivityDataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

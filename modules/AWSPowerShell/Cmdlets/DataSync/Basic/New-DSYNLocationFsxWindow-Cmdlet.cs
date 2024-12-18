@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the Microsoft Active Directory domain that the FSx for Windows
-        /// File Server file system belongs to.</para><para>If you have multiple Active Directory domains in your environment, configuring this
+        /// <para>Specifies the name of the Windows domain that the FSx for Windows File Server file
+        /// system belongs to.</para><para>If you have multiple Active Directory domains in your environment, configuring this
         /// parameter makes sure that DataSync connects to the right file system.</para>
         /// </para>
         /// </summary>

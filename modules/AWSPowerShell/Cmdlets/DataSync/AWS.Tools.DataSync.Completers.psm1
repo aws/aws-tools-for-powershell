@@ -129,7 +129,10 @@ $DSYN_Completers = {
         }
 
         # Amazon.DataSync.EfsInTransitEncryption
-        "New-DSYNLocationEfs/InTransitEncryption"
+        {
+            ($_ -eq "New-DSYNLocationEfs/InTransitEncryption") -Or
+            ($_ -eq "Update-DSYNLocationEfs/InTransitEncryption")
+        }
         {
             $v = "NONE","TLS1_2"
             break
@@ -192,7 +195,9 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationFsxOpenZf/MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version")
+            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
@@ -255,7 +260,10 @@ $DSYN_Completers = {
         }
 
         # Amazon.DataSync.S3StorageClass
-        "New-DSYNLocationS3/S3StorageClass"
+        {
+            ($_ -eq "New-DSYNLocationS3/S3StorageClass") -Or
+            ($_ -eq "Update-DSYNLocationS3/S3StorageClass")
+        }
         {
             $v = "DEEP_ARCHIVE","GLACIER","GLACIER_INSTANT_RETRIEVAL","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","STANDARD","STANDARD_IA"
             break
@@ -276,7 +284,9 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationSmb/MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationFsxOntap/Protocol_SMB_MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
+            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOntap/Protocol_SMB_MountOptions_Version") -Or
+            ($_ -eq "Update-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","SMB1","SMB2","SMB2_0","SMB3"
@@ -303,16 +313,16 @@ $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "InTransitEncryption"=@("New-DSYNLocationEfs")
+    "InTransitEncryption"=@("New-DSYNLocationEfs","Update-DSYNLocationEfs")
     "ManifestConfig_Action"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "ManifestConfig_Format"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "MountOptions_Version"=@("New-DSYNLocationFsxOpenZf","New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
-    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap")
-    "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
+    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
+    "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
-    "S3StorageClass"=@("New-DSYNLocationS3")
+    "S3StorageClass"=@("New-DSYNLocationS3","Update-DSYNLocationS3")
     "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
@@ -428,9 +438,15 @@ $DSYN_SelectMap = @{
                "Update-DSYNAgent",
                "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationAzureBlob",
+               "Update-DSYNLocationEfs",
+               "Update-DSYNLocationFsxLustre",
+               "Update-DSYNLocationFsxOntap",
+               "Update-DSYNLocationFsxOpenZf",
+               "Update-DSYNLocationFsxWindow",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
+               "Update-DSYNLocationS3",
                "Update-DSYNLocationSmb",
                "Update-DSYNStorageSystem",
                "Update-DSYNTask",

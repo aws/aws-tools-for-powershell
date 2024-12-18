@@ -28,46 +28,25 @@ using Amazon.ConnectParticipant.Model;
 namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// Provides a pre-signed URL for download of a completed attachment. This is an asynchronous
-    /// API for use with active contacts.
+    /// Cancels the authentication session. The opted out branch of the Authenticate Customer
+    /// flow block will be taken.
     /// 
-    ///  
-    /// <para>
-    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
-    /// Connect Chat security best practices</a>.
-    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
-    /// </para></note><para>
-    /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4 authentication</a>.
-    /// </para>
+    ///  <note><para>
+    /// The current supported channel is chat. This API is not supported for Apple Messages
+    /// for Business, WhatsApp, or SMS chats.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "CONNPAttachment")]
-    [OutputType("Amazon.ConnectParticipant.Model.GetAttachmentResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Participant Service GetAttachment API operation.", Operation = new[] {"GetAttachment"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.GetAttachmentResponse))]
-    [AWSCmdletOutput("Amazon.ConnectParticipant.Model.GetAttachmentResponse",
-        "This cmdlet returns an Amazon.ConnectParticipant.Model.GetAttachmentResponse object containing multiple properties."
+    [Cmdlet("Stop", "CONNPParticipantAuthentication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Participant Service CancelParticipantAuthentication API operation.", Operation = new[] {"CancelParticipantAuthentication"}, SelectReturnType = typeof(Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNPAttachmentCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
+    public partial class StopCONNPParticipantAuthenticationCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter AttachmentId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the attachment.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AttachmentId { get; set; }
-        #endregion
         
         #region Parameter ConnectionToken
         /// <summary>
@@ -86,23 +65,27 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         public System.String ConnectionToken { get; set; }
         #endregion
         
-        #region Parameter UrlExpiryInSecond
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
-        /// yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</para>
+        /// <para>The <c>sessionId</c> provided in the <c>authenticationInitiated</c> event.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("UrlExpiryInSeconds")]
-        public System.Int32? UrlExpiryInSecond { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.GetAttachmentResponse).
-        /// Specifying the name of a property of type Amazon.ConnectParticipant.Model.GetAttachmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +102,26 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CONNPParticipantAuthentication (CancelParticipantAuthentication)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -132,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.GetAttachmentResponse, GetCONNPAttachmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse, StopCONNPParticipantAuthenticationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,13 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
                 context.Select = (response, cmdlet) => this.ConnectionToken;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AttachmentId = this.AttachmentId;
-            #if MODULAR
-            if (this.AttachmentId == null && ParameterWasBound(nameof(this.AttachmentId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ConnectionToken = this.ConnectionToken;
             #if MODULAR
             if (this.ConnectionToken == null && ParameterWasBound(nameof(this.ConnectionToken)))
@@ -158,7 +150,13 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
                 WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UrlExpiryInSecond = this.UrlExpiryInSecond;
+            context.SessionId = this.SessionId;
+            #if MODULAR
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectParticipant.Model.GetAttachmentRequest();
+            var request = new Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationRequest();
             
-            if (cmdletContext.AttachmentId != null)
-            {
-                request.AttachmentId = cmdletContext.AttachmentId;
-            }
             if (cmdletContext.ConnectionToken != null)
             {
                 request.ConnectionToken = cmdletContext.ConnectionToken;
             }
-            if (cmdletContext.UrlExpiryInSecond != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.UrlExpiryInSeconds = cmdletContext.UrlExpiryInSecond.Value;
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -220,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectParticipant.Model.GetAttachmentResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.GetAttachmentRequest request)
+        private Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse CallAWSServiceOperation(IAmazonConnectParticipant client, Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "GetAttachment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Participant Service", "CancelParticipantAuthentication");
             try
             {
                 #if DESKTOP
-                return client.GetAttachment(request);
+                return client.CancelParticipantAuthentication(request);
                 #elif CORECLR
-                return client.GetAttachmentAsync(request).GetAwaiter().GetResult();
+                return client.CancelParticipantAuthenticationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,11 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttachmentId { get; set; }
             public System.String ConnectionToken { get; set; }
-            public System.Int32? UrlExpiryInSecond { get; set; }
-            public System.Func<Amazon.ConnectParticipant.Model.GetAttachmentResponse, GetCONNPAttachmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.ConnectParticipant.Model.CancelParticipantAuthenticationResponse, StopCONNPParticipantAuthenticationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

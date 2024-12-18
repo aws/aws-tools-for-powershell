@@ -634,6 +634,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetThingConnectivityData" OutputProperty="*" Verb="Get" Noun="ThingConnectivityData" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTopicRule" OutputProperty="*" Verb="Get" Noun="TopicRule" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

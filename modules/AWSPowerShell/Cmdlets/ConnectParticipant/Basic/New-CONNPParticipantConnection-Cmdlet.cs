@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// <summary>
     /// Creates the participant's connection. 
     /// 
-    ///  <note><para><c>ParticipantToken</c> is used for invoking this API instead of <c>ConnectionToken</c>.
+    ///  
+    /// <para>
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
+    /// Connect Chat security best practices</a>.
+    /// </para><note><para><c>ParticipantToken</c> is used for invoking this API instead of <c>ConnectionToken</c>.
     /// </para></note><para>
     /// The participant token is valid for the lifetime of the participant – until they are
     /// part of a contact.
