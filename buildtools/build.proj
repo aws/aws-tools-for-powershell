@@ -213,6 +213,17 @@
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)/CHANGELOG.txt"/>
         <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(DesktopDeploymentArtifacts)/LICENSE"/>
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(DesktopDeploymentArtifacts)/NOTICE"/>
+
+       <!-- Copy transitive dependencies -->
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/BouncyCastle.Cryptography.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/Microsoft.Bcl.AsyncInterfaces.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Buffers.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Memory.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Numerics.Vectors.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Runtime.CompilerServices.Unsafe.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Text.Json.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+
     </Target>
 
     <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
@@ -242,6 +253,17 @@
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
         <Copy SourceFiles="$(RootPath)/LICENSE" DestinationFiles="$(NetCoreDeploymentArtifacts)/LICENSE"/>
         <Copy SourceFiles="$(RootPath)/NOTICE" DestinationFiles="$(NetCoreDeploymentArtifacts)/NOTICE"/>
+
+        <!-- Copy transitive dependencies -->
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/BouncyCastle.Cryptography.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Buffers.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Memory.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Numerics.Vectors.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Json.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+
     </Target>
 
     <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
