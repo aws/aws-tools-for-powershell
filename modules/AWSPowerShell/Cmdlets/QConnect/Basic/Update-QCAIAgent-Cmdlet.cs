@@ -180,6 +180,32 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId { get; set; }
         #endregion
         
+        #region Parameter AnswerRecommendationAIAgentConfiguration_Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale to which specifies the language and region settings that determine the
+        /// response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</para><note><para>Changing this locale to anything other than <c>en_US</c> will turn off recommendations
+        /// triggered by contact transcripts for agent assistance, as this feature is not supported
+        /// in multiple languages.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_AnswerRecommendationAIAgentConfiguration_Locale")]
+        public System.String AnswerRecommendationAIAgentConfiguration_Locale { get; set; }
+        #endregion
+        
+        #region Parameter ManualSearchAIAgentConfiguration_Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale to which specifies the language and region settings that determine the
+        /// response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ManualSearchAIAgentConfiguration_Locale")]
+        public System.String ManualSearchAIAgentConfiguration_Locale { get; set; }
+        #endregion
+        
         #region Parameter AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId
         /// <summary>
         /// <para>
@@ -341,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 context.AnswerRecommendationAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.AnswerRecommendationAIAgentConfiguration_AssociationConfiguration);
             }
             context.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId;
+            context.AnswerRecommendationAIAgentConfiguration_Locale = this.AnswerRecommendationAIAgentConfiguration_Locale;
             context.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId = this.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId;
             context.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId;
             context.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId = this.ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId;
@@ -348,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 context.ManualSearchAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.ManualSearchAIAgentConfiguration_AssociationConfiguration);
             }
+            context.ManualSearchAIAgentConfiguration_Locale = this.ManualSearchAIAgentConfiguration_Locale;
             if (this.SelfServiceAIAgentConfiguration_AssociationConfiguration != null)
             {
                 context.SelfServiceAIAgentConfiguration_AssociationConfiguration = new List<Amazon.QConnect.Model.AssociationConfiguration>(this.SelfServiceAIAgentConfiguration_AssociationConfiguration);
@@ -428,6 +456,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AssociationConfiguration != null)
             {
                 requestConfiguration_configuration_ManualSearchAIAgentConfiguration.AssociationConfigurations = requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_AssociationConfiguration;
+                requestConfiguration_configuration_ManualSearchAIAgentConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_Locale = null;
+            if (cmdletContext.ManualSearchAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_Locale = cmdletContext.ManualSearchAIAgentConfiguration_Locale;
+            }
+            if (requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_ManualSearchAIAgentConfiguration.Locale = requestConfiguration_configuration_ManualSearchAIAgentConfiguration_manualSearchAIAgentConfiguration_Locale;
                 requestConfiguration_configuration_ManualSearchAIAgentConfigurationIsNull = false;
             }
              // determine if requestConfiguration_configuration_ManualSearchAIAgentConfiguration should be set to null
@@ -540,6 +578,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration.IntentLabelingGenerationAIPromptId = requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId;
                 requestConfiguration_configuration_AnswerRecommendationAIAgentConfigurationIsNull = false;
             }
+            System.String requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_Locale = null;
+            if (cmdletContext.AnswerRecommendationAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_Locale = cmdletContext.AnswerRecommendationAIAgentConfiguration_Locale;
+            }
+            if (requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_Locale != null)
+            {
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration.Locale = requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_Locale;
+                requestConfiguration_configuration_AnswerRecommendationAIAgentConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_AnswerRecommendationAIAgentConfiguration_answerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId = null;
             if (cmdletContext.AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId != null)
             {
@@ -641,10 +689,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AnswerRecommendationAIAgentConfiguration_AnswerGenerationAIPromptId { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> AnswerRecommendationAIAgentConfiguration_AssociationConfiguration { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_IntentLabelingGenerationAIPromptId { get; set; }
+            public System.String AnswerRecommendationAIAgentConfiguration_Locale { get; set; }
             public System.String AnswerRecommendationAIAgentConfiguration_QueryReformulationAIPromptId { get; set; }
             public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIGuardrailId { get; set; }
             public System.String ManualSearchAIAgentConfiguration_AnswerGenerationAIPromptId { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> ManualSearchAIAgentConfiguration_AssociationConfiguration { get; set; }
+            public System.String ManualSearchAIAgentConfiguration_Locale { get; set; }
             public List<Amazon.QConnect.Model.AssociationConfiguration> SelfServiceAIAgentConfiguration_AssociationConfiguration { get; set; }
             public System.String SelfServiceAIAgentConfiguration_SelfServiceAIGuardrailId { get; set; }
             public System.String SelfServiceAIAgentConfiguration_SelfServiceAnswerGenerationAIPromptId { get; set; }

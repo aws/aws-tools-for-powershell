@@ -42,6 +42,30 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GlobalAccelerator_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if Global Accelerator for directory is enabled or disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamingProperties_GlobalAccelerator_Mode")]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AGAModeForDirectoryEnum")]
+        public Amazon.WorkSpaces.AGAModeForDirectoryEnum GlobalAccelerator_Mode { get; set; }
+        #endregion
+        
+        #region Parameter GlobalAccelerator_PreferredProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the preferred protocol for Global Accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamingProperties_GlobalAccelerator_PreferredProtocol")]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AGAPreferredProtocolForDirectory")]
+        public Amazon.WorkSpaces.AGAPreferredProtocolForDirectory GlobalAccelerator_PreferredProtocol { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
@@ -160,6 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GlobalAccelerator_Mode = this.GlobalAccelerator_Mode;
+            context.GlobalAccelerator_PreferredProtocol = this.GlobalAccelerator_PreferredProtocol;
             if (this.StreamingProperties_StorageConnector != null)
             {
                 context.StreamingProperties_StorageConnector = new List<Amazon.WorkSpaces.Model.StorageConnector>(this.StreamingProperties_StorageConnector);
@@ -221,6 +247,41 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestStreamingProperties_streamingProperties_UserSetting != null)
             {
                 request.StreamingProperties.UserSettings = requestStreamingProperties_streamingProperties_UserSetting;
+                requestStreamingPropertiesIsNull = false;
+            }
+            Amazon.WorkSpaces.Model.GlobalAcceleratorForDirectory requestStreamingProperties_streamingProperties_GlobalAccelerator = null;
+            
+             // populate GlobalAccelerator
+            var requestStreamingProperties_streamingProperties_GlobalAcceleratorIsNull = true;
+            requestStreamingProperties_streamingProperties_GlobalAccelerator = new Amazon.WorkSpaces.Model.GlobalAcceleratorForDirectory();
+            Amazon.WorkSpaces.AGAModeForDirectoryEnum requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_Mode = null;
+            if (cmdletContext.GlobalAccelerator_Mode != null)
+            {
+                requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_Mode = cmdletContext.GlobalAccelerator_Mode;
+            }
+            if (requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_Mode != null)
+            {
+                requestStreamingProperties_streamingProperties_GlobalAccelerator.Mode = requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_Mode;
+                requestStreamingProperties_streamingProperties_GlobalAcceleratorIsNull = false;
+            }
+            Amazon.WorkSpaces.AGAPreferredProtocolForDirectory requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol = null;
+            if (cmdletContext.GlobalAccelerator_PreferredProtocol != null)
+            {
+                requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol = cmdletContext.GlobalAccelerator_PreferredProtocol;
+            }
+            if (requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol != null)
+            {
+                requestStreamingProperties_streamingProperties_GlobalAccelerator.PreferredProtocol = requestStreamingProperties_streamingProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol;
+                requestStreamingProperties_streamingProperties_GlobalAcceleratorIsNull = false;
+            }
+             // determine if requestStreamingProperties_streamingProperties_GlobalAccelerator should be set to null
+            if (requestStreamingProperties_streamingProperties_GlobalAcceleratorIsNull)
+            {
+                requestStreamingProperties_streamingProperties_GlobalAccelerator = null;
+            }
+            if (requestStreamingProperties_streamingProperties_GlobalAccelerator != null)
+            {
+                request.StreamingProperties.GlobalAccelerator = requestStreamingProperties_streamingProperties_GlobalAccelerator;
                 requestStreamingPropertiesIsNull = false;
             }
              // determine if request.StreamingProperties should be set to null
@@ -290,6 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
+            public Amazon.WorkSpaces.AGAModeForDirectoryEnum GlobalAccelerator_Mode { get; set; }
+            public Amazon.WorkSpaces.AGAPreferredProtocolForDirectory GlobalAccelerator_PreferredProtocol { get; set; }
             public List<Amazon.WorkSpaces.Model.StorageConnector> StreamingProperties_StorageConnector { get; set; }
             public Amazon.WorkSpaces.StreamingExperiencePreferredProtocolEnum StreamingProperties_StreamingExperiencePreferredProtocol { get; set; }
             public List<Amazon.WorkSpaces.Model.UserSetting> StreamingProperties_UserSetting { get; set; }

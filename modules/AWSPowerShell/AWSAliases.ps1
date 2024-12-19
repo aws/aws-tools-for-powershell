@@ -19688,6 +19688,9 @@ Set-Alias -Name List-EMLSignalMaps -Value Get-EMLSignalMapList
 Set-Alias -Name List-EMLSignalMapList -Value Get-EMLSignalMapList
 Set-Alias -Name EML-ListSignalMaps -Value Get-EMLSignalMapList
 Set-Alias -Name EML-ListTagsForResource -Value Get-EMLResourceTag
+Set-Alias -Name List-EMLVersions -Value Get-EMLVersionList
+Set-Alias -Name List-EMLVersionList -Value Get-EMLVersionList
+Set-Alias -Name EML-ListVersions -Value Get-EMLVersionList
 Set-Alias -Name Purchase-EMLOffering -Value New-EMLOfferingPurchase
 Set-Alias -Name Purchase-EMLOfferingPurchase -Value New-EMLOfferingPurchase
 Set-Alias -Name EML-PurchaseOffering -Value New-EMLOfferingPurchase

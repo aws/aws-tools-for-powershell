@@ -343,6 +343,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVersions" OutputProperty="Versions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

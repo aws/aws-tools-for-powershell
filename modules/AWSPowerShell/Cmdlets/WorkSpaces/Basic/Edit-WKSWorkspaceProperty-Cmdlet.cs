@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.DataReplication DataReplication { get; set; }
         #endregion
         
+        #region Parameter GlobalAccelerator_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if Global Accelerator for WorkSpaces is enabled, disabled, or the same mode
+        /// as the associated directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkspaceProperties_GlobalAccelerator_Mode")]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AGAModeForWorkSpaceEnum")]
+        public Amazon.WorkSpaces.AGAModeForWorkSpaceEnum GlobalAccelerator_Mode { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_OperatingSystemName
         /// <summary>
         /// <para>
@@ -82,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.WorkSpaces.OperatingSystemName")]
         public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }
+        #endregion
+        
+        #region Parameter GlobalAccelerator_PreferredProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the preferred protocol for Global Accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkspaceProperties_GlobalAccelerator_PreferredProtocol")]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace")]
+        public Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace GlobalAccelerator_PreferredProtocol { get; set; }
         #endregion
         
         #region Parameter WorkspaceProperties_Protocol
@@ -237,6 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             #endif
             context.WorkspaceProperties_ComputeTypeName = this.WorkspaceProperties_ComputeTypeName;
+            context.GlobalAccelerator_Mode = this.GlobalAccelerator_Mode;
+            context.GlobalAccelerator_PreferredProtocol = this.GlobalAccelerator_PreferredProtocol;
             context.WorkspaceProperties_OperatingSystemName = this.WorkspaceProperties_OperatingSystemName;
             if (this.WorkspaceProperties_Protocol != null)
             {
@@ -344,6 +371,41 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 request.WorkspaceProperties.UserVolumeSizeGib = requestWorkspaceProperties_workspaceProperties_UserVolumeSizeGib.Value;
                 requestWorkspacePropertiesIsNull = false;
             }
+            Amazon.WorkSpaces.Model.GlobalAcceleratorForWorkSpace requestWorkspaceProperties_workspaceProperties_GlobalAccelerator = null;
+            
+             // populate GlobalAccelerator
+            var requestWorkspaceProperties_workspaceProperties_GlobalAcceleratorIsNull = true;
+            requestWorkspaceProperties_workspaceProperties_GlobalAccelerator = new Amazon.WorkSpaces.Model.GlobalAcceleratorForWorkSpace();
+            Amazon.WorkSpaces.AGAModeForWorkSpaceEnum requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_Mode = null;
+            if (cmdletContext.GlobalAccelerator_Mode != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_Mode = cmdletContext.GlobalAccelerator_Mode;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_Mode != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_GlobalAccelerator.Mode = requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_Mode;
+                requestWorkspaceProperties_workspaceProperties_GlobalAcceleratorIsNull = false;
+            }
+            Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol = null;
+            if (cmdletContext.GlobalAccelerator_PreferredProtocol != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol = cmdletContext.GlobalAccelerator_PreferredProtocol;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_GlobalAccelerator.PreferredProtocol = requestWorkspaceProperties_workspaceProperties_GlobalAccelerator_globalAccelerator_PreferredProtocol;
+                requestWorkspaceProperties_workspaceProperties_GlobalAcceleratorIsNull = false;
+            }
+             // determine if requestWorkspaceProperties_workspaceProperties_GlobalAccelerator should be set to null
+            if (requestWorkspaceProperties_workspaceProperties_GlobalAcceleratorIsNull)
+            {
+                requestWorkspaceProperties_workspaceProperties_GlobalAccelerator = null;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_GlobalAccelerator != null)
+            {
+                request.WorkspaceProperties.GlobalAccelerator = requestWorkspaceProperties_workspaceProperties_GlobalAccelerator;
+                requestWorkspacePropertiesIsNull = false;
+            }
              // determine if request.WorkspaceProperties should be set to null
             if (requestWorkspacePropertiesIsNull)
             {
@@ -413,6 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public Amazon.WorkSpaces.DataReplication DataReplication { get; set; }
             public System.String WorkspaceId { get; set; }
             public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
+            public Amazon.WorkSpaces.AGAModeForWorkSpaceEnum GlobalAccelerator_Mode { get; set; }
+            public Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace GlobalAccelerator_PreferredProtocol { get; set; }
             public Amazon.WorkSpaces.OperatingSystemName WorkspaceProperties_OperatingSystemName { get; set; }
             public List<System.String> WorkspaceProperties_Protocol { get; set; }
             public System.Int32? WorkspaceProperties_RootVolumeSizeGib { get; set; }

@@ -96,6 +96,34 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.AGAModeForDirectoryEnum
+        "Edit-WKSStreamingProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAModeForWorkSpaceEnum
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO","INHERITED"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForDirectory
+        "Edit-WKSStreamingProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "NONE","TCP"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "INHERITED","NONE","TCP"
+            break
+        }
+
         # Amazon.WorkSpaces.ApplicationSettingsStatusEnum
         {
             ($_ -eq "New-WKSWorkspacesPool/ApplicationSettings_Status") -Or
@@ -251,6 +279,8 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
+    "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")

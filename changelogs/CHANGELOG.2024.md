@@ -1,4 +1,19 @@
-﻿### 4.1.721 (2024-12-18 21:41Z)
+﻿### 4.1.722 (2024-12-19 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.950.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLVersionList leveraging the ListVersions service API.
+    * Modified cmdlet New-EMLChannel: added parameters ChannelEngineVersion_Version and DryRun.
+    * Modified cmdlet Update-EMLChannel: added parameters ChannelEngineVersion_Version and DryRun.
+  * Amazon Q Connect
+    * Modified cmdlet New-QCAIAgent: added parameters AnswerRecommendationAIAgentConfiguration_Locale and ManualSearchAIAgentConfiguration_Locale.
+    * Modified cmdlet Update-QCAIAgent: added parameters AnswerRecommendationAIAgentConfiguration_Locale and ManualSearchAIAgentConfiguration_Locale.
+  * Amazon Systems Manager for SAP
+    * Modified cmdlet Register-SMSAPApplication: added parameter ComponentsInfo.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSStreamingProperty: added parameters GlobalAccelerator_Mode and GlobalAccelerator_PreferredProtocol.
+    * Modified cmdlet Edit-WKSWorkspaceProperty: added parameters GlobalAccelerator_Mode and GlobalAccelerator_PreferredProtocol.
+
+### 4.1.721 (2024-12-18 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.949.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Participant Service
     * Added cmdlet Get-CONNPAuthenticationUrl leveraging the GetAuthenticationUrl service API.

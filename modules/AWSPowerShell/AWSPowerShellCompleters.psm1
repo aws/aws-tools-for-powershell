@@ -3588,7 +3588,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","RHEL8","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX2","RHEL8","ROCKY_LINUX8","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 
@@ -47912,6 +47912,7 @@ $EML_SelectMap = @{
                "Get-EMLReservationList",
                "Get-EMLSignalMapList",
                "Get-EMLResourceTag",
+               "Get-EMLVersionList",
                "New-EMLOfferingPurchase",
                "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",
@@ -77140,6 +77141,34 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.AGAModeForDirectoryEnum
+        "Edit-WKSStreamingProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAModeForWorkSpaceEnum
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO","INHERITED"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForDirectory
+        "Edit-WKSStreamingProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "NONE","TCP"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "INHERITED","NONE","TCP"
+            break
+        }
+
         # Amazon.WorkSpaces.ApplicationSettingsStatusEnum
         {
             ($_ -eq "New-WKSWorkspacesPool/ApplicationSettings_Status") -Or
@@ -77295,6 +77324,8 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
+    "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
