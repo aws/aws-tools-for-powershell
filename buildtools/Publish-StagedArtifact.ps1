@@ -13,7 +13,7 @@
     modules to be published (i.e. .\AWSPowerShell, .\AWSPowerShell.NetCore, and
     .\AWS.Tools).
 
-    Publishing is done using the Publish-Module cmdlet of the PowerShellGet 
+    Publishing is done using the Publish-PSResource cmdlet of the PSResourceGet 
     module. This module must be installed either in user scope or globally 
     before this script can be used.
 
@@ -87,7 +87,7 @@ $ErrorActionPreference = "Stop"
 $paramSetRemoteName = "remote"
 $paramSetLocalName = "local"
 
-Import-Module -Name "PowerShellGet"
+Import-Module Microsoft.PowerShell.PSResourceGet
 
 $shouldUpdatePackageVersions = ![string]::IsNullOrEmpty($UpdatePackageVersionsProfile)
 #Import DynamoDBv2 needed to update the PackageVersions table.
@@ -107,7 +107,7 @@ if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
 }
 elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
     # validate if the LocalRepositoryName exists
-    $localRepo = Get-PSRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
+    $localRepo = Get-PSResourceRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
     if(-not $localRepo){
         throw "Local repository $LocalRepositoryName does not exist."
     }
@@ -133,13 +133,13 @@ if (-not $DryRun -and $PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
 
 if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     $commonArgs = @{
-        'NuGetApiKey' = $ApiKey
+        'ApiKey' = $ApiKey
         'Repository'  = "PSGallery"
     }
 }
 else {
     $commonArgs = @{        
-        'NuGetApiKey' = $LocalRepositoryNuGetApiKey
+        'ApiKey' = $LocalRepositoryNuGetApiKey
         'Repository'  = $LocalRepositoryName
     }
 }
@@ -176,7 +176,7 @@ function PublishRecursive([string]$modulePath) {
                     Write-Host "-DryRun specified, skipped actual publish and PackageVersions update of $modulePath"
                 }
                 else {
-                    Publish-Module -Path $modulePath @commonArgs -Force
+                    Publish-PSResource -Path $modulePath @commonArgs
                     if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName -and $shouldUpdatePackageVersions) {
                         Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                     }
