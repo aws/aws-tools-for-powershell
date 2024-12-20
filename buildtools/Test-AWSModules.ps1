@@ -1,10 +1,26 @@
-
-# function to test module loading locally
-# Test-AWSModules -DeploymentFolderPath 'C:/Stuff/WindowsPS/Deployment' -TestCommandProfileName test
 function Test-AWSModules {
+    <#
+        .SYNOPSIS
+            Function to test AWS modules loading and running Get-S3Bucket command locally
+
+        .DESCRIPTION
+            Function to test AWS modules loading and running Get-S3Bucket command locally
+
+        .PARAMETER -DeploymentFolderPath
+            Specifies the path to the Deployment folder that contains the AWS Modules that are built by running Build.ps1
+
+        .PARAMETER -TestCommandProfileName
+            ProfileName used to run Get-S3Bucket
+
+        .EXAMPLE
+            Test-AWSModules -DeploymentFolderPath 'C:/Stuff/WindowsPS/Deployment' -TestCommandProfileName test
+    #>
     [CmdletBinding()]
     param (
+        [Parameter(Mandatory)]
         $DeploymentFolderPath,
+
+        [Parameter(Mandatory)]
         $TestCommandProfileName
     ) 
     process {
