@@ -71,6 +71,9 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="ExternalSourcesConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -89,6 +92,9 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_ExternalSourcesConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

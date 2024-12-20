@@ -1,4 +1,41 @@
-﻿### 4.1.722 (2024-12-19 21:37Z)
+﻿### 4.1.723 (2024-12-20 21:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.951.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgent: added parameter SessionSummaryConfiguration_MaxRecentSession.
+    * Modified cmdlet New-AABDataSource: added parameters CrawlerConfiguration_UserAgent and CrawlerLimits_MaxPage.
+    * Modified cmdlet Update-AABAgent: added parameter SessionSummaryConfiguration_MaxRecentSession.
+    * Modified cmdlet Update-AABDataSource: added parameters CrawlerConfiguration_UserAgent and CrawlerLimits_MaxPage.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgent: added parameter PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BARFlow: added parameter PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BARInlineAgent: added parameter PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters ExternalSourcesConfig_PerformanceConfig_Latency, KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency and KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerateStream: added parameters Stream_ExternalSourcesConfig_PerformanceConfig_Latency, Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency and Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency.
+    * Modified cmdlet Remove-BARAgentMemory: added parameter SessionId.
+  * Amazon Billing
+    * Added cmdlet Add-AWSBResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-AWSBBillingView leveraging the GetBillingView service API.
+    * Added cmdlet Get-AWSBResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Get-AWSBResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-AWSBSourceViewsForBillingViewList leveraging the ListSourceViewsForBillingView service API.
+    * Added cmdlet New-AWSBBillingView leveraging the CreateBillingView service API.
+    * Added cmdlet Remove-AWSBBillingView leveraging the DeleteBillingView service API.
+    * Added cmdlet Remove-AWSBResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Update-AWSBBillingView leveraging the UpdateBillingView service API.
+    * Modified cmdlet Get-AWSBBillingViewList: added parameters Arn, BillingViewType and OwnerAccountId.
+  * Amazon Cost Explorer
+    * Modified cmdlet Get-CECostAndUsage: added parameter BillingViewArn.
+    * Modified cmdlet Get-CECostAndUsageWithResource: added parameter BillingViewArn.
+    * Modified cmdlet Get-CECostCategory: added parameter BillingViewArn.
+    * Modified cmdlet Get-CECostForecast: added parameter BillingViewArn.
+    * Modified cmdlet Get-CEDimensionValue: added parameter BillingViewArn.
+    * Modified cmdlet Get-CETag: added parameter BillingViewArn.
+    * Modified cmdlet Get-CEUsageForecast: added parameter BillingViewArn.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Edit-DOCDBCluster: added parameters ManageMasterUserPassword, MasterUserSecretKmsKeyId and RotateMasterUserPassword.
+    * Modified cmdlet New-DOCDBCluster: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+
+### 4.1.722 (2024-12-19 21:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.950.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaLive
     * Added cmdlet Get-EMLVersionList leveraging the ListVersions service API.

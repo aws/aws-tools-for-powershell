@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// You can restrict access to this API and to the URL that it returns to a list of IP
     /// addresses, Amazon VPCs or Amazon VPC Endpoints that you specify. For more information,
     /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-interface-endpoint.html">Connect
-    /// to Amazon SageMaker Studio Through an Interface VPC Endpoint</a> .
+    /// to Amazon SageMaker AI Studio Through an Interface VPC Endpoint</a> .
     /// </para><note><ul><li><para>
     /// The URL that you get from a call to <c>CreatePresignedDomainUrl</c> has a default
     /// timeout of 5 minutes. You can configure this value using <c>ExpiresInSeconds</c>.

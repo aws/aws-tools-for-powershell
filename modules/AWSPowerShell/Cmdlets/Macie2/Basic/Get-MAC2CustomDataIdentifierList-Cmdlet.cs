@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves a subset of information about all the custom data identifiers for an account.
+    /// Retrieves a subset of information about the custom data identifiers for an account.
     /// </summary>
     [Cmdlet("Get", "MAC2CustomDataIdentifierList")]
     [OutputType("Amazon.Macie2.Model.CustomDataIdentifierSummary")]

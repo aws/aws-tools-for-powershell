@@ -28,7 +28,7 @@ using Amazon.BedrockDataAutomation.Model;
 namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Creates an Amazon Bedrock Keystone DataAutomationProject
+    /// Creates an Amazon Bedrock Data Automation Project
     /// </summary>
     [Cmdlet("New", "BDADataAutomationProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockDataAutomation.Model.CreateDataAutomationProjectResponse")]

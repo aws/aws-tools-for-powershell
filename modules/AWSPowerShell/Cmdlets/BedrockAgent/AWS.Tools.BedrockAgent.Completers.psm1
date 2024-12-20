@@ -329,7 +329,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType")
         }
         {
-            $v = "OAUTH2_CLIENT_CREDENTIALS"
+            $v = "OAUTH2_CLIENT_CREDENTIALS","OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS"
             break
         }
 

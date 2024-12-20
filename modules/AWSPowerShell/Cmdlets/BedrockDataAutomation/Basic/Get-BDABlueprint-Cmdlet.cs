@@ -28,7 +28,7 @@ using Amazon.BedrockDataAutomation.Model;
 namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Gets an existing Amazon Bedrock Keystone Blueprint
+    /// Gets an existing Amazon Bedrock Data Automation Blueprint
     /// </summary>
     [Cmdlet("Get", "BDABlueprint")]
     [OutputType("Amazon.BedrockDataAutomation.Model.Blueprint")]

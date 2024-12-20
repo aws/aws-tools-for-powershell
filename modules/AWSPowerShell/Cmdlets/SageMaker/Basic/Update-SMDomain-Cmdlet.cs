@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AppNetworkAccessType
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC used for non-EFS traffic.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker,
-        /// which allows direct internet access.</para></li><li><para><c>VpcOnly</c> - All Studio traffic is through the specified VPC and subnets.</para></li></ul><para>This configuration can only be modified if there are no apps in the <c>InService</c>,
+        /// <para>Specifies the VPC used for non-EFS traffic.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker
+        /// AI, which allows direct internet access.</para></li><li><para><c>VpcOnly</c> - All Studio traffic is through the specified VPC and subnets.</para></li></ul><para>This configuration can only be modified if there are no apps in the <c>InService</c>,
         /// <c>Pending</c>, or <c>Deleting</c> state. The configuration cannot be updated if <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
         /// is already set or <c>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</c>
         /// is provided as part of the same request.</para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JupyterServerAppSettings_CodeRepository
         /// <summary>
         /// <para>
-        /// <para>A list of Git repositories that SageMaker automatically displays to users for cloning
+        /// <para>A list of Git repositories that SageMaker AI automatically displays to users for cloning
         /// in the JupyterServer application.</para>
         /// </para>
         /// </summary>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The settings for assigning a custom file system to a domain. Permitted users can access
-        /// this file system in Amazon SageMaker Studio.</para>
+        /// this file system in Amazon SageMaker AI Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KernelGatewayAppSettings_CustomImage
         /// <summary>
         /// <para>
-        /// <para>A list of custom SageMaker images that are configured to run as a KernelGateway app.</para>
+        /// <para>A list of custom SageMaker AI images that are configured to run as a KernelGateway
+        /// app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainSettingsForUpdate_ExecutionRoleIdentityConfig
         /// <summary>
         /// <para>
-        /// <para>The configuration for attaching a SageMaker user profile name to the execution role
-        /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
+        /// <para>The configuration for attaching a SageMaker AI user profile name to the execution
+        /// role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
         /// key</a>. This configuration can only be modified if there are no apps in the <c>InService</c>
         /// or <c>Pending</c> state.</para>
         /// </para>
@@ -494,7 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -504,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,7 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -524,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

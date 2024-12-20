@@ -226,6 +226,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.KnowledgeBase[] KnowledgeBases { get; set; }
         #endregion
         
+        #region Parameter PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelConfigurations_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+        #endregion
+        
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
@@ -375,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 context.ActionGroup = new List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup>(this.ActionGroup);
             }
+            context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
@@ -456,6 +469,40 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.ActionGroup != null)
             {
                 request.ActionGroups = cmdletContext.ActionGroup;
+            }
+            
+             // populate BedrockModelConfigurations
+            var requestBedrockModelConfigurationsIsNull = true;
+            request.BedrockModelConfigurations = new Amazon.BedrockAgentRuntime.Model.InlineBedrockModelConfigurations();
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = true;
+            requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = null;
+            if (cmdletContext.PerformanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = cmdletContext.PerformanceConfig_Latency;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig.Latency = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency;
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = false;
+            }
+             // determine if requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig should be set to null
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig != null)
+            {
+                request.BedrockModelConfigurations.PerformanceConfig = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig;
+                requestBedrockModelConfigurationsIsNull = false;
+            }
+             // determine if request.BedrockModelConfigurations should be set to null
+            if (requestBedrockModelConfigurationsIsNull)
+            {
+                request.BedrockModelConfigurations = null;
             }
             if (cmdletContext.CustomerEncryptionKeyArn != null)
             {
@@ -672,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup> ActionGroup { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public System.String CustomerEncryptionKeyArn { get; set; }
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }

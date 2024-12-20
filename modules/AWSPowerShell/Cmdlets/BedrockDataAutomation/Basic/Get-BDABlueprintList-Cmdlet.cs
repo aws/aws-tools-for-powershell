@@ -28,7 +28,7 @@ using Amazon.BedrockDataAutomation.Model;
 namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Lists all existing Amazon Bedrock Keystone Blueprints<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all existing Amazon Bedrock Data Automation Blueprints<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDABlueprintList")]
     [OutputType("Amazon.BedrockDataAutomation.Model.BlueprintSummary")]

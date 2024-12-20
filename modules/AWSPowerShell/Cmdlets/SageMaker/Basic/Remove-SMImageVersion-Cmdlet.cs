@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes a version of a SageMaker image. The container image the version represents
+    /// Deletes a version of a SageMaker AI image. The container image the version represents
     /// isn't deleted.
     /// </summary>
     [Cmdlet("Remove", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

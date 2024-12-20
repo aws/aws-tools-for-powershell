@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Specification_ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing SageMaker model object in your account that you want to deploy
-        /// with the inference component.</para>
+        /// <para>The name of an existing SageMaker AI model object in your account that you want to
+        /// deploy with the inference component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

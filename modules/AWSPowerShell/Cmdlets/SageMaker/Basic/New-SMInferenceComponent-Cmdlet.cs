@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an inference component, which is a SageMaker hosting object that you can use
-    /// to deploy a model to an endpoint. In the inference component settings, you specify
+    /// Creates an inference component, which is a SageMaker AI hosting object that you can
+    /// use to deploy a model to an endpoint. In the inference component settings, you specify
     /// the model, the endpoint, and how the model utilizes the resources that the endpoint
     /// hosts. You can optimize resource utilization by tailoring how the required CPU cores,
     /// accelerators, and memory are allocated. You can deploy multiple inference components
@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Specification_ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing SageMaker model object in your account that you want to deploy
-        /// with the inference component.</para>
+        /// <para>The name of an existing SageMaker AI model object in your account that you want to
+        /// deploy with the inference component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

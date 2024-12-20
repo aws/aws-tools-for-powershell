@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Deletes the specified compilation job. This action deletes only the compilation job
-    /// resource in Amazon SageMaker. It doesn't delete other resources that are related to
-    /// that job, such as the model artifacts that the job creates, the compilation logs in
-    /// CloudWatch, the compiled model, or the IAM role.
+    /// resource in Amazon SageMaker AI. It doesn't delete other resources that are related
+    /// to that job, such as the model artifacts that the job creates, the compilation logs
+    /// in CloudWatch, the compiled model, or the IAM role.
     /// 
     ///  
     /// <para>

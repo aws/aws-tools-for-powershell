@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Billing
 
 
+$AWSB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Billing.Dimension
+        {
+            ($_ -eq "New-AWSBBillingView/Dimensions_Key") -Or
+            ($_ -eq "Update-AWSBBillingView/Dimensions_Key")
+        }
+        {
+            $v = "LINKED_ACCOUNT"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AWSB_map = @{
+    "Dimensions_Key"=@("New-AWSBBillingView","Update-AWSBBillingView")
+}
+
+_awsArgumentCompleterRegistration $AWSB_Completers $AWSB_map
+
 $AWSB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,7 +152,16 @@ $AWSB_SelectCompleters = {
 }
 
 $AWSB_SelectMap = @{
-    "Select"=@("Get-AWSBBillingViewList")
+    "Select"=@("New-AWSBBillingView",
+               "Remove-AWSBBillingView",
+               "Get-AWSBBillingView",
+               "Get-AWSBResourcePolicy",
+               "Get-AWSBBillingViewList",
+               "Get-AWSBSourceViewsForBillingViewList",
+               "Get-AWSBResourceTag",
+               "Add-AWSBResourceTag",
+               "Remove-AWSBResourceTag",
+               "Update-AWSBBillingView")
 }
 
 _awsArgumentCompleterRegistration $AWSB_SelectCompleters $AWSB_SelectMap

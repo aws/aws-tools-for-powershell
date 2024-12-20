@@ -318,6 +318,42 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter Stream_ExternalSourcesConfig_PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_ExternalSourcesConfig_PerformanceConfig_Latency { get; set; }
+        #endregion
+        
+        #region Parameter Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency { get; set; }
+        #endregion
+        
+        #region Parameter Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency { get; set; }
+        #endregion
+        
         #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens
         /// <summary>
         /// <para>
@@ -931,6 +967,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature;
             context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP;
+            context.Stream_ExternalSourcesConfig_PerformanceConfig_Latency = this.Stream_ExternalSourcesConfig_PerformanceConfig_Latency;
             context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate;
             context.ExternalSourcesConfiguration_ModelArn = this.ExternalSourcesConfiguration_ModelArn;
             if (this.ExternalSourcesConfiguration_Source != null)
@@ -954,6 +991,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             context.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature = this.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature;
             context.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP = this.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP;
+            context.Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency = this.Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency;
             context.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate = this.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate;
             context.KnowledgeBaseConfiguration_KnowledgeBaseId = this.KnowledgeBaseConfiguration_KnowledgeBaseId;
             context.KnowledgeBaseConfiguration_ModelArn = this.KnowledgeBaseConfiguration_ModelArn;
@@ -972,6 +1010,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             context.TextInferenceConfig_Temperature = this.TextInferenceConfig_Temperature;
             context.TextInferenceConfig_TopP = this.TextInferenceConfig_TopP;
+            context.Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency = this.Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency;
             context.PromptTemplate_TextPromptTemplate = this.PromptTemplate_TextPromptTemplate;
             context.QueryTransformationConfiguration_Type = this.QueryTransformationConfiguration_Type;
             if (this.Filter_AndAll != null)
@@ -1191,6 +1230,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.InferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_stream_ExternalSourcesConfig_PerformanceConfig_Latency = null;
+            if (cmdletContext.Stream_ExternalSourcesConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_stream_ExternalSourcesConfig_PerformanceConfig_Latency = cmdletContext.Stream_ExternalSourcesConfig_PerformanceConfig_Latency;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_stream_ExternalSourcesConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig.Latency = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_stream_ExternalSourcesConfig_PerformanceConfig_Latency;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.PerformanceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate = null;
@@ -2033,6 +2097,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.InferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
             }
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency = null;
+            if (cmdletContext.Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency = cmdletContext.Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig.Latency = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.PerformanceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
             Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
             
              // populate PromptTemplate
@@ -2186,6 +2275,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration.InferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency = null;
+            if (cmdletContext.Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency = cmdletContext.Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig.Latency = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration.PerformanceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate = null;
@@ -2355,6 +2469,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public List<System.String> RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences { get; set; }
             public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature { get; set; }
             public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_ExternalSourcesConfig_PerformanceConfig_Latency { get; set; }
             public System.String RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate { get; set; }
             public System.String ExternalSourcesConfiguration_ModelArn { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.ExternalSource> ExternalSourcesConfiguration_Source { get; set; }
@@ -2365,6 +2480,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public List<System.String> RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences { get; set; }
             public System.Single? RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature { get; set; }
             public System.Single? RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency { get; set; }
             public System.String RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate { get; set; }
             public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
             public System.String KnowledgeBaseConfiguration_ModelArn { get; set; }
@@ -2373,6 +2489,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public List<System.String> TextInferenceConfig_StopSequence { get; set; }
             public System.Single? TextInferenceConfig_Temperature { get; set; }
             public System.Single? TextInferenceConfig_TopP { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency { get; set; }
             public System.String PromptTemplate_TextPromptTemplate { get; set; }
             public Amazon.BedrockAgentRuntime.QueryTransformationType QueryTransformationConfiguration_Type { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> Filter_AndAll { get; set; }

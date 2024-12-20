@@ -28,7 +28,7 @@ using Amazon.BedrockDataAutomation.Model;
 namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Updates an existing Amazon Bedrock Blueprint
+    /// Updates an existing Amazon Bedrock Data Automation Blueprint
     /// </summary>
     [Cmdlet("Update", "BDABlueprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockDataAutomation.Model.Blueprint")]

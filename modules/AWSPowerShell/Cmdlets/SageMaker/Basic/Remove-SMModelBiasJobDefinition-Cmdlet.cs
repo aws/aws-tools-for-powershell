@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes an Amazon SageMaker model bias job definition.
+    /// Deletes an Amazon SageMaker AI model bias job definition.
     /// </summary>
     [Cmdlet("Remove", "SMModelBiasJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

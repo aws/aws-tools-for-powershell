@@ -227,6 +227,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String Executor_Lambda { get; set; }
         #endregion
         
+        #region Parameter SessionSummaryConfiguration_MaxRecentSession
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of recent session summaries to include in the agent's prompt context.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemoryConfiguration_SessionSummaryConfiguration_MaxRecentSessions")]
+        public System.Int32? SessionSummaryConfiguration_MaxRecentSession { get; set; }
+        #endregion
+        
         #region Parameter OrchestrationType
         /// <summary>
         /// <para>
@@ -379,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 context.MemoryConfiguration_EnabledMemoryType = new List<System.String>(this.MemoryConfiguration_EnabledMemoryType);
             }
+            context.SessionSummaryConfiguration_MaxRecentSession = this.SessionSummaryConfiguration_MaxRecentSession;
             context.MemoryConfiguration_StorageDay = this.MemoryConfiguration_StorageDay;
             context.OrchestrationType = this.OrchestrationType;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
@@ -525,6 +537,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.MemoryConfiguration.StorageDays = requestMemoryConfiguration_memoryConfiguration_StorageDay.Value;
                 requestMemoryConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.SessionSummaryConfiguration requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = null;
+            
+             // populate SessionSummaryConfiguration
+            var requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull = true;
+            requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = new Amazon.BedrockAgent.Model.SessionSummaryConfiguration();
+            System.Int32? requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession = null;
+            if (cmdletContext.SessionSummaryConfiguration_MaxRecentSession != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession = cmdletContext.SessionSummaryConfiguration_MaxRecentSession.Value;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration.MaxRecentSessions = requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession.Value;
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull = false;
+            }
+             // determine if requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration should be set to null
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = null;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration != null)
+            {
+                request.MemoryConfiguration.SessionSummaryConfiguration = requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration;
+                requestMemoryConfigurationIsNull = false;
+            }
              // determine if request.MemoryConfiguration should be set to null
             if (requestMemoryConfigurationIsNull)
             {
@@ -637,6 +674,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public System.String Instruction { get; set; }
             public List<System.String> MemoryConfiguration_EnabledMemoryType { get; set; }
+            public System.Int32? SessionSummaryConfiguration_MaxRecentSession { get; set; }
             public System.Int32? MemoryConfiguration_StorageDay { get; set; }
             public Amazon.BedrockAgent.OrchestrationType OrchestrationType { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }

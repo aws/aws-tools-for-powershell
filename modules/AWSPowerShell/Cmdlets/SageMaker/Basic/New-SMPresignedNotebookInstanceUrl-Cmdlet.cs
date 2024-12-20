@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Returns a URL that you can use to connect to the Jupyter server from a notebook instance.
-    /// In the SageMaker console, when you choose <c>Open</c> next to a notebook instance,
-    /// SageMaker opens a new tab showing the Jupyter server home page from the notebook instance.
-    /// The console uses this API to get the URL and show the page.
+    /// In the SageMaker AI console, when you choose <c>Open</c> next to a notebook instance,
+    /// SageMaker AI opens a new tab showing the Jupyter server home page from the notebook
+    /// instance. The console uses this API to get the URL and show the page.
     /// 
     ///  
     /// <para>

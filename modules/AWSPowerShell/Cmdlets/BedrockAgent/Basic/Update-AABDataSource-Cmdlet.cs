@@ -392,6 +392,19 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public Amazon.BedrockAgent.Model.HierarchicalChunkingLevelConfiguration[] HierarchicalChunkingConfiguration_LevelConfiguration { get; set; }
         #endregion
         
+        #region Parameter CrawlerLimits_MaxPage
+        /// <summary>
+        /// <para>
+        /// <para> The max number of web pages crawled from your source URLs, up to 25,000 pages. If
+        /// the web pages exceed this limit, the data source sync will fail and no web pages will
+        /// be ingested. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_MaxPages")]
+        public System.Int32? CrawlerLimits_MaxPage { get; set; }
+        #endregion
+        
         #region Parameter FixedSizeChunkingConfiguration_MaxToken
         /// <summary>
         /// <para>
@@ -652,6 +665,20 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String S3Location_Uri { get; set; }
         #endregion
         
+        #region Parameter CrawlerConfiguration_UserAgent
+        /// <summary>
+        /// <para>
+        /// <para>A string used for identifying the crawler or a bot when it accesses a web server.
+        /// By default, this is set to <c>bedrockbot_UUID</c> for your crawler. You can optionally
+        /// append a custom string to <c>bedrockbot_UUID</c> to allowlist a specific user agent
+        /// permitted to access your source URLs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgent")]
+        public System.String CrawlerConfiguration_UserAgent { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DataSource'.
@@ -759,6 +786,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter DataSourceConfiguration_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CrawlerLimits_MaxPage = this.CrawlerLimits_MaxPage;
             context.CrawlerLimits_RateLimit = this.CrawlerLimits_RateLimit;
             if (this.CrawlerConfiguration_ExclusionFilter != null)
             {
@@ -769,6 +797,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.CrawlerConfiguration_InclusionFilter = new List<System.String>(this.CrawlerConfiguration_InclusionFilter);
             }
             context.CrawlerConfiguration_Scope = this.CrawlerConfiguration_Scope;
+            context.CrawlerConfiguration_UserAgent = this.CrawlerConfiguration_UserAgent;
             if (this.UrlConfiguration_SeedUrl != null)
             {
                 context.UrlConfiguration_SeedUrl = new List<Amazon.BedrockAgent.Model.SeedUrl>(this.UrlConfiguration_SeedUrl);
@@ -1346,11 +1375,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.Scope = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_Scope;
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
             }
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent = null;
+            if (cmdletContext.CrawlerConfiguration_UserAgent != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent = cmdletContext.CrawlerConfiguration_UserAgent;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.UserAgent = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.WebCrawlerLimits requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits = null;
             
              // populate CrawlerLimits
             var requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimitsIsNull = true;
             requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits = new Amazon.BedrockAgent.Model.WebCrawlerLimits();
+            System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage = null;
+            if (cmdletContext.CrawlerLimits_MaxPage != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage = cmdletContext.CrawlerLimits_MaxPage.Value;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits.MaxPages = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage.Value;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimitsIsNull = false;
+            }
             System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_RateLimit = null;
             if (cmdletContext.CrawlerLimits_RateLimit != null)
             {
@@ -1885,10 +1934,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public List<System.String> SourceConfiguration_SiteUrl { get; set; }
             public System.String SourceConfiguration_TenantId { get; set; }
             public Amazon.BedrockAgent.DataSourceType DataSourceConfiguration_Type { get; set; }
+            public System.Int32? CrawlerLimits_MaxPage { get; set; }
             public System.Int32? CrawlerLimits_RateLimit { get; set; }
             public List<System.String> CrawlerConfiguration_ExclusionFilter { get; set; }
             public List<System.String> CrawlerConfiguration_InclusionFilter { get; set; }
             public Amazon.BedrockAgent.WebScopeType CrawlerConfiguration_Scope { get; set; }
+            public System.String CrawlerConfiguration_UserAgent { get; set; }
             public List<Amazon.BedrockAgent.Model.SeedUrl> UrlConfiguration_SeedUrl { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String Description { get; set; }

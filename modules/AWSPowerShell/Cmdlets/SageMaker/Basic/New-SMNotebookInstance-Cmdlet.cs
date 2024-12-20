@@ -28,40 +28,41 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an SageMaker notebook instance. A notebook instance is a machine learning
+    /// Creates an SageMaker AI notebook instance. A notebook instance is a machine learning
     /// (ML) compute instance running on a Jupyter notebook. 
     /// 
     ///  
     /// <para>
     /// In a <c>CreateNotebookInstance</c> request, specify the type of ML compute instance
-    /// that you want to run. SageMaker launches the instance, installs common libraries that
-    /// you can use to explore datasets for model training, and attaches an ML storage volume
-    /// to the notebook instance. 
+    /// that you want to run. SageMaker AI launches the instance, installs common libraries
+    /// that you can use to explore datasets for model training, and attaches an ML storage
+    /// volume to the notebook instance. 
     /// </para><para>
-    /// SageMaker also provides a set of example notebooks. Each notebook demonstrates how
-    /// to use SageMaker with a specific algorithm or with a machine learning framework. 
+    /// SageMaker AI also provides a set of example notebooks. Each notebook demonstrates
+    /// how to use SageMaker AI with a specific algorithm or with a machine learning framework.
+    /// 
     /// </para><para>
-    /// After receiving the request, SageMaker does the following:
+    /// After receiving the request, SageMaker AI does the following:
     /// </para><ol><li><para>
-    /// Creates a network interface in the SageMaker VPC.
+    /// Creates a network interface in the SageMaker AI VPC.
     /// </para></li><li><para>
-    /// (Option) If you specified <c>SubnetId</c>, SageMaker creates a network interface in
-    /// your own VPC, which is inferred from the subnet ID that you provide in the input.
-    /// When creating this network interface, SageMaker attaches the security group that you
-    /// specified in the request to the network interface that it creates in your VPC.
+    /// (Option) If you specified <c>SubnetId</c>, SageMaker AI creates a network interface
+    /// in your own VPC, which is inferred from the subnet ID that you provide in the input.
+    /// When creating this network interface, SageMaker AI attaches the security group that
+    /// you specified in the request to the network interface that it creates in your VPC.
     /// </para></li><li><para>
-    /// Launches an EC2 instance of the type specified in the request in the SageMaker VPC.
-    /// If you specified <c>SubnetId</c> of your VPC, SageMaker specifies both network interfaces
-    /// when launching this instance. This enables inbound traffic from your own VPC to the
-    /// notebook instance, assuming that the security groups allow it.
+    /// Launches an EC2 instance of the type specified in the request in the SageMaker AI
+    /// VPC. If you specified <c>SubnetId</c> of your VPC, SageMaker AI specifies both network
+    /// interfaces when launching this instance. This enables inbound traffic from your own
+    /// VPC to the notebook instance, assuming that the security groups allow it.
     /// </para></li></ol><para>
-    /// After creating the notebook instance, SageMaker returns its Amazon Resource Name (ARN).
-    /// You can't change the name of a notebook instance after you create it.
+    /// After creating the notebook instance, SageMaker AI returns its Amazon Resource Name
+    /// (ARN). You can't change the name of a notebook instance after you create it.
     /// </para><para>
-    /// After SageMaker creates the notebook instance, you can connect to the Jupyter server
+    /// After SageMaker AI creates the notebook instance, you can connect to the Jupyter server
     /// and work in Jupyter notebooks. For example, you can write code to explore a dataset
     /// that you can use for model training, train a model, host models by creating SageMaker
-    /// endpoints, and validate hosted models. 
+    /// AI endpoints, and validate hosted models. 
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Web Services CodeCommit</a> or in any other Git repository. These repositories are
         /// cloned at the same level as the default repository of your notebook instance. For
         /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
-        /// Git Repositories with SageMaker Notebook Instances</a>.</para>
+        /// Git Repositories with SageMaker AI Notebook Instances</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Web Services CodeCommit</a> or in any other Git repository. When you open a notebook
         /// instance, it opens in the directory that contains this repository. For more information,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
-        /// Git Repositories with SageMaker Notebook Instances</a>.</para>
+        /// Git Repositories with SageMaker AI Notebook Instances</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DirectInternetAccess
         /// <summary>
         /// <para>
-        /// <para>Sets whether SageMaker provides internet access to the notebook instance. If you set
-        /// this to <c>Disabled</c> this notebook instance is able to access resources only in
-        /// your VPC, and is not be able to connect to SageMaker training and endpoint services
+        /// <para>Sets whether SageMaker AI provides internet access to the notebook instance. If you
+        /// set this to <c>Disabled</c> this notebook instance is able to access resources only
+        /// in your VPC, and is not be able to connect to SageMaker AI training and endpoint services
         /// unless you configure a NAT Gateway in your VPC.</para><para>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
         /// Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter
         /// to <c>Disabled</c> only if you set a value for the <c>SubnetId</c> parameter.</para>
@@ -161,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
-        /// that SageMaker uses to encrypt data on the storage volume attached to your notebook
+        /// that SageMaker AI uses to encrypt data on the storage volume attached to your notebook
         /// instance. The KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling
         /// and Disabling Keys</a> in the <i>Amazon Web Services Key Management Service Developer
         /// Guide</i>.</para>
@@ -227,12 +228,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> When you send any requests to Amazon Web Services resources from the notebook instance,
-        /// SageMaker assumes this role to perform tasks on your behalf. You must grant this role
-        /// necessary permissions so SageMaker can perform these tasks. The policy must allow
-        /// the SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this
-        /// role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to SageMaker, the caller of this API must have the <c>iam:PassRole</c>
-        /// permission.</para></note>
+        /// SageMaker AI assumes this role to perform tasks on your behalf. You must grant this
+        /// role necessary permissions so SageMaker AI can perform these tasks. The policy must
+        /// allow the SageMaker AI service principal (sagemaker.amazonaws.com) permissions to
+        /// assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+        /// AI Roles</a>. </para><note><para>To be able to pass this role to SageMaker AI, the caller of this API must have the
+        /// <c>iam:PassRole</c> permission.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

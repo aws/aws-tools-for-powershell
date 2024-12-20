@@ -22,29 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.Billing;
+using Amazon.Billing.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.AWSB
 {
     /// <summary>
-    /// Describes a SageMaker AI image.
+    /// Lists tags associated with the billing view resource.
     /// </summary>
-    [Cmdlet("Get", "SMImage")]
-    [OutputType("Amazon.SageMaker.Model.DescribeImageResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeImage API operation.", Operation = new[] {"DescribeImage"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeImageResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeImageResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeImageResponse object containing multiple properties."
+    [Cmdlet("Get", "AWSBResourceTag")]
+    [OutputType("Amazon.Billing.Model.ResourceTag")]
+    [AWSCmdlet("Calls the AWS Billing ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.Billing.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.Billing.Model.ResourceTag or Amazon.Billing.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.Billing.Model.ResourceTag objects.",
+        "The service call response (type Amazon.Billing.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSMImageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetAWSBResourceTagCmdlet : AmazonBillingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ImageName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the image to describe.</para>
+        /// <para> The Amazon Resource Name (ARN) of the resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ImageName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeImageResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeImageResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceTags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Billing.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.Billing.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ResourceTags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ImageName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ImageName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeImageResponse, GetSMImageCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Billing.Model.ListTagsForResourceResponse, GetAWSBResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -101,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ImageName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ImageName = this.ImageName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ImageName == null && ParameterWasBound(nameof(this.ImageName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ImageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -125,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DescribeImageRequest();
+            var request = new Amazon.Billing.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.ImageName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ImageName = cmdletContext.ImageName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -164,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeImageResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeImageRequest request)
+        private Amazon.Billing.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBilling client, Amazon.Billing.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeImage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Billing", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DescribeImage(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.DescribeImageAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -192,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ImageName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeImageResponse, GetSMImageCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.Billing.Model.ListTagsForResourceResponse, GetAWSBResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceTags;
         }
         
     }

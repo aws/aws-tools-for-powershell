@@ -191,11 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform
-        /// tasks on your behalf. </para><para>During model optimization, Amazon SageMaker needs your permission to:</para><ul><li><para>Read input data from an S3 bucket</para></li><li><para>Write model artifacts to an S3 bucket</para></li><li><para>Write logs to Amazon CloudWatch Logs</para></li><li><para>Publish metrics to Amazon CloudWatch</para></li></ul><para>You grant permissions for all of these tasks to an IAM role. To pass this role to
-        /// Amazon SageMaker, the caller of this API must have the <c>iam:PassRole</c> permission.
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to
+        /// perform tasks on your behalf. </para><para>During model optimization, Amazon SageMaker AI needs your permission to:</para><ul><li><para>Read input data from an S3 bucket</para></li><li><para>Write model artifacts to an S3 bucket</para></li><li><para>Write logs to Amazon CloudWatch Logs</para></li><li><para>Publish metrics to Amazon CloudWatch</para></li></ul><para>You grant permissions for all of these tasks to an IAM role. To pass this role to
+        /// Amazon SageMaker AI, the caller of this API must have the <c>iam:PassRole</c> permission.
         /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles.</a></para>
+        /// SageMaker AI Roles.</a></para>
         /// </para>
         /// </summary>
         #if !MODULAR

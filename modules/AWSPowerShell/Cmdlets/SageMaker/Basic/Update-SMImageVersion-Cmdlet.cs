@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates the properties of a SageMaker image version.
+    /// Updates the properties of a SageMaker AI image version.
     /// </summary>
     [Cmdlet("Update", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para>Indicates SageMaker job type compatibility.</para><ul><li><para><c>TRAINING</c>: The image version is compatible with SageMaker training jobs.</para></li><li><para><c>INFERENCE</c>: The image version is compatible with SageMaker inference jobs.</para></li><li><para><c>NOTEBOOK_KERNEL</c>: The image version is compatible with SageMaker notebook kernels.</para></li></ul>
+        /// <para>Indicates SageMaker AI job type compatibility.</para><ul><li><para><c>TRAINING</c>: The image version is compatible with SageMaker AI training jobs.</para></li><li><para><c>INFERENCE</c>: The image version is compatible with SageMaker AI inference jobs.</para></li><li><para><c>NOTEBOOK_KERNEL</c>: The image version is compatible with SageMaker AI notebook
+        /// kernels.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

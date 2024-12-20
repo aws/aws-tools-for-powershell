@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a running app for the specified UserProfile. This operation is automatically
-    /// invoked by Amazon SageMaker upon access to the associated Domain, and when new kernel
-    /// configurations are selected by the user. A user may have multiple Apps active simultaneously.
+    /// invoked by Amazon SageMaker AI upon access to the associated Domain, and when new
+    /// kernel configurations are selected by the user. A user may have multiple Apps active
+    /// simultaneously.
     /// </summary>
     [Cmdlet("New", "SMApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

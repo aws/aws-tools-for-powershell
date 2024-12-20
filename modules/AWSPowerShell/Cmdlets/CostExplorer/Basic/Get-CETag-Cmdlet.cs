@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BillingViewArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The
+        /// ARN is used to specify which particular billing view you want to interact with or
+        /// retrieve information from when making API calls related to Amazon Web Services Billing
+        /// and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingViewArn { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -188,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Select = (response, cmdlet) => this.TimePeriod;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BillingViewArn = this.BillingViewArn;
             context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             context.NextPageToken = this.NextPageToken;
@@ -225,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetTagsRequest();
             
+            if (cmdletContext.BillingViewArn != null)
+            {
+                request.BillingViewArn = cmdletContext.BillingViewArn;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
@@ -303,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request
             var request = new Amazon.CostExplorer.Model.GetTagsRequest();
             
+            if (cmdletContext.BillingViewArn != null)
+            {
+                request.BillingViewArn = cmdletContext.BillingViewArn;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
@@ -393,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BillingViewArn { get; set; }
             public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextPageToken { get; set; }

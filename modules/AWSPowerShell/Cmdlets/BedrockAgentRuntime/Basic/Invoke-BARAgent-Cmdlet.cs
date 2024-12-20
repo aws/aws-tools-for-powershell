@@ -42,6 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
     /// enablement</a>.
     /// </para></li><li><para>
+    /// To stream agent responses, make sure that only orchestration prompt is enabled. Agent
+    /// streaming is not supported for the following steps: 
+    /// </para><ul><li><para><c>Pre-processing</c></para></li><li><para><c>Post-processing</c></para></li><li><para>
+    /// Agent with 1 Knowledge base and <c>User Input</c> not enabled
+    /// </para></li></ul></li><li><para>
     /// End a conversation by setting <c>endSession</c> to <c>true</c>.
     /// </para></li><li><para>
     /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
@@ -186,6 +191,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SessionState_KnowledgeBaseConfigurations")]
         public Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration[] SessionState_KnowledgeBaseConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelConfigurations_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
         #endregion
         
         #region Parameter MemoryId
@@ -363,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter AgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
             context.InputText = this.InputText;
@@ -433,6 +451,40 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.AgentId != null)
             {
                 request.AgentId = cmdletContext.AgentId;
+            }
+            
+             // populate BedrockModelConfigurations
+            var requestBedrockModelConfigurationsIsNull = true;
+            request.BedrockModelConfigurations = new Amazon.BedrockAgentRuntime.Model.BedrockModelConfigurations();
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = true;
+            requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = null;
+            if (cmdletContext.PerformanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = cmdletContext.PerformanceConfig_Latency;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig.Latency = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency;
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = false;
+            }
+             // determine if requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig should be set to null
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig != null)
+            {
+                request.BedrockModelConfigurations.PerformanceConfig = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig;
+                requestBedrockModelConfigurationsIsNull = false;
+            }
+             // determine if request.BedrockModelConfigurations should be set to null
+            if (requestBedrockModelConfigurationsIsNull)
+            {
+                request.BedrockModelConfigurations = null;
             }
             if (cmdletContext.EnableTrace != null)
             {
@@ -644,6 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         {
             public System.String AgentAliasId { get; set; }
             public System.String AgentId { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }
             public System.String InputText { get; set; }

@@ -28,9 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a Git repository as a resource in your SageMaker account. You can associate
+    /// Creates a Git repository as a resource in your SageMaker AI account. You can associate
     /// the repository with notebook instances so that you can use Git source control for
-    /// the notebooks you create. The Git repository is a resource in your SageMaker account,
+    /// the notebooks you create. The Git repository is a resource in your SageMaker AI account,
     /// so it can be associated with more than one notebook instance, and it persists independently
     /// from the lifecycle of any notebook instances it is associated with.
     /// 

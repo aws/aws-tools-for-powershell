@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Starts a model compilation job. After the model has been compiled, Amazon SageMaker
-    /// saves the resulting model artifacts to an Amazon Simple Storage Service (Amazon S3)
-    /// bucket that you specify. 
+    /// AI saves the resulting model artifacts to an Amazon Simple Storage Service (Amazon
+    /// S3) bucket that you specify. 
     /// 
     ///  
     /// <para>
-    /// If you choose to host your model using Amazon SageMaker hosting services, you can
+    /// If you choose to host your model using Amazon SageMaker AI hosting services, you can
     /// use the resulting model artifacts as part of the model. You can also use the artifacts
     /// with Amazon Web Services IoT Greengrass. In that case, deploy them as an ML resource.
     /// </para><para>
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// The output location for the compiled model and the device (target) that the model
     /// runs on 
     /// </para></li><li><para>
-    /// The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
-    /// the model compilation job. 
+    /// The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker AI assumes to
+    /// perform the model compilation job. 
     /// </para></li></ul><para>
     /// You can also provide a <c>Tag</c> to track the model compilation job's resource use
     /// and costs. The response body contains the <c>CompilationJobArn</c> for the compiled
@@ -213,9 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services Key Management Service key (Amazon Web Services KMS) that
-        /// Amazon SageMaker uses to encrypt your output models with Amazon S3 server-side encryption
-        /// after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the
-        /// default KMS key for Amazon S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed
+        /// Amazon SageMaker AI uses to encrypt your output models with Amazon S3 server-side
+        /// encryption after compilation job. If you don't provide a KMS key ID, Amazon SageMaker
+        /// AI uses the default KMS key for Amazon S3 for your role's account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
@@ -298,11 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform
-        /// tasks on your behalf. </para><para>During model compilation, Amazon SageMaker needs your permission to:</para><ul><li><para>Read input data from an S3 bucket</para></li><li><para>Write model artifacts to an S3 bucket</para></li><li><para>Write logs to Amazon CloudWatch Logs</para></li><li><para>Publish metrics to Amazon CloudWatch</para></li></ul><para>You grant permissions for all of these tasks to an IAM role. To pass this role to
-        /// Amazon SageMaker, the caller of this API must have the <c>iam:PassRole</c> permission.
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to
+        /// perform tasks on your behalf. </para><para>During model compilation, Amazon SageMaker AI needs your permission to:</para><ul><li><para>Read input data from an S3 bucket</para></li><li><para>Write model artifacts to an S3 bucket</para></li><li><para>Write logs to Amazon CloudWatch Logs</para></li><li><para>Publish metrics to Amazon CloudWatch</para></li></ul><para>You grant permissions for all of these tasks to an IAM role. To pass this role to
+        /// Amazon SageMaker AI, the caller of this API must have the <c>iam:PassRole</c> permission.
         /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
-        /// SageMaker Roles.</a></para>
+        /// SageMaker AI Roles.</a></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -319,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_S3OutputLocation
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 bucket where you want Amazon SageMaker to store the model artifacts.
+        /// <para>Identifies the S3 bucket where you want Amazon SageMaker AI to store the model artifacts.
         /// For example, <c>s3://bucket-name/key-name-prefix</c>.</para>
         /// </para>
         /// </summary>

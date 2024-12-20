@@ -28,7 +28,7 @@ using Amazon.BedrockDataAutomation.Model;
 namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Deletes an existing Amazon Bedrock Keystone DataAutomationProject
+    /// Deletes an existing Amazon Bedrock Data Automation Project
     /// </summary>
     [Cmdlet("Remove", "BDADataAutomationProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockDataAutomation.Model.DeleteDataAutomationProjectResponse")]

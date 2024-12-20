@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes the Amazon SageMaker Studio Lifecycle Configuration.
+    /// Describes the Amazon SageMaker AI Studio Lifecycle Configuration.
     /// </summary>
     [Cmdlet("Get", "SMStudioLifecycleConfig")]
     [OutputType("Amazon.SageMaker.Model.DescribeStudioLifecycleConfigResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StudioLifecycleConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker Studio Lifecycle Configuration to describe.</para>
+        /// <para>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
