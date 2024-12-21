@@ -71,8 +71,6 @@
         <ServiceOperation MethodName="BacktrackDBCluster" OutputProperty="*" Verb="Reset" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="EnforceReset" AutoApplyAlias="false" />
-                <Param Name="BacktrackToUtc" NewName="UtcBacktrackTo" AutoApplyAlias="false" />
-                <Param Name="BacktrackTo" ExclusiveParameters="UtcBacktrackTo" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcBacktrackTo instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -395,12 +393,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
-                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSEventSubscriptions">
@@ -638,10 +631,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBClusterToPointInTime" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterToPointInTime" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
-            <Params>
-                <Param Name="RestoreToTimeUtc" NewName="UtcRestoreToTime" AutoApplyAlias="false" />
-                <Param Name="RestoreToTime" ExclusiveParameters="UtcRestoreToTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcRestoreToTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromDBSnapshot" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="DBSnapshotIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
@@ -653,10 +643,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceToPointInTime" ShouldProcessTarget="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" PipelineParameter="SourceDBInstanceIdentifier" NoPipelineParameter="false">
-            <Params>
-                <Param Name="RestoreTimeUtc" NewName="UtcRestoreTime" AutoApplyAlias="false" />
-                <Param Name="RestoreTime" ExclusiveParameters="UtcRestoreTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcRestoreTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Revoke" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">

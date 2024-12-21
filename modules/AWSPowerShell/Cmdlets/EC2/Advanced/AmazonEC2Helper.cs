@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         spotOptions.MaxPrice = responseSpotOptions.MaxPrice;
                         spotOptions.SpotInstanceType = responseSpotOptions.SpotInstanceType;
                         if (AWSSDKUtils.IsPropertySet(responseSpotOptions, nameof(responseSpotOptions.ValidUntil)))
-                            spotOptions.ValidUntilUtc = responseSpotOptions.ValidUntil;
+                            spotOptions.ValidUntil = responseSpotOptions.ValidUntil;
                     }
                 }
             }

@@ -240,12 +240,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectMetadata" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PositionalParameters="Key" PipelineParameter="BucketName" NoPipelineParameter="false">
-            <Params>
-                <Param Name="ModifiedSinceDateUtc" NewName="UtcModifiedSinceDate" AutoApplyAlias="false" />
-                <Param Name="ModifiedSinceDate" ExclusiveParameters="UtcModifiedSinceDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcModifiedSinceDate instead." />
-                <Param Name="UnmodifiedSinceDateUtc" NewName="UtcUnmodifiedSinceDate" AutoApplyAlias="false" />
-                <Param Name="UnmodifiedSinceDate" ExclusiveParameters="UtcUnmodifiedSinceDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcUnmodifiedSinceDate instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetObjectRetention" OutputProperty="Retention" Verb="Get" Noun="ObjectRetention" PipelineParameter="BucketName" NoPipelineParameter="false">

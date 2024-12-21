@@ -211,10 +211,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendBounce" OutputProperty="MessageId" Verb="Send" Noun="Bounce" ShouldProcessTarget="BounceSender" PipelineParameter="BouncedRecipientInfoList" NoPipelineParameter="false">
-            <Params>
-                <Param Name="MessageDsn_ArrivalDateUtc" NewName="MessageDsn_UtcArrivalDate" AutoApplyAlias="false" />
-                <Param Name="MessageDsn_ArrivalDate" ExclusiveParameters="MessageDsn_UtcArrivalDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use MessageDsn_UtcArrivalDate instead." />
-            </Params>
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendBulkTemplatedEmail" OutputProperty="Status" Verb="Send" Noun="BulkTemplatedEmail" ShouldProcessTarget="Source" PipelineParameter="Source" NoPipelineParameter="false">

@@ -196,12 +196,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
-                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeGlobalReplicationGroups" OutputProperty="GlobalReplicationGroups" Verb="Get" Noun="GlobalReplicationGroup" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">

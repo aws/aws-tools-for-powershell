@@ -411,8 +411,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>This parameter is deprecated.</para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This property is deprecated and may result in the wrong timestamp being passed to" +
-            " the service, use UtcModifiedSinceDate instead.")]
         public System.DateTime ModifiedSinceDate { get; set; }
         #endregion
 
@@ -422,25 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>This parameter is deprecated.</para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This property is deprecated and may result in the wrong timestamp being passed to" +
-            " the service, use UtcUnmodifiedSinceDate instead.")]
         public System.DateTime UnmodifiedSinceDate { get; set; }
-        #endregion
-
-        #region Parameter UtcModifiedSinceDate
-        /// <summary>
-        /// Copies the object if it has been modified since the specified time; otherwise returns an error.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime UtcModifiedSinceDate { get; set; }
-        #endregion
-
-        #region Parameter UtcUnmodifiedSinceDate
-        /// <summary>
-        /// Copies the object if it hasn't been modified since the specified time; otherwise returns a PreconditionFailed.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime UtcUnmodifiedSinceDate { get; set; }
         #endregion
 
         #region Parameter CopySourceServerSideEncryptionCustomerMethod
@@ -633,10 +613,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     break;
             }
 
-            if (ParameterWasBound("UtcModifiedSinceDate"))
-                context.UtcModifiedSinceDate = this.UtcModifiedSinceDate;
-            if (ParameterWasBound("UtcUnmodifiedSinceDate"))
-                context.UtcUnmodifiedSinceDate = this.UtcUnmodifiedSinceDate;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ModifiedSinceDate"))
                 context.ModifiedSinceDate = this.ModifiedSinceDate;
@@ -810,25 +786,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.WebsiteRedirectLocation = cmdletContext.WebsiteRedirectLocation;
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
-            if (cmdletContext.UtcModifiedSinceDate.HasValue)
-                request.ModifiedSinceDateUtc = cmdletContext.UtcModifiedSinceDate.Value;
-            if (cmdletContext.UtcUnmodifiedSinceDate.HasValue)
-                request.UnmodifiedSinceDateUtc = cmdletContext.UtcUnmodifiedSinceDate.Value;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcModifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters ModifiedSinceDate and UtcModifiedSinceDate are mutually exclusive.");
-                }
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
             }
             if (cmdletContext.UnmodifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcUnmodifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters UnmodifiedSinceDate and UtcUnmodifiedSinceDate are mutually exclusive.");
-                }
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -1043,25 +1007,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(cmdletContext.SourceVersionId))
                 request.VersionId = cmdletContext.SourceVersionId;
-            if (cmdletContext.UtcModifiedSinceDate.HasValue)
-                request.ModifiedSinceDateUtc = cmdletContext.UtcModifiedSinceDate.Value;
-            if (cmdletContext.UtcUnmodifiedSinceDate.HasValue)
-                request.UnmodifiedSinceDateUtc = cmdletContext.UtcUnmodifiedSinceDate.Value;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcModifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters ModifiedSinceDate and UtcModifiedSinceDate are mutually exclusive.");
-                }
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
             }
             if (cmdletContext.UnmodifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcUnmodifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters UnmodifiedSinceDate and UtcUnmodifiedSinceDate are mutually exclusive.");
-                }
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -1104,25 +1056,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 S3Directory = cmdletContext.KeyPrefix
             };
 
-            if (cmdletContext.UtcModifiedSinceDate.HasValue)
-                request.ModifiedSinceDateUtc = cmdletContext.UtcModifiedSinceDate.Value;
-            if (cmdletContext.UtcUnmodifiedSinceDate.HasValue)
-                request.UnmodifiedSinceDateUtc = cmdletContext.UtcUnmodifiedSinceDate.Value;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcModifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters ModifiedSinceDate and UtcModifiedSinceDate are mutually exclusive.");
-                }
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
             }
             if (cmdletContext.UnmodifiedSinceDate.HasValue)
             {
-                if (cmdletContext.UtcUnmodifiedSinceDate != null)
-                {
-                    throw new ArgumentException("Parameters UnmodifiedSinceDate and UtcUnmodifiedSinceDate are mutually exclusive.");
-                }
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -1311,12 +1251,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String ContentType { get; set; }
             public String ETagToMatch { get; set; }
             public String ETagToNotMatch { get; set; }
-            [System.ObsoleteAttribute]
             public DateTime? ModifiedSinceDate { get; set; }
-            [System.ObsoleteAttribute]
             public DateTime? UnmodifiedSinceDate { get; set; }
-            public DateTime? UtcModifiedSinceDate { get; set; }
-            public DateTime? UtcUnmodifiedSinceDate { get; set; }
             public S3MetadataDirective? MetadataDirective { get; set; }
             public S3CannedACL CannedACL { get; set; }
             public String SourceVersionId { get; set; }
@@ -1568,25 +1504,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.ETagToMatch = new List<string> { _context.ETagToMatch };
                 if (_context.ETagToNotMatch != null)
                     request.ETagsToNotMatch = new List<string> { _context.ETagToNotMatch };
-                if (_context.UtcModifiedSinceDate.HasValue)
-                    request.ModifiedSinceDate = _context.UtcModifiedSinceDate.Value;
-                if (_context.UtcUnmodifiedSinceDate.HasValue)
-                    request.UnmodifiedSinceDate = _context.UtcUnmodifiedSinceDate.Value;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
                 if (_context.ModifiedSinceDate.HasValue)
                 {
-                    if (_context.UtcModifiedSinceDate != null)
-                    {
-                        throw new ArgumentException("Parameters ModifiedSinceDate and UtcModifiedSinceDate are mutually exclusive.");
-                    }
                     request.ModifiedSinceDate = _context.ModifiedSinceDate.Value;
                 }
                 if (_context.UnmodifiedSinceDate.HasValue)
                 {
-                    if (_context.UtcUnmodifiedSinceDate != null)
-                    {
-                        throw new ArgumentException("Parameters UnmodifiedSinceDate and UtcUnmodifiedSinceDate are mutually exclusive.");
-                    }
                     request.UnmodifiedSinceDate = _context.UnmodifiedSinceDate.Value;
                 }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute

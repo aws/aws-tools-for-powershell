@@ -354,12 +354,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="LaunchTemplateConfigs" PipelineParameter="LaunchTemplateConfigs" NoPipelineParameter="false">
-            <Params>
-                <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoApplyAlias="false" />
-                <Param Name="ValidFrom" ExclusiveParameters="UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." />
-                <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoApplyAlias="false" />
-                <Param Name="ValidUntil" ExclusiveParameters="UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFlowLogs" OutputProperty="*" Verb="New" Noun="FlowLog" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="New-EC2FlowLogs">
@@ -1121,10 +1116,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
@@ -1404,21 +1396,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="FirstSlotStartTimeRange_EarliestTimeUtc" NewName="FirstSlotStartTimeRange_UtcEarliestTime" AutoApplyAlias="false" />
-                <Param Name="FirstSlotStartTimeRange_EarliestTime" ExclusiveParameters="FirstSlotStartTimeRange_UtcEarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcEarliestTime instead." />
-                <Param Name="FirstSlotStartTimeRange_LatestTimeUtc" NewName="FirstSlotStartTimeRange_UtcLatestTime" AutoApplyAlias="false" />
-                <Param Name="FirstSlotStartTimeRange_LatestTime" ExclusiveParameters="FirstSlotStartTimeRange_UtcLatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcLatestTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="SlotStartTimeRange_EarliestTimeUtc" NewName="SlotStartTimeRange_UtcEarliestTime" AutoApplyAlias="false" />
-                <Param Name="SlotStartTimeRange_EarliestTime" ExclusiveParameters="SlotStartTimeRange_UtcEarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcEarliestTime instead." />
-                <Param Name="SlotStartTimeRange_LatestTimeUtc" NewName="SlotStartTimeRange_UtcLatestTime" AutoApplyAlias="false" />
-                <Param Name="SlotStartTimeRange_LatestTime" ExclusiveParameters="SlotStartTimeRange_UtcLatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcLatestTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityGroupReferences" OutputProperty="SecurityGroupReferenceSet" Verb="Get" Noun="SecurityGroupReference" PipelineParameter="GroupId" NoPipelineParameter="false">
@@ -1466,10 +1448,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" OutputProperty="*" Verb="Get" Noun="SpotFleetRequestHistory" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
-            <Params>
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotFleetRequests" OutputProperty="SpotFleetRequestConfigs" Verb="Get" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
@@ -1481,12 +1460,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
-                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStaleSecurityGroups" OutputProperty="StaleSecurityGroupSet" Verb="Get" Noun="StaleSecurityGroup" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
@@ -2110,12 +2084,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportImage" OutputProperty="*" Verb="Import" Noun="Image" ShouldProcessTarget="RoleName" PipelineParameter="" NoPipelineParameter="true">
-            <Params>
-                <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoApplyAlias="false" />
-                <Param Name="ClientData_UploadEnd" ExclusiveParameters="ClientData_UtcUploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." />
-                <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoApplyAlias="false" />
-                <Param Name="ClientData_UploadStart" ExclusiveParameters="ClientData_UtcUploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
@@ -2132,10 +2101,6 @@
             <Params>
                 <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" />
                 <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" />
-                <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoApplyAlias="false" />
-                <Param Name="ClientData_UploadEnd" ExclusiveParameters="ClientData_UtcUploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." />
-                <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoApplyAlias="false" />
-                <Param Name="ClientData_UploadStart" ExclusiveParameters="ClientData_UtcUploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2567,29 +2532,15 @@
         <ServiceOperation MethodName="ReportInstanceStatus" Verb="Send" Noun="InstanceStatus" ShouldProcessTarget="Instances" PositionalParameters="StartTime;EndTime;ReasonCodes;Description" PipelineParameter="Instances" NoPipelineParameter="false">
             <Params>
                 <Param Name="Instances" NewName="Instance" Alias="InstanceId" />
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
-                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotFleet" OutputProperty="*" Verb="Request" Noun="SpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" PipelineParameter="SpotFleetRequestConfig_SpotPrice" NoPipelineParameter="false">
-            <Params>
-                <Param Name="SpotFleetRequestConfig_ValidFromUtc" NewName="SpotFleetRequestConfig_UtcValidFrom" AutoApplyAlias="false" />
-                <Param Name="SpotFleetRequestConfig_ValidFrom" ExclusiveParameters="SpotFleetRequestConfig_UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidFrom instead." />
-                <Param Name="SpotFleetRequestConfig_ValidUntilUtc" NewName="SpotFleetRequestConfig_UtcValidUntil" AutoApplyAlias="false" />
-                <Param Name="SpotFleetRequestConfig_ValidUntil" ExclusiveParameters="SpotFleetRequestConfig_UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidUntil instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestSpotInstances" OutputProperty="SpotInstanceRequests" Verb="Request" Noun="SpotInstance" ShouldProcessTarget="SpotPrice" PipelineParameter="SpotPrice" NoPipelineParameter="false">
-            <Params>
-                <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoApplyAlias="false" />
-                <Param Name="ValidFrom" ExclusiveParameters="UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." />
-                <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoApplyAlias="false" />
-                <Param Name="ValidUntil" ExclusiveParameters="UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetAddressAttribute" OutputProperty="Address" Verb="Reset" Noun="AddressAttribute" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">

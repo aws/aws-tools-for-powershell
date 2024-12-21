@@ -140,19 +140,11 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="IncludedDeletedBackToUtc" NewName="UtcIncludedDeletedBackTo" AutoApplyAlias="false" />
-                <Param Name="IncludedDeletedBackTo" ExclusiveParameters="UtcIncludedDeletedBackTo" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcIncludedDeletedBackTo instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
-            <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
-                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
-                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
-            </Params>
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstancesHealth" OutputProperty="InstanceHealthList" Verb="Get" Noun="InstanceHealth" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
