@@ -28,8 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Allows you to change the basic scan type version by setting the <c>name</c> parameter
-    /// to either <c>CLAIR</c> to <c>AWS_NATIVE</c>.
+    /// Allows you to change the basic scan type version or registry policy scope.
     /// </summary>
     [Cmdlet("Write", "ECRAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.PutAccountSettingResponse")]
@@ -45,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Basic scan type version name. </para>
+        /// <para>The name of the account setting, such as <c>BASIC_SCAN_TYPE_VERSION</c> or <c>REGISTRY_POLICY_SCOPE</c>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>Setting value that determines what basic scan type is being used: <c>AWS_NATIVE</c>
-        /// or <c>CLAIR</c>.</para>
+        /// <para>Setting value that is specified. The following are valid values for the basic scan
+        /// type being used: <c>AWS_NATIVE</c> or <c>CLAIR</c>. The following are valid values
+        /// for the registry policy scope being used: <c>V1</c> or <c>V2</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

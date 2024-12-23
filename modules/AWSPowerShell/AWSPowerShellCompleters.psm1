@@ -27817,6 +27817,13 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.ClusterVersionStatus
+        "Get-EKSClusterVersion/Status"
+        {
+            $v = "extended-support","standard-support","unsupported"
+            break
+        }
+
         # Amazon.EKS.ConnectorConfigProvider
         "Register-EKSCluster/ConnectorConfig_Provider"
         {
@@ -27885,6 +27892,7 @@ $EKS_map = @{
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster","Update-EKSClusterConfig")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
+    "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
@@ -27962,6 +27970,7 @@ $EKS_SelectMap = @{
                "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
+               "Get-EKSClusterVersion",
                "Get-EKSEksAnywhereSubscription",
                "Get-EKSFargateProfile",
                "Get-EKSIdentityProviderConfig",

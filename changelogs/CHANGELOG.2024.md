@@ -1,4 +1,11 @@
-﻿### 4.1.723 (2024-12-20 21:44Z)
+﻿### 4.1.724 (2024-12-23 21:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.952.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSClusterVersion leveraging the DescribeClusterVersions service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUECatalogList: added parameter IncludeRoot.
+
+### 4.1.723 (2024-12-20 21:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.951.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABAgent: added parameter SessionSummaryConfiguration_MaxRecentSession.

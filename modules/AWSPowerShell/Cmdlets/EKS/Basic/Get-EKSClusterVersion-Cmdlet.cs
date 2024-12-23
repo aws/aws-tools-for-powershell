@@ -22,68 +22,82 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.EKS;
+using Amazon.EKS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Retrieves all catalogs defined in a catalog in the Glue Data Catalog. For a Redshift-federated
-    /// catalog use case, this operation returns the list of catalogs mapped to Redshift databases
-    /// in the Redshift namespace catalog.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists available Kubernetes versions for Amazon EKS clusters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GLUECatalogList")]
-    [OutputType("Amazon.Glue.Model.Catalog")]
-    [AWSCmdlet("Calls the AWS Glue GetCatalogs API operation.", Operation = new[] {"GetCatalogs"}, SelectReturnType = typeof(Amazon.Glue.Model.GetCatalogsResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.Catalog or Amazon.Glue.Model.GetCatalogsResponse",
-        "This cmdlet returns a collection of Amazon.Glue.Model.Catalog objects.",
-        "The service call response (type Amazon.Glue.Model.GetCatalogsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EKSClusterVersion")]
+    [OutputType("Amazon.EKS.Model.ClusterVersionInformation")]
+    [AWSCmdlet("Calls the Amazon Elastic Container Service for Kubernetes DescribeClusterVersions API operation.", Operation = new[] {"DescribeClusterVersions"}, SelectReturnType = typeof(Amazon.EKS.Model.DescribeClusterVersionsResponse))]
+    [AWSCmdletOutput("Amazon.EKS.Model.ClusterVersionInformation or Amazon.EKS.Model.DescribeClusterVersionsResponse",
+        "This cmdlet returns a collection of Amazon.EKS.Model.ClusterVersionInformation objects.",
+        "The service call response (type Amazon.EKS.Model.DescribeClusterVersionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetGLUECatalogListCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetEKSClusterVersionCmdlet : AmazonEKSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IncludeRoot
+        #region Parameter ClusterType
         /// <summary>
         /// <para>
-        /// <para>Whether to list the default catalog in the account and region in the response. Defaults
-        /// to <c>false</c>. When <c>true</c> and <c>ParentCatalogId = NULL | Amazon Web Services
-        /// Account ID</c>, all catalogs and the default catalog are enumerated in the response.</para><para>When the <c>ParentCatalogId</c> is not equal to null, and this attribute is passed
-        /// as <c>false</c> or <c>true</c>, an <c>InvalidInputException</c> is thrown.</para>
+        /// <para>The type of cluster to filter versions by.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeRoot { get; set; }
+        public System.String ClusterType { get; set; }
         #endregion
         
-        #region Parameter ParentCatalogId
+        #region Parameter ClusterVersion
         /// <summary>
         /// <para>
-        /// <para>The ID of the parent catalog in which the catalog resides. If none is provided, the
-        /// Amazon Web Services Account Number is used by default.</para>
+        /// <para>List of specific cluster versions to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ParentCatalogId { get; set; }
+        [Alias("ClusterVersions")]
+        public System.String[] ClusterVersion { get; set; }
         #endregion
         
-        #region Parameter Recursive
+        #region Parameter DefaultOnly
         /// <summary>
         /// <para>
-        /// <para>Whether to list all catalogs across the catalog hierarchy, starting from the <c>ParentCatalogId</c>.
-        /// Defaults to <c>false</c> . When <c>true</c>, all catalog objects in the <c>ParentCatalogID</c>
-        /// hierarchy are enumerated in the response.</para>
+        /// <para>Filter to show only default versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Recursive { get; set; }
+        public System.Boolean? DefaultOnly { get; set; }
+        #endregion
+        
+        #region Parameter IncludeAll
+        /// <summary>
+        /// <para>
+        /// <para>Include all available versions in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeAll { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Filter versions by their current status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.ClusterVersionStatus")]
+        public Amazon.EKS.ClusterVersionStatus Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of catalogs to return in one response.</para>
+        /// <para>Maximum number of results to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A continuation token, if this is a continuation call.</para>
+        /// <para>Pagination token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -107,13 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CatalogList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetCatalogsResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.GetCatalogsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterVersions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EKS.Model.DescribeClusterVersionsResponse).
+        /// Specifying the name of a property of type Amazon.EKS.Model.DescribeClusterVersionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CatalogList";
+        public string Select { get; set; } = "ClusterVersions";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -138,14 +152,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetCatalogsResponse, GetGLUECatalogListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EKS.Model.DescribeClusterVersionsResponse, GetEKSClusterVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.IncludeRoot = this.IncludeRoot;
+            context.ClusterType = this.ClusterType;
+            if (this.ClusterVersion != null)
+            {
+                context.ClusterVersion = new List<System.String>(this.ClusterVersion);
+            }
+            context.DefaultOnly = this.DefaultOnly;
+            context.IncludeAll = this.IncludeAll;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ParentCatalogId = this.ParentCatalogId;
-            context.Recursive = this.Recursive;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,23 +181,31 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Glue.Model.GetCatalogsRequest();
+            var request = new Amazon.EKS.Model.DescribeClusterVersionsRequest();
             
-            if (cmdletContext.IncludeRoot != null)
+            if (cmdletContext.ClusterType != null)
             {
-                request.IncludeRoot = cmdletContext.IncludeRoot.Value;
+                request.ClusterType = cmdletContext.ClusterType;
+            }
+            if (cmdletContext.ClusterVersion != null)
+            {
+                request.ClusterVersions = cmdletContext.ClusterVersion;
+            }
+            if (cmdletContext.DefaultOnly != null)
+            {
+                request.DefaultOnly = cmdletContext.DefaultOnly.Value;
+            }
+            if (cmdletContext.IncludeAll != null)
+            {
+                request.IncludeAll = cmdletContext.IncludeAll.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.ParentCatalogId != null)
+            if (cmdletContext.Status != null)
             {
-                request.ParentCatalogId = cmdletContext.ParentCatalogId;
-            }
-            if (cmdletContext.Recursive != null)
-            {
-                request.Recursive = cmdletContext.Recursive.Value;
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -237,15 +264,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetCatalogsResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetCatalogsRequest request)
+        private Amazon.EKS.Model.DescribeClusterVersionsResponse CallAWSServiceOperation(IAmazonEKS client, Amazon.EKS.Model.DescribeClusterVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetCatalogs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Service for Kubernetes", "DescribeClusterVersions");
             try
             {
                 #if DESKTOP
-                return client.GetCatalogs(request);
+                return client.DescribeClusterVersions(request);
                 #elif CORECLR
-                return client.GetCatalogsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeClusterVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,13 +292,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? IncludeRoot { get; set; }
+            public System.String ClusterType { get; set; }
+            public List<System.String> ClusterVersion { get; set; }
+            public System.Boolean? DefaultOnly { get; set; }
+            public System.Boolean? IncludeAll { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ParentCatalogId { get; set; }
-            public System.Boolean? Recursive { get; set; }
-            public System.Func<Amazon.Glue.Model.GetCatalogsResponse, GetGLUECatalogListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CatalogList;
+            public Amazon.EKS.ClusterVersionStatus Status { get; set; }
+            public System.Func<Amazon.EKS.Model.DescribeClusterVersionsResponse, GetEKSClusterVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ClusterVersions;
         }
         
     }

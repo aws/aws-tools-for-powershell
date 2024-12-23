@@ -11292,6 +11292,9 @@ Set-Alias -Name Describe-EKSAddonVersion -Value Get-EKSAddonVersion
 Set-Alias -Name EKS-DescribeAddonVersions -Value Get-EKSAddonVersion
 Set-Alias -Name Describe-EKSCluster -Value Get-EKSCluster
 Set-Alias -Name EKS-DescribeCluster -Value Get-EKSCluster
+Set-Alias -Name Describe-EKSClusterVersions -Value Get-EKSClusterVersion
+Set-Alias -Name Describe-EKSClusterVersion -Value Get-EKSClusterVersion
+Set-Alias -Name EKS-DescribeClusterVersions -Value Get-EKSClusterVersion
 Set-Alias -Name Describe-EKSEksAnywhereSubscription -Value Get-EKSEksAnywhereSubscription
 Set-Alias -Name EKS-DescribeEksAnywhereSubscription -Value Get-EKSEksAnywhereSubscription
 Set-Alias -Name Describe-EKSFargateProfile -Value Get-EKSFargateProfile
