@@ -47,7 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para>Whether to automatically enable new controls when they are added to standards that
         /// are enabled.</para><para>By default, this is set to <c>true</c>, and new controls are enabled automatically.
-        /// To not automatically enable new controls, set this to <c>false</c>. </para>
+        /// To not automatically enable new controls, set this to <c>false</c>. </para><para>When you automatically enable new controls, you can interact with the controls in
+        /// the console and programmatically immediately after release. However, automatically
+        /// enabled controls have a temporary default status of <c>DISABLED</c>. It can take up
+        /// to several days for Security Hub to process the control release and designate the
+        /// control as <c>ENABLED</c> in your account. During the processing period, you can manually
+        /// enable or disable a control, and Security Hub will maintain that designation regardless
+        /// of whether you have <c>AutoEnableControls</c> set to <c>true</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

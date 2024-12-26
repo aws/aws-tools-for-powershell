@@ -1,4 +1,7 @@
-﻿### 4.1.724 (2024-12-23 21:31Z)
+﻿### 4.1.725 (2024-12-26 21:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.953.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.724 (2024-12-23 21:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.952.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Container Service for Kubernetes
     * Added cmdlet Get-EKSClusterVersion leveraging the DescribeClusterVersions service API.
