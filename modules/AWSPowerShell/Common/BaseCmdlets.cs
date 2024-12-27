@@ -704,18 +704,23 @@ namespace Amazon.PowerShell.Common
             else
             {
                 AWSPSCredentials awsPSCredentials;
-                if (!this.TryGetCredentials(Host, out awsPSCredentials, SessionState))
-                    ThrowExecutionError("No credentials specified or obtained from persisted/shell defaults.", this);
-
-                _CurrentCredentials = awsPSCredentials.Credentials;
-                WriteCredentialSourceDiagnostic(awsPSCredentials);
-                if (_CurrentCredentials is SSOAWSCredentials ssoAWSCredentials)
+                if (this.TryGetCredentials(Host, out awsPSCredentials, SessionState))
                 {
-                    // Setting SupportsGettingNewToken to false ensures that the sso login flow is not initiated when
-                    // sso token has expired.
-                    ssoAWSCredentials.Options.SupportsGettingNewToken = false;
-                    ValidateSSOToken(ssoAWSCredentials);
+                    _CurrentCredentials = awsPSCredentials.Credentials;
+                    WriteCredentialSourceDiagnostic(awsPSCredentials);
+                    if (_CurrentCredentials is SSOAWSCredentials ssoAWSCredentials)
+                    {
+                        // Setting SupportsGettingNewToken to false ensures that the sso login flow is not initiated when
+                        // sso token has expired.
+                        ssoAWSCredentials.Options.SupportsGettingNewToken = false;
+                        ValidateSSOToken(ssoAWSCredentials);
+                    }
                 }
+                else
+                {
+                    WriteVerbose("Offloading credential resolution to .NET SDK.");
+                }
+
             }
 
             this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
