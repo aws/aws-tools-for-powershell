@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
-        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
+        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><para>This setting isn't valid for RDS for SQL Server.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
         /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of Database Insights to enable for the instance.</para>
+        /// <para>Specifies the mode of Database Insights to enable for the DB instance.</para><para>This setting only applies to Amazon Aurora DB instances.</para><note><para>Currently, this value is inherited from the DB cluster and can't be changed.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

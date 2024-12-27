@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the read replica. Follow
-        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><note><para>Be sure to allocate enough storage for your read replica so that the create operation
+        /// the allocation rules specified in <c>CreateDBInstance</c>.</para><para>This setting isn't valid for RDS for SQL Server.</para><note><para>Be sure to allocate enough storage for your read replica so that the create operation
         /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of Database Insights.</para>
+        /// <para>The mode of Database Insights to enable for the read replica.</para><note><para>Currently, this setting is not supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter isn't currently supported.</para>
+        /// <para>A filter that specifies one or more DB cluster parameters to describe.</para><para>The only supported filter is <c>parameter-name</c>. The results list only includes
+        /// information about the DB cluster parameters with these names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>A specific source to return parameters for.</para><para>Valid Values:</para><ul><li><para><c>customer</c></para></li><li><para><c>engine</c></para></li><li><para><c>service</c></para></li></ul>
+        /// <para>A specific source to return parameters for.</para><para>Valid Values:</para><ul><li><para><c>engine-default</c></para></li><li><para><c>system</c></para></li><li><para><c>user</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

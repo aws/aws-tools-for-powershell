@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether minor engine upgrades are applied automatically to the DB cluster
-        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of Database Insights to enable for the cluster.</para>
+        /// <para>The mode of Database Insights to enable for the DB cluster.</para><para>If you set this value to <c>advanced</c>, you must also set the <c>PerformanceInsightsEnabled</c>
+        /// parameter to <c>true</c> and the <c>PerformanceInsightsRetentionPeriod</c> parameter
+        /// to 465.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,7 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to turn on Performance Insights for the DB cluster.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">
-        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// Using Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -619,7 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify <c>0</c>.</para><para>If <c>MonitoringRoleArn</c> is specified, also set <c>MonitoringInterval</c> to a
-        /// value other than <c>0</c>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values: <c>0 | 1 | 5 | 10 | 15 | 30 | 60</c></para><para>Default: <c>0</c></para>
+        /// value other than <c>0</c>.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>0 | 1 | 5 | 10 | 15 | 30 | 60</c></para><para>Default: <c>0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -633,7 +635,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Monitoring metrics to Amazon CloudWatch Logs. An example is <c>arn:aws:iam:123456789012:role/emaccess</c>.
         /// For information on creating a monitoring role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
         /// up and enabling Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</para><para>If <c>MonitoringInterval</c> is set to a value other than <c>0</c>, supply a <c>MonitoringRoleArn</c>
-        /// value.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// value.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -671,7 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// name for the KMS key.</para><para>If you don't specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon RDS
         /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
-        /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -681,7 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
         /// <c>93</c> (3 months * 31), <c>341</c> (11 months * 31), <c>589</c> (19 months * 31)</para></li><li><para><c>731</c></para></li></ul><para>Default: <c>7</c> days</para><para>If you specify a retention period that isn't valid, such as <c>94</c>, Amazon RDS
         /// issues an error.</para>
         /// </para>

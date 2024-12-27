@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether minor engine upgrades are applied automatically to the DB cluster
-        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of Database Insights to enable for the cluster.</para>
+        /// <para>Specifies the mode of Database Insights to enable for the DB cluster.</para><para>If you change the value from <c>standard</c> to <c>advanced</c>, you must set the
+        /// <c>PerformanceInsightsEnabled</c> parameter to <c>true</c> and the <c>PerformanceInsightsRetentionPeriod</c>
+        /// parameter to 465.</para><para>If you change the value from <c>advanced</c> to <c>standard</c>, you must set the
+        /// <c>PerformanceInsightsEnabled</c> parameter to <c>false</c>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to disable.</para>
+        /// <para>The list of log types to disable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CloudwatchLogsExportConfiguration_EnableLogType
         /// <summary>
         /// <para>
-        /// <para>The list of log types to enable.</para>
+        /// <para>The list of log types to enable.</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -595,7 +598,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// name for the KMS key.</para><para>If you don't specify a value for <c>PerformanceInsightsKMSKeyId</c>, then Amazon RDS
         /// uses your default KMS key. There is a default KMS key for your Amazon Web Services
         /// account. Your Amazon Web Services account has a different default KMS key for each
-        /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para>
+        /// Amazon Web Services Region.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -605,7 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
+        /// <para>The number of days to retain Performance Insights data.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para><c>7</c></para></li><li><para><i>month</i> * 31, where <i>month</i> is a number of months from 1-23. Examples:
         /// <c>93</c> (3 months * 31), <c>341</c> (11 months * 31), <c>589</c> (19 months * 31)</para></li><li><para><c>731</c></para></li></ul><para>Default: <c>7</c> days</para><para>If you specify a retention period that isn't valid, such as <c>94</c>, Amazon RDS
         /// issues an error.</para>
         /// </para>

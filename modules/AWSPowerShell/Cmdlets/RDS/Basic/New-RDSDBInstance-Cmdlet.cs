@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of Database Insights to enable for the instance.</para>
+        /// <para>The mode of Database Insights to enable for the DB instance.</para><para>This setting only applies to Amazon Aurora DB instances.</para><note><para>Currently, this value is inherited from the DB cluster and can't be changed.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
