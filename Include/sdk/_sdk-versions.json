@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.953.1",
+    "ProductVersion"    : "3.7.954.0",
     "CoreVersion"       : "3.7.400.70",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -492,7 +492,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.405.0",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.70"
@@ -1884,7 +1884,7 @@
             "InPreview"               : false
         },
         "ECRPublic"                       : {
-            "Version" : "3.7.401.1",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.70"
