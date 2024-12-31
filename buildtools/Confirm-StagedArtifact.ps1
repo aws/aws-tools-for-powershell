@@ -13,12 +13,19 @@
     (i.e. .\AWSPowerShell .\AWSPowerShell.NetCore and .\AWS.Tools).
 
 .Example
-    Confirm-StagedArtifact -ExpectedVersion 3.3.283.0
+    # On Windows Prod
+    Confirm-StagedArtifact.ps1 -VerifySigning 'true' -AdditionalModuleChecks 'false'
+.Example
+    # On Windows Dev
+    Confirm-StagedArtifact.ps1 -VerifySigning 'false' -AdditionalModuleChecks 'false'
+.Example
+    # On Linux
+    Confirm-StagedArtifact.ps1 -VerifySigning 'false' -AdditionalModuleChecks 'true' -ExpectedVersion 4.1.724.1
 #>
 Param (
     # The expected version of the module. This will be verified against
     # the module manifest and the running binary.
-    [Parameter(Mandatory = $true, Position = 0)]
+    [Parameter()]
     [string]$ExpectedVersion,
 
     # Determines if signing will be verified. This must be true for production
@@ -26,22 +33,43 @@ Param (
     [Parameter()]
     [string] $VerifySigning = "true",
 
+    # By default all modules AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools modules are imported in pwsh on linux and (pwsh and windows powershell) on windows.
+    # Get-S3Bucket ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.S3.
+    # $AdditionalModuleChecks test the following.
+    # test module manifest,
+    # test module manifest version,
+    # test changelog
+    [Parameter()]
+    [string] $AdditionalModuleChecks = "true",
+
     # Specifies the type of build that is being verified. For PREVIEW build types AWSPowerShell.NetCore 
     # will be verified. Otherwise AWSPowerShell, AWSPowerShell.NetCore, and AWS.Tools.* will be verified.
     [Parameter()]
     [string] $BuildType = "RELEASE"
 )
 
-function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
+function ValidateModule{
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$modulePath, 
+        [Parameter(Mandatory = $true)]
+        [bool]$verifyChangeLog, 
+        [Parameter(Mandatory = $true)]
+        [bool]$testVersion, 
+        [Parameter(Mandatory = $true)]
+        [bool]$signingCheck, 
+        [Parameter(Mandatory = $true)]
+        [string]$cmdletToTest, 
+        [Parameter(Mandatory = $true)]
+        [bool]$testCmdlets)
 
     Write-Host "Validating module $modulePath"
 
     $manifestPath = (Get-ChildItem -Path "$modulePath\*.psd1").FullName
-    Write-Host "Verifying version in manifest $manifestPath"
-
-    $manifest = Test-ModuleManifest $manifestPath -ErrorAction 'Stop'
 
     if ($testVersion) {
+        Write-Host "Verifying version in manifest $manifestPath"
+        $manifest = Test-ModuleManifest $manifestPath -ErrorAction 'Stop'
         $manifestVersion = $manifest.Version.ToString()
         Write-Host "Found version $manifestVersion"
     
@@ -96,29 +124,165 @@ function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$test
         }
     }
 
-    Write-Host 'Testing module'
-    if (-not ($PSVersionTable.PSVersion.Major -gt 6 -or ($PSVersionTable.PSVersion.Major -eq 6 -And $PSVersionTable.PSVersion.Minor -ge 1))) {
-        throw "PowerShell version 6.1 or later is required, found version $($PSVersionTable.PSVersion)"
-    }
-    $testOutput = pwsh -noprofile -Command "`$ErrorActionPreference = 'Stop' ; Import-Module '$manifestPath' ; $cmdletToTest"
-    if ($LastExitCode -eq 0) {
-        Write-Host '...module loading - PASS'
-    }
-    else {
-        throw "The module failed to load `n" + $testOutput
+    if ($testCmdlets) {
+        if (-not($IsLinux -and $modulePath -eq 'AWSPowerShell')) {
+            # Skip AWSPowerShell import in pwsh on Linux
+            Write-Host 'Testing module in pwsh'
+            if (-not ($PSVersionTable.PSVersion.Major -gt 6 -or ($PSVersionTable.PSVersion.Major -eq 6 -And $PSVersionTable.PSVersion.Minor -ge 1))) {
+                throw "PowerShell version 6.1 or later is required, found version $($PSVersionTable.PSVersion)"
+            }
+            $testOutput = pwsh -noprofile -Command "`$ErrorActionPreference = 'Stop' ; Import-Module '$manifestPath' ; $cmdletToTest"
+            if ($LastExitCode -eq 0) {
+                Write-Host '...module loading pwsh - PASS'
+            }
+            else {
+                throw "The module failed to load PowerShell `n" + $testOutput
+            }
+        }
+        if ($IsWindows -and $modulePath -ne 'AWSPowerShell.NetCore') {
+            # Skip AWSPowerShell.NetCore import in Windows PowerShell
+            Write-Host 'Testing module in powershell.exe'
+            $testOutput = powershell -noprofile -Command "`$ErrorActionPreference = 'Stop' ; Import-Module '$manifestPath' ; $cmdletToTest"
+            if ($LastExitCode -eq 0) {
+                Write-Host '...module loading in Windows PowerShell - PASS'
+            }
+            else {
+                throw "The module failed to load in Windows PowerShell `n" + $testOutput
+            }  
+        }
     }
 }
+function StartBatchImportJobs {
+    param (
+        [Parameter(Mandatory = $true)]
+        [array]$manifestBatches,
+        [Parameter(Mandatory = $true)]
+        [string]$cmdletTest,
+        [Parameter(Mandatory = $true)]
+        [string]$shellType,
+        [int]$maxConcurrentJobs = 5
+    )
+
+    Write-Host "Testing AWS tools modules import in $shellType"
+    $jobs = @()
+
+    foreach ($batch in $manifestBatches) {
+        $jobs += ImportModulesBatch -manifestBatch $batch -cmdletTest $cmdletTest -shellType $shellType
+        
+        # Wait if maximum concurrent jobs is reached
+        while ((Get-Job -State Running).Count -ge $maxConcurrentJobs) {
+            Start-Sleep -Seconds 1
+        }
+    }
+
+    return $jobs
+}
+
+function TestImportModule {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string[]]$manifestPaths,
+        [Parameter(Mandatory = $true)]
+        [string]$cmdletTest,
+        [int]$batchSize = 25,
+        [int]$maxConcurrentJobs = 5
+    )
+
+    # Split into batches
+    $manifestBatches = SplitIntoBatches -manifestPaths $manifestPaths -batchSize $batchSize
+
+    # Test in pwsh
+    $pwshJobs = StartBatchImportJobs -manifestBatches $manifestBatches -cmdletTest $cmdletTest -shellType 'pwsh' -maxConcurrentJobs $maxConcurrentJobs
+    ProcessImportJobs -jobs $pwshJobs -shellName 'PowerShell'
+
+    # Test in Windows PowerShell if on Windows
+    if ($IsWindows) {
+        $winPsJobs = StartBatchImportJobs -manifestBatches $manifestBatches -cmdletTest $cmdletTest -shellType 'powershell' -maxConcurrentJobs $maxConcurrentJobs
+        ProcessImportJobs -jobs $winPsJobs -shellName 'Windows PowerShell'
+    }
+}
+function ImportModulesBatch {
+    param (
+        [string[]]$manifestBatch,
+        [string]$cmdletTest,
+        [string]$shellType  # 'pwsh' or 'powershell'
+    )
+    
+    $job = Start-Job -ScriptBlock {
+        param($manifests, $cmdletTest, $shell)
+        
+        & $shell -noprofile -Command {
+            param($manifests, $cmdletTest)
+            $ErrorActionPreference = 'Stop'
+            
+            foreach ($manifest in $manifests) {
+                Import-Module -Name $manifest
+            }
+            
+            # Execute the test cmdlet after all modules are imported
+            Invoke-Expression $cmdletTest
+        } -Args $manifests, $cmdletTest
+        
+    } -ArgumentList $manifestBatch, $cmdletTest, $shellType
+    
+    return $job
+}
+
+function ProcessImportJobs {
+    param (
+        [System.Management.Automation.Job[]]$jobs,
+        [string]$shellName
+    )
+    
+    $jobs | Wait-Job | ForEach-Object {
+        $result = Receive-Job -Job $_
+        if ($_.State -eq 'Failed' -or $_.ChildJobs[0].Error) {
+            Remove-Job -Job $_
+            throw "The modules failed to load in $shellName `n" + $result
+        }
+        Write-Host "...batch module loading in $shellName - PASS"
+        Remove-Job -Job $_
+    }
+}
+
+function SplitIntoBatches {
+    param (
+        [string[]]$manifestPaths,
+        [int]$batchSize
+    )
+    
+    $manifestBatches = @()
+    for ($i = 0; $i -lt $manifestPaths.Count; $i += $batchSize) {
+        $batch = $manifestPaths[$i..([Math]::Min($i + $batchSize - 1, $manifestPaths.Count - 1))]
+        $manifestBatches += , $batch
+    }
+    return $manifestBatches
+}
+
 
 if (Get-Module AWSPowerShell, AWSPowerShell.NetCore, AWS.Tools.*) {
     throw 'Cannot validate modules if any AWS Tools for PowerShell module is already imported'
 }
 
+if ($AdditionalModuleChecks -eq 'true' -and [string]::IsNullOrEmpty($ExpectedVersion)) {
+    throw '$ExpectedVersion is required when $AdditionalModuleChecks is true'
+}
 $signingCheck = $true
 if ($VerifySigning -eq 'false') {
     $signingCheck = $false
 }
 
+
+$testCmdlets = $true
+
 $testVersion = $true
+$verifyChangeLog = $true
+
+if ($AdditionalModuleChecks -eq 'false') {
+    $testVersion = $false
+    $verifyChangeLog = $false
+}
+
 $validateModules = @('AWSPowerShell', 'AWSPowerShell.NetCore')
 if ($BuildType -eq 'PREVIEW') {
     $validateModules = @('AWSPowerShell.NetCore')
@@ -127,7 +291,7 @@ if ($BuildType -eq 'PREVIEW') {
 
 $validateModules | ForEach-Object {
     try {
-        ValidateModule $_ $true $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner }
+        ValidateModule $_ $verifyChangeLog $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } $testCmdlets
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -141,18 +305,25 @@ if ($BuildType -ne 'PREVIEW') {
     Import-Module PowerShellGet
 
     $OldPath = $Env:PSModulePath
-    $Env:PSModulePath = $Env:PSModulePath + ';' + $awsToolsDeploymentPath
+    $envPathSeperator = ':'
+    if ($IsWindows) {
+        $envPathSeperator = ';'
+    }
+    $Env:PSModulePath = $Env:PSModulePath + $envPathSeperator + $awsToolsDeploymentPath
 
-    Get-ChildItem $awsToolsDeploymentPath -Directory | ForEach-Object {
+    $awstoolsModules = Get-ChildItem $awsToolsDeploymentPath -Directory
+    $awstoolsModules | ForEach-Object {
+        # Only test module import module and cmdlet for S3. 
+        # All other AWS Tools modules will be tested with TestImportModule to speed up testing
         try {
             if ($_.Name -eq 'AWS.Tools.S3') {
-                ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
+                ValidateModule $_ $false $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } $testCmdlets
             }
             elseif ($_.Name -eq 'AWS.Tools.Installer') {
-                ValidateModule $_ $false $false $signingCheck { }
+                ValidateModule $_ $false $false $signingCheck { } $false
             }
             else {
-                ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion }
+                ValidateModule $_ $false $testVersion $signingCheck { } $false
             }
             Write-Host "PASSED validation for module $_"
         }
@@ -160,6 +331,11 @@ if ($BuildType -ne 'PREVIEW') {
             throw "FAILED validation for module $_, error $error"
         }
     }
+    # Test Module Import for AWS Tools Modules
+    $moduleManifestPaths = $awstoolsModules.where{ $_.Name -ne 'AWS.Tools.Installer' }.foreach{ $_.FullName + '/' + $_.Name + '.psd1' }
+
+    TestImportModule -manifestPaths $moduleManifestPaths -cmdletTest 'Get-AWSPowerShellVersion'
+
 
     $Env:PSModulePath = $OldPath
 }
