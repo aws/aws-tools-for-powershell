@@ -134,9 +134,34 @@ namespace AWSPowerShellGenerator.Generators
                 .Where(t => psCmdletType.IsAssignableFrom(t) && t.IsPublic && !t.IsAbstract)
                 .ToList();
 
-            LoadExampleMetadataFiles();
-            LoadExamplesCache();
-            LoadLinksCache();
+            var servicePrefix = GetServicePrefixFromCmdletAssembly();
+
+            LoadExampleMetadataFiles(servicePrefix);
+            LoadExamplesCache(servicePrefix);
+            LoadLinksCache(servicePrefix);
+            DocumentationUtils.CacheMemberDocumentationSummary(AssemblyDocumentation);
+        }
+
+        private string GetServicePrefixFromCmdletAssembly()
+        {
+            if (Name.Equals("AWS.Tools.Common", StringComparison.OrdinalIgnoreCase))
+            {
+                return "Common";
+            }
+            if (!Name.StartsWith("AWSPowerShell"))
+            {
+                var assemblyNamespaces = CmdletAssembly.GetTypes().Select(t => t.Namespace).Where(t => !string.IsNullOrEmpty(t)).Distinct().ToList();
+                if (assemblyNamespaces.Count() == 1)
+                {
+                    var cmdletPrefixParts = assemblyNamespaces[0].Split(".");
+                    if (cmdletPrefixParts != null && cmdletPrefixParts.Length == 4)
+                    {
+                        return cmdletPrefixParts[3];
+                    }
+                }
+            }
+
+            return null;
         }
 
         protected CmdletInfo InspectCmdletAttributes(Type cmdletType)
@@ -158,21 +183,41 @@ namespace AWSPowerShellGenerator.Generators
             return new CmdletInfo(cmdletAttributes, awsCmdletAttribute, awsCmdletOutputAttributes);
         }
 
-        protected void LoadExampleMetadataFiles()
+        protected void LoadExampleMetadataFiles(string servicePrefix)
         {
+            // when servicePrefix is null, all example files are loaded
+            if (servicePrefix != null)
+            {
+                if(servicePrefix == "Common")
+                {
+                    // if servicePrefix is Common, load files from .doc_gen/common
+                    ExampleMetadataRelativePaths = new[] { ".doc_gen/common" };
+                }
+                else
+                {
+                    // if servicePrefix has value and is not common, look for files that have the servicePrefix in the name.
+                    // e.g workspaces_Edit-WKSWorkspaceState_metadata.yaml search for *-WKS*.yaml
+                    ExamplesSearchPattern = $"*-{servicePrefix}{ExamplesSearchPattern}";
+                }
+            }
             foreach (var metadataRelativePath in ExampleMetadataRelativePaths)
             {
                 var metadataDirectories = Path.Combine(Options.RootPath, metadataRelativePath);
-
-                Console.WriteLine("Loading example metadata files from {0}", Path.GetFullPath(metadataDirectories));
 
                 ExampleMetadataFiles.AddRange(Directory.GetFiles(metadataDirectories, ExamplesSearchPattern));
             }
         }
 
-        protected void LoadExamplesCache()
+        protected void LoadExamplesCache(string servicePrefix)
         {
             ExamplesCache = new Dictionary<string, XmlDocument>();
+
+            if (servicePrefix != null)
+            {
+                Console.WriteLine(ExampleMetadataFiles.Count > 0
+                    ? $"Loading example metadata files for {servicePrefix}"
+                    : $"No example metadata files found for {servicePrefix}");
+            }
 
             foreach (var metadataPath in ExampleMetadataFiles)
             {
@@ -380,13 +425,27 @@ namespace AWSPowerShellGenerator.Generators
             return examplesXml;
         }
 
-        protected void LoadLinksCache()
+        protected void LoadLinksCache(string servicePrefix)
         {
+            // when servicePrefix is null all links are loaded otherwise links specific to a service are loaded.
             var linkLibrariesPath = Path.Combine(Options.RootPath, "generator", "AWSPSGeneratorLib", "HelpMaterials", "LinkLibraries");
-            Console.WriteLine("Loading link files from {0}", Path.GetFullPath(linkLibrariesPath));
+
+            string searchPattern = "*.xml";
+            if (servicePrefix != null)
+            {
+                searchPattern = $"{servicePrefix}.xml";
+            }
 
             LinksCache = new Dictionary<string, XmlDocument>();
-            var linkFiles = Directory.GetFiles(linkLibrariesPath, "*.xml");
+            var linkFiles = Directory.GetFiles(linkLibrariesPath, searchPattern);
+
+            if (servicePrefix != null)
+            {
+                Console.WriteLine(linkFiles.Length > 0
+                    ? $"Loading link files for {servicePrefix}"
+                    : $"No link files found for {servicePrefix}");
+            }
+
             foreach (var linkFile in linkFiles)
             {
                 if (Path.GetFileNameWithoutExtension(linkFile).Equals("Template", StringComparison.OrdinalIgnoreCase))
@@ -394,9 +453,9 @@ namespace AWSPowerShellGenerator.Generators
 
                 var document = new XmlDocument {PreserveWhitespace = true};
                 document.Load(linkFile);
-                var servicePrefix = Path.GetFileNameWithoutExtension(linkFile);
-                LinksCache[servicePrefix] = document;
-                Console.WriteLine("...loaded links library for {0}", servicePrefix);
+                var servicePrefixFromFileName = Path.GetFileNameWithoutExtension(linkFile);
+                LinksCache[servicePrefixFromFileName] = document;
+                Console.WriteLine("...loaded links library for {0}", servicePrefixFromFileName);
             }
 
             Console.WriteLine();

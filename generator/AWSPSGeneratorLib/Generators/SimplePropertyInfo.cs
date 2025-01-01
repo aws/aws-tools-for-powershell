@@ -504,6 +504,8 @@ namespace AWSPowerShellGenerator.Generators
 
     public static class DocumentationUtils
     {
+        // cache member documentation summary
+        private static ConcurrentDictionary<string, string> _memberDocumentationSummaryCache = new ConcurrentDictionary<string, string>();
         // these two strings get substituted when we have iteration parameters on a cmdlet but no doc
         private const string MissingNextTokenHelpText = "Indicates where to start fetching the next page of results when paginating manually.";
         private const string MissingMaxRecordsHelpText = "The maximum number of records to emit.";
@@ -942,53 +944,70 @@ Scenario-4  Create            Create       The new create is added to the pendin
             return formattedLines;
         }
 
+        /// <summary>
+        /// Caches documentation associated with an AWS assembly dll.
+        /// GetRawTypeDocumentation, GetRawPropertyDocumentation are much faster when using this cache compared to Xpath queries
+        /// </summary>
+        public static void CacheMemberDocumentationSummary(XmlDocument documentationSource)
+        {
+            _memberDocumentationSummaryCache.Clear();
+            var members = documentationSource.SelectNodes("doc/members/member");
+            if (members != null)
+            {
+                foreach (XmlNode member in members)
+                {
+                    var nameAttr = member.Attributes?["name"];
+                    if (nameAttr != null)
+                    {
+                        var summary = member.SelectSingleNode("summary");
+                        _memberDocumentationSummaryCache[nameAttr.Value] = summary?.InnerXml;
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Private methods
 
         private static string GetRawTypeDocumentation(Type type, XmlDocument documentationSource)
         {
-            string xpath = string.Format("doc/members/member[@name='T:{0}']", type.FullName.Replace('+', '.'));
-            var docNode = documentationSource.SelectSingleNode(xpath);
-            if (docNode == null)
+            string typeFullName = type.FullName.Replace('+', '.');
+            string key = "T:" + typeFullName;
+
+            string xpath = string.Format("doc/members/member[@name='T:{0}']", typeFullName);
+
+            if (_memberDocumentationSummaryCache.TryGetValue(key, out var cachedSummary))
             {
-                //throw new InvalidOperationException(string.Format(
-                //    "Unable to find documentation for type {0}, expected at xpath {1}",
-                //    type.FullName, xpath));
-                Console.WriteLine("NO SDK DOCUMENTATION PRESENT FOR TYPE {0}, expected at xpath {1}", type.FullName, xpath);
-                // emit just the name into help; the shouty warning looks bad
-                return type.FullName;
+                if (cachedSummary == null)
+                    throw new InvalidOperationException(string.Format(
+                        "Unable to find summary node for type {0}, expected at xpath {1}/summary",
+                        type.FullName, xpath));
+                return cachedSummary;
             }
-            var summary = docNode.SelectSingleNode("summary");
-            if (summary == null)
-            {
-                throw new InvalidOperationException(string.Format(
-                    "Unable to find summary node for type {0}, expected at xpath {1}/summary",
-                    type.FullName, xpath));
-            }
-            string xml = summary.InnerXml;
-            return xml;
+
+            Console.WriteLine("NO SDK DOCUMENTATION PRESENT FOR TYPE {0}, expected at xpath {1}", type.FullName, xpath);
+            // emit just the name into help; the shouty warning looks bad
+            return type.FullName;
         }
         private static string GetRawPropertyDocumentation(Type declaringType, string propertyName, XmlDocument documentationSource)
         {
             string propertyFullName = declaringType.FullName.Replace('+', '.') + "." + propertyName;
+            string key = "P:" + propertyFullName;
             string xpath = string.Format("doc/members/member[@name='P:{0}']", propertyFullName);
-            var docNode = documentationSource.SelectSingleNode(xpath);
-            if (docNode == null)
+
+
+            if (_memberDocumentationSummaryCache.TryGetValue(key, out var cachedSummary))
             {
-                // emit just the name into help unless its a pagination property we
-                // recognise; the shouty warning looks bad
-                if (SubstituteParameterDocumentation.ContainsKey(propertyName))
-                    return SubstituteParameterDocumentation[propertyName];
-                return propertyFullName;
+                if (cachedSummary == null)
+                    throw new InvalidOperationException(string.Format(
+                        "Unable to find documentation for property {0} of type {1}, expected at xpath {2}/summary",
+                        propertyName, declaringType.FullName, xpath));
+                return cachedSummary;
             }
-            var summary = docNode.SelectSingleNode("summary");
-            if (summary == null)
-                throw new InvalidOperationException(string.Format(
-                    "Unable to find documentation for property {0} of type {1}, expected at xpath {2}/summary",
-                    propertyName, declaringType.FullName, xpath));
-            string xml = summary.InnerXml;
-            return xml;
+
+            // emit just the name into help unless its a pagination property we
+            // recognise; the shouty warning looks bad
+            return SubstituteParameterDocumentation.GetValueOrDefault(propertyName, propertyFullName);
         }
         private static string GetRawMethodDocumentation(Type declaringType, string methodName, XmlDocument documentationSource)
         {

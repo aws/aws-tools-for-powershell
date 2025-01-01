@@ -236,6 +236,7 @@ namespace AWSPowerShellGenerator.Generators
                     Logger.Log("Processing service: {0}", CurrentModel.ServiceName);
 
                     LoadCurrentService(CurrentModel);
+                    DocumentationUtils.CacheMemberDocumentationSummary(CurrentServiceNDoc);
 
                     if (!Options.SkipCmdletGeneration)
                     {
