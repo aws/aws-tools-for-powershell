@@ -132,9 +132,9 @@ namespace AWSPSGeneratorLibTests
         protected override void GenerateHelper()
         {
             if (!ExampleMetadataFiles.Any())
-                base.LoadExampleMetadataFiles();
+                base.LoadExampleMetadataFiles(null);
 
-            base.LoadExamplesCache();
+            base.LoadExamplesCache(null);
         }
     }
 }

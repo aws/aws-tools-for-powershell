@@ -118,8 +118,8 @@ namespace AWSPowerShellGenerator.Generators
                     Console.WriteLine($"Verifying help file {outputFile} using XmlDocument...");
                     try
                     {
-                        var document = new XmlDocument();
-                        document.Load(outputFile);
+                        using var reader = XmlReader.Create(outputFile);
+                        while (reader.Read()) { }
                     }
                     catch (Exception e)
                     {
