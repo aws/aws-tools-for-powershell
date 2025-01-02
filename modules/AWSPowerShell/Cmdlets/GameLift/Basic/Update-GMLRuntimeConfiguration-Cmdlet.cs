@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
-        /// setting limits the instance resources that can be used for new game activations at
-        /// any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance or
+        /// compute. This setting limits the instance resources that can be used for new game
+        /// activations at any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

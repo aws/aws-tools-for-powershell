@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves a fleet's runtime configuration settings. The runtime configuration determines
-    /// which server processes run, and how they run, and how many run concurrently on computes
-    /// in managed EC2 and Anywhere fleets. You can update a fleet's runtime configuration
-    /// at any time using <a>UpdateRuntimeConfiguration</a>.
+    /// which server processes run, and how, on computes in the fleet. For managed EC2 fleets,
+    /// the runtime configuration describes server processes that run on each fleet instance.
+    /// can update a fleet's runtime configuration at any time using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.
     /// 
     ///  
     /// <para>

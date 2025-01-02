@@ -28,12 +28,10 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a fleet's inbound connection permissions. Inbound permissions specify IP
-    /// addresses and port settings that incoming traffic can use to access server processes
+    /// Retrieves a fleet's inbound connection permissions. Connection permissions specify
+    /// IP addresses and port settings that incoming traffic can use to access server processes
     /// in the fleet. Game server processes that are running in the fleet must use a port
-    /// that falls within this range. To connect to game server processes on a managed container
-    /// fleet, the port settings should include one or more of the container fleet's connection
-    /// ports. 
+    /// that falls within this range. 
     /// 
     ///  
     /// <para>

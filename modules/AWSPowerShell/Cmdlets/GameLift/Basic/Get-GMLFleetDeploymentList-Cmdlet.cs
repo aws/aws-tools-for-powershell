@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves a collection of container fleet deployments in an Amazon Web Services Region.
-    /// 
+    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// 
     ///  
     /// <para><b>Request options</b></para><ul><li><para>
@@ -37,16 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     /// </para></li><li><para>
     /// Get a list of all deployments for a fleet. Specify the container fleet ID or ARN value.
-    /// </para></li><li><para>
-    /// To get a list of all Realtime Servers fleets with a specific configuration script,
-    /// provide the script ID. 
-    /// </para></li></ul><para>
-    /// Use the pagination parameters to retrieve results as a set of sequential pages. 
-    /// </para><para><b>Results</b></para><para>
+    /// </para></li></ul><para><b>Results</b></para><para>
     /// If successful, this operation returns a list of deployments that match the request
     /// parameters. A NextToken value is also returned if there are more result pages to retrieve.
     /// </para><note><para>
-    /// Fleet IDs are returned in no particular order.
+    /// Deployments are returned starting with the latest.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetDeploymentList")]

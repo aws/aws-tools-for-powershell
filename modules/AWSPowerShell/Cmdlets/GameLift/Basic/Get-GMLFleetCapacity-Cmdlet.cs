@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// With multi-location fleets, this operation retrieves data for the fleet's home Region
-    /// only. To retrieve capacity for remote locations, see <a>DescribeFleetLocationCapacity</a>.
+    /// only. To retrieve capacity for remote locations, see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html</a>.
     /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>

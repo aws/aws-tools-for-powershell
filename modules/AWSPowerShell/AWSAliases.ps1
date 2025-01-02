@@ -13594,6 +13594,8 @@ Set-Alias -Name GML-StopGameSessionPlacement -Value Stop-GMLGameSessionPlacement
 Set-Alias -Name GML-StopMatchmaking -Value Stop-GMLMatchmaking
 Set-Alias -Name GML-SuspendGameServerGroup -Value Suspend-GMLGameServerGroup
 Set-Alias -Name GML-TagResource -Value Add-GMLResourceTag
+Set-Alias -Name Terminate-GMLGameSession -Value Stop-GMLGameSession
+Set-Alias -Name GML-TerminateGameSession -Value Stop-GMLGameSession
 Set-Alias -Name GML-UntagResource -Value Remove-GMLResourceTag
 Set-Alias -Name GML-UpdateAlias -Value Update-GMLAlias
 Set-Alias -Name GML-UpdateBuild -Value Update-GMLBuild

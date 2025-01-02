@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If the container group definition version is used in an active fleets, the update
     /// automatically initiates a new fleet deployment of the new version. You can track a
-    /// fleet's deployments using <a>ListFleetDeployments</a>.
+    /// fleet's deployments using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

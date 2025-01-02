@@ -331,6 +331,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.TerminationMode
+        "Stop-GMLGameSession/TerminationMode"
+        {
+            $v = "FORCE_TERMINATE","TRIGGER_ON_PROCESS_TERMINATE"
+            break
+        }
+
 
     }
 
@@ -371,6 +378,7 @@ $GML_map = @{
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
+    "TerminationMode"=@("Stop-GMLGameSession")
     "UtilizationStatus"=@("Update-GMLGameServer")
 }
 
@@ -524,6 +532,7 @@ $GML_SelectMap = @{
                "Stop-GMLMatchmaking",
                "Suspend-GMLGameServerGroup",
                "Add-GMLResourceTag",
+               "Stop-GMLGameSession",
                "Remove-GMLResourceTag",
                "Update-GMLAlias",
                "Update-GMLBuild",

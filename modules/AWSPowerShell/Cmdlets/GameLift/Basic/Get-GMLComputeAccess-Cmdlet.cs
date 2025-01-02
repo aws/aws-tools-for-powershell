@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the compute resource that you want to connect to. For an EC2
-        /// fleet compute, use the instance ID. Use <a>ListCompute</a> to retrieve compute identifiers.</para>
+        /// fleet compute, use the instance ID. Use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html</a>
+        /// to retrieve compute identifiers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

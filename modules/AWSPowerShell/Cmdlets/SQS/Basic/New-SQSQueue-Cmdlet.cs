@@ -55,14 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// After you create a queue, you must wait at least one second after the queue is created
     /// to be able to use the queue.
     /// </para></note><para>
-    /// To get the queue URL, use the <c><a>GetQueueUrl</a></c> action. <c><a>GetQueueUrl</a></c> requires only the <c>QueueName</c> parameter. be aware of existing queue names:
+    /// To retrieve the URL of a queue, use the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html"><c>GetQueueUrl</c></a> action. This action only requires the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html#API_CreateQueue_RequestSyntax"><c>QueueName</c></a> parameter.
+    /// </para><para>
+    /// When creating queues, keep the following points in mind:
     /// </para><ul><li><para>
-    /// If you provide the name of an existing queue along with the exact names and values
-    /// of all the queue's attributes, <c>CreateQueue</c> returns the queue URL for the existing
-    /// queue.
+    /// If you specify the name of an existing queue and provide the exact same names and
+    /// values for all its attributes, the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html"><c>CreateQueue</c></a> action will return the URL of the existing queue instead of
+    /// creating a new one.
     /// </para></li><li><para>
-    /// If the queue name, attribute names, or attribute values don't match an existing queue,
-    /// <c>CreateQueue</c> returns an error.
+    /// If you attempt to create a queue with a name that already exists but with different
+    /// attribute names or values, the <c>CreateQueue</c> action will return an error. This
+    /// ensures that existing queues are not inadvertently altered.
     /// </para></li></ul><note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
     /// cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer

@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A container group definition resource that describes how to deploy containers with
         /// your game server build and support software onto each fleet instance. You can specify
         /// the container group definition's name to use the latest version. Alternatively, provide
-        /// an ARN value with a specific version number.</para><para>Create a container group definition by calling <a>CreateContainerGroupDefinition</a>.
-        /// This operation creates a <a>ContainerGroupDefinition</a> resource. </para>
+        /// an ARN value with a specific version number.</para><para>Create a container group definition by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">CreateContainerGroupDefinition</a>.
+        /// This operation creates a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">ContainerGroupDefinition</a>
+        /// resource. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,8 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// A per-instance container group is optional. You can update the fleet to add or remove
         /// a per-instance container group at any time. You can specify the container group definition's
         /// name to use the latest version. Alternatively, provide an ARN value with a specific
-        /// version number. </para><para>Create a container group definition by calling <a>CreateContainerGroupDefinition</a>.
-        /// This operation creates a <a>ContainerGroupDefinition</a> resource.</para>
+        /// version number. </para><para>Create a container group definition by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html</a>.
+        /// This operation creates a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ContainerGroupDefinition.html</a>
+        /// resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

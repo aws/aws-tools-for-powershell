@@ -36,11 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// period configured for the queue. 
     /// 
     ///  <note><para>
-    /// The <c>ReceiptHandle</c> is associated with a <i>specific instance</i> of receiving
-    /// a message. If you receive a message more than once, the <c>ReceiptHandle</c> is different
-    /// each time you receive a message. When you use the <c>DeleteMessage</c> action, you
-    /// must provide the most recently received <c>ReceiptHandle</c> for the message (otherwise,
-    /// the request succeeds, but the message will not be deleted).
+    /// Each time you receive a message, meaning when a consumer retrieves a message from
+    /// the queue, it comes with a unique <c>ReceiptHandle</c>. If you receive the same message
+    /// more than once, you will get a different <c>ReceiptHandle</c> each time. When you
+    /// want to delete a message using the <c>DeleteMessage</c> action, you must use the <c>ReceiptHandle</c>
+    /// from the most recent time you received the message. If you use an old <c>ReceiptHandle</c>,
+    /// the request will succeed, but the message might not be deleted. 
     /// </para><para>
     /// For standard queues, it is possible to receive a message even after you delete it.
     /// This might happen on rare occasions if one of the servers which stores a copy of the
